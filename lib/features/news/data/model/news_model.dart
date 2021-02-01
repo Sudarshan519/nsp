@@ -5,8 +5,16 @@ import 'package:wallet_app/features/news/domain/entity/news.dart';
 
 import 'news_item_model.dart';
 
-NewsModel newsModelFromJson(String str) =>
-    NewsModel.fromJson(json.decode(str) as Map<String, dynamic>);
+NewsModel newsModelFromJson(String str) {
+  try {
+    return NewsModel.fromJson(json.decode(str) as Map<String, dynamic>);
+  } catch (ex) {
+    // TODO: add a logger for this.
+    return null;
+    // return null if the current str json cannot be parsed.
+    // basic error message is shown to the user.
+  }
+}
 
 String newsModelToJson(NewsModel data) => json.encode(data.toJson());
 
@@ -16,11 +24,13 @@ class NewsModel extends News {
     @required List<String> source,
     @required int total,
     @required List<NewsItemModel> data,
+    @required String error,
   }) : super(
           page: page,
           source: source,
           total: total,
           data: data,
+          error: error,
         );
 
   factory NewsModel.fromJson(Map<String, dynamic> json) => NewsModel(
@@ -33,6 +43,7 @@ class NewsModel extends News {
             ? List<NewsItemModel>.from((json["data"] as Iterable)
                 .map((x) => NewsItemModel.fromJson(x as Map<String, dynamic>)))
             : null,
+        error: json["error"] as String,
       );
 
   Map<String, dynamic> toJson() => {
@@ -41,5 +52,6 @@ class NewsModel extends News {
         "total": total,
         "data":
             List<dynamic>.from(data.map((x) => (x as NewsItemModel).toJson())),
+        "error": error,
       };
 }

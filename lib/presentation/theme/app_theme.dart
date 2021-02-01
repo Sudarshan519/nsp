@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 enum AppTheme {
-  Light,
-  Dark,
+  light,
+  dark,
 }
 
 final appThemeData = {
-  AppTheme.Light: ThemeData(
+  AppTheme.light: ThemeData(
     brightness: Brightness.light,
     primaryColor: Palette.primary,
     cardColor: Colors.white,
@@ -47,7 +47,7 @@ final appThemeData = {
       ),
     ),
   ),
-  AppTheme.Dark: ThemeData(
+  AppTheme.dark: ThemeData(
     brightness: Brightness.dark,
     primaryColor: Colors.black,
     cardColor: Colors.black,
