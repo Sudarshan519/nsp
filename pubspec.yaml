@@ -37,6 +37,7 @@ dependencies:
   injectable: ^1.0.7
   get_it: ^5.0.6
 
+  data_connection_checker: ^0.3.4
   # http CLient
   http: ^0.12.2
 
