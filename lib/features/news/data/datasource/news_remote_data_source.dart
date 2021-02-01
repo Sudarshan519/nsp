@@ -9,7 +9,6 @@ import 'package:wallet_app/utils/constant.dart';
 abstract class NewsRemoteDataSourceProtocol {
   /// Calls the /api/v1/news?page={page}&language[]={[language]}&appId={appId}&limit={limit} endpoint
   ///
-  /// Throws [InvalidTokenException] for code xxx (if token expired is needed)
   /// Throws [ServerException] for all error codes.
   ///
   Future<NewsModel> getNews({
