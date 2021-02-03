@@ -15,6 +15,19 @@ class NewsTestConstant {
     error: null,
   );
 
+  static const tNewsModel2 = NewsModel(
+    page: "2",
+    source: [
+      "abc",
+      "cnn",
+    ],
+    total: 1,
+    data: [
+      _tNewsItemModel2,
+    ],
+    error: null,
+  );
+
   static const tNewsModelWithNull = NewsModel(
     page: null,
     source: null,
@@ -32,6 +45,17 @@ class NewsTestConstant {
     image: "image",
     description: "description",
     source: "source",
+  );
+
+  static const _tNewsItemModel2 = NewsItemModel(
+    title: "title2",
+    link: "link2",
+    category: "category2",
+    publishedDate: "publish_date2",
+    guid: "guid2",
+    image: "image2",
+    description: "description2",
+    source: "source2",
   );
 
   static const tNewsItemModelWithNull = NewsItemModel(

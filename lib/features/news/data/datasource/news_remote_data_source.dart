@@ -13,6 +13,8 @@ abstract class NewsRemoteDataSourceProtocol {
   ///
   Future<NewsModel> getNews({
     @required String page,
+    @required String appId,
+    @required String limit,
   });
 }
 

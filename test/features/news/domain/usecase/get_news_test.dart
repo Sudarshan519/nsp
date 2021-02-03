@@ -165,7 +165,7 @@ void main() {
     test('''
     should emit data from local storage
     should emit error message is network is offline.
-    ''', () {
+    ''', () async {
       // assign
       when(repository.getNewsFromLocalStorage())
           .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
@@ -183,6 +183,7 @@ void main() {
 
       // act
       getNews(NoParams());
+      // await untilCalled(getNews(any));
     });
   });
 }
