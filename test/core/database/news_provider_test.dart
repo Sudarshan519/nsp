@@ -21,6 +21,10 @@ void main() {
     newsLocalProvider = NewsLocalProviderImpl(provider: dbProvider);
   });
 
+  test('', () {
+    expect(true, true);
+  });
+
   // test('should Insert News Model', () {
   //   // assign
   //   when(dbProvider.database).thenReturn(dataBase);
