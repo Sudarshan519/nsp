@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
-class NewsItem extends StatelessWidget {
+class NewsItemWidget extends StatelessWidget {
+  final NewsItem newsItem;
+
+  const NewsItemWidget({
+    Key key,
+    @required this.newsItem,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,12 +25,16 @@ class NewsItem extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Container(
-                width: 140,
-                height: 100,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Palette.primary,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: SizedBox(
+                  height: 100,
+                  width: 120,
+                  child: FadeInImage.assetNetwork(
+                    placeholder: "",
+                    image: newsItem.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -33,7 +45,7 @@ class NewsItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Shark and ray populations have dropped 70% and are nearing 'point' Shark and ray populations have dropped 70% and are nearing",
+                      newsItem?.title ?? "",
                       style: TextStyle(
                         color: Palette.black,
                         fontSize: 14,

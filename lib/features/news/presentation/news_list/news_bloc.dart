@@ -16,7 +16,7 @@ part 'news_bloc.freezed.dart';
 @injectable
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   final GetNews getNews;
-  List<NewsItem> _news;
+  // List<NewsItem> _news;
   NewsBloc({
     @required this.getNews,
   }) : super(const _Initial());
