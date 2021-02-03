@@ -93,7 +93,7 @@ extension CustomColorScheme on ColorScheme {
   Color get tabbarBackgroundColor =>
       brightness == Brightness.light ? Palette.white : Palette.black;
   Color get tabbarSelectorColor =>
-      brightness == Brightness.light ? Palette.accent : Palette.white;
+      brightness == Brightness.light ? Palette.primary : Palette.white;
   Color get tabbarSelectedImageColor =>
       brightness == Brightness.light ? Palette.primary : Palette.black;
   Color get tabbarUnSelectedColor =>
@@ -107,5 +107,5 @@ extension CustomColorScheme on ColorScheme {
       brightness == Brightness.light ? Palette.black : Palette.white;
 
   Color get buttonColor =>
-      brightness == Brightness.light ? Palette.accent : Palette.black;
+      brightness == Brightness.light ? Palette.primary : Palette.black;
 }

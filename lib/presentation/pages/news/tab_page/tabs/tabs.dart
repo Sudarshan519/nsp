@@ -5,7 +5,7 @@ class NewsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Palette.accent,
+      color: Palette.primary,
     );
   }
 }

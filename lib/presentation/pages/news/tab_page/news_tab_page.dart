@@ -19,10 +19,12 @@ class TabBarScreenState extends State<TabBarScreen> {
     ForYouNewsTab(),
     NewsTab(),
     NewsTab(),
+    NewsTab(),
   ];
 
   final List<NewsTabBarData> _tabBarData = [
     NewsTabBarData(title: "For you"),
+    NewsTabBarData(title: "Latest"),
     NewsTabBarData(title: "Preference"),
     NewsTabBarData(title: "Saved"),
   ];
@@ -35,17 +37,14 @@ class TabBarScreenState extends State<TabBarScreen> {
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: Container(
-            color: Palette.primary,
-            child: NewsTabBar(
-              onTap: (selected) {
-                setState(() {
-                  _selectedIndex = selected;
-                });
-              },
-              tabs: _tabBarData,
-              selectedIndex: _selectedIndex,
-            ),
+          child: NewsTabBar(
+            onTap: (selected) {
+              setState(() {
+                _selectedIndex = selected;
+              });
+            },
+            tabs: _tabBarData,
+            selectedIndex: _selectedIndex,
           ),
         ),
         body: IndexedStack(

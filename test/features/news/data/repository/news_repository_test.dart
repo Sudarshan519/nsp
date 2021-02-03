@@ -33,8 +33,11 @@ void main() {
   group('Remote Data source', () {
     test('should return News when remote data return News Data', () async {
       // assign
-      when(remoteDataSource.getNews(page: anyNamed('page')))
-          .thenAnswer((_) async => NewsTestConstant.tNewsModel);
+      when(remoteDataSource.getNews(
+        page: anyNamed('page'),
+        appId: anyNamed('appId'),
+        limit: anyNamed('limit'),
+      )).thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
       // act
       final result = await repository.getNewsFromRemote(page: "1");
@@ -45,8 +48,11 @@ void main() {
 
     test('should save News when fetch from the remote source.', () async {
       // assign
-      when(remoteDataSource.getNews(page: anyNamed('page')))
-          .thenAnswer((_) async => NewsTestConstant.tNewsModel);
+      when(remoteDataSource.getNews(
+        page: anyNamed('page'),
+        appId: anyNamed('appId'),
+        limit: anyNamed('limit'),
+      )).thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
       // act
       await repository.getNewsFromRemote(page: "1");
@@ -56,12 +62,15 @@ void main() {
     });
 
     test('''
-    Show return ApiFailure when remote data throws an exception
+    should return ApiFailure when remote data throws an exception
     Never save anything is remote data throws exception
     ''', () async {
       // assign
-      when(remoteDataSource.getNews(page: anyNamed('page')))
-          .thenThrow(ServerException(AppConstants.someThingWentWrong));
+      when(remoteDataSource.getNews(
+        page: anyNamed('page'),
+        appId: anyNamed('appId'),
+        limit: anyNamed('limit'),
+      )).thenThrow(ServerException(AppConstants.someThingWentWrong));
 
       // act
       final result = await repository.getNewsFromRemote(page: "1");
@@ -71,6 +80,29 @@ void main() {
           result,
           const Left(ApiFailure.serverError(
               message: AppConstants.someThingWentWrong)));
+
+      verifyNever(localDataSource.saveNews(news: NewsTestConstant.tNewsModel));
+    });
+
+    test('''
+    should return ApiFailure when remote data throws an exception
+    Never save anything is remote data throws exception
+    ''', () async {
+      // assign
+      when(remoteDataSource.getNews(
+        page: anyNamed('page'),
+        appId: anyNamed('appId'),
+        limit: anyNamed('limit'),
+      )).thenThrow(Exception("Something Bad Happen"));
+
+      // act
+      final result = await repository.getNewsFromRemote(page: "1");
+
+      // assert
+      expect(
+          result,
+          const Left(ApiFailure.serverError(
+              message: "Exception: Something Bad Happen")));
 
       verifyNever(localDataSource.saveNews(news: NewsTestConstant.tNewsModel));
     });
@@ -89,8 +121,7 @@ void main() {
       expect(result, const Right(NewsTestConstant.tNewsModel));
     });
 
-    test(
-        'Should throw CacheFailure when data is not available is local storage',
+    test('Should return APIFailure when data is not available is local storage',
         () async {
       // assign
       when(localDataSource.getNews()).thenThrow(CacheException());

@@ -10,7 +10,7 @@ class ForYouNewsTab extends StatelessWidget {
         children: [
           Container(
             height: 200,
-            color: Palette.accent,
+            color: Palette.primary,
           ),
           ListView.builder(
             primary: false,

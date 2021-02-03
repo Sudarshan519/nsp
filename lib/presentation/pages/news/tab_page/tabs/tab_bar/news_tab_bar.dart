@@ -28,18 +28,18 @@ class NewsTabBar extends StatefulWidget {
 class _NewsTabBarState extends State<NewsTabBar> {
   @override
   Widget build(BuildContext context) {
-    // selectedIndex = widget.selectedIndex;
     return TabBar(
-      indicator: const BoxDecoration(
+      indicator: BoxDecoration(
         border: Border(
-          top: BorderSide(
-            width: 0,
+          bottom: BorderSide(
+            width: 3,
+            color: Palette.primary,
           ),
         ),
       ),
       labelStyle: const TextStyle(fontSize: 12),
       unselectedLabelStyle: const TextStyle(fontSize: 12),
-      labelColor: Palette.white,
+      labelColor: Palette.black,
       unselectedLabelColor: Palette.black,
       tabs: widget.tabs
           .asMap()
@@ -47,18 +47,10 @@ class _NewsTabBarState extends State<NewsTabBar> {
             (index, tabBarData) => MapEntry(
               index,
               Tab(
-                child: Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color:
-                        index == widget.selectedIndex ? Palette.accent : null,
-                  ),
-                  child: Align(
-                    child: Text(widget.tabs[index].title.toUpperCase()),
-                  ),
+                child: Text(
+                  tabBarData.title,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
                 ),
-                // text: tabs[index].title,
               ),
             ),
           )

@@ -185,4 +185,37 @@ void main() {
       ),
     );
   });
+
+  test('''
+  should throw server exception with error message
+   if client threw some exception
+   ''', () async {
+    // assign
+    when(
+      client.get(
+        any,
+        headers: anyNamed('headers'),
+      ),
+    ).thenThrow(Exception("Something went bad"));
+
+    // act
+    final call = dataSource.getNews;
+
+    //assert
+    expect(
+      () => call(
+        page: _page,
+        appId: _appId,
+        limit: _limit,
+      ),
+      throwsA(
+        predicate(
+          (e) {
+            return e is ServerException &&
+                e.message == "Exception: Something went bad";
+          },
+        ),
+      ),
+    );
+  });
 }

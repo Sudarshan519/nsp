@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/presentation/pages/news/news_screen.dart';
 
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'widgets/custom_tab_bar_widget.dart';
@@ -15,27 +16,27 @@ class TabBarScreenState extends State<TabBarScreen> {
   final List<Widget> _children = [
     Container(),
     Container(),
-    Container(),
-    Container(),
+    NewsPage(),
     Container(),
   ];
 
   final List<CustomTabBarData> _tabBarData = [
     CustomTabBarData(
+        title: 'Home',
         image: 'assets/images/navigation/home.png',
         selectedImage: 'assets/images/navigation/home_selected.png'),
     CustomTabBarData(
+        title: 'Wallet',
         image: 'assets/images/navigation/map.png',
         selectedImage: 'assets/images/navigation/map_selected.png'),
     CustomTabBarData(
+        title: 'News',
         image: 'assets/images/navigation/message.png',
         selectedImage: 'assets/images/navigation/message_selected.png'),
     CustomTabBarData(
+        title: 'Resume',
         image: 'assets/images/navigation/notification.png',
         selectedImage: 'assets/images/navigation/notification_selected.png'),
-    CustomTabBarData(
-        image: 'assets/images/navigation/profile.png',
-        selectedImage: 'assets/images/navigation/profile_selected.png'),
   ];
 
   @override
@@ -44,17 +45,6 @@ class TabBarScreenState extends State<TabBarScreen> {
     return DefaultTabController(
       length: _children.length,
       child: Scaffold(
-        appBar: Responsive.isDesktop(context)
-            ? null
-            : PreferredSize(
-                preferredSize: Size(
-                  screenSize.width,
-                  50,
-                ),
-                child: CustomAppBar(
-                  selectedIndex: _selectedIndex,
-                ),
-              ),
         body: IndexedStack(
           index: _selectedIndex,
           children: _children,
