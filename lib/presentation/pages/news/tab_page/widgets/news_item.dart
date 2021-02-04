@@ -12,6 +12,7 @@ class NewsItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint(newsItem.image);
     return Column(
       children: [
         Container(
@@ -30,9 +31,8 @@ class NewsItemWidget extends StatelessWidget {
                 child: SizedBox(
                   height: 100,
                   width: 120,
-                  child: FadeInImage.assetNetwork(
-                    placeholder: "",
-                    image: newsItem.image,
+                  child: Image.network(
+                    newsItem.image,
                     fit: BoxFit.cover,
                   ),
                 ),
