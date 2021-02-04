@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 enum AppTheme {
-  Light,
-  Dark,
+  light,
+  dark,
 }
 
 final appThemeData = {
-  AppTheme.Light: ThemeData(
+  AppTheme.light: ThemeData(
     brightness: Brightness.light,
     primaryColor: Palette.primary,
     cardColor: Colors.white,
@@ -47,7 +47,7 @@ final appThemeData = {
       ),
     ),
   ),
-  AppTheme.Dark: ThemeData(
+  AppTheme.dark: ThemeData(
     brightness: Brightness.dark,
     primaryColor: Colors.black,
     cardColor: Colors.black,
@@ -93,7 +93,7 @@ extension CustomColorScheme on ColorScheme {
   Color get tabbarBackgroundColor =>
       brightness == Brightness.light ? Palette.white : Palette.black;
   Color get tabbarSelectorColor =>
-      brightness == Brightness.light ? Palette.accent : Palette.white;
+      brightness == Brightness.light ? Palette.primary : Palette.white;
   Color get tabbarSelectedImageColor =>
       brightness == Brightness.light ? Palette.primary : Palette.black;
   Color get tabbarUnSelectedColor =>
@@ -107,5 +107,5 @@ extension CustomColorScheme on ColorScheme {
       brightness == Brightness.light ? Palette.black : Palette.white;
 
   Color get buttonColor =>
-      brightness == Brightness.light ? Palette.accent : Palette.black;
+      brightness == Brightness.light ? Palette.primary : Palette.black;
 }

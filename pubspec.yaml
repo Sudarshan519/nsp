@@ -37,6 +37,13 @@ dependencies:
   injectable: ^1.0.7
   get_it: ^5.0.6
 
+  data_connection_checker: ^0.3.4
+  # http CLient
+  http: ^0.12.2
+
+  # local database
+  sqflite: ^1.3.2+2
+
   #for routing
   auto_route: ^0.6.9
 
@@ -46,6 +53,9 @@ dependencies:
 
   # Value equality
   equatable: ^1.2.5
+
+  #cached Network Image
+  cached_network_image: ^2.5.0
 
 dev_dependencies:
   flutter_test:

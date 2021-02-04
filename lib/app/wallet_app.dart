@@ -1,5 +1,6 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:wallet_app/presentation/routes/routes.gr.dart' as router;
 import 'package:flutter/material.dart';
-import 'package:wallet_app/presentation/pages/news/news_screen.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
 
 class WalletApp extends StatelessWidget {
@@ -13,11 +14,10 @@ class WalletApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         // fontFamily: 'JosefinSans',
       ),
-      // debugShowCheckedModeBanner: false,
-      // builder: ExtendedNavigator(
-      //   router: router.Router(),
-      // ),
-      home: NewsPage(),
+      debugShowCheckedModeBanner: true,
+      builder: ExtendedNavigator(
+        router: router.Router(),
+      ),
     );
   }
 }

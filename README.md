@@ -10,4 +10,4 @@ Run the testcases to verify everything is working fine.
 flutter test --coverage
 
 To regenerate the Unions, router and other auto generated files execute the following command.
-Execute: pub run build_runner watch --delete-conflicting-outputs   
+Execute: flutter pub run build_runner watch --delete-conflicting-outputs   

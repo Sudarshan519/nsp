@@ -7,8 +7,8 @@ class Palette {
   static Color black = HexColor.fromHex('#000000');
   static Color primaryBackground = HexColor.fromHex('#efefef');
 
-  static Color primary = HexColor.fromHex('#5663FF');
-  static Color accent = HexColor.fromHex('#E7AB00');
+  static Color primary = HexColor.fromHex('#E7AB00');
+  static Color accent = HexColor.fromHex('#5663FF');
 }
 
 extension HexColor on Color {
