@@ -10,19 +10,20 @@ import 'package:wallet_app/utils/constant.dart';
 
 import '../../../../utils/test_constant/news/test_constant.dart';
 
-class NewsRemoteDataSource extends Mock
+class MockNewsRemoteDataSource extends Mock
     implements NewsRemoteDataSourceProtocol {}
 
-class NewsLocalDataSource extends Mock implements NewsLocalDataSourceProtocol {}
+class MockNewsLocalDataSource extends Mock
+    implements NewsLocalDataSourceProtocol {}
 
 void main() {
   NewsRepository repository;
-  NewsRemoteDataSource remoteDataSource;
-  NewsLocalDataSource localDataSource;
+  MockNewsRemoteDataSource remoteDataSource;
+  MockNewsLocalDataSource localDataSource;
 
   setUp(() {
-    remoteDataSource = NewsRemoteDataSource();
-    localDataSource = NewsLocalDataSource();
+    remoteDataSource = MockNewsRemoteDataSource();
+    localDataSource = MockNewsLocalDataSource();
 
     repository = NewsRepository(
       remoteDataSource: remoteDataSource,

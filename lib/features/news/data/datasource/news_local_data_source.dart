@@ -22,8 +22,8 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
   });
 
   @override
-  Future<NewsModel> getNews() {
-    final news = localProvider.getNews();
+  Future<NewsModel> getNews() async {
+    final news = await localProvider.getNews();
     if (news != null) {
       return news;
     }
