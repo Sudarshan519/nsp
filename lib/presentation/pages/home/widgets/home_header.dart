@@ -11,6 +11,7 @@ class HomeHeaderWidget extends StatelessWidget {
       children: [
         _headerInfo(),
         const BalanceAndPointWidget(),
+        const Padding(padding: EdgeInsets.only(bottom: 16)),
       ],
     );
   }

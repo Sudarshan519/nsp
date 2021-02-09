@@ -7,6 +7,7 @@ import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'widgets/build_resume.dart';
 import 'widgets/category_title_text.dart';
 import 'widgets/home_service_widget.dart';
+import 'widgets/japanese_manner_widget.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -17,9 +18,17 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             HomeHeaderWidget(),
-            const SizedBox(height: 16),
-            const BuildResume(),
-            const HomeServiceWidget(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: const [
+                    BuildResume(),
+                    HomeServiceWidget(),
+                    JapaneseMannerWidget(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

@@ -52,13 +52,12 @@ class TabBarScreenState extends State<TabBarScreen> {
         bottomNavigationBar: !Responsive.isDesktop(context)
             ? Container(
                 color: Palette.primaryBackground,
-                padding: const EdgeInsets.only(
-                  bottom: 20,
-                ),
-                child: CustomTabBar(
-                  selectedIndex: _selectedIndex,
-                  onTap: (index) => setState(() => _selectedIndex = index),
-                  tabs: _tabBarData,
+                child: SafeArea(
+                  child: CustomTabBar(
+                    selectedIndex: _selectedIndex,
+                    onTap: (index) => setState(() => _selectedIndex = index),
+                    tabs: _tabBarData,
+                  ),
                 ),
               )
             : const SizedBox.shrink(),
