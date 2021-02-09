@@ -12,7 +12,6 @@ class NewsItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(newsItem.image);
     return Column(
       children: [
         Container(

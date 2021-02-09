@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/presentation/pages/home/home_screen.dart';
 import 'package:wallet_app/presentation/pages/news/news_screen.dart';
 
 import 'package:wallet_app/presentation/widgets/widgets.dart';
@@ -14,7 +15,7 @@ class TabBarScreen extends StatefulWidget {
 class TabBarScreenState extends State<TabBarScreen> {
   int _selectedIndex = 0;
   final List<Widget> _children = [
-    Container(),
+    HomePage(),
     Container(),
     NewsPage(),
     Container(),
