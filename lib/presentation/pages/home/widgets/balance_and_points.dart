@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/presentation/widgets/custom_button.dart';
+import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 class BalanceAndPointWidget extends StatelessWidget {
@@ -20,26 +22,10 @@ class BalanceAndPointWidget extends StatelessWidget {
             color: Palette.primary,
           ),
         ),
-        Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
+        ShadowBoxWidget(
           margin: const EdgeInsets.only(
             left: 16,
             right: 16,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Palette.white,
-            boxShadow: [
-              BoxShadow(
-                color: Palette.black.withOpacity(0.1),
-                spreadRadius: 2,
-                blurRadius: 4,
-                offset: const Offset(0, 3), // changes position of shadow
-              ),
-            ],
           ),
           child: Row(
             children: [
@@ -94,22 +80,9 @@ class BalanceAndPointWidget extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  Container(
-                    height: 30,
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Palette.primary,
-                    ),
-                    child: Text(
-                      "+ Add Balance",
-                      style: TextStyle(
-                        color: Palette.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                  CustomButton(
+                    title: "+ Add Balance",
+                    onTap: () {},
                   ),
                 ],
               )
