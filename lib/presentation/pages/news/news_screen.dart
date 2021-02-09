@@ -14,11 +14,14 @@ class NewsPage extends StatelessWidget {
         title: const Text("News"),
         backgroundColor: Palette.primary,
       ),
-      body: _buildBody(),
+      body: _NewsPageBody(),
     );
   }
+}
 
-  Widget _buildBody() {
+class _NewsPageBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
           getIt<NewsBloc>()..add(const NewsEvent.fetchNewsData()),

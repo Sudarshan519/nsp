@@ -17,7 +17,7 @@ class TabBarScreenState extends State<TabBarScreen> {
   int _selectedIndex = 0;
   final List<Widget> _children = [
     ForYouNewsTab(),
-    NewsTab(),
+    ForYouNewsTab(),
     NewsTab(),
     NewsTab(),
   ];

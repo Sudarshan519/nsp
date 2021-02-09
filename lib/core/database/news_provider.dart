@@ -19,50 +19,68 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
 
   @override
   Future insert(NewsModel newsModel) async {
-    provider.open();
+    await provider.open();
 
     for (final news in newsModel.data) {
-      await provider.database.insert(
-          NewsItemTable.tableNewsItem, (news as NewsItemModel).toJson());
+      await provider.insert(
+        tableName: NewsItemTable.tableNewsItem,
+        values: (news as NewsItemModel).toJson(),
+      );
     }
 
-    for (final source in newsModel.data) {
-      await provider.database.insert(NewsSourceTable.tableNewsSource,
-          {NewsSourceTable.newsSourceColumnSource: source});
+    for (final source in newsModel.source) {
+      final _ = await provider.insert(
+        tableName: NewsSourceTable.tableNewsSource,
+        values: {NewsSourceTable.newsSourceColumnSource: source},
+      );
     }
-    provider.close();
+    await provider.close();
   }
 
   @override
   Future<NewsModel> getNews() async {
     provider.open();
 
-    final newsJson = await provider.database
-        .rawQuery("SELECT * from ${NewsItemTable.tableNewsItem}");
+    final newsJson =
+        await provider.getAllFrom(tableName: NewsItemTable.tableNewsItem);
 
-    final sourceJson = await provider.database
-        .rawQuery("SELECT * from ${NewsSourceTable.tableNewsSource}");
+    final sourceJson =
+        await provider.getAllFrom(tableName: NewsSourceTable.tableNewsSource);
 
     provider.close();
 
     final List<NewsItemModel> newsList = [];
     final List<String> sourceList = [];
 
-    for (final newsItemJson in newsJson) {
-      final newsItemModel = NewsItemModel.fromJson(newsItemJson);
-      newsList.add(newsItemModel);
+    if (newsJson != null && newsJson.isNotEmpty) {
+      for (final newsItemJson in newsJson) {
+        final newsItemModel = NewsItemModel.fromJson(newsItemJson);
+        if (newsItemModel.title != null &&
+            newsItemModel.image != null &&
+            newsItemModel.description != null) {
+          newsList.add(newsItemModel);
+        }
+      }
     }
 
-    for (final sourceObject in sourceJson) {
-      final source = sourceObject[NewsSourceTable.tableNewsSource] as String;
-      sourceList.add(source);
+    if (sourceJson != null && sourceJson.isNotEmpty) {
+      for (final sourceObject in sourceJson) {
+        final source = sourceObject[NewsSourceTable.tableNewsSource] as String;
+        if (source != null) {
+          sourceList.add(source);
+        }
+      }
+    }
+
+    if (newsList.isEmpty) {
+      return null;
     }
 
     return NewsModel(
       page: "1",
       source: sourceList,
       total: newsList.length,
-      data: newsList,
+      data: newsList.isEmpty ? null : newsList,
       error: null,
     );
   }
