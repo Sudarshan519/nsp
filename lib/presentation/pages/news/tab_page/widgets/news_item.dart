@@ -17,12 +17,8 @@ class NewsItemWidget extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.symmetric(
-            vertical: 5,
-            horizontal: 10,
-          ),
-          padding: const EdgeInsets.symmetric(
-            vertical: 5,
-            horizontal: 10,
+            vertical: 16,
+            horizontal: 16,
           ),
           child: Row(
             children: [

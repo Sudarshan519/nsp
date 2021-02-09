@@ -5,9 +5,9 @@ import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 import 'widgets/build_resume.dart';
-import 'widgets/category_title_text.dart';
 import 'widgets/home_service_widget.dart';
 import 'widgets/japanese_manner_widget.dart';
+import 'widgets/segmented_news_widget.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -25,6 +25,8 @@ class HomePage extends StatelessWidget {
                     BuildResume(),
                     HomeServiceWidget(),
                     JapaneseMannerWidget(),
+                    SegmentedNewViewWidget(),
+                    SizedBox(height: 40),
                   ],
                 ),
               ),

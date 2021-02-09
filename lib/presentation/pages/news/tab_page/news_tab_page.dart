@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/presentation/pages/news/tab_page/tabs/tabs.dart';
 
-import 'package:wallet_app/presentation/widgets/widgets.dart';
-
 import 'tabs/for_you/for_you_tab.dart';
 import 'tabs/tab_bar/news_tab_bar.dart';
 
