@@ -38,12 +38,12 @@ void main() {
     expect(_widget, isA<StatelessWidget>());
   });
 
-  testWidgets('should return sized box for initial state',
-      (WidgetTester tester) async {
-    mockNetworkImagesFor(() async {
-      await tester.pumpWidget(makeTestableWidgets(child: _widget));
-      final sizedBoxFind = find.byType(SizedBox);
-      expect(true, true);
-    });
-  });
+  // testWidgets('should return sized box for initial state',
+  //     (WidgetTester tester) async {
+  //   mockNetworkImagesFor(() async {
+  //     await tester.pumpWidget(makeTestableWidgets(child: _widget));
+  //     final sizedBoxFind = find.byType(SizedBox);
+  //     expect(true, true);
+  //   });
+  // });
 }

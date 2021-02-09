@@ -22,26 +22,25 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   final List<CustomTabBarData> _tabBarData = [
     CustomTabBarData(
-        title: 'Home',
-        image: 'assets/images/navigation/home.png',
-        selectedImage: 'assets/images/navigation/home_selected.png'),
+      title: 'Home',
+      image: 'assets/images/navigation_tabs/home.svg',
+    ),
     CustomTabBarData(
-        title: 'Wallet',
-        image: 'assets/images/navigation/map.png',
-        selectedImage: 'assets/images/navigation/map_selected.png'),
+      title: 'Resume',
+      image: 'assets/images/navigation_tabs/resume.svg',
+    ),
     CustomTabBarData(
-        title: 'News',
-        image: 'assets/images/navigation/message.png',
-        selectedImage: 'assets/images/navigation/message_selected.png'),
+      title: 'News',
+      image: 'assets/images/navigation_tabs/news.svg',
+    ),
     CustomTabBarData(
-        title: 'Resume',
-        image: 'assets/images/navigation/notification.png',
-        selectedImage: 'assets/images/navigation/notification_selected.png'),
+      title: 'More',
+      image: 'assets/images/navigation_tabs/more.svg',
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
     return DefaultTabController(
       length: _children.length,
       child: Scaffold(

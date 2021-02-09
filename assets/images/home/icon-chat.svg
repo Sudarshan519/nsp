@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon-chat" transform="translate(-362 -1353)">
+    <g id="chat_1_" data-name="chat (1)" transform="translate(364 1354)">
+      <g id="Group_201" data-name="Group 201" transform="translate(0)">
+        <path id="Path_330" data-name="Path 330" d="M13.739,0h-.034A10.317,10.317,0,0,0,5.614,16.746l-1.5,3.5a.561.561,0,0,0,.293.738.573.573,0,0,0,.321.039l5.516-.969a9.941,9.941,0,0,0,3.437.6A10.325,10.325,0,0,0,13.739,0ZM10.2,8.26h3.043a.563.563,0,1,1,0,1.127H10.2a.563.563,0,0,1,0-1.127ZM17.187,12.2H10.2a.563.563,0,1,1,0-1.127h6.987a.563.563,0,1,1,0,1.127Z" transform="translate(-3.366)" fill="#fad200"/>
+      </g>
+    </g>
+    <rect id="Rectangle_80" data-name="Rectangle 80" width="24" height="24" transform="translate(362 1353)" fill="none"/>
+  </g>
+</svg>

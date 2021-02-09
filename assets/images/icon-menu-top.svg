@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon-menu-top" transform="translate(-384 -52)">
+    <g id="menu_3_" data-name="menu (3)" transform="translate(393 53.895)">
+      <path id="Path_312" data-name="Path 312" d="M194.069.735a2.51,2.51,0,1,0,3.55,0,2.51,2.51,0,0,0-3.55,0" transform="translate(-193.334 0)" fill="#fff"/>
+      <path id="Path_313" data-name="Path 313" d="M194.069,194.069a2.51,2.51,0,1,0,3.55,0,2.51,2.51,0,0,0-3.55,0" transform="translate(-193.334 -185.802)" fill="#fff"/>
+      <path id="Path_314" data-name="Path 314" d="M194.069,387.4a2.51,2.51,0,1,0,3.55,0,2.51,2.51,0,0,0-3.55,0" transform="translate(-193.334 -371.603)" fill="#fff"/>
+    </g>
+    <rect id="Rectangle_73" data-name="Rectangle 73" width="24" height="24" transform="translate(384 52)" fill="none"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="icon-more" transform="translate(-346 -1413)">
+    <g id="Group_366" data-name="Group 366" transform="translate(0 632.999)">
+      <circle id="Ellipse_3" data-name="Ellipse 3" cx="5" cy="5" r="5" transform="translate(348 784.001)" fill="#fad200"/>
+      <g id="Group_365" data-name="Group 365" transform="translate(5 -4.5)">
+        <g id="menu_4_" data-name="menu (4)" transform="translate(352 799.5)">
+          <path id="Path_403" data-name="Path 403" d="M389.406,193.8a1.605,1.605,0,1,1-2.27,0,1.605,1.605,0,0,1,2.27,0" transform="translate(-377.034 -193.333)"/>
+          <path id="Path_404" data-name="Path 404" d="M196.074,193.8a1.605,1.605,0,1,1-2.27,0,1.605,1.605,0,0,1,2.27,0" transform="translate(-188.518 -193.333)"/>
+          <path id="Path_405" data-name="Path 405" d="M2.741,193.8a1.605,1.605,0,1,1-2.27,0,1.605,1.605,0,0,1,2.27,0" transform="translate(-0.001 -193.333)"/>
+        </g>
+        <rect id="Rectangle_69" data-name="Rectangle 69" width="21" height="21" rx="4" transform="translate(347.5 791)" fill="none" stroke="#000" stroke-width="1.2"/>
+      </g>
+    </g>
+    <rect id="Rectangle_77" data-name="Rectangle 77" width="32" height="32" transform="translate(346 1413)" fill="none"/>
+  </g>
+</svg>
