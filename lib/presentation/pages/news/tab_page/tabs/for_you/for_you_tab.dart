@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
-import 'package:wallet_app/presentation/pages/news/tab_page/widgets/news_carousel_item.dart';
+import 'package:wallet_app/presentation/pages/news/tab_page/widgets/news_carousel.dart';
 import 'package:wallet_app/presentation/pages/news/tab_page/widgets/news_item.dart';
-import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 class ForYouNewsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewsBloc, NewsState>(builder: (context, state) {
-      // return state.map()
       return state.map(
         // initial and loading state will not be refrected here,
         // this two states are for very first state of app
@@ -57,7 +55,9 @@ class ForYouNewsTab extends StatelessWidget {
         SingleChildScrollView(
           child: Column(
             children: [
-              carousel(newsList),
+              NewsCarousel(
+                newsList: newsList,
+              ),
               ListView.builder(
                 primary: false,
                 physics: const NeverScrollableScrollPhysics(),
@@ -73,14 +73,6 @@ class ForYouNewsTab extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget carousel(List<NewsItem> news) {
-    final newsImages = news.map((e) => e.image).toList();
-    return NewsCarousel(
-      newsList: news,
-      newsImageList: newsImages,
     );
   }
 }

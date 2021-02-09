@@ -1,33 +1,31 @@
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'database_table_constant/table_constant.dart';
 
 abstract class DBProvider {
-  Database database;
-
   Future open();
-  Future close();
+  Future<void> close();
+
+  Future insert({
+    @required String tableName,
+    @required Map<String, dynamic> values,
+  });
+
+  Future<List<Map<String, dynamic>>> getAllFrom({@required String tableName});
 }
 
 @Singleton(as: DBProvider)
 class DBProviderImpl implements DBProvider {
   static const int _version = 1;
-  Database _db;
-
-  @override
-  Database get database => _db;
-
-  @override
-  set database(Database _database) {
-    _db = _database;
-  }
+  Database _database;
 
   @override
   Future open() async {
     final databasesPath = await getDatabasesPath();
     final String path = "$databasesPath, 'wallet_app.db'";
-    _db = await openDatabase(path, version: _version, onOpen: (db) {},
+    _database = await openDatabase(path, version: _version, onOpen: (db) {},
         onCreate: (Database db, int version) async {
       final dbBatch = db.batch();
       dbBatch.execute(_createNewsTable());
@@ -49,7 +47,19 @@ class DBProviderImpl implements DBProvider {
   }
 
   @override
-  Future close() async => _db.close();
+  Future<void> close() async => _database.close();
+
+  @override
+  Future insert({
+    @required String tableName,
+    @required Map<String, dynamic> values,
+  }) async {
+    await _database.insert(tableName, values);
+  }
+
+  @override
+  Future<List<Map<String, dynamic>>> getAllFrom({@required String tableName}) =>
+      _database.rawQuery("SELECT * from $tableName");
 
   String _createNewsTable() {
     return '''
