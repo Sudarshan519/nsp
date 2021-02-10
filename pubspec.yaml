@@ -60,6 +60,9 @@ dependencies:
   #carousel slider
   carousel_slider: ^3.0.0
 
+  #svg Images
+  flutter_svg: ^0.19.2+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -86,9 +89,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/navigation_bar/
+    - assets/images/home/
+    - assets/images/navigation_tabs/
+    - assets/images/news/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

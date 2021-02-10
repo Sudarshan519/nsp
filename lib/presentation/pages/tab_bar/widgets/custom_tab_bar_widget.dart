@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
 
 class CustomTabBarData {
   final String title;
   final String image;
-  final String selectedImage;
 
   CustomTabBarData({
     @required this.title,
     @required this.image,
-    @required this.selectedImage,
   });
 }
 
@@ -40,10 +39,9 @@ class CustomTabBar extends StatelessWidget {
                 index,
                 Tab(
                   text: tabBarData.title,
-                  icon: Image.asset(
-                    index == selectedIndex
-                        ? tabBarData.selectedImage
-                        : tabBarData.image,
+                  icon: SvgPicture.asset(
+                    tabBarData.image,
+                    color: index == selectedIndex ? Palette.primary : null,
                     height: 25.0,
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
@@ -12,17 +13,12 @@ class NewsItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(newsItem.image);
     return Column(
       children: [
         Container(
           margin: const EdgeInsets.symmetric(
-            vertical: 5,
-            horizontal: 10,
-          ),
-          padding: const EdgeInsets.symmetric(
-            vertical: 5,
-            horizontal: 10,
+            vertical: 16,
+            horizontal: 16,
           ),
           child: Row(
             children: [
@@ -109,6 +105,13 @@ class NewsItemWidget extends StatelessWidget {
                     Row(
                       children: [
                         //TODO: add calender icon
+                        SvgPicture.asset(
+                          "assets/images/news/clock.svg",
+                          height: 15.0,
+                        ),
+                        const SizedBox(
+                          width: 2,
+                        ),
                         Text(
                           "1 Feb 2020 |",
                           style: TextStyle(
@@ -119,9 +122,18 @@ class NewsItemWidget extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        //TODO: add clock icon
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        SvgPicture.asset(
+                          "assets/images/news/clock.svg",
+                          height: 15.0,
+                        ),
+                        const SizedBox(
+                          width: 2,
+                        ),
                         Text(
-                          "  11:32:00",
+                          "11:32:00",
                           style: TextStyle(
                             color: Palette.black,
                             fontSize: 12,

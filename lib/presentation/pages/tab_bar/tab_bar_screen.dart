@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/presentation/pages/home/home_screen.dart';
 import 'package:wallet_app/presentation/pages/news/news_screen.dart';
 
 import 'package:wallet_app/presentation/widgets/widgets.dart';
@@ -14,7 +15,7 @@ class TabBarScreen extends StatefulWidget {
 class TabBarScreenState extends State<TabBarScreen> {
   int _selectedIndex = 0;
   final List<Widget> _children = [
-    Container(),
+    HomePage(),
     Container(),
     NewsPage(),
     Container(),
@@ -22,26 +23,25 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   final List<CustomTabBarData> _tabBarData = [
     CustomTabBarData(
-        title: 'Home',
-        image: 'assets/images/navigation/home.png',
-        selectedImage: 'assets/images/navigation/home_selected.png'),
+      title: 'Home',
+      image: 'assets/images/navigation_tabs/home.svg',
+    ),
     CustomTabBarData(
-        title: 'Wallet',
-        image: 'assets/images/navigation/map.png',
-        selectedImage: 'assets/images/navigation/map_selected.png'),
+      title: 'Resume',
+      image: 'assets/images/navigation_tabs/resume.svg',
+    ),
     CustomTabBarData(
-        title: 'News',
-        image: 'assets/images/navigation/message.png',
-        selectedImage: 'assets/images/navigation/message_selected.png'),
+      title: 'News',
+      image: 'assets/images/navigation_tabs/news.svg',
+    ),
     CustomTabBarData(
-        title: 'Resume',
-        image: 'assets/images/navigation/notification.png',
-        selectedImage: 'assets/images/navigation/notification_selected.png'),
+      title: 'More',
+      image: 'assets/images/navigation_tabs/more.svg',
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
     return DefaultTabController(
       length: _children.length,
       child: Scaffold(
@@ -52,13 +52,12 @@ class TabBarScreenState extends State<TabBarScreen> {
         bottomNavigationBar: !Responsive.isDesktop(context)
             ? Container(
                 color: Palette.primaryBackground,
-                padding: const EdgeInsets.only(
-                  bottom: 20,
-                ),
-                child: CustomTabBar(
-                  selectedIndex: _selectedIndex,
-                  onTap: (index) => setState(() => _selectedIndex = index),
-                  tabs: _tabBarData,
+                child: SafeArea(
+                  child: CustomTabBar(
+                    selectedIndex: _selectedIndex,
+                    onTap: (index) => setState(() => _selectedIndex = index),
+                    tabs: _tabBarData,
+                  ),
                 ),
               )
             : const SizedBox.shrink(),
