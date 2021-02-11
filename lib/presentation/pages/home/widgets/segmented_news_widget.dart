@@ -111,7 +111,7 @@ class SegmentedNewViewWidget extends StatelessWidget {
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: 2,
+            itemCount: 10,
             itemBuilder: (context, index) {
               return const NewsItemWidget(newsItem: newsItem);
             },

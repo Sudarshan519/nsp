@@ -104,9 +104,8 @@ class NewsItemWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        //TODO: add calender icon
                         SvgPicture.asset(
-                          "assets/images/news/clock.svg",
+                          "assets/images/news/calender.svg",
                           height: 15.0,
                         ),
                         const SizedBox(
@@ -149,7 +148,7 @@ class NewsItemWidget extends StatelessWidget {
                     ),
                     //TODO: add news source icon
                     Text(
-                      "News Source",
+                      newsItem?.source ?? "",
                       style: TextStyle(
                         color: Palette.black,
                         fontSize: 12,
