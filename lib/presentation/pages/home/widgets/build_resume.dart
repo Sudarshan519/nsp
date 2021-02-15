@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
-import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 import 'category_title_text.dart';
 
@@ -23,9 +23,13 @@ class BuildResume extends StatelessWidget {
             child: Row(
               children: [
                 Container(
+                  padding: const EdgeInsets.all(8),
                   width: 100,
                   height: 100,
-                  color: Palette.primaryBackground,
+                  child: SvgPicture.asset(
+                    "assets/images/home/resume.svg",
+                    // height: 25.0,
+                  ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -41,7 +45,7 @@ class BuildResume extends StatelessWidget {
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: 10),
                       CustomButton(
                         title: "Create Resume",
                         onTap: () {},

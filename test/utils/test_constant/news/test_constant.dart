@@ -39,8 +39,7 @@ class NewsTestConstant {
   static const tNewsItemModel = NewsItemModel(
     title:
         "Guyana rolls back plan to open Taiwan office after Beijing criticizes 'mistake'",
-    link:
-        "http:\/\/rss.cnn.com\/~r\/rss\/cnn_latest\/~3\/TLN2I6FIq7E\/index.html",
+    link: 'http:\\rss.cnn.com\~r\rss\cnn_latest\~3\TLN2I6FIq7E\index.html',
     category: "cnn",
     publishedDate: "Fri, 05 Feb 2021 05:23:04 GMT",
     guid:

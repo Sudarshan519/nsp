@@ -14,6 +14,7 @@ class WalletApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         // fontFamily: 'JosefinSans',
       ),
+      // ignore: avoid_redundant_argument_values
       debugShowCheckedModeBanner: true,
       builder: ExtendedNavigator(
         router: router.Router(),

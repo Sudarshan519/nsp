@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
-import 'balance_and_points.dart';
-
 class HomeHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         _headerInfo(),
-        const BalanceAndPointWidget(),
-        const Padding(padding: EdgeInsets.only(bottom: 16)),
       ],
     );
   }
@@ -27,29 +23,7 @@ class HomeHeaderWidget extends StatelessWidget {
           children: [
             _navigationBar(),
             const SizedBox(
-              height: 10,
-            ),
-            Text(
-              "Jack Mastuma",
-              style: TextStyle(
-                color: Palette.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const SizedBox(
               height: 5,
-            ),
-            Text(
-              "3475",
-              style: TextStyle(
-                color: Palette.white,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(
-              height: 10,
             ),
           ],
         ),
@@ -60,17 +34,17 @@ class HomeHeaderWidget extends StatelessWidget {
   Row _navigationBar() {
     return Row(
       children: [
-        SizedBox(
-          height: 50,
-          width: 50,
+        const SizedBox(
+          height: 35,
+          width: 35,
           child: CircleAvatar(
-            backgroundColor: Palette.primaryBackground,
+            // backgroundColor: Palette.primaryBackground,
+            backgroundImage: AssetImage('assets/images/navigation_bar/u1.png'),
           ),
         ),
         const Spacer(),
         SvgPicture.asset(
           "assets/images/navigation_bar/search.svg",
-          // color: index == selectedIndex ? Palette.primary : null,
           height: 25.0,
         ),
         const SizedBox(
@@ -78,7 +52,6 @@ class HomeHeaderWidget extends StatelessWidget {
         ),
         SvgPicture.asset(
           "assets/images/navigation_bar/globe.svg",
-          // color: index == selectedIndex ? Palette.primary : null,
           height: 25.0,
         ),
         const SizedBox(
@@ -86,7 +59,6 @@ class HomeHeaderWidget extends StatelessWidget {
         ),
         SvgPicture.asset(
           "assets/images/navigation_bar/notification.svg",
-          // color: index == selectedIndex ? Palette.primary : null,
           height: 25.0,
         ),
         const SizedBox(
@@ -94,7 +66,6 @@ class HomeHeaderWidget extends StatelessWidget {
         ),
         SvgPicture.asset(
           "assets/images/navigation_bar/menu.svg",
-          // color: index == selectedIndex ? Palette.primary : null,
           height: 25.0,
         ),
       ],

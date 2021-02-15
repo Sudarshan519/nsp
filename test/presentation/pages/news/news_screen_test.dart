@@ -8,12 +8,12 @@ class MockBuildContext extends Mock implements BuildContext {}
 class MockNewsBloc extends Mock implements NewsBloc {}
 
 void main() {
-  MockBuildContext _context;
-  MockNewsBloc _newsBloc;
+  // MockBuildContext _context;
+  // MockNewsBloc _newsBloc;
 
   setUp(() {
-    _context = MockBuildContext();
-    _newsBloc = MockNewsBloc();
+    // _context = MockBuildContext();
+    // _newsBloc = MockNewsBloc();
     // GetIt.instance.registerFactory<NewsBloc>(() => _newsBloc);
   });
 

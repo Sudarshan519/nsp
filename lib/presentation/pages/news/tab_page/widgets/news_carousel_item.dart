@@ -83,10 +83,8 @@ class NewsCarouselItem extends StatelessWidget {
               ),
               Row(
                 children: [
-                  //TODO: add calender icon
                   SvgPicture.asset(
-                    "assets/images/news/clock.svg",
-                    color: Palette.white,
+                    "assets/images/news/calender.svg",
                     height: 15.0,
                   ),
                   const SizedBox(

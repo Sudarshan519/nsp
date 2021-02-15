@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
-import 'package:wallet_app/presentation/widgets/custom_button.dart';
-import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 import 'widgets/build_resume.dart';
 import 'widgets/home_service_widget.dart';
 import 'widgets/japanese_manner_widget.dart';
 import 'widgets/segmented_news_widget.dart';
+import 'widgets/user_info_widget.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: const [
+                    UserInfoWidget(),
                     BuildResume(),
                     HomeServiceWidget(),
                     JapaneseMannerWidget(),
@@ -32,6 +33,14 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Palette.white,
+        onPressed: () {},
+        child: SvgPicture.asset(
+          "assets/images/home/chat.svg",
+          height: 30.0,
         ),
       ),
     );
