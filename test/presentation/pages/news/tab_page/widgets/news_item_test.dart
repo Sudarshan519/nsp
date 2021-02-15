@@ -21,7 +21,7 @@ void main() {
   const _testNewsItem = NewsTestConstant.tNewsItemModel;
 
   setUp(() {
-    widget = NewsItemWidget(newsItem: _testNewsItem);
+    widget = const NewsItemWidget(newsItem: _testNewsItem);
   });
 
   test('NewsItemWidget is sub class of StatelessWidget', () {
