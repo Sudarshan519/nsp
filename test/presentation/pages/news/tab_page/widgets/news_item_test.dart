@@ -18,7 +18,7 @@ void main() {
     );
   }
 
-  final _testNewsItem = NewsTestConstant.tNewsItemModel;
+  const _testNewsItem = NewsTestConstant.tNewsItemModel;
 
   setUp(() {
     widget = NewsItemWidget(newsItem: _testNewsItem);

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
-import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 import 'category_title_text.dart';
 

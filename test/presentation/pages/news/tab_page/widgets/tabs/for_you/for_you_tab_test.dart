@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:injectable/injectable.dart' as injectable;
 import 'package:mockito/mockito.dart';
-import 'package:network_image_mock/network_image_mock.dart';
+// import 'package:network_image_mock/network_image_mock.dart';
 import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/news/tab_page/tabs/for_you/for_you_tab.dart';
@@ -14,22 +14,22 @@ class MockNewsBloc extends Mock implements NewsBloc {}
 
 void main() {
   ForYouNewsTab _widget;
-  MockBuildContext _context;
+  // MockBuildContext _context;
 
-  Widget makeTestableWidgets({Widget child}) {
-    return MaterialApp(
-      home: Scaffold(
-        body: BlocProvider(
-          create: (_context) => getIt<NewsBloc>(),
-          child: child,
-        ),
-        // body: child,
-      ),
-    );
-  }
+  // Widget makeTestableWidgets({Widget child}) {
+  //   return MaterialApp(
+  //     home: Scaffold(
+  //       body: BlocProvider(
+  //         create: (_context) => getIt<NewsBloc>(),
+  //         child: child,
+  //       ),
+  //       // body: child,
+  //     ),
+  //   );
+  // }
 
   setUp(() {
-    _context = MockBuildContext();
+    // _context = MockBuildContext();
     configureInjection(injectable.Environment.test);
     _widget = ForYouNewsTab();
   });
