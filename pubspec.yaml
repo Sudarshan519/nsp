@@ -60,7 +60,10 @@ dependencies:
   flutter_svg: ^0.19.0
 
 dev_dependencies:
+  integration_test: ^1.0.2+2
   flutter_test:
+    sdk: flutter
+  flutter_driver:
     sdk: flutter
   lint: ^1.3.0
   mockito: ^4.1.4
@@ -89,6 +92,7 @@ flutter:
     - assets/images/navigation_tabs/
     - assets/images/news/
     - assets/images/auth/
+    - assets/images/placeholders/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

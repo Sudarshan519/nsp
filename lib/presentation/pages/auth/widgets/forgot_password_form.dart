@@ -5,7 +5,7 @@ import 'package:wallet_app/presentation/pages/auth/widgets/input_text_widget.dar
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
-class LoginFormWidget extends StatelessWidget {
+class ForgetPasswordFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final node = FocusScope.of(context);
@@ -13,7 +13,7 @@ class LoginFormWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Login",
+          "Forgot Password?",
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 28,
@@ -35,49 +35,7 @@ class LoginFormWidget extends StatelessWidget {
           onChanged: (value) {},
         ),
         const SizedBox(
-          height: 40,
-        ),
-        InputTextWidget(
-          hintText: "Password",
-          obscureText: true,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/lock.svg",
-          ),
-          suffixIcon: IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              "assets/images/auth/password-invisible.svg",
-            ),
-          ),
-          textInputAction: TextInputAction.done,
-          onEditingCompleted: () {
-            debugPrint("Password Edit Completed");
-            node.unfocus();
-          },
-          onChanged: (value) {},
-        ),
-        const SizedBox(
           height: 23,
-        ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: InkWell(
-            onTap: () {
-              ExtendedNavigator.of(context).pushForgotPasswordPage();
-            },
-            child: Text(
-              "Forget Password",
-              style: TextStyle(
-                color: Palette.blackTextColor,
-                fontWeight: FontWeight.w500,
-                fontSize: 13,
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 33,
         ),
         InkWell(
           onTap: () {
@@ -94,7 +52,7 @@ class LoginFormWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Login",
+                    "Reset Password",
                     style: TextStyle(
                       color: Palette.white,
                       fontWeight: FontWeight.w600,
@@ -114,25 +72,3 @@ class LoginFormWidget extends StatelessWidget {
     );
   }
 }
-
-// class _EmailInput extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     // return BlocBuilder<LoginBloc, LoginState>(
-//     return BlocBuilder(
-//       buildWhen: (previous, current) => previous.email != current.email,
-//       builder: (context, state) {
-//         return TextField(
-//           key: const Key('loginForm_passwordInput_textField'),
-//           // onChanged: (password) =>
-//           //     context.read<LoginBloc>().add(LoginPasswordChanged(password)),
-//           obscureText: true,
-//           decoration: InputDecoration(
-//             labelText: 'password',
-//             errorText: state.password.invalid ? 'invalid password' : null,
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
