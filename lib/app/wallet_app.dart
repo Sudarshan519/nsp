@@ -12,7 +12,7 @@ class WalletApp extends StatelessWidget {
         primaryColor: Palette.primary,
         accentColor: Palette.accent,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        // fontFamily: 'JosefinSans',
+        fontFamily: 'Montserrat',
       ),
       // ignore: avoid_redundant_argument_values
       debugShowCheckedModeBanner: true,

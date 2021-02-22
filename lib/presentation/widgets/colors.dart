@@ -9,6 +9,12 @@ class Palette {
 
   static Color primary = HexColor.fromHex('#E7AB00');
   static Color accent = HexColor.fromHex('#5663FF');
+
+  static Color containerColor = HexColor.fromHex('#F1F1F1');
+
+  static Color primaryButtonColor = HexColor.fromHex('#FAD200');
+  static Color blackTextColor = HexColor.fromHex('#2C2D2F');
+  static Color textFieldPlaceholderColor = HexColor.fromHex('#8C8C8C');
 }
 
 extension HexColor on Color {

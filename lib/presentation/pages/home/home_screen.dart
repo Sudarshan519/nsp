@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
+import 'widgets/banner_widget.dart';
 import 'widgets/build_resume.dart';
 import 'widgets/home_service_widget.dart';
 import 'widgets/japanese_manner_widget.dart';
@@ -24,6 +25,7 @@ class HomePage extends StatelessWidget {
                   children: const [
                     UserInfoWidget(),
                     BuildResume(),
+                    BannerWidget(),
                     HomeServiceWidget(),
                     JapaneseMannerWidget(),
                     SegmentedNewViewWidget(),

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="icon-gmail" transform="translate(-160 -551)">
+    <g id="Group_426" data-name="Group 426" transform="translate(163 554)">
+      <path id="Path_424" data-name="Path 424" d="M5.676,146.829l-.891,3.328-3.258.069a12.828,12.828,0,0,1-.094-11.958h0l2.9.532L5.6,141.683a7.642,7.642,0,0,0,.072,5.145Z" transform="translate(0 -131.352)" fill="#fbbb00"/>
+      <path id="Path_425" data-name="Path 425" d="M273.928,208.176a12.8,12.8,0,0,1-4.565,12.378h0l-3.654-.186-.517-3.228a7.632,7.632,0,0,0,3.284-3.9h-6.847v-5.066h12.3Z" transform="translate(-248.541 -197.763)" fill="#518ef8"/>
+      <path id="Path_426" data-name="Path 426" d="M49.8,316.723h0a12.809,12.809,0,0,1-19.3-3.918l4.15-3.4a7.616,7.616,0,0,0,10.975,3.9Z" transform="translate(-28.983 -293.932)" fill="#28b446"/>
+      <path id="Path_427" data-name="Path 427" d="M48.171,2.948l-4.148,3.4A7.615,7.615,0,0,0,32.8,10.332L28.625,6.916h0A12.808,12.808,0,0,1,48.171,2.948Z" transform="translate(-27.192 0)" fill="#f14336"/>
+    </g>
+    <rect id="Rectangle_96" data-name="Rectangle 96" width="32" height="32" transform="translate(160 551)" fill="none"/>
+  </g>
+</svg>
