@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g id="icon-download-pdf" transform="translate(-27 -742)">
+    <g id="Group_417" data-name="Group 417" transform="translate(28 743)">
+      <path id="Path_386" data-name="Path 386" d="M146.312,37.909a1.434,1.434,0,0,0,1.678,0l4.474-3.488a.789.789,0,0,0,0-1.308,1.434,1.434,0,0,0-1.678,0l-2.449,1.909v-10.1a1.223,1.223,0,0,0-2.372,0v10.1l-2.449-1.909a1.434,1.434,0,0,0-1.678,0,.789.789,0,0,0,0,1.308Z" transform="translate(-137.171 -24)" fill="#dda601"/>
+      <path id="Path_387" data-name="Path 387" d="M42.926,232a.983.983,0,0,0-1.032.925v7.09H26.065v-7.09a1.039,1.039,0,0,0-2.065,0v7.4a1.638,1.638,0,0,0,1.721,1.541H42.238a1.638,1.638,0,0,0,1.721-1.541v-7.4A.983.983,0,0,0,42.926,232Z" transform="translate(-24 -221.906)" fill="#dda601"/>
+    </g>
+    <rect id="Rectangle_100" data-name="Rectangle 100" width="22" height="22" transform="translate(27 742)" fill="none"/>
+  </g>
+</svg>

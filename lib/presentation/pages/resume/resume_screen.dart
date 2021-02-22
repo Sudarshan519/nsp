@@ -1,78 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/presentation/pages/resume/widgets/resume_header_widget.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
+
+import 'resume_tab_pages/resume_tab_page.dart';
 
 class ResumePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Resume",
-          style: TextStyle(
-            color: Palette.white,
-            fontSize: 16,
-            fontWeight: FontWeight.w300,
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Icon(
-              Icons.ios_share,
+        appBar: AppBar(
+          title: Text(
+            "Resume",
+            style: TextStyle(
               color: Palette.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w300,
             ),
           ),
-        ],
-        elevation: 0,
-      ),
-      body: Container(
-        width: double.maxFinite,
-        color: Palette.primary,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              overflow: Overflow.visible,
-              children: [
-                const CircleAvatar(
-                  radius: 41,
-                  backgroundImage: AssetImage(
-                    'assets/images/navigation_bar/u1.png',
-                  ),
-                ),
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: Container(
-                    height: 27,
-                    width: 27,
-                    decoration: BoxDecoration(
-                      color: Palette.white,
-                      borderRadius: BorderRadius.circular(13),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              "Yulia Olesich",
-              style: TextStyle(
-                color: Palette.white,
-                fontSize: 18,
-                fontWeight: FontWeight.normal,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: SvgPicture.asset(
+                "assets/images/resume/share.svg",
+                height: 25.0,
               ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
           ],
+          elevation: 0,
         ),
-      ),
-    );
+        body: Column(
+          children: [
+            ResumeHeaderWidget(),
+            Expanded(child: ResumeTabBarScreen()),
+          ],
+        ));
   }
 }

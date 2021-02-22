@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon-mapMarker" transform="translate(-100 -228)">
+    <g id="maps-and-flags" transform="translate(33.427 229)">
+      <g id="Group_377" data-name="Group 377" transform="translate(70.573)">
+        <g id="Group_376" data-name="Group 376" transform="translate(0)">
+          <path id="Path_411" data-name="Path 411" d="M78.676,0a8.112,8.112,0,0,0-8.1,8.1c0,5.545,7.252,13.685,7.56,14.029a.73.73,0,0,0,1.086,0c.309-.344,7.56-8.484,7.56-14.029A8.112,8.112,0,0,0,78.676,0Zm0,20.527c-2.44-2.9-6.644-8.618-6.644-12.424a6.644,6.644,0,1,1,13.288,0C85.32,11.909,81.117,17.627,78.676,20.527Z" transform="translate(-70.573)" fill="#fad200"/>
+        </g>
+      </g>
+      <g id="Group_379" data-name="Group 379" transform="translate(74.599 4.026)">
+        <g id="Group_378" data-name="Group 378" transform="translate(0)">
+          <path id="Path_412" data-name="Path 412" d="M166.785,92.134a4.077,4.077,0,1,0,4.077,4.077A4.081,4.081,0,0,0,166.785,92.134Zm0,6.695a2.618,2.618,0,1,1,2.618-2.618A2.621,2.621,0,0,1,166.785,98.829Z" transform="translate(-162.708 -92.134)" fill="#fad200"/>
+        </g>
+      </g>
+    </g>
+    <rect id="Rectangle_97" data-name="Rectangle 97" width="24" height="24" transform="translate(100 228)" fill="none"/>
+  </g>
+</svg>
