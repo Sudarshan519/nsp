@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/resume_options.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
-import 'package:wallet_app/presentation/widgets/widgets.dart';
 
-class AboutPage extends StatelessWidget {
+class WorkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,7 +17,7 @@ class AboutPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Basic Info",
+                  "Work History 1",
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
@@ -30,68 +27,83 @@ class AboutPage extends StatelessWidget {
                   height: 10,
                 ),
                 FormFieldDecoration(
-                  title: "Name",
+                  title: "Name of the company",
                   child: InputTextWidget(
-                    hintText: "Name",
+                    hintText: "XYZ Company",
                     onChanged: (_) {},
                   ),
                 ),
                 const SizedBox(height: 10),
                 FormFieldDecoration(
-                  title: "Family Name",
+                  title: "Designation",
                   child: InputTextWidget(
-                    hintText: "Family Name",
+                    hintText: "Sr. Software Developer",
                     onChanged: (_) {},
                   ),
                 ),
                 const SizedBox(height: 10),
                 FormFieldDecoration(
-                  title: "Profession",
+                  title: "Started Year",
                   child: InputTextWidget(
-                    hintText: "Profession",
+                    hintText: "2018",
                     onChanged: (_) {},
                   ),
                 ),
                 const SizedBox(height: 10),
                 FormFieldDecoration(
-                  title: "Date of Birth",
+                  title: "End Year",
                   child: InputTextWidget(
-                    hintText: "1990/01/01",
+                    hintText: "-",
+                    onChanged: (_) {},
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ShadowBoxWidget(
+            margin: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Work History 1",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                FormFieldDecoration(
+                  title: "Name of the company",
+                  child: InputTextWidget(
+                    hintText: "XYZ Company",
                     onChanged: (_) {},
                   ),
                 ),
                 const SizedBox(height: 10),
                 FormFieldDecoration(
-                  title: "Age",
+                  title: "Designation",
                   child: InputTextWidget(
-                    hintText: "Age",
+                    hintText: "Sr. Software Developer",
                     onChanged: (_) {},
                   ),
                 ),
                 const SizedBox(height: 10),
                 FormFieldDecoration(
-                  title: "Gender",
+                  title: "Started Year",
                   child: InputTextWidget(
-                    hintText: "Gender",
+                    hintText: "2015",
                     onChanged: (_) {},
                   ),
                 ),
                 const SizedBox(height: 10),
                 FormFieldDecoration(
-                  title: "Nationality",
+                  title: "End Year",
                   child: InputTextWidget(
-                    hintText: "Nationality",
+                    hintText: "2018",
                     onChanged: (_) {},
-                  ),
-                ),
-                const SizedBox(height: 10),
-                FormFieldDecoration(
-                  title: "Email",
-                  child: InputTextWidget(
-                    hintText: "Email",
-                    onChanged: (_) {},
-                    textInputType: TextInputType.emailAddress,
-                    textInputAction: TextInputAction.done,
                   ),
                 ),
               ],
@@ -104,27 +116,7 @@ class AboutPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomButton(
-                onTap: () {
-                  showMaterialModalBottomSheet(
-                    expand: false,
-                    context: context,
-                    backgroundColor: Colors.transparent,
-                    builder: (context) => Container(
-                      height: 200,
-                      padding: const EdgeInsets.only(top: 40),
-                      decoration: ShapeDecoration(
-                        color: Palette.white,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(32),
-                            topRight: Radius.circular(32),
-                          ),
-                        ),
-                      ),
-                      child: ResumeOptionWidget(),
-                    ),
-                  );
-                },
+                onTap: () {},
                 title: "English",
               ),
               const SizedBox(

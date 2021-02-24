@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/qualification/qualification_page.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/work/work_page.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 import 'about/about_page.dart';
@@ -57,8 +59,8 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
     AboutPage(),
     AddressPage(),
     AcademicsPage(),
-    Container(),
-    Container(),
+    WorkPage(),
+    QualificationPage(),
   ];
 
   final List<Tab> _tabBar = [
