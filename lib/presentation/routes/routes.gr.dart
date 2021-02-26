@@ -12,16 +12,19 @@ import 'package:flutter/material.dart';
 import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
 import '../pages/auth/register_screen.dart';
+import '../pages/auth/validate_user_screen.dart';
 import '../pages/tab_bar/tab_bar_screen.dart';
 
 class Routes {
   static const String loginPage = '/';
   static const String forgotPasswordPage = '/forgot-password-page';
+  static const String verifyUserPage = '/verify-user-page';
   static const String signupPage = '/signup-page';
   static const String tabBarScreen = '/tab-bar-screen';
   static const all = <String>{
     loginPage,
     forgotPasswordPage,
+    verifyUserPage,
     signupPage,
     tabBarScreen,
   };
@@ -33,6 +36,7 @@ class Router extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.loginPage, page: LoginPage),
     RouteDef(Routes.forgotPasswordPage, page: ForgotPasswordPage),
+    RouteDef(Routes.verifyUserPage, page: VerifyUserPage),
     RouteDef(Routes.signupPage, page: SignupPage),
     RouteDef(Routes.tabBarScreen, page: TabBarScreen),
   ];
@@ -48,6 +52,12 @@ class Router extends RouterBase {
     ForgotPasswordPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => ForgotPasswordPage(),
+        settings: data,
+      );
+    },
+    VerifyUserPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => VerifyUserPage(),
         settings: data,
       );
     },
@@ -75,6 +85,8 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushForgotPasswordPage() =>
       push<dynamic>(Routes.forgotPasswordPage);
+
+  Future<dynamic> pushVerifyUserPage() => push<dynamic>(Routes.verifyUserPage);
 
   Future<dynamic> pushSignupPage() => push<dynamic>(Routes.signupPage);
 

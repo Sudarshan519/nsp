@@ -1,7 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 import 'widgets/login_form.dart';
 import 'widgets/social_login_widget.dart';
@@ -10,38 +15,79 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
-        color: Palette.white,
-        child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const SizedBox(
-                      height: 172,
-                    ),
-                    LoginFormWidget(),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    _divider(),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    SocialLoginWidget(),
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    _newUserCreateAnAccount(context),
-                  ],
+        body: BlocProvider(
+      create: (_) => getIt<SignInFormBloc>(),
+      child: _LoginBody(),
+    ));
+  }
+}
+
+class _LoginBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<SignInFormBloc, SignInFormState>(
+      listener: (context, state) {
+        return state.authFailureOrSuccessOption.fold(
+          // either option is for initial none case
+          // neither success nor failure
+          () => {},
+          (either) => either.fold(
+            (failure) {
+              FlushbarHelper.createError(
+                message: failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
                 ),
+              ).show(context);
+            },
+            (success) {
+              ExtendedNavigator.of(context).pushTabBarScreen();
+            },
+          ),
+        );
+      },
+      builder: (context, state) {
+        if (state.isSubmitting) {
+          return loadingPage(context);
+        }
+        return _body(context);
+      },
+    );
+  }
+
+  Widget _body(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      color: Palette.white,
+      child: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(
+                    height: 172,
+                  ),
+                  LoginFormWidget(),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  _divider(),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  SocialLoginWidget(),
+                  const SizedBox(
+                    height: 80,
+                  ),
+                  _newUserCreateAnAccount(context),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

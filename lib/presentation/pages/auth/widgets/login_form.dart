@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
 import 'package:wallet_app/presentation/pages/auth/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
+import 'package:wallet_app/utils/validator.dart';
 
 class LoginFormWidget extends StatelessWidget {
   @override
@@ -22,40 +25,18 @@ class LoginFormWidget extends StatelessWidget {
         const SizedBox(
           height: 40,
         ),
-        InputTextWidget(
-          hintText: "Email Address",
-          textInputType: TextInputType.emailAddress,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/email.svg",
-          ),
-          onEditingCompleted: () {
-            debugPrint("Email Edit Completed");
+        _EmailInput(
+          callBack: () {
             node.nextFocus();
           },
-          onChanged: (value) {},
         ),
         const SizedBox(
           height: 40,
         ),
-        InputTextWidget(
-          hintText: "Password",
-          obscureText: true,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/lock.svg",
-          ),
-          suffixIcon: IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              "assets/images/auth/password-invisible.svg",
-            ),
-          ),
-          textInputAction: TextInputAction.done,
-          onEditingCompleted: () {
-            debugPrint("Password Edit Completed");
+        _PasswordInput(
+          callBack: () {
             node.unfocus();
           },
-          onChanged: (value) {},
         ),
         const SizedBox(
           height: 23,
@@ -79,9 +60,98 @@ class LoginFormWidget extends StatelessWidget {
         const SizedBox(
           height: 33,
         ),
-        InkWell(
+        const _LoginButton(),
+      ],
+    );
+  }
+}
+
+class _EmailInput extends StatelessWidget {
+  final Function() callBack;
+
+  const _EmailInput({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SignInFormBloc, SignInFormState>(
+      buildWhen: (previous, current) =>
+          previous.emailAddress != current.emailAddress,
+      builder: (context, state) {
+        return InputTextWidget(
+          key: const Key('loginForm_passwordInput_textField'),
+          hintText: "Email Address",
+          value: state.emailAddress,
+          textInputType: TextInputType.emailAddress,
+          prefixIcon: SvgPicture.asset(
+            "assets/images/auth/email.svg",
+          ),
+          validator: Validator.isValidEmail,
+          onEditingCompleted: callBack,
+          onChanged: (value) => context
+              .read<SignInFormBloc>()
+              .add(SignInFormEvent.emailChanged(value)),
+        );
+      },
+    );
+  }
+}
+
+class _PasswordInput extends StatelessWidget {
+  final Function() callBack;
+
+  const _PasswordInput({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SignInFormBloc, SignInFormState>(
+      buildWhen: (previous, current) => previous.password != current.password,
+      builder: (context, state) {
+        return InputTextWidget(
+          hintText: "Password",
+          value: state.password,
+          obscureText: true,
+          prefixIcon: SvgPicture.asset(
+            "assets/images/auth/lock.svg",
+          ),
+          suffixIcon: IconButton(
+            padding: EdgeInsets.zero,
+            onPressed: () {},
+            icon: SvgPicture.asset(
+              "assets/images/auth/password-invisible.svg",
+            ),
+          ),
+          validator: Validator.isValidPassword,
+          textInputAction: TextInputAction.done,
+          onEditingCompleted: callBack,
+          onChanged: (value) => context
+              .read<SignInFormBloc>()
+              .add(SignInFormEvent.passwordChanged(value)),
+        );
+      },
+    );
+  }
+}
+
+class _LoginButton extends StatelessWidget {
+  const _LoginButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SignInFormBloc, SignInFormState>(
+      builder: (context, state) {
+        return InkWell(
           onTap: () {
-            ExtendedNavigator.of(context).popAndPush(Routes.tabBarScreen);
+            context
+                .read<SignInFormBloc>()
+                .add(const SignInFormEvent.signInWithEmailAndPasswordPressed());
           },
           child: Container(
             height: 50,
@@ -109,30 +179,8 @@ class LoginFormWidget extends StatelessWidget {
               ),
             ),
           ),
-        )
-      ],
+        );
+      },
     );
   }
 }
-
-// class _EmailInput extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     // return BlocBuilder<LoginBloc, LoginState>(
-//     return BlocBuilder(
-//       buildWhen: (previous, current) => previous.email != current.email,
-//       builder: (context, state) {
-//         return TextField(
-//           key: const Key('loginForm_passwordInput_textField'),
-//           // onChanged: (password) =>
-//           //     context.read<LoginBloc>().add(LoginPasswordChanged(password)),
-//           obscureText: true,
-//           decoration: InputDecoration(
-//             labelText: 'password',
-//             errorText: state.password.invalid ? 'invalid password' : null,
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }

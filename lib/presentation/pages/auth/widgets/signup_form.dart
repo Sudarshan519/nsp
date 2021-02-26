@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/auth/presentation/sign_up/sign_up_form_bloc.dart';
 import 'package:wallet_app/presentation/pages/auth/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
+import 'package:wallet_app/utils/validator.dart';
 
 class SignupFormWidget extends StatelessWidget {
   @override
@@ -20,52 +23,147 @@ class SignupFormWidget extends StatelessWidget {
         const SizedBox(
           height: 40,
         ),
-        InputTextWidget(
+        _FirstNameInput(
+          callBack: () {
+            node.nextFocus();
+          },
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        _LastNameInput(
+          callBack: () {
+            node.nextFocus();
+          },
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        _EmailInput(
+          callBack: () {
+            node.nextFocus();
+          },
+        ),
+        const SizedBox(
+          height: 18,
+        ),
+        _PasswordInput(
+          callBack: () {
+            node.nextFocus();
+          },
+        ),
+        const SizedBox(
+          height: 33,
+        ),
+        const _SignUpButton(),
+      ],
+    );
+  }
+}
+
+class _FirstNameInput extends StatelessWidget {
+  final Function() callBack;
+
+  const _FirstNameInput({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) =>
+      BlocBuilder<SignUpFormBloc, SignUpFormState>(
+        buildWhen: (previous, current) =>
+            previous.firstName != current.firstName,
+        builder: (context, state) => InputTextWidget(
           hintText: "First Name",
+          value: state.firstName,
           textInputType: TextInputType.name,
           prefixIcon: SvgPicture.asset(
             "assets/images/auth/user.svg",
           ),
-          onEditingCompleted: () {
-            node.nextFocus();
-          },
-          onChanged: (value) {},
+          onEditingCompleted: callBack,
+          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          onChanged: (value) => context
+              .read<SignUpFormBloc>()
+              .add(SignUpFormEvent.changeFirstName(value)),
         ),
-        const SizedBox(
-          height: 30,
-        ),
-        InputTextWidget(
+      );
+}
+
+class _LastNameInput extends StatelessWidget {
+  final Function() callBack;
+
+  const _LastNameInput({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) =>
+      BlocBuilder<SignUpFormBloc, SignUpFormState>(
+        buildWhen: (previous, current) =>
+            previous.firstName != current.firstName,
+        builder: (context, state) => InputTextWidget(
           hintText: "Last Name",
+          value: state.lastName,
           textInputType: TextInputType.name,
           prefixIcon: SvgPicture.asset(
             "assets/images/auth/user.svg",
           ),
-          onEditingCompleted: () {
-            debugPrint("Email Edit Completed");
-            node.nextFocus();
-          },
-          onChanged: (value) {},
+          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          onEditingCompleted: callBack,
+          onChanged: (value) => context
+              .read<SignUpFormBloc>()
+              .add(SignUpFormEvent.changeLastName(value)),
         ),
-        const SizedBox(
-          height: 30,
-        ),
-        InputTextWidget(
+      );
+}
+
+class _EmailInput extends StatelessWidget {
+  final Function() callBack;
+
+  const _EmailInput({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) =>
+      BlocBuilder<SignUpFormBloc, SignUpFormState>(
+        buildWhen: (previous, current) =>
+            previous.firstName != current.firstName,
+        builder: (context, state) => InputTextWidget(
           hintText: "Email Address",
+          value: state.emailAddress,
           textInputType: TextInputType.emailAddress,
           prefixIcon: SvgPicture.asset(
             "assets/images/auth/email.svg",
           ),
-          onEditingCompleted: () {
-            debugPrint("Email Edit Completed");
-            node.nextFocus();
-          },
-          onChanged: (value) {},
+          validator: Validator.isValidEmail,
+          onEditingCompleted: callBack,
+          onChanged: (value) => context
+              .read<SignUpFormBloc>()
+              .add(SignUpFormEvent.changeEmail(value)),
         ),
-        const SizedBox(
-          height: 30,
-        ),
-        InputTextWidget(
+      );
+}
+
+class _PasswordInput extends StatelessWidget {
+  final Function() callBack;
+
+  const _PasswordInput({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) =>
+      BlocBuilder<SignUpFormBloc, SignUpFormState>(
+        buildWhen: (previous, current) =>
+            previous.firstName != current.firstName,
+        builder: (context, state) => InputTextWidget(
           hintText: "Password",
+          value: state.password,
           obscureText: true,
           prefixIcon: SvgPicture.asset(
             "assets/images/auth/lock.svg",
@@ -77,18 +175,30 @@ class SignupFormWidget extends StatelessWidget {
               "assets/images/auth/password-invisible.svg",
             ),
           ),
+          validator: Validator.isValidPassword,
+          onEditingCompleted: callBack,
           textInputAction: TextInputAction.done,
-          onEditingCompleted: () {
-            debugPrint("Password Edit Completed");
-            node.unfocus();
+          onChanged: (value) => context
+              .read<SignUpFormBloc>()
+              .add(SignUpFormEvent.changePassword(value)),
+        ),
+      );
+}
+
+class _SignUpButton extends StatelessWidget {
+  const _SignUpButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SignUpFormBloc, SignUpFormState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () {
+            context.read<SignUpFormBloc>().add(
+                const SignUpFormEvent.signUpWithEmailPasswordAndOtherPressed());
           },
-          onChanged: (value) {},
-        ),
-        const SizedBox(
-          height: 33,
-        ),
-        InkWell(
-          onTap: () {},
           child: Container(
             height: 50,
             decoration: BoxDecoration(
@@ -103,8 +213,8 @@ class SignupFormWidget extends StatelessWidget {
                     "Sign Up",
                     style: TextStyle(
                       color: Palette.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15,
                     ),
                   ),
                   const SizedBox(width: 5),
@@ -115,30 +225,8 @@ class SignupFormWidget extends StatelessWidget {
               ),
             ),
           ),
-        )
-      ],
+        );
+      },
     );
   }
 }
-
-// class _EmailInput extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     // return BlocBuilder<LoginBloc, LoginState>(
-//     return BlocBuilder(
-//       buildWhen: (previous, current) => previous.email != current.email,
-//       builder: (context, state) {
-//         return TextField(
-//           key: const Key('loginForm_passwordInput_textField'),
-//           // onChanged: (password) =>
-//           //     context.read<LoginBloc>().add(LoginPasswordChanged(password)),
-//           obscureText: true,
-//           decoration: InputDecoration(
-//             labelText: 'password',
-//             errorText: state.password.invalid ? 'invalid password' : null,
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }

@@ -1,0 +1,11 @@
+{
+    "status": false,
+    "error": {
+        "password": [
+            "Credentials does not match!"
+        ],
+        "email": [
+            "Credentials does not match!"
+        ]
+    }
+}

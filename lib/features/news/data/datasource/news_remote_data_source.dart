@@ -59,7 +59,7 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         headers: _headers,
       );
     } catch (ex) {
-      throw ServerException(ex.toString());
+      throw ServerException(message: ex.toString());
     }
 
     if (response.statusCode == 200) {
@@ -67,7 +67,7 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
     } else {
       final errorModel = newsModelFromJson(response.body);
       throw ServerException(
-          errorModel?.error ?? AppConstants.someThingWentWrong);
+          message: errorModel?.error ?? AppConstants.someThingWentWrong);
     }
   }
 }

@@ -8,7 +8,7 @@ import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/features/news/domain/repository/news_repository.dart';
 
 @lazySingleton
-class GetNews implements Usecase<ApiFailure, List<NewsItem>, NoParams> {
+class GetNews implements UsecaseStream<ApiFailure, List<NewsItem>, NoParams> {
   final NewsRepositoryProtocol repository;
   final NetworkInfoProtocol networkInfo;
 
