@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon-qualification" transform="translate(-350 -228)">
+    <g id="diploma" transform="translate(351 230)">
+      <path id="Path_413" data-name="Path 413" d="M22.608,0H0V16.434H13.908v2.852l2.472-1.207,2.472,1.207V16.434h3.756ZM16.38,13.783a2.252,2.252,0,1,1,2.252-2.252A2.254,2.254,0,0,1,16.38,13.783Zm0,2.821-1.147.56V14.918a3.56,3.56,0,0,0,2.294,0v2.246Zm4.9-1.5H18.852v-1a3.577,3.577,0,1,0-4.944,0v1H1.325V1.325H21.283Zm0,0" fill="#fad200"/>
+      <path id="Path_414" data-name="Path 414" d="M60.035,120.094H77.341v1.325H60.035Zm0,0" transform="translate(-57.384 -114.791)" fill="#fad200"/>
+      <path id="Path_415" data-name="Path 415" d="M105.07,60.047H118.4v1.325H105.07Zm0,0" transform="translate(-100.43 -57.395)" fill="#fad200"/>
+      <path id="Path_416" data-name="Path 416" d="M60.035,282.121h6.444v1.325H60.035Zm0,0" transform="translate(-57.384 -269.663)" fill="#fad200"/>
+      <path id="Path_417" data-name="Path 417" d="M60.035,222.07h6.444v1.325H60.035Zm0,0" transform="translate(-57.384 -212.264)" fill="#fad200"/>
+    </g>
+    <rect id="Rectangle_97" data-name="Rectangle 97" width="24" height="24" transform="translate(350 228)" fill="none"/>
+  </g>
+</svg>

@@ -65,6 +65,12 @@ dependencies:
 
   #flush bar (Snack bar)
   flushbar: ^1.10.4
+  #Flutter Download
+  flutter_downloader: ^1.5.2
+  path_provider: ^1.6.27
+
+  #Flutter Model
+  modal_bottom_sheet: ^1.0.0+1
 
 dev_dependencies:
   integration_test: ^1.0.2+2
@@ -100,6 +106,7 @@ flutter:
     - assets/images/news/
     - assets/images/auth/
     - assets/images/placeholders/
+    - assets/images/resume/
     - config/
 
   # An image asset can refer to one or more resolution-specific "variants", see

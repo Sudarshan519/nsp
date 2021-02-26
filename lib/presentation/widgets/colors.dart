@@ -7,6 +7,10 @@ class Palette {
   static Color black = HexColor.fromHex('#000000');
   static Color primaryBackground = HexColor.fromHex('#efefef');
 
+  static Color dividerColor = HexColor.fromHex('#E3E3E3');
+
+  static Color formEditPencilColor = HexColor.fromHex("#9A9A9A");
+
   static Color primary = HexColor.fromHex('#E7AB00');
   static Color accent = HexColor.fromHex('#5663FF');
 
