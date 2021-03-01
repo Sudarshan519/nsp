@@ -15,7 +15,10 @@ abstract class AuthRemoteDataSourceProtocol {
   /// Calls the https://base_url/login/ endpoint
   ///
   /// Throws [ServerException] for all error codes.
-  Future<WalletUserModel> postNormalLogin(String username, String password);
+  Future<WalletUserModel> postNormalLogin({
+    @required String username,
+    @required String password,
+  });
 
   /// Calls the https://base_url/register/ endpoint
   ///
@@ -36,6 +39,13 @@ abstract class AuthRemoteDataSourceProtocol {
     @required String email,
     @required String code,
   });
+
+  /// Calls the https://base_url/email/password/reset/code/
+  ///
+  /// Throws [ServerException] for all error codes.
+  Future<Unit> resetCode({
+    @required String email,
+  });
 }
 
 @LazySingleton(as: AuthRemoteDataSourceProtocol)
@@ -51,11 +61,14 @@ class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
   AuthRemoteDataSource({
     @required this.client,
     @required this.config,
-  });
+  })  : assert(client != null),
+        assert(config != null);
 
   @override
-  Future<WalletUserModel> postNormalLogin(
-      String username, String password) async {
+  Future<WalletUserModel> postNormalLogin({
+    @required String username,
+    @required String password,
+  }) async {
     final body = {
       'email': username,
       'password': password,
@@ -64,24 +77,25 @@ class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
   }
 
   @override
-  Future<Unit> postNormalSignUp(
-      {String firstName,
-      String lastName,
-      String email,
-      String phoneNumber,
-      String password,
-      String confirmPassword}) async {
+  Future<Unit> postNormalSignUp({
+    @required String firstName,
+    @required String lastName,
+    @required String email,
+    @required String phoneNumber,
+    @required String password,
+    @required String confirmPassword,
+  }) async {
     final url =
         "${config.baseURL}${config.apiPath}${AuthApiEndpoints.postRegister}";
 
     final Map<String, String> params = {
+      "first_name": firstName,
+      "last_name": lastName,
       "email": email,
       "password": password,
       "password_confirmation": confirmPassword,
-      "first_name": firstName,
-      "last_name": lastName,
       "phone": phoneNumber,
-      "created_gps": "test",
+      "created_gps": "gps",
     };
     http.Response response;
 
@@ -144,6 +158,18 @@ class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
     final body = {"email": email, "code": code};
     return _postRequestForAuth(
       AuthApiEndpoints.verifyEmail,
+      _header,
+      body,
+    );
+  }
+
+  @override
+  Future<Unit> resetCode({
+    @required String email,
+  }) {
+    final body = {"email": email};
+    return _postRequestForAuth(
+      AuthApiEndpoints.getNewVerificationCode,
       _header,
       body,
     );

@@ -30,7 +30,9 @@ class SignInWithEmailAndPassword
     }
 
     return repository.postUserSignInWithUsernameAndPassword(
-        params.username, params.password);
+      username: params.username,
+      password: params.password,
+    );
   }
 }
 

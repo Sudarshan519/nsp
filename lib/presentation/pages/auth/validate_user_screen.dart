@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
@@ -124,7 +126,9 @@ class _VerifyUserPageBody extends StatelessWidget {
     );
   }
 
-  Widget _didnotRecivedTheCode(BuildContext context) {
+  Widget _didnotRecivedTheCode(
+    BuildContext context,
+  ) {
     return Row(
       children: [
         Text(
@@ -137,7 +141,7 @@ class _VerifyUserPageBody extends StatelessWidget {
         const SizedBox(width: 5),
         InkWell(
           onTap: () {
-            ExtendedNavigator.of(context).pop();
+            context.read<VerifyEmailBloc>().add(VerifyEmailEvent.resend(email));
           },
           child: Text(
             "send again.",

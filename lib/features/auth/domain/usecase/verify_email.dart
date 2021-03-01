@@ -26,11 +26,11 @@ class VerifyEmail implements Usecase<ApiFailure, Unit, VerifyEmailParams> {
         ApiFailure.serverError(message: "Code should be 4 characters long."),
       );
     }
-    return repository.verifyEmail(params.email, params.code);
+    return repository.verifyEmail(email: params.email, code: params.code);
   }
 
   Future<Either<ApiFailure, Unit>> getNewVerificationCode(String email) async {
-    return repository.getNewVerificationCode(email);
+    return repository.getNewVerificationCode(email: email);
   }
 }
 

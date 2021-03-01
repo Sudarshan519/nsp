@@ -7,10 +7,9 @@ import 'package:wallet_app/features/news/data/app_constant/constant.dart';
 import 'package:wallet_app/features/news/data/datasource/news_remote_data_source.dart';
 import 'package:wallet_app/utils/constant.dart';
 
+import '../../../../mocks/mocks.dart';
 import '../../../../stub/stub.dart';
 import '../../../../utils/test_constant/news/test_constant.dart';
-
-class MockHttpClient extends Mock implements http.Client {}
 
 void main() {
   MockHttpClient client;

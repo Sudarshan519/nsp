@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route_annotations.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -18,14 +17,20 @@ class AuthRepository implements AuthRepositoryProtocol {
   AuthRepository({
     @required this.remoteDataSource,
     @required this.localDataSource,
-  });
+  })  : assert(remoteDataSource != null),
+        assert(localDataSource != null);
 
   @override
-  Future<Either<ApiFailure, WalletUser>> postUserSignInWithUsernameAndPassword(
-      String username, String password) async {
+  Future<Either<ApiFailure, WalletUser>> postUserSignInWithUsernameAndPassword({
+    @required String username,
+    @required String password,
+  }) async {
     return _login(
       request: () {
-        return remoteDataSource.postNormalLogin(username, password);
+        return remoteDataSource.postNormalLogin(
+          username: username,
+          password: password,
+        );
       },
     );
   }
@@ -56,18 +61,8 @@ class AuthRepository implements AuthRepositoryProtocol {
 
   @override
   Future<Unit> logoutUser() async {
-    localDataSource.delete();
+    await localDataSource.delete();
     return unit;
-  }
-
-  @override
-  Future<Either<ApiFailure, Unit>> changePassword(
-      {String email,
-      String code,
-      String password,
-      String verificationPassword}) {
-    // TODO: implement changePassword
-    throw UnimplementedError();
   }
 
   @override
@@ -77,32 +72,19 @@ class AuthRepository implements AuthRepositoryProtocol {
   }
 
   @override
-  Future<Either<ApiFailure, Unit>> getNewVerificationCode(String email) {
-    // TODO: implement getNewVerificationCode
-    throw UnimplementedError();
+  Future<Either<ApiFailure, Unit>> getNewVerificationCode({
+    @required String email,
+  }) {
+    return _postMethod(request: () {
+      return remoteDataSource.resetCode(email: email);
+    });
   }
 
   @override
-  Future<Either<ApiFailure, Unit>> getPasswordResetCode(String email) {
-    // TODO: implement getPasswordResetCode
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<ApiFailure, WalletUser>> loginWithFacebook() {
-    // TODO: implement loginWithFacebook
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<ApiFailure, WalletUser>> loginWithGoogle() {
-    // TODO: implement loginWithGoogle
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<ApiFailure, Unit>> verifyEmail(
-      String email, String code) async {
+  Future<Either<ApiFailure, Unit>> verifyEmail({
+    @required String email,
+    @required String code,
+  }) async {
     return _postMethod(request: () {
       return remoteDataSource.verifyEmail(email: email, code: code);
     });
@@ -111,12 +93,6 @@ class AuthRepository implements AuthRepositoryProtocol {
   @override
   Future<Either<ApiFailure, WalletUser>> verifyUserForToken(WalletUser user) {
     // TODO: implement verifyUserForToken
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<ApiFailure, WalletUser>> loginWithApple() {
-    // TODO: implement loginWithApple
     throw UnimplementedError();
   }
 

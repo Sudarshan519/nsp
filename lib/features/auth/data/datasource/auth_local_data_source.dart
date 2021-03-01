@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
@@ -23,13 +24,14 @@ abstract class AuthLocalDataSourceProtocol {
 
 @LazySingleton(as: AuthLocalDataSourceProtocol)
 class AuthLocalDataSource implements AuthLocalDataSourceProtocol {
-  // final FlutterSecureStorage secureStorage;
+  final FlutterSecureStorage secureStorage;
   final SharedPreferences preferences;
 
   AuthLocalDataSource({
-    // @required this.secureStorage,
+    @required this.secureStorage,
     @required this.preferences,
-  });
+  })  : assert(secureStorage != null),
+        assert(preferences != null);
 
   @override
   Future<WalletUserModel> getWalletUser() async {
@@ -42,7 +44,7 @@ class AuthLocalDataSource implements AuthLocalDataSourceProtocol {
           json.decode(value) as Map<String, dynamic>);
     } catch (ex) {
       debugPrint(ex.toString());
-      rethrow;
+      throw CacheException();
     }
   }
 
@@ -53,7 +55,6 @@ class AuthLocalDataSource implements AuthLocalDataSourceProtocol {
       await preferences.setString(AuthPreferenceKeys.walletUser, jsonString);
     } catch (ex) {
       debugPrint(ex.toString());
-      rethrow;
     }
   }
 
@@ -66,20 +67,21 @@ class AuthLocalDataSource implements AuthLocalDataSourceProtocol {
   @override
   Future saveAppleUser(Map<String, dynamic> appleUser) async {
     final jsonString = json.encode(appleUser);
-    await preferences.setString(AuthPreferenceKeys.appleUser, jsonString);
+    await secureStorage.write(
+        key: AuthPreferenceKeys.appleUser, value: jsonString);
   }
 
   @override
   Future<Map<String, dynamic>> getAppleUser() async {
     try {
-      final value = preferences.getString(AuthPreferenceKeys.appleUser);
+      final value = await secureStorage.read(key: AuthPreferenceKeys.appleUser);
       if (value == null) {
         throw CacheException();
       }
       return json.decode(value) as Map<String, dynamic>;
     } catch (ex) {
       debugPrint(ex.toString());
-      rethrow;
+      throw CacheException();
     }
   }
 }

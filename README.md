@@ -30,3 +30,7 @@ This json is injected at the build time from CI/CD. Thus the url consistancy is 
 
 To generate APP_CONFIG with appbase url and pass it to the CI/CD
 Execute: openssl base64 -in config/app_config.json -out config/outputfile.txt
+
+Check Coverage:
+Execute: flutter test --coverage
+Execute: genhtml -o coverage coverage/lcov.info

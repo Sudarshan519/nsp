@@ -6,6 +6,7 @@
 
 import 'package:http/http.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +18,7 @@ import '../features/auth/domain/repositories/auth_repository.dart';
 import '../utils/config_reader.dart';
 import '../core/database/local_database_provider.dart';
 import 'injectable/data_connection_checker_injectable_module.dart';
+import 'injectable/flutter_secure_storage_module.dart';
 import '../features/news/domain/usecase/get_news.dart';
 import '../features/auth/domain/usecase/get_insurange_user.dart';
 import 'injectable/http_client_injectable_module.dart';
@@ -47,18 +49,22 @@ Future<GetIt> $initGetIt(
   final gh = GetItHelper(get, environment, environmentFilter);
   final httpClientInjectableModule = _$HttpClientInjectableModule();
   final dataConnectionCheckerModule = _$DataConnectionCheckerModule();
+  final flutterStorageModule = _$FlutterStorageModule();
   final sharedPreferenceModule = _$SharedPreferenceModule();
   gh.factory<Client>(() => httpClientInjectableModule.client);
   gh.lazySingleton<DataConnectionChecker>(
       () => dataConnectionCheckerModule.dataConnectionChecker);
+  gh.lazySingleton<FlutterSecureStorage>(
+      () => flutterStorageModule.secureStorate);
   gh.lazySingleton<NetworkInfoProtocol>(
       () => NetworkInfo(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(
       () => NewsRemoteDataSource(client: get<Client>()));
   final resolvedSharedPreferences = await sharedPreferenceModule.prefs;
   gh.factory<SharedPreferences>(() => resolvedSharedPreferences);
-  gh.lazySingleton<AuthLocalDataSourceProtocol>(
-      () => AuthLocalDataSource(preferences: get<SharedPreferences>()));
+  gh.lazySingleton<AuthLocalDataSourceProtocol>(() => AuthLocalDataSource(
+      secureStorage: get<FlutterSecureStorage>(),
+      preferences: get<SharedPreferences>()));
   gh.lazySingleton<AuthRemoteDataSourceProtocol>(() =>
       AuthRemoteDataSource(client: get<Client>(), config: get<ConfigReader>()));
   gh.lazySingleton<AuthRepositoryProtocol>(() => AuthRepository(
@@ -102,5 +108,7 @@ Future<GetIt> $initGetIt(
 class _$HttpClientInjectableModule extends HttpClientInjectableModule {}
 
 class _$DataConnectionCheckerModule extends DataConnectionCheckerModule {}
+
+class _$FlutterStorageModule extends FlutterStorageModule {}
 
 class _$SharedPreferenceModule extends SharedPreferenceModule {}

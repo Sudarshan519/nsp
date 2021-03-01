@@ -463,8 +463,10 @@ class _$VerifyEmailStateTearOff {
   }
 
 // ignore: unused_element
-  _CodeSent codeSent() {
-    return const _CodeSent();
+  _CodeSent codeSent({String email}) {
+    return _CodeSent(
+      email: email,
+    );
   }
 
 // ignore: unused_element
@@ -490,7 +492,7 @@ mixin _$VerifyEmailState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult verified(),
-    @required TResult codeSent(),
+    @required TResult codeSent(String email),
     @required TResult failure(ApiFailure failure),
     @required TResult loading(),
   });
@@ -498,7 +500,7 @@ mixin _$VerifyEmailState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult verified(),
-    TResult codeSent(),
+    TResult codeSent(String email),
     TResult failure(ApiFailure failure),
     TResult loading(),
     @required TResult orElse(),
@@ -577,7 +579,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult verified(),
-    @required TResult codeSent(),
+    @required TResult codeSent(String email),
     @required TResult failure(ApiFailure failure),
     @required TResult loading(),
   }) {
@@ -594,7 +596,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult verified(),
-    TResult codeSent(),
+    TResult codeSent(String email),
     TResult failure(ApiFailure failure),
     TResult loading(),
     @required TResult orElse(),
@@ -683,7 +685,7 @@ class _$_Verified implements _Verified {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult verified(),
-    @required TResult codeSent(),
+    @required TResult codeSent(String email),
     @required TResult failure(ApiFailure failure),
     @required TResult loading(),
   }) {
@@ -700,7 +702,7 @@ class _$_Verified implements _Verified {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult verified(),
-    TResult codeSent(),
+    TResult codeSent(String email),
     TResult failure(ApiFailure failure),
     TResult loading(),
     @required TResult orElse(),
@@ -755,6 +757,7 @@ abstract class _Verified implements VerifyEmailState {
 abstract class _$CodeSentCopyWith<$Res> {
   factory _$CodeSentCopyWith(_CodeSent value, $Res Function(_CodeSent) then) =
       __$CodeSentCopyWithImpl<$Res>;
+  $Res call({String email});
 }
 
 /// @nodoc
@@ -765,31 +768,52 @@ class __$CodeSentCopyWithImpl<$Res> extends _$VerifyEmailStateCopyWithImpl<$Res>
 
   @override
   _CodeSent get _value => super._value as _CodeSent;
+
+  @override
+  $Res call({
+    Object email = freezed,
+  }) {
+    return _then(_CodeSent(
+      email: email == freezed ? _value.email : email as String,
+    ));
+  }
 }
 
 /// @nodoc
 class _$_CodeSent implements _CodeSent {
-  const _$_CodeSent();
+  const _$_CodeSent({this.email});
+
+  @override
+  final String email;
 
   @override
   String toString() {
-    return 'VerifyEmailState.codeSent()';
+    return 'VerifyEmailState.codeSent(email: $email)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _CodeSent);
+    return identical(this, other) ||
+        (other is _CodeSent &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
+
+  @JsonKey(ignore: true)
+  @override
+  _$CodeSentCopyWith<_CodeSent> get copyWith =>
+      __$CodeSentCopyWithImpl<_CodeSent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult verified(),
-    @required TResult codeSent(),
+    @required TResult codeSent(String email),
     @required TResult failure(ApiFailure failure),
     @required TResult loading(),
   }) {
@@ -798,7 +822,7 @@ class _$_CodeSent implements _CodeSent {
     assert(codeSent != null);
     assert(failure != null);
     assert(loading != null);
-    return codeSent();
+    return codeSent(email);
   }
 
   @override
@@ -806,14 +830,14 @@ class _$_CodeSent implements _CodeSent {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult verified(),
-    TResult codeSent(),
+    TResult codeSent(String email),
     TResult failure(ApiFailure failure),
     TResult loading(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (codeSent != null) {
-      return codeSent();
+      return codeSent(email);
     }
     return orElse();
   }
@@ -854,7 +878,11 @@ class _$_CodeSent implements _CodeSent {
 }
 
 abstract class _CodeSent implements VerifyEmailState {
-  const factory _CodeSent() = _$_CodeSent;
+  const factory _CodeSent({String email}) = _$_CodeSent;
+
+  String get email;
+  @JsonKey(ignore: true)
+  _$CodeSentCopyWith<_CodeSent> get copyWith;
 }
 
 /// @nodoc
@@ -929,7 +957,7 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult verified(),
-    @required TResult codeSent(),
+    @required TResult codeSent(String email),
     @required TResult failure(ApiFailure failure),
     @required TResult loading(),
   }) {
@@ -946,7 +974,7 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult verified(),
-    TResult codeSent(),
+    TResult codeSent(String email),
     TResult failure(ApiFailure failure),
     TResult loading(),
     @required TResult orElse(),
@@ -1039,7 +1067,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult verified(),
-    @required TResult codeSent(),
+    @required TResult codeSent(String email),
     @required TResult failure(ApiFailure failure),
     @required TResult loading(),
   }) {
@@ -1056,7 +1084,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult verified(),
-    TResult codeSent(),
+    TResult codeSent(String email),
     TResult failure(ApiFailure failure),
     TResult loading(),
     @required TResult orElse(),
