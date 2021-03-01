@@ -38,9 +38,7 @@ class ForgetPasswordFormWidget extends StatelessWidget {
           height: 23,
         ),
         InkWell(
-          onTap: () {
-            ExtendedNavigator.of(context).popAndPush(Routes.tabBarScreen);
-          },
+          onTap: () {},
           child: Container(
             height: 50,
             decoration: BoxDecoration(

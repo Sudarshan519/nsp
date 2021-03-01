@@ -41,8 +41,18 @@ class _LoginBody extends StatelessWidget {
                 ),
               ).show(context);
             },
-            (success) {
-              ExtendedNavigator.of(context).pushTabBarScreen();
+            (routes) {
+              routes.map(
+                showEmailVerificationScreen: (_) {
+                  ExtendedNavigator.of(context)
+                      .pushVerifyUserPage(email: state.emailAddress);
+                },
+                showSignInScreen: (_) {},
+                showHomeScreen: (_) {
+                  ExtendedNavigator.of(context).replace(Routes.tabBarScreen);
+                },
+                showSignUpScreen: (_) {},
+              );
             },
           ),
         );

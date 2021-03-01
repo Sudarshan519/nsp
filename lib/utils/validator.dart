@@ -9,7 +9,7 @@ class Validator {
 
   static String isValidPassword(String password) {
     return (ValidationBuilder()
-        .minLength(6, "Password should be atleast 6 character long.")
+        .minLength(8, "Password should be atleast 8 character long.")
         .build())(password);
   }
 

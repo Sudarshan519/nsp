@@ -1,0 +1,45 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/core/usecase/usecase.dart';
+import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dart';
+
+@lazySingleton
+class VerifyEmail implements Usecase<ApiFailure, Unit, VerifyEmailParams> {
+  final AuthRepositoryProtocol repository;
+
+  VerifyEmail({
+    @required this.repository,
+  });
+
+  @override
+  Future<Either<ApiFailure, Unit>> call(VerifyEmailParams params) async {
+    if (params.code.isEmpty) {
+      return const Left(
+        ApiFailure.serverError(message: "Code cannot be empty."),
+      );
+    }
+
+    if (params.code.length < 4) {
+      return const Left(
+        ApiFailure.serverError(message: "Code should be 4 characters long."),
+      );
+    }
+    return repository.verifyEmail(params.email, params.code);
+  }
+
+  Future<Either<ApiFailure, Unit>> getNewVerificationCode(String email) async {
+    return repository.getNewVerificationCode(email);
+  }
+}
+
+class VerifyEmailParams {
+  final String email;
+  final String code;
+
+  VerifyEmailParams({
+    @required this.email,
+    @required this.code,
+  });
+}

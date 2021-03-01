@@ -7,17 +7,19 @@ import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
-import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class AuthRemoteDataSourceProtocol {
-  /// Calls the https://base_url/login endpoint
+  /// Calls the https://base_url/login/ endpoint
   ///
   /// Throws [ServerException] for all error codes.
   Future<WalletUserModel> postNormalLogin(String username, String password);
 
+  /// Calls the https://base_url/register/ endpoint
+  ///
+  /// Throws [ServerException] for all error codes.
   Future<Unit> postNormalSignUp({
     @required String firstName,
     @required String lastName,
@@ -26,11 +28,20 @@ abstract class AuthRemoteDataSourceProtocol {
     @required String password,
     @required String confirmPassword,
   });
+
+  /// Calls the https://base_url/email/verify/endpoint
+  ///
+  /// Throws [ServerException] for all error codes.
+  Future<Unit> verifyEmail({
+    @required String email,
+    @required String code,
+  });
 }
 
 @LazySingleton(as: AuthRemoteDataSourceProtocol)
 class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
   final http.Client client;
+  final ConfigReader config;
 
   final _header = {
     'Accept': 'application/json',
@@ -39,6 +50,7 @@ class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
 
   AuthRemoteDataSource({
     @required this.client,
+    @required this.config,
   });
 
   @override
@@ -59,9 +71,9 @@ class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
       String phoneNumber,
       String password,
       String confirmPassword}) async {
-    final appConfig = getIt<ConfigReader>();
     final url =
-        "${appConfig.baseURL}${appConfig.apiPath}${AuthApiEndpoints.postRegister}";
+        "${config.baseURL}${config.apiPath}${AuthApiEndpoints.postRegister}";
+
     final Map<String, String> params = {
       "email": email,
       "password": password,
@@ -99,8 +111,7 @@ class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
   ) async {
     http.Response response;
 
-    final appConfig = getIt<ConfigReader>();
-    final url = "${appConfig.baseURL}${appConfig.apiPath}$uri";
+    final url = "${config.baseURL}${config.apiPath}$uri";
 
     try {
       response = await client.post(
@@ -116,6 +127,49 @@ class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
     if (statusCode == 200) {
       return WalletUserModel.fromJSON(
           json.decode(response.body) as Map<String, dynamic>);
+    } else if (statusCode == 403) {
+      return WalletUserModel.fromUnVerifiedUser();
+    } else {
+      throw ServerException(
+          message: errorMessageFromServer(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<Unit> verifyEmail({
+    @required String email,
+    @required String code,
+  }) async {
+    final body = {"email": email, "code": code};
+    return _postRequestForAuth(
+      AuthApiEndpoints.verifyEmail,
+      _header,
+      body,
+    );
+  }
+
+  Future<Unit> _postRequestForAuth(
+    String uri,
+    Map<String, String> header,
+    Map<String, dynamic> body,
+  ) async {
+    final url = "${config.baseURL}${config.apiPath}$uri";
+
+    http.Response response;
+    try {
+      response = await client.post(
+        url,
+        headers: header,
+        body: json.encode(body),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+    final statusCode = response.statusCode;
+
+    if (statusCode == 200) {
+      return unit;
     } else {
       throw ServerException(
           message: errorMessageFromServer(response.body) ??

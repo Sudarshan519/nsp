@@ -1,11 +1,17 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wallet_app/presentation/pages/auth/widgets/input_text_widget.dart';
-import 'package:wallet_app/presentation/routes/routes.gr.dart';
+import 'package:wallet_app/features/auth/presentation/verify_email/verify_email_bloc.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
+import 'pin_text_widget.dart';
+
 class ConfirmPinFormWidget extends StatelessWidget {
+  final String email;
+
+  const ConfirmPinFormWidget({Key key, @required this.email})
+      : assert(email != null),
+        super(key: key);
   @override
   Widget build(BuildContext context) {
     final node = FocusScope.of(context);
@@ -22,24 +28,58 @@ class ConfirmPinFormWidget extends StatelessWidget {
         const SizedBox(
           height: 40,
         ),
-        InputTextWidget(
-          hintText: "Security Pin",
-          textInputType: TextInputType.emailAddress,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/lock.svg",
+        const Center(
+          child: SizedBox(
+            width: 200,
+            child: _PinInput(),
           ),
-          onEditingCompleted: () {
-            debugPrint("Email Edit Completed");
-            node.nextFocus();
-          },
-          onChanged: (value) {},
         ),
         const SizedBox(
           height: 23,
         ),
-        InkWell(
+        _VerifyButton(
+          node: node,
+          email: email,
+        ),
+      ],
+    );
+  }
+}
+
+class _PinInput extends StatelessWidget {
+  const _PinInput({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) =>
+      BlocBuilder<VerifyEmailBloc, VerifyEmailState>(
+        builder: (context, state) => PinTextWidget(
+          onChanged: (value) {
+            context
+                .read<VerifyEmailBloc>()
+                .add(VerifyEmailEvent.changePin(value));
+          },
+        ),
+      );
+}
+
+class _VerifyButton extends StatelessWidget {
+  final FocusNode node;
+  final String email;
+  const _VerifyButton({
+    Key key,
+    @required this.node,
+    @required this.email,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) =>
+      BlocBuilder<VerifyEmailBloc, VerifyEmailState>(
+        builder: (context, state) => InkWell(
           onTap: () {
-            ExtendedNavigator.of(context).popAndPush(Routes.tabBarScreen);
+            node.unfocus();
+            context.read<VerifyEmailBloc>().add(VerifyEmailEvent.verify(email));
           },
           child: Container(
             height: 50,
@@ -67,8 +107,6 @@ class ConfirmPinFormWidget extends StatelessWidget {
               ),
             ),
           ),
-        )
-      ],
-    );
-  }
+        ),
+      );
 }

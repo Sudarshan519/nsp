@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route_annotations.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -59,18 +60,6 @@ class AuthRepository implements AuthRepositoryProtocol {
     return unit;
   }
 
-  // MARK:- Private functions
-  Future<Either<ApiFailure, WalletUserModel>> _login(
-      {@required Future<WalletUserModel> Function() request}) async {
-    try {
-      final userData = await request();
-      localDataSource.save(userData);
-      return Right(userData);
-    } on ServerException catch (ex) {
-      return Left(ApiFailure.serverError(message: ex.message));
-    }
-  }
-
   @override
   Future<Either<ApiFailure, Unit>> changePassword(
       {String email,
@@ -112,9 +101,11 @@ class AuthRepository implements AuthRepositoryProtocol {
   }
 
   @override
-  Future<Either<ApiFailure, Unit>> verifyEmail(String email, String code) {
-    // TODO: implement verifyEmail
-    throw UnimplementedError();
+  Future<Either<ApiFailure, Unit>> verifyEmail(
+      String email, String code) async {
+    return _postMethod(request: () {
+      return remoteDataSource.verifyEmail(email: email, code: code);
+    });
   }
 
   @override
@@ -127,5 +118,26 @@ class AuthRepository implements AuthRepositoryProtocol {
   Future<Either<ApiFailure, WalletUser>> loginWithApple() {
     // TODO: implement loginWithApple
     throw UnimplementedError();
+  }
+
+  // MARK:- Private functions
+  Future<Either<ApiFailure, WalletUserModel>> _login(
+      {@required Future<WalletUserModel> Function() request}) async {
+    try {
+      final userData = await request();
+      localDataSource.save(userData);
+      return Right(userData);
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  Future<Either<ApiFailure, Unit>> _postMethod(
+      {@required Future<Unit> Function() request}) async {
+    try {
+      return Right(await request());
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
   }
 }

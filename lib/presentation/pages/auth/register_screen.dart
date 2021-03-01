@@ -43,7 +43,20 @@ class _SignupBody extends StatelessWidget {
               ).show(context);
             },
             (success) {
-              ExtendedNavigator.of(context).push(Routes.loginPage);
+              showDialog(
+                context: context,
+                builder: (_) => PopUpSuccessOverLay(
+                  title: AppConstants.signUpCompleteTitle,
+                  message: AppConstants.signUpCompleteMessage,
+                  onPressed: () {
+                    ExtendedNavigator.of(context).replace(
+                      Routes.verifyUserPage,
+                      arguments:
+                          VerifyUserPageArguments(email: state.emailAddress),
+                    );
+                  },
+                ),
+              );
             },
           ),
         );

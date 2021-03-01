@@ -56,8 +56,12 @@ class Router extends RouterBase {
       );
     },
     VerifyUserPage: (data) {
+      final args = data.getArgs<VerifyUserPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => VerifyUserPage(),
+        builder: (context) => VerifyUserPage(
+          key: args.key,
+          email: args.email,
+        ),
         settings: data,
       );
     },
@@ -86,9 +90,27 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushForgotPasswordPage() =>
       push<dynamic>(Routes.forgotPasswordPage);
 
-  Future<dynamic> pushVerifyUserPage() => push<dynamic>(Routes.verifyUserPage);
+  Future<dynamic> pushVerifyUserPage({
+    Key key,
+    @required String email,
+  }) =>
+      push<dynamic>(
+        Routes.verifyUserPage,
+        arguments: VerifyUserPageArguments(key: key, email: email),
+      );
 
   Future<dynamic> pushSignupPage() => push<dynamic>(Routes.signupPage);
 
   Future<dynamic> pushTabBarScreen() => push<dynamic>(Routes.tabBarScreen);
+}
+
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
+
+/// VerifyUserPage arguments holder class
+class VerifyUserPageArguments {
+  final Key key;
+  final String email;
+  VerifyUserPageArguments({this.key, @required this.email});
 }

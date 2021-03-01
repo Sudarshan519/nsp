@@ -33,6 +33,8 @@ import '../features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
 import '../features/auth/domain/usecase/sign_in_with_email.dart';
 import '../features/auth/presentation/sign_up/sign_up_form_bloc.dart';
 import '../features/auth/domain/usecase/sign_up_user.dart';
+import '../features/auth/domain/usecase/verify_email.dart';
+import '../features/auth/presentation/verify_email/verify_email_bloc.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -57,8 +59,8 @@ Future<GetIt> $initGetIt(
   gh.factory<SharedPreferences>(() => resolvedSharedPreferences);
   gh.lazySingleton<AuthLocalDataSourceProtocol>(
       () => AuthLocalDataSource(preferences: get<SharedPreferences>()));
-  gh.lazySingleton<AuthRemoteDataSourceProtocol>(
-      () => AuthRemoteDataSource(client: get<Client>()));
+  gh.lazySingleton<AuthRemoteDataSourceProtocol>(() =>
+      AuthRemoteDataSource(client: get<Client>(), config: get<ConfigReader>()));
   gh.lazySingleton<AuthRepositoryProtocol>(() => AuthRepository(
       remoteDataSource: get<AuthRemoteDataSourceProtocol>(),
       localDataSource: get<AuthLocalDataSourceProtocol>()));
@@ -76,6 +78,10 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<SignUpWithEmailPasswordAndUserDetail>(() =>
       SignUpWithEmailPasswordAndUserDetail(
           repository: get<AuthRepositoryProtocol>()));
+  gh.lazySingleton<VerifyEmail>(
+      () => VerifyEmail(repository: get<AuthRepositoryProtocol>()));
+  gh.factory<VerifyEmailBloc>(
+      () => VerifyEmailBloc(verifyEmail: get<VerifyEmail>()));
   gh.lazySingleton<GetNews>(() => GetNews(
       repository: get<NewsRepositoryProtocol>(),
       networkInfo: get<NetworkInfoProtocol>()));
