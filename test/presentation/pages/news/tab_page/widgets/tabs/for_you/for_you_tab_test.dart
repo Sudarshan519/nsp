@@ -13,6 +13,7 @@ class MockBuildContext extends Mock implements BuildContext {}
 class MockNewsBloc extends Mock implements NewsBloc {}
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   ForYouNewsTab _widget;
   // MockBuildContext _context;
 

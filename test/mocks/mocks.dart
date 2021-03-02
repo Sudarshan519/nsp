@@ -3,6 +3,9 @@ import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_remote_data_source.dart';
+import 'package:wallet_app/features/home/data/datasource/home_remote_data_source.dart';
+import 'package:wallet_app/features/home/domain/repositories/home_repository.dart';
+import 'package:wallet_app/features/home/domain/usecases/get_home_page_data.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:http/http.dart' as http;
 
@@ -36,3 +39,11 @@ class MockAuthRemoteDataSourceProtocol extends Mock
 
 class MockAuthLocalDataSourceProtocol extends Mock
     implements AuthLocalDataSourceProtocol {}
+
+// Home Mock
+class MockHomePageRemoteDataSource extends Mock
+    implements HomePageRemoteDataSource {}
+
+class MockHomeReporisitory extends Mock implements HomeReporisitory {}
+
+class MockGetHomePageData extends Mock implements GetHomePageData {}

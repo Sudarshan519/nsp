@@ -19,8 +19,11 @@ import '../utils/config_reader.dart';
 import '../core/database/local_database_provider.dart';
 import 'injectable/data_connection_checker_injectable_module.dart';
 import 'injectable/flutter_secure_storage_module.dart';
+import '../features/home/domain/usecases/get_home_page_data.dart';
 import '../features/news/domain/usecase/get_news.dart';
 import '../features/auth/domain/usecase/get_insurange_user.dart';
+import '../features/home/data/datasource/home_remote_data_source.dart';
+import '../features/home/domain/repositories/home_repository.dart';
 import 'injectable/http_client_injectable_module.dart';
 import '../features/auth/domain/usecase/logout_user.dart';
 import '../core/network/newtork_info.dart';
@@ -56,6 +59,10 @@ Future<GetIt> $initGetIt(
       () => dataConnectionCheckerModule.dataConnectionChecker);
   gh.lazySingleton<FlutterSecureStorage>(
       () => flutterStorageModule.secureStorate);
+  gh.lazySingleton<GetHomePageData>(
+      () => GetHomePageData(repository: get<HomeReporisitory>()));
+  gh.lazySingleton<HomePageRemoteDataSource>(() => HomePageRemoteDataSourceImpl(
+      client: get<Client>(), config: get<ConfigReader>()));
   gh.lazySingleton<NetworkInfoProtocol>(
       () => NetworkInfo(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(
