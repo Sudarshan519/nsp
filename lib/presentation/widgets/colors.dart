@@ -19,6 +19,8 @@ class Palette {
   static Color primaryButtonColor = HexColor.fromHex('#FAD200');
   static Color blackTextColor = HexColor.fromHex('#2C2D2F');
   static Color textFieldPlaceholderColor = HexColor.fromHex('#8C8C8C');
+
+  static Color appGreenColor = HexColor.fromHex('#13D219');
 }
 
 extension HexColor on Color {

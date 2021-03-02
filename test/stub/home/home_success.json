@@ -1,0 +1,366 @@
+[
+    {
+        "type": "resume",
+        "data": {
+            "status": true,
+            "data": {
+                "personal_info": {
+                    "id": 16,
+                    "job_seeker_id": 6,
+                    "first_name": "Siraj",
+                    "last_name": "Ashikarisadasd",
+                    "profession": "mah hear goes salalalala",
+                    "language_school": "",
+                    "language_school_postal_code": "",
+                    "language_school_address": "",
+                    "language_school_phone": "",
+                    "university": "Cowford Cramma",
+                    "university_postal_code": "333-044",
+                    "university_address": "",
+                    "university_phone": "",
+                    "furigana": "プレート",
+                    "dob": "2010-03-11",
+                    "age": "9",
+                    "gender": "Male",
+                    "nationality": "Nepalese",
+                    "curr_postal_code": "222-3332",
+                    "curr_prefecture": "Aomori",
+                    "curr_city": "Hashikami",
+                    "curr_address": "21321qwedq",
+                    "curr_phone": "+81 12 3123 2131",
+                    "cont_postal_code": "222-3332",
+                    "cont_prefecture": "Aomori",
+                    "cont_city": "Hashikami",
+                    "cont_address": "21321qwedq",
+                    "cont_phone": "+81 12 3123 2131",
+                    "known_languages": [
+                        {
+                            "value": "English",
+                            "label": "English"
+                        },
+                        {
+                            "value": "Nepali",
+                            "label": "Nepali"
+                        }
+                    ],
+                    "jlpt": "N2",
+                    "self_pr": "Very reputed",
+                    "extra_point": "I have super skillset to slideshare the home depot",
+                    "working_hours": "14 Hours-00 Minutes",
+                    "dependents_except_spouse": "3",
+                    "spouse": "Yes",
+                    "spouse_support_obligation": "No",
+                    "special_conditions": "Follow as per company rules and regulations",
+                    "language": "en",
+                    "created_at": "2020-01-26 18:01:11",
+                    "updated_at": "2021-02-09 04:26:18",
+                    "email": "shirajpng@gmail.com",
+                    "email_verified": 1,
+                    "contact_number": "+81 12 3123 2131",
+                    "phone_verified": 0,
+                    "language_school_prefecture": "",
+                    "language_school_prefecture_id": "",
+                    "language_school_city": "",
+                    "language_school_city_id": "",
+                    "university_prefecture": "",
+                    "university_prefecture_id": "",
+                    "university_city": "",
+                    "university_city_id": "",
+                    "image": "https://nspresume.truestreamz.com/storage/userProfileImage/1580294678helloquence-5fNmWej4tAA-unsplash.jpg"
+                },
+                "personal_info_completion_rate": 100,
+                "academic_history": [
+                    {
+                        "id": 1,
+                        "job_seeker_id": 6,
+                        "institute": "New Low School",
+                        "major_subject": "",
+                        "start_year": "2010",
+                        "start_month": "04",
+                        "completion_year": "2010",
+                        "completion_month": "04",
+                        "language": "en",
+                        "created_at": "2021-02-09 04:26:33",
+                        "updated_at": "2021-02-09 04:26:33"
+                    },
+                    {
+                        "id": 2,
+                        "job_seeker_id": 6,
+                        "institute": "Mthrlnd",
+                        "major_subject": "",
+                        "start_year": "3333",
+                        "start_month": "33",
+                        "completion_year": "4444",
+                        "completion_month": "44",
+                        "language": "en",
+                        "created_at": "2021-02-09 04:26:33",
+                        "updated_at": "2021-02-09 04:26:33"
+                    },
+                    {
+                        "id": 3,
+                        "job_seeker_id": 6,
+                        "institute": "New Low School",
+                        "major_subject": "",
+                        "start_year": "2010",
+                        "start_month": "04",
+                        "completion_year": "2010",
+                        "completion_month": "04",
+                        "language": "en",
+                        "created_at": "2021-02-23 06:31:52",
+                        "updated_at": "2021-02-23 06:31:52"
+                    },
+                    {
+                        "id": 4,
+                        "job_seeker_id": 6,
+                        "institute": "Mthrlnd",
+                        "major_subject": "",
+                        "start_year": "3333",
+                        "start_month": "33",
+                        "completion_year": "4444",
+                        "completion_month": "44",
+                        "language": "en",
+                        "created_at": "2021-02-23 06:31:52",
+                        "updated_at": "2021-02-23 06:31:52"
+                    }
+                ],
+                "academics_completion_rate": 90.9090909090909,
+                "academics_empty": {
+                    "job_seeker_id": "",
+                    "institute": "",
+                    "major_subject": "",
+                    "start_year": "",
+                    "start_month": "",
+                    "completion_year": "",
+                    "completion_month": "",
+                    "language": ""
+                },
+                "work_history": [
+                    {
+                        "id": 1,
+                        "job_seeker_id": 6,
+                        "company_name": "MITS",
+                        "company_type": "",
+                        "start_year": "5555",
+                        "start_month": "55",
+                        "end_year": "6666",
+                        "end_month": "66",
+                        "description": "",
+                        "language": "en",
+                        "created_at": "2021-02-09 04:26:33",
+                        "updated_at": "2021-02-09 04:26:33"
+                    },
+                    {
+                        "id": 2,
+                        "job_seeker_id": 6,
+                        "company_name": "MITS",
+                        "company_type": "",
+                        "start_year": "5555",
+                        "start_month": "55",
+                        "end_year": "6666",
+                        "end_month": "66",
+                        "description": "",
+                        "language": "en",
+                        "created_at": "2021-02-23 06:31:52",
+                        "updated_at": "2021-02-23 06:31:52"
+                    }
+                ],
+                "works_completion_rate": 83.33333333333334,
+                "works_empty": {
+                    "job_seeker_id": "",
+                    "company_name": "",
+                    "company_type": "",
+                    "start_year": "",
+                    "start_month": "",
+                    "end_year": "",
+                    "end_month": "",
+                    "description": "",
+                    "language": ""
+                },
+                "qualification_history": [
+                    {
+                        "id": 1,
+                        "job_seeker_id": 6,
+                        "qualification_name": "Driving Licence",
+                        "certified_year": "7777",
+                        "certified_month": "77",
+                        "language": "en",
+                        "created_at": "2021-02-09 04:26:33",
+                        "updated_at": "2021-02-09 04:26:33"
+                    },
+                    {
+                        "id": 2,
+                        "job_seeker_id": 6,
+                        "qualification_name": "Driving Licence",
+                        "certified_year": "7777",
+                        "certified_month": "77",
+                        "language": "en",
+                        "created_at": "2021-02-23 06:31:52",
+                        "updated_at": "2021-02-23 06:31:52"
+                    }
+                ],
+                "qualification_completion_rate": 100,
+                "qualifications_empty": {
+                    "job_seeker_id": "",
+                    "qualification_name": "",
+                    "certified_year": "",
+                    "certified_month": "",
+                    "language": ""
+                },
+                "options": {
+                    "nationalities": [
+                        "Nepalese",
+                        "Japanese",
+                        "Afghani",
+                        "Australian",
+                        "Austrian",
+                        "Chinese",
+                        "Indian"
+                    ],
+                    "known_languages": [
+                        {
+                            "value": "Japanese",
+                            "label": "Japanese"
+                        },
+                        {
+                            "value": "Nepali",
+                            "label": "Nepali"
+                        },
+                        {
+                            "value": "Afghan",
+                            "label": "Afghan"
+                        },
+                        {
+                            "value": "English",
+                            "label": "English"
+                        },
+                        {
+                            "value": "English",
+                            "label": "English"
+                        },
+                        {
+                            "value": "Chinese",
+                            "label": "Chinese"
+                        },
+                        {
+                            "value": "Hindi",
+                            "label": "Hindi"
+                        }
+                    ],
+                    "major_subjects": [
+                        "Computer Science",
+                        "Physics",
+                        "Mathematics"
+                    ],
+                    "company_types": [
+                        "Agriculture, Food and Natural Resources",
+                        "Architecture and Construction",
+                        "Arts, Audio/Video Technology and Communications",
+                        "Business Management and Administration",
+                        "Education and Training",
+                        "Finance",
+                        "Government and Public Administration",
+                        "Health Science",
+                        "Hospitality and Tourism",
+                        "Human Services",
+                        "Information Technology",
+                        "Law, Public Safety, Corrections and Security",
+                        "Manufacturing",
+                        "Marketing, Sales and Service",
+                        "Science, Technology, Engineering and Mathematics",
+                        "Gaming",
+                        "F&B",
+                        "Advertisement and Marketing",
+                        "Patrol and Curfews",
+                        "Government Level",
+                        "Corona",
+                        "Test Categoryyy",
+                        "Testing",
+                        "food processing"
+                    ],
+                    "preferences": [
+                        {
+                            "value": "Convenience Store",
+                            "label": "Convenience Store",
+                            "id": 1
+                        },
+                        {
+                            "value": "Restaurant/Food",
+                            "label": "Restaurant/Food",
+                            "id": 2
+                        },
+                        {
+                            "value": "Logistics/Shipments",
+                            "label": "Logistics/Shipments",
+                            "id": 3
+                        },
+                        {
+                            "value": "Hospitality/Cleaning",
+                            "label": "Hospitality/Cleaning",
+                            "id": 4
+                        },
+                        {
+                            "value": "Full Time Jobs",
+                            "label": "Full Time Jobs",
+                            "id": 5
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "type": "services",
+        "data": []
+    },
+    {
+        "type": "jp_manners",
+        "data": []
+    },
+    {
+        "type": "news",
+        "data": {
+            "page": 1,
+            "source": [
+                "bbc",
+                "cnn"
+            ],
+            "total": 12775,
+            "data": [
+                {
+                    "title":"title",
+                    "link":"link",
+                    "category":"category",
+                    "published_date":"published_date",
+                    "guid":"guid",
+                    "image":"image",
+                    "description": "description",
+                    "source":"source"
+                 }
+            ]
+        }
+    },
+    {
+        "type": "disaster_alert",
+        "data": [
+            {
+                "label": "label",
+                "advisory_title": "advisory_title",
+                "code": "code",
+                "depth_title": "depth_title",
+                "depth_value": "depth_value",
+                "epicenter_title": "epicenter_title",
+                "epicenter_value": "epicenter_value",
+                "is_cancel": 0,
+                "magnitude_title": "magnitude_title",
+                "magnitude_value": 0.0,
+                "major_warning_title": "major_warning_title",
+                "max_title": "max_title",
+                "max_value": "max_value",
+                "occurred_title": "occurred_title",
+                "occurred_value": "occurred_value",
+                "tsunami_message": "tsunami_message",
+                "warning_title": "warning_title"
+            }
+        ]
+    }
+]

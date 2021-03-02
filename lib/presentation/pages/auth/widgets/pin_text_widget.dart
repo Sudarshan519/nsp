@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sms_autofill/sms_autofill.dart';
-import 'package:wallet_app/features/auth/presentation/verify_email/verify_email_bloc.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 class PinTextWidget extends StatelessWidget {

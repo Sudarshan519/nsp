@@ -19,8 +19,13 @@ import '../utils/config_reader.dart';
 import '../core/database/local_database_provider.dart';
 import 'injectable/data_connection_checker_injectable_module.dart';
 import 'injectable/flutter_secure_storage_module.dart';
+import '../features/home/domain/usecases/get_home_page_data.dart';
 import '../features/news/domain/usecase/get_news.dart';
-import '../features/auth/domain/usecase/get_insurange_user.dart';
+import '../features/auth/domain/usecase/get_wallet_user.dart';
+import '../features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import '../features/home/data/datasource/home_remote_data_source.dart';
+import '../features/home/domain/repositories/home_repository.dart';
+import '../features/home/data/repositories/home_repository.dart';
 import 'injectable/http_client_injectable_module.dart';
 import '../features/auth/domain/usecase/logout_user.dart';
 import '../core/network/newtork_info.dart';
@@ -35,6 +40,7 @@ import '../features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
 import '../features/auth/domain/usecase/sign_in_with_email.dart';
 import '../features/auth/presentation/sign_up/sign_up_form_bloc.dart';
 import '../features/auth/domain/usecase/sign_up_user.dart';
+import '../features/splash/presentation/splash_bloc.dart';
 import '../features/auth/domain/usecase/verify_email.dart';
 import '../features/auth/presentation/verify_email/verify_email_bloc.dart';
 
@@ -56,6 +62,10 @@ Future<GetIt> $initGetIt(
       () => dataConnectionCheckerModule.dataConnectionChecker);
   gh.lazySingleton<FlutterSecureStorage>(
       () => flutterStorageModule.secureStorate);
+  gh.lazySingleton<HomePageRemoteDataSource>(() => HomePageRemoteDataSourceImpl(
+      client: get<Client>(), config: get<ConfigReader>()));
+  gh.lazySingleton<HomeReporisitory>(() =>
+      HomeRepositoryImpl(remoteDataSource: get<HomePageRemoteDataSource>()));
   gh.lazySingleton<NetworkInfoProtocol>(
       () => NetworkInfo(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(
@@ -70,8 +80,12 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<AuthRepositoryProtocol>(() => AuthRepository(
       remoteDataSource: get<AuthRemoteDataSourceProtocol>(),
       localDataSource: get<AuthLocalDataSourceProtocol>()));
+  gh.lazySingleton<GetHomePageData>(
+      () => GetHomePageData(repository: get<HomeReporisitory>()));
   gh.lazySingleton<GetWalletUser>(
       () => GetWalletUser(repository: get<AuthRepositoryProtocol>()));
+  gh.factory<HomePageDataBloc>(
+      () => HomePageDataBloc(getHomePageData: get<GetHomePageData>()));
   gh.lazySingleton<LogoutUser>(
       () => LogoutUser(repository: get<AuthRepositoryProtocol>()));
   gh.lazySingleton<NewsLocalDataSourceProtocol>(
@@ -79,13 +93,17 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<NewsRepositoryProtocol>(() => NewsRepository(
       remoteDataSource: get<NewsRemoteDataSourceProtocol>(),
       localDataSource: get<NewsLocalDataSourceProtocol>()));
-  gh.lazySingleton<SignInWithEmailAndPassword>(() =>
-      SignInWithEmailAndPassword(repository: get<AuthRepositoryProtocol>()));
+  gh.lazySingleton<SignInWithEmailAndPassword>(() => SignInWithEmailAndPassword(
+      repository: get<AuthRepositoryProtocol>(),
+      networkInfo: get<NetworkInfoProtocol>()));
   gh.lazySingleton<SignUpWithEmailPasswordAndUserDetail>(() =>
       SignUpWithEmailPasswordAndUserDetail(
-          repository: get<AuthRepositoryProtocol>()));
-  gh.lazySingleton<VerifyEmail>(
-      () => VerifyEmail(repository: get<AuthRepositoryProtocol>()));
+          repository: get<AuthRepositoryProtocol>(),
+          networkInfo: get<NetworkInfoProtocol>()));
+  gh.factory<SplashBloc>(() => SplashBloc(getWalletUser: get<GetWalletUser>()));
+  gh.lazySingleton<VerifyEmail>(() => VerifyEmail(
+      repository: get<AuthRepositoryProtocol>(),
+      networkInfo: get<NetworkInfoProtocol>()));
   gh.factory<VerifyEmailBloc>(
       () => VerifyEmailBloc(verifyEmail: get<VerifyEmail>()));
   gh.lazySingleton<GetNews>(() => GetNews(

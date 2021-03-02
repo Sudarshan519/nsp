@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/home_screen.dart';
 import 'package:wallet_app/presentation/pages/news/news_screen.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_screen.dart';
@@ -43,6 +46,20 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => getIt<HomePageDataBloc>()
+            ..add(
+              const HomePageDataEvent.fetch(),
+            ),
+        ),
+      ],
+      child: _tabController(),
+    );
+  }
+
+  Widget _tabController() {
     return DefaultTabController(
       length: _children.length,
       child: Scaffold(

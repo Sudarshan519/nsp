@@ -38,7 +38,6 @@ class VerifyEmailBloc extends Bloc<VerifyEmailEvent, VerifyEmailState> {
 
   void _mapChangePin(_ChangePin _changePin) {
     _pin = _changePin.pin;
-    print(_pin);
   }
 
   Stream<VerifyEmailState> _mapVerifyEvenToState(_Verify _verify) async* {

@@ -26,7 +26,7 @@ abstract class AuthRepositoryProtocol {
   // Future<Either<ApiFailure, WalletUser>> loginWithGoogle();
 
   // For fetching the user information
-  Future<Either<ApiFailure, WalletUser>> getInsuranceUser();
+  Future<Either<ApiFailure, WalletUser>> getWalletUser();
   Future<Either<ApiFailure, WalletUser>> verifyUserForToken(WalletUser user);
 
   Future<Either<ApiFailure, Unit>> verifyEmail({

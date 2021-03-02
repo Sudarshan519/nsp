@@ -20,13 +20,13 @@ class ResumeData extends Equatable {
   });
 
   final PersonalInfo personalInfo;
-  final double personalInfoCompletionRate;
+  final int personalInfoCompletionRate;
   final List<AcademicHistory> academicHistory;
-  final double academicsCompletionRate;
+  final int academicsCompletionRate;
   final List<WorkHistory> workHistory;
-  final double worksCompletionRate;
+  final int worksCompletionRate;
   final List<QualificationHistory> qualificationHistory;
-  final double qualificationCompletionRate;
+  final int qualificationCompletionRate;
   final ResumeOptions options;
 
   @override
