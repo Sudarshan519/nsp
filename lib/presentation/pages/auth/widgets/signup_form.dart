@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/auth/presentation/sign_up/sign_up_form_bloc.dart';
 import 'package:wallet_app/presentation/pages/auth/widgets/input_text_widget.dart';
-import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/validator.dart';
 

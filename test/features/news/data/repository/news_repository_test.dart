@@ -71,7 +71,8 @@ void main() {
         page: anyNamed('page'),
         appId: anyNamed('appId'),
         limit: anyNamed('limit'),
-      )).thenThrow(ServerException(message: AppConstants.someThingWentWrong));
+      )).thenThrow(
+          const ServerException(message: AppConstants.someThingWentWrong));
 
       // act
       final result = await repository.getNewsFromRemote(page: "1");

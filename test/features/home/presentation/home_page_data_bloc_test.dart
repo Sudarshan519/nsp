@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
-import 'package:wallet_app/features/home/presentation/bloc/home_page_data_bloc.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 
 import '../../../mocks/mocks.dart';
 

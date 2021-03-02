@@ -26,7 +26,7 @@ class MockConfigReader implements ConfigReader {
 
   @override
   Future<void> initialize() {
-    return Future.value(1);
+    return Future.value();
   }
 
   @override

@@ -66,9 +66,12 @@ class AuthRepository implements AuthRepositoryProtocol {
   }
 
   @override
-  Future<Either<ApiFailure, WalletUser>> getInsuranceUser() {
-    // TODO: implement getInsuranceUser
-    throw UnimplementedError();
+  Future<Either<ApiFailure, WalletUser>> getWalletUser() async {
+    try {
+      return Right(await localDataSource.getWalletUser());
+    } catch (ex) {
+      return const Left(ApiFailure.invalidUser());
+    }
   }
 
   @override

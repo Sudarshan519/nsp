@@ -16,7 +16,7 @@ class GetWalletUser implements Usecase<ApiFailure, WalletUser, NoParams> {
 
   @override
   Future<Either<ApiFailure, WalletUser>> call(NoParams params) async {
-    final result = await repository.getInsuranceUser();
+    final result = await repository.getWalletUser();
     return result.fold(
       (failure) {
         return Left(failure);
@@ -25,7 +25,8 @@ class GetWalletUser implements Usecase<ApiFailure, WalletUser, NoParams> {
         if (user.accessToken?.isEmpty ?? true) {
           return const Left(ApiFailure.invalidUser());
         }
-        return repository.verifyUserForToken(user);
+        return Right(user);
+        // return repository.verifyUserForToken(user);
       },
     );
   }

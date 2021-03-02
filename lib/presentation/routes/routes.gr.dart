@@ -13,15 +13,18 @@ import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
 import '../pages/auth/register_screen.dart';
 import '../pages/auth/validate_user_screen.dart';
+import '../pages/splash/splash_screen.dart';
 import '../pages/tab_bar/tab_bar_screen.dart';
 
 class Routes {
-  static const String loginPage = '/';
+  static const String splashScreen = '/';
+  static const String loginPage = '/login-page';
   static const String forgotPasswordPage = '/forgot-password-page';
   static const String verifyUserPage = '/verify-user-page';
   static const String signupPage = '/signup-page';
   static const String tabBarScreen = '/tab-bar-screen';
   static const all = <String>{
+    splashScreen,
     loginPage,
     forgotPasswordPage,
     verifyUserPage,
@@ -34,6 +37,7 @@ class Router extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
+    RouteDef(Routes.splashScreen, page: SplashScreen),
     RouteDef(Routes.loginPage, page: LoginPage),
     RouteDef(Routes.forgotPasswordPage, page: ForgotPasswordPage),
     RouteDef(Routes.verifyUserPage, page: VerifyUserPage),
@@ -43,6 +47,12 @@ class Router extends RouterBase {
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
+    SplashScreen: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => SplashScreen(),
+        settings: data,
+      );
+    },
     LoginPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => LoginPage(),
@@ -85,6 +95,8 @@ class Router extends RouterBase {
 /// *************************************************************************
 
 extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
+  Future<dynamic> pushSplashScreen() => push<dynamic>(Routes.splashScreen);
+
   Future<dynamic> pushLoginPage() => push<dynamic>(Routes.loginPage);
 
   Future<dynamic> pushForgotPasswordPage() =>

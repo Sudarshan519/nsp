@@ -3,12 +3,14 @@ import 'package:wallet_app/presentation/pages/auth/forgot_password_screen.dart';
 import 'package:wallet_app/presentation/pages/auth/login_screen.dart';
 import 'package:wallet_app/presentation/pages/auth/register_screen.dart';
 import 'package:wallet_app/presentation/pages/auth/validate_user_screen.dart';
+import 'package:wallet_app/presentation/pages/splash/splash_screen.dart';
 import 'package:wallet_app/presentation/pages/tab_bar/tab_bar_screen.dart';
 
 @MaterialAutoRouter(
   generateNavigationHelperExtension: true,
   routes: <AutoRoute>[
-    MaterialRoute(page: LoginPage, initial: true),
+    MaterialRoute(page: SplashScreen, initial: true),
+    MaterialRoute(page: LoginPage),
     MaterialRoute(page: ForgotPasswordPage),
     MaterialRoute(page: VerifyUserPage),
     MaterialRoute(page: SignupPage),
@@ -16,5 +18,5 @@ import 'package:wallet_app/presentation/pages/tab_bar/tab_bar_screen.dart';
   ],
 )
 class $Router {
-  LoginPage loginPage;
+  SplashScreen splashScreen;
 }
