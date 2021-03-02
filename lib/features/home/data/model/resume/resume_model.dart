@@ -10,13 +10,13 @@ import 'academic_history_model.dart';
 class ResumeDataModel extends ResumeData {
   const ResumeDataModel({
     @required PersonalInfoModel personalInfo,
-    @required double personalInfoCompletionRate,
+    @required int personalInfoCompletionRate,
     @required List<AcademicHistoryModel> academicHistory,
-    @required double academicsCompletionRate,
+    @required int academicsCompletionRate,
     @required List<WorkHistoryModel> workHistory,
-    @required double worksCompletionRate,
+    @required int worksCompletionRate,
     @required List<QualificationHistoryModel> qualificationHistory,
-    @required double qualificationCompletionRate,
+    @required int qualificationCompletionRate,
     @required ResumeOptionsModel options,
   }) : super(
           personalInfo: personalInfo,
@@ -35,23 +35,38 @@ class ResumeDataModel extends ResumeData {
         personalInfo: PersonalInfoModel.fromJson(
             json["personal_info"] as Map<String, dynamic>),
         personalInfoCompletionRate:
-            json["personal_info_completion_rate"] as double,
+            json["personal_info_completion_rate"] as int,
         academicHistory: List<AcademicHistoryModel>.from(
             (json["academic_history"] as Iterable).map((x) =>
                 AcademicHistoryModel.fromJson(x as Map<String, dynamic>))),
-        academicsCompletionRate: json["academics_completion_rate"] as double,
+        academicsCompletionRate: json["academics_completion_rate"] as int,
         workHistory: List<WorkHistoryModel>.from((json["work_history"]
                 as Iterable)
             .map((x) => WorkHistoryModel.fromJson(x as Map<String, dynamic>))),
-        worksCompletionRate: json["works_completion_rate"] as double,
+        worksCompletionRate: json["works_completion_rate"] as int,
         qualificationHistory: List<QualificationHistoryModel>.from(
             (json["qualification_history"] as Iterable).map((x) =>
                 QualificationHistoryModel.fromJson(x as Map<String, dynamic>))),
         qualificationCompletionRate:
-            json["qualification_completion_rate"] as double,
+            json["qualification_completion_rate"] as int,
         options: ResumeOptionsModel.fromJson(
             json["options"] as Map<String, dynamic>),
       );
+
+  // factory ResumeDataModel.fromJson(Map<String, dynamic> json) =>
+  //     ResumeDataModel(
+  //       personalInfo: PersonalInfoModel.fromJson(
+  //           json["personal_info"] as Map<String, dynamic>),
+  //       personalInfoCompletionRate:
+  //           (json["personal_info_completion_rate"] as int).toDouble(),
+  //       academicHistory: null,
+  //       academicsCompletionRate: null,
+  //       workHistory: null,
+  //       worksCompletionRate: null,
+  //       qualificationHistory: null,
+  //       qualificationCompletionRate: null,
+  //       options: null,
+  //     );
 
   Map<String, dynamic> toJson() => {
         "personal_info": (personalInfo as PersonalInfoModel).toJson(),

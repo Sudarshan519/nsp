@@ -2,8 +2,13 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/home/data/model/home_model.dart';
+import 'package:wallet_app/features/home/data/model/japanese_manner_model.dart';
+import 'package:wallet_app/features/home/data/model/resume/resume_model.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/presentation/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
+import 'package:wallet_app/presentation/pages/home/widgets/my_resume.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -82,15 +87,65 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _homePageBodyContent(BuildContext context, List data) {
-    return Column(
-      children: const [
-        BuildResume(),
-        BannerWidget(),
-        HomeServiceWidget(),
-        JapaneseMannerWidget(),
-        SegmentedNewViewWidget(),
-        SizedBox(height: 40),
-      ],
+    return ListView.builder(
+      primary: false,
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: data.length,
+      itemBuilder: (context, index) {
+        return _listItemBuilder(
+          context,
+          data[index],
+        );
+      },
     );
+  }
+
+  Widget _listItemBuilder(BuildContext context, dynamic data) {
+    final model = data as HomeModel;
+    final typeString = model.type;
+
+    final type = _getHomeItemTypeString(typeString);
+
+    switch (type) {
+      case HomeItemType.resume:
+        final data = model.data as Map<String, dynamic>;
+
+        if (data["status"] as bool == true) {
+          final map = data["data"] as Map<String, dynamic>;
+          final resumeModel = ResumeDataModel.fromJson(map);
+          return MyResumeWidget(data: resumeModel);
+        } else {
+          return const BuildResume();
+        }
+        break;
+      case HomeItemType.services:
+        return const HomeServiceWidget();
+
+      case HomeItemType.jp_manners:
+        final data = List<JapaneseMannerModel>.from((model.data as Iterable)
+            .map((x) =>
+                JapaneseMannerModel.fromJson(x as Map<String, dynamic>)));
+        return JapaneseMannerWidget(
+          data: data ?? [],
+        );
+
+      case HomeItemType.banner:
+        return const BannerWidget();
+
+      case HomeItemType.news:
+        return const SegmentedNewViewWidget();
+
+      case HomeItemType.disaster_alert:
+        return const SizedBox.shrink();
+      default:
+        return const SizedBox.shrink();
+    }
+  }
+
+  HomeItemType _getHomeItemTypeString(String type) {
+    final _type = 'HomeItemType.$type';
+    return HomeItemType.values
+        .firstWhere((f) => f.toString() == _type, orElse: () => null);
   }
 }

@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/home/data/model/japanese_manner_model.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/category_title_text.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
+import 'package:wallet_app/utils/config_reader.dart';
 
 class JapaneseMannerWidget extends StatelessWidget {
+  final List<JapaneseMannerModel> data;
   const JapaneseMannerWidget({
     Key key,
-  }) : super(key: key);
+    @required this.data,
+  })  : assert(data != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +21,12 @@ class JapaneseMannerWidget extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            children: const [
-              CategoryTitleWidget(title: "Japanese Manner"),
-              Spacer(),
+            children: [
+              const CategoryTitleWidget(title: "Japanese Manner"),
+              const Spacer(),
               Text(
-                "1/8",
-                style: TextStyle(
+                "1/${data.length}",
+                style: const TextStyle(
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -32,10 +38,10 @@ class JapaneseMannerWidget extends StatelessWidget {
             height: 280,
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 4,
+              itemCount: data.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return getServiceItem(context);
+                return getServiceItem(context, data[index]);
               },
             ),
           ),
@@ -44,7 +50,8 @@ class JapaneseMannerWidget extends StatelessWidget {
     );
   }
 
-  Widget getServiceItem(BuildContext context) {
+  Widget getServiceItem(BuildContext context, JapaneseMannerModel data) {
+    final baseURL = getIt<ConfigReader>().baseURL;
     return Container(
       color: Palette.white,
       width: MediaQuery.of(context).size.width * 0.45,
@@ -64,11 +71,15 @@ class JapaneseMannerWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: Palette.primaryBackground,
             ),
+            child: Image.network(
+              "$baseURL${data.image}",
+              fit: BoxFit.cover,
+            ),
           ),
           const SizedBox(height: 10),
-          const Text(
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the ",
-            style: TextStyle(
+          Text(
+            data.title ?? "",
+            style: const TextStyle(
               fontWeight: FontWeight.w500,
             ),
             textAlign: TextAlign.justify,
@@ -76,8 +87,9 @@ class JapaneseMannerWidget extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10),
+          const Spacer(),
           CustomButton(
-            title: "Education",
+            title: data?.category?.categoryName ?? "",
             onTap: () {},
           ),
         ],

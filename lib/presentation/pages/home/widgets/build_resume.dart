@@ -17,7 +17,7 @@ class BuildResume extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CategoryTitleWidget(title: "Build resume"),
+          const CategoryTitleWidget(title: "Build Resume"),
           const SizedBox(height: 10),
           ShadowBoxWidget(
             child: Row(

@@ -31,7 +31,7 @@ class PersonalInfo extends Equatable {
     @required this.contCity,
     @required this.contAddress,
     @required this.contPhone,
-    @required this.knownLanguages,
+    // @required this.knownLanguages,
     @required this.jlpt,
     @required this.selfPr,
     @required this.extraPoint,
@@ -86,7 +86,7 @@ class PersonalInfo extends Equatable {
   final String contCity;
   final String contAddress;
   final String contPhone;
-  final String knownLanguages;
+  // final String knownLanguages;
   final String jlpt;
   final String selfPr;
   final String extraPoint;
@@ -99,9 +99,9 @@ class PersonalInfo extends Equatable {
   final String createdAt;
   final String updatedAt;
   final String email;
-  final bool emailVerified;
+  final int emailVerified;
   final String contactNumber;
-  final bool phoneVerified;
+  final int phoneVerified;
   final String languageSchoolPrefecture;
   final String languageSchoolPrefectureId;
   final String languageSchoolCity;

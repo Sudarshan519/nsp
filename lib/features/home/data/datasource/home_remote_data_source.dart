@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/features/home/data/app_constant/constant.dart';
-import 'package:wallet_app/features/home/data/model/resume/home_model.dart';
+import 'package:wallet_app/features/home/data/model/home_model.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
