@@ -7,6 +7,9 @@ abstract class SignUpFormState with _$SignUpFormState {
     @required String lastName,
     @required String emailAddress,
     @required String password,
+    @required String confirmPassword,
+    @required bool isPasswordVisible,
+    @required bool isConfirmPasswordVisible,
     @required bool isSubmitting,
     @required Option<Either<ApiFailure, AuthRoutes>> authFailureOrSuccessOption,
   }) = _SignInFormState;
@@ -16,6 +19,9 @@ abstract class SignUpFormState with _$SignUpFormState {
         lastName: '',
         emailAddress: '',
         password: '',
+        confirmPassword: '',
+        isPasswordVisible: false,
+        isConfirmPasswordVisible: false,
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/home/domain/entities/services.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/category_title_text.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
+import 'package:wallet_app/utils/config_reader.dart';
 
 class HomeServiceWidget extends StatelessWidget {
+  final List<Services> services;
   const HomeServiceWidget({
     Key key,
+    @required this.services,
   }) : super(key: key);
 
   @override
@@ -30,13 +35,13 @@ class HomeServiceWidget extends StatelessWidget {
           const SizedBox(height: 10),
           Container(
             color: Palette.white,
-            height: 200,
+            height: 210,
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 4,
+              itemCount: services.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return getServiceItem(context);
+                return getServiceItem(context, services[index]);
               },
             ),
           ),
@@ -45,7 +50,8 @@ class HomeServiceWidget extends StatelessWidget {
     );
   }
 
-  Widget getServiceItem(BuildContext context) {
+  Widget getServiceItem(BuildContext context, Services services) {
+    final baseURL = getIt<ConfigReader>().baseURL;
     return Container(
       color: Palette.white,
       width: MediaQuery.of(context).size.width * 0.7,
@@ -61,12 +67,13 @@ class HomeServiceWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  width: 70,
-                  height: 70,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Palette.primaryBackground,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.network(
+                    "$baseURL${services.companyLogo}",
+                    height: 76,
+                    width: 90,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -74,9 +81,9 @@ class HomeServiceWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the ",
-                        style: TextStyle(
+                      Text(
+                        services?.serviceProductName ?? "",
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.justify,
@@ -85,7 +92,7 @@ class HomeServiceWidget extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       CustomButton(
-                        title: "Wallet",
+                        title: services?.category ?? "",
                         onTap: () {},
                       ),
                     ],
@@ -94,9 +101,9 @@ class HomeServiceWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            const Text(
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the ",
-              style: TextStyle(
+            Text(
+              "${services?.companyAddressHeadCity ?? ''},  ${services?.companyAddressHeadStreet ?? ''}",
+              style: const TextStyle(
                 fontWeight: FontWeight.w400,
               ),
               textAlign: TextAlign.justify,

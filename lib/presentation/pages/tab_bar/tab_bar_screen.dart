@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/home_screen.dart';
 import 'package:wallet_app/presentation/pages/news/news_screen.dart';
@@ -54,6 +55,10 @@ class TabBarScreenState extends State<TabBarScreen> {
               const HomePageDataEvent.fetch(),
             ),
         ),
+        BlocProvider(
+          create: (context) =>
+              getIt<NewsBloc>()..add(const NewsEvent.fetchNewsData()),
+        )
       ],
       child: _tabController(),
     );

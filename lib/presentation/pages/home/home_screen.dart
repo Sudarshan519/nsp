@@ -2,9 +2,10 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wallet_app/features/home/data/model/home_model.dart';
 import 'package:wallet_app/features/home/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/home/data/model/resume/resume_model.dart';
+import 'package:wallet_app/features/home/data/model/services_model.dart';
+import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/presentation/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
@@ -16,7 +17,7 @@ import 'widgets/banner_widget.dart';
 import 'widgets/build_resume.dart';
 import 'widgets/home_service_widget.dart';
 import 'widgets/japanese_manner_widget.dart';
-import 'widgets/segmented_news_widget.dart';
+import 'widgets/news/segmented_news_widget.dart';
 import 'widgets/user_info_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -89,6 +90,7 @@ class HomePage extends StatelessWidget {
   Widget _homePageBodyContent(BuildContext context, List data) {
     return ListView.builder(
       primary: false,
+      padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: data.length,
@@ -102,7 +104,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _listItemBuilder(BuildContext context, dynamic data) {
-    final model = data as HomeModel;
+    final model = data as HomeData;
     final typeString = model.type;
 
     final type = _getHomeItemTypeString(typeString);
@@ -120,7 +122,11 @@ class HomePage extends StatelessWidget {
         }
         break;
       case HomeItemType.services:
-        return const HomeServiceWidget();
+        final data = List<ServicesModel>.from((model.data as Iterable)
+            .map((x) => ServicesModel.fromJson(x as Map<String, dynamic>)));
+        return HomeServiceWidget(
+          services: data,
+        );
 
       case HomeItemType.jp_manners:
         final data = List<JapaneseMannerModel>.from((model.data as Iterable)
@@ -135,6 +141,8 @@ class HomePage extends StatelessWidget {
 
       case HomeItemType.news:
         return const SegmentedNewViewWidget();
+      // return const SizedBox.shrink();
+      // return const Expanded(child: NewsTabBarWidget());
 
       case HomeItemType.disaster_alert:
         return const SizedBox.shrink();

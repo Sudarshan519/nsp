@@ -14,7 +14,8 @@
             "guid":"guid",
             "image":"image",
             "description": "description",
-            "source":"source"
+            "source":"source",
+            "source_image": "source_image"
          }
     ],
     "error": null

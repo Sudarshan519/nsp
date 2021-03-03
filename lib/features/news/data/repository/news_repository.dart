@@ -40,7 +40,6 @@ class NewsRepository implements NewsRepositoryProtocol {
     try {
       final news = await remoteDataSource.getNews(
         page: page,
-        appId: NewsConstant.appId,
         limit: NewsConstant.limit,
       );
       localDataSource.saveNews(news: news);

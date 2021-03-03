@@ -254,7 +254,7 @@ class _ResumeInformationWidget extends StatelessWidget {
           const SizedBox(height: 10),
           Container(
             width: double.maxFinite,
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(12.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: Palette.primaryBackground,
@@ -268,6 +268,8 @@ class _ResumeInformationWidget extends StatelessWidget {
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 5),
                 Text(
@@ -277,6 +279,8 @@ class _ResumeInformationWidget extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     color: Palette.black.withOpacity(0.4),
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 5),
                 Text(
@@ -286,6 +290,8 @@ class _ResumeInformationWidget extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     color: Palette.black.withOpacity(0.4),
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 5),
                 Text(
@@ -295,6 +301,8 @@ class _ResumeInformationWidget extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     color: Palette.black.withOpacity(0.4),
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 5),
                 Text(
@@ -304,6 +312,8 @@ class _ResumeInformationWidget extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     color: Palette.black.withOpacity(0.4),
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),

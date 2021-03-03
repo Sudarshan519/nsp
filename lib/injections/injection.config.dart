@@ -68,8 +68,8 @@ Future<GetIt> $initGetIt(
       HomeRepositoryImpl(remoteDataSource: get<HomePageRemoteDataSource>()));
   gh.lazySingleton<NetworkInfoProtocol>(
       () => NetworkInfo(dataConnectionChecker: get<DataConnectionChecker>()));
-  gh.lazySingleton<NewsRemoteDataSourceProtocol>(
-      () => NewsRemoteDataSource(client: get<Client>()));
+  gh.lazySingleton<NewsRemoteDataSourceProtocol>(() =>
+      NewsRemoteDataSource(client: get<Client>(), config: get<ConfigReader>()));
   final resolvedSharedPreferences = await sharedPreferenceModule.prefs;
   gh.factory<SharedPreferences>(() => resolvedSharedPreferences);
   gh.lazySingleton<AuthLocalDataSourceProtocol>(() => AuthLocalDataSource(

@@ -54,6 +54,8 @@ class NewsItemWidget extends StatelessWidget {
                       height: 4,
                     ),
                     // TODO: change it to List builder
+                    // SingleChildScrollView(
+                    //   child:
                     Row(
                       children: [
                         Container(
@@ -68,40 +70,21 @@ class NewsItemWidget extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            "Politics",
+                            newsItem.category,
                             style: TextStyle(
                               color: Palette.black.withOpacity(0.7),
                               fontSize: 10,
                             ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 4,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Palette.black.withOpacity(0.3),
-                            ),
-                          ),
-                          child: Text(
-                            "Enternational",
-                            style: TextStyle(
-                              color: Palette.black.withOpacity(0.7),
-                              fontSize: 10,
-                            ),
+                            overflow: TextOverflow.clip,
                           ),
                         ),
                       ],
                     ),
+                    // ),
                     const SizedBox(
                       height: 4,
                     ),
+
                     Row(
                       children: [
                         SvgPicture.asset(
@@ -112,11 +95,11 @@ class NewsItemWidget extends StatelessWidget {
                           width: 2,
                         ),
                         Text(
-                          "1 Feb 2020 |",
+                          newsItem.publishedYearOnly,
                           style: TextStyle(
                             color: Palette.black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w300,
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -131,15 +114,17 @@ class NewsItemWidget extends StatelessWidget {
                         const SizedBox(
                           width: 2,
                         ),
-                        Text(
-                          "11:32:00",
-                          style: TextStyle(
-                            color: Palette.black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
+                        Expanded(
+                          child: Text(
+                            newsItem.publishedTimeAgo,
+                            style: TextStyle(
+                              color: Palette.black,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w300,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
                     ),
@@ -147,15 +132,25 @@ class NewsItemWidget extends StatelessWidget {
                       height: 4,
                     ),
                     //TODO: add news source icon
-                    Text(
-                      newsItem?.source ?? "",
-                      style: TextStyle(
-                        color: Palette.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w200,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                    Row(
+                      children: [
+                        Image.network(
+                          newsItem.sourceImage,
+                          fit: BoxFit.fitHeight,
+                          height: 10,
+                        ),
+                        const SizedBox(width: 5),
+                        Text(
+                          newsItem?.source ?? "",
+                          style: TextStyle(
+                            color: Palette.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w300,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
                     ),
                   ],
                 ),

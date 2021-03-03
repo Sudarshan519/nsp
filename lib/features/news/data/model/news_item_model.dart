@@ -11,15 +11,18 @@ class NewsItemModel extends NewsItem {
     @required String image,
     @required String description,
     @required String source,
+    @required String sourceImage,
   }) : super(
-            title: title,
-            link: link,
-            category: category,
-            publishedDate: publishedDate,
-            guid: guid,
-            image: image,
-            description: description,
-            source: source);
+          title: title,
+          link: link,
+          category: category,
+          publishedDate: publishedDate,
+          guid: guid,
+          image: image,
+          description: description,
+          source: source,
+          sourceImage: sourceImage,
+        );
 
   factory NewsItemModel.fromJson(Map<String, dynamic> json) => NewsItemModel(
         title: json["title"] as String,
@@ -30,6 +33,7 @@ class NewsItemModel extends NewsItem {
         image: json["image"] as String,
         description: json["description"] as String,
         source: json["source"] as String,
+        sourceImage: json["source_logo"] as String,
       );
 
   Map<String, dynamic> toJson() => {
@@ -41,5 +45,6 @@ class NewsItemModel extends NewsItem {
         "image": image,
         "description": description,
         "source": source,
+        "source_logo": sourceImage,
       };
 }

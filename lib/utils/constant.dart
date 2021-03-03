@@ -9,8 +9,8 @@ class AppConstants {
 
   static const signUpCompleteTitle = "Sign up completed";
   static const signUpCompleteMessage =
-      "Sucsessfully registered a new user. Please Use code in your email to activate account.";
+      "Successfully registered a new user. Please Use code in your email to activate account.";
   static const verificationCompletedTitle = "Verification completed";
   static const verificationCompletedMessage =
-      "Sucsessfully verified. Please relogin.";
+      "Successfully verified. Please relogin.";
 }
