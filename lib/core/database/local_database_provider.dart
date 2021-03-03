@@ -18,7 +18,7 @@ abstract class DBProvider {
 
 @Singleton(as: DBProvider)
 class DBProviderImpl implements DBProvider {
-  static const int _version = 1;
+  static const int _version = 2;
   Database _database;
 
   @override
@@ -73,7 +73,8 @@ class DBProviderImpl implements DBProvider {
       ${NewsItemTable.newsItemColumnGuid} TEXT,
       ${NewsItemTable.newsItemColumnSource} TEXT,
       ${NewsItemTable.newsItemColumnDescription} TEXT, 
-      ${NewsItemTable.newsItemColumnImageUrl} TEXT 
+      ${NewsItemTable.newsItemColumnImageUrl} TEXT,
+      ${NewsItemTable.newsItemColumnImageLogo} TEXT 
       )
     ''';
   }

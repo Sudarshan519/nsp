@@ -9,4 +9,5 @@ class NewsItemTable {
   static const String newsItemColumnDescription = "description";
   static const String newsItemColumnSource = "source";
   static const String newsItemColumnImageUrl = "image";
+  static const String newsItemColumnImageLogo = "source_logo";
 }

@@ -39,7 +39,7 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
 
   @override
   Future<NewsModel> getNews() async {
-    provider.open();
+    await provider.open();
 
     final newsJson =
         await provider.getAllFrom(tableName: NewsItemTable.tableNewsItem);
@@ -47,7 +47,7 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
     final sourceJson =
         await provider.getAllFrom(tableName: NewsSourceTable.tableNewsSource);
 
-    provider.close();
+    await provider.close();
 
     final List<NewsItemModel> newsList = [];
     final List<String> sourceList = [];

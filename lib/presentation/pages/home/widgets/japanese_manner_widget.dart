@@ -35,7 +35,7 @@ class JapaneseMannerWidget extends StatelessWidget {
           const SizedBox(height: 10),
           Container(
             color: Palette.white,
-            height: 280,
+            height: 270,
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: data.length,
