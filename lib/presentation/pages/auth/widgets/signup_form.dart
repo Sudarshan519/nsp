@@ -54,6 +54,14 @@ class SignupFormWidget extends StatelessWidget {
           },
         ),
         const SizedBox(
+          height: 18,
+        ),
+        _ConfirmPasswordInput(
+          callBack: () {
+            node.nextFocus();
+          },
+        ),
+        const SizedBox(
           height: 33,
         ),
         const _SignUpButton(),
@@ -102,8 +110,7 @@ class _LastNameInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       BlocBuilder<SignUpFormBloc, SignUpFormState>(
-        buildWhen: (previous, current) =>
-            previous.firstName != current.firstName,
+        buildWhen: (previous, current) => previous.lastName != current.lastName,
         builder: (context, state) => InputTextWidget(
           hintText: "Last Name",
           value: state.lastName,
@@ -132,7 +139,7 @@ class _EmailInput extends StatelessWidget {
   Widget build(BuildContext context) =>
       BlocBuilder<SignUpFormBloc, SignUpFormState>(
         buildWhen: (previous, current) =>
-            previous.firstName != current.firstName,
+            previous.emailAddress != current.emailAddress,
         builder: (context, state) => InputTextWidget(
           hintText: "Email Address",
           value: state.emailAddress,
@@ -161,19 +168,23 @@ class _PasswordInput extends StatelessWidget {
   Widget build(BuildContext context) =>
       BlocBuilder<SignUpFormBloc, SignUpFormState>(
         buildWhen: (previous, current) =>
-            previous.firstName != current.firstName,
+            previous.password != current.password ||
+            previous.isPasswordVisible != current.isPasswordVisible,
         builder: (context, state) => InputTextWidget(
           hintText: "Password",
           value: state.password,
-          obscureText: true,
+          obscureText: !state.isPasswordVisible,
           prefixIcon: SvgPicture.asset(
             "assets/images/auth/lock.svg",
           ),
           suffixIcon: IconButton(
             padding: EdgeInsets.zero,
-            onPressed: () {},
+            onPressed: () => context
+                .read<SignUpFormBloc>()
+                .add(const SignUpFormEvent.showPassword()),
             icon: SvgPicture.asset(
               "assets/images/auth/password-invisible.svg",
+              color: !state.isPasswordVisible ? null : Palette.primary,
             ),
           ),
           validator: Validator.isValidPassword,
@@ -182,6 +193,48 @@ class _PasswordInput extends StatelessWidget {
           onChanged: (value) => context
               .read<SignUpFormBloc>()
               .add(SignUpFormEvent.changePassword(value)),
+        ),
+      );
+}
+
+class _ConfirmPasswordInput extends StatelessWidget {
+  final Function() callBack;
+
+  const _ConfirmPasswordInput({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) =>
+      BlocBuilder<SignUpFormBloc, SignUpFormState>(
+        buildWhen: (previous, current) =>
+            previous.confirmPassword != current.confirmPassword ||
+            previous.isConfirmPasswordVisible !=
+                current.isConfirmPasswordVisible,
+        builder: (context, state) => InputTextWidget(
+          hintText: "Confirm Password",
+          value: state.confirmPassword,
+          obscureText: !state.isConfirmPasswordVisible,
+          prefixIcon: SvgPicture.asset(
+            "assets/images/auth/lock.svg",
+          ),
+          suffixIcon: IconButton(
+            padding: EdgeInsets.zero,
+            onPressed: () => context
+                .read<SignUpFormBloc>()
+                .add(const SignUpFormEvent.showConfirmPassword()),
+            icon: SvgPicture.asset(
+              "assets/images/auth/password-invisible.svg",
+              color: !state.isConfirmPasswordVisible ? null : Palette.primary,
+            ),
+          ),
+          validator: Validator.isValidPassword,
+          onEditingCompleted: callBack,
+          textInputAction: TextInputAction.done,
+          onChanged: (value) => context
+              .read<SignUpFormBloc>()
+              .add(SignUpFormEvent.changeConfirmPassword(value)),
         ),
       );
 }

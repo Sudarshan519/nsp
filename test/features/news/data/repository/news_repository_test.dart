@@ -36,7 +36,6 @@ void main() {
       // assign
       when(remoteDataSource.getNews(
         page: anyNamed('page'),
-        appId: anyNamed('appId'),
         limit: anyNamed('limit'),
       )).thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
@@ -51,7 +50,6 @@ void main() {
       // assign
       when(remoteDataSource.getNews(
         page: anyNamed('page'),
-        appId: anyNamed('appId'),
         limit: anyNamed('limit'),
       )).thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
@@ -69,7 +67,6 @@ void main() {
       // assign
       when(remoteDataSource.getNews(
         page: anyNamed('page'),
-        appId: anyNamed('appId'),
         limit: anyNamed('limit'),
       )).thenThrow(
           const ServerException(message: AppConstants.someThingWentWrong));
@@ -93,7 +90,6 @@ void main() {
       // assign
       when(remoteDataSource.getNews(
         page: anyNamed('page'),
-        appId: anyNamed('appId'),
         limit: anyNamed('limit'),
       )).thenThrow(Exception("Something Bad Happen"));
 

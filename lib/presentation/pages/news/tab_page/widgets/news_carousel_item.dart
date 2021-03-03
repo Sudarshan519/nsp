@@ -85,13 +85,14 @@ class NewsCarouselItem extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     "assets/images/news/calender.svg",
+                    color: Palette.white,
                     height: 15.0,
                   ),
                   const SizedBox(
                     width: 2,
                   ),
                   Text(
-                    "1 Feb 2020 ",
+                    newsItem.publishedYearOnly,
                     style: TextStyle(
                       color: Palette.white,
                       fontSize: 10,
@@ -112,7 +113,7 @@ class NewsCarouselItem extends StatelessWidget {
                     width: 2,
                   ),
                   Text(
-                    "11:32:00",
+                    newsItem.publishedTimeAgo,
                     style: TextStyle(
                       color: Palette.white,
                       fontSize: 10,

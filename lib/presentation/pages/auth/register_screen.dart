@@ -106,6 +106,9 @@ class _SignupBody extends StatelessWidget {
                     height: 56,
                   ),
                   _newUserCreateAnAccount(context),
+                  const SizedBox(
+                    height: 20,
+                  ),
                 ],
               ),
             ),

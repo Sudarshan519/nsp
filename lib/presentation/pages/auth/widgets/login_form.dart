@@ -110,20 +110,25 @@ class _PasswordInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SignInFormBloc, SignInFormState>(
-      buildWhen: (previous, current) => previous.password != current.password,
+      buildWhen: (previous, current) =>
+          previous.password != current.password ||
+          previous.isPasswordVisible != current.isPasswordVisible,
       builder: (context, state) {
         return InputTextWidget(
           hintText: "Password",
           value: state.password,
-          obscureText: true,
+          obscureText: !state.isPasswordVisible,
           prefixIcon: SvgPicture.asset(
             "assets/images/auth/lock.svg",
           ),
           suffixIcon: IconButton(
             padding: EdgeInsets.zero,
-            onPressed: () {},
+            onPressed: () => context
+                .read<SignInFormBloc>()
+                .add(const SignInFormEvent.showPassword()),
             icon: SvgPicture.asset(
               "assets/images/auth/password-invisible.svg",
+              color: !state.isPasswordVisible ? null : Palette.primary,
             ),
           ),
           validator: Validator.isValidPassword,

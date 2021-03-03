@@ -41,7 +41,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "NRP 1200",
+                    "NRP 0",
                     style: TextStyle(
                       color: Palette.black,
                       fontSize: 16,
@@ -68,7 +68,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                         width: 5,
                       ),
                       Text(
-                        "32",
+                        "0",
                         style: TextStyle(
                           color: Palette.black,
                           fontSize: 16,

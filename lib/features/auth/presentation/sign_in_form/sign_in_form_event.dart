@@ -5,6 +5,7 @@ abstract class SignInFormEvent with _$SignInFormEvent {
   const factory SignInFormEvent.emailChanged(String email) = _EmailChanged;
   const factory SignInFormEvent.passwordChanged(String password) =
       _PasswordChanged;
+  const factory SignInFormEvent.showPassword() = _ShowPassword;
   const factory SignInFormEvent.signInWithEmailAndPasswordPressed() =
       _SignInWithEmailAndPasswordPressed;
   const factory SignInFormEvent.signInWithGooglePressed() =

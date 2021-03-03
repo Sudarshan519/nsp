@@ -1,46 +1,41 @@
-class JapaneseMannerModel {
-  JapaneseMannerModel({
-    this.id,
-    this.category,
-    this.title,
-    this.image,
-    this.description,
-  });
+import 'package:wallet_app/features/home/domain/entities/japanese_manner.dart';
 
-  int id;
-  Category category;
-  String title;
-  String image;
-  String description;
+class JapaneseMannerModel extends JapaneseManner {
+  const JapaneseMannerModel({
+    final int id,
+    final CategoryModel category,
+    final String title,
+    final String image,
+    final String description,
+  }) : super(
+          id: id,
+          category: category,
+          title: title,
+          image: image,
+          description: description,
+        );
 
   factory JapaneseMannerModel.fromJson(Map<String, dynamic> json) =>
       JapaneseMannerModel(
         id: json["id"] as int,
-        category: Category.fromJson(json["category"] as Map<String, dynamic>),
+        category:
+            CategoryModel.fromJson(json["category"] as Map<String, dynamic>),
         title: json["title"] as String,
         image: json["image"] as String,
         description: json["description"] as String,
       );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "category": category.toJson(),
-        "title": title,
-        "image": image,
-        "description": description,
-      };
 }
 
-class Category {
-  Category({
-    this.id,
-    this.categoryName,
-  });
+class CategoryModel extends Category {
+  const CategoryModel({
+    final int id,
+    final String categoryName,
+  }) : super(
+          id: id,
+          categoryName: categoryName,
+        );
 
-  int id;
-  String categoryName;
-
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
+  factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
         id: json["id"] as int,
         categoryName: json["category_name"] as String,
       );

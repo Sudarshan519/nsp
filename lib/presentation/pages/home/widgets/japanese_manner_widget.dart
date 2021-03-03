@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app/features/home/data/model/japanese_manner_model.dart';
+import 'package:wallet_app/features/home/domain/entities/japanese_manner.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/category_title_text.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
@@ -7,7 +7,7 @@ import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
 class JapaneseMannerWidget extends StatelessWidget {
-  final List<JapaneseMannerModel> data;
+  final List<JapaneseManner> data;
   const JapaneseMannerWidget({
     Key key,
     @required this.data,
@@ -50,7 +50,7 @@ class JapaneseMannerWidget extends StatelessWidget {
     );
   }
 
-  Widget getServiceItem(BuildContext context, JapaneseMannerModel data) {
+  Widget getServiceItem(BuildContext context, JapaneseManner data) {
     final baseURL = getIt<ConfigReader>().baseURL;
     return Container(
       color: Palette.white,
@@ -64,15 +64,11 @@ class JapaneseMannerWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: double.maxFinite,
-            height: 160,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Palette.primaryBackground,
-            ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
             child: Image.network(
               "$baseURL${data.image}",
+              height: 160,
               fit: BoxFit.cover,
             ),
           ),

@@ -28,6 +28,11 @@ class _$SignInFormEventTearOff {
   }
 
 // ignore: unused_element
+  _ShowPassword showPassword() {
+    return const _ShowPassword();
+  }
+
+// ignore: unused_element
   _SignInWithEmailAndPasswordPressed signInWithEmailAndPasswordPressed() {
     return const _SignInWithEmailAndPasswordPressed();
   }
@@ -73,6 +78,7 @@ mixin _$SignInFormEvent {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -85,6 +91,7 @@ mixin _$SignInFormEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -98,6 +105,7 @@ mixin _$SignInFormEvent {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -113,6 +121,7 @@ mixin _$SignInFormEvent {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -205,6 +214,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -215,6 +225,7 @@ class _$_EmailChanged implements _EmailChanged {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -230,6 +241,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -251,6 +263,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -264,6 +277,7 @@ class _$_EmailChanged implements _EmailChanged {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -279,6 +293,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -369,6 +384,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -379,6 +395,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -394,6 +411,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -415,6 +433,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -428,6 +447,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -443,6 +463,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -467,6 +488,149 @@ abstract class _PasswordChanged implements SignInFormEvent {
   String get password;
   @JsonKey(ignore: true)
   _$PasswordChangedCopyWith<_PasswordChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ShowPasswordCopyWith<$Res> {
+  factory _$ShowPasswordCopyWith(
+          _ShowPassword value, $Res Function(_ShowPassword) then) =
+      __$ShowPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ShowPasswordCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res>
+    implements _$ShowPasswordCopyWith<$Res> {
+  __$ShowPasswordCopyWithImpl(
+      _ShowPassword _value, $Res Function(_ShowPassword) _then)
+      : super(_value, (v) => _then(v as _ShowPassword));
+
+  @override
+  _ShowPassword get _value => super._value as _ShowPassword;
+}
+
+/// @nodoc
+class _$_ShowPassword implements _ShowPassword {
+  const _$_ShowPassword();
+
+  @override
+  String toString() {
+    return 'SignInFormEvent.showPassword()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _ShowPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult emailChanged(String email),
+    @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
+    @required TResult signInWithEmailAndPasswordPressed(),
+    @required TResult signInWithGooglePressed(),
+    @required TResult signInWithFacebookPressed(),
+    @required TResult signInWithApplePressed(),
+    @required TResult signUpPressed(),
+    @required TResult fetchRefreshToken(),
+    @required TResult signInWithBioMetricInfo(),
+  }) {
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(showPassword != null);
+    assert(signInWithEmailAndPasswordPressed != null);
+    assert(signInWithGooglePressed != null);
+    assert(signInWithFacebookPressed != null);
+    assert(signInWithApplePressed != null);
+    assert(signUpPressed != null);
+    assert(fetchRefreshToken != null);
+    assert(signInWithBioMetricInfo != null);
+    return showPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult emailChanged(String email),
+    TResult passwordChanged(String password),
+    TResult showPassword(),
+    TResult signInWithEmailAndPasswordPressed(),
+    TResult signInWithGooglePressed(),
+    TResult signInWithFacebookPressed(),
+    TResult signInWithApplePressed(),
+    TResult signUpPressed(),
+    TResult fetchRefreshToken(),
+    TResult signInWithBioMetricInfo(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (showPassword != null) {
+      return showPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult emailChanged(_EmailChanged value),
+    @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
+    @required
+        TResult signInWithEmailAndPasswordPressed(
+            _SignInWithEmailAndPasswordPressed value),
+    @required TResult signInWithGooglePressed(_SignInWithGooglePressed value),
+    @required
+        TResult signInWithFacebookPressed(_SignInWithFacebookPressed value),
+    @required TResult signInWithApplePressed(_SignInWithApplePressed value),
+    @required TResult signUpPressed(_SignUpPressed value),
+    @required TResult fetchRefreshToken(_FetchRefreshToken value),
+    @required TResult signInWithBioMetricInfo(_SignInWithBioMetricInfo value),
+  }) {
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(showPassword != null);
+    assert(signInWithEmailAndPasswordPressed != null);
+    assert(signInWithGooglePressed != null);
+    assert(signInWithFacebookPressed != null);
+    assert(signInWithApplePressed != null);
+    assert(signUpPressed != null);
+    assert(fetchRefreshToken != null);
+    assert(signInWithBioMetricInfo != null);
+    return showPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult emailChanged(_EmailChanged value),
+    TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
+    TResult signInWithEmailAndPasswordPressed(
+        _SignInWithEmailAndPasswordPressed value),
+    TResult signInWithGooglePressed(_SignInWithGooglePressed value),
+    TResult signInWithFacebookPressed(_SignInWithFacebookPressed value),
+    TResult signInWithApplePressed(_SignInWithApplePressed value),
+    TResult signUpPressed(_SignUpPressed value),
+    TResult fetchRefreshToken(_FetchRefreshToken value),
+    TResult signInWithBioMetricInfo(_SignInWithBioMetricInfo value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (showPassword != null) {
+      return showPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShowPassword implements SignInFormEvent {
+  const factory _ShowPassword() = _$_ShowPassword;
 }
 
 /// @nodoc
@@ -515,6 +679,7 @@ class _$_SignInWithEmailAndPasswordPressed
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -525,6 +690,7 @@ class _$_SignInWithEmailAndPasswordPressed
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -540,6 +706,7 @@ class _$_SignInWithEmailAndPasswordPressed
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -561,6 +728,7 @@ class _$_SignInWithEmailAndPasswordPressed
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -574,6 +742,7 @@ class _$_SignInWithEmailAndPasswordPressed
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -589,6 +758,7 @@ class _$_SignInWithEmailAndPasswordPressed
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -654,6 +824,7 @@ class _$_SignInWithGooglePressed implements _SignInWithGooglePressed {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -664,6 +835,7 @@ class _$_SignInWithGooglePressed implements _SignInWithGooglePressed {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -679,6 +851,7 @@ class _$_SignInWithGooglePressed implements _SignInWithGooglePressed {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -700,6 +873,7 @@ class _$_SignInWithGooglePressed implements _SignInWithGooglePressed {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -713,6 +887,7 @@ class _$_SignInWithGooglePressed implements _SignInWithGooglePressed {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -728,6 +903,7 @@ class _$_SignInWithGooglePressed implements _SignInWithGooglePressed {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -792,6 +968,7 @@ class _$_SignInWithFacebookPressed implements _SignInWithFacebookPressed {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -802,6 +979,7 @@ class _$_SignInWithFacebookPressed implements _SignInWithFacebookPressed {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -817,6 +995,7 @@ class _$_SignInWithFacebookPressed implements _SignInWithFacebookPressed {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -838,6 +1017,7 @@ class _$_SignInWithFacebookPressed implements _SignInWithFacebookPressed {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -851,6 +1031,7 @@ class _$_SignInWithFacebookPressed implements _SignInWithFacebookPressed {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -866,6 +1047,7 @@ class _$_SignInWithFacebookPressed implements _SignInWithFacebookPressed {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -929,6 +1111,7 @@ class _$_SignInWithApplePressed implements _SignInWithApplePressed {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -939,6 +1122,7 @@ class _$_SignInWithApplePressed implements _SignInWithApplePressed {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -954,6 +1138,7 @@ class _$_SignInWithApplePressed implements _SignInWithApplePressed {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -975,6 +1160,7 @@ class _$_SignInWithApplePressed implements _SignInWithApplePressed {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -988,6 +1174,7 @@ class _$_SignInWithApplePressed implements _SignInWithApplePressed {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -1003,6 +1190,7 @@ class _$_SignInWithApplePressed implements _SignInWithApplePressed {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -1066,6 +1254,7 @@ class _$_SignUpPressed implements _SignUpPressed {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -1076,6 +1265,7 @@ class _$_SignUpPressed implements _SignUpPressed {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -1091,6 +1281,7 @@ class _$_SignUpPressed implements _SignUpPressed {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -1112,6 +1303,7 @@ class _$_SignUpPressed implements _SignUpPressed {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -1125,6 +1317,7 @@ class _$_SignUpPressed implements _SignUpPressed {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -1140,6 +1333,7 @@ class _$_SignUpPressed implements _SignUpPressed {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -1203,6 +1397,7 @@ class _$_FetchRefreshToken implements _FetchRefreshToken {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -1213,6 +1408,7 @@ class _$_FetchRefreshToken implements _FetchRefreshToken {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -1228,6 +1424,7 @@ class _$_FetchRefreshToken implements _FetchRefreshToken {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -1249,6 +1446,7 @@ class _$_FetchRefreshToken implements _FetchRefreshToken {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -1262,6 +1460,7 @@ class _$_FetchRefreshToken implements _FetchRefreshToken {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -1277,6 +1476,7 @@ class _$_FetchRefreshToken implements _FetchRefreshToken {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -1341,6 +1541,7 @@ class _$_SignInWithBioMetricInfo implements _SignInWithBioMetricInfo {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String email),
     @required TResult passwordChanged(String password),
+    @required TResult showPassword(),
     @required TResult signInWithEmailAndPasswordPressed(),
     @required TResult signInWithGooglePressed(),
     @required TResult signInWithFacebookPressed(),
@@ -1351,6 +1552,7 @@ class _$_SignInWithBioMetricInfo implements _SignInWithBioMetricInfo {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -1366,6 +1568,7 @@ class _$_SignInWithBioMetricInfo implements _SignInWithBioMetricInfo {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String email),
     TResult passwordChanged(String password),
+    TResult showPassword(),
     TResult signInWithEmailAndPasswordPressed(),
     TResult signInWithGooglePressed(),
     TResult signInWithFacebookPressed(),
@@ -1387,6 +1590,7 @@ class _$_SignInWithBioMetricInfo implements _SignInWithBioMetricInfo {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(_EmailChanged value),
     @required TResult passwordChanged(_PasswordChanged value),
+    @required TResult showPassword(_ShowPassword value),
     @required
         TResult signInWithEmailAndPasswordPressed(
             _SignInWithEmailAndPasswordPressed value),
@@ -1400,6 +1604,7 @@ class _$_SignInWithBioMetricInfo implements _SignInWithBioMetricInfo {
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(showPassword != null);
     assert(signInWithEmailAndPasswordPressed != null);
     assert(signInWithGooglePressed != null);
     assert(signInWithFacebookPressed != null);
@@ -1415,6 +1620,7 @@ class _$_SignInWithBioMetricInfo implements _SignInWithBioMetricInfo {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(_EmailChanged value),
     TResult passwordChanged(_PasswordChanged value),
+    TResult showPassword(_ShowPassword value),
     TResult signInWithEmailAndPasswordPressed(
         _SignInWithEmailAndPasswordPressed value),
     TResult signInWithGooglePressed(_SignInWithGooglePressed value),
@@ -1450,6 +1656,8 @@ class _$SignInFormStateTearOff {
       @required
           bool isSubmitting,
       @required
+          bool isPasswordVisible,
+      @required
           bool bioMetricLogin,
       @required
           Option<Either<ApiFailure, AuthRoutes>> authFailureOrSuccessOption}) {
@@ -1457,6 +1665,7 @@ class _$SignInFormStateTearOff {
       emailAddress: emailAddress,
       password: password,
       isSubmitting: isSubmitting,
+      isPasswordVisible: isPasswordVisible,
       bioMetricLogin: bioMetricLogin,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
@@ -1472,6 +1681,7 @@ mixin _$SignInFormState {
   String get emailAddress;
   String get password;
   bool get isSubmitting;
+  bool get isPasswordVisible;
   bool get bioMetricLogin;
   Option<Either<ApiFailure, AuthRoutes>> get authFailureOrSuccessOption;
 
@@ -1488,6 +1698,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
       {String emailAddress,
       String password,
       bool isSubmitting,
+      bool isPasswordVisible,
       bool bioMetricLogin,
       Option<Either<ApiFailure, AuthRoutes>> authFailureOrSuccessOption});
 }
@@ -1506,6 +1717,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
     Object emailAddress = freezed,
     Object password = freezed,
     Object isSubmitting = freezed,
+    Object isPasswordVisible = freezed,
     Object bioMetricLogin = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -1516,6 +1728,9 @@ class _$SignInFormStateCopyWithImpl<$Res>
       password: password == freezed ? _value.password : password as String,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      isPasswordVisible: isPasswordVisible == freezed
+          ? _value.isPasswordVisible
+          : isPasswordVisible as bool,
       bioMetricLogin: bioMetricLogin == freezed
           ? _value.bioMetricLogin
           : bioMetricLogin as bool,
@@ -1538,6 +1753,7 @@ abstract class _$SignInFormStateCopyWith<$Res>
       {String emailAddress,
       String password,
       bool isSubmitting,
+      bool isPasswordVisible,
       bool bioMetricLogin,
       Option<Either<ApiFailure, AuthRoutes>> authFailureOrSuccessOption});
 }
@@ -1558,6 +1774,7 @@ class __$SignInFormStateCopyWithImpl<$Res>
     Object emailAddress = freezed,
     Object password = freezed,
     Object isSubmitting = freezed,
+    Object isPasswordVisible = freezed,
     Object bioMetricLogin = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -1568,6 +1785,9 @@ class __$SignInFormStateCopyWithImpl<$Res>
       password: password == freezed ? _value.password : password as String,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      isPasswordVisible: isPasswordVisible == freezed
+          ? _value.isPasswordVisible
+          : isPasswordVisible as bool,
       bioMetricLogin: bioMetricLogin == freezed
           ? _value.bioMetricLogin
           : bioMetricLogin as bool,
@@ -1585,11 +1805,13 @@ class _$_SignInFormState implements _SignInFormState {
       {@required this.emailAddress,
       @required this.password,
       @required this.isSubmitting,
+      @required this.isPasswordVisible,
       @required this.bioMetricLogin,
       @required this.authFailureOrSuccessOption})
       : assert(emailAddress != null),
         assert(password != null),
         assert(isSubmitting != null),
+        assert(isPasswordVisible != null),
         assert(bioMetricLogin != null),
         assert(authFailureOrSuccessOption != null);
 
@@ -1600,13 +1822,15 @@ class _$_SignInFormState implements _SignInFormState {
   @override
   final bool isSubmitting;
   @override
+  final bool isPasswordVisible;
+  @override
   final bool bioMetricLogin;
   @override
   final Option<Either<ApiFailure, AuthRoutes>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'SignInFormState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, bioMetricLogin: $bioMetricLogin, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'SignInFormState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, isPasswordVisible: $isPasswordVisible, bioMetricLogin: $bioMetricLogin, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -1622,6 +1846,9 @@ class _$_SignInFormState implements _SignInFormState {
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.isPasswordVisible, isPasswordVisible) ||
+                const DeepCollectionEquality()
+                    .equals(other.isPasswordVisible, isPasswordVisible)) &&
             (identical(other.bioMetricLogin, bioMetricLogin) ||
                 const DeepCollectionEquality()
                     .equals(other.bioMetricLogin, bioMetricLogin)) &&
@@ -1638,6 +1865,7 @@ class _$_SignInFormState implements _SignInFormState {
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(isPasswordVisible) ^
       const DeepCollectionEquality().hash(bioMetricLogin) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
@@ -1656,6 +1884,8 @@ abstract class _SignInFormState implements SignInFormState {
       @required
           bool isSubmitting,
       @required
+          bool isPasswordVisible,
+      @required
           bool bioMetricLogin,
       @required
           Option<Either<ApiFailure, AuthRoutes>>
@@ -1667,6 +1897,8 @@ abstract class _SignInFormState implements SignInFormState {
   String get password;
   @override
   bool get isSubmitting;
+  @override
+  bool get isPasswordVisible;
   @override
   bool get bioMetricLogin;
   @override

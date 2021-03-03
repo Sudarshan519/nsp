@@ -7,6 +7,10 @@ abstract class SignUpFormEvent with _$SignUpFormEvent {
   const factory SignUpFormEvent.changeEmail(String email) = _ChangeEmail;
   const factory SignUpFormEvent.changePassword(String password) =
       _ChangePassword;
+  const factory SignUpFormEvent.showPassword() = _ShowPassword;
+  const factory SignUpFormEvent.changeConfirmPassword(String password) =
+      _ChangeConfirmPassword;
+  const factory SignUpFormEvent.showConfirmPassword() = _ShowConfirmPassword;
   const factory SignUpFormEvent.signUpWithEmailPasswordAndOtherPressed() =
       _SignUpWithEmailPasswordAndOtherPressed;
 }

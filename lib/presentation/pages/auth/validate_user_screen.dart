@@ -42,7 +42,7 @@ class _VerifyUserPageBody extends StatelessWidget {
         state.map(
           initial: (_) {},
           codeSent: (_) {
-            FlushbarHelper.createError(message: AppConstants.codeErrorMessage)
+            FlushbarHelper.createSuccess(message: AppConstants.codeErrorMessage)
                 .show(context);
           },
           failure: (failure) {

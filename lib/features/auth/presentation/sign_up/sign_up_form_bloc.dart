@@ -39,6 +39,15 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
       changePassword: (e) async* {
         yield _mapChangePasswordToState(e);
       },
+      showPassword: (e) async* {
+        yield _mapShowPasswordToState(e);
+      },
+      changeConfirmPassword: (e) async* {
+        yield _mapChangeConfirmPasswordToState(e);
+      },
+      showConfirmPassword: (e) async* {
+        yield _mapShowConfirmPasswordToState(e);
+      },
       signUpWithEmailPasswordAndOtherPressed: (e) async* {
         yield* _mapSignupSubmittedToState(e);
       },
@@ -74,6 +83,29 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
     );
   }
 
+  SignUpFormState _mapShowPasswordToState(_ShowPassword _showPassword) {
+    return state.copyWith(
+      isPasswordVisible: !state.isPasswordVisible,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  SignUpFormState _mapChangeConfirmPasswordToState(
+      _ChangeConfirmPassword _changeConfirmPassword) {
+    return state.copyWith(
+      confirmPassword: _changeConfirmPassword.password,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  SignUpFormState _mapShowConfirmPasswordToState(
+      _ShowConfirmPassword _showConfirmPassword) {
+    return state.copyWith(
+      isConfirmPasswordVisible: !state.isConfirmPasswordVisible,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
   Stream<SignUpFormState> _mapSignupSubmittedToState(
       _SignUpWithEmailPasswordAndOtherPressed
           _signUpWithEmailPasswordAndOtherPressed) async* {
@@ -89,11 +121,13 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
       email: state.emailAddress,
       password: state.password,
       phoneNumber: "",
-      confirmPassword: state.password,
+      confirmPassword: state.confirmPassword,
     ));
 
     failureOrSuccess = result.fold(
-        (l) => Left(l), (r) => const Right(AuthRoutes.showHomeScreen())
+        (failure) => Left(failure),
+        (success) =>
+            Right(AuthRoutes.showEmailVerificationScreen(state.emailAddress))
         // : Right(
         //     AuthRoutes.showEmailVerificationScreen(state.emailAddress),
         //   ),

@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/features/news/data/app_constant/constant.dart';
 import 'package:wallet_app/features/news/data/model/news_model.dart';
+import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 abstract class NewsRemoteDataSourceProtocol {
@@ -13,7 +16,6 @@ abstract class NewsRemoteDataSourceProtocol {
   ///
   Future<NewsModel> getNews({
     @required String page,
-    @required String appId,
     @required String limit,
   });
 }
@@ -21,6 +23,7 @@ abstract class NewsRemoteDataSourceProtocol {
 @LazySingleton(as: NewsRemoteDataSourceProtocol)
 class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
   final http.Client client;
+  final ConfigReader config;
 
   final _headers = {
     'Accept': 'application/json',
@@ -29,33 +32,24 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
 
   NewsRemoteDataSource({
     @required this.client,
+    @required this.config,
   }) : assert(
           client != null,
+          config != null,
         );
 
   @override
   Future<NewsModel> getNews({
     @required String page,
-    @required String appId,
     @required String limit,
   }) async {
     http.Response response;
-    final Map<String, String> _query = {
-      'page': page,
-      'appId': appId,
-      'limit': limit,
-    };
 
-    final _uri = Uri(
-      scheme: NewsApiEndpoints.scheme,
-      host: NewsApiEndpoints.domain,
-      path: NewsApiEndpoints.getNews,
-      queryParameters: _query,
-    );
+    final url = "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNews}";
 
     try {
       response = await client.get(
-        _uri,
+        url,
         headers: _headers,
       );
     } catch (ex) {
@@ -63,7 +57,8 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
     }
 
     if (response.statusCode == 200) {
-      return newsModelFromJson(response.body);
+      final responseBody = utf8.decode(response.bodyBytes);
+      return newsModelFromJson(responseBody);
     } else {
       final errorModel = newsModelFromJson(response.body);
       throw ServerException(

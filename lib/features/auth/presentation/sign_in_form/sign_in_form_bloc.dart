@@ -33,6 +33,9 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       passwordChanged: (e) async* {
         yield _mapChangePasswordToState(e);
       },
+      showPassword: (e) async* {
+        yield _mapShowPasswordToState(e);
+      },
       signInWithEmailAndPasswordPressed: (e) async* {
         yield* _mapLoginSubmittedToState(e);
       },
@@ -57,6 +60,13 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   SignInFormState _mapChangePasswordToState(_PasswordChanged _passwordChanged) {
     return state.copyWith(
       password: _passwordChanged.password,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  SignInFormState _mapShowPasswordToState(_ShowPassword _showPassword) {
+    return state.copyWith(
+      isPasswordVisible: !state.isPasswordVisible,
       authFailureOrSuccessOption: none(),
     );
   }

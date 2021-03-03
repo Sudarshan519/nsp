@@ -21,7 +21,7 @@ class UserInfoWidget extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Jack Mastuma",
+                "Siraj Ashikarisadasd",
                 style: TextStyle(
                   color: Palette.white,
                   fontSize: 16,
@@ -32,7 +32,7 @@ class UserInfoWidget extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "3475",
+                "+81 12 3123 2131",
                 style: TextStyle(
                   color: Palette.white,
                   fontSize: 12,

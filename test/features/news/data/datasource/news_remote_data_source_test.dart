@@ -13,6 +13,7 @@ import '../../../../utils/test_constant/news/test_constant.dart';
 
 void main() {
   MockHttpClient client;
+  MockConfigReader configReader;
   NewsRemoteDataSource dataSource;
 
   final _headers = {
@@ -68,7 +69,8 @@ void main() {
 
   setUp(() {
     client = MockHttpClient();
-    dataSource = NewsRemoteDataSource(client: client);
+    configReader = MockConfigReader();
+    dataSource = NewsRemoteDataSource(client: client, config: configReader);
   });
 
   test('should perform a GET request on news api', () async {
@@ -82,16 +84,14 @@ void main() {
     };
 
     final _uri = Uri(
-      scheme: NewsApiEndpoints.scheme,
-      host: NewsApiEndpoints.domain,
-      path: NewsApiEndpoints.getNews,
+      host: configReader.baseURL,
+      path: "${configReader.apiPath}${NewsApiEndpoints.getNews}",
       queryParameters: _query,
     );
 
     // act
     await dataSource.getNews(
       page: _page,
-      appId: _appId,
       limit: _limit,
     );
 
@@ -106,7 +106,6 @@ void main() {
     // act
     final result = await dataSource.getNews(
       page: _page,
-      appId: _appId,
       limit: _limit,
     );
 
@@ -125,7 +124,6 @@ void main() {
     expect(
         () => call(
               page: _page,
-              appId: _appId,
               limit: _limit,
             ),
         throwsA(isA<ServerException>()));
@@ -146,7 +144,6 @@ void main() {
     expect(
       () => call(
         page: _page,
-        appId: _appId,
         limit: _limit,
       ),
       throwsA(
@@ -172,7 +169,6 @@ void main() {
     expect(
       () => call(
         page: _page,
-        appId: _appId,
         limit: _limit,
       ),
       throwsA(
@@ -204,7 +200,6 @@ void main() {
     expect(
       () => call(
         page: _page,
-        appId: _appId,
         limit: _limit,
       ),
       throwsA(
