@@ -45,7 +45,7 @@ class NewsTestConstant {
     image: "image",
     description: "description",
     source: "source",
-    sourceImage: "source_image",
+    sourceImage: "source_logo",
   );
 
   static const _tNewsItemModel2 = NewsItemModel(
@@ -57,7 +57,7 @@ class NewsTestConstant {
     image: "image2",
     description: "description2",
     source: "source2",
-    sourceImage: "source_image",
+    sourceImage: "source_logo",
   );
 
   static const tNewsItemModelWithNull = NewsItemModel(

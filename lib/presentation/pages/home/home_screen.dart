@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    const UserInfoWidget(),
+                    _homePageHeader(),
                     _homePageBody(),
                   ],
                 ),
@@ -53,6 +53,40 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Widget _homePageHeader() {
+    return BlocBuilder<HomePageDataBloc, HomePageDataState>(
+      builder: (context, state) {
+        return state.map(
+          initial: (_) => const UserInfoWidget(user: null),
+          loading: (_) => const UserInfoWidget(user: null),
+          loadingWithData: (success) =>
+              UserInfoWidget(user: success.data.userDetail),
+          loaded: (success) => UserInfoWidget(user: success.data.userDetail),
+          failure: (error) {
+            FlushbarHelper.createError(
+              message: error.failure.map(
+                noInternetConnection: (error) => AppConstants.noNetwork,
+                serverError: (error) => error.message,
+                invalidUser: (error) => AppConstants.someThingWentWrong,
+              ),
+            ).show(context);
+            return const UserInfoWidget(user: null);
+          },
+          failureWithData: (failure) {
+            FlushbarHelper.createError(
+              message: failure.failure.map(
+                noInternetConnection: (error) => AppConstants.noNetwork,
+                serverError: (error) => error.message,
+                invalidUser: (error) => AppConstants.someThingWentWrong,
+              ),
+            ).show(context);
+            return _homePageBodyContent(context, failure.data.homeData);
+          },
+        );
+      },
+    );
+  }
+
   Widget _homePageBody() {
     return BlocBuilder<HomePageDataBloc, HomePageDataState>(
       builder: (context, state) {
@@ -60,8 +94,9 @@ class HomePage extends StatelessWidget {
           initial: (_) => const SizedBox.shrink(),
           loading: (_) => loadingPage(context),
           loadingWithData: (success) =>
-              _homePageBodyContent(context, success.data),
-          loaded: (success) => _homePageBodyContent(context, success.data),
+              _homePageBodyContent(context, success.data.homeData),
+          loaded: (success) =>
+              _homePageBodyContent(context, success.data.homeData),
           failure: (error) {
             FlushbarHelper.createError(
               message: error.failure.map(
@@ -80,7 +115,7 @@ class HomePage extends StatelessWidget {
                 invalidUser: (error) => AppConstants.someThingWentWrong,
               ),
             ).show(context);
-            return _homePageBodyContent(context, failure.data);
+            return _homePageBodyContent(context, failure.data.homeData);
           },
         );
       },

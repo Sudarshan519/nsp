@@ -1,0 +1,18 @@
+import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
+
+import 'home_data.dart';
+import 'user_detail.dart';
+
+class HomeResponse extends Equatable {
+  const HomeResponse({
+    @required this.userDetail,
+    @required this.homeData,
+  });
+
+  final UserDetail userDetail;
+  final List<HomeData> homeData;
+
+  @override
+  List<Object> get props => [userDetail, homeData];
+}

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/home/domain/entities/user_detail.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 class BalanceAndPointWidget extends StatelessWidget {
+  final UserDetail user;
   const BalanceAndPointWidget({
     Key key,
+    @required this.user,
   }) : super(key: key);
 
   @override
@@ -41,7 +44,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "NRP 0",
+                    "NRP 0 ${user?.balance ?? 0}",
                     style: TextStyle(
                       color: Palette.black,
                       fontSize: 16,
@@ -68,7 +71,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                         width: 5,
                       ),
                       Text(
-                        "0",
+                        "${user?.point ?? 0}",
                         style: TextStyle(
                           color: Palette.black,
                           fontSize: 16,

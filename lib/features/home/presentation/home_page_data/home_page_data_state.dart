@@ -4,9 +4,10 @@ part of 'home_page_data_bloc.dart';
 abstract class HomePageDataState with _$HomePageDataState {
   const factory HomePageDataState.initial() = _Initial;
   const factory HomePageDataState.loading() = _Loading;
-  const factory HomePageDataState.loadingWithData(List data) = _LoadingWithData;
-  const factory HomePageDataState.loaded(List data) = _Loaded;
+  const factory HomePageDataState.loadingWithData(HomeResponse data) =
+      _LoadingWithData;
+  const factory HomePageDataState.loaded(HomeResponse data) = _Loaded;
   const factory HomePageDataState.failureWithData(
-      ApiFailure failure, List data) = _FailureWithData;
+      ApiFailure failure, HomeResponse data) = _FailureWithData;
   const factory HomePageDataState.failure(ApiFailure failure) = _Failure;
 }

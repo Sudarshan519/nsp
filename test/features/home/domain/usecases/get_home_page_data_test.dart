@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
+import 'package:wallet_app/features/home/data/model/home_response_model.dart';
 import 'package:wallet_app/features/home/domain/usecases/get_home_page_data.dart';
 
 import '../../../../mocks/mocks.dart';
@@ -10,7 +11,8 @@ void main() {
   MockHomeReporisitory _repository;
   GetHomePageData _sut;
 
-  final List _data = [];
+  const HomeResponseModel _data =
+      HomeResponseModel(homeData: null, userDetail: null);
 
   setUp(() {
     _repository = MockHomeReporisitory();
