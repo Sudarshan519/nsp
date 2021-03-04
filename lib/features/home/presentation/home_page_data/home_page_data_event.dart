@@ -4,7 +4,7 @@ part of 'home_page_data_bloc.dart';
 abstract class HomePageDataEvent with _$HomePageDataEvent {
   const factory HomePageDataEvent.fetch() = _Fetch;
   const factory HomePageDataEvent.onSpanShotEvent(
-      Either<ApiFailure, List<dynamic>> event) = _OnSpanShotEvent;
+      Either<ApiFailure, HomeResponse> event) = _OnSpanShotEvent;
   const factory HomePageDataEvent.onCompletedEvent(
-      Either<ApiFailure, List<dynamic>> event) = _OnCompletedEvent;
+      Either<ApiFailure, HomeResponse> event) = _OnCompletedEvent;
 }

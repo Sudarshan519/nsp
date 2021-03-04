@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
+import 'package:wallet_app/features/home/domain/entities/home_response.dart';
 import 'package:wallet_app/features/home/domain/usecases/get_home_page_data.dart';
 
 part 'home_page_data_event.dart';
@@ -15,7 +16,7 @@ part 'home_page_data_bloc.freezed.dart';
 @injectable
 class HomePageDataBloc extends Bloc<HomePageDataEvent, HomePageDataState> {
   final GetHomePageData getHomePageData;
-  List _data;
+  HomeResponse _data;
   HomePageDataBloc({
     @required this.getHomePageData,
   })  : assert(getHomePageData != null),

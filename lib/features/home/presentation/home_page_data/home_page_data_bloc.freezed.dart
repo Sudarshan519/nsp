@@ -19,14 +19,14 @@ class _$HomePageDataEventTearOff {
   }
 
 // ignore: unused_element
-  _OnSpanShotEvent onSpanShotEvent(Either<ApiFailure, List<dynamic>> event) {
+  _OnSpanShotEvent onSpanShotEvent(Either<ApiFailure, HomeResponse> event) {
     return _OnSpanShotEvent(
       event,
     );
   }
 
 // ignore: unused_element
-  _OnCompletedEvent onCompletedEvent(Either<ApiFailure, List<dynamic>> event) {
+  _OnCompletedEvent onCompletedEvent(Either<ApiFailure, HomeResponse> event) {
     return _OnCompletedEvent(
       event,
     );
@@ -42,14 +42,14 @@ mixin _$HomePageDataEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<dynamic>> event),
-    @required TResult onCompletedEvent(Either<ApiFailure, List<dynamic>> event),
+    @required TResult onSpanShotEvent(Either<ApiFailure, HomeResponse> event),
+    @required TResult onCompletedEvent(Either<ApiFailure, HomeResponse> event),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<dynamic>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<dynamic>> event),
+    TResult onSpanShotEvent(Either<ApiFailure, HomeResponse> event),
+    TResult onCompletedEvent(Either<ApiFailure, HomeResponse> event),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -121,8 +121,8 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<dynamic>> event),
-    @required TResult onCompletedEvent(Either<ApiFailure, List<dynamic>> event),
+    @required TResult onSpanShotEvent(Either<ApiFailure, HomeResponse> event),
+    @required TResult onCompletedEvent(Either<ApiFailure, HomeResponse> event),
   }) {
     assert(fetch != null);
     assert(onSpanShotEvent != null);
@@ -134,8 +134,8 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<dynamic>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<dynamic>> event),
+    TResult onSpanShotEvent(Either<ApiFailure, HomeResponse> event),
+    TResult onCompletedEvent(Either<ApiFailure, HomeResponse> event),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -183,7 +183,7 @@ abstract class _$OnSpanShotEventCopyWith<$Res> {
   factory _$OnSpanShotEventCopyWith(
           _OnSpanShotEvent value, $Res Function(_OnSpanShotEvent) then) =
       __$OnSpanShotEventCopyWithImpl<$Res>;
-  $Res call({Either<ApiFailure, List<dynamic>> event});
+  $Res call({Either<ApiFailure, HomeResponse> event});
 }
 
 /// @nodoc
@@ -204,7 +204,7 @@ class __$OnSpanShotEventCopyWithImpl<$Res>
     return _then(_OnSpanShotEvent(
       event == freezed
           ? _value.event
-          : event as Either<ApiFailure, List<dynamic>>,
+          : event as Either<ApiFailure, HomeResponse>,
     ));
   }
 }
@@ -214,7 +214,7 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
   const _$_OnSpanShotEvent(this.event) : assert(event != null);
 
   @override
-  final Either<ApiFailure, List<dynamic>> event;
+  final Either<ApiFailure, HomeResponse> event;
 
   @override
   String toString() {
@@ -242,8 +242,8 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<dynamic>> event),
-    @required TResult onCompletedEvent(Either<ApiFailure, List<dynamic>> event),
+    @required TResult onSpanShotEvent(Either<ApiFailure, HomeResponse> event),
+    @required TResult onCompletedEvent(Either<ApiFailure, HomeResponse> event),
   }) {
     assert(fetch != null);
     assert(onSpanShotEvent != null);
@@ -255,8 +255,8 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<dynamic>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<dynamic>> event),
+    TResult onSpanShotEvent(Either<ApiFailure, HomeResponse> event),
+    TResult onCompletedEvent(Either<ApiFailure, HomeResponse> event),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -296,10 +296,10 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
 }
 
 abstract class _OnSpanShotEvent implements HomePageDataEvent {
-  const factory _OnSpanShotEvent(Either<ApiFailure, List<dynamic>> event) =
+  const factory _OnSpanShotEvent(Either<ApiFailure, HomeResponse> event) =
       _$_OnSpanShotEvent;
 
-  Either<ApiFailure, List<dynamic>> get event;
+  Either<ApiFailure, HomeResponse> get event;
   @JsonKey(ignore: true)
   _$OnSpanShotEventCopyWith<_OnSpanShotEvent> get copyWith;
 }
@@ -309,7 +309,7 @@ abstract class _$OnCompletedEventCopyWith<$Res> {
   factory _$OnCompletedEventCopyWith(
           _OnCompletedEvent value, $Res Function(_OnCompletedEvent) then) =
       __$OnCompletedEventCopyWithImpl<$Res>;
-  $Res call({Either<ApiFailure, List<dynamic>> event});
+  $Res call({Either<ApiFailure, HomeResponse> event});
 }
 
 /// @nodoc
@@ -330,7 +330,7 @@ class __$OnCompletedEventCopyWithImpl<$Res>
     return _then(_OnCompletedEvent(
       event == freezed
           ? _value.event
-          : event as Either<ApiFailure, List<dynamic>>,
+          : event as Either<ApiFailure, HomeResponse>,
     ));
   }
 }
@@ -340,7 +340,7 @@ class _$_OnCompletedEvent implements _OnCompletedEvent {
   const _$_OnCompletedEvent(this.event) : assert(event != null);
 
   @override
-  final Either<ApiFailure, List<dynamic>> event;
+  final Either<ApiFailure, HomeResponse> event;
 
   @override
   String toString() {
@@ -368,8 +368,8 @@ class _$_OnCompletedEvent implements _OnCompletedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<dynamic>> event),
-    @required TResult onCompletedEvent(Either<ApiFailure, List<dynamic>> event),
+    @required TResult onSpanShotEvent(Either<ApiFailure, HomeResponse> event),
+    @required TResult onCompletedEvent(Either<ApiFailure, HomeResponse> event),
   }) {
     assert(fetch != null);
     assert(onSpanShotEvent != null);
@@ -381,8 +381,8 @@ class _$_OnCompletedEvent implements _OnCompletedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<dynamic>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<dynamic>> event),
+    TResult onSpanShotEvent(Either<ApiFailure, HomeResponse> event),
+    TResult onCompletedEvent(Either<ApiFailure, HomeResponse> event),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -422,10 +422,10 @@ class _$_OnCompletedEvent implements _OnCompletedEvent {
 }
 
 abstract class _OnCompletedEvent implements HomePageDataEvent {
-  const factory _OnCompletedEvent(Either<ApiFailure, List<dynamic>> event) =
+  const factory _OnCompletedEvent(Either<ApiFailure, HomeResponse> event) =
       _$_OnCompletedEvent;
 
-  Either<ApiFailure, List<dynamic>> get event;
+  Either<ApiFailure, HomeResponse> get event;
   @JsonKey(ignore: true)
   _$OnCompletedEventCopyWith<_OnCompletedEvent> get copyWith;
 }
@@ -445,21 +445,21 @@ class _$HomePageDataStateTearOff {
   }
 
 // ignore: unused_element
-  _LoadingWithData loadingWithData(List<dynamic> data) {
+  _LoadingWithData loadingWithData(HomeResponse data) {
     return _LoadingWithData(
       data,
     );
   }
 
 // ignore: unused_element
-  _Loaded loaded(List<dynamic> data) {
+  _Loaded loaded(HomeResponse data) {
     return _Loaded(
       data,
     );
   }
 
 // ignore: unused_element
-  _FailureWithData failureWithData(ApiFailure failure, List<dynamic> data) {
+  _FailureWithData failureWithData(ApiFailure failure, HomeResponse data) {
     return _FailureWithData(
       failure,
       data,
@@ -484,18 +484,18 @@ mixin _$HomePageDataState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadingWithData(List<dynamic> data),
-    @required TResult loaded(List<dynamic> data),
-    @required TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    @required TResult loadingWithData(HomeResponse data),
+    @required TResult loaded(HomeResponse data),
+    @required TResult failureWithData(ApiFailure failure, HomeResponse data),
     @required TResult failure(ApiFailure failure),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadingWithData(List<dynamic> data),
-    TResult loaded(List<dynamic> data),
-    TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    TResult loadingWithData(HomeResponse data),
+    TResult loaded(HomeResponse data),
+    TResult failureWithData(ApiFailure failure, HomeResponse data),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   });
@@ -575,9 +575,9 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadingWithData(List<dynamic> data),
-    @required TResult loaded(List<dynamic> data),
-    @required TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    @required TResult loadingWithData(HomeResponse data),
+    @required TResult loaded(HomeResponse data),
+    @required TResult failureWithData(ApiFailure failure, HomeResponse data),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
@@ -594,9 +594,9 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadingWithData(List<dynamic> data),
-    TResult loaded(List<dynamic> data),
-    TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    TResult loadingWithData(HomeResponse data),
+    TResult loaded(HomeResponse data),
+    TResult failureWithData(ApiFailure failure, HomeResponse data),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -687,9 +687,9 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadingWithData(List<dynamic> data),
-    @required TResult loaded(List<dynamic> data),
-    @required TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    @required TResult loadingWithData(HomeResponse data),
+    @required TResult loaded(HomeResponse data),
+    @required TResult failureWithData(ApiFailure failure, HomeResponse data),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
@@ -706,9 +706,9 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadingWithData(List<dynamic> data),
-    TResult loaded(List<dynamic> data),
-    TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    TResult loadingWithData(HomeResponse data),
+    TResult loaded(HomeResponse data),
+    TResult failureWithData(ApiFailure failure, HomeResponse data),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -766,7 +766,7 @@ abstract class _$LoadingWithDataCopyWith<$Res> {
   factory _$LoadingWithDataCopyWith(
           _LoadingWithData value, $Res Function(_LoadingWithData) then) =
       __$LoadingWithDataCopyWithImpl<$Res>;
-  $Res call({List<dynamic> data});
+  $Res call({HomeResponse data});
 }
 
 /// @nodoc
@@ -785,7 +785,7 @@ class __$LoadingWithDataCopyWithImpl<$Res>
     Object data = freezed,
   }) {
     return _then(_LoadingWithData(
-      data == freezed ? _value.data : data as List<dynamic>,
+      data == freezed ? _value.data : data as HomeResponse,
     ));
   }
 }
@@ -795,7 +795,7 @@ class _$_LoadingWithData implements _LoadingWithData {
   const _$_LoadingWithData(this.data) : assert(data != null);
 
   @override
-  final List<dynamic> data;
+  final HomeResponse data;
 
   @override
   String toString() {
@@ -824,9 +824,9 @@ class _$_LoadingWithData implements _LoadingWithData {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadingWithData(List<dynamic> data),
-    @required TResult loaded(List<dynamic> data),
-    @required TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    @required TResult loadingWithData(HomeResponse data),
+    @required TResult loaded(HomeResponse data),
+    @required TResult failureWithData(ApiFailure failure, HomeResponse data),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
@@ -843,9 +843,9 @@ class _$_LoadingWithData implements _LoadingWithData {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadingWithData(List<dynamic> data),
-    TResult loaded(List<dynamic> data),
-    TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    TResult loadingWithData(HomeResponse data),
+    TResult loaded(HomeResponse data),
+    TResult failureWithData(ApiFailure failure, HomeResponse data),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -895,9 +895,9 @@ class _$_LoadingWithData implements _LoadingWithData {
 }
 
 abstract class _LoadingWithData implements HomePageDataState {
-  const factory _LoadingWithData(List<dynamic> data) = _$_LoadingWithData;
+  const factory _LoadingWithData(HomeResponse data) = _$_LoadingWithData;
 
-  List<dynamic> get data;
+  HomeResponse get data;
   @JsonKey(ignore: true)
   _$LoadingWithDataCopyWith<_LoadingWithData> get copyWith;
 }
@@ -906,7 +906,7 @@ abstract class _LoadingWithData implements HomePageDataState {
 abstract class _$LoadedCopyWith<$Res> {
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
-  $Res call({List<dynamic> data});
+  $Res call({HomeResponse data});
 }
 
 /// @nodoc
@@ -923,7 +923,7 @@ class __$LoadedCopyWithImpl<$Res> extends _$HomePageDataStateCopyWithImpl<$Res>
     Object data = freezed,
   }) {
     return _then(_Loaded(
-      data == freezed ? _value.data : data as List<dynamic>,
+      data == freezed ? _value.data : data as HomeResponse,
     ));
   }
 }
@@ -933,7 +933,7 @@ class _$_Loaded implements _Loaded {
   const _$_Loaded(this.data) : assert(data != null);
 
   @override
-  final List<dynamic> data;
+  final HomeResponse data;
 
   @override
   String toString() {
@@ -962,9 +962,9 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadingWithData(List<dynamic> data),
-    @required TResult loaded(List<dynamic> data),
-    @required TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    @required TResult loadingWithData(HomeResponse data),
+    @required TResult loaded(HomeResponse data),
+    @required TResult failureWithData(ApiFailure failure, HomeResponse data),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
@@ -981,9 +981,9 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadingWithData(List<dynamic> data),
-    TResult loaded(List<dynamic> data),
-    TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    TResult loadingWithData(HomeResponse data),
+    TResult loaded(HomeResponse data),
+    TResult failureWithData(ApiFailure failure, HomeResponse data),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -1033,9 +1033,9 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements HomePageDataState {
-  const factory _Loaded(List<dynamic> data) = _$_Loaded;
+  const factory _Loaded(HomeResponse data) = _$_Loaded;
 
-  List<dynamic> get data;
+  HomeResponse get data;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith;
 }
@@ -1045,7 +1045,7 @@ abstract class _$FailureWithDataCopyWith<$Res> {
   factory _$FailureWithDataCopyWith(
           _FailureWithData value, $Res Function(_FailureWithData) then) =
       __$FailureWithDataCopyWithImpl<$Res>;
-  $Res call({ApiFailure failure, List<dynamic> data});
+  $Res call({ApiFailure failure, HomeResponse data});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
@@ -1068,7 +1068,7 @@ class __$FailureWithDataCopyWithImpl<$Res>
   }) {
     return _then(_FailureWithData(
       failure == freezed ? _value.failure : failure as ApiFailure,
-      data == freezed ? _value.data : data as List<dynamic>,
+      data == freezed ? _value.data : data as HomeResponse,
     ));
   }
 
@@ -1092,7 +1092,7 @@ class _$_FailureWithData implements _FailureWithData {
   @override
   final ApiFailure failure;
   @override
-  final List<dynamic> data;
+  final HomeResponse data;
 
   @override
   String toString() {
@@ -1126,9 +1126,9 @@ class _$_FailureWithData implements _FailureWithData {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadingWithData(List<dynamic> data),
-    @required TResult loaded(List<dynamic> data),
-    @required TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    @required TResult loadingWithData(HomeResponse data),
+    @required TResult loaded(HomeResponse data),
+    @required TResult failureWithData(ApiFailure failure, HomeResponse data),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
@@ -1145,9 +1145,9 @@ class _$_FailureWithData implements _FailureWithData {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadingWithData(List<dynamic> data),
-    TResult loaded(List<dynamic> data),
-    TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    TResult loadingWithData(HomeResponse data),
+    TResult loaded(HomeResponse data),
+    TResult failureWithData(ApiFailure failure, HomeResponse data),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -1197,11 +1197,11 @@ class _$_FailureWithData implements _FailureWithData {
 }
 
 abstract class _FailureWithData implements HomePageDataState {
-  const factory _FailureWithData(ApiFailure failure, List<dynamic> data) =
+  const factory _FailureWithData(ApiFailure failure, HomeResponse data) =
       _$_FailureWithData;
 
   ApiFailure get failure;
-  List<dynamic> get data;
+  HomeResponse get data;
   @JsonKey(ignore: true)
   _$FailureWithDataCopyWith<_FailureWithData> get copyWith;
 }
@@ -1278,9 +1278,9 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadingWithData(List<dynamic> data),
-    @required TResult loaded(List<dynamic> data),
-    @required TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    @required TResult loadingWithData(HomeResponse data),
+    @required TResult loaded(HomeResponse data),
+    @required TResult failureWithData(ApiFailure failure, HomeResponse data),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
@@ -1297,9 +1297,9 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadingWithData(List<dynamic> data),
-    TResult loaded(List<dynamic> data),
-    TResult failureWithData(ApiFailure failure, List<dynamic> data),
+    TResult loadingWithData(HomeResponse data),
+    TResult loaded(HomeResponse data),
+    TResult failureWithData(ApiFailure failure, HomeResponse data),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {

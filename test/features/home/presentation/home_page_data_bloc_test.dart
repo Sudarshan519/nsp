@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/home/domain/entities/home_response.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 
 import '../../../mocks/mocks.dart';
@@ -10,7 +11,7 @@ void main() {
   MockGetHomePageData usecase;
   HomePageDataBloc sut;
 
-  final _data = [];
+  const HomeResponse _data = HomeResponse(homeData: null, userDetail: null);
 
   setUp(() {
     usecase = MockGetHomePageData();

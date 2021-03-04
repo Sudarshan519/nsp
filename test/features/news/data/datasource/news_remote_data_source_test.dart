@@ -77,18 +77,6 @@ void main() {
     // assign
     setUpHTTPCLient200();
 
-    final Map<String, String> _query = {
-      'page': _page,
-      'appId': _appId,
-      'limit': _limit,
-    };
-
-    final _uri = Uri(
-      host: configReader.baseURL,
-      path: "${configReader.apiPath}${NewsApiEndpoints.getNews}",
-      queryParameters: _query,
-    );
-
     // act
     await dataSource.getNews(
       page: _page,
@@ -96,7 +84,7 @@ void main() {
     );
 
     //assert
-    verify(client.get(_uri, headers: _headers));
+    verify(client.get(NewsApiEndpoints.getNews, headers: _headers));
   });
 
   test('should return news if status code is 200', () async {

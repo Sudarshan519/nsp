@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/home/domain/entities/user_detail.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 import 'balance_and_points.dart';
 
 class UserInfoWidget extends StatelessWidget {
+  final UserDetail user;
   const UserInfoWidget({
     Key key,
+    @required this.user,
   }) : super(key: key);
 
   @override
@@ -21,7 +24,8 @@ class UserInfoWidget extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Siraj Ashikarisadasd",
+                "${user?.firstName ?? ""} ${user?.lastName ?? ""}",
+                // "Siraj Ashikarisadasd",
                 style: TextStyle(
                   color: Palette.white,
                   fontSize: 16,
@@ -32,7 +36,7 @@ class UserInfoWidget extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "+81 12 3123 2131",
+                user?.mobile ?? "",
                 style: TextStyle(
                   color: Palette.white,
                   fontSize: 12,
@@ -45,7 +49,9 @@ class UserInfoWidget extends StatelessWidget {
             ],
           ),
         ),
-        const BalanceAndPointWidget(),
+        BalanceAndPointWidget(
+          user: user,
+        ),
         const Padding(padding: EdgeInsets.only(bottom: 16)),
       ],
     );

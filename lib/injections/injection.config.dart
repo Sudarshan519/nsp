@@ -62,10 +62,6 @@ Future<GetIt> $initGetIt(
       () => dataConnectionCheckerModule.dataConnectionChecker);
   gh.lazySingleton<FlutterSecureStorage>(
       () => flutterStorageModule.secureStorate);
-  gh.lazySingleton<HomePageRemoteDataSource>(() => HomePageRemoteDataSourceImpl(
-      client: get<Client>(), config: get<ConfigReader>()));
-  gh.lazySingleton<HomeReporisitory>(() =>
-      HomeRepositoryImpl(remoteDataSource: get<HomePageRemoteDataSource>()));
   gh.lazySingleton<NetworkInfoProtocol>(
       () => NetworkInfo(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(() =>
@@ -80,12 +76,15 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<AuthRepositoryProtocol>(() => AuthRepository(
       remoteDataSource: get<AuthRemoteDataSourceProtocol>(),
       localDataSource: get<AuthLocalDataSourceProtocol>()));
-  gh.lazySingleton<GetHomePageData>(
-      () => GetHomePageData(repository: get<HomeReporisitory>()));
   gh.lazySingleton<GetWalletUser>(
       () => GetWalletUser(repository: get<AuthRepositoryProtocol>()));
-  gh.factory<HomePageDataBloc>(
-      () => HomePageDataBloc(getHomePageData: get<GetHomePageData>()));
+  gh.lazySingleton<HomePageRemoteDataSource>(() => HomePageRemoteDataSourceImpl(
+        client: get<Client>(),
+        config: get<ConfigReader>(),
+        auth: get<AuthLocalDataSourceProtocol>(),
+      ));
+  gh.lazySingleton<HomeReporisitory>(() =>
+      HomeRepositoryImpl(remoteDataSource: get<HomePageRemoteDataSource>()));
   gh.lazySingleton<LogoutUser>(
       () => LogoutUser(repository: get<AuthRepositoryProtocol>()));
   gh.lazySingleton<NewsLocalDataSourceProtocol>(
@@ -106,9 +105,13 @@ Future<GetIt> $initGetIt(
       networkInfo: get<NetworkInfoProtocol>()));
   gh.factory<VerifyEmailBloc>(
       () => VerifyEmailBloc(verifyEmail: get<VerifyEmail>()));
+  gh.lazySingleton<GetHomePageData>(
+      () => GetHomePageData(repository: get<HomeReporisitory>()));
   gh.lazySingleton<GetNews>(() => GetNews(
       repository: get<NewsRepositoryProtocol>(),
       networkInfo: get<NetworkInfoProtocol>()));
+  gh.factory<HomePageDataBloc>(
+      () => HomePageDataBloc(getHomePageData: get<GetHomePageData>()));
   gh.factory<NewsBloc>(() => NewsBloc(getNews: get<GetNews>()));
   gh.factory<SignInFormBloc>(
       () => SignInFormBloc(get<SignInWithEmailAndPassword>()));

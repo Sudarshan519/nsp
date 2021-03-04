@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/home/data/model/home_response_model.dart';
 import 'package:wallet_app/features/home/data/repositories/home_repository.dart';
 
 import '../../../../mocks/mocks.dart';
@@ -11,7 +12,8 @@ void main() {
   MockHomePageRemoteDataSource remoteDataSource;
   HomeRepositoryImpl sut;
 
-  final List<dynamic> result = [];
+  const HomeResponseModel result =
+      HomeResponseModel(homeData: null, userDetail: null);
 
   setUp(() {
     remoteDataSource = MockHomePageRemoteDataSource();

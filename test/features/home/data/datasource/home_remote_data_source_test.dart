@@ -7,20 +7,26 @@ import 'package:wallet_app/features/home/data/app_constant/constant.dart';
 import 'package:wallet_app/features/home/data/datasource/home_remote_data_source.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:wallet_app/features/home/data/model/home_response_model.dart';
 import '../../../../mocks/mocks.dart';
 import '../../../../stub/stub.dart';
+import '../../../../utils/test_constant/auth/test_constant.dart';
 
 void main() {
   MockHttpClient client;
   MockConfigReader config;
+  MockAuthLocalDataSourceProtocol auth;
   HomePageRemoteDataSourceImpl sut;
 
   final headers = {
     'Accept': 'application/json; charset=utf-8',
     "Content-Type": 'application/json; charset=utf-8',
+    "Authorization": 'Bearer ${AuthTestConstant.WALLET_USER.accessToken}'
   };
 
   void setUpHTTPCLient200() {
+    when(auth.getWalletUser())
+        .thenAnswer((_) async => AuthTestConstant.WALLET_USER);
     when(client.get(
       any,
       headers: anyNamed('headers'),
@@ -34,6 +40,8 @@ void main() {
   }
 
   void setUpHTTPCLient500() {
+    when(auth.getWalletUser())
+        .thenAnswer((_) async => AuthTestConstant.WALLET_USER);
     when(client.get(
       any,
       headers: anyNamed('headers'),
@@ -49,6 +57,8 @@ void main() {
   }
 
   void setUpHTTPCLientThrowException() {
+    when(auth.getWalletUser())
+        .thenAnswer((_) async => AuthTestConstant.WALLET_USER);
     when(client.get(
       any,
       headers: anyNamed('headers'),
@@ -58,7 +68,12 @@ void main() {
   setUp(() {
     client = MockHttpClient();
     config = MockConfigReader();
-    sut = HomePageRemoteDataSourceImpl(client: client, config: config);
+    auth = MockAuthLocalDataSourceProtocol();
+    sut = HomePageRemoteDataSourceImpl(
+      client: client,
+      config: config,
+      auth: auth,
+    );
   });
 
   group('assertion test', () {
@@ -67,6 +82,7 @@ void main() {
         () => HomePageRemoteDataSourceImpl(
           client: null,
           config: config,
+          auth: auth,
         ),
         throwsA(isA<AssertionError>()),
       );
@@ -77,6 +93,18 @@ void main() {
         () => HomePageRemoteDataSourceImpl(
           client: client,
           config: null,
+          auth: auth,
+        ),
+        throwsA(isA<AssertionError>()),
+      );
+    });
+
+    test('should return assert error if auth is null', () {
+      expect(
+        () => HomePageRemoteDataSourceImpl(
+          client: client,
+          config: config,
+          auth: null,
         ),
         throwsA(isA<AssertionError>()),
       );
@@ -101,7 +129,7 @@ void main() {
   });
 
   test('''
-    should return a List of dynamic Type when endpoint return data 
+    should return a HomeResponseModel when endpoint return data 
     if the network status is 200.
     ''', () async {
     //assign
@@ -109,7 +137,7 @@ void main() {
     //act
     final result = await sut.getHomePageData();
     //assert
-    expect(result, equals(isA<List<dynamic>>()));
+    expect(result, equals(isA<HomeResponseModel>()));
   });
 
   test('''
