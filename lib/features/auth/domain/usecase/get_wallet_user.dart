@@ -8,7 +8,7 @@ import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dar
 
 @lazySingleton
 class GetWalletUser implements Usecase<ApiFailure, WalletUser, NoParams> {
-  final AuthRepositoryProtocol repository;
+  final AuthRepository repository;
 
   GetWalletUser({
     @required this.repository,

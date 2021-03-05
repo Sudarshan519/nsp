@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/resume_options.dart';
+import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
@@ -19,12 +22,26 @@ class AboutPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Basic Info",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  children: [
+                    const Text(
+                      "Basic Info",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    InkWell(
+                      onTap: () => ExtendedNavigator.of(context)
+                          .push(Routes.editBasicInfoForm),
+                      child: SvgPicture.asset(
+                        "assets/images/resume/edit.svg",
+                        color: Palette.primary,
+                        width: 15,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 10,
@@ -33,6 +50,7 @@ class AboutPage extends StatelessWidget {
                   title: "Name",
                   child: InputTextWidget(
                     hintText: "Name",
+                    isEnable: false,
                     onChanged: (_) {},
                   ),
                 ),
@@ -41,6 +59,7 @@ class AboutPage extends StatelessWidget {
                   title: "Family Name",
                   child: InputTextWidget(
                     hintText: "Family Name",
+                    isEnable: false,
                     onChanged: (_) {},
                   ),
                 ),
@@ -49,6 +68,7 @@ class AboutPage extends StatelessWidget {
                   title: "Profession",
                   child: InputTextWidget(
                     hintText: "Profession",
+                    isEnable: false,
                     onChanged: (_) {},
                   ),
                 ),
@@ -57,6 +77,7 @@ class AboutPage extends StatelessWidget {
                   title: "Date of Birth",
                   child: InputTextWidget(
                     hintText: "1990/01/01",
+                    isEnable: false,
                     onChanged: (_) {},
                   ),
                 ),
@@ -65,6 +86,7 @@ class AboutPage extends StatelessWidget {
                   title: "Age",
                   child: InputTextWidget(
                     hintText: "Age",
+                    isEnable: false,
                     onChanged: (_) {},
                   ),
                 ),
@@ -73,6 +95,7 @@ class AboutPage extends StatelessWidget {
                   title: "Gender",
                   child: InputTextWidget(
                     hintText: "Gender",
+                    isEnable: false,
                     onChanged: (_) {},
                   ),
                 ),
@@ -81,6 +104,7 @@ class AboutPage extends StatelessWidget {
                   title: "Nationality",
                   child: InputTextWidget(
                     hintText: "Nationality",
+                    isEnable: false,
                     onChanged: (_) {},
                   ),
                 ),
@@ -90,6 +114,7 @@ class AboutPage extends StatelessWidget {
                   child: InputTextWidget(
                     hintText: "Email",
                     onChanged: (_) {},
+                    isEnable: false,
                     textInputType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.done,
                   ),

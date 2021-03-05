@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:wallet_app/features/home/domain/entities/resume/resume_options.dart';
+
+import '../../domain/entities/resume_options.dart';
 
 class ResumeOptionsModel extends ResumeOptions {
   const ResumeOptionsModel({

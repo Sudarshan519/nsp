@@ -9,12 +9,12 @@ import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
 import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';
 import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dart';
 
-@LazySingleton(as: AuthRepositoryProtocol)
-class AuthRepository implements AuthRepositoryProtocol {
-  final AuthRemoteDataSourceProtocol remoteDataSource;
-  final AuthLocalDataSourceProtocol localDataSource;
+@LazySingleton(as: AuthRepository)
+class AuthRepositoryImpl implements AuthRepository {
+  final AuthRemoteDataSource remoteDataSource;
+  final AuthLocalDataSource localDataSource;
 
-  AuthRepository({
+  AuthRepositoryImpl({
     @required this.remoteDataSource,
     @required this.localDataSource,
   })  : assert(remoteDataSource != null),

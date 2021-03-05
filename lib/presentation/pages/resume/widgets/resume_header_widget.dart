@@ -13,7 +13,7 @@ class ResumeHeaderWidget extends StatelessWidget {
         children: [
           Stack(
             alignment: Alignment.center,
-            overflow: Overflow.visible,
+            clipBehavior: Clip.none,
             children: [
               const CircleAvatar(
                 radius: 41,

@@ -7,7 +7,7 @@ import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dar
 
 @lazySingleton
 class LogoutUser implements Usecase<ApiFailure, Unit, NoParams> {
-  final AuthRepositoryProtocol repository;
+  final AuthRepository repository;
 
   LogoutUser({
     @required this.repository,

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:wallet_app/features/home/domain/entities/resume/academic_history.dart';
+
+import '../../domain/entities/academic_history.dart';
 
 class AcademicHistoryModel extends AcademicHistory {
   const AcademicHistoryModel({

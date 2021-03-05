@@ -22,7 +22,6 @@ void main() {
   };
 
   const _page = "1";
-  const _appId = "2";
   const _limit = "10";
 
   void setUpHTTPCLient200() {

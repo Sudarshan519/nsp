@@ -8,7 +8,7 @@ import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
 
-abstract class AuthLocalDataSourceProtocol {
+abstract class AuthLocalDataSource {
   Future save(WalletUserModel user);
   Future delete();
 
@@ -22,12 +22,12 @@ abstract class AuthLocalDataSourceProtocol {
   Future<WalletUserModel> getWalletUser();
 }
 
-@LazySingleton(as: AuthLocalDataSourceProtocol)
-class AuthLocalDataSource implements AuthLocalDataSourceProtocol {
+@LazySingleton(as: AuthLocalDataSource)
+class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   final FlutterSecureStorage secureStorage;
   final SharedPreferences preferences;
 
-  AuthLocalDataSource({
+  AuthLocalDataSourceImpl({
     @required this.secureStorage,
     @required this.preferences,
   })  : assert(secureStorage != null),

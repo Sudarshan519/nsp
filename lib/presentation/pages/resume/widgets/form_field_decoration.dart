@@ -35,6 +35,7 @@ class FormFieldDecoration extends StatelessWidget {
             SvgPicture.asset(
               "assets/images/resume/edit.svg",
               color: Palette.formEditPencilColor,
+              height: 11,
             ),
           ],
         ),

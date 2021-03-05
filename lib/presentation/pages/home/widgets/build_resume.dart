@@ -6,8 +6,10 @@ import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 import 'category_title_text.dart';
 
 class BuildResume extends StatelessWidget {
+  final Function(int) changeTabPage;
   const BuildResume({
     Key key,
+    @required this.changeTabPage,
   }) : super(key: key);
 
   @override
@@ -48,7 +50,10 @@ class BuildResume extends StatelessWidget {
                       const SizedBox(height: 10),
                       CustomButton(
                         title: "Create Resume",
-                        onTap: () {},
+                        onTap: () {
+                          DefaultTabController.of(context).animateTo(1);
+                          changeTabPage(1);
+                        },
                       ),
                     ],
                   ),

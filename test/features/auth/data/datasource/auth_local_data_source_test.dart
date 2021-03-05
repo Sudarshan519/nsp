@@ -12,14 +12,14 @@ import '../../../../utils/test_constant/auth/test_constant.dart';
 void main() {
   MockSharedPreferences preferences;
   MockFlutterSecureStorage secureStorage;
-  AuthLocalDataSource sut;
+  AuthLocalDataSourceImpl sut;
 
   final verifyValue = json.encode(AuthTestConstant.WALLET_USER.toJSON());
 
   setUp(() {
     preferences = MockSharedPreferences();
     secureStorage = MockFlutterSecureStorage();
-    sut = AuthLocalDataSource(
+    sut = AuthLocalDataSourceImpl(
       preferences: preferences,
       secureStorage: secureStorage,
     );
@@ -28,7 +28,7 @@ void main() {
   group('assertion test', () {
     test('should return assert error if preference is null', () {
       expect(
-        () => AuthLocalDataSource(
+        () => AuthLocalDataSourceImpl(
           preferences: null,
           secureStorage: secureStorage,
         ),
@@ -38,7 +38,7 @@ void main() {
 
     test('should return assert error if secureStorage is null', () {
       expect(
-        () => AuthLocalDataSource(
+        () => AuthLocalDataSourceImpl(
           preferences: preferences,
           secureStorage: null,
         ),

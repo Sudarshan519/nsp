@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:wallet_app/features/home/domain/entities/resume/work_history.dart';
+
+import '../../domain/entities/work_history.dart';
 
 class WorkHistoryModel extends WorkHistory {
   const WorkHistoryModel({

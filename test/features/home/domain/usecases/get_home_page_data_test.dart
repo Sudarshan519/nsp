@@ -33,12 +33,12 @@ void main() {
     ''', () {
     // assign
     when(_repository.getHomePageData()).thenAnswer((_) => Stream.fromIterable([
-          Right(_data),
+          const Right(_data),
         ]));
 
     // assert fucture
     final assertExpected = [
-      Right(_data),
+      const Right(_data),
     ];
 
     expectLater(_sut(NoParams()), emitsInOrder(assertExpected));

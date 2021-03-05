@@ -6,6 +6,7 @@ class InputTextWidget extends StatelessWidget {
   final bool obscureText;
   final TextInputType textInputType;
   final TextInputAction textInputAction;
+  final bool isEnable;
   final Function(String) onChanged;
   final Function() onEditingCompleted;
 
@@ -14,6 +15,7 @@ class InputTextWidget extends StatelessWidget {
     @required this.hintText,
     @required this.onChanged,
     this.obscureText = false,
+    this.isEnable = true,
     this.textInputType = TextInputType.streetAddress,
     this.textInputAction = TextInputAction.next,
     this.onEditingCompleted,
@@ -26,6 +28,7 @@ class InputTextWidget extends StatelessWidget {
     return TextFormField(
       obscureText: obscureText,
       autocorrect: false,
+      enabled: isEnable,
       decoration: InputDecoration(
         isDense: true,
         border: InputBorder.none,

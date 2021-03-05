@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:wallet_app/features/home/domain/entities/resume/personal_info.dart';
+
+import '../../domain/entities/personal_info.dart';
 
 class PersonalInfoModel extends PersonalInfo {
   const PersonalInfoModel({

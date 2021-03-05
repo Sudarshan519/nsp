@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 
 import 'package:wallet_app/features/home/domain/entities/home_response.dart';
 
@@ -11,8 +12,8 @@ List<HomeResponseModel> homeResponseModelFromJson(String str) =>
 
 class HomeResponseModel extends HomeResponse {
   const HomeResponseModel({
-    final UserDetailModel userDetail,
-    final List<HomeDataModel> homeData,
+    @required final UserDetailModel userDetail,
+    @required final List<HomeDataModel> homeData,
   }) : super(
           userDetail: userDetail,
           homeData: homeData,

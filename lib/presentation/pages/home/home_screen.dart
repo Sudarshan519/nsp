@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/home/data/model/japanese_manner_model.dart';
-import 'package:wallet_app/features/home/data/model/resume/resume_model.dart';
 import 'package:wallet_app/features/home/data/model/services_model.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/features/resume/data/model/resume_model.dart';
 import 'package:wallet_app/presentation/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/my_resume.dart';
@@ -21,6 +21,14 @@ import 'widgets/news/segmented_news_widget.dart';
 import 'widgets/user_info_widget.dart';
 
 class HomePage extends StatelessWidget {
+  final Function(int) changeTabPage;
+
+  const HomePage({
+    Key key,
+    @required this.changeTabPage,
+  })  : assert(changeTabPage != null),
+        super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -153,7 +161,9 @@ class HomePage extends StatelessWidget {
           final resumeModel = ResumeDataModel.fromJson(map);
           return MyResumeWidget(data: resumeModel);
         } else {
-          return const BuildResume();
+          return BuildResume(
+            changeTabPage: changeTabPage,
+          );
         }
         break;
       case HomeItemType.services:

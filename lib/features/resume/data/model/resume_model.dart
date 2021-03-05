@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
-import 'package:wallet_app/features/home/data/model/resume/personal_info_model.dart';
-import 'package:wallet_app/features/home/data/model/resume/qualification_history_model.dart';
-import 'package:wallet_app/features/home/data/model/resume/resume_options_model.dart';
-import 'package:wallet_app/features/home/data/model/resume/work_history_model.dart';
-import 'package:wallet_app/features/home/domain/entities/resume/resume.dart';
 
+import '../../domain/entities/resume.dart';
 import 'academic_history_model.dart';
+import 'personal_info_model.dart';
+import 'qualification_history_model.dart';
+import 'resume_options_model.dart';
+import 'work_history_model.dart';
 
 class ResumeDataModel extends ResumeData {
   const ResumeDataModel({

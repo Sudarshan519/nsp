@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:wallet_app/features/home/domain/entities/resume/qualification_history.dart';
+
+import '../../domain/entities/qualification_history.dart';
 
 class QualificationHistoryModel extends QualificationHistory {
   const QualificationHistoryModel({

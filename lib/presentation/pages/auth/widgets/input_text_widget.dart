@@ -35,8 +35,15 @@ class InputTextWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            prefixIcon ?? const SizedBox.shrink(),
-            const SizedBox(width: 10),
+            if (prefixIcon != null)
+              Column(
+                children: [
+                  prefixIcon,
+                  const SizedBox(width: 10),
+                ],
+              )
+            else
+              const SizedBox.shrink(),
             Expanded(
               child: TextFormField(
                 initialValue: value,

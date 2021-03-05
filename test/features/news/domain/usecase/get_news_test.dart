@@ -11,7 +11,7 @@ import '../../../../utils/test_constant/news/test_constant.dart';
 
 class MockNewsRepository extends Mock implements NewsRepositoryProtocol {}
 
-class MockNetworkInfo extends Mock implements NetworkInfoProtocol {}
+class MockNetworkInfo extends Mock implements NetworkInfo {}
 
 void main() {
   GetNews getNews;

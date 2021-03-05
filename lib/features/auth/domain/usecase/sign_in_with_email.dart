@@ -11,8 +11,8 @@ import 'package:wallet_app/utils/validator.dart';
 @lazySingleton
 class SignInWithEmailAndPassword
     implements Usecase<ApiFailure, WalletUser, SignInParams> {
-  final AuthRepositoryProtocol repository;
-  final NetworkInfoProtocol networkInfo;
+  final AuthRepository repository;
+  final NetworkInfo networkInfo;
 
   SignInWithEmailAndPassword({
     @required this.repository,

@@ -19,12 +19,7 @@ class TabBarScreen extends StatefulWidget {
 
 class TabBarScreenState extends State<TabBarScreen> {
   int _selectedIndex = 0;
-  final List<Widget> _children = [
-    HomePage(),
-    ResumePage(),
-    NewsPage(),
-    Container(),
-  ];
+  List<Widget> _children = [];
 
   final List<CustomTabBarData> _tabBarData = [
     CustomTabBarData(
@@ -47,6 +42,7 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _children = getTabs();
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -86,5 +82,22 @@ class TabBarScreenState extends State<TabBarScreen> {
             : const SizedBox.shrink(),
       ),
     );
+  }
+
+  List<Widget> getTabs() {
+    return [
+      HomePage(
+        changeTabPage: _changeTo,
+      ),
+      ResumePage(),
+      NewsPage(),
+      Container(),
+    ];
+  }
+
+  void _changeTo(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 }

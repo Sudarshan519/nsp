@@ -22,7 +22,7 @@ abstract class HomePageRemoteDataSource {
 class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
   final http.Client client;
   final ConfigReader config;
-  final AuthLocalDataSourceProtocol auth;
+  final AuthLocalDataSource auth;
 
   final _headers = {
     'Accept': 'application/json; charset=utf-8',

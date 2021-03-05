@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';
 
-abstract class AuthRepositoryProtocol {
+abstract class AuthRepository {
   // For sign in purpose
   Future<Either<ApiFailure, WalletUser>> postUserSignInWithUsernameAndPassword({
     @required String username,

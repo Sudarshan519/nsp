@@ -13,8 +13,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../features/auth/data/datasource/auth_local_data_source.dart';
 import '../features/auth/data/datasource/auth_remote_data_source.dart';
-import '../features/auth/data/repository/auth_repository.dart';
 import '../features/auth/domain/repositories/auth_repository.dart';
+import '../features/auth/data/repository/auth_repository.dart';
 import '../utils/config_reader.dart';
 import '../core/database/local_database_provider.dart';
 import 'injectable/data_connection_checker_injectable_module.dart';
@@ -62,54 +62,51 @@ Future<GetIt> $initGetIt(
       () => dataConnectionCheckerModule.dataConnectionChecker);
   gh.lazySingleton<FlutterSecureStorage>(
       () => flutterStorageModule.secureStorate);
-  gh.lazySingleton<NetworkInfoProtocol>(
-      () => NetworkInfo(dataConnectionChecker: get<DataConnectionChecker>()));
+  gh.lazySingleton<NetworkInfo>(() =>
+      NetworkInfoImpl(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(() =>
       NewsRemoteDataSource(client: get<Client>(), config: get<ConfigReader>()));
   final resolvedSharedPreferences = await sharedPreferenceModule.prefs;
   gh.factory<SharedPreferences>(() => resolvedSharedPreferences);
-  gh.lazySingleton<AuthLocalDataSourceProtocol>(() => AuthLocalDataSource(
+  gh.lazySingleton<AuthLocalDataSource>(() => AuthLocalDataSourceImpl(
       secureStorage: get<FlutterSecureStorage>(),
       preferences: get<SharedPreferences>()));
-  gh.lazySingleton<AuthRemoteDataSourceProtocol>(() =>
-      AuthRemoteDataSource(client: get<Client>(), config: get<ConfigReader>()));
-  gh.lazySingleton<AuthRepositoryProtocol>(() => AuthRepository(
-      remoteDataSource: get<AuthRemoteDataSourceProtocol>(),
-      localDataSource: get<AuthLocalDataSourceProtocol>()));
+  gh.lazySingleton<AuthRemoteDataSource>(() => AuthRemoteDataSourceImpl(
+      client: get<Client>(), config: get<ConfigReader>()));
+  gh.lazySingleton<AuthRepository>(() => AuthRepositoryImpl(
+      remoteDataSource: get<AuthRemoteDataSource>(),
+      localDataSource: get<AuthLocalDataSource>()));
   gh.lazySingleton<GetWalletUser>(
-      () => GetWalletUser(repository: get<AuthRepositoryProtocol>()));
+      () => GetWalletUser(repository: get<AuthRepository>()));
   gh.lazySingleton<HomePageRemoteDataSource>(() => HomePageRemoteDataSourceImpl(
         client: get<Client>(),
         config: get<ConfigReader>(),
-        auth: get<AuthLocalDataSourceProtocol>(),
+        auth: get<AuthLocalDataSource>(),
       ));
   gh.lazySingleton<HomeReporisitory>(() =>
       HomeRepositoryImpl(remoteDataSource: get<HomePageRemoteDataSource>()));
   gh.lazySingleton<LogoutUser>(
-      () => LogoutUser(repository: get<AuthRepositoryProtocol>()));
+      () => LogoutUser(repository: get<AuthRepository>()));
   gh.lazySingleton<NewsLocalDataSourceProtocol>(
       () => NewsLocalDataSource(localProvider: get<NewsLocalProvider>()));
   gh.lazySingleton<NewsRepositoryProtocol>(() => NewsRepository(
       remoteDataSource: get<NewsRemoteDataSourceProtocol>(),
       localDataSource: get<NewsLocalDataSourceProtocol>()));
   gh.lazySingleton<SignInWithEmailAndPassword>(() => SignInWithEmailAndPassword(
-      repository: get<AuthRepositoryProtocol>(),
-      networkInfo: get<NetworkInfoProtocol>()));
+      repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<SignUpWithEmailPasswordAndUserDetail>(() =>
       SignUpWithEmailPasswordAndUserDetail(
-          repository: get<AuthRepositoryProtocol>(),
-          networkInfo: get<NetworkInfoProtocol>()));
+          repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<SplashBloc>(() => SplashBloc(getWalletUser: get<GetWalletUser>()));
   gh.lazySingleton<VerifyEmail>(() => VerifyEmail(
-      repository: get<AuthRepositoryProtocol>(),
-      networkInfo: get<NetworkInfoProtocol>()));
+      repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<VerifyEmailBloc>(
       () => VerifyEmailBloc(verifyEmail: get<VerifyEmail>()));
   gh.lazySingleton<GetHomePageData>(
       () => GetHomePageData(repository: get<HomeReporisitory>()));
   gh.lazySingleton<GetNews>(() => GetNews(
       repository: get<NewsRepositoryProtocol>(),
-      networkInfo: get<NetworkInfoProtocol>()));
+      networkInfo: get<NetworkInfo>()));
   gh.factory<HomePageDataBloc>(
       () => HomePageDataBloc(getHomePageData: get<GetHomePageData>()));
   gh.factory<NewsBloc>(() => NewsBloc(getNews: get<GetNews>()));

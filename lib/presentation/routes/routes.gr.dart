@@ -13,6 +13,7 @@ import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
 import '../pages/auth/register_screen.dart';
 import '../pages/auth/validate_user_screen.dart';
+import '../pages/resume/resume_tab_pages/about/edit_basic_info.dart';
 import '../pages/splash/splash_screen.dart';
 import '../pages/tab_bar/tab_bar_screen.dart';
 
@@ -23,6 +24,7 @@ class Routes {
   static const String verifyUserPage = '/verify-user-page';
   static const String signupPage = '/signup-page';
   static const String tabBarScreen = '/tab-bar-screen';
+  static const String editBasicInfoForm = '/edit-basic-info-form';
   static const all = <String>{
     splashScreen,
     loginPage,
@@ -30,6 +32,7 @@ class Routes {
     verifyUserPage,
     signupPage,
     tabBarScreen,
+    editBasicInfoForm,
   };
 }
 
@@ -43,6 +46,7 @@ class Router extends RouterBase {
     RouteDef(Routes.verifyUserPage, page: VerifyUserPage),
     RouteDef(Routes.signupPage, page: SignupPage),
     RouteDef(Routes.tabBarScreen, page: TabBarScreen),
+    RouteDef(Routes.editBasicInfoForm, page: EditBasicInfoForm),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -87,6 +91,12 @@ class Router extends RouterBase {
         settings: data,
       );
     },
+    EditBasicInfoForm: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => EditBasicInfoForm(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -114,6 +124,9 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushSignupPage() => push<dynamic>(Routes.signupPage);
 
   Future<dynamic> pushTabBarScreen() => push<dynamic>(Routes.tabBarScreen);
+
+  Future<dynamic> pushEditBasicInfoForm() =>
+      push<dynamic>(Routes.editBasicInfoForm);
 }
 
 /// ************************************************************************

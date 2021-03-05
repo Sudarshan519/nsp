@@ -61,8 +61,8 @@ void main() {
     when(usecase(any)).thenAnswer(
       (realInvocation) => Stream.fromIterable(
         [
-          Right(_data),
-          Right(_data),
+          const Right(_data),
+          const Right(_data),
         ],
       ),
     );
@@ -71,7 +71,7 @@ void main() {
     final assertExpected = [
       const HomePageDataState.loading(),
       // HomePageDataState.loadingWithData(_data),
-      HomePageDataState.loaded(_data),
+      const HomePageDataState.loaded(_data),
     ];
 
     expectLater(
@@ -94,8 +94,8 @@ void main() {
     when(usecase(any)).thenAnswer(
       (realInvocation) => Stream.fromIterable(
         [
-          Right(_data),
-          Right(_data),
+          const Right(_data),
+          const Right(_data),
         ],
       ),
     );
@@ -104,7 +104,7 @@ void main() {
     final assertExpected = [
       const HomePageDataState.loading(),
       // HomePageDataState.loadingWithData(_data),
-      HomePageDataState.loaded(_data),
+      const HomePageDataState.loaded(_data),
     ];
 
     expectLater(
@@ -127,7 +127,7 @@ void main() {
     when(usecase(any)).thenAnswer(
       (realInvocation) => Stream.fromIterable(
         [
-          Right(_data),
+          const Right(_data),
           const Left(ApiFailure.serverError(message: "")),
         ],
       ),
@@ -137,9 +137,9 @@ void main() {
     final assertExpected = [
       const HomePageDataState.loading(),
       // HomePageDataState.loadingWithData(_data),
-      HomePageDataState.loaded(_data),
-      HomePageDataState.failureWithData(
-        const ApiFailure.serverError(message: ""),
+      const HomePageDataState.loaded(_data),
+      const HomePageDataState.failureWithData(
+        ApiFailure.serverError(message: ""),
         _data,
       ),
     ];

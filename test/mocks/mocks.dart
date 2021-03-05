@@ -35,10 +35,10 @@ class MockConfigReader implements ConfigReader {
 
 // AUTH MOCK
 class MockAuthRemoteDataSourceProtocol extends Mock
-    implements AuthRemoteDataSourceProtocol {}
+    implements AuthRemoteDataSource {}
 
 class MockAuthLocalDataSourceProtocol extends Mock
-    implements AuthLocalDataSourceProtocol {}
+    implements AuthLocalDataSource {}
 
 // Home Mock
 class MockHomePageRemoteDataSource extends Mock
