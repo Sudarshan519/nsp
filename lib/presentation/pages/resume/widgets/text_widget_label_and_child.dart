@@ -30,7 +30,7 @@ class TextWidetWithLabelAndChild extends StatelessWidget {
         const SizedBox(height: 2),
         child,
         Container(
-          height: 0.1,
+          height: 1,
           color: Palette.dividerColor,
         )
       ],

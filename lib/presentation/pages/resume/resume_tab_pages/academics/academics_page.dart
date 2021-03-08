@@ -30,6 +30,7 @@ class AcademicsPage extends StatelessWidget {
                   title: "Year of Enroll",
                   child: InputTextWidget(
                     hintText: "2010",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -38,6 +39,7 @@ class AcademicsPage extends StatelessWidget {
                   title: "Year of Completion",
                   child: InputTextWidget(
                     hintText: "2014",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -46,6 +48,7 @@ class AcademicsPage extends StatelessWidget {
                   title: "Month of Enroll",
                   child: InputTextWidget(
                     hintText: "12",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -54,6 +57,7 @@ class AcademicsPage extends StatelessWidget {
                   title: "Month of Completion",
                   child: InputTextWidget(
                     hintText: "10",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -79,6 +83,7 @@ class AcademicsPage extends StatelessWidget {
                   title: "Year of Enroll",
                   child: InputTextWidget(
                     hintText: "2010",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -87,6 +92,7 @@ class AcademicsPage extends StatelessWidget {
                   title: "Year of Completion",
                   child: InputTextWidget(
                     hintText: "2014",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -95,6 +101,7 @@ class AcademicsPage extends StatelessWidget {
                   title: "Month of Enroll",
                   child: InputTextWidget(
                     hintText: "12",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -103,6 +110,7 @@ class AcademicsPage extends StatelessWidget {
                   title: "Month of Completion",
                   child: InputTextWidget(
                     hintText: "10",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),

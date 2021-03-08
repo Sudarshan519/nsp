@@ -29,6 +29,7 @@ class WorkPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Name of the company",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "XYZ Company",
                     onChanged: (_) {},
                   ),
@@ -37,6 +38,7 @@ class WorkPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Designation",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "Sr. Software Developer",
                     onChanged: (_) {},
                   ),
@@ -45,6 +47,7 @@ class WorkPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Started Year",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "2018",
                     onChanged: (_) {},
                   ),
@@ -53,6 +56,7 @@ class WorkPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "End Year",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "-",
                     onChanged: (_) {},
                   ),
@@ -78,6 +82,7 @@ class WorkPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Name of the company",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "XYZ Company",
                     onChanged: (_) {},
                   ),
@@ -86,6 +91,7 @@ class WorkPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Designation",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "Sr. Software Developer",
                     onChanged: (_) {},
                   ),
@@ -94,6 +100,7 @@ class WorkPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Started Year",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "2015",
                     onChanged: (_) {},
                   ),
@@ -102,6 +109,7 @@ class WorkPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "End Year",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "2018",
                     onChanged: (_) {},
                   ),

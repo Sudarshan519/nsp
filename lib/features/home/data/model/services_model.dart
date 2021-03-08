@@ -19,6 +19,7 @@ class ServicesModel extends Services {
     @required String companyAddressHeadProvince,
     @required String companyAddressHeadCity,
     @required String companyAddressHeadStreet,
+    @required String description,
   }) : super(
           id: id,
           branches: branches,
@@ -36,6 +37,7 @@ class ServicesModel extends Services {
           companyAddressHeadProvince: companyAddressHeadProvince,
           companyAddressHeadCity: companyAddressHeadCity,
           companyAddressHeadStreet: companyAddressHeadStreet,
+          description: description,
         );
 
   factory ServicesModel.fromJson(Map<String, dynamic> json) => ServicesModel(
@@ -59,6 +61,7 @@ class ServicesModel extends Services {
             json["company_address_head_province"] as String,
         companyAddressHeadCity: json["company_address_head_city"] as String,
         companyAddressHeadStreet: json["company_address_head_street"] as String,
+        description: json["description"] as String,
       );
 
   Map<String, dynamic> toJson() => {
@@ -78,5 +81,6 @@ class ServicesModel extends Services {
         "company_address_head_province": companyAddressHeadProvince,
         "company_address_head_city": companyAddressHeadCity,
         "company_address_head_street": companyAddressHeadStreet,
+        "description": description,
       };
 }

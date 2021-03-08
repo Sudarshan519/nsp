@@ -6,7 +6,7 @@ import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.
 import 'package:wallet_app/features/home/data/app_constant/constant.dart';
 import 'package:wallet_app/features/home/data/model/home_data_model.dart';
 import 'package:wallet_app/features/home/data/model/home_response_model.dart';
-import 'package:wallet_app/features/home/data/model/user_detail_model.dart';
+import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -62,6 +62,8 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
       final homeResponse = homeResponseModelFromJson(response.body);
       final userDetails = homeResponse.first.userDetail as UserDetailModel;
       final homeData = homeResponse.last.homeData as List<HomeDataModel>;
+
+      auth.saveUserDetail(userDetails);
 
       return HomeResponseModel(userDetail: userDetails, homeData: homeData);
     } else {

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:wallet_app/features/home/domain/entities/user_detail.dart';
+import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 
 class UserDetailModel extends UserDetail {
   const UserDetailModel({

@@ -62,3 +62,20 @@ class WorkHistoryModel extends WorkHistory {
         "updated_at": updatedAt,
       };
 }
+
+extension WorkHistoryExt on WorkHistory {
+  WorkHistoryModel toWorkHistoryModel() => WorkHistoryModel(
+        id: id,
+        jobSeekerId: jobSeekerId,
+        companyName: companyName,
+        companyType: companyType,
+        startYear: startYear,
+        startMonth: startMonth,
+        endYear: endYear,
+        endMonth: endMonth,
+        description: description,
+        language: language,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+      );
+}

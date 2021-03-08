@@ -48,14 +48,14 @@ class PersonalInfoModel extends PersonalInfo {
     @required int emailVerified,
     @required String contactNumber,
     @required int phoneVerified,
-    @required String languageSchoolPrefecture,
-    @required String languageSchoolPrefectureId,
-    @required String languageSchoolCity,
-    @required String languageSchoolCityId,
-    @required String universityPrefecture,
-    @required String universityPrefectureId,
-    @required String universityCity,
-    @required String universityCityId,
+    // @required String languageSchoolPrefecture,
+    // @required String languageSchoolPrefectureId,
+    // @required String languageSchoolCity,
+    // @required String languageSchoolCityId,
+    // @required String universityPrefecture,
+    // @required String universityPrefectureId,
+    // @required String universityCity,
+    // @required String universityCityId,
     @required String image,
   }) : super(
           id: id,
@@ -102,14 +102,14 @@ class PersonalInfoModel extends PersonalInfo {
           emailVerified: emailVerified,
           contactNumber: contactNumber,
           phoneVerified: phoneVerified,
-          languageSchoolPrefecture: languageSchoolPrefecture,
-          languageSchoolPrefectureId: languageSchoolPrefectureId,
-          languageSchoolCity: languageSchoolCity,
-          languageSchoolCityId: languageSchoolCityId,
-          universityPrefecture: universityPrefecture,
-          universityPrefectureId: universityPrefectureId,
-          universityCity: universityCity,
-          universityCityId: universityCityId,
+          // languageSchoolPrefecture: languageSchoolPrefecture,
+          // languageSchoolPrefectureId: languageSchoolPrefectureId,
+          // languageSchoolCity: languageSchoolCity,
+          // languageSchoolCityId: languageSchoolCityId,
+          // universityPrefecture: universityPrefecture,
+          // universityPrefectureId: universityPrefectureId,
+          // universityCity: universityCity,
+          // universityCityId: universityCityId,
           image: image,
         );
 
@@ -159,71 +159,115 @@ class PersonalInfoModel extends PersonalInfo {
         emailVerified: json["email_verified"] as int,
         contactNumber: json["contact_number"] as String,
         phoneVerified: json["phone_verified"] as int,
-        languageSchoolPrefecture: json["language_school_prefecture"] as String,
-        languageSchoolPrefectureId:
-            json["language_school_prefecture_id"] as String,
-        languageSchoolCity: json["language_school_city"] as String,
-        languageSchoolCityId: json["language_school_city_id"] as String,
-        universityPrefecture: json["university_prefecture"] as String,
-        universityPrefectureId: json["university_prefecture_id"] as String,
-        universityCity: json["university_city"] as String,
-        universityCityId: json["university_city_id"] as String,
+        // languageSchoolPrefecture: json["language_school_prefecture"] as String,
+        // languageSchoolPrefectureId:
+        //     json["language_school_prefecture_id"] as String,
+        // languageSchoolCity: json["language_school_city"] as String,
+        // languageSchoolCityId: json["language_school_city_id"] as String,
+        // universityPrefecture: json["university_prefecture"] as String,
+        // universityPrefectureId: json["university_prefecture_id"] as String,
+        // universityCity: json["university_city"] as String,
+        // universityCityId: json["university_city_id"] as String,
         image: json["image"] as String,
       );
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "job_seeker_id": jobSeekerId,
-        "first_name": firstName,
-        "last_name": lastName,
-        "profession": profession,
-        "language_school": languageSchool,
-        "language_school_postal_code": languageSchoolPostalCode,
-        "language_school_address": languageSchoolAddress,
-        "language_school_phone": languageSchoolPhone,
-        "university": university,
-        "university_postal_code": universityPostalCode,
-        "university_address": universityAddress,
-        "university_phone": universityPhone,
-        "furigana": furigana,
-        "dob": dob,
-        "age": age,
-        "gender": gender,
-        "nationality": nationality,
-        "curr_postal_code": currPostalCode,
-        "curr_prefecture": currPrefecture,
-        "curr_city": currCity,
-        "curr_address": currAddress,
-        "curr_phone": currPhone,
-        "cont_postal_code": contPostalCode,
-        "cont_prefecture": contPrefecture,
-        "cont_city": contCity,
-        "cont_address": contAddress,
-        "cont_phone": contPhone,
-        // "known_languages": knownLanguages,
-        "jlpt": jlpt,
-        "self_pr": selfPr,
-        "extra_point": extraPoint,
-        "working_hours": workingHours,
-        "dependents_except_spouse": dependentsExceptSpouse,
-        "spouse": spouse,
-        "spouse_support_obligation": spouseSupportObligation,
-        "special_conditions": specialConditions,
-        "language": language,
-        "created_at": createdAt,
-        "updated_at": updatedAt,
-        "email": email,
-        "email_verified": emailVerified,
-        "contact_number": contactNumber,
-        "phone_verified": phoneVerified,
-        "language_school_prefecture": languageSchoolPrefecture,
-        "language_school_prefecture_id": languageSchoolPrefectureId,
-        "language_school_city": languageSchoolCity,
-        "language_school_city_id": languageSchoolCityId,
-        "university_prefecture": universityPrefecture,
-        "university_prefecture_id": universityPrefectureId,
-        "university_city": universityCity,
-        "university_city_id": universityCityId,
-        "image": image,
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> params = {};
+
+    if (firstName != null) {
+      params["first_name"] = firstName;
+    }
+
+    if (lastName != null) {
+      params["last_name"] = lastName;
+    }
+
+    if (dob != null) {
+      params["dob"] = dob;
+    }
+
+    if (age != null) {
+      params["age"] = age;
+    }
+
+    if (gender != null) {
+      params["gender"] = gender;
+    }
+
+    if (nationality != null) {
+      params["nationality"] = nationality;
+    }
+
+    if (email != null) {
+      params["email"] = email;
+    }
+
+    if (contactNumber != null) {
+      params["contact_number"] = contactNumber;
+    }
+    return params;
+  }
+
+  Map<String, dynamic> toAddressJson() {
+    final Map<String, dynamic> params = {};
+    // TODO add json according to address
+    return params;
+  }
+}
+
+extension PersonalInfoExt on PersonalInfo {
+  PersonalInfoModel toPersonalInfoModel() => PersonalInfoModel(
+        id: id,
+        jobSeekerId: jobSeekerId,
+        firstName: firstName,
+        lastName: lastName,
+        profession: profession,
+        languageSchool: languageSchool,
+        languageSchoolPostalCode: languageSchoolPostalCode,
+        languageSchoolAddress: languageSchoolAddress,
+        languageSchoolPhone: languageSchoolPhone,
+        university: university,
+        universityPostalCode: universityPostalCode,
+        universityAddress: universityAddress,
+        universityPhone: universityPhone,
+        furigana: furigana,
+        dob: dob,
+        age: age,
+        gender: gender,
+        nationality: nationality,
+        currPostalCode: currPostalCode,
+        currPrefecture: currPrefecture,
+        currCity: currCity,
+        currAddress: currAddress,
+        currPhone: currPhone,
+        contPostalCode: contPostalCode,
+        contPrefecture: contPrefecture,
+        contCity: contCity,
+        contAddress: contAddress,
+        contPhone: contPhone,
+        jlpt: jlpt,
+        selfPr: selfPr,
+        extraPoint: extraPoint,
+        workingHours: workingHours,
+        dependentsExceptSpouse: dependentsExceptSpouse,
+        spouse: spouse,
+        spouseSupportObligation: spouseSupportObligation,
+        specialConditions: specialConditions,
+        language: language,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+        email: email,
+        emailVerified: emailVerified,
+        contactNumber: contactNumber,
+        phoneVerified: phoneVerified,
+        // languageSchoolPrefecture: languageSchoolPrefecture,
+        // languageSchoolPrefectureId: languageSchoolPrefectureId,
+        // languageSchoolCity: languageSchoolCity,
+        // languageSchoolCityId: languageSchoolCityId,
+        // universityPrefecture: universityPrefecture,
+        // universityPrefectureId: universityPrefectureId,
+        // universityCity: universityCity,
+        // universityCityId: universityCityId,
+        image: image,
+      );
 }

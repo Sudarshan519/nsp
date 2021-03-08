@@ -4,14 +4,18 @@ import 'package:wallet_app/presentation/widgets/widgets.dart';
 class InputTextWidget extends StatelessWidget {
   final String hintText;
   final bool obscureText;
+  final String value;
   final TextInputType textInputType;
   final TextInputAction textInputAction;
   final bool isEnable;
+  final String Function(String) validator;
   final Function(String) onChanged;
   final Function() onEditingCompleted;
+  final TextAlign textAlign;
 
   const InputTextWidget({
     Key key,
+    @required this.value,
     @required this.hintText,
     @required this.onChanged,
     this.obscureText = false,
@@ -19,6 +23,8 @@ class InputTextWidget extends StatelessWidget {
     this.textInputType = TextInputType.streetAddress,
     this.textInputAction = TextInputAction.next,
     this.onEditingCompleted,
+    this.validator,
+    this.textAlign,
   })  : assert(hintText != null),
         assert(onChanged != null),
         super(key: key);
@@ -27,6 +33,7 @@ class InputTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
+      initialValue: value,
       autocorrect: false,
       enabled: isEnable,
       decoration: InputDecoration(
@@ -44,11 +51,13 @@ class InputTextWidget extends StatelessWidget {
         fontWeight: FontWeight.w400,
         fontSize: 14.0,
       ),
+      validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       keyboardType: textInputType,
       textInputAction: textInputAction,
       onChanged: onChanged,
       onEditingComplete: onEditingCompleted,
-      textAlign: TextAlign.end,
+      textAlign: textAlign ?? TextAlign.start,
     );
   }
 }

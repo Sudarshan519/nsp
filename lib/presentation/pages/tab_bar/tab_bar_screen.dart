@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/home_screen.dart';
 import 'package:wallet_app/presentation/pages/news/news_screen.dart';
@@ -52,9 +54,17 @@ class TabBarScreenState extends State<TabBarScreen> {
             ),
         ),
         BlocProvider(
-          create: (context) =>
-              getIt<NewsBloc>()..add(const NewsEvent.fetchNewsData()),
-        )
+          create: (context) => getIt<NewsBloc>()
+            ..add(
+              const NewsEvent.fetchNewsData(),
+            ),
+        ),
+        BlocProvider(
+          create: (context) => getIt<UpdatePersonalInfoActorBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<UpdatePersonalInfoWatcherBloc>(),
+        ),
       ],
       child: _tabController(),
     );

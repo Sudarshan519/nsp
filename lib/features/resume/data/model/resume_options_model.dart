@@ -65,6 +65,11 @@ class KnownLanguageModel extends KnownLanguage {
       };
 }
 
+extension KnownLanguageExt on KnownLanguage {
+  KnownLanguageModel toKnownLanguageModel() =>
+      KnownLanguageModel(value: value, label: label);
+}
+
 class ResumePreferenceModel extends ResumePreference {
   const ResumePreferenceModel({
     @required String value,
@@ -88,4 +93,26 @@ class ResumePreferenceModel extends ResumePreference {
         "label": label,
         "id": id,
       };
+}
+
+extension ResumePreferenceExt on ResumePreference {
+  ResumePreferenceModel toResumePreferenceModel() => ResumePreferenceModel(
+        id: id,
+        value: value,
+        label: label,
+      );
+}
+
+extension ResumeOptionsExt on ResumeOptions {
+  ResumeOptionsModel toResumeOptionsModel() => ResumeOptionsModel(
+        nationalities: nationalities,
+        knownLanguages: knownLanguages
+            .map((language) => language.toKnownLanguageModel())
+            .toList(),
+        majorSubjects: majorSubjects,
+        companyTypes: companyTypes,
+        preferences: preferences
+            .map((preference) => preference.toResumePreferenceModel())
+            .toList(),
+      );
 }

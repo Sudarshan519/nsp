@@ -16,6 +16,13 @@ class ConfigReader {
     return _config['base_url'] as String ?? "";
   }
 
+  String get resumeBaseUrl {
+    if (_config == null) {
+      return "";
+    }
+    return _config['resume_base_url'] as String ?? "";
+  }
+
   // @override
   String get apiPath {
     if (_config == null) {

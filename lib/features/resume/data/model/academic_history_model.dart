@@ -58,3 +58,19 @@ class AcademicHistoryModel extends AcademicHistory {
         "updated_at": updatedAt,
       };
 }
+
+extension AcademicHistoryExt on AcademicHistory {
+  AcademicHistoryModel toAcademicHistoryModel() => AcademicHistoryModel(
+        id: id,
+        jobSeekerId: jobSeekerId,
+        institute: institute,
+        majorSubject: majorSubject,
+        startYear: startYear,
+        startMonth: startMonth,
+        completionYear: completionYear,
+        completionMonth: completionMonth,
+        language: language,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+      );
+}

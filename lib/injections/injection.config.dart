@@ -35,12 +35,18 @@ import '../core/database/news_provider.dart';
 import '../features/news/data/datasource/news_remote_data_source.dart';
 import '../features/news/data/repository/news_repository.dart';
 import '../features/news/domain/repository/news_repository.dart';
+import '../features/resume/data/data_source/resume_remote_data_source.dart';
+import '../features/resume/domain/repository/resume_repository.dart';
+import '../features/resume/data/repository/resume_repository.dart';
 import 'injectable/shared_preference_module.dart';
 import '../features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
 import '../features/auth/domain/usecase/sign_in_with_email.dart';
 import '../features/auth/presentation/sign_up/sign_up_form_bloc.dart';
 import '../features/auth/domain/usecase/sign_up_user.dart';
 import '../features/splash/presentation/splash_bloc.dart';
+import '../features/resume/domain/usecases/update_personal_info.dart';
+import '../features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
+import '../features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
 import '../features/auth/domain/usecase/verify_email.dart';
 import '../features/auth/presentation/verify_email/verify_email_bloc.dart';
 
@@ -68,6 +74,8 @@ Future<GetIt> $initGetIt(
       NewsRemoteDataSource(client: get<Client>(), config: get<ConfigReader>()));
   final resolvedSharedPreferences = await sharedPreferenceModule.prefs;
   gh.factory<SharedPreferences>(() => resolvedSharedPreferences);
+  gh.factory<UpdatePersonalInfoWatcherBloc>(
+      () => UpdatePersonalInfoWatcherBloc());
   gh.lazySingleton<AuthLocalDataSource>(() => AuthLocalDataSourceImpl(
       secureStorage: get<FlutterSecureStorage>(),
       preferences: get<SharedPreferences>()));
@@ -92,12 +100,24 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<NewsRepositoryProtocol>(() => NewsRepository(
       remoteDataSource: get<NewsRemoteDataSourceProtocol>(),
       localDataSource: get<NewsLocalDataSourceProtocol>()));
+  gh.lazySingleton<ResumeRemoteDataSource>(() => ResumeRemoteDataSourceImpl(
+        client: get<Client>(),
+        config: get<ConfigReader>(),
+        auth: get<AuthLocalDataSource>(),
+      ));
+  gh.lazySingleton<ResumeRepository>(
+      () => ResumeRepositoryImpl(dataSource: get<ResumeRemoteDataSource>()));
   gh.lazySingleton<SignInWithEmailAndPassword>(() => SignInWithEmailAndPassword(
       repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<SignUpWithEmailPasswordAndUserDetail>(() =>
       SignUpWithEmailPasswordAndUserDetail(
           repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<SplashBloc>(() => SplashBloc(getWalletUser: get<GetWalletUser>()));
+  gh.lazySingleton<UpdatePersonalInfo>(() => UpdatePersonalInfo(
+      repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
+  gh.lazySingleton<UpdatePersonalInfoActorBloc>(() =>
+      UpdatePersonalInfoActorBloc(
+          updatePersonalInfo: get<UpdatePersonalInfo>()));
   gh.lazySingleton<VerifyEmail>(() => VerifyEmail(
       repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<VerifyEmailBloc>(

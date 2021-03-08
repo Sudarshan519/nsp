@@ -25,6 +25,9 @@ class MockConfigReader implements ConfigReader {
   String get baseURL => "";
 
   @override
+  String get resumeBaseUrl => "";
+
+  @override
   Future<void> initialize() {
     return Future.value();
   }

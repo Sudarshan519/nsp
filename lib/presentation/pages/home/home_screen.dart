@@ -7,6 +7,8 @@ import 'package:wallet_app/features/home/data/model/services_model.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/data/model/resume_model.dart';
+import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
 import 'package:wallet_app/presentation/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/my_resume.dart';
@@ -157,9 +159,7 @@ class HomePage extends StatelessWidget {
         final data = model.data as Map<String, dynamic>;
 
         if (data["status"] as bool == true) {
-          final map = data["data"] as Map<String, dynamic>;
-          final resumeModel = ResumeDataModel.fromJson(map);
-          return MyResumeWidget(data: resumeModel);
+          return buildResumeSection(context, data);
         } else {
           return BuildResume(
             changeTabPage: changeTabPage,
@@ -186,8 +186,6 @@ class HomePage extends StatelessWidget {
 
       case HomeItemType.news:
         return const SegmentedNewViewWidget();
-      // return const SizedBox.shrink();
-      // return const Expanded(child: NewsTabBarWidget());
 
       case HomeItemType.disaster_alert:
         return const SizedBox.shrink();
@@ -200,5 +198,26 @@ class HomePage extends StatelessWidget {
     final _type = 'HomeItemType.$type';
     return HomeItemType.values
         .firstWhere((f) => f.toString() == _type, orElse: () => null);
+  }
+
+  MyResumeWidget buildResumeSection(
+      BuildContext context, Map<String, dynamic> data) {
+    final map = data["data"] as Map<String, dynamic>;
+    final resumeModel = ResumeDataModel.fromJson(map);
+
+    // The Actor could be updated from Watcher but reloading the widget is not working for now so
+    // this is a hot fix, Might need to migrate it later.
+
+    if (resumeModel?.personalInfo != null) {
+      context.read<UpdatePersonalInfoActorBloc>().add(
+          UpdatePersonalInfoActorEvent.setInitialState(
+              resumeModel?.personalInfo));
+
+      context.read<UpdatePersonalInfoWatcherBloc>().add(
+          UpdatePersonalInfoWatcherEvent.setPersonalInfo(
+              resumeModel?.personalInfo));
+    }
+
+    return MyResumeWidget(data: resumeModel);
   }
 }

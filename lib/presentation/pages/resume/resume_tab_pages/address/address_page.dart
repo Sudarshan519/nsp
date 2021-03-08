@@ -30,6 +30,7 @@ class AddressPage extends StatelessWidget {
                   title: "Postal Code",
                   child: InputTextWidget(
                     hintText: "Postal Code",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -38,6 +39,7 @@ class AddressPage extends StatelessWidget {
                   title: "Prefecture",
                   child: InputTextWidget(
                     hintText: "Prefecture",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -46,6 +48,7 @@ class AddressPage extends StatelessWidget {
                   title: "City",
                   child: InputTextWidget(
                     hintText: "Profession",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -54,6 +57,7 @@ class AddressPage extends StatelessWidget {
                   title: "Address",
                   child: InputTextWidget(
                     hintText: "Address",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -62,6 +66,7 @@ class AddressPage extends StatelessWidget {
                   title: "Phone",
                   child: InputTextWidget(
                     hintText: "090-XXXX-XXXX",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -87,6 +92,7 @@ class AddressPage extends StatelessWidget {
                   title: "Postal Code",
                   child: InputTextWidget(
                     hintText: "Postal Code",
+                    value: '',
                     onChanged: (_) {},
                   ),
                 ),
@@ -94,6 +100,7 @@ class AddressPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Prefecture",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "Prefecture",
                     onChanged: (_) {},
                   ),
@@ -102,6 +109,7 @@ class AddressPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "City",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "Profession",
                     onChanged: (_) {},
                   ),
@@ -110,6 +118,7 @@ class AddressPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Address",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "Address",
                     onChanged: (_) {},
                   ),
@@ -118,6 +127,7 @@ class AddressPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Phone",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "090-XXXX-XXXX",
                     onChanged: (_) {},
                   ),

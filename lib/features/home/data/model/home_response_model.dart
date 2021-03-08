@@ -1,10 +1,10 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 
+import 'package:flutter/foundation.dart';
 import 'package:wallet_app/features/home/domain/entities/home_response.dart';
 
+import '../../../auth/data/model/user_detail_model.dart';
 import 'home_data_model.dart';
-import 'user_detail_model.dart';
 
 List<HomeResponseModel> homeResponseModelFromJson(String str) =>
     List<HomeResponseModel>.from((json.decode(str) as Iterable)

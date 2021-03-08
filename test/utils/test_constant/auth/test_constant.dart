@@ -1,3 +1,4 @@
+import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
 
 class AuthTestConstant {
@@ -14,6 +15,17 @@ class AuthTestConstant {
     status: true,
     accessToken: "access",
     refreshToken: "refresh",
+  );
+
+  static const USER_DETAILS = UserDetailModel(
+    firstName: "first_name",
+    lastName: "last_name",
+    email: "email",
+    mobile: "mobile",
+    uuid: "uuid",
+    avatar: "avatar",
+    balance: 0,
+    point: 0,
   );
 
   static const WALLET_USER_WITH_STATUS_FALSE = WalletUserModel(

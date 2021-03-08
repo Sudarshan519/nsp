@@ -29,6 +29,7 @@ class QualificationPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Name of the qualification",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "AWS Certification",
                     onChanged: (_) {},
                   ),
@@ -37,6 +38,7 @@ class QualificationPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Area",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "Virtual Creation",
                     onChanged: (_) {},
                   ),
@@ -45,6 +47,7 @@ class QualificationPage extends StatelessWidget {
                 FormFieldDecoration(
                   title: "Received Year",
                   child: InputTextWidget(
+                    value: '',
                     hintText: "2018",
                     onChanged: (_) {},
                   ),

@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
+import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
+
 import 'home_data.dart';
-import 'user_detail.dart';
 
 class HomeResponse extends Equatable {
   const HomeResponse({

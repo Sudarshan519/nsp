@@ -46,3 +46,17 @@ class QualificationHistoryModel extends QualificationHistory {
         "updated_at": updatedAt,
       };
 }
+
+extension QualificationHistoryExt on QualificationHistory {
+  QualificationHistoryModel toQualificationHistoryModel() =>
+      QualificationHistoryModel(
+        id: id,
+        jobSeekerId: jobSeekerId,
+        qualificationName: qualificationName,
+        certifiedYear: certifiedYear,
+        certifiedMonth: certifiedMonth,
+        language: language,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+      );
+}

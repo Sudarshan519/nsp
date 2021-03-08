@@ -1,61 +1,60 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 
 class PersonalInfo extends Equatable {
   const PersonalInfo({
-    @required this.id,
-    @required this.jobSeekerId,
-    @required this.firstName,
-    @required this.lastName,
-    @required this.profession,
-    @required this.languageSchool,
-    @required this.languageSchoolPostalCode,
-    @required this.languageSchoolAddress,
-    @required this.languageSchoolPhone,
-    @required this.university,
-    @required this.universityPostalCode,
-    @required this.universityAddress,
-    @required this.universityPhone,
-    @required this.furigana,
-    @required this.dob,
-    @required this.age,
-    @required this.gender,
-    @required this.nationality,
-    @required this.currPostalCode,
-    @required this.currPrefecture,
-    @required this.currCity,
-    @required this.currAddress,
-    @required this.currPhone,
-    @required this.contPostalCode,
-    @required this.contPrefecture,
-    @required this.contCity,
-    @required this.contAddress,
-    @required this.contPhone,
-    // @required this.knownLanguages,
-    @required this.jlpt,
-    @required this.selfPr,
-    @required this.extraPoint,
-    @required this.workingHours,
-    @required this.dependentsExceptSpouse,
-    @required this.spouse,
-    @required this.spouseSupportObligation,
-    @required this.specialConditions,
-    @required this.language,
-    @required this.createdAt,
-    @required this.updatedAt,
-    @required this.email,
-    @required this.emailVerified,
-    @required this.contactNumber,
-    @required this.phoneVerified,
-    @required this.languageSchoolPrefecture,
-    @required this.languageSchoolPrefectureId,
-    @required this.languageSchoolCity,
-    @required this.languageSchoolCityId,
-    @required this.universityPrefecture,
-    @required this.universityPrefectureId,
-    @required this.universityCity,
-    @required this.universityCityId,
-    @required this.image,
+    this.id,
+    this.jobSeekerId,
+    this.firstName,
+    this.lastName,
+    this.profession,
+    this.languageSchool,
+    this.languageSchoolPostalCode,
+    this.languageSchoolAddress,
+    this.languageSchoolPhone,
+    this.university,
+    this.universityPostalCode,
+    this.universityAddress,
+    this.universityPhone,
+    this.furigana,
+    this.dob,
+    this.age,
+    this.gender,
+    this.nationality,
+    this.currPostalCode,
+    this.currPrefecture,
+    this.currCity,
+    this.currAddress,
+    this.currPhone,
+    this.contPostalCode,
+    this.contPrefecture,
+    this.contCity,
+    this.contAddress,
+    this.contPhone,
+    //  this.knownLanguages,
+    this.jlpt,
+    this.selfPr,
+    this.extraPoint,
+    this.workingHours,
+    this.dependentsExceptSpouse,
+    this.spouse,
+    this.spouseSupportObligation,
+    this.specialConditions,
+    this.language,
+    this.createdAt,
+    this.updatedAt,
+    this.email,
+    this.emailVerified,
+    this.contactNumber,
+    this.phoneVerified,
+    //  this.languageSchoolPrefecture,
+    //  this.languageSchoolPrefectureId,
+    //  this.languageSchoolCity,
+    //  this.languageSchoolCityId,
+    //  this.universityPrefecture,
+    //  this.universityPrefectureId,
+    //  this.universityCity,
+    //  this.universityCityId,
+    this.image,
   });
 
   final int id;
@@ -102,14 +101,14 @@ class PersonalInfo extends Equatable {
   final int emailVerified;
   final String contactNumber;
   final int phoneVerified;
-  final String languageSchoolPrefecture;
-  final String languageSchoolPrefectureId;
-  final String languageSchoolCity;
-  final String languageSchoolCityId;
-  final String universityPrefecture;
-  final String universityPrefectureId;
-  final String universityCity;
-  final String universityCityId;
+  // final String languageSchoolPrefecture;
+  // final String languageSchoolPrefectureId;
+  // final String languageSchoolCity;
+  // final String languageSchoolCityId;
+  // final String universityPrefecture;
+  // final String universityPrefectureId;
+  // final String universityCity;
+  // final String universityCityId;
   final String image;
 
   @override

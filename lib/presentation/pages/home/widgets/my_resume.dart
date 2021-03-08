@@ -123,64 +123,106 @@ class MyResumeWidget extends StatelessWidget {
       const title = "Academic History";
       final percentage = data.academicsCompletionRate ?? 0;
 
-      final academicHistory = data.academicHistory.first;
+      final academicHistoryArray = data.academicHistory;
 
-      final name = academicHistory.institute;
-      // final subject = academicHistory.majorSubject;
-      final completion =
-          "${academicHistory.completionMonth} ${academicHistory.completionYear}";
+      if (academicHistoryArray.isNotEmpty) {
+        final academicHistory = data.academicHistory.first;
 
-      return _ResumeInformationWidget(
-        title: title,
-        percentage: percentage,
-        containerTitle: name,
-        infoText1: "Major subject",
-        infoText2: completion,
-        infoText3: "",
-        infoText4: "",
-      );
+        final name = academicHistory.institute;
+        // final subject = academicHistory.majorSubject;
+        final completion =
+            "${academicHistory.completionMonth} ${academicHistory.completionYear}";
+
+        return _ResumeInformationWidget(
+          title: title,
+          percentage: percentage,
+          containerTitle: name,
+          infoText1: "Major subject",
+          infoText2: completion,
+          infoText3: "",
+          infoText4: "",
+        );
+      } else {
+        return _ResumeInformationWidget(
+          title: title,
+          percentage: percentage,
+          containerTitle: "",
+          infoText1: "",
+          infoText2: "",
+          infoText3: "",
+          infoText4: "",
+        );
+      }
     }
 
     if (index == 2) {
       const title = "Work History";
       final percentage = data.worksCompletionRate ?? 0;
 
-      final workHistory = data.workHistory.first;
+      final workHistoryArray = data.workHistory;
 
-      final name = workHistory.companyName;
-      // final type = workHistory.companyType;
-      final started = "${workHistory.startMonth} ${workHistory.startYear}";
+      if (workHistoryArray.isNotEmpty) {
+        final workHistory = workHistoryArray.first;
 
-      return _ResumeInformationWidget(
-        title: title,
-        percentage: percentage,
-        containerTitle: name,
-        infoText1: "Company Type",
-        infoText2: started,
-        infoText3: "",
-        infoText4: "",
-      );
+        final name = workHistory.companyName;
+        // final type = workHistory.companyType;
+        final started = "${workHistory.startMonth} ${workHistory.startYear}";
+
+        return _ResumeInformationWidget(
+          title: title,
+          percentage: percentage,
+          containerTitle: name,
+          infoText1: "Company Type",
+          infoText2: started,
+          infoText3: "",
+          infoText4: "",
+        );
+      } else {
+        return _ResumeInformationWidget(
+          title: title,
+          percentage: percentage,
+          containerTitle: "",
+          infoText1: "",
+          infoText2: "",
+          infoText3: "",
+          infoText4: "",
+        );
+      }
     }
 
     if (index == 3) {
       const title = "Qualification";
       final percentage = data.qualificationCompletionRate ?? 0;
 
-      final qualificationHistory = data.qualificationHistory.first;
+      final qualificationHistoryArray = data.qualificationHistory;
 
-      final name = qualificationHistory.qualificationName;
-      final certified =
-          "${qualificationHistory.certifiedMonth} ${qualificationHistory.certifiedYear}";
+      if (qualificationHistoryArray.isNotEmpty) {
+        final qualificationHistory = data.qualificationHistory.first;
 
-      return _ResumeInformationWidget(
-        title: title,
-        percentage: percentage,
-        containerTitle: name,
-        infoText1: certified,
-        infoText2: "",
-        infoText3: "",
-        infoText4: "",
-      );
+        final name = qualificationHistory.qualificationName;
+        final certified =
+            "${qualificationHistory.certifiedMonth} ${qualificationHistory.certifiedYear}";
+
+        return _ResumeInformationWidget(
+          title: title,
+          percentage: percentage,
+          containerTitle: name,
+          infoText1: certified,
+          infoText2: "",
+          infoText3: "",
+          infoText4: "",
+        );
+      } else {
+        return _ResumeInformationWidget(
+          title: title,
+          percentage: percentage,
+          containerTitle: "",
+          infoText1: "",
+          infoText2: "",
+          infoText3: "",
+          infoText4: "",
+        );
+      }
     }
     return const SizedBox.shrink();
   }
