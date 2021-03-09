@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'update_personal_info_watcher_bloc.dart';
+part of 'update_academic_info_watcher_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'update_personal_info_watcher_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$UpdatePersonalInfoWatcherEventTearOff {
-  const _$UpdatePersonalInfoWatcherEventTearOff();
+class _$UpdateAcademicInfoWatcherEventTearOff {
+  const _$UpdateAcademicInfoWatcherEventTearOff();
 
 // ignore: unused_element
   _ChangeToLoadingState changeToLoadingState() {
@@ -19,60 +19,60 @@ class _$UpdatePersonalInfoWatcherEventTearOff {
   }
 
 // ignore: unused_element
-  _SetPersonalInfo setPersonalInfo(PersonalInfo info) {
-    return _SetPersonalInfo(
-      info,
+  _SetAcademicHistory setAcademicHistory(AcademicHistory academicHistory) {
+    return _SetAcademicHistory(
+      academicHistory,
     );
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $UpdatePersonalInfoWatcherEvent =
-    _$UpdatePersonalInfoWatcherEventTearOff();
+const $UpdateAcademicInfoWatcherEvent =
+    _$UpdateAcademicInfoWatcherEventTearOff();
 
 /// @nodoc
-mixin _$UpdatePersonalInfoWatcherEvent {
+mixin _$UpdateAcademicInfoWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changeToLoadingState(),
-    @required TResult setPersonalInfo(PersonalInfo info),
+    @required TResult setAcademicHistory(AcademicHistory academicHistory),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changeToLoadingState(),
-    TResult setPersonalInfo(PersonalInfo info),
+    TResult setAcademicHistory(AcademicHistory academicHistory),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changeToLoadingState(_ChangeToLoadingState value),
-    @required TResult setPersonalInfo(_SetPersonalInfo value),
+    @required TResult setAcademicHistory(_SetAcademicHistory value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changeToLoadingState(_ChangeToLoadingState value),
-    TResult setPersonalInfo(_SetPersonalInfo value),
+    TResult setAcademicHistory(_SetAcademicHistory value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $UpdatePersonalInfoWatcherEventCopyWith<$Res> {
-  factory $UpdatePersonalInfoWatcherEventCopyWith(
-          UpdatePersonalInfoWatcherEvent value,
-          $Res Function(UpdatePersonalInfoWatcherEvent) then) =
-      _$UpdatePersonalInfoWatcherEventCopyWithImpl<$Res>;
+abstract class $UpdateAcademicInfoWatcherEventCopyWith<$Res> {
+  factory $UpdateAcademicInfoWatcherEventCopyWith(
+          UpdateAcademicInfoWatcherEvent value,
+          $Res Function(UpdateAcademicInfoWatcherEvent) then) =
+      _$UpdateAcademicInfoWatcherEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UpdatePersonalInfoWatcherEventCopyWithImpl<$Res>
-    implements $UpdatePersonalInfoWatcherEventCopyWith<$Res> {
-  _$UpdatePersonalInfoWatcherEventCopyWithImpl(this._value, this._then);
+class _$UpdateAcademicInfoWatcherEventCopyWithImpl<$Res>
+    implements $UpdateAcademicInfoWatcherEventCopyWith<$Res> {
+  _$UpdateAcademicInfoWatcherEventCopyWithImpl(this._value, this._then);
 
-  final UpdatePersonalInfoWatcherEvent _value;
+  final UpdateAcademicInfoWatcherEvent _value;
   // ignore: unused_field
-  final $Res Function(UpdatePersonalInfoWatcherEvent) _then;
+  final $Res Function(UpdateAcademicInfoWatcherEvent) _then;
 }
 
 /// @nodoc
@@ -84,7 +84,7 @@ abstract class _$ChangeToLoadingStateCopyWith<$Res> {
 
 /// @nodoc
 class __$ChangeToLoadingStateCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoWatcherEventCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoWatcherEventCopyWithImpl<$Res>
     implements _$ChangeToLoadingStateCopyWith<$Res> {
   __$ChangeToLoadingStateCopyWithImpl(
       _ChangeToLoadingState _value, $Res Function(_ChangeToLoadingState) _then)
@@ -100,7 +100,7 @@ class _$_ChangeToLoadingState implements _ChangeToLoadingState {
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoWatcherEvent.changeToLoadingState()';
+    return 'UpdateAcademicInfoWatcherEvent.changeToLoadingState()';
   }
 
   @override
@@ -115,10 +115,10 @@ class _$_ChangeToLoadingState implements _ChangeToLoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changeToLoadingState(),
-    @required TResult setPersonalInfo(PersonalInfo info),
+    @required TResult setAcademicHistory(AcademicHistory academicHistory),
   }) {
     assert(changeToLoadingState != null);
-    assert(setPersonalInfo != null);
+    assert(setAcademicHistory != null);
     return changeToLoadingState();
   }
 
@@ -126,7 +126,7 @@ class _$_ChangeToLoadingState implements _ChangeToLoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changeToLoadingState(),
-    TResult setPersonalInfo(PersonalInfo info),
+    TResult setAcademicHistory(AcademicHistory academicHistory),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -140,10 +140,10 @@ class _$_ChangeToLoadingState implements _ChangeToLoadingState {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changeToLoadingState(_ChangeToLoadingState value),
-    @required TResult setPersonalInfo(_SetPersonalInfo value),
+    @required TResult setAcademicHistory(_SetAcademicHistory value),
   }) {
     assert(changeToLoadingState != null);
-    assert(setPersonalInfo != null);
+    assert(setAcademicHistory != null);
     return changeToLoadingState(this);
   }
 
@@ -151,7 +151,7 @@ class _$_ChangeToLoadingState implements _ChangeToLoadingState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changeToLoadingState(_ChangeToLoadingState value),
-    TResult setPersonalInfo(_SetPersonalInfo value),
+    TResult setAcademicHistory(_SetAcademicHistory value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -162,89 +162,94 @@ class _$_ChangeToLoadingState implements _ChangeToLoadingState {
   }
 }
 
-abstract class _ChangeToLoadingState implements UpdatePersonalInfoWatcherEvent {
+abstract class _ChangeToLoadingState implements UpdateAcademicInfoWatcherEvent {
   const factory _ChangeToLoadingState() = _$_ChangeToLoadingState;
 }
 
 /// @nodoc
-abstract class _$SetPersonalInfoCopyWith<$Res> {
-  factory _$SetPersonalInfoCopyWith(
-          _SetPersonalInfo value, $Res Function(_SetPersonalInfo) then) =
-      __$SetPersonalInfoCopyWithImpl<$Res>;
-  $Res call({PersonalInfo info});
+abstract class _$SetAcademicHistoryCopyWith<$Res> {
+  factory _$SetAcademicHistoryCopyWith(
+          _SetAcademicHistory value, $Res Function(_SetAcademicHistory) then) =
+      __$SetAcademicHistoryCopyWithImpl<$Res>;
+  $Res call({AcademicHistory academicHistory});
 }
 
 /// @nodoc
-class __$SetPersonalInfoCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoWatcherEventCopyWithImpl<$Res>
-    implements _$SetPersonalInfoCopyWith<$Res> {
-  __$SetPersonalInfoCopyWithImpl(
-      _SetPersonalInfo _value, $Res Function(_SetPersonalInfo) _then)
-      : super(_value, (v) => _then(v as _SetPersonalInfo));
+class __$SetAcademicHistoryCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoWatcherEventCopyWithImpl<$Res>
+    implements _$SetAcademicHistoryCopyWith<$Res> {
+  __$SetAcademicHistoryCopyWithImpl(
+      _SetAcademicHistory _value, $Res Function(_SetAcademicHistory) _then)
+      : super(_value, (v) => _then(v as _SetAcademicHistory));
 
   @override
-  _SetPersonalInfo get _value => super._value as _SetPersonalInfo;
+  _SetAcademicHistory get _value => super._value as _SetAcademicHistory;
 
   @override
   $Res call({
-    Object info = freezed,
+    Object academicHistory = freezed,
   }) {
-    return _then(_SetPersonalInfo(
-      info == freezed ? _value.info : info as PersonalInfo,
+    return _then(_SetAcademicHistory(
+      academicHistory == freezed
+          ? _value.academicHistory
+          : academicHistory as AcademicHistory,
     ));
   }
 }
 
 /// @nodoc
-class _$_SetPersonalInfo implements _SetPersonalInfo {
-  const _$_SetPersonalInfo(this.info) : assert(info != null);
+class _$_SetAcademicHistory implements _SetAcademicHistory {
+  const _$_SetAcademicHistory(this.academicHistory)
+      : assert(academicHistory != null);
 
   @override
-  final PersonalInfo info;
+  final AcademicHistory academicHistory;
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoWatcherEvent.setPersonalInfo(info: $info)';
+    return 'UpdateAcademicInfoWatcherEvent.setAcademicHistory(academicHistory: $academicHistory)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetPersonalInfo &&
-            (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)));
+        (other is _SetAcademicHistory &&
+            (identical(other.academicHistory, academicHistory) ||
+                const DeepCollectionEquality()
+                    .equals(other.academicHistory, academicHistory)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(info);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(academicHistory);
 
   @JsonKey(ignore: true)
   @override
-  _$SetPersonalInfoCopyWith<_SetPersonalInfo> get copyWith =>
-      __$SetPersonalInfoCopyWithImpl<_SetPersonalInfo>(this, _$identity);
+  _$SetAcademicHistoryCopyWith<_SetAcademicHistory> get copyWith =>
+      __$SetAcademicHistoryCopyWithImpl<_SetAcademicHistory>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changeToLoadingState(),
-    @required TResult setPersonalInfo(PersonalInfo info),
+    @required TResult setAcademicHistory(AcademicHistory academicHistory),
   }) {
     assert(changeToLoadingState != null);
-    assert(setPersonalInfo != null);
-    return setPersonalInfo(info);
+    assert(setAcademicHistory != null);
+    return setAcademicHistory(academicHistory);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changeToLoadingState(),
-    TResult setPersonalInfo(PersonalInfo info),
+    TResult setAcademicHistory(AcademicHistory academicHistory),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (setPersonalInfo != null) {
-      return setPersonalInfo(info);
+    if (setAcademicHistory != null) {
+      return setAcademicHistory(academicHistory);
     }
     return orElse();
   }
@@ -253,39 +258,40 @@ class _$_SetPersonalInfo implements _SetPersonalInfo {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changeToLoadingState(_ChangeToLoadingState value),
-    @required TResult setPersonalInfo(_SetPersonalInfo value),
+    @required TResult setAcademicHistory(_SetAcademicHistory value),
   }) {
     assert(changeToLoadingState != null);
-    assert(setPersonalInfo != null);
-    return setPersonalInfo(this);
+    assert(setAcademicHistory != null);
+    return setAcademicHistory(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changeToLoadingState(_ChangeToLoadingState value),
-    TResult setPersonalInfo(_SetPersonalInfo value),
+    TResult setAcademicHistory(_SetAcademicHistory value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (setPersonalInfo != null) {
-      return setPersonalInfo(this);
+    if (setAcademicHistory != null) {
+      return setAcademicHistory(this);
     }
     return orElse();
   }
 }
 
-abstract class _SetPersonalInfo implements UpdatePersonalInfoWatcherEvent {
-  const factory _SetPersonalInfo(PersonalInfo info) = _$_SetPersonalInfo;
+abstract class _SetAcademicHistory implements UpdateAcademicInfoWatcherEvent {
+  const factory _SetAcademicHistory(AcademicHistory academicHistory) =
+      _$_SetAcademicHistory;
 
-  PersonalInfo get info;
+  AcademicHistory get academicHistory;
   @JsonKey(ignore: true)
-  _$SetPersonalInfoCopyWith<_SetPersonalInfo> get copyWith;
+  _$SetAcademicHistoryCopyWith<_SetAcademicHistory> get copyWith;
 }
 
 /// @nodoc
-class _$UpdatePersonalInfoWatcherStateTearOff {
-  const _$UpdatePersonalInfoWatcherStateTearOff();
+class _$UpdateAcademicInfoWatcherStateTearOff {
+  const _$UpdateAcademicInfoWatcherStateTearOff();
 
 // ignore: unused_element
   _Loading loading() {
@@ -293,7 +299,7 @@ class _$UpdatePersonalInfoWatcherStateTearOff {
   }
 
 // ignore: unused_element
-  _Loaded loaded(PersonalInfo info) {
+  _Loaded loaded(AcademicHistory info) {
     return _Loaded(
       info,
     );
@@ -302,20 +308,20 @@ class _$UpdatePersonalInfoWatcherStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $UpdatePersonalInfoWatcherState =
-    _$UpdatePersonalInfoWatcherStateTearOff();
+const $UpdateAcademicInfoWatcherState =
+    _$UpdateAcademicInfoWatcherStateTearOff();
 
 /// @nodoc
-mixin _$UpdatePersonalInfoWatcherState {
+mixin _$UpdateAcademicInfoWatcherState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult loaded(PersonalInfo info),
+    @required TResult loaded(AcademicHistory info),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult loaded(PersonalInfo info),
+    TResult loaded(AcademicHistory info),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -332,21 +338,21 @@ mixin _$UpdatePersonalInfoWatcherState {
 }
 
 /// @nodoc
-abstract class $UpdatePersonalInfoWatcherStateCopyWith<$Res> {
-  factory $UpdatePersonalInfoWatcherStateCopyWith(
-          UpdatePersonalInfoWatcherState value,
-          $Res Function(UpdatePersonalInfoWatcherState) then) =
-      _$UpdatePersonalInfoWatcherStateCopyWithImpl<$Res>;
+abstract class $UpdateAcademicInfoWatcherStateCopyWith<$Res> {
+  factory $UpdateAcademicInfoWatcherStateCopyWith(
+          UpdateAcademicInfoWatcherState value,
+          $Res Function(UpdateAcademicInfoWatcherState) then) =
+      _$UpdateAcademicInfoWatcherStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UpdatePersonalInfoWatcherStateCopyWithImpl<$Res>
-    implements $UpdatePersonalInfoWatcherStateCopyWith<$Res> {
-  _$UpdatePersonalInfoWatcherStateCopyWithImpl(this._value, this._then);
+class _$UpdateAcademicInfoWatcherStateCopyWithImpl<$Res>
+    implements $UpdateAcademicInfoWatcherStateCopyWith<$Res> {
+  _$UpdateAcademicInfoWatcherStateCopyWithImpl(this._value, this._then);
 
-  final UpdatePersonalInfoWatcherState _value;
+  final UpdateAcademicInfoWatcherState _value;
   // ignore: unused_field
-  final $Res Function(UpdatePersonalInfoWatcherState) _then;
+  final $Res Function(UpdateAcademicInfoWatcherState) _then;
 }
 
 /// @nodoc
@@ -357,7 +363,7 @@ abstract class _$LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$LoadingCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoWatcherStateCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoWatcherStateCopyWithImpl<$Res>
     implements _$LoadingCopyWith<$Res> {
   __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
       : super(_value, (v) => _then(v as _Loading));
@@ -372,7 +378,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoWatcherState.loading()';
+    return 'UpdateAcademicInfoWatcherState.loading()';
   }
 
   @override
@@ -387,7 +393,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult loaded(PersonalInfo info),
+    @required TResult loaded(AcademicHistory info),
   }) {
     assert(loading != null);
     assert(loaded != null);
@@ -398,7 +404,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult loaded(PersonalInfo info),
+    TResult loaded(AcademicHistory info),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -434,7 +440,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements UpdatePersonalInfoWatcherState {
+abstract class _Loading implements UpdateAcademicInfoWatcherState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -442,12 +448,12 @@ abstract class _Loading implements UpdatePersonalInfoWatcherState {
 abstract class _$LoadedCopyWith<$Res> {
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
-  $Res call({PersonalInfo info});
+  $Res call({AcademicHistory info});
 }
 
 /// @nodoc
 class __$LoadedCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoWatcherStateCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoWatcherStateCopyWithImpl<$Res>
     implements _$LoadedCopyWith<$Res> {
   __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
       : super(_value, (v) => _then(v as _Loaded));
@@ -460,7 +466,7 @@ class __$LoadedCopyWithImpl<$Res>
     Object info = freezed,
   }) {
     return _then(_Loaded(
-      info == freezed ? _value.info : info as PersonalInfo,
+      info == freezed ? _value.info : info as AcademicHistory,
     ));
   }
 }
@@ -470,11 +476,11 @@ class _$_Loaded implements _Loaded {
   const _$_Loaded(this.info) : assert(info != null);
 
   @override
-  final PersonalInfo info;
+  final AcademicHistory info;
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoWatcherState.loaded(info: $info)';
+    return 'UpdateAcademicInfoWatcherState.loaded(info: $info)';
   }
 
   @override
@@ -498,7 +504,7 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loading(),
-    @required TResult loaded(PersonalInfo info),
+    @required TResult loaded(AcademicHistory info),
   }) {
     assert(loading != null);
     assert(loaded != null);
@@ -509,7 +515,7 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
-    TResult loaded(PersonalInfo info),
+    TResult loaded(AcademicHistory info),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -545,10 +551,10 @@ class _$_Loaded implements _Loaded {
   }
 }
 
-abstract class _Loaded implements UpdatePersonalInfoWatcherState {
-  const factory _Loaded(PersonalInfo info) = _$_Loaded;
+abstract class _Loaded implements UpdateAcademicInfoWatcherState {
+  const factory _Loaded(AcademicHistory info) = _$_Loaded;
 
-  PersonalInfo get info;
+  AcademicHistory get info;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith;
 }

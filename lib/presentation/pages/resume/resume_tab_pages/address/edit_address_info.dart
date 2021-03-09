@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
-import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
@@ -15,84 +16,82 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
 
 class EditAddressInfoForm extends StatelessWidget {
-  // final PersonalInfo info;
+  final PersonalInfo info;
 
   const EditAddressInfoForm({
     Key key,
-    // @required this.info,
-  }) :
-        // assert(info != null),
+    @required this.info,
+  })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // return BlocProvider(
-    //   create: (context) => getIt<UpdatePersonalInfoActorBloc>()
-    //     ..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
-    //   child:
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Edit Address Info",
-          style: TextStyle(color: Palette.white),
+    return BlocProvider(
+      create: (context) => getIt<UpdateAddressInfoActorBloc>()
+        ..add(UpdateAddressInfoActorEvent.setInitialState(info)),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Edit Address Info",
+            style: TextStyle(color: Palette.white),
+          ),
+          leading: IconButton(
+            icon: const Icon(Icons.clear, color: Colors.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          centerTitle: true,
+          backgroundColor: Palette.primary,
+          actions: const [
+            _SaveButton(),
+          ],
+          elevation: 0,
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.clear, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        centerTitle: true,
-        backgroundColor: Palette.primary,
-        actions: const [
-          _SaveButton(),
-        ],
-        elevation: 0,
+        body: editResumeBody(context),
       ),
-      body: editResumeBody(context),
-      // ),
     );
   }
 
   Widget editResumeBody(BuildContext context) {
-    // return BlocConsumer<UpdatePersonalInfoActorBloc,
-    //     UpdatePersonalInfoActorState>(
-    //   listener: (context, state) {
-    //     state.authFailureOrSuccessOption.fold(
-    //       () {},
-    //       (either) => either.fold(
-    //         (failure) {
-    //           FlushbarHelper.createError(
-    //               message: failure.map(
-    //             serverError: (error) => error.message,
-    //             invalidUser: (_) => AppConstants.someThingWentWrong,
-    //             noInternetConnection: (_) => AppConstants.noNetwork,
-    //           )).show(context);
-    //         },
-    //         (success) {
-    //           getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+    return BlocConsumer<UpdateAddressInfoActorBloc,
+        UpdateAddressInfoActorState>(
+      listener: (context, state) {
+        state.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold(
+            (failure) {
+              FlushbarHelper.createError(
+                  message: failure.map(
+                serverError: (error) => error.message,
+                invalidUser: (_) => AppConstants.someThingWentWrong,
+                noInternetConnection: (_) => AppConstants.noNetwork,
+              )).show(context);
+            },
+            (success) {
+              getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
 
-    //           showDialog(
-    //             context: context,
-    //             builder: (_) => PopUpSuccessOverLay(
-    //               title: "Basic Info",
-    //               message: "Successfully updated.",
-    //               onPressed: () {
-    //                 ExtendedNavigator.of(context)
-    //                     .popUntilPath(Routes.tabBarScreen);
-    //               },
-    //             ),
-    //           );
-    //         },
-    //       ),
-    //     );
-    //   },
-    //   buildWhen: (previous, next) => previous.hashCode != next.hashCode,
-    //   builder: (context, state) {
-    //     if (state.isSubmitting) {
-    //       return loadingPage(context);
-    //     }
-    return const _EditBasicInfoFormBody();
-    //   },
-    // );
+              showDialog(
+                context: context,
+                builder: (_) => PopUpSuccessOverLay(
+                  title: "Address Info",
+                  message: "Successfully updated.",
+                  onPressed: () {
+                    ExtendedNavigator.of(context)
+                        .popUntilPath(Routes.tabBarScreen);
+                  },
+                ),
+              );
+            },
+          ),
+        );
+      },
+      buildWhen: (previous, next) => previous.hashCode != next.hashCode,
+      builder: (context, state) {
+        if (state.isSubmitting) {
+          return loadingPage(context);
+        }
+        return const _EditBasicInfoFormBody();
+      },
+    );
   }
 }
 
@@ -112,58 +111,16 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
       padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
         child: Column(
-          children: [
-            TextWidetWithLabelAndChild(
-              title: "Postal Code",
-              child: InputTextWidget(
-                hintText: "Postal Code",
-                textInputType: TextInputType.number,
-                validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-                value: "",
-                onChanged: (value) {},
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextWidetWithLabelAndChild(
-              title: "Prefecture",
-              child: InputTextWidget(
-                hintText: "Prefecture",
-                validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-                value: "",
-                onChanged: (value) {},
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextWidetWithLabelAndChild(
-              title: "City",
-              child: InputTextWidget(
-                hintText: "City",
-                validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-                value: "",
-                onChanged: (value) {},
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextWidetWithLabelAndChild(
-              title: "Address",
-              child: InputTextWidget(
-                hintText: "Address",
-                validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-                value: "",
-                onChanged: (value) {},
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextWidetWithLabelAndChild(
-              title: "Phone",
-              child: InputTextWidget(
-                hintText: "Phone",
-                textInputType: TextInputType.phone,
-                validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-                value: "",
-                onChanged: (value) {},
-              ),
-            ),
+          children: const [
+            _PostalCodeInputField(),
+            SizedBox(height: 20),
+            _PrefectureInputField(),
+            SizedBox(height: 20),
+            _CityInputField(),
+            SizedBox(height: 20),
+            _AddressInputField(),
+            SizedBox(height: 20),
+            _PhoneInputField(),
           ],
         ),
       ),
@@ -178,33 +135,159 @@ class _SaveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return BlocBuilder<UpdatePersonalInfoActorBloc,
-    //     UpdatePersonalInfoActorState>(
-    //   builder: (context, state) {
-    return InkWell(
-      onTap: () => context.read<UpdatePersonalInfoActorBloc>().add(
-            const UpdatePersonalInfoActorEvent.save(),
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context.read<UpdateAddressInfoActorBloc>().add(
+                const UpdateAddressInfoActorEvent.save(),
+              ),
+          child: Center(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                color: Palette.primaryButtonColor,
+              ),
+              margin: const EdgeInsets.only(right: 16),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 2,
+              ),
+              child: Text(
+                "save",
+                style: TextStyle(color: Palette.white),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
-      child: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
-            color: Palette.primaryButtonColor,
-          ),
-          margin: const EdgeInsets.only(right: 16),
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 2,
-          ),
-          child: Text(
-            "save",
-            style: TextStyle(color: Palette.white),
-            textAlign: TextAlign.center,
-          ),
+        );
+      },
+    );
+  }
+}
+
+class _PostalCodeInputField extends StatelessWidget {
+  const _PostalCodeInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.postalCode != current.postalCode,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Postal Code",
+        child: InputTextWidget(
+          hintText: "Postal Code",
+          textInputType: TextInputType.number,
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.postalCode,
+
+          onChanged: (value) => context
+              .read<UpdateAddressInfoActorBloc>()
+              .add(UpdateAddressInfoActorEvent.changedPostalCode(value)),
         ),
       ),
     );
-    // },
-    // );
+  }
+}
+
+class _PrefectureInputField extends StatelessWidget {
+  const _PrefectureInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.prefecture != current.prefecture,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Prefecture",
+        child: InputTextWidget(
+          hintText: "Prefecture",
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.prefecture,
+
+          onChanged: (value) => context
+              .read<UpdateAddressInfoActorBloc>()
+              .add(UpdateAddressInfoActorEvent.changedPrefecture(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _CityInputField extends StatelessWidget {
+  const _CityInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      buildWhen: (previous, current) => previous.city != current.city,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "City",
+        child: InputTextWidget(
+          hintText: "City",
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.city,
+
+          onChanged: (value) => context
+              .read<UpdateAddressInfoActorBloc>()
+              .add(UpdateAddressInfoActorEvent.changedCity(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _AddressInputField extends StatelessWidget {
+  const _AddressInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      buildWhen: (previous, current) => previous.address != current.address,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Address",
+        child: InputTextWidget(
+          hintText: "Address",
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.address,
+
+          onChanged: (value) => context
+              .read<UpdateAddressInfoActorBloc>()
+              .add(UpdateAddressInfoActorEvent.changedAddress(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _PhoneInputField extends StatelessWidget {
+  const _PhoneInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      buildWhen: (previous, current) => previous.phone != current.phone,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Phone",
+        child: InputTextWidget(
+          hintText: "090-XXXX-XXXX",
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.phone,
+          onChanged: (value) => context
+              .read<UpdateAddressInfoActorBloc>()
+              .add(UpdateAddressInfoActorEvent.changedPhone(value)),
+        ),
+      ),
+    );
   }
 }

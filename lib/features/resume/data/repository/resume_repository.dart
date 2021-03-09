@@ -40,7 +40,7 @@ class ResumeRepositoryImpl implements ResumeRepository {
   }) async {
     try {
       return Right(await dataSource.updateResume(
-          body: data.toPersonalInfoModel().toAddressJson()));
+          body: data.toPersonalInfoModel().toCurrentAddressJson()));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }

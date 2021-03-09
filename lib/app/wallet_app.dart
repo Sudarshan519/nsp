@@ -2,8 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_academic_info/watcher/update_academic_info_watcher_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_work_info/watcher/update_work_info_watcher_bloc.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart' as router;
@@ -29,10 +34,25 @@ class WalletApp extends StatelessWidget {
             ),
         ),
         BlocProvider(
+          create: (context) => getIt<UpdatePersonalInfoWatcherBloc>(),
+        ),
+        BlocProvider(
           create: (context) => getIt<UpdatePersonalInfoActorBloc>(),
         ),
         BlocProvider(
-          create: (context) => getIt<UpdatePersonalInfoWatcherBloc>(),
+          create: (context) => getIt<UpdateAddressInfoActorBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<UpdateAcademicInfoWatcherBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<UpdateAcademicInfoActorBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<UpdateWorkInfoWatcherBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<UpdateWorkInfoActorBloc>(),
         ),
       ],
       child: MaterialApp(

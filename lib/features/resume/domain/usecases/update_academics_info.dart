@@ -27,6 +27,7 @@ class UpdateAcadamicInfo
     }
 
     final academicData = AcademicHistory(
+      id: params.id,
       institute: params.insutitute,
       startYear: params.startYear,
       startMonth: params.startMonth,
@@ -40,6 +41,7 @@ class UpdateAcadamicInfo
 
 class UpdateAcadamicInfoParams {
   UpdateAcadamicInfoParams({
+    @required this.id,
     @required this.insutitute,
     @required this.startYear,
     @required this.startMonth,
@@ -47,6 +49,7 @@ class UpdateAcadamicInfoParams {
     @required this.completionMonth,
   });
 
+  final int id;
   final String insutitute;
   final String startYear;
   final String startMonth;

@@ -9,7 +9,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/resume/domain/entities/academic_history.dart';
 import '../../features/resume/domain/entities/personal_info.dart';
+import '../../features/resume/domain/entities/work_history.dart';
 import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
 import '../pages/auth/register_screen.dart';
@@ -115,20 +117,32 @@ class Router extends RouterBase {
       );
     },
     EditAddressInfoForm: (data) {
+      final args = data.getArgs<EditAddressInfoFormArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => const EditAddressInfoForm(),
+        builder: (context) => EditAddressInfoForm(
+          key: args.key,
+          info: args.info,
+        ),
         settings: data,
       );
     },
     EditWorkInfoForm: (data) {
+      final args = data.getArgs<EditWorkInfoFormArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => const EditWorkInfoForm(),
+        builder: (context) => EditWorkInfoForm(
+          key: args.key,
+          info: args.info,
+        ),
         settings: data,
       );
     },
     EditAcademicInfoForm: (data) {
+      final args = data.getArgs<EditAcademicInfoFormArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => const EditAcademicInfoForm(),
+        builder: (context) => EditAcademicInfoForm(
+          key: args.key,
+          info: args.info,
+        ),
         settings: data,
       );
     },
@@ -169,14 +183,32 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: EditBasicInfoFormArguments(key: key, info: info),
       );
 
-  Future<dynamic> pushEditAddressInfoForm() =>
-      push<dynamic>(Routes.editAddressInfoForm);
+  Future<dynamic> pushEditAddressInfoForm({
+    Key key,
+    @required PersonalInfo info,
+  }) =>
+      push<dynamic>(
+        Routes.editAddressInfoForm,
+        arguments: EditAddressInfoFormArguments(key: key, info: info),
+      );
 
-  Future<dynamic> pushEditWorkInfoForm() =>
-      push<dynamic>(Routes.editWorkInfoForm);
+  Future<dynamic> pushEditWorkInfoForm({
+    Key key,
+    @required WorkHistory info,
+  }) =>
+      push<dynamic>(
+        Routes.editWorkInfoForm,
+        arguments: EditWorkInfoFormArguments(key: key, info: info),
+      );
 
-  Future<dynamic> pushEditAcademicInfoForm() =>
-      push<dynamic>(Routes.editAcademicInfoForm);
+  Future<dynamic> pushEditAcademicInfoForm({
+    Key key,
+    @required AcademicHistory info,
+  }) =>
+      push<dynamic>(
+        Routes.editAcademicInfoForm,
+        arguments: EditAcademicInfoFormArguments(key: key, info: info),
+      );
 }
 
 /// ************************************************************************
@@ -195,4 +227,25 @@ class EditBasicInfoFormArguments {
   final Key key;
   final PersonalInfo info;
   EditBasicInfoFormArguments({this.key, @required this.info});
+}
+
+/// EditAddressInfoForm arguments holder class
+class EditAddressInfoFormArguments {
+  final Key key;
+  final PersonalInfo info;
+  EditAddressInfoFormArguments({this.key, @required this.info});
+}
+
+/// EditWorkInfoForm arguments holder class
+class EditWorkInfoFormArguments {
+  final Key key;
+  final WorkHistory info;
+  EditWorkInfoFormArguments({this.key, @required this.info});
+}
+
+/// EditAcademicInfoForm arguments holder class
+class EditAcademicInfoFormArguments {
+  final Key key;
+  final AcademicHistory info;
+  EditAcademicInfoFormArguments({this.key, @required this.info});
 }

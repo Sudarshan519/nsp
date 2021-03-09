@@ -19,12 +19,17 @@ class UpdatePersonalInfoWatcherBloc extends Bloc<UpdatePersonalInfoWatcherEvent,
   Stream<UpdatePersonalInfoWatcherState> mapEventToState(
     UpdatePersonalInfoWatcherEvent event,
   ) async* {
-    yield* event.map(setPersonalInfo: (e) async* {
-      final info = e.info;
-      if (info != null && info != _personalInfo) {
-        yield _Loaded(info);
-        _personalInfo = info;
-      }
-    });
+    yield* event.map(
+      setPersonalInfo: (e) async* {
+        final info = e.info;
+        if (info != null && info != _personalInfo) {
+          yield _Loaded(info);
+          _personalInfo = info;
+        }
+      },
+      changeToLoadingState: (e) async* {
+        yield const _Loading();
+      },
+    );
   }
 }

@@ -10,6 +10,8 @@ import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.d
 import 'package:wallet_app/presentation/pages/resume/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
+import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_date_picker.dart';
+import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
@@ -171,7 +173,7 @@ class _SaveButton extends StatelessWidget {
   }
 }
 
-class _NameInputField extends StatelessWidget {
+class _NameInputField extends StatefulWidget {
   final Function() callBack;
 
   const _NameInputField({
@@ -179,6 +181,11 @@ class _NameInputField extends StatelessWidget {
     @required this.callBack,
   }) : super(key: key);
 
+  @override
+  __NameInputFieldState createState() => __NameInputFieldState();
+}
+
+class __NameInputFieldState extends State<_NameInputField> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdatePersonalInfoActorBloc,
@@ -191,7 +198,7 @@ class _NameInputField extends StatelessWidget {
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.firstName,
-          onEditingCompleted: callBack,
+          onEditingCompleted: widget.callBack,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeFirstName(value)),
@@ -277,15 +284,20 @@ class _DateofBirthInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.dob != current.dob,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Date of Birth",
-        child: InputTextWidget(
+        child: CustomDatePicker(
           hintText: "Date of Birth",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.dob,
-          onEditingCompleted: callBack,
-          onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeDob(value)),
+          showAge: false,
+          controller: TextEditingController(text: state.dob),
+          onChanged: (dob, age) {
+            context
+                .read<UpdatePersonalInfoActorBloc>()
+                .add(UpdatePersonalInfoActorEvent.changeDob(dob));
+            context
+                .read<UpdatePersonalInfoActorBloc>()
+                .add(UpdatePersonalInfoActorEvent.changeAge(age));
+
+            FocusScope.of(context).unfocus();
+          },
         ),
       ),
     );
@@ -312,9 +324,8 @@ class _AgeInputField extends StatelessWidget {
           textInputType: TextInputType.number,
           value: state.age,
           onEditingCompleted: callBack,
-          onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeAge(value)),
+          isEnable: false,
+          onChanged: (_) {},
         ),
       ),
     );
@@ -336,12 +347,10 @@ class _GenderInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.gender != current.gender,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Gender",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "Gender",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.gender,
-          onEditingCompleted: callBack,
+          options: const ["Male", "Female"],
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeGender(value)),
@@ -401,7 +410,8 @@ class _EmailInputField extends StatelessWidget {
           hintText: "Email",
           textInputType: TextInputType.emailAddress,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.nationality,
+          value: state.email,
+          isEnable: false,
           onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()

@@ -28,6 +28,13 @@ class AboutPage extends StatelessWidget {
             loaded: (loaded) {
               // initial state of actor is set in home screen
               // setting here introduced some bugs
+
+              context.read<UpdatePersonalInfoActorBloc>().add(
+                  UpdatePersonalInfoActorEvent.setInitialState(loaded.info));
+
+              // context.read<UpdateAddressInfoActorBloc>().add(
+              //     UpdateAddressInfoActorEvent.setInitialState(loaded.info));
+
               return _aboutPageBlocConsumer(context, loaded.info);
             });
       },

@@ -33,12 +33,11 @@ class InputTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
-      // initialValue: value,
+      initialValue: null,
       controller: TextEditingController(text: value)
         ..selection = TextSelection.fromPosition(
           TextPosition(offset: value.length),
         ),
-      autocorrect: false,
       enabled: isEnable,
       decoration: InputDecoration(
         isDense: true,

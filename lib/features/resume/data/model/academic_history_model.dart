@@ -47,8 +47,12 @@ class AcademicHistoryModel extends AcademicHistory {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> params = {};
 
+    if (id != null) {
+      params["id"] = id;
+    }
+
     if (institute != null) {
-      params["insutitute"] = institute;
+      params["institute"] = institute;
     }
 
     if (startYear != null) {
@@ -67,7 +71,11 @@ class AcademicHistoryModel extends AcademicHistory {
       params["completion_month"] = completionMonth;
     }
 
-    return params;
+    final Map<String, dynamic> parent = {};
+
+    parent["education"] = [params];
+
+    return parent;
   }
 }
 

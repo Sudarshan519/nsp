@@ -2,13 +2,19 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/home/data/model/services_model.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/data/model/resume_model.dart';
+import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
+import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
+import 'package:wallet_app/features/resume/presentation/update_academic_info/watcher/update_academic_info_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_work_info/watcher/update_work_info_watcher_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
@@ -98,7 +104,8 @@ class HomePage extends StatelessWidget {
                 invalidUser: (error) => AppConstants.someThingWentWrong,
               ),
             ).show(context);
-            return _homePageBodyContent(context, failure.data.homeData);
+            return _homePageBodyContent(
+                context, failure.data.homeData, failure.data.userDetail);
           },
         );
       },
@@ -111,11 +118,22 @@ class HomePage extends StatelessWidget {
       builder: (context, state) {
         return state.map(
           initial: (_) => const SizedBox.shrink(),
-          loading: (_) => loadingPage(context),
-          loadingWithData: (success) =>
-              _homePageBodyContent(context, success.data.homeData),
-          loaded: (success) =>
-              _homePageBodyContent(context, success.data.homeData),
+          loading: (_) {
+            // also load watcher for Resume bloc
+
+            getIt<UpdatePersonalInfoWatcherBloc>().add(
+                const UpdatePersonalInfoWatcherEvent.changeToLoadingState());
+            getIt<UpdateAcademicInfoWatcherBloc>().add(
+                const UpdateAcademicInfoWatcherEvent.changeToLoadingState());
+            getIt<UpdateWorkInfoWatcherBloc>()
+                .add(const UpdateWorkInfoWatcherEvent.changeToLoadingState());
+
+            return loadingPage(context);
+          },
+          loadingWithData: (success) => _homePageBodyContent(
+              context, success.data.homeData, success.data.userDetail),
+          loaded: (success) => _homePageBodyContent(
+              context, success.data.homeData, success.data.userDetail),
           failure: (error) {
             FlushbarHelper.createError(
               message: error.failure.map(
@@ -134,14 +152,16 @@ class HomePage extends StatelessWidget {
                 invalidUser: (error) => AppConstants.someThingWentWrong,
               ),
             ).show(context);
-            return _homePageBodyContent(context, failure.data.homeData);
+            return _homePageBodyContent(
+                context, failure.data.homeData, failure.data.userDetail);
           },
         );
       },
     );
   }
 
-  Widget _homePageBodyContent(BuildContext context, List data) {
+  Widget _homePageBodyContent(
+      BuildContext context, List data, UserDetail userDetail) {
     return ListView.builder(
       primary: false,
       padding: EdgeInsets.zero,
@@ -149,15 +169,13 @@ class HomePage extends StatelessWidget {
       shrinkWrap: true,
       itemCount: data.length,
       itemBuilder: (context, index) {
-        return _listItemBuilder(
-          context,
-          data[index],
-        );
+        return _listItemBuilder(context, data[index], userDetail);
       },
     );
   }
 
-  Widget _listItemBuilder(BuildContext context, dynamic data) {
+  Widget _listItemBuilder(
+      BuildContext context, dynamic data, UserDetail userDetail) {
     final model = data as HomeData;
     final typeString = model.type;
 
@@ -168,8 +186,27 @@ class HomePage extends StatelessWidget {
         final data = model.data as Map<String, dynamic>;
 
         if (data["status"] as bool == true) {
-          return buildResumeSection(context, data);
+          return buildResumeSection(context, data, userDetail);
         } else {
+          context.read<UpdatePersonalInfoWatcherBloc>().add(
+                UpdatePersonalInfoWatcherEvent.setPersonalInfo(
+                  PersonalInfo(
+                    firstName: userDetail.firstName,
+                    lastName: userDetail.lastName,
+                    email: userDetail.email,
+                  ),
+                ),
+              );
+
+          context.read<UpdateAcademicInfoWatcherBloc>().add(
+                const UpdateAcademicInfoWatcherEvent.setAcademicHistory(
+                    AcademicHistory()),
+              );
+
+          context.read<UpdateWorkInfoWatcherBloc>().add(
+                const UpdateWorkInfoWatcherEvent.setWorkHistory(WorkHistory()),
+              );
+
           return BuildResume(
             changeTabPage: changeTabPage,
           );
@@ -210,21 +247,52 @@ class HomePage extends StatelessWidget {
   }
 
   MyResumeWidget buildResumeSection(
-      BuildContext context, Map<String, dynamic> data) {
+    BuildContext context,
+    Map<String, dynamic> data,
+    UserDetail userDetail,
+  ) {
     final map = data["data"] as Map<String, dynamic>;
     final resumeModel = ResumeDataModel.fromJson(map);
 
-    // The Actor could be updated from Watcher but reloading the widget is not working for now so
-    // this is a hot fix, Might need to migrate it later.
-
     if (resumeModel?.personalInfo != null) {
-      context.read<UpdatePersonalInfoActorBloc>().add(
-          UpdatePersonalInfoActorEvent.setInitialState(
-              resumeModel?.personalInfo));
-
       context.read<UpdatePersonalInfoWatcherBloc>().add(
           UpdatePersonalInfoWatcherEvent.setPersonalInfo(
               resumeModel?.personalInfo));
+    } else {
+      context.read<UpdatePersonalInfoWatcherBloc>().add(
+            UpdatePersonalInfoWatcherEvent.setPersonalInfo(
+              PersonalInfo(
+                firstName: userDetail.firstName,
+                lastName: userDetail.lastName,
+                email: userDetail.email,
+              ),
+            ),
+          );
+    }
+
+    if (resumeModel?.academicHistory != null &&
+        (resumeModel?.academicHistory?.isNotEmpty ?? false)) {
+      context.read<UpdateAcademicInfoWatcherBloc>().add(
+            UpdateAcademicInfoWatcherEvent.setAcademicHistory(
+                resumeModel?.academicHistory.first),
+          );
+    } else {
+      context.read<UpdateAcademicInfoWatcherBloc>().add(
+            const UpdateAcademicInfoWatcherEvent.setAcademicHistory(
+                AcademicHistory()),
+          );
+    }
+
+    if (resumeModel?.workHistory != null &&
+        (resumeModel?.workHistory?.isNotEmpty ?? false)) {
+      context.read<UpdateWorkInfoWatcherBloc>().add(
+            UpdateWorkInfoWatcherEvent.setWorkHistory(
+                resumeModel?.workHistory.first),
+          );
+    } else {
+      context.read<UpdateWorkInfoWatcherBloc>().add(
+            const UpdateWorkInfoWatcherEvent.setWorkHistory(WorkHistory()),
+          );
     }
 
     return MyResumeWidget(data: resumeModel);

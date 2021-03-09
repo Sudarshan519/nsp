@@ -47,20 +47,27 @@ class WorkHistoryModel extends WorkHistory {
         updatedAt: json["updated_at"] as String,
       );
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "job_seeker_id": jobSeekerId,
-        "company_name": companyName,
-        "company_type": companyType,
-        "start_year": startYear,
-        "start_month": startMonth,
-        "end_year": endYear,
-        "end_month": endMonth,
-        "description": description,
-        "language": language,
-        "created_at": createdAt,
-        "updated_at": updatedAt,
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> params = {};
+
+    if (companyName != null) {
+      params["institute"] = companyName;
+    }
+
+    if (startYear != null) {
+      params["start_year"] = startYear;
+    }
+
+    if (endYear != null) {
+      params["end_year"] = endYear;
+    }
+
+    final Map<String, dynamic> parent = {};
+
+    parent["experience"] = [params];
+
+    return parent;
+  }
 }
 
 extension WorkHistoryExt on WorkHistory {

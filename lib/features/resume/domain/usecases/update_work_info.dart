@@ -5,6 +5,7 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
+import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/domain/repository/resume_repository.dart';
 
 @lazySingleton
@@ -25,25 +26,28 @@ class UpdateWorkInfo extends Usecase<ApiFailure, Unit, UpdateWorkInfoParams> {
       return const Left(ApiFailure.noInternetConnection());
     }
 
-    final qualificationData = QualificationHistory(
-      institute: params.insutitute,
-      qualificationName: params.qualificationName,
+    final qualificationData = WorkHistory(
+      id: params.id,
+      companyName: params.insutitute,
+      // qualificationName: params.qualificationName,
       startYear: params.startYear,
       endYear: params.endYear,
     );
 
-    return repository.updateQualification(data: qualificationData);
+    return repository.updateWork(data: qualificationData);
   }
 }
 
 class UpdateWorkInfoParams {
   UpdateWorkInfoParams({
+    @required this.id,
     @required this.insutitute,
     @required this.qualificationName,
     @required this.startYear,
     @required this.endYear,
   });
 
+  final int id;
   final String insutitute;
   final String qualificationName;
   final String startYear;

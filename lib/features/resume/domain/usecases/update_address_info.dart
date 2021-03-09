@@ -26,7 +26,7 @@ class UpdateAddressInfo extends Usecase<ApiFailure, Unit, UpdateAddressParams> {
     }
 
     final userData = PersonalInfo(
-      contPostalCode: params.postalCode,
+      currPostalCode: params.postalCode,
       currPrefecture: params.prefecture,
       currCity: params.city,
       currAddress: params.address,

@@ -213,7 +213,7 @@ class PersonalInfoModel extends PersonalInfo {
     return params;
   }
 
-  Map<String, dynamic> toAddressJson() {
+  Map<String, dynamic> toCurrentAddressJson() {
     final Map<String, dynamic> params = {};
 
     if (currAddress != null) {
@@ -232,8 +232,8 @@ class PersonalInfoModel extends PersonalInfo {
       params["curr_address"] = currAddress;
     }
 
-    if (contactNumber != null) {
-      params["contact_number"] = contactNumber;
+    if (currPhone != null) {
+      params["curr_phone"] = currPhone;
     }
 
     return params;

@@ -1,16 +1,69 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
+import 'package:wallet_app/features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_work_info/watcher/update_work_info_watcher_bloc.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 class WorkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoWatcherBloc, UpdateWorkInfoWatcherState>(
+      builder: (context, state) {
+        return state.map(
+            loading: (_) => loadingPage(context),
+            loaded: (loaded) {
+              context
+                  .read<UpdateWorkInfoActorBloc>()
+                  .add(UpdateWorkInfoActorEvent.setInitialState(loaded.info));
+              return _aboutPageBlocConsumer(context, loaded.info);
+            });
+      },
+    );
+  }
+
+  Widget _aboutPageBlocConsumer(BuildContext context, WorkHistory workHistory) {
+    return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      listener: (context, state) {
+        state.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold(
+            (failure) {
+              FlushbarHelper.createError(
+                  message: failure.map(
+                serverError: (error) => error.message,
+                invalidUser: (_) => AppConstants.someThingWentWrong,
+                noInternetConnection: (_) => AppConstants.noNetwork,
+              )).show(context);
+            },
+            (success) {
+              // FlushbarHelper.createSuccess(message: "Successfully updated.")
+              //     .show(context);
+            },
+          ),
+        );
+      },
+      builder: (context, state) {
+        if (state.isSubmitting) {
+          loadingPage(context);
+        }
+
+        return _workPageBody(context, workHistory);
+      },
+    );
+  }
+
+  SingleChildScrollView _workPageBody(
+      BuildContext context, WorkHistory workHistory) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -31,8 +84,8 @@ class WorkPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () =>
-                          ExtendedNavigator.of(context).pushEditWorkInfoForm(),
+                      onTap: () => ExtendedNavigator.of(context)
+                          .pushEditWorkInfoForm(info: workHistory),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
                         color: Palette.primary,
@@ -44,105 +97,16 @@ class WorkPage extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                FormFieldDecoration(
-                  title: "Name of the company",
-                  child: InputTextWidget(
-                    value: '',
-                    isEnable: false,
-                    textAlign: TextAlign.end,
-                    hintText: "XYZ Company",
-                    onChanged: (_) {},
-                  ),
-                ),
+                const _NameOfCompanyField(),
                 const SizedBox(height: 10),
-                FormFieldDecoration(
-                  title: "Designation",
-                  child: InputTextWidget(
-                    value: '',
-                    isEnable: false,
-                    textAlign: TextAlign.end,
-                    hintText: "Sr. Software Developer",
-                    onChanged: (_) {},
-                  ),
-                ),
+                const _DesignationField(),
                 const SizedBox(height: 10),
-                FormFieldDecoration(
-                  title: "Started Year",
-                  child: InputTextWidget(
-                    value: '',
-                    isEnable: false,
-                    textAlign: TextAlign.end,
-                    hintText: "2018",
-                    onChanged: (_) {},
-                  ),
-                ),
+                const _StartedYearField(),
                 const SizedBox(height: 10),
-                FormFieldDecoration(
-                  title: "End Year",
-                  child: InputTextWidget(
-                    value: '',
-                    hintText: "-",
-                    isEnable: false,
-                    textAlign: TextAlign.end,
-                    onChanged: (_) {},
-                  ),
-                ),
+                const _EndYearField(),
               ],
             ),
           ),
-          // ShadowBoxWidget(
-          //   margin: const EdgeInsets.all(16.0),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       const Text(
-          //         "Work History 1",
-          //         style: TextStyle(
-          //           fontSize: 15,
-          //           fontWeight: FontWeight.bold,
-          //         ),
-          //       ),
-          //       const SizedBox(
-          //         height: 10,
-          //       ),
-          //       FormFieldDecoration(
-          //         title: "Name of the company",
-          //         child: InputTextWidget(
-          //           value: '',
-          //           hintText: "XYZ Company",
-          //           onChanged: (_) {},
-          //         ),
-          //       ),
-          //       const SizedBox(height: 10),
-          //       FormFieldDecoration(
-          //         title: "Designation",
-          //         child: InputTextWidget(
-          //           value: '',
-          //           hintText: "Sr. Software Developer",
-          //           onChanged: (_) {},
-          //         ),
-          //       ),
-          //       const SizedBox(height: 10),
-          //       FormFieldDecoration(
-          //         title: "Started Year",
-          //         child: InputTextWidget(
-          //           value: '',
-          //           hintText: "2015",
-          //           onChanged: (_) {},
-          //         ),
-          //       ),
-          //       const SizedBox(height: 10),
-          //       FormFieldDecoration(
-          //         title: "End Year",
-          //         child: InputTextWidget(
-          //           value: '',
-          //           hintText: "2018",
-          //           onChanged: (_) {},
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
           const SizedBox(
             height: 10,
           ),
@@ -164,6 +128,117 @@ class WorkPage extends StatelessWidget {
           ),
           const SizedBox(height: 20),
         ],
+      ),
+    );
+  }
+}
+
+class _NameOfCompanyField extends StatelessWidget {
+  const _NameOfCompanyField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.nameOfComapny != current.nameOfComapny,
+      builder: (context, state) => FormFieldDecoration(
+        title: "Name of the company",
+        child: InputTextWidget(
+          hintText: "XYZ Company",
+          textInputType: TextInputType.name,
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.nameOfComapny,
+          textAlign: TextAlign.end,
+          isEnable: false,
+          onChanged: (value) => context
+              .read<UpdateWorkInfoActorBloc>()
+              .add(UpdateWorkInfoActorEvent.changedNameOfCompany(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _DesignationField extends StatelessWidget {
+  const _DesignationField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.designation != current.designation,
+      builder: (context, state) => FormFieldDecoration(
+        title: "Designation",
+        child: InputTextWidget(
+          hintText: "Sr. Software Developer",
+          textInputType: TextInputType.name,
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.designation,
+          textAlign: TextAlign.end,
+          isEnable: false,
+          onChanged: (value) => context
+              .read<UpdateWorkInfoActorBloc>()
+              .add(UpdateWorkInfoActorEvent.changedDesignation(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _StartedYearField extends StatelessWidget {
+  const _StartedYearField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.startedYear != current.startedYear,
+      builder: (context, state) => FormFieldDecoration(
+        title: "Started Year",
+        child: InputTextWidget(
+          hintText: "2018",
+          textInputType: TextInputType.number,
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.startedYear,
+          textAlign: TextAlign.end,
+          isEnable: false,
+          onChanged: (value) => context
+              .read<UpdateWorkInfoActorBloc>()
+              .add(UpdateWorkInfoActorEvent.changedStartedYear(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _EndYearField extends StatelessWidget {
+  const _EndYearField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      buildWhen: (previous, current) => previous.endYear != current.endYear,
+      builder: (context, state) => FormFieldDecoration(
+        title: "End Year",
+        child: InputTextWidget(
+          hintText: "2020",
+          textInputType: TextInputType.number,
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.endYear,
+          textAlign: TextAlign.end,
+          isEnable: false,
+          onChanged: (value) => context
+              .read<UpdateWorkInfoActorBloc>()
+              .add(UpdateWorkInfoActorEvent.changedEndYear(value)),
+        ),
       ),
     );
   }
