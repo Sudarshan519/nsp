@@ -12,10 +12,11 @@ part 'update_personal_info_actor_event.dart';
 part 'update_personal_info_actor_state.dart';
 part 'update_personal_info_actor_bloc.freezed.dart';
 
-@lazySingleton
+@injectable
 class UpdatePersonalInfoActorBloc
     extends Bloc<UpdatePersonalInfoActorEvent, UpdatePersonalInfoActorState> {
   final UpdatePersonalInfo updatePersonalInfo;
+  PersonalInfo _personalInfo;
 
   UpdatePersonalInfoActorBloc({
     @required this.updatePersonalInfo,
@@ -27,7 +28,7 @@ class UpdatePersonalInfoActorBloc
   ) async* {
     yield* event.map(
       setInitialState: (e) async* {
-        yield _mapsetInitialState(e);
+        yield* _mapsetInitialState(e);
       },
       changeFirstName: (e) async* {
         yield _mapChangeFirstNameToState(e);
@@ -62,11 +63,12 @@ class UpdatePersonalInfoActorBloc
     );
   }
 
-  UpdatePersonalInfoActorState _mapsetInitialState(
-      _SetInitialState _setInitialState) {
+  Stream<UpdatePersonalInfoActorState> _mapsetInitialState(
+      _SetInitialState _setInitialState) async* {
     final userInfo = _setInitialState.info;
-    if (userInfo != null) {
-      return state.copyWith(
+    if (userInfo != null && userInfo != _personalInfo) {
+      _personalInfo = userInfo;
+      yield state.copyWith(
         firstName: userInfo.firstName ?? "",
         lastName: userInfo.lastName ?? "",
         profession: userInfo.profession ?? "",
@@ -80,7 +82,6 @@ class UpdatePersonalInfoActorBloc
         authFailureOrSuccessOption: none(),
       );
     }
-    return state;
   }
 
   UpdatePersonalInfoActorState _mapChangeFirstNameToState(

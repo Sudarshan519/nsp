@@ -12,6 +12,7 @@ part 'update_personal_info_watcher_bloc.freezed.dart';
 @injectable
 class UpdatePersonalInfoWatcherBloc extends Bloc<UpdatePersonalInfoWatcherEvent,
     UpdatePersonalInfoWatcherState> {
+  PersonalInfo _personalInfo;
   UpdatePersonalInfoWatcherBloc() : super(const _Loading());
 
   @override
@@ -19,7 +20,11 @@ class UpdatePersonalInfoWatcherBloc extends Bloc<UpdatePersonalInfoWatcherEvent,
     UpdatePersonalInfoWatcherEvent event,
   ) async* {
     yield* event.map(setPersonalInfo: (e) async* {
-      yield _Loaded(e.info);
+      final info = e.info;
+      if (info != null && info != _personalInfo) {
+        yield _Loaded(info);
+        _personalInfo = info;
+      }
     });
   }
 }

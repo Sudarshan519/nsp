@@ -3,17 +3,17 @@ import 'package:flutter/foundation.dart';
 
 class AcademicHistory extends Equatable {
   const AcademicHistory({
-    @required this.id,
-    @required this.jobSeekerId,
-    @required this.institute,
-    @required this.majorSubject,
-    @required this.startYear,
-    @required this.startMonth,
-    @required this.completionYear,
-    @required this.completionMonth,
-    @required this.language,
-    @required this.createdAt,
-    @required this.updatedAt,
+    this.id,
+    this.jobSeekerId,
+    this.institute,
+    this.majorSubject,
+    this.startYear,
+    this.startMonth,
+    this.completionYear,
+    this.completionMonth,
+    this.language,
+    this.createdAt,
+    this.updatedAt,
   });
 
   final int id;

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
@@ -27,13 +28,13 @@ class AboutPage extends StatelessWidget {
             loaded: (loaded) {
               // initial state of actor is set in home screen
               // setting here introduced some bugs
-              return _aboutPageBlocConsumer(context);
+              return _aboutPageBlocConsumer(context, loaded.info);
             });
       },
     );
   }
 
-  Widget _aboutPageBlocConsumer(BuildContext context) {
+  Widget _aboutPageBlocConsumer(BuildContext context, PersonalInfo info) {
     return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
       listener: (context, state) {
@@ -60,12 +61,12 @@ class AboutPage extends StatelessWidget {
           loadingPage(context);
         }
 
-        return _aboutPageBody(context);
+        return _aboutPageBody(context, info);
       },
     );
   }
 
-  Widget _aboutPageBody(BuildContext context) {
+  Widget _aboutPageBody(BuildContext context, PersonalInfo info) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -87,7 +88,7 @@ class AboutPage extends StatelessWidget {
                     const Spacer(),
                     InkWell(
                       onTap: () => ExtendedNavigator.of(context)
-                          .push(Routes.editBasicInfoForm),
+                          .pushEditBasicInfoForm(info: info),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
                         color: Palette.primary,

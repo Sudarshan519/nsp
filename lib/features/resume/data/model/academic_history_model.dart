@@ -44,19 +44,31 @@ class AcademicHistoryModel extends AcademicHistory {
         updatedAt: json["updated_at"] as String,
       );
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "job_seeker_id": jobSeekerId,
-        "institute": institute,
-        "major_subject": majorSubject,
-        "start_year": startYear,
-        "start_month": startMonth,
-        "completion_year": completionYear,
-        "completion_month": completionMonth,
-        "language": language,
-        "created_at": createdAt,
-        "updated_at": updatedAt,
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> params = {};
+
+    if (institute != null) {
+      params["insutitute"] = institute;
+    }
+
+    if (startYear != null) {
+      params["start_year"] = startYear;
+    }
+
+    if (startMonth != null) {
+      params["start_month"] = startMonth;
+    }
+
+    if (completionYear != null) {
+      params["completion_year"] = completionYear;
+    }
+
+    if (completionMonth != null) {
+      params["completion_month"] = completionMonth;
+    }
+
+    return params;
+  }
 }
 
 extension AcademicHistoryExt on AcademicHistory {

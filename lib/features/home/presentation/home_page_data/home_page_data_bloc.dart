@@ -13,7 +13,7 @@ part 'home_page_data_event.dart';
 part 'home_page_data_state.dart';
 part 'home_page_data_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class HomePageDataBloc extends Bloc<HomePageDataEvent, HomePageDataState> {
   final GetHomePageData getHomePageData;
   HomeResponse _data;

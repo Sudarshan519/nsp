@@ -4,6 +4,9 @@ import 'package:wallet_app/presentation/pages/auth/login_screen.dart';
 import 'package:wallet_app/presentation/pages/auth/register_screen.dart';
 import 'package:wallet_app/presentation/pages/auth/validate_user_screen.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/about/edit_basic_info.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/address/edit_address_info.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/work/edit_work_info.dart';
 import 'package:wallet_app/presentation/pages/splash/splash_screen.dart';
 import 'package:wallet_app/presentation/pages/tab_bar/tab_bar_screen.dart';
 
@@ -17,6 +20,9 @@ import 'package:wallet_app/presentation/pages/tab_bar/tab_bar_screen.dart';
     MaterialRoute(page: SignupPage),
     MaterialRoute(page: TabBarScreen),
     MaterialRoute(page: EditBasicInfoForm),
+    MaterialRoute(page: EditAddressInfoForm),
+    MaterialRoute(page: EditWorkInfoForm),
+    MaterialRoute(page: EditAcademicInfoForm),
   ],
 )
 class $Router {

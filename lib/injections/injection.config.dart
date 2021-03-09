@@ -44,9 +44,12 @@ import '../features/auth/domain/usecase/sign_in_with_email.dart';
 import '../features/auth/presentation/sign_up/sign_up_form_bloc.dart';
 import '../features/auth/domain/usecase/sign_up_user.dart';
 import '../features/splash/presentation/splash_bloc.dart';
+import '../features/resume/domain/usecases/update_academics_info.dart';
+import '../features/resume/domain/usecases/update_address_info.dart';
 import '../features/resume/domain/usecases/update_personal_info.dart';
 import '../features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import '../features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
+import '../features/resume/domain/usecases/update_work_info.dart';
 import '../features/auth/domain/usecase/verify_email.dart';
 import '../features/auth/presentation/verify_email/verify_email_bloc.dart';
 
@@ -113,11 +116,16 @@ Future<GetIt> $initGetIt(
       SignUpWithEmailPasswordAndUserDetail(
           repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<SplashBloc>(() => SplashBloc(getWalletUser: get<GetWalletUser>()));
+  gh.lazySingleton<UpdateAcadamicInfo>(() => UpdateAcadamicInfo(
+      repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
+  gh.lazySingleton<UpdateAddressInfo>(() => UpdateAddressInfo(
+      repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<UpdatePersonalInfo>(() => UpdatePersonalInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
-  gh.lazySingleton<UpdatePersonalInfoActorBloc>(() =>
-      UpdatePersonalInfoActorBloc(
-          updatePersonalInfo: get<UpdatePersonalInfo>()));
+  gh.factory<UpdatePersonalInfoActorBloc>(() => UpdatePersonalInfoActorBloc(
+      updatePersonalInfo: get<UpdatePersonalInfo>()));
+  gh.lazySingleton<UpdateWorkInfo>(() => UpdateWorkInfo(
+      repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<VerifyEmail>(() => VerifyEmail(
       repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<VerifyEmailBloc>(
@@ -127,7 +135,7 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<GetNews>(() => GetNews(
       repository: get<NewsRepositoryProtocol>(),
       networkInfo: get<NetworkInfo>()));
-  gh.factory<HomePageDataBloc>(
+  gh.lazySingleton<HomePageDataBloc>(
       () => HomePageDataBloc(getHomePageData: get<GetHomePageData>()));
   gh.factory<NewsBloc>(() => NewsBloc(getNews: get<GetNews>()));
   gh.factory<SignInFormBloc>(

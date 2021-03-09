@@ -1,20 +1,33 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/pages/resume/widgets/text_widget_label_and_child.dart';
+import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
 
 class EditBasicInfoForm extends StatelessWidget {
+  final PersonalInfo info;
+
+  const EditBasicInfoForm({
+    Key key,
+    @required this.info,
+  })  : assert(info != null),
+        super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<UpdatePersonalInfoActorBloc>(),
+      create: (context) => getIt<UpdatePersonalInfoActorBloc>()
+        ..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -53,41 +66,69 @@ class EditBasicInfoForm extends StatelessWidget {
               )).show(context);
             },
             (success) {
-              FlushbarHelper.createSuccess(message: "Successfully updated.")
-                  .show(context);
+              getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+
+              showDialog(
+                context: context,
+                builder: (_) => PopUpSuccessOverLay(
+                  title: "Basic Info",
+                  message: "Successfully updated.",
+                  onPressed: () {
+                    ExtendedNavigator.of(context)
+                        .popUntilPath(Routes.tabBarScreen);
+                  },
+                ),
+              );
             },
           ),
         );
       },
+      buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         if (state.isSubmitting) {
           return loadingPage(context);
         }
-        return Container(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _NameInputField(callBack: () {}),
-                const SizedBox(height: 20),
-                _FamilyNameInputField(callBack: () {}),
-                const SizedBox(height: 20),
-                _ProfessionInputField(callBack: () {}),
-                const SizedBox(height: 20),
-                _DateofBirthInputField(callBack: () {}),
-                const SizedBox(height: 20),
-                _AgeInputField(callBack: () {}),
-                const SizedBox(height: 20),
-                _GenderInputField(callBack: () {}),
-                const SizedBox(height: 20),
-                _NationalityInputField(callBack: () {}),
-                const SizedBox(height: 20),
-                _EmailInputField(callBack: () {}),
-              ],
-            ),
-          ),
-        );
+        return const _EditBasicInfoFormBody();
       },
+    );
+  }
+}
+
+class _EditBasicInfoFormBody extends StatefulWidget {
+  const _EditBasicInfoFormBody({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _EditBasicInfoFormBodyState createState() => _EditBasicInfoFormBodyState();
+}
+
+class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            _NameInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _FamilyNameInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _ProfessionInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _DateofBirthInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _AgeInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _GenderInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _NationalityInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _EmailInputField(callBack: () {}),
+          ],
+        ),
+      ),
     );
   }
 }

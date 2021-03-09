@@ -12,6 +12,9 @@ class QualificationHistoryModel extends QualificationHistory {
     @required String language,
     @required String createdAt,
     @required String updatedAt,
+    @required String institute,
+    @required String startYear,
+    @required String endYear,
   }) : super(
           id: id,
           jobSeekerId: jobSeekerId,
@@ -21,6 +24,9 @@ class QualificationHistoryModel extends QualificationHistory {
           language: language,
           createdAt: createdAt,
           updatedAt: updatedAt,
+          startYear: startYear,
+          endYear: endYear,
+          institute: institute,
         );
 
   factory QualificationHistoryModel.fromJson(Map<String, dynamic> json) =>
@@ -33,18 +39,36 @@ class QualificationHistoryModel extends QualificationHistory {
         language: json["language"] as String,
         createdAt: json["created_at"] as String,
         updatedAt: json["updated_at"] as String,
+        startYear: json["start_year"] as String,
+        endYear: json["end_year"] as String,
+        institute: json["institute"] as String,
       );
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "job_seeker_id": jobSeekerId,
-        "qualification_name": qualificationName,
-        "certified_year": certifiedYear,
-        "certified_month": certifiedMonth,
-        "language": language,
-        "created_at": createdAt,
-        "updated_at": updatedAt,
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> params = {};
+
+    if (qualificationName != null) {
+      params["qualification_name"] = qualificationName;
+    }
+
+    if (certifiedYear != null) {
+      params["certified_year"] = certifiedYear;
+    }
+
+    if (institute != null) {
+      params["institute"] = institute;
+    }
+
+    if (startYear != null) {
+      params["start_year"] = startYear;
+    }
+
+    if (endYear != null) {
+      params["end_year"] = endYear;
+    }
+
+    return params;
+  }
 }
 
 extension QualificationHistoryExt on QualificationHistory {
@@ -58,5 +82,8 @@ extension QualificationHistoryExt on QualificationHistory {
         language: language,
         createdAt: createdAt,
         updatedAt: updatedAt,
+        startYear: startYear,
+        endYear: endYear,
+        institute: institute,
       );
 }

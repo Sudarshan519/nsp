@@ -9,6 +9,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/resume/data/model/resume_model.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/my_resume.dart';
@@ -33,31 +34,37 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Palette.white,
-        child: Column(
-          children: [
-            HomeHeaderWidget(),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    _homePageHeader(),
-                    _homePageBody(),
-                  ],
+    return BlocProvider(
+      create: (_) => getIt<HomePageDataBloc>()
+        ..add(
+          const HomePageDataEvent.fetch(),
+        ),
+      child: Scaffold(
+        body: Container(
+          color: Palette.white,
+          child: Column(
+            children: [
+              HomeHeaderWidget(),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      _homePageHeader(),
+                      _homePageBody(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Palette.white,
-        onPressed: () {},
-        child: SvgPicture.asset(
-          "assets/images/home/chat.svg",
-          height: 30.0,
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Palette.white,
+          onPressed: () {},
+          child: SvgPicture.asset(
+            "assets/images/home/chat.svg",
+            height: 30.0,
+          ),
         ),
       ),
     );
@@ -65,6 +72,7 @@ class HomePage extends StatelessWidget {
 
   Widget _homePageHeader() {
     return BlocBuilder<HomePageDataBloc, HomePageDataState>(
+      buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         return state.map(
           initial: (_) => const UserInfoWidget(user: null),
@@ -99,6 +107,7 @@ class HomePage extends StatelessWidget {
 
   Widget _homePageBody() {
     return BlocBuilder<HomePageDataBloc, HomePageDataState>(
+      buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         return state.map(
           initial: (_) => const SizedBox.shrink(),

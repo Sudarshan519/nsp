@@ -31,6 +31,8 @@ class QualificationPage extends StatelessWidget {
                   child: InputTextWidget(
                     value: '',
                     hintText: "AWS Certification",
+                    isEnable: false,
+                    textAlign: TextAlign.end,
                     onChanged: (_) {},
                   ),
                 ),
@@ -40,6 +42,8 @@ class QualificationPage extends StatelessWidget {
                   child: InputTextWidget(
                     value: '',
                     hintText: "Virtual Creation",
+                    isEnable: false,
+                    textAlign: TextAlign.end,
                     onChanged: (_) {},
                   ),
                 ),
@@ -49,6 +53,8 @@ class QualificationPage extends StatelessWidget {
                   child: InputTextWidget(
                     value: '',
                     hintText: "2018",
+                    isEnable: false,
+                    textAlign: TextAlign.end,
                     onChanged: (_) {},
                   ),
                 ),

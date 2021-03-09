@@ -182,6 +182,10 @@ class PersonalInfoModel extends PersonalInfo {
       params["last_name"] = lastName;
     }
 
+    if (profession != null) {
+      params["profession"] = profession;
+    }
+
     if (dob != null) {
       params["dob"] = dob;
     }
@@ -202,15 +206,36 @@ class PersonalInfoModel extends PersonalInfo {
       params["email"] = email;
     }
 
-    if (contactNumber != null) {
-      params["contact_number"] = contactNumber;
+    if (profession != null) {
+      params["profession"] = profession;
     }
+
     return params;
   }
 
   Map<String, dynamic> toAddressJson() {
     final Map<String, dynamic> params = {};
-    // TODO add json according to address
+
+    if (currAddress != null) {
+      params["curr_postal_code"] = currPostalCode;
+    }
+
+    if (currPrefecture != null) {
+      params["curr_prefecture"] = currPrefecture;
+    }
+
+    if (currCity != null) {
+      params["curr_city"] = currCity;
+    }
+
+    if (currAddress != null) {
+      params["curr_address"] = currAddress;
+    }
+
+    if (contactNumber != null) {
+      params["contact_number"] = contactNumber;
+    }
+
     return params;
   }
 }

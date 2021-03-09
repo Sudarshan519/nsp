@@ -8,6 +8,9 @@ class QualificationHistory extends Equatable {
     this.certifiedYear,
     this.certifiedMonth,
     this.language,
+    this.institute,
+    this.startYear,
+    this.endYear,
     this.createdAt,
     this.updatedAt,
   });
@@ -18,6 +21,9 @@ class QualificationHistory extends Equatable {
   final String certifiedYear;
   final String certifiedMonth;
   final String language;
+  final String institute;
+  final String startYear;
+  final String endYear;
   final String createdAt;
   final String updatedAt;
 

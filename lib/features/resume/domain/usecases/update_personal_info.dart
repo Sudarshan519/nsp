@@ -26,8 +26,6 @@ class UpdatePersonalInfo
       return const Left(ApiFailure.noInternetConnection());
     }
 
-    return const Left(ApiFailure.noInternetConnection());
-
     final userData = PersonalInfo(
       firstName: params.firstName,
       lastName: params.lastName,
