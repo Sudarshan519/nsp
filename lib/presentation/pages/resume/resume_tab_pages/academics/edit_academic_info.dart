@@ -6,10 +6,11 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/text_widget_label_and_child.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
+import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
@@ -113,6 +114,8 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
           children: const [
             _NameOfInstituteField(),
             SizedBox(height: 20),
+            _MajorSubjectField(),
+            SizedBox(height: 20),
             _YearOfEnrollField(),
             SizedBox(height: 20),
             _YearOfCompletionField(),
@@ -193,6 +196,37 @@ class _NameOfInstituteField extends StatelessWidget {
   }
 }
 
+class _MajorSubjectField extends StatelessWidget {
+  const _MajorSubjectField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAcademicInfoActorBloc,
+        UpdateAcademicInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.majorSubject != current.majorSubject,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Major Subject",
+        child: CustomDropDownWidget(
+          hintText: "Major Subject",
+          value: state.yearOFEnroll,
+          options: const [
+            "IT/Engineering",
+            "Hospitality/Tourism",
+            "Marketing/Media",
+            "Others",
+          ],
+          onChanged: (value) => context
+              .read<UpdateAcademicInfoActorBloc>()
+              .add(UpdateAcademicInfoActorEvent.changedMajorSubject(value)),
+        ),
+      ),
+    );
+  }
+}
+
 class _YearOfEnrollField extends StatelessWidget {
   const _YearOfEnrollField({
     Key key,
@@ -206,12 +240,53 @@ class _YearOfEnrollField extends StatelessWidget {
           previous.yearOFEnroll != current.yearOFEnroll,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Year of Enroll",
-        child: InputTextWidget(
-          hintText: "2010",
-          textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.yearOFEnroll,
+        // child: InputTextWidget(
+        //   hintText: "2010",
+        //   textInputType: TextInputType.number,
+        //   // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        //   value: state.yearOFEnroll,
 
+        //   onChanged: (value) => context
+        //       .read<UpdateAcademicInfoActorBloc>()
+        //       .add(UpdateAcademicInfoActorEvent.changedYearOfEnroll(value)),
+        // ),
+        child: CustomDropDownWidget(
+          hintText: "2010",
+          value: state.yearOFEnroll,
+          options: const [
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+          ],
           onChanged: (value) => context
               .read<UpdateAcademicInfoActorBloc>()
               .add(UpdateAcademicInfoActorEvent.changedYearOfEnroll(value)),
@@ -234,12 +309,53 @@ class _YearOfCompletionField extends StatelessWidget {
           previous.yearOfCpmpletion != current.yearOfCpmpletion,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Year of Completion",
-        child: InputTextWidget(
-          hintText: "2014",
-          textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.yearOfCpmpletion,
+        // child: InputTextWidget(
+        //   hintText: "2014",
+        //   textInputType: TextInputType.number,
+        //   // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        //   value: state.yearOfCpmpletion,
 
+        //   onChanged: (value) => context
+        //       .read<UpdateAcademicInfoActorBloc>()
+        //       .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(value)),
+        // ),
+        child: CustomDropDownWidget(
+          hintText: "2014",
+          value: state.yearOfCpmpletion,
+          options: const [
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+          ],
           onChanged: (value) => context
               .read<UpdateAcademicInfoActorBloc>()
               .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(value)),
@@ -262,11 +378,32 @@ class _MonthOfEnrollField extends StatelessWidget {
           previous.monthOfEnroll != current.monthOfEnroll,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Month of Enroll",
-        child: InputTextWidget(
-          hintText: "4",
-          textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        // child: InputTextWidget(
+        //   hintText: "4",
+        //   textInputType: TextInputType.number,
+        //   // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        //   value: state.monthOfEnroll,
+        //   onChanged: (value) => context
+        //       .read<UpdateAcademicInfoActorBloc>()
+        //       .add(UpdateAcademicInfoActorEvent.changedMonthOfEnroll(value)),
+        // ),
+        child: CustomDropDownWidget(
+          hintText: "Sep",
           value: state.monthOfEnroll,
+          options: const [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "July",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
           onChanged: (value) => context
               .read<UpdateAcademicInfoActorBloc>()
               .add(UpdateAcademicInfoActorEvent.changedMonthOfEnroll(value)),
@@ -289,12 +426,32 @@ class _MonthOfCompletionField extends StatelessWidget {
           previous.monthOfCompletion != current.monthOfCompletion,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Month of Completion",
-        child: InputTextWidget(
-          hintText: "10",
-          textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.monthOfCompletion,
+        // child: InputTextWidget(
+        //   hintText: "10",
+        //   textInputType: TextInputType.number,
+        //   // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        //   value: state.monthOfCompletion,
 
+        //   onChanged: (value) => context.read<UpdateAcademicInfoActorBloc>().add(
+        //       UpdateAcademicInfoActorEvent.changedMonthOfCompletion(value)),
+        // ),
+        child: CustomDropDownWidget(
+          hintText: "Oct",
+          value: state.monthOfCompletion,
+          options: const [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "July",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
           onChanged: (value) => context.read<UpdateAcademicInfoActorBloc>().add(
               UpdateAcademicInfoActorEvent.changedMonthOfCompletion(value)),
         ),

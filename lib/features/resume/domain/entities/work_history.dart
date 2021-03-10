@@ -35,5 +35,13 @@ class WorkHistory extends Equatable {
         jobSeekerId,
         companyName,
         companyType,
+        startYear,
+        startMonth,
+        endYear,
+        endMonth,
+        description,
+        language,
+        createdAt,
+        updatedAt,
       ];
 }

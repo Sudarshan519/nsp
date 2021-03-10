@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 
@@ -38,10 +38,10 @@ class QualificationPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 FormFieldDecoration(
-                  title: "Area",
+                  title: "Certified Year",
                   child: InputTextWidget(
                     value: '',
-                    hintText: "Virtual Creation",
+                    hintText: "2015",
                     isEnable: false,
                     textAlign: TextAlign.end,
                     onChanged: (_) {},
@@ -49,10 +49,10 @@ class QualificationPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 FormFieldDecoration(
-                  title: "Received Year",
+                  title: "Certified Month",
                   child: InputTextWidget(
                     value: '',
-                    hintText: "2018",
+                    hintText: "Sep",
                     isEnable: false,
                     textAlign: TextAlign.end,
                     onChanged: (_) {},

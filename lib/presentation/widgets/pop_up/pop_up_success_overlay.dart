@@ -89,7 +89,7 @@ class PopUpSuccessOverLayState extends State<PopUpSuccessOverLay>
                       child: TextButton(
                         onPressed: widget.onPressed,
                         style: TextButton.styleFrom(
-                          primary: Palette.primary,
+                          backgroundColor: Palette.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
                           ),

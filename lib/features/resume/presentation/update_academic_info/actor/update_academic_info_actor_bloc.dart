@@ -31,6 +31,9 @@ class UpdateAcademicInfoActorBloc
       changedNameOfInstitute: (e) async* {
         yield _mapChangeNameOfInstituteToState(e);
       },
+      changedMajorSubject: (e) async* {
+        yield _mapChangeMajorSubjectToState(e);
+      },
       changedYearOfEnroll: (e) async* {
         yield _mapChangeYearOfEnrollToState(e);
       },
@@ -56,6 +59,14 @@ class UpdateAcademicInfoActorBloc
       _ChangedNameOfInstitute _changedNameOfInstitute) {
     return state.copyWith(
       nameOfInstitute: _changedNameOfInstitute.institute,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateAcademicInfoActorState _mapChangeMajorSubjectToState(
+      _ChangedMajorSubject _changedMajorSubject) {
+    return state.copyWith(
+      majorSubject: _changedMajorSubject.subject,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -118,6 +129,7 @@ class UpdateAcademicInfoActorBloc
       UpdateAcadamicInfoParams(
         id: _academicHistory.id,
         insutitute: state.nameOfInstitute,
+        majorSubject: state.majorSubject,
         startYear: state.yearOFEnroll,
         startMonth: state.monthOfEnroll,
         completionYear: state.yearOfCpmpletion,

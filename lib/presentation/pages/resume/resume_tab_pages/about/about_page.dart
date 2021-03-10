@@ -7,9 +7,9 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/resume_options.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/resume_options.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
@@ -26,15 +26,8 @@ class AboutPage extends StatelessWidget {
         return state.map(
             loading: (_) => loadingPage(context),
             loaded: (loaded) {
-              // initial state of actor is set in home screen
-              // setting here introduced some bugs
-
               context.read<UpdatePersonalInfoActorBloc>().add(
                   UpdatePersonalInfoActorEvent.setInitialState(loaded.info));
-
-              // context.read<UpdateAddressInfoActorBloc>().add(
-              //     UpdateAddressInfoActorEvent.setInitialState(loaded.info));
-
               return _aboutPageBlocConsumer(context, loaded.info);
             });
       },
@@ -189,7 +182,7 @@ class _NameInputField extends StatelessWidget {
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.firstName,
           textAlign: TextAlign.end,
-          isEnable: false,
+          // isEnable: false,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeFirstName(value)),

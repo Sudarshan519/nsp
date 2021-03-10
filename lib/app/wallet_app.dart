@@ -34,6 +34,12 @@ class WalletApp extends StatelessWidget {
             ),
         ),
         BlocProvider(
+          create: (_) => getIt<HomePageDataBloc>()
+            ..add(
+              const HomePageDataEvent.fetch(),
+            ),
+        ),
+        BlocProvider(
           create: (context) => getIt<UpdatePersonalInfoWatcherBloc>(),
         ),
         BlocProvider(

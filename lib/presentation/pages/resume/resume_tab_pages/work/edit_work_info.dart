@@ -6,8 +6,8 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/text_widget_label_and_child.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';

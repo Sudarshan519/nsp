@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
@@ -8,9 +9,11 @@ import 'category_title_text.dart';
 
 class MyResumeWidget extends StatelessWidget {
   final ResumeData data;
+  final Function(int) changeTabPage;
   const MyResumeWidget({
     Key key,
     @required this.data,
+    @required this.changeTabPage,
   }) : super(key: key);
 
   @override
@@ -27,7 +30,7 @@ class MyResumeWidget extends StatelessWidget {
               children: [
                 Container(
                   color: Palette.white,
-                  height: 160,
+                  height: 190,
                   child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
@@ -104,8 +107,8 @@ class MyResumeWidget extends StatelessWidget {
       final name =
           "${data.personalInfo.firstName} ${data.personalInfo.lastName}";
       final profession = data.personalInfo.profession;
-      final address = data.personalInfo.contAddress;
-      final contactNumber = data.personalInfo.contactNumber;
+      final address = data.personalInfo.currAddress;
+      final contactNumber = data.personalInfo.currPhone;
       final email = data.personalInfo.email;
 
       return _ResumeInformationWidget(
@@ -113,9 +116,14 @@ class MyResumeWidget extends StatelessWidget {
         percentage: percentage,
         containerTitle: name,
         infoText1: profession,
+        infoText1Icon: "assets/images/resume/student.svg",
         infoText2: address,
+        infoText2Icon: "assets/images/resume/address.svg",
         infoText3: contactNumber,
+        infoText3Icon: "assets/images/resume/phone.svg",
         infoText4: email,
+        infoText4Icon: "assets/images/resume/email-icon.svg",
+        changeTabPage: changeTabPage,
       );
     }
 
@@ -138,9 +146,13 @@ class MyResumeWidget extends StatelessWidget {
           percentage: percentage,
           containerTitle: name,
           infoText1: "Major subject",
+          infoText1Icon: "assets/images/resume/academy.svg",
           infoText2: completion,
+          infoText2Icon: "",
           infoText3: "",
+          infoText3Icon: "",
           infoText4: "",
+          infoText4Icon: "",
         );
       } else {
         return _ResumeInformationWidget(
@@ -148,9 +160,13 @@ class MyResumeWidget extends StatelessWidget {
           percentage: percentage,
           containerTitle: "",
           infoText1: "",
+          infoText1Icon: "",
           infoText2: "",
+          infoText2Icon: "",
           infoText3: "",
+          infoText3Icon: "",
           infoText4: "",
+          infoText4Icon: "",
         );
       }
     }
@@ -176,6 +192,10 @@ class MyResumeWidget extends StatelessWidget {
           infoText2: started,
           infoText3: "",
           infoText4: "",
+          infoText1Icon: "",
+          infoText2Icon: "",
+          infoText3Icon: "",
+          infoText4Icon: "",
         );
       } else {
         return _ResumeInformationWidget(
@@ -186,6 +206,10 @@ class MyResumeWidget extends StatelessWidget {
           infoText2: "",
           infoText3: "",
           infoText4: "",
+          infoText1Icon: "",
+          infoText2Icon: "",
+          infoText3Icon: "",
+          infoText4Icon: "",
         );
       }
     }
@@ -211,6 +235,10 @@ class MyResumeWidget extends StatelessWidget {
           infoText2: "",
           infoText3: "",
           infoText4: "",
+          infoText1Icon: "",
+          infoText2Icon: "",
+          infoText3Icon: "",
+          infoText4Icon: "",
         );
       } else {
         return _ResumeInformationWidget(
@@ -221,6 +249,10 @@ class MyResumeWidget extends StatelessWidget {
           infoText2: "",
           infoText3: "",
           infoText4: "",
+          infoText1Icon: "",
+          infoText2Icon: "",
+          infoText3Icon: "",
+          infoText4Icon: "",
         );
       }
     }
@@ -233,9 +265,15 @@ class _ResumeInformationWidget extends StatelessWidget {
   final int percentage;
   final String containerTitle;
   final String infoText1;
+  final String infoText1Icon;
   final String infoText2;
+  final String infoText2Icon;
   final String infoText3;
+  final String infoText3Icon;
   final String infoText4;
+  final String infoText4Icon;
+
+  final Function(int) changeTabPage;
 
   const _ResumeInformationWidget({
     Key key,
@@ -243,9 +281,14 @@ class _ResumeInformationWidget extends StatelessWidget {
     @required this.percentage,
     @required this.containerTitle,
     @required this.infoText1,
+    @required this.infoText1Icon,
     @required this.infoText2,
+    @required this.infoText2Icon,
     @required this.infoText3,
+    @required this.infoText3Icon,
     @required this.infoText4,
+    @required this.infoText4Icon,
+    this.changeTabPage,
   }) : super(key: key);
 
   @override
@@ -314,54 +357,63 @@ class _ResumeInformationWidget extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 5),
-                Text(
-                  infoText1 ?? "",
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Palette.black.withOpacity(0.4),
+                _buildInformation(assetIcon: infoText1Icon, value: infoText1),
+                const SizedBox(height: 5),
+                _buildInformation(assetIcon: infoText2Icon, value: infoText2),
+                const SizedBox(height: 5),
+                _buildInformation(assetIcon: infoText3Icon, value: infoText3),
+                const SizedBox(height: 5),
+                _buildInformation(assetIcon: infoText4Icon, value: infoText4),
+                const SizedBox(height: 5),
+                const SizedBox(height: 10),
+                InkWell(
+                  onTap: () {
+                    if (changeTabPage != null) {
+                      DefaultTabController.of(context).animateTo(1);
+                      changeTabPage(1);
+                    }
+                  },
+                  child: Text(
+                    "View Details",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Palette.primary,
+                      fontWeight: FontWeight.w500,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 5),
-                Text(
-                  infoText2 ?? "",
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Palette.black.withOpacity(0.4),
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  infoText3 ?? "",
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Palette.black.withOpacity(0.4),
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  infoText4 ?? "",
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Palette.black.withOpacity(0.4),
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildInformation({String assetIcon, String value}) {
+    return Row(
+      children: [
+        SvgPicture.asset(
+          assetIcon,
+          color: Palette.black.withOpacity(0.4),
+          height: 10.0,
+        ),
+        const SizedBox(width: 4),
+        Flexible(
+          child: Text(
+            value ?? "",
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+              color: Palette.black.withOpacity(0.4),
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
     );
   }
 }

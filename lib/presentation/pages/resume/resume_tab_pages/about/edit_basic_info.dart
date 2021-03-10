@@ -6,8 +6,8 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/text_widget_label_and_child.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_date_picker.dart';
@@ -31,6 +31,7 @@ class EditBasicInfoForm extends StatelessWidget {
       create: (context) => getIt<UpdatePersonalInfoActorBloc>()
         ..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
       child: Scaffold(
+        key: UniqueKey(),
         appBar: AppBar(
           title: Text(
             "Edit Basic Info",
@@ -254,12 +255,17 @@ class _ProfessionInputField extends StatelessWidget {
           previous.profession != current.profession,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Profession",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "Profession",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.profession,
-          onEditingCompleted: callBack,
+          options: const [
+            "Language Student",
+            "College/University Student",
+            "Skilled Professional",
+            "Cook",
+            "Dependement",
+            "Others"
+          ],
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeProfession(value)),

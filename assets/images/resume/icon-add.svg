@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="icon-add" transform="translate(-334 -303)">
+    <g id="Group_966" data-name="Group 966" transform="translate(334 303)">
+      <circle id="Ellipse_20" data-name="Ellipse 20" cx="10" cy="10" r="10" fill="#dda601"/>
+      <path id="plus_1_" data-name="plus (1)" d="M9.474,4.159H6.008V.693A.693.693,0,0,0,5.314,0H4.852a.693.693,0,0,0-.693.693V4.159H.693A.693.693,0,0,0,0,4.852v.462a.693.693,0,0,0,.693.693H4.159V9.474a.693.693,0,0,0,.693.693h.462a.693.693,0,0,0,.693-.693V6.008H9.474a.693.693,0,0,0,.693-.693V4.852A.693.693,0,0,0,9.474,4.159Zm0,0" transform="translate(5 5)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

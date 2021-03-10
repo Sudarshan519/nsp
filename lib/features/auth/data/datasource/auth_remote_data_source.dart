@@ -94,7 +94,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       "email": email,
       "password": password,
       "password_confirmation": confirmPassword,
-      "phone": phoneNumber,
+      "phone": "112233445566",
       "created_gps": "gps",
     };
     http.Response response;

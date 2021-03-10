@@ -21,6 +21,13 @@ class _$UpdateAcademicInfoActorEventTearOff {
   }
 
 // ignore: unused_element
+  _ChangedMajorSubject changedMajorSubject(String subject) {
+    return _ChangedMajorSubject(
+      subject,
+    );
+  }
+
+// ignore: unused_element
   _ChangedYearOfEnroll changedYearOfEnroll(String year) {
     return _ChangedYearOfEnroll(
       year,
@@ -70,6 +77,7 @@ mixin _$UpdateAcademicInfoActorEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changedNameOfInstitute(String institute),
+    @required TResult changedMajorSubject(String subject),
     @required TResult changedYearOfEnroll(String year),
     @required TResult changedYearOfCompletion(String year),
     @required TResult changedMonthOfEnroll(String month),
@@ -80,6 +88,7 @@ mixin _$UpdateAcademicInfoActorEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changedNameOfInstitute(String institute),
+    TResult changedMajorSubject(String subject),
     TResult changedYearOfEnroll(String year),
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
@@ -91,6 +100,7 @@ mixin _$UpdateAcademicInfoActorEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    @required TResult changedMajorSubject(_ChangedMajorSubject value),
     @required TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     @required TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     @required TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -101,6 +111,7 @@ mixin _$UpdateAcademicInfoActorEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    TResult changedMajorSubject(_ChangedMajorSubject value),
     TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -193,6 +204,7 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changedNameOfInstitute(String institute),
+    @required TResult changedMajorSubject(String subject),
     @required TResult changedYearOfEnroll(String year),
     @required TResult changedYearOfCompletion(String year),
     @required TResult changedMonthOfEnroll(String month),
@@ -201,6 +213,7 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -214,6 +227,7 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changedNameOfInstitute(String institute),
+    TResult changedMajorSubject(String subject),
     TResult changedYearOfEnroll(String year),
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
@@ -233,6 +247,7 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    @required TResult changedMajorSubject(_ChangedMajorSubject value),
     @required TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     @required TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     @required TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -241,6 +256,7 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
     @required TResult save(_Save value),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -254,6 +270,7 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    TResult changedMajorSubject(_ChangedMajorSubject value),
     TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -277,6 +294,160 @@ abstract class _ChangedNameOfInstitute implements UpdateAcademicInfoActorEvent {
   String get institute;
   @JsonKey(ignore: true)
   _$ChangedNameOfInstituteCopyWith<_ChangedNameOfInstitute> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ChangedMajorSubjectCopyWith<$Res> {
+  factory _$ChangedMajorSubjectCopyWith(_ChangedMajorSubject value,
+          $Res Function(_ChangedMajorSubject) then) =
+      __$ChangedMajorSubjectCopyWithImpl<$Res>;
+  $Res call({String subject});
+}
+
+/// @nodoc
+class __$ChangedMajorSubjectCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
+    implements _$ChangedMajorSubjectCopyWith<$Res> {
+  __$ChangedMajorSubjectCopyWithImpl(
+      _ChangedMajorSubject _value, $Res Function(_ChangedMajorSubject) _then)
+      : super(_value, (v) => _then(v as _ChangedMajorSubject));
+
+  @override
+  _ChangedMajorSubject get _value => super._value as _ChangedMajorSubject;
+
+  @override
+  $Res call({
+    Object subject = freezed,
+  }) {
+    return _then(_ChangedMajorSubject(
+      subject == freezed ? _value.subject : subject as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ChangedMajorSubject implements _ChangedMajorSubject {
+  const _$_ChangedMajorSubject(this.subject) : assert(subject != null);
+
+  @override
+  final String subject;
+
+  @override
+  String toString() {
+    return 'UpdateAcademicInfoActorEvent.changedMajorSubject(subject: $subject)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangedMajorSubject &&
+            (identical(other.subject, subject) ||
+                const DeepCollectionEquality().equals(other.subject, subject)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(subject);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedMajorSubjectCopyWith<_ChangedMajorSubject> get copyWith =>
+      __$ChangedMajorSubjectCopyWithImpl<_ChangedMajorSubject>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult changedNameOfInstitute(String institute),
+    @required TResult changedMajorSubject(String subject),
+    @required TResult changedYearOfEnroll(String year),
+    @required TResult changedYearOfCompletion(String year),
+    @required TResult changedMonthOfEnroll(String month),
+    @required TResult changedMonthOfCompletion(String month),
+    @required TResult setInitialState(AcademicHistory academicHistory),
+    @required TResult save(),
+  }) {
+    assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
+    assert(changedYearOfEnroll != null);
+    assert(changedYearOfCompletion != null);
+    assert(changedMonthOfEnroll != null);
+    assert(changedMonthOfCompletion != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changedMajorSubject(subject);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult changedNameOfInstitute(String institute),
+    TResult changedMajorSubject(String subject),
+    TResult changedYearOfEnroll(String year),
+    TResult changedYearOfCompletion(String year),
+    TResult changedMonthOfEnroll(String month),
+    TResult changedMonthOfCompletion(String month),
+    TResult setInitialState(AcademicHistory academicHistory),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changedMajorSubject != null) {
+      return changedMajorSubject(subject);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    @required TResult changedMajorSubject(_ChangedMajorSubject value),
+    @required TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
+    @required TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
+    @required TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
+    @required TResult changedMonthOfCompletion(_ChangedMonthOfCompletion value),
+    @required TResult setInitialState(_SetInitialState value),
+    @required TResult save(_Save value),
+  }) {
+    assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
+    assert(changedYearOfEnroll != null);
+    assert(changedYearOfCompletion != null);
+    assert(changedMonthOfEnroll != null);
+    assert(changedMonthOfCompletion != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changedMajorSubject(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    TResult changedMajorSubject(_ChangedMajorSubject value),
+    TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
+    TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
+    TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
+    TResult changedMonthOfCompletion(_ChangedMonthOfCompletion value),
+    TResult setInitialState(_SetInitialState value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changedMajorSubject != null) {
+      return changedMajorSubject(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedMajorSubject implements UpdateAcademicInfoActorEvent {
+  const factory _ChangedMajorSubject(String subject) = _$_ChangedMajorSubject;
+
+  String get subject;
+  @JsonKey(ignore: true)
+  _$ChangedMajorSubjectCopyWith<_ChangedMajorSubject> get copyWith;
 }
 
 /// @nodoc
@@ -342,6 +513,7 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changedNameOfInstitute(String institute),
+    @required TResult changedMajorSubject(String subject),
     @required TResult changedYearOfEnroll(String year),
     @required TResult changedYearOfCompletion(String year),
     @required TResult changedMonthOfEnroll(String month),
@@ -350,6 +522,7 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -363,6 +536,7 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changedNameOfInstitute(String institute),
+    TResult changedMajorSubject(String subject),
     TResult changedYearOfEnroll(String year),
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
@@ -382,6 +556,7 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    @required TResult changedMajorSubject(_ChangedMajorSubject value),
     @required TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     @required TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     @required TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -390,6 +565,7 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
     @required TResult save(_Save value),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -403,6 +579,7 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    TResult changedMajorSubject(_ChangedMajorSubject value),
     TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -491,6 +668,7 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changedNameOfInstitute(String institute),
+    @required TResult changedMajorSubject(String subject),
     @required TResult changedYearOfEnroll(String year),
     @required TResult changedYearOfCompletion(String year),
     @required TResult changedMonthOfEnroll(String month),
@@ -499,6 +677,7 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -512,6 +691,7 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changedNameOfInstitute(String institute),
+    TResult changedMajorSubject(String subject),
     TResult changedYearOfEnroll(String year),
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
@@ -531,6 +711,7 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    @required TResult changedMajorSubject(_ChangedMajorSubject value),
     @required TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     @required TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     @required TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -539,6 +720,7 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
     @required TResult save(_Save value),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -552,6 +734,7 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    TResult changedMajorSubject(_ChangedMajorSubject value),
     TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -641,6 +824,7 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changedNameOfInstitute(String institute),
+    @required TResult changedMajorSubject(String subject),
     @required TResult changedYearOfEnroll(String year),
     @required TResult changedYearOfCompletion(String year),
     @required TResult changedMonthOfEnroll(String month),
@@ -649,6 +833,7 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -662,6 +847,7 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changedNameOfInstitute(String institute),
+    TResult changedMajorSubject(String subject),
     TResult changedYearOfEnroll(String year),
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
@@ -681,6 +867,7 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    @required TResult changedMajorSubject(_ChangedMajorSubject value),
     @required TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     @required TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     @required TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -689,6 +876,7 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
     @required TResult save(_Save value),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -702,6 +890,7 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    TResult changedMajorSubject(_ChangedMajorSubject value),
     TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -790,6 +979,7 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changedNameOfInstitute(String institute),
+    @required TResult changedMajorSubject(String subject),
     @required TResult changedYearOfEnroll(String year),
     @required TResult changedYearOfCompletion(String year),
     @required TResult changedMonthOfEnroll(String month),
@@ -798,6 +988,7 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -811,6 +1002,7 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changedNameOfInstitute(String institute),
+    TResult changedMajorSubject(String subject),
     TResult changedYearOfEnroll(String year),
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
@@ -830,6 +1022,7 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    @required TResult changedMajorSubject(_ChangedMajorSubject value),
     @required TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     @required TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     @required TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -838,6 +1031,7 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
     @required TResult save(_Save value),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -851,6 +1045,7 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    TResult changedMajorSubject(_ChangedMajorSubject value),
     TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -944,6 +1139,7 @@ class _$_SetInitialState implements _SetInitialState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changedNameOfInstitute(String institute),
+    @required TResult changedMajorSubject(String subject),
     @required TResult changedYearOfEnroll(String year),
     @required TResult changedYearOfCompletion(String year),
     @required TResult changedMonthOfEnroll(String month),
@@ -952,6 +1148,7 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -965,6 +1162,7 @@ class _$_SetInitialState implements _SetInitialState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changedNameOfInstitute(String institute),
+    TResult changedMajorSubject(String subject),
     TResult changedYearOfEnroll(String year),
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
@@ -984,6 +1182,7 @@ class _$_SetInitialState implements _SetInitialState {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    @required TResult changedMajorSubject(_ChangedMajorSubject value),
     @required TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     @required TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     @required TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -992,6 +1191,7 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult save(_Save value),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -1005,6 +1205,7 @@ class _$_SetInitialState implements _SetInitialState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    TResult changedMajorSubject(_ChangedMajorSubject value),
     TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -1068,6 +1269,7 @@ class _$_Save implements _Save {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult changedNameOfInstitute(String institute),
+    @required TResult changedMajorSubject(String subject),
     @required TResult changedYearOfEnroll(String year),
     @required TResult changedYearOfCompletion(String year),
     @required TResult changedMonthOfEnroll(String month),
@@ -1076,6 +1278,7 @@ class _$_Save implements _Save {
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -1089,6 +1292,7 @@ class _$_Save implements _Save {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult changedNameOfInstitute(String institute),
+    TResult changedMajorSubject(String subject),
     TResult changedYearOfEnroll(String year),
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
@@ -1108,6 +1312,7 @@ class _$_Save implements _Save {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    @required TResult changedMajorSubject(_ChangedMajorSubject value),
     @required TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     @required TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     @required TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -1116,6 +1321,7 @@ class _$_Save implements _Save {
     @required TResult save(_Save value),
   }) {
     assert(changedNameOfInstitute != null);
+    assert(changedMajorSubject != null);
     assert(changedYearOfEnroll != null);
     assert(changedYearOfCompletion != null);
     assert(changedMonthOfEnroll != null);
@@ -1129,6 +1335,7 @@ class _$_Save implements _Save {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult changedNameOfInstitute(_ChangedNameOfInstitute value),
+    TResult changedMajorSubject(_ChangedMajorSubject value),
     TResult changedYearOfEnroll(_ChangedYearOfEnroll value),
     TResult changedYearOfCompletion(_ChangedYearOfCompletion value),
     TResult changedMonthOfEnroll(_ChangedMonthOfEnroll value),
@@ -1156,6 +1363,7 @@ class _$UpdateAcademicInfoActorStateTearOff {
 // ignore: unused_element
   _UpdateAcademicInfoActorState call(
       {@required String nameOfInstitute,
+      @required String majorSubject,
       @required String yearOFEnroll,
       @required String yearOfCpmpletion,
       @required String monthOfEnroll,
@@ -1164,6 +1372,7 @@ class _$UpdateAcademicInfoActorStateTearOff {
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateAcademicInfoActorState(
       nameOfInstitute: nameOfInstitute,
+      majorSubject: majorSubject,
       yearOFEnroll: yearOFEnroll,
       yearOfCpmpletion: yearOfCpmpletion,
       monthOfEnroll: monthOfEnroll,
@@ -1181,6 +1390,7 @@ const $UpdateAcademicInfoActorState = _$UpdateAcademicInfoActorStateTearOff();
 /// @nodoc
 mixin _$UpdateAcademicInfoActorState {
   String get nameOfInstitute;
+  String get majorSubject;
   String get yearOFEnroll;
   String get yearOfCpmpletion;
   String get monthOfEnroll;
@@ -1201,6 +1411,7 @@ abstract class $UpdateAcademicInfoActorStateCopyWith<$Res> {
       _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>;
   $Res call(
       {String nameOfInstitute,
+      String majorSubject,
       String yearOFEnroll,
       String yearOfCpmpletion,
       String monthOfEnroll,
@@ -1221,6 +1432,7 @@ class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object nameOfInstitute = freezed,
+    Object majorSubject = freezed,
     Object yearOFEnroll = freezed,
     Object yearOfCpmpletion = freezed,
     Object monthOfEnroll = freezed,
@@ -1232,6 +1444,9 @@ class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
       nameOfInstitute: nameOfInstitute == freezed
           ? _value.nameOfInstitute
           : nameOfInstitute as String,
+      majorSubject: majorSubject == freezed
+          ? _value.majorSubject
+          : majorSubject as String,
       yearOFEnroll: yearOFEnroll == freezed
           ? _value.yearOFEnroll
           : yearOFEnroll as String,
@@ -1263,6 +1478,7 @@ abstract class _$UpdateAcademicInfoActorStateCopyWith<$Res>
   @override
   $Res call(
       {String nameOfInstitute,
+      String majorSubject,
       String yearOFEnroll,
       String yearOfCpmpletion,
       String monthOfEnroll,
@@ -1287,6 +1503,7 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object nameOfInstitute = freezed,
+    Object majorSubject = freezed,
     Object yearOFEnroll = freezed,
     Object yearOfCpmpletion = freezed,
     Object monthOfEnroll = freezed,
@@ -1298,6 +1515,9 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
       nameOfInstitute: nameOfInstitute == freezed
           ? _value.nameOfInstitute
           : nameOfInstitute as String,
+      majorSubject: majorSubject == freezed
+          ? _value.majorSubject
+          : majorSubject as String,
       yearOFEnroll: yearOFEnroll == freezed
           ? _value.yearOFEnroll
           : yearOFEnroll as String,
@@ -1323,6 +1543,7 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
 class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
   const _$_UpdateAcademicInfoActorState(
       {@required this.nameOfInstitute,
+      @required this.majorSubject,
       @required this.yearOFEnroll,
       @required this.yearOfCpmpletion,
       @required this.monthOfEnroll,
@@ -1330,6 +1551,7 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
       : assert(nameOfInstitute != null),
+        assert(majorSubject != null),
         assert(yearOFEnroll != null),
         assert(yearOfCpmpletion != null),
         assert(monthOfEnroll != null),
@@ -1339,6 +1561,8 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
 
   @override
   final String nameOfInstitute;
+  @override
+  final String majorSubject;
   @override
   final String yearOFEnroll;
   @override
@@ -1354,7 +1578,7 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
 
   @override
   String toString() {
-    return 'UpdateAcademicInfoActorState(nameOfInstitute: $nameOfInstitute, yearOFEnroll: $yearOFEnroll, yearOfCpmpletion: $yearOfCpmpletion, monthOfEnroll: $monthOfEnroll, monthOfCompletion: $monthOfCompletion, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateAcademicInfoActorState(nameOfInstitute: $nameOfInstitute, majorSubject: $majorSubject, yearOFEnroll: $yearOFEnroll, yearOfCpmpletion: $yearOfCpmpletion, monthOfEnroll: $monthOfEnroll, monthOfCompletion: $monthOfCompletion, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -1364,6 +1588,9 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
             (identical(other.nameOfInstitute, nameOfInstitute) ||
                 const DeepCollectionEquality()
                     .equals(other.nameOfInstitute, nameOfInstitute)) &&
+            (identical(other.majorSubject, majorSubject) ||
+                const DeepCollectionEquality()
+                    .equals(other.majorSubject, majorSubject)) &&
             (identical(other.yearOFEnroll, yearOFEnroll) ||
                 const DeepCollectionEquality()
                     .equals(other.yearOFEnroll, yearOFEnroll)) &&
@@ -1390,6 +1617,7 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(nameOfInstitute) ^
+      const DeepCollectionEquality().hash(majorSubject) ^
       const DeepCollectionEquality().hash(yearOFEnroll) ^
       const DeepCollectionEquality().hash(yearOfCpmpletion) ^
       const DeepCollectionEquality().hash(monthOfEnroll) ^
@@ -1410,6 +1638,8 @@ abstract class _UpdateAcademicInfoActorState
           {@required
               String nameOfInstitute,
           @required
+              String majorSubject,
+          @required
               String yearOFEnroll,
           @required
               String yearOfCpmpletion,
@@ -1425,6 +1655,8 @@ abstract class _UpdateAcademicInfoActorState
 
   @override
   String get nameOfInstitute;
+  @override
+  String get majorSubject;
   @override
   String get yearOFEnroll;
   @override

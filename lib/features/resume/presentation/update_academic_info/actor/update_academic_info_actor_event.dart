@@ -5,6 +5,8 @@ abstract class UpdateAcademicInfoActorEvent
     with _$UpdateAcademicInfoActorEvent {
   const factory UpdateAcademicInfoActorEvent.changedNameOfInstitute(
       String institute) = _ChangedNameOfInstitute;
+  const factory UpdateAcademicInfoActorEvent.changedMajorSubject(
+      String subject) = _ChangedMajorSubject;
   const factory UpdateAcademicInfoActorEvent.changedYearOfEnroll(String year) =
       _ChangedYearOfEnroll;
   const factory UpdateAcademicInfoActorEvent.changedYearOfCompletion(

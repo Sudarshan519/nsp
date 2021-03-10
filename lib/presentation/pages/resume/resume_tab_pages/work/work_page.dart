@@ -6,8 +6,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_work_info/watcher/update_work_info_watcher_bloc.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
@@ -99,11 +99,18 @@ class WorkPage extends StatelessWidget {
                 ),
                 const _NameOfCompanyField(),
                 const SizedBox(height: 10),
-                const _DesignationField(),
+                const _TypeOfCompanyField(),
+                const SizedBox(height: 10),
                 const SizedBox(height: 10),
                 const _StartedYearField(),
                 const SizedBox(height: 10),
+                const _StartedMonthField(),
+                const SizedBox(height: 10),
                 const _EndYearField(),
+                const SizedBox(height: 10),
+                const _EndMonthField(),
+                const SizedBox(height: 10),
+                const _PurposeOfResignField(),
               ],
             ),
           ),
@@ -161,8 +168,8 @@ class _NameOfCompanyField extends StatelessWidget {
   }
 }
 
-class _DesignationField extends StatelessWidget {
-  const _DesignationField({
+class _TypeOfCompanyField extends StatelessWidget {
+  const _TypeOfCompanyField({
     Key key,
   }) : super(key: key);
 
@@ -170,19 +177,17 @@ class _DesignationField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.designation != current.designation,
+          previous.nameOfComapny != current.nameOfComapny,
       builder: (context, state) => FormFieldDecoration(
-        title: "Designation",
+        title: "Company Type",
         child: InputTextWidget(
-          hintText: "Sr. Software Developer",
+          hintText: "IT Company",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.designation,
+          value: "",
           textAlign: TextAlign.end,
           isEnable: false,
-          onChanged: (value) => context
-              .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedDesignation(value)),
+          onChanged: (value) {},
         ),
       ),
     );
@@ -217,6 +222,30 @@ class _StartedYearField extends StatelessWidget {
   }
 }
 
+class _StartedMonthField extends StatelessWidget {
+  const _StartedMonthField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.startedYear != current.startedYear,
+      builder: (context, state) => FormFieldDecoration(
+        title: "Started Month",
+        child: InputTextWidget(
+          hintText: "Oct",
+          value: "",
+          textAlign: TextAlign.end,
+          isEnable: false,
+          onChanged: (value) {},
+        ),
+      ),
+    );
+  }
+}
+
 class _EndYearField extends StatelessWidget {
   const _EndYearField({
     Key key,
@@ -238,6 +267,54 @@ class _EndYearField extends StatelessWidget {
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
               .add(UpdateWorkInfoActorEvent.changedEndYear(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _EndMonthField extends StatelessWidget {
+  const _EndMonthField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.startedYear != current.startedYear,
+      builder: (context, state) => FormFieldDecoration(
+        title: "End Month",
+        child: InputTextWidget(
+          hintText: "Jan",
+          value: "",
+          textAlign: TextAlign.end,
+          isEnable: false,
+          onChanged: (value) {},
+        ),
+      ),
+    );
+  }
+}
+
+class _PurposeOfResignField extends StatelessWidget {
+  const _PurposeOfResignField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.startedYear != current.startedYear,
+      builder: (context, state) => FormFieldDecoration(
+        title: "Purpose of Resign",
+        child: InputTextWidget(
+          hintText: "Purpose of Resign",
+          value: "",
+          textAlign: TextAlign.end,
+          isEnable: false,
+          onChanged: (value) {},
         ),
       ),
     );

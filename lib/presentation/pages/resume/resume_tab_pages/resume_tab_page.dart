@@ -7,6 +7,7 @@ import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'about/about_page.dart';
 import 'academics/academics_page.dart';
 import 'address/address_page.dart';
+import 'other/other_info.dart';
 
 class ResumeTabBarScreen extends StatefulWidget {
   @override
@@ -61,6 +62,7 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
     AcademicsPage(),
     WorkPage(),
     QualificationPage(),
+    OtherInfo(),
   ];
 
   final List<Tab> _tabBar = [
@@ -96,6 +98,13 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
       text: "Qualification",
       icon: SvgPicture.asset(
         "assets/images/resume/qualification.svg",
+        height: 25.0,
+      ),
+    ),
+    Tab(
+      text: "Others",
+      icon: SvgPicture.asset(
+        "assets/images/resume/about.svg",
         height: 25.0,
       ),
     ),

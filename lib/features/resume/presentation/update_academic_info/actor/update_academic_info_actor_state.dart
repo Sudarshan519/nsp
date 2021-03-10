@@ -5,6 +5,7 @@ abstract class UpdateAcademicInfoActorState
     with _$UpdateAcademicInfoActorState {
   const factory UpdateAcademicInfoActorState({
     @required String nameOfInstitute,
+    @required String majorSubject,
     @required String yearOFEnroll,
     @required String yearOfCpmpletion,
     @required String monthOfEnroll,
@@ -16,6 +17,7 @@ abstract class UpdateAcademicInfoActorState
   factory UpdateAcademicInfoActorState.initial() =>
       UpdateAcademicInfoActorState(
         nameOfInstitute: '',
+        majorSubject: '',
         yearOFEnroll: '',
         yearOfCpmpletion: '',
         monthOfEnroll: '',

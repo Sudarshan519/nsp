@@ -12,7 +12,6 @@ import 'package:wallet_app/features/resume/domain/entities/academic_history.dart
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/watcher/update_academic_info_watcher_bloc.dart';
-import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_work_info/watcher/update_work_info_watcher_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -40,37 +39,31 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<HomePageDataBloc>()
-        ..add(
-          const HomePageDataEvent.fetch(),
-        ),
-      child: Scaffold(
-        body: Container(
-          color: Palette.white,
-          child: Column(
-            children: [
-              HomeHeaderWidget(),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      _homePageHeader(),
-                      _homePageBody(),
-                    ],
-                  ),
+    return Scaffold(
+      body: Container(
+        color: Palette.white,
+        child: Column(
+          children: [
+            HomeHeaderWidget(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _homePageHeader(),
+                    _homePageBody(),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Palette.white,
-          onPressed: () {},
-          child: SvgPicture.asset(
-            "assets/images/home/chat.svg",
-            height: 30.0,
-          ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Palette.white,
+        onPressed: () {},
+        child: SvgPicture.asset(
+          "assets/images/home/chat.svg",
+          height: 30.0,
         ),
       ),
     );
@@ -274,7 +267,7 @@ class HomePage extends StatelessWidget {
         (resumeModel?.academicHistory?.isNotEmpty ?? false)) {
       context.read<UpdateAcademicInfoWatcherBloc>().add(
             UpdateAcademicInfoWatcherEvent.setAcademicHistory(
-                resumeModel?.academicHistory.first),
+                resumeModel?.academicHistory?.first),
           );
     } else {
       context.read<UpdateAcademicInfoWatcherBloc>().add(
@@ -287,7 +280,7 @@ class HomePage extends StatelessWidget {
         (resumeModel?.workHistory?.isNotEmpty ?? false)) {
       context.read<UpdateWorkInfoWatcherBloc>().add(
             UpdateWorkInfoWatcherEvent.setWorkHistory(
-                resumeModel?.workHistory.first),
+                resumeModel?.workHistory?.first),
           );
     } else {
       context.read<UpdateWorkInfoWatcherBloc>().add(
@@ -295,6 +288,9 @@ class HomePage extends StatelessWidget {
           );
     }
 
-    return MyResumeWidget(data: resumeModel);
+    return MyResumeWidget(
+      data: resumeModel,
+      changeTabPage: changeTabPage,
+    );
   }
 }

@@ -6,11 +6,12 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/text_widget_label_and_child.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
+import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
@@ -112,6 +113,8 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
       child: SingleChildScrollView(
         child: Column(
           children: const [
+            _CountryInputField(),
+            SizedBox(height: 20),
             _PostalCodeInputField(),
             SizedBox(height: 20),
             _PrefectureInputField(),
@@ -192,6 +195,27 @@ class _PostalCodeInputField extends StatelessWidget {
   }
 }
 
+class _CountryInputField extends StatelessWidget {
+  const _CountryInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Country",
+        child: CustomDropDownWidget(
+          hintText: "Country",
+          value: "Japan",
+          options: const ["Japan"],
+          onChanged: (value) {},
+        ),
+      ),
+    );
+  }
+}
+
 class _PrefectureInputField extends StatelessWidget {
   const _PrefectureInputField({
     Key key,
@@ -204,11 +228,58 @@ class _PrefectureInputField extends StatelessWidget {
           previous.prefecture != current.prefecture,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "Prefecture",
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.prefecture,
-
+          options: const [
+            "Hokkaidō",
+            "Aomori",
+            "Iwate",
+            "Miyagi",
+            "Akita",
+            "Yamagata",
+            "Fukushima",
+            "Ibaraki",
+            "Tochigi",
+            "Gunma",
+            "Saitama",
+            "Chiba",
+            "Tokyo",
+            "Kanagawa",
+            "Niigata",
+            "Toyama",
+            "Ishikawa",
+            "Fukui",
+            "Yamanashi",
+            "Nagano",
+            "Gifu",
+            "Shizuoka",
+            "Aichi",
+            "Mie",
+            "Shiga",
+            "Kyōto",
+            "Ōsaka",
+            "Hyōgo",
+            "Nara",
+            "Wakayama",
+            "Tottori",
+            "Shimane",
+            "Okayama",
+            "Hiroshima",
+            "Yamaguchi",
+            "Tokushima",
+            "Kagawa",
+            "Ehime",
+            "Kōchi",
+            "Fukuoka",
+            "Saga",
+            "Nagasaki",
+            "Kumamoto",
+            "Ōita",
+            "Miyazaki",
+            "Kagoshima",
+            "Okinawa",
+          ],
           onChanged: (value) => context
               .read<UpdateAddressInfoActorBloc>()
               .add(UpdateAddressInfoActorEvent.changedPrefecture(value)),
@@ -229,11 +300,31 @@ class _CityInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.city != current.city,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "City",
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.city,
-
+          options: const [
+            "Nagoya",
+            "Toyohashi",
+            "Okazaki",
+            "Ichinomiya",
+            "Seto",
+            "Handa",
+            "Kasugai",
+            "Toyokawa",
+            "Tsushima",
+            "Hekinan",
+            "Kariya",
+            "Toyota",
+            "Anjō",
+            "Nishio",
+            "Gamagōri",
+            "Inuyama",
+            "Tokoname",
+            "Kōnan",
+            "Komaki",
+            "Inazawa",
+          ],
           onChanged: (value) => context
               .read<UpdateAddressInfoActorBloc>()
               .add(UpdateAddressInfoActorEvent.changedCity(value)),

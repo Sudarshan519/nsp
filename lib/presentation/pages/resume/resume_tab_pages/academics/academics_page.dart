@@ -6,8 +6,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/watcher/update_academic_info_watcher_bloc.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/form_field_decoration.dart';
-import 'package:wallet_app/presentation/pages/resume/widgets/input_text_widget.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
@@ -102,6 +102,8 @@ class AcademicsPage extends StatelessWidget {
                 ),
                 const _NameOfInstituteField(),
                 const SizedBox(height: 10),
+                const _MajorSubjectField(),
+                const SizedBox(height: 10),
                 const _YearOfEnrollField(),
                 const SizedBox(height: 10),
                 const _YearOfCompletionField(),
@@ -161,6 +163,35 @@ class _NameOfInstituteField extends StatelessWidget {
           onChanged: (value) => context
               .read<UpdateAcademicInfoActorBloc>()
               .add(UpdateAcademicInfoActorEvent.changedNameOfInstitute(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _MajorSubjectField extends StatelessWidget {
+  const _MajorSubjectField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAcademicInfoActorBloc,
+        UpdateAcademicInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.majorSubject != current.majorSubject,
+      builder: (context, state) => FormFieldDecoration(
+        title: "Major Subject",
+        child: InputTextWidget(
+          hintText: "Major Subject",
+          textInputType: TextInputType.name,
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.majorSubject,
+          textAlign: TextAlign.end,
+          isEnable: false,
+          onChanged: (value) => context
+              .read<UpdateAcademicInfoActorBloc>()
+              .add(UpdateAcademicInfoActorEvent.changedMajorSubject(value)),
         ),
       ),
     );
@@ -240,7 +271,7 @@ class _MonthOfEnrollField extends StatelessWidget {
         title: "Month of Enroll",
         child: InputTextWidget(
           hintText: "4",
-          textInputType: TextInputType.number,
+          // textInputType: TextInputType.number,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.monthOfEnroll,
           textAlign: TextAlign.end,
@@ -269,7 +300,7 @@ class _MonthOfCompletionField extends StatelessWidget {
         title: "Month of Completion",
         child: InputTextWidget(
           hintText: "10",
-          textInputType: TextInputType.number,
+          // textInputType: TextInputType.number,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.monthOfCompletion,
           textAlign: TextAlign.end,

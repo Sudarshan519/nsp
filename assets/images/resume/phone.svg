@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <g id="phone-icon" transform="translate(-145 -402)">
+    <g id="call_1_" data-name="call (1)" transform="translate(147 404)">
+      <g id="Group_962" data-name="Group 962">
+        <path id="Path_992" data-name="Path 992" d="M9.2,7.22a5.208,5.208,0,0,1-1.783-.312.761.761,0,0,0-.793.184L5.5,8.025A6.559,6.559,0,0,1,2.7,4.953l.824-1.2a.953.953,0,0,0,.2-.9A6.829,6.829,0,0,1,3.441.883.846.846,0,0,0,2.639,0H.8A.846.846,0,0,0,0,.883C0,6.461,4.126,11,9.2,11a.846.846,0,0,0,.8-.883V8.1A.846.846,0,0,0,9.2,7.22Z" fill="#9a9a9a"/>
+      </g>
+    </g>
+    <rect id="Rectangle_203" data-name="Rectangle 203" width="14" height="14" transform="translate(145 402)" fill="none"/>
+  </g>
+</svg>

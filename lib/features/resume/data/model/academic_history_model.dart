@@ -55,6 +55,10 @@ class AcademicHistoryModel extends AcademicHistory {
       params["institute"] = institute;
     }
 
+    if (majorSubject != null) {
+      params["major_subject"] = majorSubject;
+    }
+
     if (startYear != null) {
       params["start_year"] = startYear;
     }

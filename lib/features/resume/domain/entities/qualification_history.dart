@@ -32,5 +32,13 @@ class QualificationHistory extends Equatable {
         id,
         jobSeekerId,
         qualificationName,
+        certifiedYear,
+        certifiedMonth,
+        language,
+        institute,
+        startYear,
+        endYear,
+        createdAt,
+        updatedAt,
       ];
 }
