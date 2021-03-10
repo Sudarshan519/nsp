@@ -10,23 +10,28 @@ import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/in
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
+import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class EditWorkInfoForm extends StatelessWidget {
+  final UpdateWorkInfoActorBloc actorBloc;
   final WorkHistory info;
 
   const EditWorkInfoForm({
     Key key,
     @required this.info,
+    @required this.actorBloc,
   })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<UpdateWorkInfoActorBloc>()
-        ..add(UpdateWorkInfoActorEvent.setInitialState(info)),
+      create: (context) => actorBloc
+        ..add(
+          UpdateWorkInfoActorEvent.setInitialState(info),
+        ),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -111,11 +116,17 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
           children: const [
             _NameOfCompanyField(),
             SizedBox(height: 20),
-            _DesignationField(),
+            _MajorSubjectField(),
             SizedBox(height: 20),
             _StartedYearField(),
             SizedBox(height: 20),
+            _MonthOfEnrollField(),
+            SizedBox(height: 20),
             _EndYearField(),
+            SizedBox(height: 20),
+            _EndMonthField(),
+            SizedBox(height: 20),
+            _PurposeOfResignField(),
           ],
         ),
       ),
@@ -186,8 +197,8 @@ class _NameOfCompanyField extends StatelessWidget {
   }
 }
 
-class _DesignationField extends StatelessWidget {
-  const _DesignationField({
+class _MajorSubjectField extends StatelessWidget {
+  const _MajorSubjectField({
     Key key,
   }) : super(key: key);
 
@@ -195,18 +206,38 @@ class _DesignationField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.designation != current.designation,
+          previous.companyType != current.companyType,
       builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Designation",
-        child: InputTextWidget(
-          hintText: "Sr. Software Developer",
-          textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.designation,
-
+        title: "Type of company",
+        child: CustomDropDownWidget(
+          hintText: "Select a type of company.",
+          value: state.companyType,
+          options: const [
+            "Agriculture, Food and Natural Resources",
+            "Architecture and Construction",
+            "Arts, Audio/Video Technology and Communications",
+            "Business Management and Administration",
+            "Education and Training",
+            "Finance",
+            "Government and Public Administration",
+            "Health Science",
+            "Hospitality and Tourism",
+            "Human Services",
+            "Information Technology",
+            "Law, Public Safety, Corrections and Security",
+            "Manufacturing",
+            "Marketing, Sales and Service",
+            "Science, Technology, Engineering and Mathematics",
+            "Gaming",
+            "F&B",
+            "Advertisement and Marketing",
+            "Patrol and Curfews",
+            "Government Level",
+            "Others",
+          ],
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedDesignation(value)),
+              .add(UpdateWorkInfoActorEvent.changedTypeOfCompany(value)),
         ),
       ),
     );
@@ -225,15 +256,84 @@ class _StartedYearField extends StatelessWidget {
           previous.startedYear != current.startedYear,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Started Year",
-        child: InputTextWidget(
-          hintText: "2018",
-          textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        child: CustomDropDownWidget(
+          hintText: "2010",
           value: state.startedYear,
-
+          options: const [
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+          ],
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
               .add(UpdateWorkInfoActorEvent.changedStartedYear(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _MonthOfEnrollField extends StatelessWidget {
+  const _MonthOfEnrollField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.startedMonth != current.startedMonth,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Started Month",
+        child: CustomDropDownWidget(
+          hintText: "Sep",
+          value: state.startedMonth,
+          options: const [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "July",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          onChanged: (value) => context
+              .read<UpdateWorkInfoActorBloc>()
+              .add(UpdateWorkInfoActorEvent.changedStartedMonth(value)),
         ),
       ),
     );
@@ -251,15 +351,107 @@ class _EndYearField extends StatelessWidget {
       buildWhen: (previous, current) => previous.endYear != current.endYear,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "End Year",
-        child: InputTextWidget(
-          hintText: "2020",
-          textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        child: CustomDropDownWidget(
+          hintText: "2014",
           value: state.endYear,
-
+          options: const [
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+          ],
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
               .add(UpdateWorkInfoActorEvent.changedEndYear(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _EndMonthField extends StatelessWidget {
+  const _EndMonthField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      buildWhen: (previous, current) => previous.endMonth != current.endMonth,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "End Month",
+        child: CustomDropDownWidget(
+          hintText: "Oct",
+          value: state.startedMonth,
+          options: const [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "July",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          onChanged: (value) => context
+              .read<UpdateWorkInfoActorBloc>()
+              .add(UpdateWorkInfoActorEvent.changedEndMonth(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _PurposeOfResignField extends StatelessWidget {
+  const _PurposeOfResignField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      // buildWhen: (previous, current) =>
+      //     previous.nameOfComapny != current.nameOfComapny,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Purpose of Resign",
+        child: InputTextWidget(
+          hintText: "purpose of resign",
+          textInputType: TextInputType.name,
+          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: "",
+          onChanged: (value) {},
         ),
       ),
     );

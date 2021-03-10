@@ -27,10 +27,12 @@ class UpdateWorkInfo extends Usecase<ApiFailure, Unit, UpdateWorkInfoParams> {
 
     final qualificationData = WorkHistory(
       id: params.id,
-      companyName: params.insutitute,
-      // qualificationName: params.qualificationName,
+      companyName: params.companyName,
+      companyType: params.companyType,
       startYear: params.startYear,
+      startMonth: params.startMonth,
       endYear: params.endYear,
+      endMonth: params.endMonth,
     );
 
     return repository.updateWork(data: qualificationData);
@@ -40,15 +42,19 @@ class UpdateWorkInfo extends Usecase<ApiFailure, Unit, UpdateWorkInfoParams> {
 class UpdateWorkInfoParams {
   UpdateWorkInfoParams({
     @required this.id,
-    @required this.insutitute,
-    @required this.qualificationName,
+    @required this.companyName,
+    @required this.companyType,
     @required this.startYear,
+    @required this.startMonth,
     @required this.endYear,
+    @required this.endMonth,
   });
 
   final int id;
-  final String insutitute;
-  final String qualificationName;
+  final String companyName;
+  final String companyType;
   final String startYear;
+  final String startMonth;
   final String endYear;
+  final String endMonth;
 }

@@ -148,9 +148,16 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
       AcademicsPage(
         academics: state.academics ?? [],
       ),
-      WorkPage(),
-      QualificationPage(),
-      OtherInfo(),
+      WorkPage(
+        works: state.works ?? [],
+      ),
+      QualificationPage(
+        qualifications: state.qualifications ?? [],
+      ),
+      OtherInfo(
+        info: state.info,
+        aboutPageActor: aboutPageActor,
+      ),
     ];
   }
 }

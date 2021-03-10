@@ -4,18 +4,22 @@ part of 'update_work_info_actor_bloc.dart';
 abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
   const factory UpdateWorkInfoActorState({
     @required String nameOfComapny,
-    @required String designation,
+    @required String companyType,
     @required String startedYear,
+    @required String startedMonth,
     @required String endYear,
+    @required String endMonth,
     @required bool isSubmitting,
     @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
   }) = _UpdateWorkInfoActorState;
 
   factory UpdateWorkInfoActorState.initial() => UpdateWorkInfoActorState(
         nameOfComapny: '',
-        designation: '',
+        companyType: '',
         startedYear: '',
+        startedMonth: '',
         endYear: '',
+        endMonth: '',
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );

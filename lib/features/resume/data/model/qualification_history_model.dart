@@ -55,19 +55,15 @@ class QualificationHistoryModel extends QualificationHistory {
       params["certified_year"] = certifiedYear;
     }
 
-    if (institute != null) {
-      params["institute"] = institute;
+    if (certifiedMonth != null) {
+      params["certified_month"] = certifiedMonth;
     }
 
-    if (startYear != null) {
-      params["start_year"] = startYear;
-    }
+    final Map<String, dynamic> parent = {};
 
-    if (endYear != null) {
-      params["end_year"] = endYear;
-    }
+    parent["qualification"] = [params];
 
-    return params;
+    return parent;
   }
 }
 

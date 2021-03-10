@@ -1,22 +1,17 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_academics_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
-import 'package:wallet_app/features/resume/presentation/update_academic_info/watcher/update_academic_info_watcher_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/custom_button.dart';
-import 'package:wallet_app/presentation/widgets/loading_widget.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
-import 'package:wallet_app/utils/constant.dart';
 
 class AcademicsPage extends StatelessWidget {
   final List<AcademicHistory> academics;
@@ -43,6 +38,7 @@ class AcademicsPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return _CreateAcademicInfoBox(
                     history: academics[index],
+                    index: index + 1,
                   );
                 },
               ),
@@ -96,10 +92,12 @@ class AcademicsPage extends StatelessWidget {
 
 class _CreateAcademicInfoBox extends StatelessWidget {
   final AcademicHistory history;
+  final int index;
 
   const _CreateAcademicInfoBox({
     Key key,
     @required this.history,
+    @required this.index,
   }) : super(key: key);
 
   @override
@@ -124,9 +122,9 @@ class _CreateAcademicInfoBox extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Text(
-                "Academic",
-                style: TextStyle(
+              Text(
+                "Academic $index",
+                style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),

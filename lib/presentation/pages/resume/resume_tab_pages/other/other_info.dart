@@ -1,9 +1,24 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
+import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/shodow_box.dart';
+import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 class OtherInfo extends StatelessWidget {
+  final UpdatePersonalInfoActorBloc aboutPageActor;
+  final PersonalInfo info;
+
+  const OtherInfo({
+    Key key,
+    @required this.aboutPageActor,
+    @required this.info,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -13,6 +28,33 @@ class OtherInfo extends StatelessWidget {
             margin: const EdgeInsets.all(16.0),
             child: Column(
               children: [
+                Row(
+                  children: [
+                    const Text(
+                      "Basic Info",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    InkWell(
+                      onTap: () =>
+                          ExtendedNavigator.of(context).pushEditOtherInfoForm(
+                        info: info,
+                        actorBloc: aboutPageActor,
+                      ),
+                      child: SvgPicture.asset(
+                        "assets/images/resume/edit.svg",
+                        color: Palette.primary,
+                        width: 15,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
                 FormFieldDecoration(
                   title: "Languages",
                   child: InputTextWidget(

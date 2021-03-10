@@ -27,14 +27,20 @@ class UpdateWorkInfoActorBloc
       changedNameOfCompany: (e) async* {
         yield _mapChangeNameOfCompantToState(e);
       },
-      changedDesignation: (e) async* {
-        yield _mapChangeDesignationToState(e);
+      changedTypeOfCompany: (e) async* {
+        yield _mapChangeTypeOfCompanyToState(e);
       },
       changedStartedYear: (e) async* {
         yield _mapChangeStartedYearToState(e);
       },
+      changedStartedMonth: (e) async* {
+        yield _mapChangeStartedMonthToState(e);
+      },
       changedEndYear: (e) async* {
         yield _mapChangeEndYearToState(e);
+      },
+      changedEndMonth: (e) async* {
+        yield _mapChangeEndMonthToState(e);
       },
       setInitialState: (e) async* {
         yield* _mapsetInitialState(e);
@@ -53,10 +59,10 @@ class UpdateWorkInfoActorBloc
     );
   }
 
-  UpdateWorkInfoActorState _mapChangeDesignationToState(
-      _ChangedDesignation _changedDesignation) {
+  UpdateWorkInfoActorState _mapChangeTypeOfCompanyToState(
+      _ChangedTypeOfCompany _changedTypeOfCompany) {
     return state.copyWith(
-      designation: _changedDesignation.designation,
+      companyType: _changedTypeOfCompany.type,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -69,10 +75,26 @@ class UpdateWorkInfoActorBloc
     );
   }
 
+  UpdateWorkInfoActorState _mapChangeStartedMonthToState(
+      _ChangedStartedMonth _changedStartedMonth) {
+    return state.copyWith(
+      startedMonth: _changedStartedMonth.month,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
   UpdateWorkInfoActorState _mapChangeEndYearToState(
       _ChangedEndYear _changedEndYear) {
     return state.copyWith(
       endYear: _changedEndYear.year,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateWorkInfoActorState _mapChangeEndMonthToState(
+      _ChangedEndMonth _changedEndMonth) {
+    return state.copyWith(
+      endMonth: _changedEndMonth.month,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -84,9 +106,11 @@ class UpdateWorkInfoActorBloc
       _workHistory = workHistory;
       yield state.copyWith(
         nameOfComapny: workHistory.companyName ?? "",
-        // designation: workHistory.qua,
+        companyType: workHistory.companyType ?? "",
         startedYear: workHistory.startYear ?? "",
+        startedMonth: workHistory.startMonth ?? "",
         endYear: workHistory.endYear ?? "",
+        endMonth: workHistory.endMonth ?? "",
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );
@@ -101,9 +125,11 @@ class UpdateWorkInfoActorBloc
     failureOrSuccess = await updateWorkInfo(
       UpdateWorkInfoParams(
         id: _workHistory.id,
-        insutitute: state.nameOfComapny,
-        qualificationName: state.designation,
+        companyName: state.nameOfComapny,
+        companyType: state.companyType,
         startYear: state.startedYear,
+        startMonth: state.startedMonth,
+        endMonth: state.endMonth,
         endYear: state.endYear,
       ),
     );

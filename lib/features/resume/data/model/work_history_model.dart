@@ -50,16 +50,32 @@ class WorkHistoryModel extends WorkHistory {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> params = {};
 
+    if (id != null) {
+      params["id"] = id;
+    }
+
     if (companyName != null) {
-      params["institute"] = companyName;
+      params["company_name"] = companyName;
+    }
+
+    if (companyType != null) {
+      params["company_type"] = companyType;
     }
 
     if (startYear != null) {
       params["start_year"] = startYear;
     }
 
+    if (startMonth != null) {
+      params["start_month"] = startMonth;
+    }
+
     if (endYear != null) {
       params["end_year"] = endYear;
+    }
+
+    if (endMonth != null) {
+      params["end_month"] = endMonth;
     }
 
     final Map<String, dynamic> parent = {};

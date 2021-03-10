@@ -379,15 +379,6 @@ class _MonthOfEnrollField extends StatelessWidget {
           previous.monthOfEnroll != current.monthOfEnroll,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Month of Enroll",
-        // child: InputTextWidget(
-        //   hintText: "4",
-        //   textInputType: TextInputType.number,
-        //   // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-        //   value: state.monthOfEnroll,
-        //   onChanged: (value) => context
-        //       .read<UpdateAcademicInfoActorBloc>()
-        //       .add(UpdateAcademicInfoActorEvent.changedMonthOfEnroll(value)),
-        // ),
         child: CustomDropDownWidget(
           hintText: "Sep",
           value: state.monthOfEnroll,
@@ -427,15 +418,6 @@ class _MonthOfCompletionField extends StatelessWidget {
           previous.monthOfCompletion != current.monthOfCompletion,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Month of Completion",
-        // child: InputTextWidget(
-        //   hintText: "10",
-        //   textInputType: TextInputType.number,
-        //   // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-        //   value: state.monthOfCompletion,
-
-        //   onChanged: (value) => context.read<UpdateAcademicInfoActorBloc>().add(
-        //       UpdateAcademicInfoActorEvent.changedMonthOfCompletion(value)),
-        // ),
         child: CustomDropDownWidget(
           hintText: "Oct",
           value: state.monthOfCompletion,
