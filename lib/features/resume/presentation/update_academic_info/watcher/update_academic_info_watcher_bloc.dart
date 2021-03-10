@@ -2,14 +2,12 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 
 part 'update_academic_info_watcher_event.dart';
 part 'update_academic_info_watcher_state.dart';
 part 'update_academic_info_watcher_bloc.freezed.dart';
 
-@injectable
 class UpdateAcademicInfoWatcherBloc extends Bloc<UpdateAcademicInfoWatcherEvent,
     UpdateAcademicInfoWatcherState> {
   AcademicHistory _academicHistory;

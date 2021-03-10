@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_academics_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/watcher/update_academic_info_watcher_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
@@ -16,124 +19,147 @@ import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class AcademicsPage extends StatelessWidget {
+  final List<AcademicHistory> academics;
+
+  const AcademicsPage({
+    Key key,
+    @required this.academics,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAcademicInfoWatcherBloc,
-        UpdateAcademicInfoWatcherState>(
-      builder: (context, state) {
-        return state.map(
-            loading: (_) => loadingPage(context),
-            loaded: (loaded) {
-              context.read<UpdateAcademicInfoActorBloc>().add(
-                  UpdateAcademicInfoActorEvent.setInitialState(loaded.info));
-              return _aboutPageBlocConsumer(context, loaded.info);
-            });
-      },
-    );
-  }
-
-  Widget _aboutPageBlocConsumer(
-      BuildContext context, AcademicHistory academicHistory) {
-    return BlocConsumer<UpdateAcademicInfoActorBloc,
-        UpdateAcademicInfoActorState>(
-      listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
-          () {},
-          (either) => either.fold(
-            (failure) {
-              FlushbarHelper.createError(
-                  message: failure.map(
-                serverError: (error) => error.message,
-                invalidUser: (_) => AppConstants.someThingWentWrong,
-                noInternetConnection: (_) => AppConstants.noNetwork,
-              )).show(context);
-            },
-            (success) {
-              // FlushbarHelper.createSuccess(message: "Successfully updated.")
-              //     .show(context);
-            },
-          ),
-        );
-      },
-      builder: (context, state) {
-        if (state.isSubmitting) {
-          loadingPage(context);
-        }
-
-        return _academicPageBody(context, academicHistory);
-      },
-    );
-  }
-
-  Widget _academicPageBody(
-      BuildContext context, AcademicHistory academicHistory) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          ShadowBoxWidget(
-            margin: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ListView.builder(
+                primary: false,
+                padding: EdgeInsets.zero,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: academics.length,
+                itemBuilder: (context, index) {
+                  return _CreateAcademicInfoBox(
+                    history: academics[index],
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              if (academics.isNotEmpty)
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Academic",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    CustomButton(
+                      onTap: () {},
+                      title: "English",
                     ),
-                    const Spacer(),
-                    InkWell(
-                      onTap: () => ExtendedNavigator.of(context)
-                          .pushEditAcademicInfoForm(info: academicHistory),
-                      child: SvgPicture.asset(
-                        "assets/images/resume/edit.svg",
-                        color: Palette.primary,
-                        width: 15,
-                      ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    CustomButton(
+                      onTap: () {},
+                      title: "Japanese",
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const _NameOfInstituteField(),
-                const SizedBox(height: 10),
-                const _MajorSubjectField(),
-                const SizedBox(height: 10),
-                const _YearOfEnrollField(),
-                const SizedBox(height: 10),
-                const _YearOfCompletionField(),
-                const SizedBox(height: 10),
-                const _MonthOfEnrollField(),
-                const SizedBox(height: 10),
-                const _MonthOfCompletionField(),
-              ],
+              const SizedBox(height: 20),
+            ],
+          ),
+        ),
+        Positioned(
+          bottom: 10,
+          right: 10,
+          child: FloatingActionButton(
+            backgroundColor: Palette.white,
+            onPressed: () {
+              final actorBloc = UpdateAcademicInfoActorBloc(
+                  updateAcadamicInfo: getIt<UpdateAcadamicInfo>());
+              ExtendedNavigator.of(context).pushEditAcademicInfoForm(
+                info: const AcademicHistory(),
+                actorBloc: actorBloc,
+              );
+            },
+            child: SvgPicture.asset(
+              "assets/images/resume/icon-add.svg",
+              height: 40.0,
             ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CreateAcademicInfoBox extends StatelessWidget {
+  final AcademicHistory history;
+
+  const _CreateAcademicInfoBox({
+    Key key,
+    @required this.history,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final actor = UpdateAcademicInfoActorBloc(
+        updateAcadamicInfo: getIt<UpdateAcadamicInfo>());
+    return BlocProvider(
+      create: (context) => actor
+        ..add(
+          UpdateAcademicInfoActorEvent.setInitialState(history),
+        ),
+      child: _createBody(context, actor, history),
+    );
+  }
+
+  Widget _createBody(BuildContext context,
+      UpdateAcademicInfoActorBloc actorBloc, AcademicHistory academicHistory) {
+    return ShadowBoxWidget(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Text(
+                "Academic",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Spacer(),
+              InkWell(
+                onTap: () =>
+                    ExtendedNavigator.of(context).pushEditAcademicInfoForm(
+                  info: academicHistory,
+                  actorBloc: actorBloc,
+                ),
+                child: SvgPicture.asset(
+                  "assets/images/resume/edit.svg",
+                  color: Palette.primary,
+                  width: 15,
+                ),
+              ),
+            ],
           ),
           const SizedBox(
             height: 10,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomButton(
-                onTap: () {},
-                title: "English",
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              CustomButton(
-                onTap: () {},
-                title: "Japanese",
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
+          const _NameOfInstituteField(),
+          const SizedBox(height: 10),
+          const _MajorSubjectField(),
+          const SizedBox(height: 10),
+          const _YearOfEnrollField(),
+          const SizedBox(height: 10),
+          const _YearOfCompletionField(),
+          const SizedBox(height: 10),
+          const _MonthOfEnrollField(),
+          const SizedBox(height: 10),
+          const _MonthOfCompletionField(),
         ],
       ),
     );

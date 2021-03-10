@@ -310,17 +310,17 @@ class _ResumeInformationWidget extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Row(
+              Stack(
+                alignment: Alignment.center,
                 children: [
                   Text(
-                    "${percentage ?? ""}%",
+                    "${percentage ?? ""}",
                     style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 8,
+                      fontWeight: FontWeight.w700,
                       color: Palette.appGreenColor,
                     ),
                   ),
-                  const SizedBox(width: 10),
                   SizedBox(
                     height: 20,
                     width: 20,

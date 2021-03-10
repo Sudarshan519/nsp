@@ -6,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
-import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/resume_options.dart';
@@ -18,19 +17,23 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
 
 class AboutPage extends StatelessWidget {
+  final UpdatePersonalInfoActorBloc aboutPageActor;
+  final PersonalInfo info;
+
+  const AboutPage({
+    Key key,
+    @required this.aboutPageActor,
+    @required this.info,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoWatcherBloc,
-        UpdatePersonalInfoWatcherState>(
-      builder: (context, state) {
-        return state.map(
-            loading: (_) => loadingPage(context),
-            loaded: (loaded) {
-              context.read<UpdatePersonalInfoActorBloc>().add(
-                  UpdatePersonalInfoActorEvent.setInitialState(loaded.info));
-              return _aboutPageBlocConsumer(context, loaded.info);
-            });
-      },
+    return BlocProvider(
+      create: (_) => aboutPageActor
+        ..add(
+          UpdatePersonalInfoActorEvent.setInitialState(info),
+        ),
+      child: _aboutPageBlocConsumer(context, info),
     );
   }
 
@@ -58,7 +61,7 @@ class AboutPage extends StatelessWidget {
       },
       builder: (context, state) {
         if (state.isSubmitting) {
-          loadingPage(context);
+          loadingPage();
         }
 
         return _aboutPageBody(context, info);
@@ -87,8 +90,11 @@ class AboutPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () => ExtendedNavigator.of(context)
-                          .pushEditBasicInfoForm(info: info),
+                      onTap: () =>
+                          ExtendedNavigator.of(context).pushEditBasicInfoForm(
+                        info: info,
+                        actorBloc: aboutPageActor,
+                      ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
                         color: Palette.primary,

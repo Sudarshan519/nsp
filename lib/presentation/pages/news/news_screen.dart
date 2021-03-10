@@ -24,7 +24,7 @@ class _NewsPageBody extends StatelessWidget {
     return BlocBuilder<NewsBloc, NewsState>(builder: (context, state) {
       if (state == const NewsState.initial() ||
           state == const NewsState.loading()) {
-        return loadingPage(context);
+        return loadingPage();
       }
       return TabBarScreen();
     });

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/watcher/update_academic_info_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
@@ -34,31 +35,13 @@ class WalletApp extends StatelessWidget {
             ),
         ),
         BlocProvider(
+          create: (context) => getIt<ResumeWatcherBloc>(),
+        ),
+        BlocProvider(
           create: (_) => getIt<HomePageDataBloc>()
             ..add(
               const HomePageDataEvent.fetch(),
             ),
-        ),
-        BlocProvider(
-          create: (context) => getIt<UpdatePersonalInfoWatcherBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<UpdatePersonalInfoActorBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<UpdateAddressInfoActorBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<UpdateAcademicInfoWatcherBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<UpdateAcademicInfoActorBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<UpdateWorkInfoWatcherBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<UpdateWorkInfoActorBloc>(),
         ),
       ],
       child: MaterialApp(

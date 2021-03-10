@@ -20,7 +20,7 @@ class WorkPage extends StatelessWidget {
     return BlocBuilder<UpdateWorkInfoWatcherBloc, UpdateWorkInfoWatcherState>(
       builder: (context, state) {
         return state.map(
-            loading: (_) => loadingPage(context),
+            loading: (_) => loadingPage(),
             loaded: (loaded) {
               context
                   .read<UpdateWorkInfoActorBloc>()
@@ -54,7 +54,7 @@ class WorkPage extends StatelessWidget {
       },
       builder: (context, state) {
         if (state.isSubmitting) {
-          loadingPage(context);
+          loadingPage();
         }
 
         return _workPageBody(context, workHistory);

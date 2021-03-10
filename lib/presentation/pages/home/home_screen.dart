@@ -8,13 +8,8 @@ import 'package:wallet_app/features/home/data/model/services_model.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/data/model/resume_model.dart';
-import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
-import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
-import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
-import 'package:wallet_app/features/resume/presentation/update_academic_info/watcher/update_academic_info_watcher_bloc.dart';
-import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
-import 'package:wallet_app/features/resume/presentation/update_work_info/watcher/update_work_info_watcher_bloc.dart';
-import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/presentation/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/my_resume.dart';
@@ -113,15 +108,7 @@ class HomePage extends StatelessWidget {
           initial: (_) => const SizedBox.shrink(),
           loading: (_) {
             // also load watcher for Resume bloc
-
-            getIt<UpdatePersonalInfoWatcherBloc>().add(
-                const UpdatePersonalInfoWatcherEvent.changeToLoadingState());
-            getIt<UpdateAcademicInfoWatcherBloc>().add(
-                const UpdateAcademicInfoWatcherEvent.changeToLoadingState());
-            getIt<UpdateWorkInfoWatcherBloc>()
-                .add(const UpdateWorkInfoWatcherEvent.changeToLoadingState());
-
-            return loadingPage(context);
+            return loadingPage();
           },
           loadingWithData: (success) => _homePageBodyContent(
               context, success.data.homeData, success.data.userDetail),
@@ -181,25 +168,9 @@ class HomePage extends StatelessWidget {
         if (data["status"] as bool == true) {
           return buildResumeSection(context, data, userDetail);
         } else {
-          context.read<UpdatePersonalInfoWatcherBloc>().add(
-                UpdatePersonalInfoWatcherEvent.setPersonalInfo(
-                  PersonalInfo(
-                    firstName: userDetail.firstName,
-                    lastName: userDetail.lastName,
-                    email: userDetail.email,
-                  ),
-                ),
-              );
-
-          context.read<UpdateAcademicInfoWatcherBloc>().add(
-                const UpdateAcademicInfoWatcherEvent.setAcademicHistory(
-                    AcademicHistory()),
-              );
-
-          context.read<UpdateWorkInfoWatcherBloc>().add(
-                const UpdateWorkInfoWatcherEvent.setWorkHistory(WorkHistory()),
-              );
-
+          context
+              .read<ResumeWatcherBloc>()
+              .add(const ResumeWatcherEvent.setResumeData(ResumeData()));
           return BuildResume(
             changeTabPage: changeTabPage,
           );
@@ -247,45 +218,14 @@ class HomePage extends StatelessWidget {
     final map = data["data"] as Map<String, dynamic>;
     final resumeModel = ResumeDataModel.fromJson(map);
 
-    if (resumeModel?.personalInfo != null) {
-      context.read<UpdatePersonalInfoWatcherBloc>().add(
-          UpdatePersonalInfoWatcherEvent.setPersonalInfo(
-              resumeModel?.personalInfo));
+    if (resumeModel != null) {
+      context
+          .read<ResumeWatcherBloc>()
+          .add(ResumeWatcherEvent.setResumeData(resumeModel));
     } else {
-      context.read<UpdatePersonalInfoWatcherBloc>().add(
-            UpdatePersonalInfoWatcherEvent.setPersonalInfo(
-              PersonalInfo(
-                firstName: userDetail.firstName,
-                lastName: userDetail.lastName,
-                email: userDetail.email,
-              ),
-            ),
-          );
-    }
-
-    if (resumeModel?.academicHistory != null &&
-        (resumeModel?.academicHistory?.isNotEmpty ?? false)) {
-      context.read<UpdateAcademicInfoWatcherBloc>().add(
-            UpdateAcademicInfoWatcherEvent.setAcademicHistory(
-                resumeModel?.academicHistory?.first),
-          );
-    } else {
-      context.read<UpdateAcademicInfoWatcherBloc>().add(
-            const UpdateAcademicInfoWatcherEvent.setAcademicHistory(
-                AcademicHistory()),
-          );
-    }
-
-    if (resumeModel?.workHistory != null &&
-        (resumeModel?.workHistory?.isNotEmpty ?? false)) {
-      context.read<UpdateWorkInfoWatcherBloc>().add(
-            UpdateWorkInfoWatcherEvent.setWorkHistory(
-                resumeModel?.workHistory?.first),
-          );
-    } else {
-      context.read<UpdateWorkInfoWatcherBloc>().add(
-            const UpdateWorkInfoWatcherEvent.setWorkHistory(WorkHistory()),
-          );
+      context
+          .read<ResumeWatcherBloc>()
+          .add(const ResumeWatcherEvent.setResumeData(ResumeData()));
     }
 
     return MyResumeWidget(

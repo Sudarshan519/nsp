@@ -12,7 +12,6 @@ import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
-import 'package:wallet_app/utils/validator.dart';
 
 class EditWorkInfoForm extends StatelessWidget {
   final WorkHistory info;
@@ -85,7 +84,7 @@ class EditWorkInfoForm extends StatelessWidget {
       buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         if (state.isSubmitting) {
-          return loadingPage(context);
+          return loadingPage();
         }
         return const _EditBasicInfoFormBody();
       },

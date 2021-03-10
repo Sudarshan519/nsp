@@ -38,6 +38,7 @@ import '../features/news/domain/repository/news_repository.dart';
 import '../features/resume/data/data_source/resume_remote_data_source.dart';
 import '../features/resume/domain/repository/resume_repository.dart';
 import '../features/resume/data/repository/resume_repository.dart';
+import '../features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'injectable/shared_preference_module.dart';
 import '../features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
 import '../features/auth/domain/usecase/sign_in_with_email.dart';
@@ -45,16 +46,9 @@ import '../features/auth/presentation/sign_up/sign_up_form_bloc.dart';
 import '../features/auth/domain/usecase/sign_up_user.dart';
 import '../features/splash/presentation/splash_bloc.dart';
 import '../features/resume/domain/usecases/update_academics_info.dart';
-import '../features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
-import '../features/resume/presentation/update_academic_info/watcher/update_academic_info_watcher_bloc.dart';
 import '../features/resume/domain/usecases/update_address_info.dart';
-import '../features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
 import '../features/resume/domain/usecases/update_personal_info.dart';
-import '../features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
-import '../features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
 import '../features/resume/domain/usecases/update_work_info.dart';
-import '../features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
-import '../features/resume/presentation/update_work_info/watcher/update_work_info_watcher_bloc.dart';
 import '../features/auth/domain/usecase/verify_email.dart';
 import '../features/auth/presentation/verify_email/verify_email_bloc.dart';
 
@@ -80,13 +74,9 @@ Future<GetIt> $initGetIt(
       NetworkInfoImpl(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(() =>
       NewsRemoteDataSource(client: get<Client>(), config: get<ConfigReader>()));
+  gh.factory<ResumeWatcherBloc>(() => ResumeWatcherBloc());
   final resolvedSharedPreferences = await sharedPreferenceModule.prefs;
   gh.factory<SharedPreferences>(() => resolvedSharedPreferences);
-  gh.factory<UpdateAcademicInfoWatcherBloc>(
-      () => UpdateAcademicInfoWatcherBloc());
-  gh.factory<UpdatePersonalInfoWatcherBloc>(
-      () => UpdatePersonalInfoWatcherBloc());
-  gh.factory<UpdateWorkInfoWatcherBloc>(() => UpdateWorkInfoWatcherBloc());
   gh.lazySingleton<AuthLocalDataSource>(() => AuthLocalDataSourceImpl(
       secureStorage: get<FlutterSecureStorage>(),
       preferences: get<SharedPreferences>()));
@@ -124,22 +114,14 @@ Future<GetIt> $initGetIt(
       SignUpWithEmailPasswordAndUserDetail(
           repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<SplashBloc>(() => SplashBloc(getWalletUser: get<GetWalletUser>()));
-  gh.lazySingleton<UpdateAcadamicInfo>(() => UpdateAcadamicInfo(
+  gh.factory<UpdateAcadamicInfo>(() => UpdateAcadamicInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
-  gh.factory<UpdateAcademicInfoActorBloc>(() => UpdateAcademicInfoActorBloc(
-      updateAcadamicInfo: get<UpdateAcadamicInfo>()));
-  gh.lazySingleton<UpdateAddressInfo>(() => UpdateAddressInfo(
+  gh.factory<UpdateAddressInfo>(() => UpdateAddressInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
-  gh.factory<UpdateAddressInfoActorBloc>(() =>
-      UpdateAddressInfoActorBloc(updateAddressInfo: get<UpdateAddressInfo>()));
-  gh.lazySingleton<UpdatePersonalInfo>(() => UpdatePersonalInfo(
+  gh.factory<UpdatePersonalInfo>(() => UpdatePersonalInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
-  gh.factory<UpdatePersonalInfoActorBloc>(() => UpdatePersonalInfoActorBloc(
-      updatePersonalInfo: get<UpdatePersonalInfo>()));
-  gh.lazySingleton<UpdateWorkInfo>(() => UpdateWorkInfo(
+  gh.factory<UpdateWorkInfo>(() => UpdateWorkInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
-  gh.factory<UpdateWorkInfoActorBloc>(
-      () => UpdateWorkInfoActorBloc(updateWorkInfo: get<UpdateWorkInfo>()));
   gh.lazySingleton<VerifyEmail>(() => VerifyEmail(
       repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<VerifyEmailBloc>(

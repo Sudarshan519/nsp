@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_work_info.dart';
@@ -12,7 +11,6 @@ part 'update_work_info_actor_event.dart';
 part 'update_work_info_actor_state.dart';
 part 'update_work_info_actor_bloc.freezed.dart';
 
-@injectable
 class UpdateWorkInfoActorBloc
     extends Bloc<UpdateWorkInfoActorEvent, UpdateWorkInfoActorState> {
   final UpdateWorkInfo updateWorkInfo;

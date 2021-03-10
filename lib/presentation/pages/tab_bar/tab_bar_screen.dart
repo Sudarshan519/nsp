@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
-import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/home_screen.dart';
 import 'package:wallet_app/presentation/pages/news/news_screen.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_screen.dart';

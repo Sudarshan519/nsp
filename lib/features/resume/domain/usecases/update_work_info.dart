@@ -4,11 +4,10 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
-import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/domain/repository/resume_repository.dart';
 
-@lazySingleton
+@injectable
 class UpdateWorkInfo extends Usecase<ApiFailure, Unit, UpdateWorkInfoParams> {
   final ResumeRepository repository;
   final NetworkInfo networkInfo;

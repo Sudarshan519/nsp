@@ -18,18 +18,20 @@ import 'package:wallet_app/utils/validator.dart';
 
 class EditBasicInfoForm extends StatelessWidget {
   final PersonalInfo info;
+  final UpdatePersonalInfoActorBloc actorBloc;
 
   const EditBasicInfoForm({
     Key key,
     @required this.info,
+    @required this.actorBloc,
   })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<UpdatePersonalInfoActorBloc>()
-        ..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
+      create: (context) =>
+          actorBloc..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
       child: Scaffold(
         key: UniqueKey(),
         appBar: AppBar(
@@ -89,7 +91,7 @@ class EditBasicInfoForm extends StatelessWidget {
       buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         if (state.isSubmitting) {
-          return loadingPage(context);
+          return loadingPage();
         }
         return const _EditBasicInfoFormBody();
       },

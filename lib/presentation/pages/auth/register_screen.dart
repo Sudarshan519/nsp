@@ -63,7 +63,7 @@ class _SignupBody extends StatelessWidget {
       },
       builder: (context, state) {
         if (state.isSubmitting) {
-          return loadingPage(context);
+          return loadingPage();
         }
         return _body(context);
       },

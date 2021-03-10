@@ -13,13 +13,14 @@ import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
-import 'package:wallet_app/utils/validator.dart';
 
 class EditAcademicInfoForm extends StatelessWidget {
   final AcademicHistory info;
+  final UpdateAcademicInfoActorBloc actorBloc;
 
   const EditAcademicInfoForm({
     Key key,
+    @required this.actorBloc,
     @required this.info,
   })  : assert(info != null),
         super(key: key);
@@ -27,8 +28,8 @@ class EditAcademicInfoForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<UpdateAcademicInfoActorBloc>()
-        ..add(UpdateAcademicInfoActorEvent.setInitialState(info)),
+      create: (context) =>
+          actorBloc..add(UpdateAcademicInfoActorEvent.setInitialState(info)),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -87,7 +88,7 @@ class EditAcademicInfoForm extends StatelessWidget {
       buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         if (state.isSubmitting) {
-          return loadingPage(context);
+          return loadingPage();
         }
         return const _EditBasicInfoFormBody();
       },

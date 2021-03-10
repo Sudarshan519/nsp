@@ -2,14 +2,12 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 
 part 'update_work_info_watcher_event.dart';
 part 'update_work_info_watcher_state.dart';
 part 'update_work_info_watcher_bloc.freezed.dart';
 
-@injectable
 class UpdateWorkInfoWatcherBloc
     extends Bloc<UpdateWorkInfoWatcherEvent, UpdateWorkInfoWatcherState> {
   WorkHistory _workHistory;

@@ -12,6 +12,9 @@ import 'package:flutter/material.dart';
 import '../../features/resume/domain/entities/academic_history.dart';
 import '../../features/resume/domain/entities/personal_info.dart';
 import '../../features/resume/domain/entities/work_history.dart';
+import '../../features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
+import '../../features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
+import '../../features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
 import '../pages/auth/register_screen.dart';
@@ -112,6 +115,7 @@ class Router extends RouterBase {
         builder: (context) => EditBasicInfoForm(
           key: args.key,
           info: args.info,
+          actorBloc: args.actorBloc,
         ),
         settings: data,
       );
@@ -122,6 +126,7 @@ class Router extends RouterBase {
         builder: (context) => EditAddressInfoForm(
           key: args.key,
           info: args.info,
+          actorBloc: args.actorBloc,
         ),
         settings: data,
       );
@@ -141,6 +146,7 @@ class Router extends RouterBase {
       return MaterialPageRoute<dynamic>(
         builder: (context) => EditAcademicInfoForm(
           key: args.key,
+          actorBloc: args.actorBloc,
           info: args.info,
         ),
         settings: data,
@@ -177,19 +183,23 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushEditBasicInfoForm({
     Key key,
     @required PersonalInfo info,
+    @required UpdatePersonalInfoActorBloc actorBloc,
   }) =>
       push<dynamic>(
         Routes.editBasicInfoForm,
-        arguments: EditBasicInfoFormArguments(key: key, info: info),
+        arguments: EditBasicInfoFormArguments(
+            key: key, info: info, actorBloc: actorBloc),
       );
 
   Future<dynamic> pushEditAddressInfoForm({
     Key key,
     @required PersonalInfo info,
+    @required UpdateAddressInfoActorBloc actorBloc,
   }) =>
       push<dynamic>(
         Routes.editAddressInfoForm,
-        arguments: EditAddressInfoFormArguments(key: key, info: info),
+        arguments: EditAddressInfoFormArguments(
+            key: key, info: info, actorBloc: actorBloc),
       );
 
   Future<dynamic> pushEditWorkInfoForm({
@@ -203,11 +213,13 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushEditAcademicInfoForm({
     Key key,
+    @required UpdateAcademicInfoActorBloc actorBloc,
     @required AcademicHistory info,
   }) =>
       push<dynamic>(
         Routes.editAcademicInfoForm,
-        arguments: EditAcademicInfoFormArguments(key: key, info: info),
+        arguments: EditAcademicInfoFormArguments(
+            key: key, actorBloc: actorBloc, info: info),
       );
 }
 
@@ -226,14 +238,18 @@ class VerifyUserPageArguments {
 class EditBasicInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  EditBasicInfoFormArguments({this.key, @required this.info});
+  final UpdatePersonalInfoActorBloc actorBloc;
+  EditBasicInfoFormArguments(
+      {this.key, @required this.info, @required this.actorBloc});
 }
 
 /// EditAddressInfoForm arguments holder class
 class EditAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  EditAddressInfoFormArguments({this.key, @required this.info});
+  final UpdateAddressInfoActorBloc actorBloc;
+  EditAddressInfoFormArguments(
+      {this.key, @required this.info, @required this.actorBloc});
 }
 
 /// EditWorkInfoForm arguments holder class
@@ -246,6 +262,8 @@ class EditWorkInfoFormArguments {
 /// EditAcademicInfoForm arguments holder class
 class EditAcademicInfoFormArguments {
   final Key key;
+  final UpdateAcademicInfoActorBloc actorBloc;
   final AcademicHistory info;
-  EditAcademicInfoFormArguments({this.key, @required this.info});
+  EditAcademicInfoFormArguments(
+      {this.key, @required this.actorBloc, @required this.info});
 }

@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
-import 'package:wallet_app/features/resume/presentation/update_personal_info/watcher/update_personal_info_watcher_bloc.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
@@ -17,20 +16,23 @@ import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_drop_dow
 import 'package:wallet_app/utils/constant.dart';
 
 class AddressPage extends StatelessWidget {
+  final UpdateAddressInfoActorBloc addressInfoActorBloc;
+  final PersonalInfo info;
+
+  const AddressPage({
+    Key key,
+    @required this.addressInfoActorBloc,
+    @required this.info,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoWatcherBloc,
-        UpdatePersonalInfoWatcherState>(
-      builder: (context, state) {
-        return state.map(
-            loading: (_) => loadingPage(context),
-            loaded: (loaded) {
-              context.read<UpdateAddressInfoActorBloc>().add(
-                  UpdateAddressInfoActorEvent.setInitialState(loaded.info));
-
-              return _aboutPageBlocConsumer(context, loaded.info);
-            });
-      },
+    return BlocProvider(
+      create: (_) => addressInfoActorBloc
+        ..add(
+          UpdateAddressInfoActorEvent.setInitialState(info),
+        ),
+      child: _aboutPageBlocConsumer(context, info),
     );
   }
 
@@ -58,7 +60,7 @@ class AddressPage extends StatelessWidget {
       },
       builder: (context, state) {
         if (state.isSubmitting) {
-          loadingPage(context);
+          loadingPage();
         }
 
         return _addressPageBody(context, info);
@@ -72,7 +74,7 @@ class AddressPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ShadowBoxWidget(
-            margin: const EdgeInsets.all(16.0),
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -87,8 +89,11 @@ class AddressPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () => ExtendedNavigator.of(context)
-                          .pushEditAddressInfoForm(info: info),
+                      onTap: () =>
+                          ExtendedNavigator.of(context).pushEditAddressInfoForm(
+                        info: info,
+                        actorBloc: addressInfoActorBloc,
+                      ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
                         color: Palette.primary,
@@ -128,8 +133,11 @@ class AddressPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () => ExtendedNavigator.of(context)
-                          .pushEditAddressInfoForm(info: info),
+                      onTap: () =>
+                          ExtendedNavigator.of(context).pushEditAddressInfoForm(
+                        info: info,
+                        actorBloc: addressInfoActorBloc,
+                      ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
                         color: Palette.primary,

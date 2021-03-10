@@ -6,7 +6,6 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
@@ -14,22 +13,23 @@ import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
-import 'package:wallet_app/utils/validator.dart';
 
 class EditAddressInfoForm extends StatelessWidget {
+  final UpdateAddressInfoActorBloc actorBloc;
   final PersonalInfo info;
 
   const EditAddressInfoForm({
     Key key,
     @required this.info,
+    @required this.actorBloc,
   })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<UpdateAddressInfoActorBloc>()
-        ..add(UpdateAddressInfoActorEvent.setInitialState(info)),
+      create: (context) =>
+          actorBloc..add(UpdateAddressInfoActorEvent.setInitialState(info)),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -88,7 +88,7 @@ class EditAddressInfoForm extends StatelessWidget {
       buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         if (state.isSubmitting) {
-          return loadingPage(context);
+          return loadingPage();
         }
         return const _EditBasicInfoFormBody();
       },

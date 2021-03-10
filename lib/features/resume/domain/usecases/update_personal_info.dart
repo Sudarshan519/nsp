@@ -7,7 +7,7 @@ import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/repository/resume_repository.dart';
 
-@lazySingleton
+@injectable
 class UpdatePersonalInfo
     extends Usecase<ApiFailure, Unit, UpdatePersonalInfoParams> {
   final ResumeRepository repository;
