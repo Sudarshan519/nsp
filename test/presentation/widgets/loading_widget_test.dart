@@ -15,7 +15,7 @@ void main() {
   testWidgets(
     'loading Page should contain a CircularProgressIndicator Widget',
     (WidgetTester tester) async {
-      await tester.pumpWidget(loadingPage(_context));
+      await tester.pumpWidget(loadingPage());
 
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     },
@@ -24,7 +24,7 @@ void main() {
   testWidgets(
     'loading Page should contain a Center Widget',
     (WidgetTester tester) async {
-      await tester.pumpWidget(loadingPage(_context));
+      await tester.pumpWidget(loadingPage());
 
       expect(find.byType(Center), findsOneWidget);
     },
@@ -33,7 +33,7 @@ void main() {
   testWidgets(
     'loading Page should contain a Padding Widget',
     (WidgetTester tester) async {
-      await tester.pumpWidget(loadingPage(_context));
+      await tester.pumpWidget(loadingPage());
 
       expect(find.byType(Padding), findsOneWidget);
     },

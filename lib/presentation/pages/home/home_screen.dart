@@ -2,11 +2,15 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/data/model/japanese_manner_model.dart';
-import 'package:wallet_app/features/home/data/model/resume/resume_model.dart';
 import 'package:wallet_app/features/home/data/model/services_model.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/features/resume/data/model/resume_model.dart';
+import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/presentation/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/my_resume.dart';
@@ -21,6 +25,14 @@ import 'widgets/news/segmented_news_widget.dart';
 import 'widgets/user_info_widget.dart';
 
 class HomePage extends StatelessWidget {
+  final Function(int) changeTabPage;
+
+  const HomePage({
+    Key key,
+    @required this.changeTabPage,
+  })  : assert(changeTabPage != null),
+        super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +67,7 @@ class HomePage extends StatelessWidget {
 
   Widget _homePageHeader() {
     return BlocBuilder<HomePageDataBloc, HomePageDataState>(
+      buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         return state.map(
           initial: (_) => const UserInfoWidget(user: null),
@@ -80,7 +93,8 @@ class HomePage extends StatelessWidget {
                 invalidUser: (error) => AppConstants.someThingWentWrong,
               ),
             ).show(context);
-            return _homePageBodyContent(context, failure.data.homeData);
+            return _homePageBodyContent(
+                context, failure.data.homeData, failure.data.userDetail);
           },
         );
       },
@@ -89,14 +103,21 @@ class HomePage extends StatelessWidget {
 
   Widget _homePageBody() {
     return BlocBuilder<HomePageDataBloc, HomePageDataState>(
+      buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         return state.map(
           initial: (_) => const SizedBox.shrink(),
-          loading: (_) => loadingPage(context),
-          loadingWithData: (success) =>
-              _homePageBodyContent(context, success.data.homeData),
-          loaded: (success) =>
-              _homePageBodyContent(context, success.data.homeData),
+          loading: (_) {
+            // also load watcher for Resume bloc
+            context.read<ResumeWatcherBloc>().add(
+                  const ResumeWatcherEvent.loading(),
+                );
+            return loadingPage();
+          },
+          loadingWithData: (success) => _homePageBodyContent(
+              context, success.data.homeData, success.data.userDetail),
+          loaded: (success) => _homePageBodyContent(
+              context, success.data.homeData, success.data.userDetail),
           failure: (error) {
             FlushbarHelper.createError(
               message: error.failure.map(
@@ -115,14 +136,16 @@ class HomePage extends StatelessWidget {
                 invalidUser: (error) => AppConstants.someThingWentWrong,
               ),
             ).show(context);
-            return _homePageBodyContent(context, failure.data.homeData);
+            return _homePageBodyContent(
+                context, failure.data.homeData, failure.data.userDetail);
           },
         );
       },
     );
   }
 
-  Widget _homePageBodyContent(BuildContext context, List data) {
+  Widget _homePageBodyContent(
+      BuildContext context, List data, UserDetail userDetail) {
     return ListView.builder(
       primary: false,
       padding: EdgeInsets.zero,
@@ -130,15 +153,13 @@ class HomePage extends StatelessWidget {
       shrinkWrap: true,
       itemCount: data.length,
       itemBuilder: (context, index) {
-        return _listItemBuilder(
-          context,
-          data[index],
-        );
+        return _listItemBuilder(context, data[index], userDetail);
       },
     );
   }
 
-  Widget _listItemBuilder(BuildContext context, dynamic data) {
+  Widget _listItemBuilder(
+      BuildContext context, dynamic data, UserDetail userDetail) {
     final model = data as HomeData;
     final typeString = model.type;
 
@@ -149,11 +170,19 @@ class HomePage extends StatelessWidget {
         final data = model.data as Map<String, dynamic>;
 
         if (data["status"] as bool == true) {
-          final map = data["data"] as Map<String, dynamic>;
-          final resumeModel = ResumeDataModel.fromJson(map);
-          return MyResumeWidget(data: resumeModel);
+          return buildResumeSection(context, data, userDetail);
         } else {
-          return const BuildResume();
+          context
+              .read<ResumeWatcherBloc>()
+              .add(ResumeWatcherEvent.setResumeData(ResumeData(
+                  personalInfo: PersonalInfo(
+                firstName: userDetail.firstName,
+                lastName: userDetail.lastName,
+                email: userDetail.email,
+              ))));
+          return BuildResume(
+            changeTabPage: changeTabPage,
+          );
         }
         break;
       case HomeItemType.services:
@@ -176,8 +205,6 @@ class HomePage extends StatelessWidget {
 
       case HomeItemType.news:
         return const SegmentedNewViewWidget();
-      // return const SizedBox.shrink();
-      // return const Expanded(child: NewsTabBarWidget());
 
       case HomeItemType.disaster_alert:
         return const SizedBox.shrink();
@@ -190,5 +217,34 @@ class HomePage extends StatelessWidget {
     final _type = 'HomeItemType.$type';
     return HomeItemType.values
         .firstWhere((f) => f.toString() == _type, orElse: () => null);
+  }
+
+  MyResumeWidget buildResumeSection(
+    BuildContext context,
+    Map<String, dynamic> data,
+    UserDetail userDetail,
+  ) {
+    final map = data["data"] as Map<String, dynamic>;
+    final resumeModel = ResumeDataModel.fromJson(map);
+
+    if (resumeModel != null) {
+      context
+          .read<ResumeWatcherBloc>()
+          .add(ResumeWatcherEvent.setResumeData(resumeModel));
+    } else {
+      context
+          .read<ResumeWatcherBloc>()
+          .add(ResumeWatcherEvent.setResumeData(ResumeData(
+              personalInfo: PersonalInfo(
+            firstName: userDetail.firstName,
+            lastName: userDetail.lastName,
+            email: userDetail.email,
+          ))));
+    }
+
+    return MyResumeWidget(
+      data: resumeModel,
+      changeTabPage: changeTabPage,
+    );
   }
 }

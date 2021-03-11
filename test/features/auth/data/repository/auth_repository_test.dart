@@ -12,12 +12,12 @@ void main() {
   MockAuthRemoteDataSourceProtocol remoteDataSource;
   MockAuthLocalDataSourceProtocol localDataSource;
 
-  AuthRepository sut;
+  AuthRepositoryImpl sut;
 
   setUp(() {
     remoteDataSource = MockAuthRemoteDataSourceProtocol();
     localDataSource = MockAuthLocalDataSourceProtocol();
-    sut = AuthRepository(
+    sut = AuthRepositoryImpl(
         localDataSource: localDataSource, remoteDataSource: remoteDataSource);
   });
 
@@ -44,7 +44,7 @@ void main() {
   group('assertion test', () {
     test('should return assert error if local datasource is null', () {
       expect(
-        () => AuthRepository(
+        () => AuthRepositoryImpl(
           localDataSource: null,
           remoteDataSource: remoteDataSource,
         ),
@@ -54,7 +54,7 @@ void main() {
 
     test('should return assert error if remote datacource is null', () {
       expect(
-        () => AuthRepository(
+        () => AuthRepositoryImpl(
           localDataSource: localDataSource,
           remoteDataSource: null,
         ),

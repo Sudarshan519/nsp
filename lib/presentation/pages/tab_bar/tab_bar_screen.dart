@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
-import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
-import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/home_screen.dart';
 import 'package:wallet_app/presentation/pages/news/news_screen.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_screen.dart';
@@ -19,12 +15,7 @@ class TabBarScreen extends StatefulWidget {
 
 class TabBarScreenState extends State<TabBarScreen> {
   int _selectedIndex = 0;
-  final List<Widget> _children = [
-    HomePage(),
-    ResumePage(),
-    NewsPage(),
-    Container(),
-  ];
+  List<Widget> _children = [];
 
   final List<CustomTabBarData> _tabBarData = [
     CustomTabBarData(
@@ -47,24 +38,7 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (_) => getIt<HomePageDataBloc>()
-            ..add(
-              const HomePageDataEvent.fetch(),
-            ),
-        ),
-        BlocProvider(
-          create: (context) =>
-              getIt<NewsBloc>()..add(const NewsEvent.fetchNewsData()),
-        )
-      ],
-      child: _tabController(),
-    );
-  }
-
-  Widget _tabController() {
+    _children = getTabs();
     return DefaultTabController(
       length: _children.length,
       child: Scaffold(
@@ -86,5 +60,22 @@ class TabBarScreenState extends State<TabBarScreen> {
             : const SizedBox.shrink(),
       ),
     );
+  }
+
+  List<Widget> getTabs() {
+    return [
+      HomePage(
+        changeTabPage: _changeTo,
+      ),
+      ResumePage(),
+      NewsPage(),
+      Container(),
+    ];
+  }
+
+  void _changeTo(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 }

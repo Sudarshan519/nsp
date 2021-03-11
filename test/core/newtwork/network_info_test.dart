@@ -6,12 +6,12 @@ import 'package:wallet_app/core/network/newtork_info.dart';
 class MockDataConnectionChecker extends Mock implements DataConnectionChecker {}
 
 void main() {
-  NetworkInfo networkInfo;
+  NetworkInfoImpl networkInfo;
   MockDataConnectionChecker mockDataConnectionChecker;
 
   setUp(() {
     mockDataConnectionChecker = MockDataConnectionChecker();
-    networkInfo = NetworkInfo(dataConnectionChecker: mockDataConnectionChecker);
+    networkInfo = NetworkInfoImpl(dataConnectionChecker: mockDataConnectionChecker);
   });
 
   group('isConnectd', () {

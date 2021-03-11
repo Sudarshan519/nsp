@@ -8,8 +8,8 @@ import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dar
 
 @lazySingleton
 class VerifyEmail implements Usecase<ApiFailure, Unit, VerifyEmailParams> {
-  final AuthRepositoryProtocol repository;
-  final NetworkInfoProtocol networkInfo;
+  final AuthRepository repository;
+  final NetworkInfo networkInfo;
 
   VerifyEmail({
     @required this.repository,

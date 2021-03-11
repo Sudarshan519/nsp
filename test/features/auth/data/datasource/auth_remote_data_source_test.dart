@@ -15,7 +15,7 @@ import '../../../../utils/test_constant/auth/test_constant.dart';
 void main() {
   MockHttpClient client;
   MockConfigReader config;
-  AuthRemoteDataSource sut;
+  AuthRemoteDataSourceImpl sut;
 
   final headers = {
     'Accept': 'application/json',
@@ -33,13 +33,13 @@ void main() {
   setUp(() {
     client = MockHttpClient();
     config = MockConfigReader();
-    sut = AuthRemoteDataSource(client: client, config: config);
+    sut = AuthRemoteDataSourceImpl(client: client, config: config);
   });
 
   group('assertion test', () {
     test('should return assert error if client is null', () {
       expect(
-        () => AuthRemoteDataSource(
+        () => AuthRemoteDataSourceImpl(
           client: null,
           config: config,
         ),
@@ -49,7 +49,7 @@ void main() {
 
     test('should return assert error if configReader is null', () {
       expect(
-        () => AuthRemoteDataSource(
+        () => AuthRemoteDataSourceImpl(
           client: client,
           config: null,
         ),

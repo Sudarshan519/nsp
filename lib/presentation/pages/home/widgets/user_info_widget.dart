@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app/features/home/domain/entities/user_detail.dart';
+import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 import 'balance_and_points.dart';

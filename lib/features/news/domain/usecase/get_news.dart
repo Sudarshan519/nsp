@@ -10,7 +10,7 @@ import 'package:wallet_app/features/news/domain/repository/news_repository.dart'
 @lazySingleton
 class GetNews implements UsecaseStream<ApiFailure, List<NewsItem>, NoParams> {
   final NewsRepositoryProtocol repository;
-  final NetworkInfoProtocol networkInfo;
+  final NetworkInfo networkInfo;
 
   int _page = 1;
   List<NewsItem> _news;

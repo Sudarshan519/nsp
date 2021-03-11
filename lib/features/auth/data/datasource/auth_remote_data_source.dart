@@ -11,7 +11,7 @@ import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
-abstract class AuthRemoteDataSourceProtocol {
+abstract class AuthRemoteDataSource {
   /// Calls the https://base_url/login/ endpoint
   ///
   /// Throws [ServerException] for all error codes.
@@ -48,8 +48,8 @@ abstract class AuthRemoteDataSourceProtocol {
   });
 }
 
-@LazySingleton(as: AuthRemoteDataSourceProtocol)
-class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
+@LazySingleton(as: AuthRemoteDataSource)
+class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final http.Client client;
   final ConfigReader config;
 
@@ -58,7 +58,7 @@ class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
     "Content-Type": "application/json",
   };
 
-  AuthRemoteDataSource({
+  AuthRemoteDataSourceImpl({
     @required this.client,
     @required this.config,
   })  : assert(client != null),
@@ -94,7 +94,7 @@ class AuthRemoteDataSource implements AuthRemoteDataSourceProtocol {
       "email": email,
       "password": password,
       "password_confirmation": confirmPassword,
-      "phone": phoneNumber,
+      "phone": "112233445566",
       "created_gps": "gps",
     };
     http.Response response;

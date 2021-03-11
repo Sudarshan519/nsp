@@ -86,15 +86,13 @@ class PopUpSuccessOverLayState extends State<PopUpSuccessOverLay>
                     SizedBox(
                       height: 40,
                       width: 120,
-                      child: FlatButton(
-                        // onPressed: () {
-                        //   ExtendedNavigator.of(context)
-                        //       .popUntilPath(Routes.miraiLifeTabScreen);
-                        // },
+                      child: TextButton(
                         onPressed: widget.onPressed,
-                        color: Palette.primary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
+                        style: TextButton.styleFrom(
+                          backgroundColor: Palette.primary,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
                         ),
                         child: Text(
                           "Return",

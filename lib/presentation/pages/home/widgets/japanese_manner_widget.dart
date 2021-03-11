@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/features/home/domain/entities/japanese_manner.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/home/widgets/category_title_text.dart';
-import 'package:wallet_app/presentation/widgets/custom_button.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
@@ -83,10 +82,29 @@ class JapaneseMannerWidget extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10),
-          const Spacer(),
-          CustomButton(
-            title: data?.category?.categoryName ?? "",
-            onTap: () {},
+          // CustomButton(
+          //   title: data?.category?.categoryName ?? "",
+          //   onTap: () {},
+          // ),
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 4,
+              vertical: 2,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: Palette.black.withOpacity(0.3),
+              ),
+            ),
+            child: Text(
+              data?.category?.categoryName ?? "",
+              style: TextStyle(
+                color: Palette.black.withOpacity(0.7),
+                fontSize: 10,
+              ),
+              overflow: TextOverflow.clip,
+            ),
           ),
         ],
       ),

@@ -44,3 +44,14 @@ String errorMessageFromServer(String message) {
     return null;
   }
 }
+
+String errorMessageFromServerWithMessage(String message) {
+  try {
+// convert the response body to a json map
+    final data = json.decode(message) as Map<String, dynamic>;
+    // search for a error key which is another json object
+    return data["message"] as String;
+  } catch (ex) {
+    return null;
+  }
+}

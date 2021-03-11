@@ -40,7 +40,7 @@ void main() {
 
     // assert fucture
     final assertExpected = [
-      Right(result),
+      const Right(result),
     ];
 
     expectLater(sut.getHomePageData(), emitsInOrder(assertExpected));

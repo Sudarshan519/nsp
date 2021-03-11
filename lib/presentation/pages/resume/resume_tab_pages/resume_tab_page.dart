@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_other_info.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_other_info_actor/update_other_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/qualification/qualification_page.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/work/work_page.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
@@ -7,6 +16,7 @@ import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'about/about_page.dart';
 import 'academics/academics_page.dart';
 import 'address/address_page.dart';
+import 'other/other_info.dart';
 
 class ResumeTabBarScreen extends StatefulWidget {
   @override
@@ -27,6 +37,18 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<ResumeWatcherBloc, ResumeWatcherState>(
+      builder: (context, state) {
+        if (state.isLoading) {
+          return loadingPage();
+        }
+        return _resumeTabBody(context, state);
+      },
+    );
+  }
+
+  Widget _resumeTabBody(BuildContext context, ResumeWatcherState state) {
+    _children = getPages(state);
     return Column(
       children: [
         TabBar(
@@ -55,12 +77,13 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
   }
 
   //MARK: Helper Variables
-  final List<Widget> _children = [
-    AboutPage(),
-    AddressPage(),
-    AcademicsPage(),
-    WorkPage(),
-    QualificationPage(),
+  List<Widget> _children = [
+    loadingPage(),
+    loadingPage(),
+    loadingPage(),
+    loadingPage(),
+    loadingPage(),
+    loadingPage(),
   ];
 
   final List<Tab> _tabBar = [
@@ -99,5 +122,47 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
         height: 25.0,
       ),
     ),
+    Tab(
+      text: "Others",
+      icon: SvgPicture.asset(
+        "assets/images/resume/about.svg",
+        height: 25.0,
+      ),
+    ),
   ];
+
+  List<Widget> getPages(ResumeWatcherState state) {
+    final aboutPageActor = UpdatePersonalInfoActorBloc(
+        updatePersonalInfo: getIt<UpdatePersonalInfo>());
+
+    final addressPageActor = UpdateAddressInfoActorBloc(
+        updateAddressInfo: getIt<UpdateAddressInfo>());
+
+    final otherInfoActor =
+        UpdateOtherInfoActorBloc(updateOtherInfo: getIt<UpdateOtherInfo>());
+
+    return [
+      AboutPage(
+        info: state.info,
+        aboutPageActor: aboutPageActor,
+      ),
+      AddressPage(
+        info: state.info,
+        addressInfoActorBloc: addressPageActor,
+      ),
+      AcademicsPage(
+        academics: state.academics ?? [],
+      ),
+      WorkPage(
+        works: state.works ?? [],
+      ),
+      QualificationPage(
+        qualifications: state.qualifications ?? [],
+      ),
+      OtherInfo(
+        info: state.info,
+        actorBloc: otherInfoActor,
+      ),
+    ];
+  }
 }

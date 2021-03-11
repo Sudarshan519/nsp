@@ -19,6 +19,7 @@ class Services extends Equatable {
     @required this.companyAddressHeadProvince,
     @required this.companyAddressHeadCity,
     @required this.companyAddressHeadStreet,
+    @required this.description,
   });
 
   final int id;
@@ -37,6 +38,7 @@ class Services extends Equatable {
   final String companyAddressHeadProvince;
   final String companyAddressHeadCity;
   final String companyAddressHeadStreet;
+  final String description;
 
   @override
   List<Object> get props => [
@@ -56,5 +58,6 @@ class Services extends Equatable {
         companyAddressHeadProvince,
         companyAddressHeadCity,
         companyAddressHeadStreet,
+        description,
       ];
 }
