@@ -4,13 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
-import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_other_info_actor/update_other_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/presentation/routes/routes.gr.dart';
 import 'package:wallet_app/presentation/widgets/colors.dart';
-import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_date_picker.dart';
 import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -18,7 +17,7 @@ import 'package:wallet_app/utils/validator.dart';
 
 class EditOtherInfoForm extends StatelessWidget {
   final PersonalInfo info;
-  final UpdatePersonalInfoActorBloc actorBloc;
+  final UpdateOtherInfoActorBloc actorBloc;
 
   const EditOtherInfoForm({
     Key key,
@@ -31,7 +30,7 @@ class EditOtherInfoForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          actorBloc..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
+          actorBloc..add(UpdateOtherInfoActorEvent.setInitialState(info)),
       child: Scaffold(
         key: UniqueKey(),
         appBar: AppBar(
@@ -56,8 +55,7 @@ class EditOtherInfoForm extends StatelessWidget {
   }
 
   Widget editResumeBody(BuildContext context) {
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
+    return BlocConsumer<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
           () {},
@@ -118,19 +116,20 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
           children: [
             _LanguageInputField(callBack: () {}),
             const SizedBox(height: 20),
-            _FamilyNameInputField(callBack: () {}),
+            const _JLPTLevelField(),
             const SizedBox(height: 20),
-            _ProfessionInputField(callBack: () {}),
+            _SelfPrInputField(callBack: () {}),
             const SizedBox(height: 20),
-            _DateofBirthInputField(callBack: () {}),
+            _MotivationSpecialSkillsInputField(callBack: () {}),
             const SizedBox(height: 20),
-            _AgeInputField(callBack: () {}),
+            _AvailableWorkingHoursInputField(callBack: () {}),
             const SizedBox(height: 20),
-            _GenderInputField(callBack: () {}),
+            const _NumberOfDependentInputField(),
             const SizedBox(height: 20),
-            _NationalityInputField(callBack: () {}),
+            const _SpouseInputField(),
             const SizedBox(height: 20),
-            _EmailInputField(callBack: () {}),
+            const _SpouseSupportObligationInputField(),
+            _SpecialConditionInputField(callBack: () {}),
           ],
         ),
       ),
@@ -145,12 +144,11 @@ class _SaveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       builder: (context, state) {
         return InkWell(
-          onTap: () => context.read<UpdatePersonalInfoActorBloc>().add(
-                const UpdatePersonalInfoActorEvent.save(),
+          onTap: () => context.read<UpdateOtherInfoActorBloc>().add(
+                const UpdateOtherInfoActorEvent.save(),
               ),
           child: Center(
             child: Container(
@@ -187,239 +185,329 @@ class _LanguageInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
-      buildWhen: (previous, current) => previous.firstName != current.firstName,
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) => previous.languages != current.languages,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Languages",
         child: InputTextWidget(
           hintText: "Name",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.firstName,
+          value: "",
           onEditingCompleted: callBack,
-          onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeFirstName(value)),
+          onChanged: (value) {},
         ),
       ),
     );
   }
 }
 
-class _FamilyNameInputField extends StatelessWidget {
-  final Function() callBack;
-
-  const _FamilyNameInputField({
+class _JLPTLevelField extends StatelessWidget {
+  const _JLPTLevelField({
     Key key,
-    @required this.callBack,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
-      buildWhen: (previous, current) => previous.lastName != current.lastName,
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) => previous.JLPTLevel != current.JLPTLevel,
       builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Family Name",
-        child: InputTextWidget(
-          hintText: "Family Name",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.lastName,
-          onEditingCompleted: callBack,
-          onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeLastName(value)),
-        ),
-      ),
-    );
-  }
-}
-
-class _ProfessionInputField extends StatelessWidget {
-  final Function() callBack;
-
-  const _ProfessionInputField({
-    Key key,
-    @required this.callBack,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.profession != current.profession,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Profession",
+        title: "Japanese Language Completence (JLPT Level)",
         child: CustomDropDownWidget(
-          hintText: "Profession",
-          value: state.profession,
+          hintText: "N3",
+          value: state.JLPTLevel,
           options: const [
-            "Language Student",
-            "College/University Student",
-            "Skilled Professional",
-            "Cook",
-            "Dependement",
-            "Others"
+            "N1",
+            "N2",
+            "N3",
+            "N4",
+            "N5",
           ],
           onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeProfession(value)),
+              .read<UpdateOtherInfoActorBloc>()
+              .add(UpdateOtherInfoActorEvent.changeJLPTLevel(value)),
         ),
       ),
     );
   }
 }
 
-class _DateofBirthInputField extends StatelessWidget {
+class _SelfPrInputField extends StatelessWidget {
   final Function() callBack;
 
-  const _DateofBirthInputField({
+  const _SelfPrInputField({
     Key key,
     @required this.callBack,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
-      buildWhen: (previous, current) => previous.dob != current.dob,
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) => previous.selfPR != current.selfPR,
       builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Date of Birth",
-        child: CustomDatePicker(
-          hintText: "Date of Birth",
-          showAge: false,
-          controller: TextEditingController(text: state.dob),
-          onChanged: (dob, age) {
-            context
-                .read<UpdatePersonalInfoActorBloc>()
-                .add(UpdatePersonalInfoActorEvent.changeDob(dob));
-            context
-                .read<UpdatePersonalInfoActorBloc>()
-                .add(UpdatePersonalInfoActorEvent.changeAge(age));
-
-            FocusScope.of(context).unfocus();
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class _AgeInputField extends StatelessWidget {
-  final Function() callBack;
-
-  const _AgeInputField({
-    Key key,
-    @required this.callBack,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
-      buildWhen: (previous, current) => previous.age != current.age,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Age",
+        title: "Self PR",
         child: InputTextWidget(
-          hintText: "Age",
-          textInputType: TextInputType.number,
-          value: state.age,
-          onEditingCompleted: callBack,
-          isEnable: false,
-          onChanged: (_) {},
-        ),
-      ),
-    );
-  }
-}
-
-class _GenderInputField extends StatelessWidget {
-  final Function() callBack;
-
-  const _GenderInputField({
-    Key key,
-    @required this.callBack,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
-      buildWhen: (previous, current) => previous.gender != current.gender,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Gender",
-        child: CustomDropDownWidget(
-          hintText: "Gender",
-          value: state.gender,
-          options: const ["Male", "Female"],
-          onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeGender(value)),
-        ),
-      ),
-    );
-  }
-}
-
-class _NationalityInputField extends StatelessWidget {
-  final Function() callBack;
-
-  const _NationalityInputField({
-    Key key,
-    @required this.callBack,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.nationality != current.nationality,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Nationality",
-        child: InputTextWidget(
-          hintText: "Nationality",
+          hintText: "Self PR",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.nationality,
+          value: state.selfPR,
           onEditingCompleted: callBack,
           onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeNationality(value)),
+              .read<UpdateOtherInfoActorBloc>()
+              .add(UpdateOtherInfoActorEvent.changeSelfPR(value)),
         ),
       ),
     );
   }
 }
 
-class _EmailInputField extends StatelessWidget {
+class _MotivationSpecialSkillsInputField extends StatelessWidget {
   final Function() callBack;
 
-  const _EmailInputField({
+  const _MotivationSpecialSkillsInputField({
     Key key,
     @required this.callBack,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
-        UpdatePersonalInfoActorState>(
-      buildWhen: (previous, current) => previous.email != current.email,
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.motivationsSpecialSkills != current.motivationsSpecialSkills,
       builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Email",
+        title: "Motivation, Special Skills, Hobbies etc",
         child: InputTextWidget(
-          hintText: "Email",
-          textInputType: TextInputType.emailAddress,
+          hintText: "Motivation, Special Skills, Hobbies etc",
+          textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.email,
-          isEnable: false,
+          value: state.motivationsSpecialSkills,
+          onEditingCompleted: callBack,
+          onChanged: (value) => context.read<UpdateOtherInfoActorBloc>().add(
+              UpdateOtherInfoActorEvent.changeMotivationsSpecialSkills(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _AvailableWorkingHoursInputField extends StatelessWidget {
+  final Function() callBack;
+
+  const _AvailableWorkingHoursInputField({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.workinHours != current.workinHours,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Available Working hours",
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
+            Row(
+              children: const [
+                Expanded(
+                  child: Center(child: Text("Hours")),
+                ),
+                Expanded(
+                  child: Center(child: Text("Minutes")),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Flexible(
+                  child: CustomDropDownWidget(
+                    hintText: "Select hours",
+                    value: state.workinHours,
+                    options: const [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15",
+                      "16",
+                      "17",
+                      "18",
+                      "19",
+                      "20",
+                      "21",
+                      "22",
+                      "23",
+                    ],
+                    alignment: Alignment.topCenter,
+                    onChanged: (value) => context
+                        .read<UpdateOtherInfoActorBloc>()
+                        .add(
+                            UpdateOtherInfoActorEvent.changeWorkinHours(value)),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Flexible(
+                  child: CustomDropDownWidget(
+                    hintText: "Select minutes",
+                    value: state.workingMinutes,
+                    alignment: Alignment.topCenter,
+                    options: const [
+                      "00",
+                      "30",
+                    ],
+                    onChanged: (value) => context
+                        .read<UpdateOtherInfoActorBloc>()
+                        .add(UpdateOtherInfoActorEvent.changeWorkingMinutes(
+                            value)),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _NumberOfDependentInputField extends StatelessWidget {
+  const _NumberOfDependentInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.numberOfDependent != current.numberOfDependent,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Number Of Dependent((Excluding Spouse))",
+        child: CustomDropDownWidget(
+          hintText: "select from the options",
+          value: state.numberOfDependent,
+          options: const [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+          ],
+          onChanged: (value) => context
+              .read<UpdateOtherInfoActorBloc>()
+              .add(UpdateOtherInfoActorEvent.changeNumberOfDependent(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _SpouseInputField extends StatelessWidget {
+  const _SpouseInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) => previous.isSpouse != current.isSpouse,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Spouse",
+        child: CustomDropDownWidget(
+          hintText: "select from the options",
+          value: state.isSpouse,
+          options: const [
+            "Yes",
+            "No",
+          ],
+          onChanged: (value) => context
+              .read<UpdateOtherInfoActorBloc>()
+              .add(UpdateOtherInfoActorEvent.changeIsSpouse(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _SpouseSupportObligationInputField extends StatelessWidget {
+  const _SpouseSupportObligationInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.isSpouse != current.isSpouse ||
+          previous.isSpouseSupportObligation !=
+              current.isSpouseSupportObligation,
+      builder: (context, state) => Column(
+        children: [
+          if (state.isSpouse == "Yes")
+            Column(
+              children: [
+                TextWidetWithLabelAndChild(
+                  title: "Spouse Support Obligation",
+                  child: CustomDropDownWidget(
+                    hintText: "select from the options",
+                    value: state.isSpouseSupportObligation,
+                    options: const [
+                      "Yes",
+                      "No",
+                    ],
+                    onChanged: (value) => context
+                        .read<UpdateOtherInfoActorBloc>()
+                        .add(UpdateOtherInfoActorEvent
+                            .changeIsSpouseSupportObligation(value)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SpecialConditionInputField extends StatelessWidget {
+  final Function() callBack;
+
+  const _SpecialConditionInputField({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.workinHours != current.workinHours,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Special Conditions or Request if any",
+        child: InputTextWidget(
+          hintText: "Special Conditions or Request if any",
+          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          value: state.specialConditions,
           onEditingCompleted: callBack,
           onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeEmail(value)),
+              .read<UpdateOtherInfoActorBloc>()
+              .add(UpdateOtherInfoActorEvent.changeSpecialConditions(value)),
         ),
       ),
     );

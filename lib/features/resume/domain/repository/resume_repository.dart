@@ -15,6 +15,10 @@ abstract class ResumeRepository {
     @required PersonalInfo data,
   });
 
+  Future<Either<ApiFailure, Unit>> updateOtherInfo({
+    @required PersonalInfo data,
+  });
+
   Future<Either<ApiFailure, Unit>> updateAcademic({
     @required AcademicHistory data,
   });

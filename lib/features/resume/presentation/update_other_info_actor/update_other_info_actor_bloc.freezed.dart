@@ -64,7 +64,7 @@ class _$UpdateOtherInfoActorEventTearOff {
   }
 
 // ignore: unused_element
-  _ChangeIsSpouse changeIsSpouse(bool isSpouse) {
+  _ChangeIsSpouse changeIsSpouse(String isSpouse) {
     return _ChangeIsSpouse(
       isSpouse,
     );
@@ -72,7 +72,7 @@ class _$UpdateOtherInfoActorEventTearOff {
 
 // ignore: unused_element
   _ChangeIsSpouseSupportObligation changeIsSpouseSupportObligation(
-      bool isSpouseSupportObligation) {
+      String isSpouseSupportObligation) {
     return _ChangeIsSpouseSupportObligation(
       isSpouseSupportObligation,
     );
@@ -82,6 +82,13 @@ class _$UpdateOtherInfoActorEventTearOff {
   _ChangeSpecialConditions changeSpecialConditions(String specialConditions) {
     return _ChangeSpecialConditions(
       specialConditions,
+    );
+  }
+
+// ignore: unused_element
+  _SetInitialState setInitialState(PersonalInfo info) {
+    return _SetInitialState(
+      info,
     );
   }
 
@@ -107,10 +114,12 @@ mixin _$UpdateOtherInfoActorEvent {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   });
   @optionalTypeArgs
@@ -122,9 +131,10 @@ mixin _$UpdateOtherInfoActorEvent {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   });
@@ -144,6 +154,7 @@ mixin _$UpdateOtherInfoActorEvent {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   });
   @optionalTypeArgs
@@ -160,6 +171,7 @@ mixin _$UpdateOtherInfoActorEvent {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   });
@@ -252,10 +264,12 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -268,6 +282,7 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeLanguages(languages);
   }
@@ -282,9 +297,10 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -312,6 +328,7 @@ class _$_ChangeLanguages implements _ChangeLanguages {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -324,6 +341,7 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeLanguages(this);
   }
@@ -343,6 +361,7 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -432,10 +451,12 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -448,6 +469,7 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeJLPTLevel(JLPTLevel);
   }
@@ -462,9 +484,10 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -492,6 +515,7 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -504,6 +528,7 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeJLPTLevel(this);
   }
@@ -523,6 +548,7 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -611,10 +637,12 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -627,6 +655,7 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeSelfPR(selfPR);
   }
@@ -641,9 +670,10 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -671,6 +701,7 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -683,6 +714,7 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeSelfPR(this);
   }
@@ -702,6 +734,7 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -801,10 +834,12 @@ class _$_ChangeMotivationsSpecialSkills
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -817,6 +852,7 @@ class _$_ChangeMotivationsSpecialSkills
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeMotivationsSpecialSkills(motivationsSpecialSkills);
   }
@@ -831,9 +867,10 @@ class _$_ChangeMotivationsSpecialSkills
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -861,6 +898,7 @@ class _$_ChangeMotivationsSpecialSkills
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -873,6 +911,7 @@ class _$_ChangeMotivationsSpecialSkills
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeMotivationsSpecialSkills(this);
   }
@@ -892,6 +931,7 @@ class _$_ChangeMotivationsSpecialSkills
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -983,10 +1023,12 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -999,6 +1041,7 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeWorkinHours(hours);
   }
@@ -1013,9 +1056,10 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1043,6 +1087,7 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -1055,6 +1100,7 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeWorkinHours(this);
   }
@@ -1074,6 +1120,7 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -1163,10 +1210,12 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -1179,6 +1228,7 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeWorkingMinutes(minutes);
   }
@@ -1193,9 +1243,10 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1223,6 +1274,7 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -1235,6 +1287,7 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeWorkingMinutes(this);
   }
@@ -1254,6 +1307,7 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -1349,10 +1403,12 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -1365,6 +1421,7 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeNumberOfDependent(numberOfDependent);
   }
@@ -1379,9 +1436,10 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1409,6 +1467,7 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -1421,6 +1480,7 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeNumberOfDependent(this);
   }
@@ -1440,6 +1500,7 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -1465,7 +1526,7 @@ abstract class _$ChangeIsSpouseCopyWith<$Res> {
   factory _$ChangeIsSpouseCopyWith(
           _ChangeIsSpouse value, $Res Function(_ChangeIsSpouse) then) =
       __$ChangeIsSpouseCopyWithImpl<$Res>;
-  $Res call({bool isSpouse});
+  $Res call({String isSpouse});
 }
 
 /// @nodoc
@@ -1484,7 +1545,7 @@ class __$ChangeIsSpouseCopyWithImpl<$Res>
     Object isSpouse = freezed,
   }) {
     return _then(_ChangeIsSpouse(
-      isSpouse == freezed ? _value.isSpouse : isSpouse as bool,
+      isSpouse == freezed ? _value.isSpouse : isSpouse as String,
     ));
   }
 }
@@ -1494,7 +1555,7 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
   const _$_ChangeIsSpouse(this.isSpouse) : assert(isSpouse != null);
 
   @override
-  final bool isSpouse;
+  final String isSpouse;
 
   @override
   String toString() {
@@ -1530,10 +1591,12 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -1546,6 +1609,7 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeIsSpouse(isSpouse);
   }
@@ -1560,9 +1624,10 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1590,6 +1655,7 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -1602,6 +1668,7 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeIsSpouse(this);
   }
@@ -1621,6 +1688,7 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -1633,9 +1701,9 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
 }
 
 abstract class _ChangeIsSpouse implements UpdateOtherInfoActorEvent {
-  const factory _ChangeIsSpouse(bool isSpouse) = _$_ChangeIsSpouse;
+  const factory _ChangeIsSpouse(String isSpouse) = _$_ChangeIsSpouse;
 
-  bool get isSpouse;
+  String get isSpouse;
   @JsonKey(ignore: true)
   _$ChangeIsSpouseCopyWith<_ChangeIsSpouse> get copyWith;
 }
@@ -1646,7 +1714,7 @@ abstract class _$ChangeIsSpouseSupportObligationCopyWith<$Res> {
           _ChangeIsSpouseSupportObligation value,
           $Res Function(_ChangeIsSpouseSupportObligation) then) =
       __$ChangeIsSpouseSupportObligationCopyWithImpl<$Res>;
-  $Res call({bool isSpouseSupportObligation});
+  $Res call({String isSpouseSupportObligation});
 }
 
 /// @nodoc
@@ -1669,7 +1737,7 @@ class __$ChangeIsSpouseSupportObligationCopyWithImpl<$Res>
     return _then(_ChangeIsSpouseSupportObligation(
       isSpouseSupportObligation == freezed
           ? _value.isSpouseSupportObligation
-          : isSpouseSupportObligation as bool,
+          : isSpouseSupportObligation as String,
     ));
   }
 }
@@ -1681,7 +1749,7 @@ class _$_ChangeIsSpouseSupportObligation
       : assert(isSpouseSupportObligation != null);
 
   @override
-  final bool isSpouseSupportObligation;
+  final String isSpouseSupportObligation;
 
   @override
   String toString() {
@@ -1721,10 +1789,12 @@ class _$_ChangeIsSpouseSupportObligation
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -1737,6 +1807,7 @@ class _$_ChangeIsSpouseSupportObligation
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeIsSpouseSupportObligation(isSpouseSupportObligation);
   }
@@ -1751,9 +1822,10 @@ class _$_ChangeIsSpouseSupportObligation
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1781,6 +1853,7 @@ class _$_ChangeIsSpouseSupportObligation
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -1793,6 +1866,7 @@ class _$_ChangeIsSpouseSupportObligation
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeIsSpouseSupportObligation(this);
   }
@@ -1812,6 +1886,7 @@ class _$_ChangeIsSpouseSupportObligation
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -1826,9 +1901,9 @@ class _$_ChangeIsSpouseSupportObligation
 abstract class _ChangeIsSpouseSupportObligation
     implements UpdateOtherInfoActorEvent {
   const factory _ChangeIsSpouseSupportObligation(
-      bool isSpouseSupportObligation) = _$_ChangeIsSpouseSupportObligation;
+      String isSpouseSupportObligation) = _$_ChangeIsSpouseSupportObligation;
 
-  bool get isSpouseSupportObligation;
+  String get isSpouseSupportObligation;
   @JsonKey(ignore: true)
   _$ChangeIsSpouseSupportObligationCopyWith<_ChangeIsSpouseSupportObligation>
       get copyWith;
@@ -1910,10 +1985,12 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -1926,6 +2003,7 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeSpecialConditions(specialConditions);
   }
@@ -1940,9 +2018,10 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1970,6 +2049,7 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -1982,6 +2062,7 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return changeSpecialConditions(this);
   }
@@ -2001,6 +2082,7 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -2019,6 +2101,192 @@ abstract class _ChangeSpecialConditions implements UpdateOtherInfoActorEvent {
   String get specialConditions;
   @JsonKey(ignore: true)
   _$ChangeSpecialConditionsCopyWith<_ChangeSpecialConditions> get copyWith;
+}
+
+/// @nodoc
+abstract class _$SetInitialStateCopyWith<$Res> {
+  factory _$SetInitialStateCopyWith(
+          _SetInitialState value, $Res Function(_SetInitialState) then) =
+      __$SetInitialStateCopyWithImpl<$Res>;
+  $Res call({PersonalInfo info});
+}
+
+/// @nodoc
+class __$SetInitialStateCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
+    implements _$SetInitialStateCopyWith<$Res> {
+  __$SetInitialStateCopyWithImpl(
+      _SetInitialState _value, $Res Function(_SetInitialState) _then)
+      : super(_value, (v) => _then(v as _SetInitialState));
+
+  @override
+  _SetInitialState get _value => super._value as _SetInitialState;
+
+  @override
+  $Res call({
+    Object info = freezed,
+  }) {
+    return _then(_SetInitialState(
+      info == freezed ? _value.info : info as PersonalInfo,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SetInitialState implements _SetInitialState {
+  const _$_SetInitialState(this.info) : assert(info != null);
+
+  @override
+  final PersonalInfo info;
+
+  @override
+  String toString() {
+    return 'UpdateOtherInfoActorEvent.setInitialState(info: $info)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SetInitialState &&
+            (identical(other.info, info) ||
+                const DeepCollectionEquality().equals(other.info, info)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(info);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult changeLanguages(List<String> languages),
+    @required TResult changeJLPTLevel(String JLPTLevel),
+    @required TResult changeSelfPR(String selfPR),
+    @required
+        TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeWorkinHours(String hours),
+    @required TResult changeWorkingMinutes(String minutes),
+    @required TResult changeNumberOfDependent(String numberOfDependent),
+    @required TResult changeIsSpouse(String isSpouse),
+    @required
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
+    @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
+    @required TResult save(),
+  }) {
+    assert(changeLanguages != null);
+    assert(changeJLPTLevel != null);
+    assert(changeSelfPR != null);
+    assert(changeMotivationsSpecialSkills != null);
+    assert(changeWorkinHours != null);
+    assert(changeWorkingMinutes != null);
+    assert(changeNumberOfDependent != null);
+    assert(changeIsSpouse != null);
+    assert(changeIsSpouseSupportObligation != null);
+    assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return setInitialState(info);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult changeLanguages(List<String> languages),
+    TResult changeJLPTLevel(String JLPTLevel),
+    TResult changeSelfPR(String selfPR),
+    TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeWorkinHours(String hours),
+    TResult changeWorkingMinutes(String minutes),
+    TResult changeNumberOfDependent(String numberOfDependent),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
+    TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (setInitialState != null) {
+      return setInitialState(info);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult changeLanguages(_ChangeLanguages value),
+    @required TResult changeJLPTLevel(_ChangeJLPTLevel value),
+    @required TResult changeSelfPR(_ChangeSelfPR value),
+    @required
+        TResult changeMotivationsSpecialSkills(
+            _ChangeMotivationsSpecialSkills value),
+    @required TResult changeWorkinHours(_ChangeWorkinHours value),
+    @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
+    @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
+    @required TResult changeIsSpouse(_ChangeIsSpouse value),
+    @required
+        TResult changeIsSpouseSupportObligation(
+            _ChangeIsSpouseSupportObligation value),
+    @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
+    @required TResult save(_Save value),
+  }) {
+    assert(changeLanguages != null);
+    assert(changeJLPTLevel != null);
+    assert(changeSelfPR != null);
+    assert(changeMotivationsSpecialSkills != null);
+    assert(changeWorkinHours != null);
+    assert(changeWorkingMinutes != null);
+    assert(changeNumberOfDependent != null);
+    assert(changeIsSpouse != null);
+    assert(changeIsSpouseSupportObligation != null);
+    assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return setInitialState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult changeLanguages(_ChangeLanguages value),
+    TResult changeJLPTLevel(_ChangeJLPTLevel value),
+    TResult changeSelfPR(_ChangeSelfPR value),
+    TResult changeMotivationsSpecialSkills(
+        _ChangeMotivationsSpecialSkills value),
+    TResult changeWorkinHours(_ChangeWorkinHours value),
+    TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
+    TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
+    TResult changeIsSpouse(_ChangeIsSpouse value),
+    TResult changeIsSpouseSupportObligation(
+        _ChangeIsSpouseSupportObligation value),
+    TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (setInitialState != null) {
+      return setInitialState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetInitialState implements UpdateOtherInfoActorEvent {
+  const factory _SetInitialState(PersonalInfo info) = _$_SetInitialState;
+
+  PersonalInfo get info;
+  @JsonKey(ignore: true)
+  _$SetInitialStateCopyWith<_SetInitialState> get copyWith;
 }
 
 /// @nodoc
@@ -2066,10 +2334,12 @@ class _$_Save implements _Save {
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
-    @required TResult changeIsSpouse(bool isSpouse),
+    @required TResult changeIsSpouse(String isSpouse),
     @required
-        TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
+    @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
@@ -2082,6 +2352,7 @@ class _$_Save implements _Save {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return save();
   }
@@ -2096,9 +2367,10 @@ class _$_Save implements _Save {
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
-    TResult changeIsSpouse(bool isSpouse),
-    TResult changeIsSpouseSupportObligation(bool isSpouseSupportObligation),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(PersonalInfo info),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -2126,6 +2398,7 @@ class _$_Save implements _Save {
         TResult changeIsSpouseSupportObligation(
             _ChangeIsSpouseSupportObligation value),
     @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
     assert(changeLanguages != null);
@@ -2138,6 +2411,7 @@ class _$_Save implements _Save {
     assert(changeIsSpouse != null);
     assert(changeIsSpouseSupportObligation != null);
     assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
     assert(save != null);
     return save(this);
   }
@@ -2157,6 +2431,7 @@ class _$_Save implements _Save {
     TResult changeIsSpouseSupportObligation(
         _ChangeIsSpouseSupportObligation value),
     TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -2185,8 +2460,8 @@ class _$UpdateOtherInfoActorStateTearOff {
       @required String workinHours,
       @required String workingMinutes,
       @required String numberOfDependent,
-      @required bool isSpouse,
-      @required bool isSpouseSupportObligation,
+      @required String isSpouse,
+      @required String isSpouseSupportObligation,
       @required String specialConditions,
       @required bool isSubmitting,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
@@ -2220,8 +2495,8 @@ mixin _$UpdateOtherInfoActorState {
   String get workinHours;
   String get workingMinutes;
   String get numberOfDependent;
-  bool get isSpouse;
-  bool get isSpouseSupportObligation;
+  String get isSpouse;
+  String get isSpouseSupportObligation;
   String get specialConditions;
   bool get isSubmitting;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
@@ -2243,8 +2518,8 @@ abstract class $UpdateOtherInfoActorStateCopyWith<$Res> {
       String workinHours,
       String workingMinutes,
       String numberOfDependent,
-      bool isSpouse,
-      bool isSpouseSupportObligation,
+      String isSpouse,
+      String isSpouseSupportObligation,
       String specialConditions,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
@@ -2290,10 +2565,10 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
       numberOfDependent: numberOfDependent == freezed
           ? _value.numberOfDependent
           : numberOfDependent as String,
-      isSpouse: isSpouse == freezed ? _value.isSpouse : isSpouse as bool,
+      isSpouse: isSpouse == freezed ? _value.isSpouse : isSpouse as String,
       isSpouseSupportObligation: isSpouseSupportObligation == freezed
           ? _value.isSpouseSupportObligation
-          : isSpouseSupportObligation as bool,
+          : isSpouseSupportObligation as String,
       specialConditions: specialConditions == freezed
           ? _value.specialConditions
           : specialConditions as String,
@@ -2321,8 +2596,8 @@ abstract class _$UpdateOtherInfoActorStateCopyWith<$Res>
       String workinHours,
       String workingMinutes,
       String numberOfDependent,
-      bool isSpouse,
-      bool isSpouseSupportObligation,
+      String isSpouse,
+      String isSpouseSupportObligation,
       String specialConditions,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
@@ -2371,10 +2646,10 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
       numberOfDependent: numberOfDependent == freezed
           ? _value.numberOfDependent
           : numberOfDependent as String,
-      isSpouse: isSpouse == freezed ? _value.isSpouse : isSpouse as bool,
+      isSpouse: isSpouse == freezed ? _value.isSpouse : isSpouse as String,
       isSpouseSupportObligation: isSpouseSupportObligation == freezed
           ? _value.isSpouseSupportObligation
-          : isSpouseSupportObligation as bool,
+          : isSpouseSupportObligation as String,
       specialConditions: specialConditions == freezed
           ? _value.specialConditions
           : specialConditions as String,
@@ -2430,9 +2705,9 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   @override
   final String numberOfDependent;
   @override
-  final bool isSpouse;
+  final String isSpouse;
   @override
-  final bool isSpouseSupportObligation;
+  final String isSpouseSupportObligation;
   @override
   final String specialConditions;
   @override
@@ -2532,9 +2807,9 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
           @required
               String numberOfDependent,
           @required
-              bool isSpouse,
+              String isSpouse,
           @required
-              bool isSpouseSupportObligation,
+              String isSpouseSupportObligation,
           @required
               String specialConditions,
           @required
@@ -2558,9 +2833,9 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
   @override
   String get numberOfDependent;
   @override
-  bool get isSpouse;
+  String get isSpouse;
   @override
-  bool get isSpouseSupportObligation;
+  String get isSpouseSupportObligation;
   @override
   String get specialConditions;
   @override

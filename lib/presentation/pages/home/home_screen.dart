@@ -8,6 +8,7 @@ import 'package:wallet_app/features/home/data/model/services_model.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/data/model/resume_model.dart';
+import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/presentation/pages/home/constant/home_item_type.dart';
@@ -108,6 +109,9 @@ class HomePage extends StatelessWidget {
           initial: (_) => const SizedBox.shrink(),
           loading: (_) {
             // also load watcher for Resume bloc
+            context.read<ResumeWatcherBloc>().add(
+                  const ResumeWatcherEvent.loading(),
+                );
             return loadingPage();
           },
           loadingWithData: (success) => _homePageBodyContent(
@@ -170,7 +174,12 @@ class HomePage extends StatelessWidget {
         } else {
           context
               .read<ResumeWatcherBloc>()
-              .add(const ResumeWatcherEvent.setResumeData(ResumeData()));
+              .add(ResumeWatcherEvent.setResumeData(ResumeData(
+                  personalInfo: PersonalInfo(
+                firstName: userDetail.firstName,
+                lastName: userDetail.lastName,
+                email: userDetail.email,
+              ))));
           return BuildResume(
             changeTabPage: changeTabPage,
           );
@@ -225,7 +234,12 @@ class HomePage extends StatelessWidget {
     } else {
       context
           .read<ResumeWatcherBloc>()
-          .add(const ResumeWatcherEvent.setResumeData(ResumeData()));
+          .add(ResumeWatcherEvent.setResumeData(ResumeData(
+              personalInfo: PersonalInfo(
+            firstName: userDetail.firstName,
+            lastName: userDetail.lastName,
+            email: userDetail.email,
+          ))));
     }
 
     return MyResumeWidget(

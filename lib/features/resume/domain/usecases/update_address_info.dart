@@ -26,11 +26,16 @@ class UpdateAddressInfo extends Usecase<ApiFailure, Unit, UpdateAddressParams> {
     }
 
     final userData = PersonalInfo(
-      currPostalCode: params.postalCode,
-      currPrefecture: params.prefecture,
-      currCity: params.city,
-      currAddress: params.address,
-      currPhone: params.phone,
+      currPostalCode: params.currPostalCode,
+      currPrefecture: params.currPrefecture,
+      currCity: params.currCity,
+      currAddress: params.currAddress,
+      currPhone: params.currAddress,
+      contPostalCode: params.contPostalCode,
+      contPrefecture: params.contPrefecture,
+      contCity: params.contCity,
+      contAddress: params.contAddress,
+      contPhone: params.contPhone,
     );
 
     return repository.updateAddress(data: userData);
@@ -39,16 +44,27 @@ class UpdateAddressInfo extends Usecase<ApiFailure, Unit, UpdateAddressParams> {
 
 class UpdateAddressParams {
   UpdateAddressParams({
-    @required this.postalCode,
-    @required this.prefecture,
-    @required this.city,
-    @required this.address,
-    @required this.phone,
+    @required this.currPostalCode,
+    @required this.currPrefecture,
+    @required this.currCity,
+    @required this.currAddress,
+    @required this.currPhone,
+    @required this.contPostalCode,
+    @required this.contPrefecture,
+    @required this.contCity,
+    @required this.contAddress,
+    @required this.contPhone,
   });
 
-  final String postalCode;
-  final String prefecture;
-  final String city;
-  final String address;
-  final String phone;
+  final String currPostalCode;
+  final String currPrefecture;
+  final String currCity;
+  final String currAddress;
+  final String currPhone;
+
+  final String contPostalCode;
+  final String contPrefecture;
+  final String contCity;
+  final String contAddress;
+  final String contPhone;
 }

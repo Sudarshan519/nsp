@@ -17,11 +17,13 @@ import 'package:wallet_app/utils/constant.dart';
 class EditAddressInfoForm extends StatelessWidget {
   final UpdateAddressInfoActorBloc actorBloc;
   final PersonalInfo info;
+  final bool isCurrent;
 
   const EditAddressInfoForm({
     Key key,
     @required this.info,
     @required this.actorBloc,
+    @required this.isCurrent,
   })  : assert(info != null),
         super(key: key);
 
@@ -90,40 +92,39 @@ class EditAddressInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        return const _EditBasicInfoFormBody();
+        return _EditBasicInfoFormBody(
+          isCurrent: isCurrent,
+        );
       },
     );
   }
 }
 
-class _EditBasicInfoFormBody extends StatefulWidget {
+class _EditBasicInfoFormBody extends StatelessWidget {
+  final bool isCurrent;
   const _EditBasicInfoFormBody({
     Key key,
+    @required this.isCurrent,
   }) : super(key: key);
 
-  @override
-  _EditBasicInfoFormBodyState createState() => _EditBasicInfoFormBodyState();
-}
-
-class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
         child: Column(
-          children: const [
-            _CountryInputField(),
-            SizedBox(height: 20),
-            _PostalCodeInputField(),
-            SizedBox(height: 20),
-            _PrefectureInputField(),
-            SizedBox(height: 20),
-            _CityInputField(),
-            SizedBox(height: 20),
-            _AddressInputField(),
-            SizedBox(height: 20),
-            _PhoneInputField(),
+          children: [
+            const _CountryInputField(),
+            const SizedBox(height: 20),
+            _PostalCodeInputField(isCurrent: isCurrent),
+            const SizedBox(height: 20),
+            _PrefectureInputField(isCurrent: isCurrent),
+            const SizedBox(height: 20),
+            _CityInputField(isCurrent: isCurrent),
+            const SizedBox(height: 20),
+            _AddressInputField(isCurrent: isCurrent),
+            const SizedBox(height: 20),
+            _PhoneInputField(isCurrent: isCurrent),
           ],
         ),
       ),
@@ -168,33 +169,6 @@ class _SaveButton extends StatelessWidget {
   }
 }
 
-class _PostalCodeInputField extends StatelessWidget {
-  const _PostalCodeInputField({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.postalCode != current.postalCode,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Postal Code",
-        child: InputTextWidget(
-          hintText: "Postal Code",
-          textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.postalCode,
-
-          onChanged: (value) => context
-              .read<UpdateAddressInfoActorBloc>()
-              .add(UpdateAddressInfoActorEvent.changedPostalCode(value)),
-        ),
-      ),
-    );
-  }
-}
-
 class _CountryInputField extends StatelessWidget {
   const _CountryInputField({
     Key key,
@@ -216,21 +190,66 @@ class _CountryInputField extends StatelessWidget {
   }
 }
 
-class _PrefectureInputField extends StatelessWidget {
-  const _PrefectureInputField({
+class _PostalCodeInputField extends StatelessWidget {
+  final bool isCurrent;
+  const _PostalCodeInputField({
     Key key,
+    @required this.isCurrent,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.prefecture != current.prefecture,
+      buildWhen: (previous, current) {
+        if (isCurrent) {
+          return previous.currPostalCode != current.currPostalCode;
+        } else {
+          return previous.contPostalCode != current.contPostalCode;
+        }
+      },
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Postal Code",
+        child: InputTextWidget(
+            hintText: "Postal Code",
+            textInputType: TextInputType.number,
+            // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            value: isCurrent ? state.currPostalCode : state.contPostalCode,
+            onChanged: (value) {
+              if (isCurrent) {
+                context.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedCurrPostalCode(value));
+              } else {
+                context.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedContPostalCode(value));
+              }
+            }),
+      ),
+    );
+  }
+}
+
+class _PrefectureInputField extends StatelessWidget {
+  final bool isCurrent;
+  const _PrefectureInputField({
+    Key key,
+    @required this.isCurrent,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      buildWhen: (previous, current) {
+        if (isCurrent) {
+          return previous.currPrefecture != current.currPrefecture;
+        } else {
+          return previous.contPrefecture != current.contPrefecture;
+        }
+      },
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
         child: CustomDropDownWidget(
           hintText: "Prefecture",
-          value: state.prefecture,
+          value: isCurrent ? state.currPrefecture : state.contPrefecture,
           options: const [
             "Hokkaidō",
             "Aomori",
@@ -280,9 +299,15 @@ class _PrefectureInputField extends StatelessWidget {
             "Kagoshima",
             "Okinawa",
           ],
-          onChanged: (value) => context
-              .read<UpdateAddressInfoActorBloc>()
-              .add(UpdateAddressInfoActorEvent.changedPrefecture(value)),
+          onChanged: (value) {
+            if (isCurrent) {
+              context.read<UpdateAddressInfoActorBloc>().add(
+                  UpdateAddressInfoActorEvent.changedCurrPrefecture(value));
+            } else {
+              context.read<UpdateAddressInfoActorBloc>().add(
+                  UpdateAddressInfoActorEvent.changedContPrefecture(value));
+            }
+          },
         ),
       ),
     );
@@ -290,19 +315,27 @@ class _PrefectureInputField extends StatelessWidget {
 }
 
 class _CityInputField extends StatelessWidget {
+  final bool isCurrent;
   const _CityInputField({
     Key key,
+    @required this.isCurrent,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
-      buildWhen: (previous, current) => previous.city != current.city,
+      buildWhen: (previous, current) {
+        if (isCurrent) {
+          return previous.currCity != current.currCity;
+        } else {
+          return previous.contCity != current.contCity;
+        }
+      },
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
         child: CustomDropDownWidget(
           hintText: "City",
-          value: state.city,
+          value: isCurrent ? state.currCity : state.contCity,
           options: const [
             "Nagoya",
             "Toyohashi",
@@ -325,9 +358,17 @@ class _CityInputField extends StatelessWidget {
             "Komaki",
             "Inazawa",
           ],
-          onChanged: (value) => context
-              .read<UpdateAddressInfoActorBloc>()
-              .add(UpdateAddressInfoActorEvent.changedCity(value)),
+          onChanged: (value) {
+            if (isCurrent) {
+              context
+                  .read<UpdateAddressInfoActorBloc>()
+                  .add(UpdateAddressInfoActorEvent.changedCurrCity(value));
+            } else {
+              context
+                  .read<UpdateAddressInfoActorBloc>()
+                  .add(UpdateAddressInfoActorEvent.changedContCity(value));
+            }
+          },
         ),
       ),
     );
@@ -335,24 +376,40 @@ class _CityInputField extends StatelessWidget {
 }
 
 class _AddressInputField extends StatelessWidget {
+  final bool isCurrent;
   const _AddressInputField({
     Key key,
+    @required this.isCurrent,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
-      buildWhen: (previous, current) => previous.address != current.address,
+      buildWhen: (previous, current) {
+        if (isCurrent) {
+          return previous.currAddress != current.currAddress;
+        } else {
+          return previous.contAddress != current.contAddress;
+        }
+      },
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Address",
         child: InputTextWidget(
           hintText: "Address",
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.address,
+          value: isCurrent ? state.currAddress : state.contAddress,
 
-          onChanged: (value) => context
-              .read<UpdateAddressInfoActorBloc>()
-              .add(UpdateAddressInfoActorEvent.changedAddress(value)),
+          onChanged: (value) {
+            if (isCurrent) {
+              context
+                  .read<UpdateAddressInfoActorBloc>()
+                  .add(UpdateAddressInfoActorEvent.changedCurrAddress(value));
+            } else {
+              context
+                  .read<UpdateAddressInfoActorBloc>()
+                  .add(UpdateAddressInfoActorEvent.changedContAddress(value));
+            }
+          },
         ),
       ),
     );
@@ -360,23 +417,39 @@ class _AddressInputField extends StatelessWidget {
 }
 
 class _PhoneInputField extends StatelessWidget {
+  final bool isCurrent;
   const _PhoneInputField({
     Key key,
+    @required this.isCurrent,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
-      buildWhen: (previous, current) => previous.phone != current.phone,
+      buildWhen: (previous, current) {
+        if (isCurrent) {
+          return previous.currPhone != current.currPhone;
+        } else {
+          return previous.contPhone != current.contPhone;
+        }
+      },
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Phone",
         child: InputTextWidget(
           hintText: "090-XXXX-XXXX",
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.phone,
-          onChanged: (value) => context
-              .read<UpdateAddressInfoActorBloc>()
-              .add(UpdateAddressInfoActorEvent.changedPhone(value)),
+          value: isCurrent ? state.currPhone : state.contPhone,
+          onChanged: (value) {
+            if (isCurrent) {
+              context
+                  .read<UpdateAddressInfoActorBloc>()
+                  .add(UpdateAddressInfoActorEvent.changedCurrPhone(value));
+            } else {
+              context
+                  .read<UpdateAddressInfoActorBloc>()
+                  .add(UpdateAddressInfoActorEvent.changedContPhone(value));
+            }
+          },
         ),
       ),
     );

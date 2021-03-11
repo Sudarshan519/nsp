@@ -47,6 +47,18 @@ class ResumeRepositoryImpl implements ResumeRepository {
   }
 
   @override
+  Future<Either<ApiFailure, Unit>> updateOtherInfo({
+    @required PersonalInfo data,
+  }) async {
+    try {
+      return Right(await dataSource.updateResume(
+          body: data.toPersonalInfoModel().toOtherJson()));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
   Future<Either<ApiFailure, Unit>> updateAcademic({
     @required AcademicHistory data,
   }) async {

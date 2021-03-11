@@ -125,15 +125,30 @@ class _CreateQualificationInfoBox extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Qualification $index",
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
+          Row(
+            children: [
+              Text(
+                "Qualification $index",
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Spacer(),
+              InkWell(
+                onTap: () => ExtendedNavigator.of(context)
+                    .pushEditQualificationInfoForm(
+                        actorBloc: actorBloc, info: qualification),
+                child: SvgPicture.asset(
+                  "assets/images/resume/edit.svg",
+                  color: Palette.primary,
+                  width: 15,
+                ),
+              ),
+            ],
           ),
           const _NameOfQualificationField(),
           const SizedBox(height: 10),

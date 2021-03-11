@@ -111,6 +111,22 @@ class PersonalInfo extends Equatable {
   // final String universityCityId;
   final String image;
 
+  String get workingHoursOnly {
+    final split = workingHours.split(":");
+    if (split.isNotEmpty) {
+      return split.first;
+    }
+    return "";
+  }
+
+  String get workingMinutesOnly {
+    final split = workingHours.split(":");
+    if (split.isNotEmpty) {
+      return split.last ?? "";
+    }
+    return "";
+  }
+
   @override
   List<Object> get props => [
         id,

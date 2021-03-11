@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_other_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
+import 'package:wallet_app/features/resume/presentation/update_other_info_actor/update_other_info_actor_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/presentation/pages/resume/resume_tab_pages/qualification/qualification_page.dart';
@@ -136,6 +138,9 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
     final addressPageActor = UpdateAddressInfoActorBloc(
         updateAddressInfo: getIt<UpdateAddressInfo>());
 
+    final otherInfoActor =
+        UpdateOtherInfoActorBloc(updateOtherInfo: getIt<UpdateOtherInfo>());
+
     return [
       AboutPage(
         info: state.info,
@@ -156,7 +161,7 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
       ),
       OtherInfo(
         info: state.info,
-        aboutPageActor: aboutPageActor,
+        actorBloc: otherInfoActor,
       ),
     ];
   }

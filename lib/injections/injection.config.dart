@@ -47,6 +47,7 @@ import '../features/auth/domain/usecase/sign_up_user.dart';
 import '../features/splash/presentation/splash_bloc.dart';
 import '../features/resume/domain/usecases/update_academics_info.dart';
 import '../features/resume/domain/usecases/update_address_info.dart';
+import '../features/resume/domain/usecases/update_other_info.dart';
 import '../features/resume/domain/usecases/update_personal_info.dart';
 import '../features/resume/domain/usecases/update_qualification_info.dart';
 import '../features/resume/domain/usecases/update_work_info.dart';
@@ -118,6 +119,8 @@ Future<GetIt> $initGetIt(
   gh.factory<UpdateAcadamicInfo>(() => UpdateAcadamicInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<UpdateAddressInfo>(() => UpdateAddressInfo(
+      repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
+  gh.factory<UpdateOtherInfo>(() => UpdateOtherInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<UpdatePersonalInfo>(() => UpdatePersonalInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));

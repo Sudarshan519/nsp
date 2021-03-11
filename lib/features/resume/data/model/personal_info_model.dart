@@ -216,7 +216,7 @@ class PersonalInfoModel extends PersonalInfo {
   Map<String, dynamic> toCurrentAddressJson() {
     final Map<String, dynamic> params = {};
 
-    if (currAddress != null) {
+    if (currPostalCode != null) {
       params["curr_postal_code"] = currPostalCode;
     }
 
@@ -234,6 +234,73 @@ class PersonalInfoModel extends PersonalInfo {
 
     if (currPhone != null) {
       params["curr_phone"] = currPhone;
+    }
+
+    if (contPostalCode != null) {
+      params["cont_postal_code"] = contPostalCode;
+    }
+
+    if (contPrefecture != null) {
+      params["cont_prefecture"] = contPrefecture;
+    }
+
+    if (contCity != null) {
+      params["cont_city"] = contCity;
+    }
+
+    if (contAddress != null) {
+      params["cont_address"] = contAddress;
+    }
+
+    if (contPhone != null) {
+      params["cont_phone"] = contPhone;
+    }
+
+    return params;
+  }
+
+  Map<String, dynamic> toOtherJson() {
+    final Map<String, dynamic> params = {};
+
+    // TODO: add known languages here.
+    // if (contPostalCode != null) {
+    //   params["cont_postal_code"] = contPostalCode;
+    // }
+
+    if (jlpt != null) {
+      params["jlpt"] = jlpt;
+    }
+
+    if (selfPr != null) {
+      params["self_pr"] = selfPr;
+    }
+
+    if (extraPoint != null) {
+      params["extra_point"] = extraPoint;
+    }
+
+    if (workingHours != null) {
+      params["working_hours"] = workingHours;
+    }
+
+    if (dependentsExceptSpouse != null) {
+      params["dependents_except_spouse"] = dependentsExceptSpouse;
+    }
+
+    if (workingHours != null) {
+      params["working_hours"] = workingHours;
+    }
+
+    if (spouse != null) {
+      params["spouse"] = spouse;
+    }
+
+    if (spouseSupportObligation != null) {
+      params["spouse_support_obligation"] = spouseSupportObligation;
+    }
+
+    if (specialConditions != null) {
+      params["special_conditions"] = specialConditions;
     }
 
     return params;

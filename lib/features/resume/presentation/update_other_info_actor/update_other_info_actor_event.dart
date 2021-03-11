@@ -2,25 +2,27 @@ part of 'update_other_info_actor_bloc.dart';
 
 @freezed
 abstract class UpdateOtherInfoActorEvent with _$UpdateOtherInfoActorEvent {
-  const factory UpdatePersonalInfoActorEvent.changeLanguages(
+  const factory UpdateOtherInfoActorEvent.changeLanguages(
       List<String> languages) = _ChangeLanguages;
-  const factory UpdatePersonalInfoActorEvent.changeJLPTLevel(String JLPTLevel) =
+  const factory UpdateOtherInfoActorEvent.changeJLPTLevel(String JLPTLevel) =
       _ChangeJLPTLevel;
-  const factory UpdatePersonalInfoActorEvent.changeSelfPR(String selfPR) =
+  const factory UpdateOtherInfoActorEvent.changeSelfPR(String selfPR) =
       _ChangeSelfPR;
-  const factory UpdatePersonalInfoActorEvent.changeMotivationsSpecialSkills(
+  const factory UpdateOtherInfoActorEvent.changeMotivationsSpecialSkills(
       String motivationsSpecialSkills) = _ChangeMotivationsSpecialSkills;
-  const factory UpdatePersonalInfoActorEvent.changeWorkinHours(String hours) =
+  const factory UpdateOtherInfoActorEvent.changeWorkinHours(String hours) =
       _ChangeWorkinHours;
-  const factory UpdatePersonalInfoActorEvent.changeWorkingMinutes(
-      String minutes) = _ChangeWorkingMinutes;
-  const factory UpdatePersonalInfoActorEvent.changeNumberOfDependent(
+  const factory UpdateOtherInfoActorEvent.changeWorkingMinutes(String minutes) =
+      _ChangeWorkingMinutes;
+  const factory UpdateOtherInfoActorEvent.changeNumberOfDependent(
       String numberOfDependent) = _ChangeNumberOfDependent;
-  const factory UpdatePersonalInfoActorEvent.changeIsSpouse(bool isSpouse) =
+  const factory UpdateOtherInfoActorEvent.changeIsSpouse(String isSpouse) =
       _ChangeIsSpouse;
-  const factory UpdatePersonalInfoActorEvent.changeIsSpouseSupportObligation(
-      bool isSpouseSupportObligation) = _ChangeIsSpouseSupportObligation;
-  const factory UpdatePersonalInfoActorEvent.changeSpecialConditions(
+  const factory UpdateOtherInfoActorEvent.changeIsSpouseSupportObligation(
+      String isSpouseSupportObligation) = _ChangeIsSpouseSupportObligation;
+  const factory UpdateOtherInfoActorEvent.changeSpecialConditions(
       String specialConditions) = _ChangeSpecialConditions;
-  const factory UpdatePersonalInfoActorEvent.save() = _Save;
+  const factory UpdateOtherInfoActorEvent.setInitialState(PersonalInfo info) =
+      _SetInitialState;
+  const factory UpdateOtherInfoActorEvent.save() = _Save;
 }

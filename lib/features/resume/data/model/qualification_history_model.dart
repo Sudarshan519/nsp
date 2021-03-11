@@ -47,6 +47,10 @@ class QualificationHistoryModel extends QualificationHistory {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> params = {};
 
+    if (id != null) {
+      params["id"] = id;
+    }
+
     if (qualificationName != null) {
       params["qualification_name"] = qualificationName;
     }

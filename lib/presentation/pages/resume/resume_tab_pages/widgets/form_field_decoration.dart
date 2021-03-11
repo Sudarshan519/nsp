@@ -31,12 +31,12 @@ class FormFieldDecoration extends StatelessWidget {
             Expanded(
               child: child,
             ),
-            const SizedBox(width: 10),
-            SvgPicture.asset(
-              "assets/images/resume/edit.svg",
-              color: Palette.formEditPencilColor,
-              height: 11,
-            ),
+            // const SizedBox(width: 10),
+            // SvgPicture.asset(
+            //   "assets/images/resume/edit.svg",
+            //   color: Palette.formEditPencilColor,
+            //   height: 11,
+            // ),
           ],
         ),
         const SizedBox(height: 10),

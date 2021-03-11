@@ -25,20 +25,35 @@ class UpdateAddressInfoActorBloc
     UpdateAddressInfoActorEvent event,
   ) async* {
     yield* event.map(
-      changedPostalCode: (e) async* {
-        yield _mapChangePostalCodeToState(e);
+      changedCurrPostalCode: (e) async* {
+        yield _mapChangeCurrPostalCodeToState(e);
       },
-      changedPrefecture: (e) async* {
-        yield _mapChangePrefectureToState(e);
+      changedCurrPrefecture: (e) async* {
+        yield _mapChangeCurrPrefectureToState(e);
       },
-      changedCity: (e) async* {
-        yield _mapChangeCityToState(e);
+      changedCurrCity: (e) async* {
+        yield _mapChangeCurrCityToState(e);
       },
-      changedAddress: (e) async* {
-        yield _mapChangeAddressToState(e);
+      changedCurrAddress: (e) async* {
+        yield _mapChangeCurrAddressToState(e);
       },
-      changedPhone: (e) async* {
-        yield _mapChangePhoneToState(e);
+      changedCurrPhone: (e) async* {
+        yield _mapChangeCurrPhoneToState(e);
+      },
+      changedContPostalCode: (e) async* {
+        yield _mapChangeContPostalCodeToState(e);
+      },
+      changedContPrefecture: (e) async* {
+        yield _mapChangeContPrefectureToState(e);
+      },
+      changedContCity: (e) async* {
+        yield _mapChangeContCityToState(e);
+      },
+      changedContAddress: (e) async* {
+        yield _mapChangeContAddressToState(e);
+      },
+      changedContPhone: (e) async* {
+        yield _mapChangeContPhoneToState(e);
       },
       setInitialState: (e) async* {
         yield* _mapsetInitialState(e);
@@ -55,52 +70,98 @@ class UpdateAddressInfoActorBloc
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
-        postalCode: userInfo.currPostalCode ?? "",
-        prefecture: userInfo.currPrefecture ?? "",
-        city: userInfo.currCity ?? "",
-        address: userInfo.currAddress ?? "",
-        phone: userInfo.currPhone ?? "",
+        currPostalCode: userInfo.currPostalCode ?? "",
+        currPrefecture: userInfo.currPrefecture ?? "",
+        currCity: userInfo.currCity ?? "",
+        currAddress: userInfo.currAddress ?? "",
+        currPhone: userInfo.currPhone ?? "",
+        contPostalCode: userInfo.contPostalCode ?? "",
+        contPrefecture: userInfo.contPrefecture ?? "",
+        contCity: userInfo.contCity ?? "",
+        contAddress: userInfo.contAddress ?? "",
+        contPhone: userInfo.contPhone ?? "",
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );
     }
   }
 
-  UpdateAddressInfoActorState _mapChangePostalCodeToState(
-      _ChangedPostalCode _changedPostalCode) {
+  UpdateAddressInfoActorState _mapChangeCurrPostalCodeToState(
+      _ChangedCurrPostalCode _changedPostalCode) {
     return state.copyWith(
-      postalCode: _changedPostalCode.code,
+      currPostalCode: _changedPostalCode.code,
       authFailureOrSuccessOption: none(),
     );
   }
 
-  UpdateAddressInfoActorState _mapChangePrefectureToState(
-      _ChangedPrefecture _changedPrefecture) {
+  UpdateAddressInfoActorState _mapChangeCurrPrefectureToState(
+      _ChangedCurrPrefecture _changedPrefecture) {
     return state.copyWith(
-      prefecture: _changedPrefecture.prefecture,
+      currPrefecture: _changedPrefecture.prefecture,
       authFailureOrSuccessOption: none(),
     );
   }
 
-  UpdateAddressInfoActorState _mapChangeCityToState(_ChangedCity _changedCity) {
+  UpdateAddressInfoActorState _mapChangeCurrCityToState(
+      _ChangedCurrCity _changedCity) {
     return state.copyWith(
-      city: _changedCity.city,
+      currCity: _changedCity.city,
       authFailureOrSuccessOption: none(),
     );
   }
 
-  UpdateAddressInfoActorState _mapChangeAddressToState(
-      _ChangedAddress _changedAddress) {
+  UpdateAddressInfoActorState _mapChangeCurrAddressToState(
+      _ChangedCurrAddress _changedAddress) {
     return state.copyWith(
-      address: _changedAddress.address,
+      currAddress: _changedAddress.address,
       authFailureOrSuccessOption: none(),
     );
   }
 
-  UpdateAddressInfoActorState _mapChangePhoneToState(
-      _ChangedPhone _changedPhone) {
+  UpdateAddressInfoActorState _mapChangeCurrPhoneToState(
+      _ChangedCurrPhone _changedPhone) {
     return state.copyWith(
-      phone: _changedPhone.phone,
+      currPhone: _changedPhone.phone,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateAddressInfoActorState _mapChangeContPostalCodeToState(
+      _ChangedContPostalCode _changedPostalCode) {
+    return state.copyWith(
+      contPostalCode: _changedPostalCode.code,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateAddressInfoActorState _mapChangeContPrefectureToState(
+      _ChangedContPrefecture _changedPrefecture) {
+    return state.copyWith(
+      contPrefecture: _changedPrefecture.prefecture,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateAddressInfoActorState _mapChangeContCityToState(
+      _ChangedContCity _changedCity) {
+    return state.copyWith(
+      contCity: _changedCity.city,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateAddressInfoActorState _mapChangeContAddressToState(
+      _ChangedContAddress _changedAddress) {
+    return state.copyWith(
+      contAddress: _changedAddress.address,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateAddressInfoActorState _mapChangeContPhoneToState(
+      _ChangedContPhone _changedPhone) {
+    return state.copyWith(
+      contPhone: _changedPhone.phone,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -112,11 +173,16 @@ class UpdateAddressInfoActorBloc
     );
     failureOrSuccess = await updateAddressInfo(
       UpdateAddressParams(
-        postalCode: state.postalCode,
-        prefecture: state.prefecture,
-        city: state.city,
-        address: state.address,
-        phone: state.phone,
+        currPostalCode: state.currPostalCode,
+        currPrefecture: state.currPrefecture,
+        currCity: state.currCity,
+        currAddress: state.currAddress,
+        currPhone: state.currPhone,
+        contPostalCode: state.contPostalCode,
+        contPrefecture: state.contPrefecture,
+        contCity: state.contCity,
+        contAddress: state.contAddress,
+        contPhone: state.contPhone,
       ),
     );
 

@@ -9,6 +9,7 @@ class CustomDropDownWidget extends StatelessWidget {
   final Function(String) onChanged;
   String value;
   final bool isExpanded;
+  final Alignment alignment;
 
   CustomDropDownWidget({
     Key key,
@@ -18,6 +19,7 @@ class CustomDropDownWidget extends StatelessWidget {
     this.value = "",
     this.isRequired = false,
     this.isExpanded = true,
+    this.alignment,
   }) : super(key: key);
 
   @override
@@ -48,15 +50,18 @@ class CustomDropDownWidget extends StatelessWidget {
           items: options.map((String value) {
             return DropdownMenuItem<String>(
               value: value,
-              child: Text(value),
+              child: Align(
+                alignment: alignment ?? Alignment.centerLeft,
+                child: Text(
+                  value,
+                ),
+              ),
             );
           }).toList(),
           onTap: () {
             FocusScope.of(context).unfocus();
           },
-          onChanged: (value) {
-            onChanged(value);
-          },
+          onChanged: onChanged,
         ),
       ],
     );

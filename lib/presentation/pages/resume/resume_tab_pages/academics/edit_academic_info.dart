@@ -241,16 +241,6 @@ class _YearOfEnrollField extends StatelessWidget {
           previous.yearOFEnroll != current.yearOFEnroll,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Year of Enroll",
-        // child: InputTextWidget(
-        //   hintText: "2010",
-        //   textInputType: TextInputType.number,
-        //   // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-        //   value: state.yearOFEnroll,
-
-        //   onChanged: (value) => context
-        //       .read<UpdateAcademicInfoActorBloc>()
-        //       .add(UpdateAcademicInfoActorEvent.changedYearOfEnroll(value)),
-        // ),
         child: CustomDropDownWidget(
           hintText: "2010",
           value: state.yearOFEnroll,
