@@ -17,11 +17,13 @@ import 'package:wallet_app/utils/constant.dart';
 class EditWorkInfoForm extends StatelessWidget {
   final UpdateWorkInfoActorBloc actorBloc;
   final WorkHistory info;
+  final List<String> typeOfCompanyList;
 
   const EditWorkInfoForm({
     Key key,
     @required this.info,
     @required this.actorBloc,
+    @required this.typeOfCompanyList,
   })  : assert(info != null),
         super(key: key);
 
@@ -30,7 +32,10 @@ class EditWorkInfoForm extends StatelessWidget {
     return BlocProvider(
       create: (context) => actorBloc
         ..add(
-          UpdateWorkInfoActorEvent.setInitialState(info),
+          UpdateWorkInfoActorEvent.setInitialState(
+            info,
+            typeOfCompanyList,
+          ),
         ),
       child: Scaffold(
         appBar: AppBar(
@@ -120,11 +125,7 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             SizedBox(height: 20),
             _StartedYearField(),
             SizedBox(height: 20),
-            _MonthOfEnrollField(),
-            SizedBox(height: 20),
             _EndYearField(),
-            SizedBox(height: 20),
-            _EndMonthField(),
             SizedBox(height: 20),
             _PurposeOfResignField(),
           ],
@@ -253,87 +254,82 @@ class _StartedYearField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.startedYear != current.startedYear,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Started Year",
-        child: CustomDropDownWidget(
-          hintText: "2010",
-          value: state.startedYear,
-          options: const [
-            "1990",
-            "1991",
-            "1992",
-            "1993",
-            "1994",
-            "1995",
-            "1996",
-            "1997",
-            "1998",
-            "1999",
-            "2000",
-            "2001",
-            "2002",
-            "2003",
-            "2004",
-            "2005",
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-          ],
-          onChanged: (value) => context
-              .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedStartedYear(value)),
-        ),
-      ),
-    );
-  }
-}
-
-class _MonthOfEnrollField extends StatelessWidget {
-  const _MonthOfEnrollField({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      buildWhen: (previous, current) =>
+          previous.startedYear != current.startedYear ||
           previous.startedMonth != current.startedMonth,
       builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Started Month",
-        child: CustomDropDownWidget(
-          hintText: "Sep",
-          value: state.startedMonth,
-          options: const [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "July",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
+        title: "Started Year",
+        child: Row(
+          children: [
+            Flexible(
+              child: CustomDropDownWidget(
+                hintText: "Select Year",
+                value: state.startedYear,
+                options: const [
+                  "1990",
+                  "1991",
+                  "1992",
+                  "1993",
+                  "1994",
+                  "1995",
+                  "1996",
+                  "1997",
+                  "1998",
+                  "1999",
+                  "2000",
+                  "2001",
+                  "2002",
+                  "2003",
+                  "2004",
+                  "2005",
+                  "2006",
+                  "2007",
+                  "2008",
+                  "2009",
+                  "2010",
+                  "2011",
+                  "2012",
+                  "2013",
+                  "2014",
+                  "2015",
+                  "2016",
+                  "2017",
+                  "2018",
+                  "2019",
+                  "2020",
+                  "2021",
+                ],
+                alignment: Alignment.topCenter,
+                onChanged: (value) => context
+                    .read<UpdateWorkInfoActorBloc>()
+                    .add(UpdateWorkInfoActorEvent.changedStartedYear(value)),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Flexible(
+              child: CustomDropDownWidget(
+                hintText: "Select Month",
+                value: state.startedMonth,
+                alignment: Alignment.topCenter,
+                options: const [
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "July",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                ],
+                onChanged: (value) => context
+                    .read<UpdateWorkInfoActorBloc>()
+                    .add(UpdateWorkInfoActorEvent.changedStartedMonth(value)),
+              ),
+            ),
           ],
-          onChanged: (value) => context
-              .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedStartedMonth(value)),
         ),
       ),
     );
@@ -348,86 +344,83 @@ class _EndYearField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      buildWhen: (previous, current) => previous.endYear != current.endYear,
+      buildWhen: (previous, current) =>
+          previous.endYear != current.endYear ||
+          previous.endMonth != current.endMonth,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "End Year",
-        child: CustomDropDownWidget(
-          hintText: "2014",
-          value: state.endYear,
-          options: const [
-            "1990",
-            "1991",
-            "1992",
-            "1993",
-            "1994",
-            "1995",
-            "1996",
-            "1997",
-            "1998",
-            "1999",
-            "2000",
-            "2001",
-            "2002",
-            "2003",
-            "2004",
-            "2005",
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
+        child: Row(
+          children: [
+            Flexible(
+              child: CustomDropDownWidget(
+                hintText: "Select Year",
+                value: state.endYear,
+                options: const [
+                  "1990",
+                  "1991",
+                  "1992",
+                  "1993",
+                  "1994",
+                  "1995",
+                  "1996",
+                  "1997",
+                  "1998",
+                  "1999",
+                  "2000",
+                  "2001",
+                  "2002",
+                  "2003",
+                  "2004",
+                  "2005",
+                  "2006",
+                  "2007",
+                  "2008",
+                  "2009",
+                  "2010",
+                  "2011",
+                  "2012",
+                  "2013",
+                  "2014",
+                  "2015",
+                  "2016",
+                  "2017",
+                  "2018",
+                  "2019",
+                  "2020",
+                  "2021",
+                ],
+                alignment: Alignment.topCenter,
+                onChanged: (value) => context
+                    .read<UpdateWorkInfoActorBloc>()
+                    .add(UpdateWorkInfoActorEvent.changedEndYear(value)),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Flexible(
+              child: CustomDropDownWidget(
+                hintText: "Select Month",
+                value: state.endMonth,
+                alignment: Alignment.topCenter,
+                options: const [
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "July",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                ],
+                onChanged: (value) => context
+                    .read<UpdateWorkInfoActorBloc>()
+                    .add(UpdateWorkInfoActorEvent.changedEndMonth(value)),
+              ),
+            ),
           ],
-          onChanged: (value) => context
-              .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedEndYear(value)),
-        ),
-      ),
-    );
-  }
-}
-
-class _EndMonthField extends StatelessWidget {
-  const _EndMonthField({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      buildWhen: (previous, current) => previous.endMonth != current.endMonth,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "End Month",
-        child: CustomDropDownWidget(
-          hintText: "Oct",
-          value: state.startedMonth,
-          options: const [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "July",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
-          onChanged: (value) => context
-              .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedEndMonth(value)),
         ),
       ),
     );

@@ -15,10 +15,12 @@ import 'package:wallet_app/presentation/widgets/shodow_box.dart';
 
 class AcademicsPage extends StatelessWidget {
   final List<AcademicHistory> academics;
+  final List<String> listOfSubjects;
 
   const AcademicsPage({
     Key key,
     @required this.academics,
+    @required this.listOfSubjects,
   }) : super(key: key);
 
   @override
@@ -38,6 +40,7 @@ class AcademicsPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return _CreateAcademicInfoBox(
                     history: academics[index],
+                    listOfSubjects: listOfSubjects,
                     index: index + 1,
                   );
                 },
@@ -76,6 +79,7 @@ class AcademicsPage extends StatelessWidget {
                   updateAcadamicInfo: getIt<UpdateAcadamicInfo>());
               ExtendedNavigator.of(context).pushEditAcademicInfoForm(
                 info: const AcademicHistory(),
+                listOfSubjects: listOfSubjects,
                 actorBloc: actorBloc,
               );
             },
@@ -92,11 +96,13 @@ class AcademicsPage extends StatelessWidget {
 
 class _CreateAcademicInfoBox extends StatelessWidget {
   final AcademicHistory history;
+  final List<String> listOfSubjects;
   final int index;
 
   const _CreateAcademicInfoBox({
     Key key,
     @required this.history,
+    @required this.listOfSubjects,
     @required this.index,
   }) : super(key: key);
 
@@ -107,7 +113,10 @@ class _CreateAcademicInfoBox extends StatelessWidget {
     return BlocProvider(
       create: (context) => actor
         ..add(
-          UpdateAcademicInfoActorEvent.setInitialState(history),
+          UpdateAcademicInfoActorEvent.setInitialState(
+            history,
+            listOfSubjects,
+          ),
         ),
       child: _createBody(context, actor, history),
     );
@@ -134,6 +143,7 @@ class _CreateAcademicInfoBox extends StatelessWidget {
                 onTap: () =>
                     ExtendedNavigator.of(context).pushEditAcademicInfoForm(
                   info: academicHistory,
+                  listOfSubjects: listOfSubjects,
                   actorBloc: actorBloc,
                 ),
                 child: SvgPicture.asset(

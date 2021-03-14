@@ -112,6 +112,7 @@ class UpdateAcademicInfoActorBloc
         monthOfEnroll: acadimicInfo.startMonth ?? "",
         yearOfCpmpletion: acadimicInfo.completionYear ?? "",
         monthOfCompletion: acadimicInfo.completionMonth ?? "",
+        majorSubjectList: _setInitialState.listOfMajorSubject ?? [],
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );

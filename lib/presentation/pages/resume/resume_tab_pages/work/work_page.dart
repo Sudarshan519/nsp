@@ -15,10 +15,12 @@ import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 class WorkPage extends StatelessWidget {
   final List<WorkHistory> works;
+  final List<String> typeOfCompanyList;
 
   const WorkPage({
     Key key,
     @required this.works,
+    @required this.typeOfCompanyList,
   }) : super(key: key);
 
   @override
@@ -38,6 +40,7 @@ class WorkPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return _CreateWorkInfoBox(
                     work: works[index],
+                    typeOfCompanyList: typeOfCompanyList,
                     index: index + 1,
                   );
                 },
@@ -76,6 +79,7 @@ class WorkPage extends StatelessWidget {
                   updateWorkInfo: getIt<UpdateWorkInfo>());
               ExtendedNavigator.of(context).pushEditWorkInfoForm(
                 info: const WorkHistory(),
+                typeOfCompanyList: typeOfCompanyList,
                 actorBloc: actorBloc,
               );
             },
@@ -92,11 +96,13 @@ class WorkPage extends StatelessWidget {
 
 class _CreateWorkInfoBox extends StatelessWidget {
   final WorkHistory work;
+  final List<String> typeOfCompanyList;
   final int index;
 
   const _CreateWorkInfoBox({
     Key key,
     @required this.work,
+    @required this.typeOfCompanyList,
     @required this.index,
   }) : super(key: key);
 
@@ -107,7 +113,10 @@ class _CreateWorkInfoBox extends StatelessWidget {
     return BlocProvider(
       create: (context) => actor
         ..add(
-          UpdateWorkInfoActorEvent.setInitialState(work),
+          UpdateWorkInfoActorEvent.setInitialState(
+            work,
+            typeOfCompanyList,
+          ),
         ),
       child: _createBody(context, actor, work),
     );
@@ -133,6 +142,7 @@ class _CreateWorkInfoBox extends StatelessWidget {
               InkWell(
                 onTap: () => ExtendedNavigator.of(context).pushEditWorkInfoForm(
                   info: work,
+                  typeOfCompanyList: typeOfCompanyList,
                   actorBloc: actorBloc,
                 ),
                 child: SvgPicture.asset(

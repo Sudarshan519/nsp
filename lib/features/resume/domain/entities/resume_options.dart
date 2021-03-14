@@ -3,11 +3,11 @@ import 'package:flutter/foundation.dart';
 
 class ResumeOptions extends Equatable {
   const ResumeOptions({
-    @required this.nationalities,
-    @required this.knownLanguages,
-    @required this.majorSubjects,
-    @required this.companyTypes,
-    @required this.preferences,
+    this.nationalities,
+    this.knownLanguages,
+    this.majorSubjects,
+    this.companyTypes,
+    this.preferences,
   });
 
   final List<String> nationalities;

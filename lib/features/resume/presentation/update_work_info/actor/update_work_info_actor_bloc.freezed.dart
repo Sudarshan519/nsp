@@ -56,9 +56,11 @@ class _$UpdateWorkInfoActorEventTearOff {
   }
 
 // ignore: unused_element
-  _SetInitialState setInitialState(WorkHistory workHistory) {
+  _SetInitialState setInitialState(
+      WorkHistory workHistory, List<String> typeOfCompanyList) {
     return _SetInitialState(
       workHistory,
+      typeOfCompanyList,
     );
   }
 
@@ -82,7 +84,9 @@ mixin _$UpdateWorkInfoActorEvent {
     @required TResult changedStartedMonth(String month),
     @required TResult changedEndYear(String year),
     @required TResult changedEndMonth(String month),
-    @required TResult setInitialState(WorkHistory workHistory),
+    @required
+        TResult setInitialState(
+            WorkHistory workHistory, List<String> typeOfCompanyList),
     @required TResult save(),
   });
   @optionalTypeArgs
@@ -93,7 +97,8 @@ mixin _$UpdateWorkInfoActorEvent {
     TResult changedStartedMonth(String month),
     TResult changedEndYear(String year),
     TResult changedEndMonth(String month),
-    TResult setInitialState(WorkHistory workHistory),
+    TResult setInitialState(
+        WorkHistory workHistory, List<String> typeOfCompanyList),
     TResult save(),
     @required TResult orElse(),
   });
@@ -207,7 +212,9 @@ class _$_ChangedNameOfCompany implements _ChangedNameOfCompany {
     @required TResult changedStartedMonth(String month),
     @required TResult changedEndYear(String year),
     @required TResult changedEndMonth(String month),
-    @required TResult setInitialState(WorkHistory workHistory),
+    @required
+        TResult setInitialState(
+            WorkHistory workHistory, List<String> typeOfCompanyList),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -230,7 +237,8 @@ class _$_ChangedNameOfCompany implements _ChangedNameOfCompany {
     TResult changedStartedMonth(String month),
     TResult changedEndYear(String year),
     TResult changedEndMonth(String month),
-    TResult setInitialState(WorkHistory workHistory),
+    TResult setInitialState(
+        WorkHistory workHistory, List<String> typeOfCompanyList),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -361,7 +369,9 @@ class _$_ChangedTypeOfCompany implements _ChangedTypeOfCompany {
     @required TResult changedStartedMonth(String month),
     @required TResult changedEndYear(String year),
     @required TResult changedEndMonth(String month),
-    @required TResult setInitialState(WorkHistory workHistory),
+    @required
+        TResult setInitialState(
+            WorkHistory workHistory, List<String> typeOfCompanyList),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -384,7 +394,8 @@ class _$_ChangedTypeOfCompany implements _ChangedTypeOfCompany {
     TResult changedStartedMonth(String month),
     TResult changedEndYear(String year),
     TResult changedEndMonth(String month),
-    TResult setInitialState(WorkHistory workHistory),
+    TResult setInitialState(
+        WorkHistory workHistory, List<String> typeOfCompanyList),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -514,7 +525,9 @@ class _$_ChangedStartedYear implements _ChangedStartedYear {
     @required TResult changedStartedMonth(String month),
     @required TResult changedEndYear(String year),
     @required TResult changedEndMonth(String month),
-    @required TResult setInitialState(WorkHistory workHistory),
+    @required
+        TResult setInitialState(
+            WorkHistory workHistory, List<String> typeOfCompanyList),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -537,7 +550,8 @@ class _$_ChangedStartedYear implements _ChangedStartedYear {
     TResult changedStartedMonth(String month),
     TResult changedEndYear(String year),
     TResult changedEndMonth(String month),
-    TResult setInitialState(WorkHistory workHistory),
+    TResult setInitialState(
+        WorkHistory workHistory, List<String> typeOfCompanyList),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -668,7 +682,9 @@ class _$_ChangedStartedMonth implements _ChangedStartedMonth {
     @required TResult changedStartedMonth(String month),
     @required TResult changedEndYear(String year),
     @required TResult changedEndMonth(String month),
-    @required TResult setInitialState(WorkHistory workHistory),
+    @required
+        TResult setInitialState(
+            WorkHistory workHistory, List<String> typeOfCompanyList),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -691,7 +707,8 @@ class _$_ChangedStartedMonth implements _ChangedStartedMonth {
     TResult changedStartedMonth(String month),
     TResult changedEndYear(String year),
     TResult changedEndMonth(String month),
-    TResult setInitialState(WorkHistory workHistory),
+    TResult setInitialState(
+        WorkHistory workHistory, List<String> typeOfCompanyList),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -821,7 +838,9 @@ class _$_ChangedEndYear implements _ChangedEndYear {
     @required TResult changedStartedMonth(String month),
     @required TResult changedEndYear(String year),
     @required TResult changedEndMonth(String month),
-    @required TResult setInitialState(WorkHistory workHistory),
+    @required
+        TResult setInitialState(
+            WorkHistory workHistory, List<String> typeOfCompanyList),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -844,7 +863,8 @@ class _$_ChangedEndYear implements _ChangedEndYear {
     TResult changedStartedMonth(String month),
     TResult changedEndYear(String year),
     TResult changedEndMonth(String month),
-    TResult setInitialState(WorkHistory workHistory),
+    TResult setInitialState(
+        WorkHistory workHistory, List<String> typeOfCompanyList),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -974,7 +994,9 @@ class _$_ChangedEndMonth implements _ChangedEndMonth {
     @required TResult changedStartedMonth(String month),
     @required TResult changedEndYear(String year),
     @required TResult changedEndMonth(String month),
-    @required TResult setInitialState(WorkHistory workHistory),
+    @required
+        TResult setInitialState(
+            WorkHistory workHistory, List<String> typeOfCompanyList),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -997,7 +1019,8 @@ class _$_ChangedEndMonth implements _ChangedEndMonth {
     TResult changedStartedMonth(String month),
     TResult changedEndYear(String year),
     TResult changedEndMonth(String month),
-    TResult setInitialState(WorkHistory workHistory),
+    TResult setInitialState(
+        WorkHistory workHistory, List<String> typeOfCompanyList),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1065,7 +1088,7 @@ abstract class _$SetInitialStateCopyWith<$Res> {
   factory _$SetInitialStateCopyWith(
           _SetInitialState value, $Res Function(_SetInitialState) then) =
       __$SetInitialStateCopyWithImpl<$Res>;
-  $Res call({WorkHistory workHistory});
+  $Res call({WorkHistory workHistory, List<String> typeOfCompanyList});
 }
 
 /// @nodoc
@@ -1082,23 +1105,31 @@ class __$SetInitialStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object workHistory = freezed,
+    Object typeOfCompanyList = freezed,
   }) {
     return _then(_SetInitialState(
       workHistory == freezed ? _value.workHistory : workHistory as WorkHistory,
+      typeOfCompanyList == freezed
+          ? _value.typeOfCompanyList
+          : typeOfCompanyList as List<String>,
     ));
   }
 }
 
 /// @nodoc
 class _$_SetInitialState implements _SetInitialState {
-  const _$_SetInitialState(this.workHistory) : assert(workHistory != null);
+  const _$_SetInitialState(this.workHistory, this.typeOfCompanyList)
+      : assert(workHistory != null),
+        assert(typeOfCompanyList != null);
 
   @override
   final WorkHistory workHistory;
+  @override
+  final List<String> typeOfCompanyList;
 
   @override
   String toString() {
-    return 'UpdateWorkInfoActorEvent.setInitialState(workHistory: $workHistory)';
+    return 'UpdateWorkInfoActorEvent.setInitialState(workHistory: $workHistory, typeOfCompanyList: $typeOfCompanyList)';
   }
 
   @override
@@ -1107,12 +1138,17 @@ class _$_SetInitialState implements _SetInitialState {
         (other is _SetInitialState &&
             (identical(other.workHistory, workHistory) ||
                 const DeepCollectionEquality()
-                    .equals(other.workHistory, workHistory)));
+                    .equals(other.workHistory, workHistory)) &&
+            (identical(other.typeOfCompanyList, typeOfCompanyList) ||
+                const DeepCollectionEquality()
+                    .equals(other.typeOfCompanyList, typeOfCompanyList)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(workHistory);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(workHistory) ^
+      const DeepCollectionEquality().hash(typeOfCompanyList);
 
   @JsonKey(ignore: true)
   @override
@@ -1128,7 +1164,9 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult changedStartedMonth(String month),
     @required TResult changedEndYear(String year),
     @required TResult changedEndMonth(String month),
-    @required TResult setInitialState(WorkHistory workHistory),
+    @required
+        TResult setInitialState(
+            WorkHistory workHistory, List<String> typeOfCompanyList),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -1139,7 +1177,7 @@ class _$_SetInitialState implements _SetInitialState {
     assert(changedEndMonth != null);
     assert(setInitialState != null);
     assert(save != null);
-    return setInitialState(workHistory);
+    return setInitialState(workHistory, typeOfCompanyList);
   }
 
   @override
@@ -1151,13 +1189,14 @@ class _$_SetInitialState implements _SetInitialState {
     TResult changedStartedMonth(String month),
     TResult changedEndYear(String year),
     TResult changedEndMonth(String month),
-    TResult setInitialState(WorkHistory workHistory),
+    TResult setInitialState(
+        WorkHistory workHistory, List<String> typeOfCompanyList),
     TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (setInitialState != null) {
-      return setInitialState(workHistory);
+      return setInitialState(workHistory, typeOfCompanyList);
     }
     return orElse();
   }
@@ -1207,9 +1246,12 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdateWorkInfoActorEvent {
-  const factory _SetInitialState(WorkHistory workHistory) = _$_SetInitialState;
+  const factory _SetInitialState(
+          WorkHistory workHistory, List<String> typeOfCompanyList) =
+      _$_SetInitialState;
 
   WorkHistory get workHistory;
+  List<String> get typeOfCompanyList;
   @JsonKey(ignore: true)
   _$SetInitialStateCopyWith<_SetInitialState> get copyWith;
 }
@@ -1257,7 +1299,9 @@ class _$_Save implements _Save {
     @required TResult changedStartedMonth(String month),
     @required TResult changedEndYear(String year),
     @required TResult changedEndMonth(String month),
-    @required TResult setInitialState(WorkHistory workHistory),
+    @required
+        TResult setInitialState(
+            WorkHistory workHistory, List<String> typeOfCompanyList),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -1280,7 +1324,8 @@ class _$_Save implements _Save {
     TResult changedStartedMonth(String month),
     TResult changedEndYear(String year),
     TResult changedEndMonth(String month),
-    TResult setInitialState(WorkHistory workHistory),
+    TResult setInitialState(
+        WorkHistory workHistory, List<String> typeOfCompanyList),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1351,6 +1396,7 @@ class _$UpdateWorkInfoActorStateTearOff {
       @required String startedMonth,
       @required String endYear,
       @required String endMonth,
+      @required List<String> typeOfCompanyList,
       @required bool isSubmitting,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateWorkInfoActorState(
@@ -1360,6 +1406,7 @@ class _$UpdateWorkInfoActorStateTearOff {
       startedMonth: startedMonth,
       endYear: endYear,
       endMonth: endMonth,
+      typeOfCompanyList: typeOfCompanyList,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
@@ -1378,6 +1425,7 @@ mixin _$UpdateWorkInfoActorState {
   String get startedMonth;
   String get endYear;
   String get endMonth;
+  List<String> get typeOfCompanyList;
   bool get isSubmitting;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
@@ -1397,6 +1445,7 @@ abstract class $UpdateWorkInfoActorStateCopyWith<$Res> {
       String startedMonth,
       String endYear,
       String endMonth,
+      List<String> typeOfCompanyList,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -1418,6 +1467,7 @@ class _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
     Object startedMonth = freezed,
     Object endYear = freezed,
     Object endMonth = freezed,
+    Object typeOfCompanyList = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -1434,6 +1484,9 @@ class _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
           : startedMonth as String,
       endYear: endYear == freezed ? _value.endYear : endYear as String,
       endMonth: endMonth == freezed ? _value.endMonth : endMonth as String,
+      typeOfCompanyList: typeOfCompanyList == freezed
+          ? _value.typeOfCompanyList
+          : typeOfCompanyList as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -1457,6 +1510,7 @@ abstract class _$UpdateWorkInfoActorStateCopyWith<$Res>
       String startedMonth,
       String endYear,
       String endMonth,
+      List<String> typeOfCompanyList,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -1481,6 +1535,7 @@ class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
     Object startedMonth = freezed,
     Object endYear = freezed,
     Object endMonth = freezed,
+    Object typeOfCompanyList = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -1497,6 +1552,9 @@ class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
           : startedMonth as String,
       endYear: endYear == freezed ? _value.endYear : endYear as String,
       endMonth: endMonth == freezed ? _value.endMonth : endMonth as String,
+      typeOfCompanyList: typeOfCompanyList == freezed
+          ? _value.typeOfCompanyList
+          : typeOfCompanyList as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -1515,6 +1573,7 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
       @required this.startedMonth,
       @required this.endYear,
       @required this.endMonth,
+      @required this.typeOfCompanyList,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
       : assert(nameOfComapny != null),
@@ -1523,6 +1582,7 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
         assert(startedMonth != null),
         assert(endYear != null),
         assert(endMonth != null),
+        assert(typeOfCompanyList != null),
         assert(isSubmitting != null),
         assert(authFailureOrSuccessOption != null);
 
@@ -1539,13 +1599,15 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
   @override
   final String endMonth;
   @override
+  final List<String> typeOfCompanyList;
+  @override
   final bool isSubmitting;
   @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdateWorkInfoActorState(nameOfComapny: $nameOfComapny, companyType: $companyType, startedYear: $startedYear, startedMonth: $startedMonth, endYear: $endYear, endMonth: $endMonth, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateWorkInfoActorState(nameOfComapny: $nameOfComapny, companyType: $companyType, startedYear: $startedYear, startedMonth: $startedMonth, endYear: $endYear, endMonth: $endMonth, typeOfCompanyList: $typeOfCompanyList, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -1570,6 +1632,9 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
             (identical(other.endMonth, endMonth) ||
                 const DeepCollectionEquality()
                     .equals(other.endMonth, endMonth)) &&
+            (identical(other.typeOfCompanyList, typeOfCompanyList) ||
+                const DeepCollectionEquality()
+                    .equals(other.typeOfCompanyList, typeOfCompanyList)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
@@ -1589,6 +1654,7 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
       const DeepCollectionEquality().hash(startedMonth) ^
       const DeepCollectionEquality().hash(endYear) ^
       const DeepCollectionEquality().hash(endMonth) ^
+      const DeepCollectionEquality().hash(typeOfCompanyList) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
@@ -1614,6 +1680,8 @@ abstract class _UpdateWorkInfoActorState implements UpdateWorkInfoActorState {
           @required
               String endMonth,
           @required
+              List<String> typeOfCompanyList,
+          @required
               bool isSubmitting,
           @required
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
@@ -1631,6 +1699,8 @@ abstract class _UpdateWorkInfoActorState implements UpdateWorkInfoActorState {
   String get endYear;
   @override
   String get endMonth;
+  @override
+  List<String> get typeOfCompanyList;
   @override
   bool get isSubmitting;
   @override

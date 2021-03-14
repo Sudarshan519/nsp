@@ -16,6 +16,7 @@ abstract class UpdateAcademicInfoActorEvent
   const factory UpdateAcademicInfoActorEvent.changedMonthOfCompletion(
       String month) = _ChangedMonthOfCompletion;
   const factory UpdateAcademicInfoActorEvent.setInitialState(
-      AcademicHistory academicHistory) = _SetInitialState;
+          AcademicHistory academicHistory, List<String> listOfMajorSubject) =
+      _SetInitialState;
   const factory UpdateAcademicInfoActorEvent.save() = _Save;
 }

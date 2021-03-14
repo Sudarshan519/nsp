@@ -152,6 +152,7 @@ class Router extends RouterBase {
           key: args.key,
           info: args.info,
           actorBloc: args.actorBloc,
+          typeOfCompanyList: args.typeOfCompanyList,
         ),
         settings: data,
       );
@@ -163,6 +164,7 @@ class Router extends RouterBase {
           key: args.key,
           actorBloc: args.actorBloc,
           info: args.info,
+          listOfSubjects: args.listOfSubjects,
         ),
         settings: data,
       );
@@ -245,22 +247,30 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
     Key key,
     @required WorkHistory info,
     @required UpdateWorkInfoActorBloc actorBloc,
+    @required List<String> typeOfCompanyList,
   }) =>
       push<dynamic>(
         Routes.editWorkInfoForm,
         arguments: EditWorkInfoFormArguments(
-            key: key, info: info, actorBloc: actorBloc),
+            key: key,
+            info: info,
+            actorBloc: actorBloc,
+            typeOfCompanyList: typeOfCompanyList),
       );
 
   Future<dynamic> pushEditAcademicInfoForm({
     Key key,
     @required UpdateAcademicInfoActorBloc actorBloc,
     @required AcademicHistory info,
+    @required List<String> listOfSubjects,
   }) =>
       push<dynamic>(
         Routes.editAcademicInfoForm,
         arguments: EditAcademicInfoFormArguments(
-            key: key, actorBloc: actorBloc, info: info),
+            key: key,
+            actorBloc: actorBloc,
+            info: info,
+            listOfSubjects: listOfSubjects),
       );
 
   Future<dynamic> pushEditQualificationInfoForm({
@@ -324,8 +334,12 @@ class EditWorkInfoFormArguments {
   final Key key;
   final WorkHistory info;
   final UpdateWorkInfoActorBloc actorBloc;
+  final List<String> typeOfCompanyList;
   EditWorkInfoFormArguments(
-      {this.key, @required this.info, @required this.actorBloc});
+      {this.key,
+      @required this.info,
+      @required this.actorBloc,
+      @required this.typeOfCompanyList});
 }
 
 /// EditAcademicInfoForm arguments holder class
@@ -333,8 +347,12 @@ class EditAcademicInfoFormArguments {
   final Key key;
   final UpdateAcademicInfoActorBloc actorBloc;
   final AcademicHistory info;
+  final List<String> listOfSubjects;
   EditAcademicInfoFormArguments(
-      {this.key, @required this.actorBloc, @required this.info});
+      {this.key,
+      @required this.actorBloc,
+      @required this.info,
+      @required this.listOfSubjects});
 }
 
 /// EditQualificationInfoForm arguments holder class

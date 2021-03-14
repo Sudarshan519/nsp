@@ -9,6 +9,7 @@ abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
     @required String startedMonth,
     @required String endYear,
     @required String endMonth,
+    @required List<String> typeOfCompanyList,
     @required bool isSubmitting,
     @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
   }) = _UpdateWorkInfoActorState;
@@ -20,6 +21,7 @@ abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
         startedMonth: '',
         endYear: '',
         endMonth: '',
+        typeOfCompanyList: [],
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );

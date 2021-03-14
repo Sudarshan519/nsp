@@ -289,12 +289,14 @@ class _$ResumeWatcherStateTearOff {
       @required List<AcademicHistory> academics,
       @required List<WorkHistory> works,
       @required List<QualificationHistory> qualifications,
+      @required ResumeOptions options,
       @required bool isLoading}) {
     return _ResumeWatcherState(
       info: info,
       academics: academics,
       works: works,
       qualifications: qualifications,
+      options: options,
       isLoading: isLoading,
     );
   }
@@ -310,6 +312,7 @@ mixin _$ResumeWatcherState {
   List<AcademicHistory> get academics;
   List<WorkHistory> get works;
   List<QualificationHistory> get qualifications;
+  ResumeOptions get options;
   bool get isLoading;
 
   @JsonKey(ignore: true)
@@ -326,6 +329,7 @@ abstract class $ResumeWatcherStateCopyWith<$Res> {
       List<AcademicHistory> academics,
       List<WorkHistory> works,
       List<QualificationHistory> qualifications,
+      ResumeOptions options,
       bool isLoading});
 }
 
@@ -344,6 +348,7 @@ class _$ResumeWatcherStateCopyWithImpl<$Res>
     Object academics = freezed,
     Object works = freezed,
     Object qualifications = freezed,
+    Object options = freezed,
     Object isLoading = freezed,
   }) {
     return _then(_value.copyWith(
@@ -355,6 +360,7 @@ class _$ResumeWatcherStateCopyWithImpl<$Res>
       qualifications: qualifications == freezed
           ? _value.qualifications
           : qualifications as List<QualificationHistory>,
+      options: options == freezed ? _value.options : options as ResumeOptions,
       isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
     ));
   }
@@ -372,6 +378,7 @@ abstract class _$ResumeWatcherStateCopyWith<$Res>
       List<AcademicHistory> academics,
       List<WorkHistory> works,
       List<QualificationHistory> qualifications,
+      ResumeOptions options,
       bool isLoading});
 }
 
@@ -392,6 +399,7 @@ class __$ResumeWatcherStateCopyWithImpl<$Res>
     Object academics = freezed,
     Object works = freezed,
     Object qualifications = freezed,
+    Object options = freezed,
     Object isLoading = freezed,
   }) {
     return _then(_ResumeWatcherState(
@@ -403,6 +411,7 @@ class __$ResumeWatcherStateCopyWithImpl<$Res>
       qualifications: qualifications == freezed
           ? _value.qualifications
           : qualifications as List<QualificationHistory>,
+      options: options == freezed ? _value.options : options as ResumeOptions,
       isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
     ));
   }
@@ -415,11 +424,13 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
       @required this.academics,
       @required this.works,
       @required this.qualifications,
+      @required this.options,
       @required this.isLoading})
       : assert(info != null),
         assert(academics != null),
         assert(works != null),
         assert(qualifications != null),
+        assert(options != null),
         assert(isLoading != null);
 
   @override
@@ -431,11 +442,13 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
   @override
   final List<QualificationHistory> qualifications;
   @override
+  final ResumeOptions options;
+  @override
   final bool isLoading;
 
   @override
   String toString() {
-    return 'ResumeWatcherState(info: $info, academics: $academics, works: $works, qualifications: $qualifications, isLoading: $isLoading)';
+    return 'ResumeWatcherState(info: $info, academics: $academics, works: $works, qualifications: $qualifications, options: $options, isLoading: $isLoading)';
   }
 
   @override
@@ -452,6 +465,9 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
             (identical(other.qualifications, qualifications) ||
                 const DeepCollectionEquality()
                     .equals(other.qualifications, qualifications)) &&
+            (identical(other.options, options) ||
+                const DeepCollectionEquality()
+                    .equals(other.options, options)) &&
             (identical(other.isLoading, isLoading) ||
                 const DeepCollectionEquality()
                     .equals(other.isLoading, isLoading)));
@@ -464,6 +480,7 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
       const DeepCollectionEquality().hash(academics) ^
       const DeepCollectionEquality().hash(works) ^
       const DeepCollectionEquality().hash(qualifications) ^
+      const DeepCollectionEquality().hash(options) ^
       const DeepCollectionEquality().hash(isLoading);
 
   @JsonKey(ignore: true)
@@ -478,6 +495,7 @@ abstract class _ResumeWatcherState implements ResumeWatcherState {
       @required List<AcademicHistory> academics,
       @required List<WorkHistory> works,
       @required List<QualificationHistory> qualifications,
+      @required ResumeOptions options,
       @required bool isLoading}) = _$_ResumeWatcherState;
 
   @override
@@ -488,6 +506,8 @@ abstract class _ResumeWatcherState implements ResumeWatcherState {
   List<WorkHistory> get works;
   @override
   List<QualificationHistory> get qualifications;
+  @override
+  ResumeOptions get options;
   @override
   bool get isLoading;
   @override

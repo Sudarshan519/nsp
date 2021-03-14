@@ -111,6 +111,7 @@ class UpdateWorkInfoActorBloc
         startedMonth: workHistory.startMonth ?? "",
         endYear: workHistory.endYear ?? "",
         endMonth: workHistory.endMonth ?? "",
+        typeOfCompanyList: _setInitialState.typeOfCompanyList ?? [],
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );
