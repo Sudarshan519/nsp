@@ -1,0 +1,4082 @@
+[
+    {
+        "city_en": "Nagoya",
+        "city_jp": "名古屋市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Toyohashi",
+        "city_jp": "豊橋市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Okazaki",
+        "city_jp": "岡崎市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Ichinomiya",
+        "city_jp": "一宮市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Seto",
+        "city_jp": "瀬戸市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Handa",
+        "city_jp": "半田市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Kasugai",
+        "city_jp": "春日井市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Toyokawa",
+        "city_jp": "豊川市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Tsushima",
+        "city_jp": "津島市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Hekinan",
+        "city_jp": "碧南市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Kariya",
+        "city_jp": "刈谷市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Toyota",
+        "city_jp": "豊田市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Anjō",
+        "city_jp": "安城市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Nishio",
+        "city_jp": "西尾市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Gamagōri",
+        "city_jp": "蒲郡市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Inuyama",
+        "city_jp": "犬山市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Tokoname",
+        "city_jp": "常滑市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Kōnan",
+        "city_jp": "江南市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Komaki",
+        "city_jp": "小牧市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Inazawa",
+        "city_jp": "稲沢市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Tōkai",
+        "city_jp": "東海市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Ōbu",
+        "city_jp": "大府市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Chita",
+        "city_jp": "知多市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Chiryū",
+        "city_jp": "知立市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Owariasahi",
+        "city_jp": "尾張旭市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Takahama",
+        "city_jp": "高浜市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Iwakura",
+        "city_jp": "岩倉市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Toyoake",
+        "city_jp": "豊明市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Nisshin",
+        "city_jp": "日進市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Tahara",
+        "city_jp": "田原市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Aisai",
+        "city_jp": "愛西市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Kiyosu",
+        "city_jp": "清須市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Shinshiro",
+        "city_jp": "新城市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Kitanagoya",
+        "city_jp": "北名古屋市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Yatomi",
+        "city_jp": "弥富市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Miyoshi",
+        "city_jp": "みよし市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Ama",
+        "city_jp": "あま市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Nagakute",
+        "city_jp": "長久手市",
+        "prefecture": "Aichi"
+    },
+    {
+        "city_en": "Akita",
+        "city_jp": "秋田市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Ōdate",
+        "city_jp": "大館市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Kazuno",
+        "city_jp": "鹿角市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Daisen",
+        "city_jp": "大仙市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Katagami",
+        "city_jp": "潟上市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Kitaakita",
+        "city_jp": "北秋田市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Oga",
+        "city_jp": "男鹿市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Yurihonjō",
+        "city_jp": "由利本荘市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Yuzawa",
+        "city_jp": "湯沢市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Semboku",
+        "city_jp": "仙北市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Yokote",
+        "city_jp": "横手市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Nikaho",
+        "city_jp": "にかほ市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Noshiro",
+        "city_jp": "能代市",
+        "prefecture": "Akita"
+    },
+    {
+        "city_en": "Hachinohe",
+        "city_jp": "八戸市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Kuroishi",
+        "city_jp": "黒石市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Misawa",
+        "city_jp": "三沢市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Mutsu",
+        "city_jp": "むつ市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Towada",
+        "city_jp": "十和田市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Tsugaru",
+        "city_jp": "つがる市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Goshogawara",
+        "city_jp": "五所川原市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Aomori",
+        "city_jp": "青森市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Hirakawa",
+        "city_jp": "平川市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Hirosaki",
+        "city_jp": "弘前市",
+        "prefecture": "Aomori"
+    },
+    {
+        "city_en": "Chiba",
+        "city_jp": "千葉市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Chōshi",
+        "city_jp": "銚子市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Ichikawa",
+        "city_jp": "市川市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Funabashi",
+        "city_jp": "船橋市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Tateyama",
+        "city_jp": "館山市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Kisarazu",
+        "city_jp": "木更津市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Matsudo",
+        "city_jp": "松戸市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Noda",
+        "city_jp": "野田市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Mobara",
+        "city_jp": "茂原市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Narita",
+        "city_jp": "成田市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Sakura",
+        "city_jp": "佐倉市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Tōgane",
+        "city_jp": "東金市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Narashino",
+        "city_jp": "習志野市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Kashiwa",
+        "city_jp": "柏市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Katsuura",
+        "city_jp": "勝浦市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Ichihara",
+        "city_jp": "市原市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Nagareyama",
+        "city_jp": "流山市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Yachiyo",
+        "city_jp": "八千代市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Abiko",
+        "city_jp": "我孫子市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Kamagaya",
+        "city_jp": "鎌ヶ谷市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Kimitsu",
+        "city_jp": "君津市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Futtsu",
+        "city_jp": "富津市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Urayasu",
+        "city_jp": "浦安市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Yotsukaidō",
+        "city_jp": "四街道市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Sodegaura",
+        "city_jp": "袖ヶ浦市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Yachimata",
+        "city_jp": "八街市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Inzai",
+        "city_jp": "印西市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Shiroi",
+        "city_jp": "白井市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Tomisato",
+        "city_jp": "富里市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Kamogawa",
+        "city_jp": "鴨川市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Asahi",
+        "city_jp": "旭市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Isumi",
+        "city_jp": "いすみ市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Sōsa",
+        "city_jp": "匝瑳市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Minamibōsō",
+        "city_jp": "南房総市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Katori",
+        "city_jp": "香取市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Sanmu",
+        "city_jp": "山武市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Oamishirasato",
+        "city_jp": "大網白里市",
+        "prefecture": "Chiba"
+    },
+    {
+        "city_en": "Matsuyama",
+        "city_jp": "松山市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Niihama",
+        "city_jp": "新居浜市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Shikokuchūō",
+        "city_jp": "四国中央市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Seiyo",
+        "city_jp": "西予市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Tōon",
+        "city_jp": "東温市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Saijō",
+        "city_jp": "西条市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Ōzu",
+        "city_jp": "大洲市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Imabari",
+        "city_jp": "今治市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Yawatahama",
+        "city_jp": "八幡浜市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Iyo",
+        "city_jp": "伊予市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Uwajima",
+        "city_jp": "宇和島市",
+        "prefecture": "Ehime"
+    },
+    {
+        "city_en": "Fukui",
+        "city_jp": "福井市",
+        "prefecture": "Fukui"
+    },
+    {
+        "city_en": "Tsuruga",
+        "city_jp": "敦賀市",
+        "prefecture": "Fukui"
+    },
+    {
+        "city_en": "Obama",
+        "city_jp": "小浜市",
+        "prefecture": "Fukui"
+    },
+    {
+        "city_en": "Ōno",
+        "city_jp": "大野市",
+        "prefecture": "Fukui"
+    },
+    {
+        "city_en": "Katsuyama",
+        "city_jp": "勝山市",
+        "prefecture": "Fukui"
+    },
+    {
+        "city_en": "Sabae",
+        "city_jp": "鯖江市",
+        "prefecture": "Fukui"
+    },
+    {
+        "city_en": "Awara",
+        "city_jp": "あわら市",
+        "prefecture": "Fukui"
+    },
+    {
+        "city_en": "Echizen",
+        "city_jp": "越前市",
+        "prefecture": "Fukui"
+    },
+    {
+        "city_en": "Sakai",
+        "city_jp": "坂井市",
+        "prefecture": "Fukui"
+    },
+    {
+        "city_en": "Fukuoka",
+        "city_jp": "福岡市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Kurume",
+        "city_jp": "久留米市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Ōmuta",
+        "city_jp": "大牟田市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Nōgata",
+        "city_jp": "直方市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Tagawa",
+        "city_jp": "田川市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Yanagawa",
+        "city_jp": "柳川市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Yame",
+        "city_jp": "八女市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Chikugo",
+        "city_jp": "筑後市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Ōkawa",
+        "city_jp": "大川市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Yukuhashi",
+        "city_jp": "行橋市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Buzen",
+        "city_jp": "豊前市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Nakagawa",
+        "city_jp": "那珂川市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Nakama",
+        "city_jp": "中間市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Kitakyushu",
+        "city_jp": "北九州市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Ogōri",
+        "city_jp": "小郡市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Chikushino",
+        "city_jp": "筑紫野市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Kasuga",
+        "city_jp": "春日市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Ōnojō",
+        "city_jp": "大野城市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Munakata",
+        "city_jp": "宗像市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Dazaifu",
+        "city_jp": "太宰府市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Koga",
+        "city_jp": "古賀市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Fukutsu",
+        "city_jp": "福津市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Ukiha",
+        "city_jp": "うきは市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Miyawaka",
+        "city_jp": "宮若市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Asakura",
+        "city_jp": "朝倉市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Iizuka",
+        "city_jp": "飯塚市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Kama",
+        "city_jp": "嘉麻市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Miyama",
+        "city_jp": "みやま市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Itoshima",
+        "city_jp": "糸島市",
+        "prefecture": "Fukuoka"
+    },
+    {
+        "city_en": "Aizuwakamatsu",
+        "city_jp": "会津若松市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Fukushima",
+        "city_jp": "福島市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Kōriyama",
+        "city_jp": "郡山市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Sukagawa",
+        "city_jp": "須賀川市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Sōma",
+        "city_jp": "相馬市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Iwaki",
+        "city_jp": "いわき市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Tamura",
+        "city_jp": "田村市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Shirakawa",
+        "city_jp": "白河市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Nihonmatsu",
+        "city_jp": "二本松市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Minamisōma",
+        "city_jp": "南相馬市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Date",
+        "city_jp": "伊達市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Kitakata",
+        "city_jp": "喜多方市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Motomiya",
+        "city_jp": "本宮市",
+        "prefecture": "Fukushima"
+    },
+    {
+        "city_en": "Gifu",
+        "city_jp": "岐阜市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Ōgaki",
+        "city_jp": "大垣市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Takayama",
+        "city_jp": "高山市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Tajimi",
+        "city_jp": "多治見市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Seki",
+        "city_jp": "関市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Nakatsugawa",
+        "city_jp": "中津川市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Mino",
+        "city_jp": "美濃市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Mizunami",
+        "city_jp": "瑞浪市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Hashima",
+        "city_jp": "羽島市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Minokamo",
+        "city_jp": "美濃加茂市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Toki",
+        "city_jp": "土岐市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Kakamigahara",
+        "city_jp": "各務原市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Kani",
+        "city_jp": "可児市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Yamagata",
+        "city_jp": "山県市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Mizuho",
+        "city_jp": "瑞穂市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Hida",
+        "city_jp": "飛騨市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Motosu",
+        "city_jp": "本巣市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Gujō",
+        "city_jp": "郡上市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Gero",
+        "city_jp": "下呂市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Ena",
+        "city_jp": "恵那市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Kaizu",
+        "city_jp": "海津市",
+        "prefecture": "Gifu"
+    },
+    {
+        "city_en": "Maebashi",
+        "city_jp": "前橋市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Takasaki",
+        "city_jp": "高崎市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Kiryū",
+        "city_jp": "桐生市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Isesaki",
+        "city_jp": "伊勢崎市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Ōta",
+        "city_jp": "太田市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Numata",
+        "city_jp": "沼田市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Tatebayashi",
+        "city_jp": "館林市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Fujioka",
+        "city_jp": "藤岡市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Shibukawa",
+        "city_jp": "渋川市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Annaka",
+        "city_jp": "安中市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Tomioka",
+        "city_jp": "富岡市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Midori",
+        "city_jp": "みどり市",
+        "prefecture": "Gunma"
+    },
+    {
+        "city_en": "Hiroshima",
+        "city_jp": "広島市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Onomichi",
+        "city_jp": "尾道市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Kure",
+        "city_jp": "呉市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Fukuyama",
+        "city_jp": "福山市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Mihara",
+        "city_jp": "三原市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Fuchū",
+        "city_jp": "府中市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Miyoshi",
+        "city_jp": "三次市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Shōbara",
+        "city_jp": "庄原市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Ōtake",
+        "city_jp": "大竹市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Takehara",
+        "city_jp": "竹原市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Higashihiroshima",
+        "city_jp": "東広島市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Hatsukaichi",
+        "city_jp": "廿日市市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Akitakata",
+        "city_jp": "安芸高田市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Etajima",
+        "city_jp": "江田島市",
+        "prefecture": "Hiroshima"
+    },
+    {
+        "city_en": "Sapporo",
+        "city_jp": "札幌市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Hakodate",
+        "city_jp": "函館市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Otaru",
+        "city_jp": "小樽市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Asahikawa",
+        "city_jp": "旭川市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Muroran",
+        "city_jp": "室蘭市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Obihiro",
+        "city_jp": "帯広市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Yūbari",
+        "city_jp": "夕張市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Iwamizawa",
+        "city_jp": "岩見沢市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Abashiri",
+        "city_jp": "網走市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Rumoi",
+        "city_jp": "留萌市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Tomakomai",
+        "city_jp": "苫小牧市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Wakkanai",
+        "city_jp": "稚内市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Bibai",
+        "city_jp": "美唄市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Ashibetsu",
+        "city_jp": "芦別市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Ebetsu",
+        "city_jp": "江別市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Akabira",
+        "city_jp": "赤平市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Monbetsu",
+        "city_jp": "紋別市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Mikasa",
+        "city_jp": "三笠市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Nemuro",
+        "city_jp": "根室市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Chitose",
+        "city_jp": "千歳市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Takikawa",
+        "city_jp": "滝川市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Sunagawa",
+        "city_jp": "砂川市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Utashinai",
+        "city_jp": "歌志内市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Fukagawa",
+        "city_jp": "深川市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Furano",
+        "city_jp": "富良野市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Noboribetsu",
+        "city_jp": "登別市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Eniwa",
+        "city_jp": "恵庭市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Date",
+        "city_jp": "伊達市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Kitahiroshima",
+        "city_jp": "北広島市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Ishikari",
+        "city_jp": "石狩市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Shibetsu",
+        "city_jp": "士別市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Kushiro",
+        "city_jp": "釧路市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Hokuto",
+        "city_jp": "北斗市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Kitami",
+        "city_jp": "北見市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Nayoro",
+        "city_jp": "名寄市",
+        "prefecture": "Hokkaidō"
+    },
+    {
+        "city_en": "Kobe",
+        "city_jp": "神戸市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Himeji",
+        "city_jp": "姫路市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Amagasaki",
+        "city_jp": "尼崎市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Akashi",
+        "city_jp": "明石市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Nishinomiya",
+        "city_jp": "西宮市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Ashiya",
+        "city_jp": "芦屋市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Itami",
+        "city_jp": "伊丹市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Aioi",
+        "city_jp": "相生市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Toyooka",
+        "city_jp": "豊岡市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Kakogawa",
+        "city_jp": "加古川市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Akō",
+        "city_jp": "赤穂市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Takarazuka",
+        "city_jp": "宝塚市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Miki",
+        "city_jp": "三木市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Takasago",
+        "city_jp": "高砂市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Kawanishi",
+        "city_jp": "川西市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Ono",
+        "city_jp": "小野市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Sanda",
+        "city_jp": "三田市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Kasai",
+        "city_jp": "加西市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Sasayama",
+        "city_jp": "篠山市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Yabu",
+        "city_jp": "養父市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Tamba",
+        "city_jp": "丹波市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Minamiawaji",
+        "city_jp": "南あわじ市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Asago",
+        "city_jp": "朝来市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Awaji",
+        "city_jp": "淡路市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Shisō",
+        "city_jp": "宍粟市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Nishiwaki",
+        "city_jp": "西脇市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Tatsuno",
+        "city_jp": "たつの市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Sumoto",
+        "city_jp": "洲本市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Katō",
+        "city_jp": "加東市",
+        "prefecture": "Hyōgo"
+    },
+    {
+        "city_en": "Mito",
+        "city_jp": "水戸市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Hitachi",
+        "city_jp": "日立市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Tsuchiura",
+        "city_jp": "土浦市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Yūki",
+        "city_jp": "結城市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Ryūgasaki",
+        "city_jp": "龍ヶ崎市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Shimotsuma",
+        "city_jp": "下妻市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Jōsō",
+        "city_jp": "常総市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Hitachiōta",
+        "city_jp": "常陸太田市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Takahagi",
+        "city_jp": "高萩市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Kitaibaraki",
+        "city_jp": "北茨城市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Toride",
+        "city_jp": "取手市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Ushiku",
+        "city_jp": "牛久市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Tsukuba",
+        "city_jp": "つくば市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Hitachinaka",
+        "city_jp": "ひたちなか市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Kashima",
+        "city_jp": "鹿嶋市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Itako",
+        "city_jp": "潮来市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Moriya",
+        "city_jp": "守谷市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Hitachiōmiya",
+        "city_jp": "常陸大宮市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Naka",
+        "city_jp": "那珂市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Bandō",
+        "city_jp": "坂東市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Inashiki",
+        "city_jp": "稲敷市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Chikusei",
+        "city_jp": "筑西市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Kasumigaura",
+        "city_jp": "かすみがうら市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Kamisu",
+        "city_jp": "神栖市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Namegata",
+        "city_jp": "行方市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Koga",
+        "city_jp": "古河市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Ishioka",
+        "city_jp": "石岡市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Sakuragawa",
+        "city_jp": "桜川市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Hokota",
+        "city_jp": "鉾田市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Kasama",
+        "city_jp": "笠間市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Tsukubamirai",
+        "city_jp": "つくばみらい市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Omitama",
+        "city_jp": "小美玉市",
+        "prefecture": "Ibaraki"
+    },
+    {
+        "city_en": "Kanazawa",
+        "city_jp": "金沢市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Nonoichi",
+        "city_jp": "野々市市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Nanao",
+        "city_jp": "七尾市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Komatsu",
+        "city_jp": "小松市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Suzu",
+        "city_jp": "珠洲市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Hakui",
+        "city_jp": "羽咋市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Kahoku",
+        "city_jp": "かほく市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Hakusan",
+        "city_jp": "白山市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Nomi",
+        "city_jp": "能美市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Kaga",
+        "city_jp": "加賀市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Wajima",
+        "city_jp": "輪島市",
+        "prefecture": "Ishikawa"
+    },
+    {
+        "city_en": "Morioka",
+        "city_jp": "盛岡市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Kamaishi",
+        "city_jp": "釜石市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Ōfunato",
+        "city_jp": "大船渡市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Rikuzentakata",
+        "city_jp": "陸前高田市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Kitakami",
+        "city_jp": "北上市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Miyako",
+        "city_jp": "宮古市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Hachimantai",
+        "city_jp": "八幡平市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Ichinoseki",
+        "city_jp": "一関市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Tōno",
+        "city_jp": "遠野市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Hanamaki",
+        "city_jp": "花巻市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Ninohe",
+        "city_jp": "二戸市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Ōshū",
+        "city_jp": "奥州市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Kuji",
+        "city_jp": "久慈市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Takizawa",
+        "city_jp": "滝沢市",
+        "prefecture": "Iwate"
+    },
+    {
+        "city_en": "Takamatsu",
+        "city_jp": "高松市",
+        "prefecture": "Kagawa"
+    },
+    {
+        "city_en": "Marugame",
+        "city_jp": "丸亀市",
+        "prefecture": "Kagawa"
+    },
+    {
+        "city_en": "Sakaide",
+        "city_jp": "坂出市",
+        "prefecture": "Kagawa"
+    },
+    {
+        "city_en": "Zentsūji",
+        "city_jp": "善通寺市",
+        "prefecture": "Kagawa"
+    },
+    {
+        "city_en": "Sanuki",
+        "city_jp": "さぬき市",
+        "prefecture": "Kagawa"
+    },
+    {
+        "city_en": "Higashikagawa",
+        "city_jp": "東かがわ市",
+        "prefecture": "Kagawa"
+    },
+    {
+        "city_en": "Kan'onji",
+        "city_jp": "観音寺市",
+        "prefecture": "Kagawa"
+    },
+    {
+        "city_en": "Mitoyo",
+        "city_jp": "三豊市",
+        "prefecture": "Kagawa"
+    },
+    {
+        "city_en": "Kagoshima",
+        "city_jp": "鹿児島市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Kanoya",
+        "city_jp": "鹿屋市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Makurazaki",
+        "city_jp": "枕崎市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Akune",
+        "city_jp": "阿久根市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Izumi",
+        "city_jp": "出水市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Ibusuki",
+        "city_jp": "指宿市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Minamisatsuma",
+        "city_jp": "南さつま市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Nishinoomote",
+        "city_jp": "西之表市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Tarumizu",
+        "city_jp": "垂水市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Satsumasendai",
+        "city_jp": "薩摩川内市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Hioki",
+        "city_jp": "日置市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Soo",
+        "city_jp": "曽於市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Ichikikushikino",
+        "city_jp": "いちき串木野市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Kirishima",
+        "city_jp": "霧島市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Shibushi",
+        "city_jp": "志布志市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Amami",
+        "city_jp": "奄美市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Minamikyūshū",
+        "city_jp": "南九州市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Isa",
+        "city_jp": "伊佐市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Aira",
+        "city_jp": "姶良市",
+        "prefecture": "Kagoshima"
+    },
+    {
+        "city_en": "Yokohama",
+        "city_jp": "横浜市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Yokosuka",
+        "city_jp": "横須賀市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Kawasaki",
+        "city_jp": "川崎市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Hiratsuka",
+        "city_jp": "平塚市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Kamakura",
+        "city_jp": "鎌倉市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Fujisawa",
+        "city_jp": "藤沢市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Odawara",
+        "city_jp": "小田原市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Chigasaki",
+        "city_jp": "茅ヶ崎市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Zushi",
+        "city_jp": "逗子市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Sagamihara",
+        "city_jp": "相模原市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Miura",
+        "city_jp": "三浦市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Hadano",
+        "city_jp": "秦野市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Atsugi",
+        "city_jp": "厚木市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Yamato",
+        "city_jp": "大和市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Isehara",
+        "city_jp": "伊勢原市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Ebina",
+        "city_jp": "海老名市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Zama",
+        "city_jp": "座間市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Minamiashigara",
+        "city_jp": "南足柄市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Ayase",
+        "city_jp": "綾瀬市",
+        "prefecture": "Kanagawa"
+    },
+    {
+        "city_en": "Kōchi",
+        "city_jp": "高知市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Sukumo",
+        "city_jp": "宿毛市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Aki",
+        "city_jp": "安芸市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Tosashimizu",
+        "city_jp": "土佐清水市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Susaki",
+        "city_jp": "須崎市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Tosa",
+        "city_jp": "土佐市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Muroto",
+        "city_jp": "室戸市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Nankoku",
+        "city_jp": "南国市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Shimanto",
+        "city_jp": "四万十市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Kami",
+        "city_jp": "香美市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Kōnan",
+        "city_jp": "香南市",
+        "prefecture": "Kōchi"
+    },
+    {
+        "city_en": "Kumamoto",
+        "city_jp": "熊本市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Yatsushiro",
+        "city_jp": "八代市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Hitoyoshi",
+        "city_jp": "人吉市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Arao",
+        "city_jp": "荒尾市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Minamata",
+        "city_jp": "水俣市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Tamana",
+        "city_jp": "玉名市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Yamaga",
+        "city_jp": "山鹿市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Kikuchi",
+        "city_jp": "菊池市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Uto",
+        "city_jp": "宇土市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Kami-Amakusa",
+        "city_jp": "上天草市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Uki",
+        "city_jp": "宇城市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Aso",
+        "city_jp": "阿蘇市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Kōshi",
+        "city_jp": "合志市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Amakusa",
+        "city_jp": "天草市",
+        "prefecture": "Kumamoto"
+    },
+    {
+        "city_en": "Kyoto",
+        "city_jp": "京都市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Fukuchiyama",
+        "city_jp": "福知山市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Maizuru",
+        "city_jp": "舞鶴市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Ayabe",
+        "city_jp": "綾部市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Uji",
+        "city_jp": "宇治市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Miyazu",
+        "city_jp": "宮津市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Kameoka",
+        "city_jp": "亀岡市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Jōyō",
+        "city_jp": "城陽市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Mukō",
+        "city_jp": "向日市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Nagaokakyō",
+        "city_jp": "長岡京市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Yawata",
+        "city_jp": "八幡市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Kyōtanabe",
+        "city_jp": "京田辺市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Kyōtango",
+        "city_jp": "京丹後市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Nantan",
+        "city_jp": "南丹市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Kizugawa",
+        "city_jp": "木津川市",
+        "prefecture": "Kyoto"
+    },
+    {
+        "city_en": "Yokkaichi",
+        "city_jp": "四日市市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Matsusaka",
+        "city_jp": "松阪市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Kuwana",
+        "city_jp": "桑名市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Suzuka",
+        "city_jp": "鈴鹿市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Nabari",
+        "city_jp": "名張市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Owase",
+        "city_jp": "尾鷲市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Kameyama",
+        "city_jp": "亀山市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Toba",
+        "city_jp": "鳥羽市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Inabe",
+        "city_jp": "いなべ市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Shima",
+        "city_jp": "志摩市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Iga",
+        "city_jp": "伊賀市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Ise",
+        "city_jp": "伊勢市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Kumano",
+        "city_jp": "熊野市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Tsu",
+        "city_jp": "津市",
+        "prefecture": "Mie"
+    },
+    {
+        "city_en": "Sendai",
+        "city_jp": "仙台市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Ishinomaki",
+        "city_jp": "石巻市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Shiogama",
+        "city_jp": "塩竈市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Shiroishi",
+        "city_jp": "白石市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Natori",
+        "city_jp": "名取市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Kakuda",
+        "city_jp": "角田市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Tagajō",
+        "city_jp": "多賀城市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Iwanuma",
+        "city_jp": "岩沼市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Tome",
+        "city_jp": "登米市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Kurihara",
+        "city_jp": "栗原市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Higashimatsushima",
+        "city_jp": "東松島市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Kesennuma",
+        "city_jp": "気仙沼市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Ōsaki",
+        "city_jp": "大崎市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Tomiya",
+        "city_jp": "富谷市",
+        "prefecture": "Miyagi"
+    },
+    {
+        "city_en": "Miyazaki",
+        "city_jp": "宮崎市",
+        "prefecture": "Miyazaki"
+    },
+    {
+        "city_en": "Miyakonojō",
+        "city_jp": "都城市",
+        "prefecture": "Miyazaki"
+    },
+    {
+        "city_en": "Nobeoka",
+        "city_jp": "延岡市",
+        "prefecture": "Miyazaki"
+    },
+    {
+        "city_en": "Nichinan",
+        "city_jp": "日南市",
+        "prefecture": "Miyazaki"
+    },
+    {
+        "city_en": "Kobayashi",
+        "city_jp": "小林市",
+        "prefecture": "Miyazaki"
+    },
+    {
+        "city_en": "Hyūga",
+        "city_jp": "日向市",
+        "prefecture": "Miyazaki"
+    },
+    {
+        "city_en": "Kushima",
+        "city_jp": "串間市",
+        "prefecture": "Miyazaki"
+    },
+    {
+        "city_en": "Saito",
+        "city_jp": "西都市",
+        "prefecture": "Miyazaki"
+    },
+    {
+        "city_en": "Ebino",
+        "city_jp": "えびの市",
+        "prefecture": "Miyazaki"
+    },
+    {
+        "city_en": "Matsumoto",
+        "city_jp": "松本市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Okaya",
+        "city_jp": "岡谷市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Suwa",
+        "city_jp": "諏訪市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Suzaka",
+        "city_jp": "須坂市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Komoro",
+        "city_jp": "小諸市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Komagane",
+        "city_jp": "駒ヶ根市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Ōmachi",
+        "city_jp": "大町市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Iiyama",
+        "city_jp": "飯山市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Iida",
+        "city_jp": "飯田市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Chino",
+        "city_jp": "茅野市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Shiojiri",
+        "city_jp": "塩尻市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Nagano",
+        "city_jp": "長野市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Chikuma",
+        "city_jp": "千曲市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Tōmi",
+        "city_jp": "東御市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Nakano",
+        "city_jp": "中野市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Saku",
+        "city_jp": "佐久市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Azumino",
+        "city_jp": "安曇野市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Ueda",
+        "city_jp": "上田市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Ina",
+        "city_jp": "伊那市",
+        "prefecture": "Nagano"
+    },
+    {
+        "city_en": "Nagasaki",
+        "city_jp": "長崎市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Sasebo",
+        "city_jp": "佐世保市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Shimabara",
+        "city_jp": "島原市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Ōmura",
+        "city_jp": "大村市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Tsushima",
+        "city_jp": "対馬市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Iki",
+        "city_jp": "壱岐市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Gotō",
+        "city_jp": "五島市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Isahaya",
+        "city_jp": "諫早市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Saikai",
+        "city_jp": "西海市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Hirado",
+        "city_jp": "平戸市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Unzen",
+        "city_jp": "雲仙市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Matsuura",
+        "city_jp": "松浦市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Minamishimabara",
+        "city_jp": "南島原市",
+        "prefecture": "Nagasaki"
+    },
+    {
+        "city_en": "Nara",
+        "city_jp": "奈良市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Yamatotakada",
+        "city_jp": "大和高田市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Yamatokōriyama",
+        "city_jp": "大和郡山市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Tenri",
+        "city_jp": "天理市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Kashihara",
+        "city_jp": "橿原市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Sakurai",
+        "city_jp": "桜井市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Gojō",
+        "city_jp": "五條市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Gose",
+        "city_jp": "御所市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Ikoma",
+        "city_jp": "生駒市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Kashiba",
+        "city_jp": "香芝市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Katsuragi",
+        "city_jp": "葛城市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Uda",
+        "city_jp": "宇陀市",
+        "prefecture": "Nara"
+    },
+    {
+        "city_en": "Niigata",
+        "city_jp": "新潟市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Nagaoka",
+        "city_jp": "長岡市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Kashiwazaki",
+        "city_jp": "柏崎市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Shibata",
+        "city_jp": "新発田市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Ojiya",
+        "city_jp": "小千谷市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Kamo",
+        "city_jp": "加茂市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Mitsuke",
+        "city_jp": "見附市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Murakami",
+        "city_jp": "村上市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Myōkō",
+        "city_jp": "妙高市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Jōetsu",
+        "city_jp": "上越市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Sado",
+        "city_jp": "佐渡市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Agano",
+        "city_jp": "阿賀野市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Uonuma",
+        "city_jp": "魚沼市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Minami-Uonuma",
+        "city_jp": "南魚沼市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Itoigawa",
+        "city_jp": "糸魚川市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Tōkamachi",
+        "city_jp": "十日町市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Sanjō",
+        "city_jp": "三条市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Tainai",
+        "city_jp": "胎内市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Gosen",
+        "city_jp": "五泉市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Tsubame",
+        "city_jp": "燕市",
+        "prefecture": "Niigata"
+    },
+    {
+        "city_en": "Ōita",
+        "city_jp": "大分市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Beppu",
+        "city_jp": "別府市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Nakatsu",
+        "city_jp": "中津市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Hita",
+        "city_jp": "日田市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Saiki",
+        "city_jp": "佐伯市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Usuki",
+        "city_jp": "臼杵市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Tsukumi",
+        "city_jp": "津久見市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Taketa",
+        "city_jp": "竹田市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Bungotakada",
+        "city_jp": "豊後高田市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Usa",
+        "city_jp": "宇佐市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Bungo-ōno",
+        "city_jp": "豊後大野市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Kitsuki",
+        "city_jp": "杵築市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Yufu",
+        "city_jp": "由布市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Kunisaki",
+        "city_jp": "国東市",
+        "prefecture": "Ōita"
+    },
+    {
+        "city_en": "Okayama",
+        "city_jp": "岡山市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Kurashiki",
+        "city_jp": "倉敷市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Tsuyama",
+        "city_jp": "津山市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Tamano",
+        "city_jp": "玉野市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Kasaoka",
+        "city_jp": "笠岡市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Ibara",
+        "city_jp": "井原市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Sōja",
+        "city_jp": "総社市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Takahashi",
+        "city_jp": "高梁市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Niimi",
+        "city_jp": "新見市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Bizen",
+        "city_jp": "備前市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Setouchi",
+        "city_jp": "瀬戸内市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Akaiwa",
+        "city_jp": "赤磐市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Maniwa",
+        "city_jp": "真庭市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Mimasaka",
+        "city_jp": "美作市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Asakuchi",
+        "city_jp": "浅口市",
+        "prefecture": "Okayama"
+    },
+    {
+        "city_en": "Naha",
+        "city_jp": "那覇市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Ishigaki",
+        "city_jp": "石垣市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Ginowan",
+        "city_jp": "宜野湾市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Urasoe",
+        "city_jp": "浦添市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Nago",
+        "city_jp": "名護市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Itoman",
+        "city_jp": "糸満市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Okinawa",
+        "city_jp": "沖縄市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Tomigusuku",
+        "city_jp": "豊見城市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Uruma",
+        "city_jp": "うるま市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Miyakojima",
+        "city_jp": "宮古島市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Nanjō",
+        "city_jp": "南城市",
+        "prefecture": "Okinawa"
+    },
+    {
+        "city_en": "Osaka",
+        "city_jp": "大阪市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Sakai",
+        "city_jp": "堺市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Kishiwada",
+        "city_jp": "岸和田市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Toyonaka",
+        "city_jp": "豊中市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Ikeda",
+        "city_jp": "池田市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Suita",
+        "city_jp": "吹田市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Izumiōtsu",
+        "city_jp": "泉大津市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Takatsuki",
+        "city_jp": "高槻市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Kaizuka",
+        "city_jp": "貝塚市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Moriguchi",
+        "city_jp": "守口市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Hirakata",
+        "city_jp": "枚方市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Ibaraki",
+        "city_jp": "茨木市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Yao",
+        "city_jp": "八尾市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Izumisano",
+        "city_jp": "泉佐野市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Tondabayashi",
+        "city_jp": "富田林市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Neyagawa",
+        "city_jp": "寝屋川市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Kawachinagano",
+        "city_jp": "河内長野市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Matsubara",
+        "city_jp": "松原市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Daitō",
+        "city_jp": "大東市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Izumi",
+        "city_jp": "和泉市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Minoh",
+        "city_jp": "箕面市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Kashiwara",
+        "city_jp": "柏原市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Habikino",
+        "city_jp": "羽曳野市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Kadoma",
+        "city_jp": "門真市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Settsu",
+        "city_jp": "摂津市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Takaishi",
+        "city_jp": "高石市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Fujiidera",
+        "city_jp": "藤井寺市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Higashiōsaka",
+        "city_jp": "東大阪市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Sennan",
+        "city_jp": "泉南市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Shijōnawate",
+        "city_jp": "四條畷市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Katano",
+        "city_jp": "交野市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Ōsakasayama",
+        "city_jp": "大阪狭山市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Hannan",
+        "city_jp": "阪南市",
+        "prefecture": "Osaka"
+    },
+    {
+        "city_en": "Tosu",
+        "city_jp": "鳥栖市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Imari",
+        "city_jp": "伊万里市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Kashima",
+        "city_jp": "鹿島市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Taku",
+        "city_jp": "多久市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Karatsu",
+        "city_jp": "唐津市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Ogi",
+        "city_jp": "小城市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Saga",
+        "city_jp": "佐賀市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Ureshino",
+        "city_jp": "嬉野市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Takeo",
+        "city_jp": "武雄市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Kanzaki",
+        "city_jp": "神埼市",
+        "prefecture": "Saga"
+    },
+    {
+        "city_en": "Kawagoe",
+        "city_jp": "川越市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Kawaguchi",
+        "city_jp": "川口市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Gyōda",
+        "city_jp": "行田市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Chichibu",
+        "city_jp": "秩父市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Tokorozawa",
+        "city_jp": "所沢市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Hannō",
+        "city_jp": "飯能市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Kazo",
+        "city_jp": "加須市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Higashimatsuyama",
+        "city_jp": "東松山市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Sayama",
+        "city_jp": "狭山市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Hanyū",
+        "city_jp": "羽生市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Kōnosu",
+        "city_jp": "鴻巣市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Ageo",
+        "city_jp": "上尾市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Sōka",
+        "city_jp": "草加市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Koshigaya",
+        "city_jp": "越谷市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Warabi",
+        "city_jp": "蕨市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Toda",
+        "city_jp": "戸田市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Iruma",
+        "city_jp": "入間市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Asaka",
+        "city_jp": "朝霞市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Shiki",
+        "city_jp": "志木市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Wakō",
+        "city_jp": "和光市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Niiza",
+        "city_jp": "新座市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Okegawa",
+        "city_jp": "桶川市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Kuki",
+        "city_jp": "久喜市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Kitamoto",
+        "city_jp": "北本市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Yashio",
+        "city_jp": "八潮市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Fujimi",
+        "city_jp": "富士見市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Misato",
+        "city_jp": "三郷市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Hasuda",
+        "city_jp": "蓮田市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Sakado",
+        "city_jp": "坂戸市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Satte",
+        "city_jp": "幸手市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Tsurugashima",
+        "city_jp": "鶴ヶ島市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Hidaka",
+        "city_jp": "日高市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Yoshikawa",
+        "city_jp": "吉川市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Saitama",
+        "city_jp": "さいたま市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Kumagaya",
+        "city_jp": "熊谷市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Kasukabe",
+        "city_jp": "春日部市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Fujimino",
+        "city_jp": "ふじみ野市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Fukaya",
+        "city_jp": "深谷市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Honjō",
+        "city_jp": "本庄市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Shiraoka",
+        "city_jp": "白岡市",
+        "prefecture": "Saitama"
+    },
+    {
+        "city_en": "Ōtsu",
+        "city_jp": "大津市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Hikone",
+        "city_jp": "彦根市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Kusatsu",
+        "city_jp": "草津市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Moriyama",
+        "city_jp": "守山市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Rittō",
+        "city_jp": "栗東市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Kōka",
+        "city_jp": "甲賀市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Yasu",
+        "city_jp": "野洲市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Konan",
+        "city_jp": "湖南市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Takashima",
+        "city_jp": "高島市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Higashiōmi",
+        "city_jp": "東近江市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Maibara",
+        "city_jp": "米原市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Nagahama",
+        "city_jp": "長浜市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Ōmihachiman",
+        "city_jp": "近江八幡市",
+        "prefecture": "Shiga"
+    },
+    {
+        "city_en": "Matsue",
+        "city_jp": "松江市",
+        "prefecture": "Shimane"
+    },
+    {
+        "city_en": "Izumo",
+        "city_jp": "出雲市",
+        "prefecture": "Shimane"
+    },
+    {
+        "city_en": "Masuda",
+        "city_jp": "益田市",
+        "prefecture": "Shimane"
+    },
+    {
+        "city_en": "Yasugi",
+        "city_jp": "安来市",
+        "prefecture": "Shimane"
+    },
+    {
+        "city_en": "Gōtsu",
+        "city_jp": "江津市",
+        "prefecture": "Shimane"
+    },
+    {
+        "city_en": "Unnan",
+        "city_jp": "雲南市",
+        "prefecture": "Shimane"
+    },
+    {
+        "city_en": "Hamada",
+        "city_jp": "浜田市",
+        "prefecture": "Shimane"
+    },
+    {
+        "city_en": "Ōda",
+        "city_jp": "大田市",
+        "prefecture": "Shimane"
+    },
+    {
+        "city_en": "Shizuoka",
+        "city_jp": "静岡市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Hamamatsu",
+        "city_jp": "浜松市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Numazu",
+        "city_jp": "沼津市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Atami",
+        "city_jp": "熱海市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Mishima",
+        "city_jp": "三島市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Fujinomiya",
+        "city_jp": "富士宮市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Itō",
+        "city_jp": "伊東市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Shimada",
+        "city_jp": "島田市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Iwata",
+        "city_jp": "磐田市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Yaizu",
+        "city_jp": "焼津市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Kakegawa",
+        "city_jp": "掛川市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Fujieda",
+        "city_jp": "藤枝市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Gotenba",
+        "city_jp": "御殿場市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Fukuroi",
+        "city_jp": "袋井市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Fuji",
+        "city_jp": "富士市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Shimoda",
+        "city_jp": "下田市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Susono",
+        "city_jp": "裾野市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Kosai",
+        "city_jp": "湖西市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Izu",
+        "city_jp": "伊豆市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Omaezaki",
+        "city_jp": "御前崎市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Kikugawa",
+        "city_jp": "菊川市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Izunokuni",
+        "city_jp": "伊豆の国市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Makinohara",
+        "city_jp": "牧之原市",
+        "prefecture": "Shizuoka"
+    },
+    {
+        "city_en": "Utsunomiya",
+        "city_jp": "宇都宮市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Ashikaga",
+        "city_jp": "足利市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Tochigi",
+        "city_jp": "栃木市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Kanuma",
+        "city_jp": "鹿沼市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Oyama",
+        "city_jp": "小山市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Mooka",
+        "city_jp": "真岡市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Ōtawara",
+        "city_jp": "大田原市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Yaita",
+        "city_jp": "矢板市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Nasushiobara",
+        "city_jp": "那須塩原市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Sano",
+        "city_jp": "佐野市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Sakura",
+        "city_jp": "さくら市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Nasukarasuyama",
+        "city_jp": "那須烏山市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Shimotsuke",
+        "city_jp": "下野市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Nikkō",
+        "city_jp": "日光市",
+        "prefecture": "Tochigi"
+    },
+    {
+        "city_en": "Tokushima",
+        "city_jp": "徳島市",
+        "prefecture": "Tokushima"
+    },
+    {
+        "city_en": "Naruto",
+        "city_jp": "鳴門市",
+        "prefecture": "Tokushima"
+    },
+    {
+        "city_en": "Komatsushima",
+        "city_jp": "小松島市",
+        "prefecture": "Tokushima"
+    },
+    {
+        "city_en": "Anan",
+        "city_jp": "阿南市",
+        "prefecture": "Tokushima"
+    },
+    {
+        "city_en": "Yoshinogawa",
+        "city_jp": "吉野川市",
+        "prefecture": "Tokushima"
+    },
+    {
+        "city_en": "Mima",
+        "city_jp": "美馬市",
+        "prefecture": "Tokushima"
+    },
+    {
+        "city_en": "Awa",
+        "city_jp": "阿波市",
+        "prefecture": "Tokushima"
+    },
+    {
+        "city_en": "Miyoshi",
+        "city_jp": "三好市",
+        "prefecture": "Tokushima"
+    },
+    {
+        "city_en": "Hachiōji",
+        "city_jp": "八王子市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Tachikawa",
+        "city_jp": "立川市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Musashino",
+        "city_jp": "武蔵野市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Mitaka",
+        "city_jp": "三鷹市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Ōme",
+        "city_jp": "青梅市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Fuchū",
+        "city_jp": "府中市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Akishima",
+        "city_jp": "昭島市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Chōfu",
+        "city_jp": "調布市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Machida",
+        "city_jp": "町田市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Koganei",
+        "city_jp": "小金井市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Kodaira",
+        "city_jp": "小平市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Hino",
+        "city_jp": "日野市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Higashimurayama",
+        "city_jp": "東村山市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Kokubunji",
+        "city_jp": "国分寺市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Kunitachi",
+        "city_jp": "国立市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Fussa",
+        "city_jp": "福生市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Komae",
+        "city_jp": "狛江市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Higashiyamato",
+        "city_jp": "東大和市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Kiyose",
+        "city_jp": "清瀬市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Higashikurume",
+        "city_jp": "東久留米市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Musashimurayama",
+        "city_jp": "武蔵村山市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Tama",
+        "city_jp": "多摩市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Inagi",
+        "city_jp": "稲城市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Hamura",
+        "city_jp": "羽村市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Akiruno",
+        "city_jp": "あきる野市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Nishitōkyō",
+        "city_jp": "西東京市",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Special wards of Tokyo",
+        "city_jp": "東京特別区部",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Adachi",
+        "city_jp": "足立区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Arakawa",
+        "city_jp": "荒川区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Bunkyō",
+        "city_jp": "文京区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Chiyoda",
+        "city_jp": "千代田区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Chūō",
+        "city_jp": "中央区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Edogawa",
+        "city_jp": "江戸川区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Itabashi",
+        "city_jp": "板橋区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Katsushika",
+        "city_jp": "葛飾区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Kita",
+        "city_jp": "北区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Kōtō",
+        "city_jp": "江東区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Meguro",
+        "city_jp": "目黒区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Minato",
+        "city_jp": "港区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Nakano",
+        "city_jp": "中野区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Nerima",
+        "city_jp": "練馬区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Ōta",
+        "city_jp": "大田区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Setagaya",
+        "city_jp": "世田谷区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Shibuya",
+        "city_jp": "渋谷区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Shinagawa",
+        "city_jp": "品川区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Shinjuku",
+        "city_jp": "新宿区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Suginami",
+        "city_jp": "杉並区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Sumida",
+        "city_jp": "墨田区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Taitō",
+        "city_jp": "台東区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Toshima",
+        "city_jp": "豊島区",
+        "prefecture": "Tokyo"
+    },
+    {
+        "city_en": "Tottori",
+        "city_jp": "鳥取市",
+        "prefecture": "Tottori"
+    },
+    {
+        "city_en": "Yonago",
+        "city_jp": "米子市",
+        "prefecture": "Tottori"
+    },
+    {
+        "city_en": "Kurayoshi",
+        "city_jp": "倉吉市",
+        "prefecture": "Tottori"
+    },
+    {
+        "city_en": "Sakaiminato",
+        "city_jp": "境港市",
+        "prefecture": "Tottori"
+    },
+    {
+        "city_en": "Toyama",
+        "city_jp": "富山市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Uozu",
+        "city_jp": "魚津市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Himi",
+        "city_jp": "氷見市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Namerikawa",
+        "city_jp": "滑川市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Tonami",
+        "city_jp": "砺波市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Oyabe",
+        "city_jp": "小矢部市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Nanto",
+        "city_jp": "南砺市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Takaoka",
+        "city_jp": "高岡市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Imizu",
+        "city_jp": "射水市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Kurobe",
+        "city_jp": "黒部市",
+        "prefecture": "Toyama"
+    },
+    {
+        "city_en": "Wakayama",
+        "city_jp": "和歌山市",
+        "prefecture": "Wakayama"
+    },
+    {
+        "city_en": "Kainan",
+        "city_jp": "海南市",
+        "prefecture": "Wakayama"
+    },
+    {
+        "city_en": "Tanabe",
+        "city_jp": "田辺市",
+        "prefecture": "Wakayama"
+    },
+    {
+        "city_en": "Gobō",
+        "city_jp": "御坊市",
+        "prefecture": "Wakayama"
+    },
+    {
+        "city_en": "Arida",
+        "city_jp": "有田市",
+        "prefecture": "Wakayama"
+    },
+    {
+        "city_en": "Shingū",
+        "city_jp": "新宮市",
+        "prefecture": "Wakayama"
+    },
+    {
+        "city_en": "Kinokawa",
+        "city_jp": "紀の川市",
+        "prefecture": "Wakayama"
+    },
+    {
+        "city_en": "Hashimoto",
+        "city_jp": "橋本市",
+        "prefecture": "Wakayama"
+    },
+    {
+        "city_en": "Iwade",
+        "city_jp": "岩出市",
+        "prefecture": "Wakayama"
+    },
+    {
+        "city_en": "Yamagata",
+        "city_jp": "山形市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Yonezawa",
+        "city_jp": "米沢市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Shinjō",
+        "city_jp": "新庄市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Sagae",
+        "city_jp": "寒河江市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Kaminoyama",
+        "city_jp": "上山市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Murayama",
+        "city_jp": "村山市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Nagai",
+        "city_jp": "長井市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Tendō",
+        "city_jp": "天童市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Higashine",
+        "city_jp": "東根市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Obanazawa",
+        "city_jp": "尾花沢市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Nan'yō",
+        "city_jp": "南陽市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Tsuruoka",
+        "city_jp": "鶴岡市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Sakata",
+        "city_jp": "酒田市",
+        "prefecture": "Yamagata"
+    },
+    {
+        "city_en": "Ube",
+        "city_jp": "宇部市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Hōfu",
+        "city_jp": "防府市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Kudamatsu",
+        "city_jp": "下松市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Shūnan",
+        "city_jp": "周南市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Hikari",
+        "city_jp": "光市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Shimonoseki",
+        "city_jp": "下関市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Yanai",
+        "city_jp": "柳井市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Hagi",
+        "city_jp": "萩市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Nagato",
+        "city_jp": "長門市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "San'yō-Onoda",
+        "city_jp": "山陽小野田市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Yamaguchi",
+        "city_jp": "山口市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Iwakuni",
+        "city_jp": "岩国市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Mine",
+        "city_jp": "美祢市",
+        "prefecture": "Yamaguchi"
+    },
+    {
+        "city_en": "Kōfu",
+        "city_jp": "甲府市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Fujiyoshida",
+        "city_jp": "富士吉田市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Tsuru",
+        "city_jp": "都留市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Ōtsuki",
+        "city_jp": "大月市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Nirasaki",
+        "city_jp": "韮崎市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Minami-Alps",
+        "city_jp": "南アルプス市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Kai",
+        "city_jp": "甲斐市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Fuefuki",
+        "city_jp": "笛吹市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Hokuto",
+        "city_jp": "北杜市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Uenohara",
+        "city_jp": "上野原市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Yamanashi",
+        "city_jp": "山梨市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Kōshū",
+        "city_jp": "甲州市",
+        "prefecture": "Yamanashi"
+    },
+    {
+        "city_en": "Chūō",
+        "city_jp": "中央市",
+        "prefecture": "Yamanashi"
+    }
+]

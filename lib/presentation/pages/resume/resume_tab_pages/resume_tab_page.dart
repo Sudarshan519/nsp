@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_other_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
@@ -133,7 +134,9 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
 
   List<Widget> getPages(ResumeWatcherState state) {
     final aboutPageActor = UpdatePersonalInfoActorBloc(
-        updatePersonalInfo: getIt<UpdatePersonalInfo>());
+      updatePersonalInfo: getIt<UpdatePersonalInfo>(),
+      getCountries: getIt<GetCountries>(),
+    );
 
     final addressPageActor = UpdateAddressInfoActorBloc(
         updateAddressInfo: getIt<UpdateAddressInfo>());

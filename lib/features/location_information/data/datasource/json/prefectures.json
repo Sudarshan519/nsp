@@ -1,0 +1,190 @@
+[
+        {
+            "key_en": "Hokkaidō (北海道)",
+            "val": "Sapporō (札幌市)"
+        },
+        {
+            "key_en": "Aomori (青森県)",
+            "val": "Aomori (青森市)"
+        },
+        {
+            "key_en": "Iwate (岩手県)",
+            "val": "Morioka (盛岡市)"
+        },
+        {
+            "key_en": "Miyagi (宮城県)",
+            "val": "Sendai (仙台市)"
+        },
+        {
+            "key_en": "Akita (秋田県)",
+            "val": "Akita (秋田市)"
+        },
+        {
+            "key_en": "Yamagata (山形県)",
+            "val": "Yamagata (山形市)"
+        },
+        {
+            "key_en": "Fukushima (福島県)",
+            "val": "Fukushima (福島市)"
+        },
+        {
+            "key_en": "Ibaraki (茨城県)",
+            "val": "Mito (水戸市)"
+        },
+        {
+            "key_en": "Tochigi (栃木県)",
+            "val": "Utsunomiya (宇都宮市)"
+        },
+        {
+            "key_en": "Gunma (群馬県)",
+            "val": "Maebashi (前橋市)"
+        },
+        {
+            "key_en": "Saitama (埼玉県)",
+            "val": "Saitama (さいたま市)"
+        },
+        {
+            "key_en": "Chiba (千葉県)",
+            "val": "Chiba (千葉市)"
+        },
+        {
+            "key_en": "Tokyo (東京都)",
+            "val": "Tokyo (東京)"
+        },
+        {
+            "key_en": "Kanagawa (神奈川県)",
+            "val": "Yokohama (横浜市)"
+        },
+        {
+            "key_en": "Niigata (新潟県)",
+            "val": "Niigata (新潟市)"
+        },
+        {
+            "key_en": "Toyama (富山県)",
+            "val": "Toyama (富山市)"
+        },
+        {
+            "key_en": "Ishikawa (石川県)",
+            "val": "Kanazawa (金沢市)"
+        },
+        {
+            "key_en": "Fukui (福井県)",
+            "val": "Fukui (福井市)"
+        },
+        {
+            "key_en": "Yamanashi (山梨県)",
+            "val": "Kōfu (甲府市)"
+        },
+        {
+            "key_en": "Nagano (長野県)",
+            "val": "Nagano (長野市)"
+        },
+        {
+            "key_en": "Gifu (岐阜県)",
+            "val": "Gifu (岐阜市)"
+        },
+        {
+            "key_en": "Shizuoka (静岡県)",
+            "val": "Shizuoka (静岡市)"
+        },
+        {
+            "key_en": "Aichi (愛知県)",
+            "val": "Nagoya (名古屋市)"
+        },
+        {
+            "key_en": "Mie (三重県)",
+            "val": "Tsu (津市)"
+        },
+        {
+            "key_en": "Shiga (滋賀県)",
+            "val": "Ōtsu (大津市)"
+        },
+        {
+            "key_en": "Kyōto (京都府)",
+            "val": "Kyōto (京都市)"
+        },
+        {
+            "key_en": "Ōsaka (大阪府)",
+            "val": "Ōsaka (大阪市)"
+        },
+        {
+            "key_en": "Hyōgo (兵庫県)",
+            "val": "Kōbe (神戸市)"
+        },
+        {
+            "key_en": "Nara (奈良県)",
+            "val": "Nara (奈良市)"
+        },
+        {
+            "key_en": "Wakayama (和歌山県)",
+            "val": "Wakayama (和歌山市)"
+        },
+        {
+            "key_en": "Tottori (鳥取県)",
+            "val": "Tottori (鳥取市)"
+        },
+        {
+            "key_en": "Shimane (島根県)",
+            "val": "Matsue (松江市)"
+        },
+        {
+            "key_en": "Okayama (岡山県)",
+            "val": "Okayama (岡山市)"
+        },
+        {
+            "key_en": "Hiroshima (広島県)",
+            "val": "Hiroshima (広島市)"
+        },
+        {
+            "key_en": "Yamaguchi (山口県)",
+            "val": "Yamaguchi (山口市)"
+        },
+        {
+            "key_en": "Tokushima (徳島県)",
+            "val": "Tokushima (徳島市)"
+        },
+        {
+            "key_en": "Kagawa (香川県)",
+            "val": "Takamatsu (高松市)"
+        },
+        {
+            "key_en": "Ehime (愛媛県)",
+            "val": "Matsuyama (松山市)"
+        },
+        {
+            "key_en": "Kōchi (高知県)",
+            "val": "Kōchi (高知市)"
+        },
+        {
+            "key_en": "Fukuoka (福岡県)",
+            "val": "Fukuoka (福岡市)"
+        },
+        {
+            "key_en": "Saga (佐賀県)",
+            "val": "Saga (佐賀市)"
+        },
+        {
+            "key_en": "Nagasaki (長崎県)",
+            "val": "Nagasaki (長崎市)"
+        },
+        {
+            "key_en": "Kumamoto (熊本県)",
+            "val": "Kumamoto (熊本市)"
+        },
+        {
+            "key_en": "Ōita (大分県)",
+            "val": "Ōita (大分市)"
+        },
+        {
+            "key_en": "Miyazaki (宮崎県)",
+            "val": "Miyazaki (宮崎市)"
+        },
+        {
+            "key_en": "Kagoshima (鹿児島県)",
+            "val": "Kagoshima (鹿児島市)"
+        },
+        {
+            "key_en": "Okinawa (沖縄県)",
+            "val": "Naha (那覇市)"
+        }
+]
