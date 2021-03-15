@@ -4,8 +4,12 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_japan_city.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_prefecture.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
+import 'package:wallet_app/injections/injection.dart';
 
 part 'update_address_info_actor_event.dart';
 part 'update_address_info_actor_state.dart';
@@ -14,6 +18,9 @@ part 'update_address_info_actor_bloc.freezed.dart';
 class UpdateAddressInfoActorBloc
     extends Bloc<UpdateAddressInfoActorEvent, UpdateAddressInfoActorState> {
   final UpdateAddressInfo updateAddressInfo;
+  final GetCountries _getCountries = getIt<GetCountries>();
+  final GetPrefecture _getPrefecture = getIt<GetPrefecture>();
+  final GetJapanCity _getJapanCity = getIt<GetJapanCity>();
   PersonalInfo _personalInfo;
 
   UpdateAddressInfoActorBloc({
@@ -25,11 +32,14 @@ class UpdateAddressInfoActorBloc
     UpdateAddressInfoActorEvent event,
   ) async* {
     yield* event.map(
+      changeCountry: (e) async* {
+        yield _mapChangeCountryToState(e);
+      },
       changedCurrPostalCode: (e) async* {
         yield _mapChangeCurrPostalCodeToState(e);
       },
       changedCurrPrefecture: (e) async* {
-        yield _mapChangeCurrPrefectureToState(e);
+        yield* _mapChangeCurrPrefectureToState(e);
       },
       changedCurrCity: (e) async* {
         yield _mapChangeCurrCityToState(e);
@@ -44,7 +54,7 @@ class UpdateAddressInfoActorBloc
         yield _mapChangeContPostalCodeToState(e);
       },
       changedContPrefecture: (e) async* {
-        yield _mapChangeContPrefectureToState(e);
+        yield* _mapChangeContPrefectureToState(e);
       },
       changedContCity: (e) async* {
         yield _mapChangeContCityToState(e);
@@ -66,7 +76,16 @@ class UpdateAddressInfoActorBloc
 
   Stream<UpdateAddressInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+    );
+
     final userInfo = _setInitialState.info;
+    final listOfCountry = await _getCountries();
+    final listOfPrefecture = await _getPrefecture();
+    final listOfCurrCities = await _getJapanCity(userInfo.currPrefecture);
+    final listOfContCities = await _getJapanCity(userInfo.contPrefecture);
+
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
@@ -80,10 +99,22 @@ class UpdateAddressInfoActorBloc
         contCity: userInfo.contCity ?? "",
         contAddress: userInfo.contAddress ?? "",
         contPhone: userInfo.contPhone ?? "",
+        listOfCountries: listOfCountry ?? [],
+        listOfPrefectures: listOfPrefecture ?? [],
+        listOfCurrCities: listOfCurrCities ?? [],
+        listOfContCities: listOfContCities ?? [],
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );
     }
+  }
+
+  UpdateAddressInfoActorState _mapChangeCountryToState(
+      _ChangedCountry _changedCountry) {
+    return state.copyWith(
+      country: _changedCountry.country,
+      authFailureOrSuccessOption: none(),
+    );
   }
 
   UpdateAddressInfoActorState _mapChangeCurrPostalCodeToState(
@@ -94,10 +125,13 @@ class UpdateAddressInfoActorBloc
     );
   }
 
-  UpdateAddressInfoActorState _mapChangeCurrPrefectureToState(
-      _ChangedCurrPrefecture _changedPrefecture) {
-    return state.copyWith(
+  Stream<UpdateAddressInfoActorState> _mapChangeCurrPrefectureToState(
+      _ChangedCurrPrefecture _changedPrefecture) async* {
+    final listOfCurrCities = await _getJapanCity(_changedPrefecture.prefecture);
+    yield state.copyWith(
       currPrefecture: _changedPrefecture.prefecture,
+      listOfCurrCities: listOfCurrCities,
+      currCity: '',
       authFailureOrSuccessOption: none(),
     );
   }
@@ -134,10 +168,13 @@ class UpdateAddressInfoActorBloc
     );
   }
 
-  UpdateAddressInfoActorState _mapChangeContPrefectureToState(
-      _ChangedContPrefecture _changedPrefecture) {
-    return state.copyWith(
+  Stream<UpdateAddressInfoActorState> _mapChangeContPrefectureToState(
+      _ChangedContPrefecture _changedPrefecture) async* {
+    final listOfContCities = await _getJapanCity(_changedPrefecture.prefecture);
+    yield state.copyWith(
       contPrefecture: _changedPrefecture.prefecture,
+      listOfContCities: listOfContCities,
+      contCity: '',
       authFailureOrSuccessOption: none(),
     );
   }

@@ -302,7 +302,8 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.workinHours != current.workinHours,
+          previous.workinHours != current.workinHours ||
+          previous.workingMinutes != current.workingMinutes,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Available Working hours",
         child: Column(

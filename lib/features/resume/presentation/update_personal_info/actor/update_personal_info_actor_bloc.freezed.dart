@@ -2041,6 +2041,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
       @required String nationality,
       @required String email,
       @required String phone,
+      @required List<String> listOfNationality,
       @required bool isSubmitting,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdatePersonalInfoActorState(
@@ -2053,6 +2054,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
       nationality: nationality,
       email: email,
       phone: phone,
+      listOfNationality: listOfNationality,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
@@ -2074,6 +2076,7 @@ mixin _$UpdatePersonalInfoActorState {
   String get nationality;
   String get email;
   String get phone;
+  List<String> get listOfNationality;
   bool get isSubmitting;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
@@ -2098,6 +2101,7 @@ abstract class $UpdatePersonalInfoActorStateCopyWith<$Res> {
       String nationality,
       String email,
       String phone,
+      List<String> listOfNationality,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -2122,6 +2126,7 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     Object nationality = freezed,
     Object email = freezed,
     Object phone = freezed,
+    Object listOfNationality = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -2137,6 +2142,9 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
           nationality == freezed ? _value.nationality : nationality as String,
       email: email == freezed ? _value.email : email as String,
       phone: phone == freezed ? _value.phone : phone as String,
+      listOfNationality: listOfNationality == freezed
+          ? _value.listOfNationality
+          : listOfNationality as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -2164,6 +2172,7 @@ abstract class _$UpdatePersonalInfoActorStateCopyWith<$Res>
       String nationality,
       String email,
       String phone,
+      List<String> listOfNationality,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -2192,6 +2201,7 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     Object nationality = freezed,
     Object email = freezed,
     Object phone = freezed,
+    Object listOfNationality = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -2207,6 +2217,9 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
           nationality == freezed ? _value.nationality : nationality as String,
       email: email == freezed ? _value.email : email as String,
       phone: phone == freezed ? _value.phone : phone as String,
+      listOfNationality: listOfNationality == freezed
+          ? _value.listOfNationality
+          : listOfNationality as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -2228,6 +2241,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       @required this.nationality,
       @required this.email,
       @required this.phone,
+      @required this.listOfNationality,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
       : assert(firstName != null),
@@ -2239,6 +2253,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
         assert(nationality != null),
         assert(email != null),
         assert(phone != null),
+        assert(listOfNationality != null),
         assert(isSubmitting != null),
         assert(authFailureOrSuccessOption != null);
 
@@ -2261,13 +2276,15 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
   @override
   final String phone;
   @override
+  final List<String> listOfNationality;
+  @override
   final bool isSubmitting;
   @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoActorState(firstName: $firstName, lastName: $lastName, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdatePersonalInfoActorState(firstName: $firstName, lastName: $lastName, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -2296,6 +2313,9 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
                 const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.phone, phone) ||
                 const DeepCollectionEquality().equals(other.phone, phone)) &&
+            (identical(other.listOfNationality, listOfNationality) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfNationality, listOfNationality)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
@@ -2318,6 +2338,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       const DeepCollectionEquality().hash(nationality) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(phone) ^
+      const DeepCollectionEquality().hash(listOfNationality) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
@@ -2350,6 +2371,8 @@ abstract class _UpdatePersonalInfoActorState
           @required
               String phone,
           @required
+              List<String> listOfNationality,
+          @required
               bool isSubmitting,
           @required
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
@@ -2373,6 +2396,8 @@ abstract class _UpdatePersonalInfoActorState
   String get email;
   @override
   String get phone;
+  @override
+  List<String> get listOfNationality;
   @override
   bool get isSubmitting;
   @override

@@ -1,0 +1,7532 @@
+[
+  {
+    "id": 1,
+    "district_id": 1,
+    "district_ne": "ताप्लेजुङ",
+    "district_en": "Taplejung",
+    "mun_id": 4193,
+    "mun_ne": "फुङलिङ",
+    "mun_en": "Fungling",
+    "ward_no": "11"
+  },
+  {
+    "id": 2,
+    "district_id": 1,
+    "district_ne": "ताप्लेजुङ",
+    "district_en": "Taplejung",
+    "mun_id": 4194,
+    "mun_ne": "आठराई त्रिवेणी",
+    "mun_en": "Athrai Tribeni",
+    "ward_no": "5"
+  },
+  {
+    "id": 3,
+    "district_id": 1,
+    "district_ne": "ताप्लेजुङ",
+    "district_en": "Taplejung",
+    "mun_id": 4195,
+    "mun_ne": "सिदिङ्वा",
+    "mun_en": "Sidingwa",
+    "ward_no": "7"
+  },
+  {
+    "id": 4,
+    "district_id": 1,
+    "district_ne": "ताप्लेजुङ",
+    "district_en": "Taplejung",
+    "mun_id": 4196,
+    "mun_ne": "फक्त्ताङलुङ",
+    "mun_en": "Faktanglung",
+    "ward_no": "7"
+  },
+  {
+    "id": 5,
+    "district_id": 1,
+    "district_ne": "ताप्लेजुङ",
+    "district_en": "Taplejung",
+    "mun_id": 4197,
+    "mun_ne": "मिक्वाखोला",
+    "mun_en": "Mikhwakhola",
+    "ward_no": "5"
+  },
+  {
+    "id": 6,
+    "district_id": 1,
+    "district_ne": "ताप्लेजुङ",
+    "district_en": "Taplejung",
+    "mun_id": 4198,
+    "mun_ne": "मेरिङदेन",
+    "mun_en": "Meringden",
+    "ward_no": "6"
+  },
+  {
+    "id": 7,
+    "district_id": 1,
+    "district_ne": "ताप्लेजुङ",
+    "district_en": "Taplejung",
+    "mun_id": 4199,
+    "mun_ne": "मैवाखोला",
+    "mun_en": "Maiwakhola",
+    "ward_no": "6"
+  },
+  {
+    "id": 8,
+    "district_id": 1,
+    "district_ne": "ताप्लेजुङ",
+    "district_en": "Taplejung",
+    "mun_id": 4200,
+    "mun_ne": "याङवरक",
+    "mun_en": "Yangwarak",
+    "ward_no": "6"
+  },
+  {
+    "id": 9,
+    "district_id": 1,
+    "district_ne": "ताप्लेजुङ",
+    "district_en": "Taplejung",
+    "mun_id": 4201,
+    "mun_ne": "सिरीजङ्घा",
+    "mun_en": "Sirijunga",
+    "ward_no": "8"
+  },
+  {
+    "id": 10,
+    "district_id": 2,
+    "district_ne": "पाँचथर",
+    "district_en": "Panchthar",
+    "mun_id": 4202,
+    "mun_ne": "फिदिम",
+    "mun_en": "Fidim",
+    "ward_no": "14"
+  },
+  {
+    "id": 11,
+    "district_id": 2,
+    "district_ne": "पाँचथर",
+    "district_en": "Panchthar",
+    "mun_id": 4203,
+    "mun_ne": "फालेलुङ",
+    "mun_en": "Falelung",
+    "ward_no": "8"
+  },
+  {
+    "id": 12,
+    "district_id": 2,
+    "district_ne": "पाँचथर",
+    "district_en": "Panchthar",
+    "mun_id": 4204,
+    "mun_ne": "फाल्गुनन्द",
+    "mun_en": "Falgunanda",
+    "ward_no": "7"
+  },
+  {
+    "id": 13,
+    "district_id": 2,
+    "district_ne": "पाँचथर",
+    "district_en": "Panchthar",
+    "mun_id": 4205,
+    "mun_ne": "हिलिहाङ",
+    "mun_en": "Hilihang",
+    "ward_no": "7"
+  },
+  {
+    "id": 14,
+    "district_id": 2,
+    "district_ne": "पाँचथर",
+    "district_en": "Panchthar",
+    "mun_id": 4206,
+    "mun_ne": "कुम्मायक",
+    "mun_en": "Kummayek",
+    "ward_no": "5"
+  },
+  {
+    "id": 15,
+    "district_id": 2,
+    "district_ne": "पाँचथर",
+    "district_en": "Panchthar",
+    "mun_id": 4207,
+    "mun_ne": "मिक्लाजुङ",
+    "mun_en": "Miklajung",
+    "ward_no": "8"
+  },
+  {
+    "id": 16,
+    "district_id": 2,
+    "district_ne": "पाँचथर",
+    "district_en": "Panchthar",
+    "mun_id": 4208,
+    "mun_ne": "तुम्वेवा",
+    "mun_en": "Tumwewa",
+    "ward_no": "5"
+  },
+  {
+    "id": 17,
+    "district_id": 2,
+    "district_ne": "पाँचथर",
+    "district_en": "Panchthar",
+    "mun_id": 4209,
+    "mun_ne": "याङवरक",
+    "mun_en": "Yangwarak",
+    "ward_no": "6"
+  },
+  {
+    "id": 18,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4210,
+    "mun_ne": "ईलाम",
+    "mun_en": "Illam",
+    "ward_no": "12"
+  },
+  {
+    "id": 19,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4211,
+    "mun_ne": "देउमाई",
+    "mun_en": "Deumai",
+    "ward_no": "9"
+  },
+  {
+    "id": 20,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4212,
+    "mun_ne": "माई",
+    "mun_en": "Mai",
+    "ward_no": "10"
+  },
+  {
+    "id": 21,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4213,
+    "mun_ne": "सूर्योदय",
+    "mun_en": "Suryodaya",
+    "ward_no": "14"
+  },
+  {
+    "id": 22,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4214,
+    "mun_ne": "फाकफोकथुम",
+    "mun_en": "Phakphokthum",
+    "ward_no": "7"
+  },
+  {
+    "id": 23,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4215,
+    "mun_ne": "चुलाचुली",
+    "mun_en": "Chulachuli",
+    "ward_no": "6"
+  },
+  {
+    "id": 24,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4216,
+    "mun_ne": "माईजोगमाई",
+    "mun_en": "Maijogmai",
+    "ward_no": "6"
+  },
+  {
+    "id": 25,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4217,
+    "mun_ne": "माङसेबुङ",
+    "mun_en": "Mangsebung",
+    "ward_no": "6"
+  },
+  {
+    "id": 26,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4218,
+    "mun_ne": "रोङ",
+    "mun_en": "Rong",
+    "ward_no": "6"
+  },
+  {
+    "id": 27,
+    "district_id": 3,
+    "district_ne": "ईलाम",
+    "district_en": "Illam",
+    "mun_id": 4219,
+    "mun_ne": "सन्दकपुर",
+    "mun_en": "Sandakpur",
+    "ward_no": "5"
+  },
+  {
+    "id": 28,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4220,
+    "mun_ne": "मेचीनगर",
+    "mun_en": "Mechinagar",
+    "ward_no": "15"
+  },
+  {
+    "id": 29,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4221,
+    "mun_ne": "दमक",
+    "mun_en": "Damak",
+    "ward_no": "10"
+  },
+  {
+    "id": 30,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4222,
+    "mun_ne": "कन्काई",
+    "mun_en": "Kankai",
+    "ward_no": "9"
+  },
+  {
+    "id": 31,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4223,
+    "mun_ne": "भद्रपुर",
+    "mun_en": "Bhadrapur",
+    "ward_no": "10"
+  },
+  {
+    "id": 32,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4224,
+    "mun_ne": "अर्जुनधारा",
+    "mun_en": "Arjundhara",
+    "ward_no": "11"
+  },
+  {
+    "id": 33,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4225,
+    "mun_ne": "शिवसताक्षी",
+    "mun_en": "Shivasatakshi",
+    "ward_no": "11"
+  },
+  {
+    "id": 34,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4226,
+    "mun_ne": "गौरादह",
+    "mun_en": "Gauradaha",
+    "ward_no": "9"
+  },
+  {
+    "id": 35,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4227,
+    "mun_ne": "बिर्तामोड",
+    "mun_en": "Birtamod",
+    "ward_no": "10"
+  },
+  {
+    "id": 36,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4228,
+    "mun_ne": "कमल",
+    "mun_en": "Kamal",
+    "ward_no": "7"
+  },
+  {
+    "id": 37,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4229,
+    "mun_ne": "गौरिगंज",
+    "mun_en": "Gaurigunj",
+    "ward_no": "6"
+  },
+  {
+    "id": 38,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4230,
+    "mun_ne": "बाह्रदशी",
+    "mun_en": "Barhadashi",
+    "ward_no": "7"
+  },
+  {
+    "id": 39,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4231,
+    "mun_ne": "झापा",
+    "mun_en": "Jhapa",
+    "ward_no": "7"
+  },
+  {
+    "id": 40,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4232,
+    "mun_ne": "बुद्धशान्ति",
+    "mun_en": "Buddhasanti",
+    "ward_no": "7"
+  },
+  {
+    "id": 41,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4233,
+    "mun_ne": "हल्दीबारी",
+    "mun_en": "Haldibari",
+    "ward_no": "5"
+  },
+  {
+    "id": 42,
+    "district_id": 4,
+    "district_ne": "झापा",
+    "district_en": "Jhapa",
+    "mun_id": 4234,
+    "mun_ne": "कचनकवल",
+    "mun_en": "Kachankawal",
+    "ward_no": "7"
+  },
+  {
+    "id": 43,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4235,
+    "mun_ne": "चैनपुर",
+    "mun_en": "Chainpur",
+    "ward_no": "11"
+  },
+  {
+    "id": 44,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4236,
+    "mun_ne": "धर्मदेवी",
+    "mun_en": "Dharmadevi",
+    "ward_no": "9"
+  },
+  {
+    "id": 45,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4237,
+    "mun_ne": "खाँदवारी",
+    "mun_en": "Khandbari ",
+    "ward_no": "11"
+  },
+  {
+    "id": 46,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4238,
+    "mun_ne": "मादी",
+    "mun_en": "Madi",
+    "ward_no": "9"
+  },
+  {
+    "id": 47,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4239,
+    "mun_ne": "पाँचखपन",
+    "mun_en": "Paanchkhapan",
+    "ward_no": "9"
+  },
+  {
+    "id": 48,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4240,
+    "mun_ne": "भोटखोला",
+    "mun_en": "Bhotkhola",
+    "ward_no": "5"
+  },
+  {
+    "id": 49,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4241,
+    "mun_ne": "चिचिला",
+    "mun_en": "Chichila",
+    "ward_no": "5"
+  },
+  {
+    "id": 50,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4242,
+    "mun_ne": "मकालु",
+    "mun_en": "Makalu",
+    "ward_no": "6"
+  },
+  {
+    "id": 51,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4243,
+    "mun_ne": "सभापोखरी",
+    "mun_en": "Sabhapokhari",
+    "ward_no": "6"
+  },
+  {
+    "id": 52,
+    "district_id": 5,
+    "district_ne": "स‌ंखुवासभा",
+    "district_en": "Sankhuwasabha",
+    "mun_id": 4244,
+    "mun_ne": "सिलीचोङ",
+    "mun_en": "Silichong",
+    "ward_no": "5"
+  },
+  {
+    "id": 53,
+    "district_id": 6,
+    "district_ne": "तेह्रथुम",
+    "district_en": "Tehrathum",
+    "mun_id": 4245,
+    "mun_ne": "म्याङलुङ",
+    "mun_en": "Myanglung",
+    "ward_no": "10"
+  },
+  {
+    "id": 54,
+    "district_id": 6,
+    "district_ne": "तेह्रथुम",
+    "district_en": "Tehrathum",
+    "mun_id": 4246,
+    "mun_ne": "लालीगुराँस",
+    "mun_en": "Laligurans",
+    "ward_no": "9"
+  },
+  {
+    "id": 55,
+    "district_id": 6,
+    "district_ne": "तेह्रथुम",
+    "district_en": "Tehrathum",
+    "mun_id": 4247,
+    "mun_ne": "आठराई",
+    "mun_en": "Athrai",
+    "ward_no": "7"
+  },
+  {
+    "id": 56,
+    "district_id": 6,
+    "district_ne": "तेह्रथुम",
+    "district_en": "Tehrathum",
+    "mun_id": 4248,
+    "mun_ne": "छथर",
+    "mun_en": "Chhathar",
+    "ward_no": "6"
+  },
+  {
+    "id": 57,
+    "district_id": 6,
+    "district_ne": "तेह्रथुम",
+    "district_en": "Tehrathum",
+    "mun_id": 4249,
+    "mun_ne": "फेदाप",
+    "mun_en": "Fedaap",
+    "ward_no": "5"
+  },
+  {
+    "id": 58,
+    "district_id": 6,
+    "district_ne": "तेह्रथुम",
+    "district_en": "Tehrathum",
+    "mun_id": 4250,
+    "mun_ne": "मेन्छयायेम",
+    "mun_en": "Menchhayayem",
+    "ward_no": "6"
+  },
+  {
+    "id": 59,
+    "district_id": 7,
+    "district_ne": "भोजपुर",
+    "district_en": "Bhojpur",
+    "mun_id": 4251,
+    "mun_ne": "भोजपुर",
+    "mun_en": "Bhojpur",
+    "ward_no": "12"
+  },
+  {
+    "id": 60,
+    "district_id": 7,
+    "district_ne": "भोजपुर",
+    "district_en": "Bhojpur",
+    "mun_id": 4252,
+    "mun_ne": "षडानन्द",
+    "mun_en": "Sadananda",
+    "ward_no": "14"
+  },
+  {
+    "id": 61,
+    "district_id": 7,
+    "district_ne": "भोजपुर",
+    "district_en": "Bhojpur",
+    "mun_id": 4253,
+    "mun_ne": "ट्याम्केमैयुम",
+    "mun_en": "Tyamkemaiyum",
+    "ward_no": "9"
+  },
+  {
+    "id": 62,
+    "district_id": 7,
+    "district_ne": "भोजपुर",
+    "district_en": "Bhojpur",
+    "mun_id": 4254,
+    "mun_ne": "रामप्रसादराई",
+    "mun_en": "Ramprasadrai",
+    "ward_no": "8"
+  },
+  {
+    "id": 63,
+    "district_id": 7,
+    "district_ne": "भोजपुर",
+    "district_en": "Bhojpur",
+    "mun_id": 4255,
+    "mun_ne": "अरुण",
+    "mun_en": "Arun",
+    "ward_no": "7"
+  },
+  {
+    "id": 64,
+    "district_id": 7,
+    "district_ne": "भोजपुर",
+    "district_en": "Bhojpur",
+    "mun_id": 4256,
+    "mun_ne": "पौवादुङमा",
+    "mun_en": "Pauwadungma",
+    "ward_no": "6"
+  },
+  {
+    "id": 65,
+    "district_id": 7,
+    "district_ne": "भोजपुर",
+    "district_en": "Bhojpur",
+    "mun_id": 4257,
+    "mun_ne": "साल्पासिलिछो",
+    "mun_en": "Salpasilichho",
+    "ward_no": "6"
+  },
+  {
+    "id": 66,
+    "district_id": 7,
+    "district_ne": "भोजपुर",
+    "district_en": "Bhojpur",
+    "mun_id": 4258,
+    "mun_ne": "आमचोक",
+    "mun_en": "Aamchowk",
+    "ward_no": "10"
+  },
+  {
+    "id": 67,
+    "district_id": 7,
+    "district_ne": "भोजपुर",
+    "district_en": "Bhojpur",
+    "mun_id": 4259,
+    "mun_ne": "हतुवागढी",
+    "mun_en": "Hatuwagadhi",
+    "ward_no": "9"
+  },
+  {
+    "id": 68,
+    "district_id": 8,
+    "district_ne": "धनकुटा",
+    "district_en": "Dhankuta",
+    "mun_id": 4260,
+    "mun_ne": "पाख्रिवास",
+    "mun_en": "Pakhribaas",
+    "ward_no": "10"
+  },
+  {
+    "id": 69,
+    "district_id": 8,
+    "district_ne": "धनकुटा",
+    "district_en": "Dhankuta",
+    "mun_id": 4261,
+    "mun_ne": "धनकुटा",
+    "mun_en": "Dhankuta",
+    "ward_no": "10"
+  },
+  {
+    "id": 70,
+    "district_id": 8,
+    "district_ne": "धनकुटा",
+    "district_en": "Dhankuta",
+    "mun_id": 4262,
+    "mun_ne": "महालक्ष्मी",
+    "mun_en": "Mahalaxmi",
+    "ward_no": "9"
+  },
+  {
+    "id": 71,
+    "district_id": 8,
+    "district_ne": "धनकुटा",
+    "district_en": "Dhankuta",
+    "mun_id": 4263,
+    "mun_ne": "साँगुरीगढी",
+    "mun_en": "Sagurigadhi",
+    "ward_no": "10"
+  },
+  {
+    "id": 72,
+    "district_id": 8,
+    "district_ne": "धनकुटा",
+    "district_en": "Dhankuta",
+    "mun_id": 4264,
+    "mun_ne": "खाल्सा छिन्ताङ सहिदभूमि",
+    "mun_en": "Khalsa Chhintang Sahidbhumi",
+    "ward_no": "7"
+  },
+  {
+    "id": 73,
+    "district_id": 8,
+    "district_ne": "धनकुटा",
+    "district_en": "Dhankuta",
+    "mun_id": 4265,
+    "mun_ne": "छथर जोरपाटी",
+    "mun_en": "Chhathar Jorpati",
+    "ward_no": "6"
+  },
+  {
+    "id": 74,
+    "district_id": 8,
+    "district_ne": "धनकुटा",
+    "district_en": "Dhankuta",
+    "mun_id": 4266,
+    "mun_ne": "चौबिसे",
+    "mun_en": "Chaubise",
+    "ward_no": "8"
+  },
+  {
+    "id": 75,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4267,
+    "mun_ne": "विराटनगर",
+    "mun_en": "Biratnagar",
+    "ward_no": "19"
+  },
+  {
+    "id": 76,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4268,
+    "mun_ne": "बेलवारी",
+    "mun_en": "Belbari",
+    "ward_no": "11"
+  },
+  {
+    "id": 77,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4269,
+    "mun_ne": "लेटाङ",
+    "mun_en": "Letang",
+    "ward_no": "9"
+  },
+  {
+    "id": 78,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4270,
+    "mun_ne": "पथरी शनिश्चरे",
+    "mun_en": "Pathari Sanischare",
+    "ward_no": "10"
+  },
+  {
+    "id": 79,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4271,
+    "mun_ne": "रंगेली",
+    "mun_en": "Rangeli",
+    "ward_no": "9"
+  },
+  {
+    "id": 80,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4272,
+    "mun_ne": "रतुवामाई",
+    "mun_en": "Ratuwamai",
+    "ward_no": "10"
+  },
+  {
+    "id": 81,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4273,
+    "mun_ne": "सुनवर्षी",
+    "mun_en": "Sunawarsi",
+    "ward_no": "9"
+  },
+  {
+    "id": 82,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4274,
+    "mun_ne": "उर्लाबारी",
+    "mun_en": "Urlabari",
+    "ward_no": "9"
+  },
+  {
+    "id": 83,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4275,
+    "mun_ne": "सुन्दरहरैंचा",
+    "mun_en": "Sundarharaincha",
+    "ward_no": "12"
+  },
+  {
+    "id": 84,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4276,
+    "mun_ne": "बुढीगंगा",
+    "mun_en": "Budhiganga",
+    "ward_no": "7"
+  },
+  {
+    "id": 85,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4277,
+    "mun_ne": "धनपालथान",
+    "mun_en": "Dhanpalthan",
+    "ward_no": "7"
+  },
+  {
+    "id": 86,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4278,
+    "mun_ne": "ग्रामथान",
+    "mun_en": "Gramthan",
+    "ward_no": "7"
+  },
+  {
+    "id": 87,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4279,
+    "mun_ne": "जहदा",
+    "mun_en": "Jahada",
+    "ward_no": "7"
+  },
+  {
+    "id": 88,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4280,
+    "mun_ne": "कानेपोखरी",
+    "mun_en": "Kanepokhari",
+    "ward_no": "7"
+  },
+  {
+    "id": 89,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4281,
+    "mun_ne": "कटहरी",
+    "mun_en": "Katahari",
+    "ward_no": "7"
+  },
+  {
+    "id": 90,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4282,
+    "mun_ne": "केराबारी",
+    "mun_en": "Kerabari",
+    "ward_no": "10"
+  },
+  {
+    "id": 91,
+    "district_id": 9,
+    "district_ne": "मोरङ",
+    "district_en": "Morang",
+    "mun_id": 4283,
+    "mun_ne": "मिक्लाजुङ",
+    "mun_en": "Miklajung",
+    "ward_no": "9"
+  },
+  {
+    "id": 92,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4284,
+    "mun_ne": "ईटहरी",
+    "mun_en": "Itahari",
+    "ward_no": "20"
+  },
+  {
+    "id": 93,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4285,
+    "mun_ne": "धरान",
+    "mun_en": "Dharan",
+    "ward_no": "20"
+  },
+  {
+    "id": 94,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4286,
+    "mun_ne": "ईनरूवा",
+    "mun_en": "Inaruwa",
+    "ward_no": "10"
+  },
+  {
+    "id": 95,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4287,
+    "mun_ne": "दुहवी",
+    "mun_en": "Duhabi",
+    "ward_no": "12"
+  },
+  {
+    "id": 96,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4288,
+    "mun_ne": "रामधुनी",
+    "mun_en": "Ramdhuni",
+    "ward_no": "9"
+  },
+  {
+    "id": 97,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4289,
+    "mun_ne": "बराह",
+    "mun_en": "Barah",
+    "ward_no": "11"
+  },
+  {
+    "id": 98,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4290,
+    "mun_ne": "देवानगञ्ज",
+    "mun_en": "Dewangunj",
+    "ward_no": "7"
+  },
+  {
+    "id": 99,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4291,
+    "mun_ne": "कोशी",
+    "mun_en": "Koshi",
+    "ward_no": "8"
+  },
+  {
+    "id": 100,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4292,
+    "mun_ne": "गढी",
+    "mun_en": "Gadhi",
+    "ward_no": "6"
+  },
+  {
+    "id": 101,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4293,
+    "mun_ne": "बर्जु",
+    "mun_en": "Barju",
+    "ward_no": "6"
+  },
+  {
+    "id": 102,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4294,
+    "mun_ne": "भोक्राहा",
+    "mun_en": "Bhokraha",
+    "ward_no": "8"
+  },
+  {
+    "id": 103,
+    "district_id": 10,
+    "district_ne": "सुनसरी",
+    "district_en": "Sunsari",
+    "mun_id": 4295,
+    "mun_ne": "हरिनगरा",
+    "mun_en": "Harinagara",
+    "ward_no": "7"
+  },
+  {
+    "id": 104,
+    "district_id": 11,
+    "district_ne": "सोलुखुम्बु",
+    "district_en": "Solukhumbu",
+    "mun_id": 4296,
+    "mun_ne": "सोलुदुधकुण्ड",
+    "mun_en": "Solududhkunda",
+    "ward_no": "10"
+  },
+  {
+    "id": 105,
+    "district_id": 11,
+    "district_ne": "सोलुखुम्बु",
+    "district_en": "Solukhumbu",
+    "mun_id": 4297,
+    "mun_ne": "दुधकोशी",
+    "mun_en": "Dudhkoshi",
+    "ward_no": "7"
+  },
+  {
+    "id": 106,
+    "district_id": 11,
+    "district_ne": "सोलुखुम्बु",
+    "district_en": "Solukhumbu",
+    "mun_id": 4298,
+    "mun_ne": "खुम्बु पासाङल्हामु",
+    "mun_en": "Khumbu Pasang Lhamu",
+    "ward_no": "5"
+  },
+  {
+    "id": 107,
+    "district_id": 11,
+    "district_ne": "सोलुखुम्बु",
+    "district_en": "Solukhumbu",
+    "mun_id": 4299,
+    "mun_ne": "दुधकौशिका",
+    "mun_en": "Dudhkausika",
+    "ward_no": "9"
+  },
+  {
+    "id": 108,
+    "district_id": 11,
+    "district_ne": "सोलुखुम्बु",
+    "district_en": "Solukhumbu",
+    "mun_id": 4300,
+    "mun_ne": "नेचासल्यान",
+    "mun_en": "Nechasalyan",
+    "ward_no": "6"
+  },
+  {
+    "id": 109,
+    "district_id": 11,
+    "district_ne": "सोलुखुम्बु",
+    "district_en": "Solukhumbu",
+    "mun_id": 4301,
+    "mun_ne": "महाकुलुङ",
+    "mun_en": "Mahakulung",
+    "ward_no": "5"
+  },
+  {
+    "id": 110,
+    "district_id": 11,
+    "district_ne": "सोलुखुम्बु",
+    "district_en": "Solukhumbu",
+    "mun_id": 4302,
+    "mun_ne": "लिखु पिके",
+    "mun_en": "Likhu Pike",
+    "ward_no": "5"
+  },
+  {
+    "id": 111,
+    "district_id": 11,
+    "district_ne": "सोलुखुम्बु",
+    "district_en": "Solukhumbu",
+    "mun_id": 4303,
+    "mun_ne": "सोताङ",
+    "mun_en": "Sotang",
+    "ward_no": "5"
+  },
+  {
+    "id": 112,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4304,
+    "mun_ne": "हलेसीतुवाचुङ",
+    "mun_en": "Halesituwachung",
+    "ward_no": "11"
+  },
+  {
+    "id": 113,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4305,
+    "mun_ne": "रुपाकोट मझुवागढी",
+    "mun_en": "Rupakot Majhuwagadhi",
+    "ward_no": "15"
+  },
+  {
+    "id": 114,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4306,
+    "mun_ne": "ऐसेलुखर्क",
+    "mun_en": "Aiselukharka",
+    "ward_no": "7"
+  },
+  {
+    "id": 115,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4307,
+    "mun_ne": "लामिडाँडा",
+    "mun_en": "Lamidada",
+    "ward_no": "6"
+  },
+  {
+    "id": 116,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4308,
+    "mun_ne": "जन्तेढुङ्गा",
+    "mun_en": "Jantedhunga",
+    "ward_no": "6"
+  },
+  {
+    "id": 117,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4309,
+    "mun_ne": "खोटेहाङ",
+    "mun_en": "Khotehang",
+    "ward_no": "9"
+  },
+  {
+    "id": 118,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4310,
+    "mun_ne": "केपिलासगढी",
+    "mun_en": "Kepilasgadhi",
+    "ward_no": "7"
+  },
+  {
+    "id": 119,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4311,
+    "mun_ne": "दिप्रुङ",
+    "mun_en": "Diprung",
+    "ward_no": "7"
+  },
+  {
+    "id": 120,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4312,
+    "mun_ne": "साकेला",
+    "mun_en": "Sakela",
+    "ward_no": "5"
+  },
+  {
+    "id": 121,
+    "district_id": 12,
+    "district_ne": "खोटाङ",
+    "district_en": "Khotang",
+    "mun_id": 4313,
+    "mun_ne": "बराहपोखरी",
+    "mun_en": "Barahpokhari",
+    "ward_no": "6"
+  },
+  {
+    "id": 122,
+    "district_id": 13,
+    "district_ne": "ओखलढुङ्गा",
+    "district_en": "Okhaldhunga",
+    "mun_id": 4314,
+    "mun_ne": "सिद्धिचरण",
+    "mun_en": "Siddhicharan",
+    "ward_no": "12"
+  },
+  {
+    "id": 123,
+    "district_id": 13,
+    "district_ne": "ओखलढुङ्गा",
+    "district_en": "Okhaldhunga",
+    "mun_id": 4315,
+    "mun_ne": "खिजीदेम्वा",
+    "mun_en": "Khijidemwa",
+    "ward_no": "9"
+  },
+  {
+    "id": 124,
+    "district_id": 13,
+    "district_ne": "ओखलढुङ्गा",
+    "district_en": "Okhaldhunga",
+    "mun_id": 4316,
+    "mun_ne": "चम्पादेवी",
+    "mun_en": "Champadevi",
+    "ward_no": "10"
+  },
+  {
+    "id": 125,
+    "district_id": 13,
+    "district_ne": "ओखलढुङ्गा",
+    "district_en": "Okhaldhunga",
+    "mun_id": 4317,
+    "mun_ne": "चिशंखुगढी",
+    "mun_en": "Chisankhugadhi",
+    "ward_no": "8"
+  },
+  {
+    "id": 126,
+    "district_id": 13,
+    "district_ne": "ओखलढुङ्गा",
+    "district_en": "Okhaldhunga",
+    "mun_id": 4318,
+    "mun_ne": "मानेभञ्ज्याङ",
+    "mun_en": "Manebhanjyang",
+    "ward_no": "9"
+  },
+  {
+    "id": 127,
+    "district_id": 13,
+    "district_ne": "ओखलढुङ्गा",
+    "district_en": "Okhaldhunga",
+    "mun_id": 4319,
+    "mun_ne": "मोलुङ",
+    "mun_en": "Molung",
+    "ward_no": "8"
+  },
+  {
+    "id": 128,
+    "district_id": 13,
+    "district_ne": "ओखलढुङ्गा",
+    "district_en": "Okhaldhunga",
+    "mun_id": 4320,
+    "mun_ne": "लिखु",
+    "mun_en": "Likhu",
+    "ward_no": "9"
+  },
+  {
+    "id": 129,
+    "district_id": 13,
+    "district_ne": "ओखलढुङ्गा",
+    "district_en": "Okhaldhunga",
+    "mun_id": 4321,
+    "mun_ne": "सुनकोशी",
+    "mun_en": "Sunkoshi",
+    "ward_no": "10"
+  },
+  {
+    "id": 130,
+    "district_id": 14,
+    "district_ne": "उदयपुर",
+    "district_en": "Udayapur",
+    "mun_id": 4322,
+    "mun_ne": "कटारी",
+    "mun_en": "Katari",
+    "ward_no": "14"
+  },
+  {
+    "id": 131,
+    "district_id": 14,
+    "district_ne": "उदयपुर",
+    "district_en": "Udayapur",
+    "mun_id": 4323,
+    "mun_ne": "चौदण्डीगढी",
+    "mun_en": "Chaudandigadhi",
+    "ward_no": "10"
+  },
+  {
+    "id": 132,
+    "district_id": 14,
+    "district_ne": "उदयपुर",
+    "district_en": "Udayapur",
+    "mun_id": 4324,
+    "mun_ne": "त्रियुगा",
+    "mun_en": "Triyuga",
+    "ward_no": "16"
+  },
+  {
+    "id": 133,
+    "district_id": 14,
+    "district_ne": "उदयपुर",
+    "district_en": "Udayapur",
+    "mun_id": 4325,
+    "mun_ne": "वेलका",
+    "mun_en": "Belaka",
+    "ward_no": "9"
+  },
+  {
+    "id": 134,
+    "district_id": 14,
+    "district_ne": "उदयपुर",
+    "district_en": "Udayapur",
+    "mun_id": 4326,
+    "mun_ne": "उदयपुरगढी",
+    "mun_en": "Udaypurgadhi",
+    "ward_no": "8"
+  },
+  {
+    "id": 135,
+    "district_id": 14,
+    "district_ne": "उदयपुर",
+    "district_en": "Udayapur",
+    "mun_id": 4327,
+    "mun_ne": "ताप्ली",
+    "mun_en": "Tapli",
+    "ward_no": "5"
+  },
+  {
+    "id": 136,
+    "district_id": 14,
+    "district_ne": "उदयपुर",
+    "district_en": "Udayapur",
+    "mun_id": 4328,
+    "mun_ne": "रौतामाई",
+    "mun_en": "Rautamai",
+    "ward_no": "8"
+  },
+  {
+    "id": 137,
+    "district_id": 14,
+    "district_ne": "उदयपुर",
+    "district_en": "Udayapur",
+    "mun_id": 4329,
+    "mun_ne": "सुनकोशी",
+    "mun_en": "Sunkoshi",
+    "ward_no": "5"
+  },
+  {
+    "id": 138,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4330,
+    "mun_ne": "चन्द्रपुर",
+    "mun_en": "Chandrapur",
+    "ward_no": "10"
+  },
+  {
+    "id": 139,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4331,
+    "mun_ne": "गरुडा",
+    "mun_en": "Garuda",
+    "ward_no": "9"
+  },
+  {
+    "id": 140,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4332,
+    "mun_ne": "गौर",
+    "mun_en": "Gaur",
+    "ward_no": "9"
+  },
+  {
+    "id": 141,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4333,
+    "mun_ne": "बौधीमाई",
+    "mun_en": "Baudhimai",
+    "ward_no": "9"
+  },
+  {
+    "id": 142,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4334,
+    "mun_ne": "बृन्दावन",
+    "mun_en": "Brindaban",
+    "ward_no": "9"
+  },
+  {
+    "id": 143,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4335,
+    "mun_ne": "देवाही गोनाही",
+    "mun_en": "Dewahi Gonahi",
+    "ward_no": "9"
+  },
+  {
+    "id": 144,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4336,
+    "mun_ne": "दुर्गा भगवती",
+    "mun_en": "Durga Bhagwati",
+    "ward_no": "5"
+  },
+  {
+    "id": 145,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4337,
+    "mun_ne": "गढीमाई",
+    "mun_en": "Gadhimai",
+    "ward_no": "9"
+  },
+  {
+    "id": 146,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4338,
+    "mun_ne": "गुजरा",
+    "mun_en": "Gujara",
+    "ward_no": "9"
+  },
+  {
+    "id": 147,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4339,
+    "mun_ne": "कटहरिया",
+    "mun_en": "Katahariya",
+    "ward_no": "9"
+  },
+  {
+    "id": 148,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4340,
+    "mun_ne": "माधव नारायण",
+    "mun_en": "Madhav Narayan",
+    "ward_no": "9"
+  },
+  {
+    "id": 149,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4341,
+    "mun_ne": "मौलापुर",
+    "mun_en": "Maulapur",
+    "ward_no": "9"
+  },
+  {
+    "id": 150,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4342,
+    "mun_ne": "फतुबाबिजयपुर",
+    "mun_en": "Fatuwa Bijayapur",
+    "ward_no": "11"
+  },
+  {
+    "id": 151,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4343,
+    "mun_ne": "ईशनाथ",
+    "mun_en": "Ishanath",
+    "ward_no": "9"
+  },
+  {
+    "id": 152,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4344,
+    "mun_ne": "परोहा",
+    "mun_en": "Paroha",
+    "ward_no": "9"
+  },
+  {
+    "id": 153,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4345,
+    "mun_ne": "राजपुर",
+    "mun_en": "Rajpur",
+    "ward_no": "9"
+  },
+  {
+    "id": 154,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4346,
+    "mun_ne": "कलैया",
+    "mun_en": "Kalaiya",
+    "ward_no": "27"
+  },
+  {
+    "id": 155,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4347,
+    "mun_ne": "जीतपुरसिमरा",
+    "mun_en": "Jitpursimara",
+    "ward_no": "24"
+  },
+  {
+    "id": 156,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4348,
+    "mun_ne": "कोल्हवी",
+    "mun_en": "Kolhawi",
+    "ward_no": "11"
+  },
+  {
+    "id": 157,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4349,
+    "mun_ne": "निजगढ",
+    "mun_en": "Nijgadh",
+    "ward_no": "13"
+  },
+  {
+    "id": 158,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4350,
+    "mun_ne": "महागढीमाई",
+    "mun_en": "Mahagadhimai",
+    "ward_no": "11"
+  },
+  {
+    "id": 159,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4351,
+    "mun_ne": "सिम्रौनगढ",
+    "mun_en": "Simraungadh",
+    "ward_no": "11"
+  },
+  {
+    "id": 160,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4352,
+    "mun_ne": "आदर्श कोटवाल",
+    "mun_en": "Adarsha Kotwal",
+    "ward_no": "8"
+  },
+  {
+    "id": 161,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4353,
+    "mun_ne": "करैयामाई",
+    "mun_en": "Karaiyamai",
+    "ward_no": "8"
+  },
+  {
+    "id": 162,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4354,
+    "mun_ne": "देवताल",
+    "mun_en": "Devtaal",
+    "ward_no": "7"
+  },
+  {
+    "id": 163,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4355,
+    "mun_ne": "पचरौता",
+    "mun_en": "Pachrauta",
+    "ward_no": "9"
+  },
+  {
+    "id": 164,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4356,
+    "mun_ne": "परवानीपुर",
+    "mun_en": "Parwanipur",
+    "ward_no": "9"
+  },
+  {
+    "id": 165,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4357,
+    "mun_ne": "प्रसौनी",
+    "mun_en": "Prasauni",
+    "ward_no": "7"
+  },
+  {
+    "id": 166,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4358,
+    "mun_ne": "फेटा",
+    "mun_en": "Pheta",
+    "ward_no": "8"
+  },
+  {
+    "id": 167,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4359,
+    "mun_ne": "बारागढी",
+    "mun_en": "Baragadhi",
+    "ward_no": "6"
+  },
+  {
+    "id": 168,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4360,
+    "mun_ne": "सुवर्ण",
+    "mun_en": "Subarna",
+    "ward_no": "8"
+  },
+  {
+    "id": 169,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4361,
+    "mun_ne": "बिरगंज",
+    "mun_en": "Birgunj",
+    "ward_no": "32"
+  },
+  {
+    "id": 170,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4362,
+    "mun_ne": "पोखरिया",
+    "mun_en": "Pokhariya",
+    "ward_no": "11"
+  },
+  {
+    "id": 171,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4363,
+    "mun_ne": "ठोरी",
+    "mun_en": "Thori",
+    "ward_no": "7"
+  },
+  {
+    "id": 172,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4364,
+    "mun_ne": "जगरनाथपुर",
+    "mun_en": "Jagarnathpur",
+    "ward_no": "6"
+  },
+  {
+    "id": 173,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4365,
+    "mun_ne": "धोबीनी",
+    "mun_en": "Dhobini",
+    "ward_no": "5"
+  },
+  {
+    "id": 174,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4366,
+    "mun_ne": "छिपहरमाई",
+    "mun_en": "Chhipaharmai",
+    "ward_no": "5"
+  },
+  {
+    "id": 175,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4367,
+    "mun_ne": "पकाहा मैनापुर",
+    "mun_en": "Pakaha Mainapur",
+    "ward_no": "5"
+  },
+  {
+    "id": 176,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4368,
+    "mun_ne": "बिन्दबासिनी",
+    "mun_en": "Bindabasini",
+    "ward_no": "5"
+  },
+  {
+    "id": 177,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4369,
+    "mun_ne": "बहुदरमाई",
+    "mun_en": "Bahudarmai",
+    "ward_no": "9"
+  },
+  {
+    "id": 178,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4371,
+    "mun_ne": "पर्सागढी",
+    "mun_en": "Parsagadhi",
+    "ward_no": "9"
+  },
+  {
+    "id": 179,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4372,
+    "mun_ne": "सखुवा प्रसौनी",
+    "mun_en": "Sakhuwa Prasauni",
+    "ward_no": "6"
+  },
+  {
+    "id": 180,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4373,
+    "mun_ne": "पटेर्वा सुगौली",
+    "mun_en": "Paterwa Sugauli",
+    "ward_no": "7"
+  },
+  {
+    "id": 181,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4374,
+    "mun_ne": "राजबिराज",
+    "mun_en": "Rajbiraj",
+    "ward_no": "16"
+  },
+  {
+    "id": 182,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4375,
+    "mun_ne": "कञ्चनरुप",
+    "mun_en": "Kanchanrup",
+    "ward_no": "13"
+  },
+  {
+    "id": 183,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4376,
+    "mun_ne": "डाक्नेश्वरी",
+    "mun_en": "Dakneshwori",
+    "ward_no": "11"
+  },
+  {
+    "id": 184,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4377,
+    "mun_ne": "बोदेबरसाइन",
+    "mun_en": "Bodebarsain",
+    "ward_no": "16"
+  },
+  {
+    "id": 185,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4378,
+    "mun_ne": "खडक",
+    "mun_en": "Khadak",
+    "ward_no": "11"
+  },
+  {
+    "id": 186,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4379,
+    "mun_ne": "शम्भुनाथ",
+    "mun_en": "Shambhunath",
+    "ward_no": "12"
+  },
+  {
+    "id": 187,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4380,
+    "mun_ne": "सुरुङ्गा",
+    "mun_en": "Surunga",
+    "ward_no": "11"
+  },
+  {
+    "id": 188,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4381,
+    "mun_ne": "हनुमाननगर कंकालिनी",
+    "mun_en": "hanumannagar kankalini",
+    "ward_no": "14"
+  },
+  {
+    "id": 189,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4382,
+    "mun_ne": "अग्निसाइर कृष्णासवरन",
+    "mun_en": "Agnisaier Krishna sabaran",
+    "ward_no": "6"
+  },
+  {
+    "id": 190,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4383,
+    "mun_ne": "छिन्नमस्ता",
+    "mun_en": "Chhinnamasta",
+    "ward_no": "8"
+  },
+  {
+    "id": 191,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4384,
+    "mun_ne": "महादेवा",
+    "mun_en": "Mahadeva",
+    "ward_no": "6"
+  },
+  {
+    "id": 192,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4385,
+    "mun_ne": "सप्तकोशी",
+    "mun_en": "Saptakosi",
+    "ward_no": "11"
+  },
+  {
+    "id": 193,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4386,
+    "mun_ne": "तिरहुत",
+    "mun_en": "Tirahut",
+    "ward_no": "5"
+  },
+  {
+    "id": 194,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4387,
+    "mun_ne": "तिलाठी कोईलाडी",
+    "mun_en": "Tilathi Koiladi",
+    "ward_no": "8"
+  },
+  {
+    "id": 195,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4388,
+    "mun_ne": "रुपनी",
+    "mun_en": "Rupani",
+    "ward_no": "6"
+  },
+  {
+    "id": 196,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4389,
+    "mun_ne": "बेल्ही चपेना",
+    "mun_en": "Belhi Chapena",
+    "ward_no": "6"
+  },
+  {
+    "id": 197,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4390,
+    "mun_ne": "बिष्णुपुर",
+    "mun_en": "Bishnupur",
+    "ward_no": "7"
+  },
+  {
+    "id": 198,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4391,
+    "mun_ne": "जनकपुर",
+    "mun_en": "Janakpur",
+    "ward_no": "25"
+  },
+  {
+    "id": 199,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4392,
+    "mun_ne": "क्षिरेश्वरनाथ",
+    "mun_en": "Chhireshwor",
+    "ward_no": "11"
+  },
+  {
+    "id": 200,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4393,
+    "mun_ne": "गणेशमान चारनाथ",
+    "mun_en": "Ganeshman Charnath",
+    "ward_no": "11"
+  },
+  {
+    "id": 201,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4394,
+    "mun_ne": "धनुषाधाम",
+    "mun_en": "Dhanusadham",
+    "ward_no": "9"
+  },
+  {
+    "id": 202,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4395,
+    "mun_ne": "नगराइन",
+    "mun_en": "Nagarain",
+    "ward_no": "10"
+  },
+  {
+    "id": 203,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4396,
+    "mun_ne": "विदेह",
+    "mun_en": "Videha",
+    "ward_no": "10"
+  },
+  {
+    "id": 204,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4397,
+    "mun_ne": "मिथिला",
+    "mun_en": "Mithila",
+    "ward_no": "11"
+  },
+  {
+    "id": 205,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4398,
+    "mun_ne": "शहिदनगर",
+    "mun_en": "Sahidnagar",
+    "ward_no": "9"
+  },
+  {
+    "id": 206,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4399,
+    "mun_ne": "सबैला",
+    "mun_en": "Sabaila",
+    "ward_no": "13"
+  },
+  {
+    "id": 207,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4400,
+    "mun_ne": "कमला सिद्धीदात्री",
+    "mun_en": "Kamala Siddidatri",
+    "ward_no": "9"
+  },
+  {
+    "id": 208,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4401,
+    "mun_ne": "जनकनन्दिनी",
+    "mun_en": "Janaknandini",
+    "ward_no": "6"
+  },
+  {
+    "id": 209,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4402,
+    "mun_ne": "बटेश्वर",
+    "mun_en": "Bateshwor",
+    "ward_no": "5"
+  },
+  {
+    "id": 210,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4403,
+    "mun_ne": "मिथिला बिहारी",
+    "mun_en": "Mithila Bihari",
+    "ward_no": "10"
+  },
+  {
+    "id": 211,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4404,
+    "mun_ne": "मुखियापट्टी मुसहरमिया",
+    "mun_en": "Mukhiyapatti musaharmiya",
+    "ward_no": "6"
+  },
+  {
+    "id": 212,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4405,
+    "mun_ne": "लक्ष्मिनिया",
+    "mun_en": "Laxminiya",
+    "ward_no": "7"
+  },
+  {
+    "id": 213,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4406,
+    "mun_ne": "हंसपुर",
+    "mun_en": "Hansapur",
+    "ward_no": "9"
+  },
+  {
+    "id": 214,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4407,
+    "mun_ne": "औरहि",
+    "mun_en": "Aurahi",
+    "ward_no": "8"
+  },
+  {
+    "id": 215,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4408,
+    "mun_ne": "लहान",
+    "mun_en": "Lahan",
+    "ward_no": "24"
+  },
+  {
+    "id": 216,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4409,
+    "mun_ne": "धनगढीमाई",
+    "mun_en": "Dhangadimai",
+    "ward_no": "14"
+  },
+  {
+    "id": 217,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4410,
+    "mun_ne": "सिरहा",
+    "mun_en": "Siraha",
+    "ward_no": "22"
+  },
+  {
+    "id": 218,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4411,
+    "mun_ne": "गोलबजार",
+    "mun_en": "Golbazar",
+    "ward_no": "13"
+  },
+  {
+    "id": 219,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4412,
+    "mun_ne": "मिर्चैया",
+    "mun_en": "Mirchaiya",
+    "ward_no": "12"
+  },
+  {
+    "id": 220,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4413,
+    "mun_ne": "कल्याणपुर",
+    "mun_en": "Kalyanpur",
+    "ward_no": "12"
+  },
+  {
+    "id": 221,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4414,
+    "mun_ne": "भगवानपुर",
+    "mun_en": "Bhagawanpur",
+    "ward_no": "5"
+  },
+  {
+    "id": 222,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4415,
+    "mun_ne": "औरही",
+    "mun_en": "Aurahi",
+    "ward_no": "5"
+  },
+  {
+    "id": 223,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4416,
+    "mun_ne": "बिष्णुपुर",
+    "mun_en": "Bishnupur",
+    "ward_no": "5"
+  },
+  {
+    "id": 224,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4417,
+    "mun_ne": "सुखीपुर",
+    "mun_en": "Sukhipur",
+    "ward_no": "10"
+  },
+  {
+    "id": 225,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4418,
+    "mun_ne": "कर्जन्हा",
+    "mun_en": "Karjanha",
+    "ward_no": "11"
+  },
+  {
+    "id": 226,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4419,
+    "mun_ne": "बरियारपट्टी",
+    "mun_en": "Bariyarpatti",
+    "ward_no": "5"
+  },
+  {
+    "id": 227,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4420,
+    "mun_ne": "लक्ष्मीपुर पतारी",
+    "mun_en": "Laxmipur Patari",
+    "ward_no": "6"
+  },
+  {
+    "id": 228,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4421,
+    "mun_ne": "नरहा",
+    "mun_en": "Naraha",
+    "ward_no": "5"
+  },
+  {
+    "id": 229,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4422,
+    "mun_ne": "सखुवानान्कारकट्टी",
+    "mun_en": "Sakhuwanankarkatti",
+    "ward_no": "5"
+  },
+  {
+    "id": 230,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4423,
+    "mun_ne": "अर्नमा",
+    "mun_en": "Arnama",
+    "ward_no": "5"
+  },
+  {
+    "id": 231,
+    "district_id": 16,
+    "district_ne": "सिराहा",
+    "district_en": "Siraha",
+    "mun_id": 4424,
+    "mun_ne": "नवराजपुर",
+    "mun_en": "Nawarajpur",
+    "ward_no": "5"
+  },
+  {
+    "id": 232,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4425,
+    "mun_ne": "जलेश्वर",
+    "mun_en": "Jaleshwor",
+    "ward_no": "12"
+  },
+  {
+    "id": 233,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4426,
+    "mun_ne": "बर्दिबास",
+    "mun_en": "Bardibas",
+    "ward_no": "14"
+  },
+  {
+    "id": 234,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4427,
+    "mun_ne": "गौशाला",
+    "mun_en": "Gausala",
+    "ward_no": "12"
+  },
+  {
+    "id": 235,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4428,
+    "mun_ne": "एकडारा",
+    "mun_en": "Ekdara",
+    "ward_no": "8"
+  },
+  {
+    "id": 236,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4429,
+    "mun_ne": "सोनमा",
+    "mun_en": "Somana",
+    "ward_no": "8"
+  },
+  {
+    "id": 237,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4430,
+    "mun_ne": "साम्सी",
+    "mun_en": "Samsi",
+    "ward_no": "7"
+  },
+  {
+    "id": 238,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4431,
+    "mun_ne": "लोहरपट्टी",
+    "mun_en": "Loharpatti",
+    "ward_no": "9"
+  },
+  {
+    "id": 239,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4432,
+    "mun_ne": "रामगोपालपुर",
+    "mun_en": "Ramgopalpur",
+    "ward_no": "9"
+  },
+  {
+    "id": 240,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4433,
+    "mun_ne": "महोत्तरी",
+    "mun_en": "Mahottari",
+    "ward_no": "6"
+  },
+  {
+    "id": 241,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4434,
+    "mun_ne": "मनरा",
+    "mun_en": "Manara",
+    "ward_no": "10"
+  },
+  {
+    "id": 242,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4435,
+    "mun_ne": "मटिहानी",
+    "mun_en": "Matihani",
+    "ward_no": "9"
+  },
+  {
+    "id": 243,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4436,
+    "mun_ne": "भँगाहा",
+    "mun_en": "Bhangaha",
+    "ward_no": "9"
+  },
+  {
+    "id": 244,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4437,
+    "mun_ne": "बलवा",
+    "mun_en": "Balawa",
+    "ward_no": "12"
+  },
+  {
+    "id": 245,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4438,
+    "mun_ne": "पिपरा",
+    "mun_en": "Pipara",
+    "ward_no": "7"
+  },
+  {
+    "id": 246,
+    "district_id": 21,
+    "district_ne": "महोत्तरी",
+    "district_en": "Mahottari",
+    "mun_id": 4439,
+    "mun_ne": "औरही",
+    "mun_en": "Aurahi",
+    "ward_no": "9"
+  },
+  {
+    "id": 247,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4440,
+    "mun_ne": "ईश्वरपुर",
+    "mun_en": "Ishworpur",
+    "ward_no": "15"
+  },
+  {
+    "id": 248,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4441,
+    "mun_ne": "लालबन्दी",
+    "mun_en": "Lalbandi",
+    "ward_no": "17"
+  },
+  {
+    "id": 249,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4442,
+    "mun_ne": "हरिपुर",
+    "mun_en": "Haripur",
+    "ward_no": "10"
+  },
+  {
+    "id": 250,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4443,
+    "mun_ne": "हरिपुर्वा",
+    "mun_en": "Haripurba",
+    "ward_no": "11"
+  },
+  {
+    "id": 251,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4444,
+    "mun_ne": "हरिवन",
+    "mun_en": "Harion",
+    "ward_no": "11"
+  },
+  {
+    "id": 252,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4445,
+    "mun_ne": "बरहथवा",
+    "mun_en": "Barahathawa",
+    "ward_no": "18"
+  },
+  {
+    "id": 253,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4446,
+    "mun_ne": "बलरा",
+    "mun_en": "Balara",
+    "ward_no": "12"
+  },
+  {
+    "id": 254,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4447,
+    "mun_ne": "गोडैटा",
+    "mun_en": "Godaita",
+    "ward_no": "12"
+  },
+  {
+    "id": 255,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4448,
+    "mun_ne": "मलंगवा",
+    "mun_en": "Malangwa",
+    "ward_no": "12"
+  },
+  {
+    "id": 256,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4449,
+    "mun_ne": "बागमती",
+    "mun_en": "Bagmati",
+    "ward_no": "12"
+  },
+  {
+    "id": 257,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4450,
+    "mun_ne": "कविलासी",
+    "mun_en": "Kabilasi",
+    "ward_no": "10"
+  },
+  {
+    "id": 258,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4451,
+    "mun_ne": "चक्रघट्टा",
+    "mun_en": "Chakraghatta",
+    "ward_no": "13"
+  },
+  {
+    "id": 259,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4452,
+    "mun_ne": "चन्द्रनगर",
+    "mun_en": "Chandranagar",
+    "ward_no": "7"
+  },
+  {
+    "id": 260,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4453,
+    "mun_ne": "धनकौल",
+    "mun_en": "Dhankaul",
+    "ward_no": "9"
+  },
+  {
+    "id": 261,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4454,
+    "mun_ne": "ब्रम्हापुरी",
+    "mun_en": "Bramhapuri",
+    "ward_no": "9"
+  },
+  {
+    "id": 262,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4455,
+    "mun_ne": "रामनगर",
+    "mun_en": "Ramnagar",
+    "ward_no": "10"
+  },
+  {
+    "id": 263,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4456,
+    "mun_ne": "विष्णु",
+    "mun_en": "Bishnu",
+    "ward_no": "12"
+  },
+  {
+    "id": 264,
+    "district_id": 23,
+    "district_ne": "रसुवा",
+    "district_en": "Rasuwa",
+    "mun_id": 4457,
+    "mun_ne": "उत्तरगया",
+    "mun_en": "Uttargaya",
+    "ward_no": "5"
+  },
+  {
+    "id": 265,
+    "district_id": 23,
+    "district_ne": "रसुवा",
+    "district_en": "Rasuwa",
+    "mun_id": 4458,
+    "mun_ne": "कालिका",
+    "mun_en": "Kalika",
+    "ward_no": "5"
+  },
+  {
+    "id": 266,
+    "district_id": 23,
+    "district_ne": "रसुवा",
+    "district_en": "Rasuwa",
+    "mun_id": 4459,
+    "mun_ne": "गोसाईकुण्ड",
+    "mun_en": "Gosainkunda",
+    "ward_no": "6"
+  },
+  {
+    "id": 267,
+    "district_id": 23,
+    "district_ne": "रसुवा",
+    "district_en": "Rasuwa",
+    "mun_id": 4460,
+    "mun_ne": "नौकुण्ड",
+    "mun_en": "Naukunda",
+    "ward_no": "6"
+  },
+  {
+    "id": 268,
+    "district_id": 23,
+    "district_ne": "रसुवा",
+    "district_en": "Rasuwa",
+    "mun_id": 4461,
+    "mun_ne": "पार्वतीकुण्ड",
+    "mun_en": "Parbatikunda",
+    "ward_no": "5"
+  },
+  {
+    "id": 269,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4462,
+    "mun_ne": "विदुर",
+    "mun_en": "Bidur",
+    "ward_no": "13"
+  },
+  {
+    "id": 270,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4463,
+    "mun_ne": "बेलकोटगढी",
+    "mun_en": "Belkotgadhi",
+    "ward_no": "13"
+  },
+  {
+    "id": 271,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4464,
+    "mun_ne": "ककनी",
+    "mun_en": "Kakani",
+    "ward_no": "8"
+  },
+  {
+    "id": 272,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4465,
+    "mun_ne": "किस्पाङ",
+    "mun_en": "Kispang",
+    "ward_no": "5"
+  },
+  {
+    "id": 273,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4466,
+    "mun_ne": "तादीगाउँ",
+    "mun_en": "Tadigaun",
+    "ward_no": "6"
+  },
+  {
+    "id": 274,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4467,
+    "mun_ne": "तारकेश्वर",
+    "mun_en": "Tarkeshwor",
+    "ward_no": "6"
+  },
+  {
+    "id": 275,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4468,
+    "mun_ne": "दुप्चेश्वर",
+    "mun_en": "Dupcheshwor",
+    "ward_no": "7"
+  },
+  {
+    "id": 276,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4469,
+    "mun_ne": "पञ्चकन्या",
+    "mun_en": "Panchakanya",
+    "ward_no": "5"
+  },
+  {
+    "id": 277,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4470,
+    "mun_ne": "लिखु",
+    "mun_en": "Likhu",
+    "ward_no": "6"
+  },
+  {
+    "id": 278,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4471,
+    "mun_ne": "मेघाङ",
+    "mun_en": "Meghang",
+    "ward_no": "6"
+  },
+  {
+    "id": 279,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4472,
+    "mun_ne": "शिवपुरी",
+    "mun_en": "Shivapuri",
+    "ward_no": "8"
+  },
+  {
+    "id": 280,
+    "district_id": 25,
+    "district_ne": "नुवाकोट",
+    "district_en": "Nuwakot",
+    "mun_id": 4473,
+    "mun_ne": "सूर्यगढी",
+    "mun_en": "Suryegadhi",
+    "ward_no": "5"
+  },
+  {
+    "id": 281,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4474,
+    "mun_ne": "काठमाडौँ",
+    "mun_en": "Kathmandu",
+    "ward_no": "32"
+  },
+  {
+    "id": 282,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4475,
+    "mun_ne": "कागेश्वरी मनोहरा",
+    "mun_en": "Kageshwori Manohara",
+    "ward_no": "9"
+  },
+  {
+    "id": 283,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4476,
+    "mun_ne": "कीर्तिपुर",
+    "mun_en": "Kirtipur",
+    "ward_no": "10"
+  },
+  {
+    "id": 284,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4477,
+    "mun_ne": "गोकर्णेश्वर",
+    "mun_en": "Gokarneshwor",
+    "ward_no": "9"
+  },
+  {
+    "id": 285,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4478,
+    "mun_ne": "चन्द्रागिरी",
+    "mun_en": "Chandragiri",
+    "ward_no": "15"
+  },
+  {
+    "id": 286,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4479,
+    "mun_ne": "टोखा",
+    "mun_en": "Tokha",
+    "ward_no": "11"
+  },
+  {
+    "id": 287,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4480,
+    "mun_ne": "तारकेश्वर",
+    "mun_en": "Tarakeshwor",
+    "ward_no": "11"
+  },
+  {
+    "id": 288,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4481,
+    "mun_ne": "दक्षिणकाली",
+    "mun_en": "Dakshinkali",
+    "ward_no": "9"
+  },
+  {
+    "id": 289,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4482,
+    "mun_ne": "नागार्जुन",
+    "mun_en": "Nagarjun",
+    "ward_no": "10"
+  },
+  {
+    "id": 290,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4483,
+    "mun_ne": "बुढानिलकण्ठ",
+    "mun_en": "Budhanilkantha",
+    "ward_no": "13"
+  },
+  {
+    "id": 291,
+    "district_id": 26,
+    "district_ne": "काठमाण्डौ",
+    "district_en": "Kathmandu",
+    "mun_id": 4484,
+    "mun_ne": "शङ्खरापुर",
+    "mun_en": "Shankharapur",
+    "ward_no": "9"
+  },
+  {
+    "id": 292,
+    "district_id": 27,
+    "district_ne": "भक्तपुर",
+    "district_en": "Bhaktapur",
+    "mun_id": 4485,
+    "mun_ne": "चाँगुनारायण",
+    "mun_en": "Changu Narayan",
+    "ward_no": "9"
+  },
+  {
+    "id": 293,
+    "district_id": 27,
+    "district_ne": "भक्तपुर",
+    "district_en": "Bhaktapur",
+    "mun_id": 4486,
+    "mun_ne": "भक्तपुर",
+    "mun_en": "Bhaktapur",
+    "ward_no": "10"
+  },
+  {
+    "id": 294,
+    "district_id": 27,
+    "district_ne": "भक्तपुर",
+    "district_en": "Bhaktapur",
+    "mun_id": 4487,
+    "mun_ne": "मध्यपुर थिमि",
+    "mun_en": "Madhyapur Thimi",
+    "ward_no": "9"
+  },
+  {
+    "id": 295,
+    "district_id": 27,
+    "district_ne": "भक्तपुर",
+    "district_en": "Bhaktapur",
+    "mun_id": 4488,
+    "mun_ne": "सूर्यविनायक",
+    "mun_en": "Suryabinayak",
+    "ward_no": "10"
+  },
+  {
+    "id": 296,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4489,
+    "mun_ne": "चौतारा साँगाचोकगढी",
+    "mun_en": "Chautara Sangachowkgadhi",
+    "ward_no": "14"
+  },
+  {
+    "id": 297,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4490,
+    "mun_ne": "वाह्रविसे",
+    "mun_en": "Barabise",
+    "ward_no": "9"
+  },
+  {
+    "id": 298,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4491,
+    "mun_ne": "मेलम्ची",
+    "mun_en": "Melamchi",
+    "ward_no": "13"
+  },
+  {
+    "id": 299,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4492,
+    "mun_ne": "इन्द्रावती",
+    "mun_en": "Indrabati",
+    "ward_no": "12"
+  },
+  {
+    "id": 300,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4493,
+    "mun_ne": "जुगल",
+    "mun_en": "Jugal",
+    "ward_no": "7"
+  },
+  {
+    "id": 301,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4494,
+    "mun_ne": "पाँचपोखरी थाङपाल",
+    "mun_en": "Panchpokhari Thanpal",
+    "ward_no": "8"
+  },
+  {
+    "id": 302,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4495,
+    "mun_ne": "बलेफी",
+    "mun_en": "Balephi",
+    "ward_no": "8"
+  },
+  {
+    "id": 303,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4496,
+    "mun_ne": "भोटेकोशी",
+    "mun_en": "Botekoshi",
+    "ward_no": "5"
+  },
+  {
+    "id": 304,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4497,
+    "mun_ne": "लिसंखु पाखर",
+    "mun_en": "Lisankhu Pakhar",
+    "ward_no": "7"
+  },
+  {
+    "id": 305,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4498,
+    "mun_ne": "सुनकोशी",
+    "mun_en": "Sunkoshi",
+    "ward_no": "7"
+  },
+  {
+    "id": 306,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4499,
+    "mun_ne": "हेलम्बु",
+    "mun_en": "Helambhu",
+    "ward_no": "7"
+  },
+  {
+    "id": 307,
+    "district_id": 30,
+    "district_ne": "सिन्धुपाल्चोक",
+    "district_en": "Sindhupalchowk",
+    "mun_id": 4500,
+    "mun_ne": "त्रिपुरासन्दरी",
+    "mun_en": "Tripurasundari",
+    "ward_no": "6"
+  },
+  {
+    "id": 308,
+    "district_id": 18,
+    "district_ne": "रामेछाप",
+    "district_en": "Ramechhap",
+    "mun_id": 4501,
+    "mun_ne": "मन्थली",
+    "mun_en": "Manthali",
+    "ward_no": "14"
+  },
+  {
+    "id": 309,
+    "district_id": 18,
+    "district_ne": "रामेछाप",
+    "district_en": "Ramechhap",
+    "mun_id": 4502,
+    "mun_ne": "रामेछाप",
+    "mun_en": "Ramechhap",
+    "ward_no": "9"
+  },
+  {
+    "id": 310,
+    "district_id": 18,
+    "district_ne": "रामेछाप",
+    "district_en": "Ramechhap",
+    "mun_id": 4503,
+    "mun_ne": "उमाकुण्ड",
+    "mun_en": "Umakunda",
+    "ward_no": "7"
+  },
+  {
+    "id": 311,
+    "district_id": 18,
+    "district_ne": "रामेछाप",
+    "district_en": "Ramechhap",
+    "mun_id": 4504,
+    "mun_ne": "खाँडादेवी",
+    "mun_en": "Khandadevi",
+    "ward_no": "9"
+  },
+  {
+    "id": 312,
+    "district_id": 18,
+    "district_ne": "रामेछाप",
+    "district_en": "Ramechhap",
+    "mun_id": 4505,
+    "mun_ne": "गोकुलगङ्गा",
+    "mun_en": "Gokulganga",
+    "ward_no": "6"
+  },
+  {
+    "id": 313,
+    "district_id": 18,
+    "district_ne": "रामेछाप",
+    "district_en": "Ramechhap",
+    "mun_id": 4506,
+    "mun_ne": "दोरम्बा",
+    "mun_en": "Doramba",
+    "ward_no": "7"
+  },
+  {
+    "id": 314,
+    "district_id": 18,
+    "district_ne": "रामेछाप",
+    "district_en": "Ramechhap",
+    "mun_id": 4507,
+    "mun_ne": "लिखु",
+    "mun_en": "Likhu",
+    "ward_no": "7"
+  },
+  {
+    "id": 315,
+    "district_id": 18,
+    "district_ne": "रामेछाप",
+    "district_en": "Ramechhap",
+    "mun_id": 4508,
+    "mun_ne": "सुनापती",
+    "mun_en": "Sunapati",
+    "ward_no": "5"
+  },
+  {
+    "id": 316,
+    "district_id": 19,
+    "district_ne": "सिन्धुली",
+    "district_en": "Sindhuli",
+    "mun_id": 4509,
+    "mun_ne": "कमलामाई",
+    "mun_en": "Kamalamaai",
+    "ward_no": "14"
+  },
+  {
+    "id": 317,
+    "district_id": 19,
+    "district_ne": "सिन्धुली",
+    "district_en": "Sindhuli",
+    "mun_id": 4510,
+    "mun_ne": "दुधौली",
+    "mun_en": "Dudhauli",
+    "ward_no": "14"
+  },
+  {
+    "id": 318,
+    "district_id": 19,
+    "district_ne": "सिन्धुली",
+    "district_en": "Sindhuli",
+    "mun_id": 4511,
+    "mun_ne": "गोलन्जोर",
+    "mun_en": "Golanjor",
+    "ward_no": "7"
+  },
+  {
+    "id": 319,
+    "district_id": 19,
+    "district_ne": "सिन्धुली",
+    "district_en": "Sindhuli",
+    "mun_id": 4512,
+    "mun_ne": "घ्याङखेल",
+    "mun_en": "Ghyankhel",
+    "ward_no": "5"
+  },
+  {
+    "id": 320,
+    "district_id": 19,
+    "district_ne": "सिन्धुली",
+    "district_en": "Sindhuli",
+    "mun_id": 4513,
+    "mun_ne": "तीनपाटन",
+    "mun_en": "Tinpatan",
+    "ward_no": "11"
+  },
+  {
+    "id": 321,
+    "district_id": 19,
+    "district_ne": "सिन्धुली",
+    "district_en": "Sindhuli",
+    "mun_id": 4514,
+    "mun_ne": "फिक्कल",
+    "mun_en": "Fikkal",
+    "ward_no": "6"
+  },
+  {
+    "id": 322,
+    "district_id": 19,
+    "district_ne": "सिन्धुली",
+    "district_en": "Sindhuli",
+    "mun_id": 4515,
+    "mun_ne": "मरिण",
+    "mun_en": "Marin",
+    "ward_no": "8"
+  },
+  {
+    "id": 323,
+    "district_id": 19,
+    "district_ne": "सिन्धुली",
+    "district_en": "Sindhuli",
+    "mun_id": 4516,
+    "mun_ne": "सुनकोशी",
+    "mun_en": "Sunkoshi",
+    "ward_no": "7"
+  },
+  {
+    "id": 324,
+    "district_id": 19,
+    "district_ne": "सिन्धुली",
+    "district_en": "Sindhuli",
+    "mun_id": 4517,
+    "mun_ne": "हरिहरपुरगढी",
+    "mun_en": "Hariharpurgadhi",
+    "ward_no": "8"
+  },
+  {
+    "id": 325,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4518,
+    "mun_ne": "धुलिखेल",
+    "mun_en": "Dhulikhel",
+    "ward_no": "12"
+  },
+  {
+    "id": 326,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4519,
+    "mun_ne": "बनेपा",
+    "mun_en": "Banepa",
+    "ward_no": "14"
+  },
+  {
+    "id": 327,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4520,
+    "mun_ne": "पनौती",
+    "mun_en": "Panauti",
+    "ward_no": "12"
+  },
+  {
+    "id": 328,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4521,
+    "mun_ne": "पाँचखाल",
+    "mun_en": "Panchkhaal",
+    "ward_no": "13"
+  },
+  {
+    "id": 329,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4522,
+    "mun_ne": "नमोबुद्ध",
+    "mun_en": "Namobuddha",
+    "ward_no": "11"
+  },
+  {
+    "id": 330,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4523,
+    "mun_ne": "खानीखोला",
+    "mun_en": "Khanikhola",
+    "ward_no": "7"
+  },
+  {
+    "id": 331,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4524,
+    "mun_ne": "चौंरीदेउराली",
+    "mun_en": "Chaurideurali",
+    "ward_no": "9"
+  },
+  {
+    "id": 332,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4525,
+    "mun_ne": "तेमाल",
+    "mun_en": "Temal",
+    "ward_no": "9"
+  },
+  {
+    "id": 333,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4526,
+    "mun_ne": "बेथानचोक",
+    "mun_en": "Bethanchowk",
+    "ward_no": "6"
+  },
+  {
+    "id": 334,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4527,
+    "mun_ne": "भुम्लु",
+    "mun_en": "Bhumlu",
+    "ward_no": "10"
+  },
+  {
+    "id": 335,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4528,
+    "mun_ne": "मण्डनदेउपुर",
+    "mun_en": "Mandandeupur",
+    "ward_no": "12"
+  },
+  {
+    "id": 336,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4529,
+    "mun_ne": "महाभारत",
+    "mun_en": "Mahabharat",
+    "ward_no": "8"
+  },
+  {
+    "id": 337,
+    "district_id": 29,
+    "district_ne": "काभ्रेपलान्चोक",
+    "district_en": "Kavrepalanchowk",
+    "mun_id": 4530,
+    "mun_ne": "रोशी",
+    "mun_en": "Roshi",
+    "ward_no": "12"
+  },
+  {
+    "id": 338,
+    "district_id": 17,
+    "district_ne": "दोलखा",
+    "district_en": "Dolakha",
+    "mun_id": 4531,
+    "mun_ne": "जिरी",
+    "mun_en": "Jiri",
+    "ward_no": "9"
+  },
+  {
+    "id": 339,
+    "district_id": 17,
+    "district_ne": "दोलखा",
+    "district_en": "Dolakha",
+    "mun_id": 4532,
+    "mun_ne": "भिमेश्वर",
+    "mun_en": "Bhimeshwor",
+    "ward_no": "9"
+  },
+  {
+    "id": 340,
+    "district_id": 17,
+    "district_ne": "दोलखा",
+    "district_en": "Dolakha",
+    "mun_id": 4533,
+    "mun_ne": "कालिन्चोक",
+    "mun_en": "Kalinchowk",
+    "ward_no": "9"
+  },
+  {
+    "id": 341,
+    "district_id": 17,
+    "district_ne": "दोलखा",
+    "district_en": "Dolakha",
+    "mun_id": 4534,
+    "mun_ne": "गौरिशंकर",
+    "mun_en": "Gaurishankar",
+    "ward_no": "9"
+  },
+  {
+    "id": 342,
+    "district_id": 17,
+    "district_ne": "दोलखा",
+    "district_en": "Dolakha",
+    "mun_id": 4535,
+    "mun_ne": "तामाकोशी",
+    "mun_en": "Tamakoshi",
+    "ward_no": "7"
+  },
+  {
+    "id": 343,
+    "district_id": 17,
+    "district_ne": "दोलखा",
+    "district_en": "Dolakha",
+    "mun_id": 4536,
+    "mun_ne": "मेलुङ",
+    "mun_en": "Melung",
+    "ward_no": "7"
+  },
+  {
+    "id": 344,
+    "district_id": 17,
+    "district_ne": "दोलखा",
+    "district_en": "Dolakha",
+    "mun_id": 4537,
+    "mun_ne": "विगु",
+    "mun_en": "Bigu",
+    "ward_no": "8"
+  },
+  {
+    "id": 345,
+    "district_id": 17,
+    "district_ne": "दोलखा",
+    "district_en": "Dolakha",
+    "mun_id": 4538,
+    "mun_ne": "वैतेश्वर",
+    "mun_en": "Baiteshwor",
+    "ward_no": "8"
+  },
+  {
+    "id": 346,
+    "district_id": 17,
+    "district_ne": "दोलखा",
+    "district_en": "Dolakha",
+    "mun_id": 4539,
+    "mun_ne": "शैलुङ",
+    "mun_en": "Shailung",
+    "ward_no": "8"
+  },
+  {
+    "id": 347,
+    "district_id": 28,
+    "district_ne": "ललितपुर",
+    "district_en": "Lalitpur",
+    "mun_id": 4540,
+    "mun_ne": "ललितपुर",
+    "mun_en": "Lalitpur",
+    "ward_no": "29"
+  },
+  {
+    "id": 348,
+    "district_id": 28,
+    "district_ne": "ललितपुर",
+    "district_en": "Lalitpur",
+    "mun_id": 4541,
+    "mun_ne": "गोदावरी",
+    "mun_en": "Godawari",
+    "ward_no": "14"
+  },
+  {
+    "id": 349,
+    "district_id": 28,
+    "district_ne": "ललितपुर",
+    "district_en": "Lalitpur",
+    "mun_id": 4542,
+    "mun_ne": "महालक्ष्मी",
+    "mun_en": "Mahalaxmi",
+    "ward_no": "10"
+  },
+  {
+    "id": 350,
+    "district_id": 28,
+    "district_ne": "ललितपुर",
+    "district_en": "Lalitpur",
+    "mun_id": 4543,
+    "mun_ne": "कोन्ज्योसोम",
+    "mun_en": "Konjyosom",
+    "ward_no": "5"
+  },
+  {
+    "id": 351,
+    "district_id": 28,
+    "district_ne": "ललितपुर",
+    "district_en": "Lalitpur",
+    "mun_id": 4544,
+    "mun_ne": "वाग्मती",
+    "mun_en": "Bagmati",
+    "ward_no": "7"
+  },
+  {
+    "id": 352,
+    "district_id": 28,
+    "district_ne": "ललितपुर",
+    "district_en": "Lalitpur",
+    "mun_id": 4545,
+    "mun_ne": "महाङ्काल",
+    "mun_en": "Mahankaal",
+    "ward_no": "6"
+  },
+  {
+    "id": 353,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4546,
+    "mun_ne": "धुनीबेंशी",
+    "mun_en": "Dhunibenshi",
+    "ward_no": "9"
+  },
+  {
+    "id": 354,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4547,
+    "mun_ne": "नीलकण्ठ",
+    "mun_en": "Nilkantha",
+    "ward_no": "14"
+  },
+  {
+    "id": 355,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4548,
+    "mun_ne": "खनियाबास",
+    "mun_en": "Khaniyabash",
+    "ward_no": "5"
+  },
+  {
+    "id": 356,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4549,
+    "mun_ne": "गजुरी",
+    "mun_en": "Gajuri",
+    "ward_no": "8"
+  },
+  {
+    "id": 357,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4550,
+    "mun_ne": "गल्छी",
+    "mun_en": "Galchi",
+    "ward_no": "8"
+  },
+  {
+    "id": 358,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4551,
+    "mun_ne": "गङ्गाजमुना",
+    "mun_en": "Gangajamuna",
+    "ward_no": "7"
+  },
+  {
+    "id": 359,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4552,
+    "mun_ne": "ज्वालामूखी",
+    "mun_en": "Jwalamukhi",
+    "ward_no": "7"
+  },
+  {
+    "id": 360,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4553,
+    "mun_ne": "थाक्रे",
+    "mun_en": "Thakre",
+    "ward_no": "11"
+  },
+  {
+    "id": 361,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4554,
+    "mun_ne": "नेत्रावती",
+    "mun_en": "Netrabati",
+    "ward_no": "5"
+  },
+  {
+    "id": 362,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4555,
+    "mun_ne": "बेनीघाट रोराङ्ग",
+    "mun_en": "Benighat Rorang",
+    "ward_no": "10"
+  },
+  {
+    "id": 363,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4556,
+    "mun_ne": "रुवी भ्याली",
+    "mun_en": "Rubi Valley",
+    "ward_no": "6"
+  },
+  {
+    "id": 364,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4557,
+    "mun_ne": "सिद्धलेक",
+    "mun_en": "Sidhlake",
+    "ward_no": "7"
+  },
+  {
+    "id": 365,
+    "district_id": 24,
+    "district_ne": "धादिङ",
+    "district_en": "Dhading",
+    "mun_id": 4558,
+    "mun_ne": "त्रिपुरासुन्दरी",
+    "mun_en": "Tripurasundari",
+    "ward_no": "7"
+  },
+  {
+    "id": 366,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4559,
+    "mun_ne": "हेटौडा",
+    "mun_en": "Hetauda",
+    "ward_no": "19"
+  },
+  {
+    "id": 367,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4560,
+    "mun_ne": "थाहा",
+    "mun_en": "Thaha",
+    "ward_no": "12"
+  },
+  {
+    "id": 368,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4561,
+    "mun_ne": "इन्द्रसरोवर",
+    "mun_en": "Indrasarobar",
+    "ward_no": "5"
+  },
+  {
+    "id": 369,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4562,
+    "mun_ne": "कैलाश",
+    "mun_en": "Kailash",
+    "ward_no": "10"
+  },
+  {
+    "id": 370,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4563,
+    "mun_ne": "बकैया",
+    "mun_en": "Bakaiya",
+    "ward_no": "12"
+  },
+  {
+    "id": 371,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4564,
+    "mun_ne": "वाग्मती",
+    "mun_en": "Bagmati",
+    "ward_no": "9"
+  },
+  {
+    "id": 372,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4565,
+    "mun_ne": "भिमफेदी",
+    "mun_en": "Bhimfedi",
+    "ward_no": "9"
+  },
+  {
+    "id": 373,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4566,
+    "mun_ne": "मकवानपुरगढी",
+    "mun_en": "Makwanpurgadhi",
+    "ward_no": "8"
+  },
+  {
+    "id": 374,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4567,
+    "mun_ne": "मनहरी",
+    "mun_en": "Manhari",
+    "ward_no": "9"
+  },
+  {
+    "id": 375,
+    "district_id": 31,
+    "district_ne": "मकवानपुर",
+    "district_en": "Makwanpur",
+    "mun_id": 4568,
+    "mun_ne": "राक्सिराङ्ग",
+    "mun_en": "Raksirang",
+    "ward_no": "9"
+  },
+  {
+    "id": 376,
+    "district_id": 35,
+    "district_ne": "चितवन",
+    "district_en": "Chitwan",
+    "mun_id": 4569,
+    "mun_ne": "भरतपुर",
+    "mun_en": "Bharatpur",
+    "ward_no": "29"
+  },
+  {
+    "id": 377,
+    "district_id": 35,
+    "district_ne": "चितवन",
+    "district_en": "Chitwan",
+    "mun_id": 4570,
+    "mun_ne": "कालिका",
+    "mun_en": "Kalika",
+    "ward_no": "11"
+  },
+  {
+    "id": 378,
+    "district_id": 35,
+    "district_ne": "चितवन",
+    "district_en": "Chitwan",
+    "mun_id": 4571,
+    "mun_ne": "खैरहनी",
+    "mun_en": "Khairhani",
+    "ward_no": "13"
+  },
+  {
+    "id": 379,
+    "district_id": 35,
+    "district_ne": "चितवन",
+    "district_en": "Chitwan",
+    "mun_id": 4572,
+    "mun_ne": "माडी",
+    "mun_en": "Madi",
+    "ward_no": "9"
+  },
+  {
+    "id": 380,
+    "district_id": 35,
+    "district_ne": "चितवन",
+    "district_en": "Chitwan",
+    "mun_id": 4573,
+    "mun_ne": "रत्ननगर",
+    "mun_en": "Ratnanagar",
+    "ward_no": "16"
+  },
+  {
+    "id": 381,
+    "district_id": 35,
+    "district_ne": "चितवन",
+    "district_en": "Chitwan",
+    "mun_id": 4574,
+    "mun_ne": "राप्ती",
+    "mun_en": "Rapti",
+    "ward_no": "13"
+  },
+  {
+    "id": 382,
+    "district_id": 35,
+    "district_ne": "चितवन",
+    "district_en": "Chitwan",
+    "mun_id": 4575,
+    "mun_ne": "इच्छाकामना",
+    "mun_en": "Echyakamana",
+    "ward_no": "7"
+  },
+  {
+    "id": 383,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4576,
+    "mun_ne": "गल्याङ",
+    "mun_en": "Galyang",
+    "ward_no": "11"
+  },
+  {
+    "id": 384,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4577,
+    "mun_ne": "चापकोट",
+    "mun_en": "Chapkot",
+    "ward_no": "10"
+  },
+  {
+    "id": 385,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4578,
+    "mun_ne": "पुतलीबजार",
+    "mun_en": "Putalibazar",
+    "ward_no": "14"
+  },
+  {
+    "id": 386,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4579,
+    "mun_ne": "भीरकोट",
+    "mun_en": "Virkot",
+    "ward_no": "9"
+  },
+  {
+    "id": 387,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4580,
+    "mun_ne": "वालिङ",
+    "mun_en": "Waling",
+    "ward_no": "14"
+  },
+  {
+    "id": 388,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4581,
+    "mun_ne": "अर्जुनचौपारी",
+    "mun_en": "Arjunchaupari",
+    "ward_no": "6"
+  },
+  {
+    "id": 389,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4582,
+    "mun_ne": "आँधिखोला",
+    "mun_en": "Aadhikhola",
+    "ward_no": "6"
+  },
+  {
+    "id": 390,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4583,
+    "mun_ne": "कालीगण्डकी",
+    "mun_en": "Kaligandaki",
+    "ward_no": "7"
+  },
+  {
+    "id": 391,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4584,
+    "mun_ne": "फेदीखोला",
+    "mun_en": "Fedikhola",
+    "ward_no": "5"
+  },
+  {
+    "id": 392,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4585,
+    "mun_ne": "बिरुवा",
+    "mun_en": "Biruwa",
+    "ward_no": "8"
+  },
+  {
+    "id": 393,
+    "district_id": 41,
+    "district_ne": "स्याङ्जा",
+    "district_en": "Syangja",
+    "mun_id": 4586,
+    "mun_ne": "हरिनास",
+    "mun_en": "Harinas",
+    "ward_no": "7"
+  },
+  {
+    "id": 394,
+    "district_id": 39,
+    "district_ne": "कास्की",
+    "district_en": "Kaski",
+    "mun_id": 4587,
+    "mun_ne": "पोखरा लेखनाथ",
+    "mun_en": "Pokhara Lekhnath",
+    "ward_no": "33"
+  },
+  {
+    "id": 395,
+    "district_id": 39,
+    "district_ne": "कास्की",
+    "district_en": "Kaski",
+    "mun_id": 4588,
+    "mun_ne": "अन्नपूर्ण",
+    "mun_en": "Annapurna",
+    "ward_no": "11"
+  },
+  {
+    "id": 396,
+    "district_id": 39,
+    "district_ne": "कास्की",
+    "district_en": "Kaski",
+    "mun_id": 4589,
+    "mun_ne": "माछापुछ्रे",
+    "mun_en": "Machhapuchhre",
+    "ward_no": "9"
+  },
+  {
+    "id": 397,
+    "district_id": 39,
+    "district_ne": "कास्की",
+    "district_en": "Kaski",
+    "mun_id": 4590,
+    "mun_ne": "मादी",
+    "mun_en": "Madi",
+    "ward_no": "12"
+  },
+  {
+    "id": 398,
+    "district_id": 39,
+    "district_ne": "कास्की",
+    "district_en": "Kaski",
+    "mun_id": 4591,
+    "mun_ne": "रुपा",
+    "mun_en": "Rupa",
+    "ward_no": "7"
+  },
+  {
+    "id": 399,
+    "district_id": 48,
+    "district_ne": "मुस्ताङ्ग",
+    "district_en": "Mustang",
+    "mun_id": 4592,
+    "mun_ne": "घरपझोङ",
+    "mun_en": "Gharpajhong",
+    "ward_no": "5"
+  },
+  {
+    "id": 400,
+    "district_id": 48,
+    "district_ne": "मुस्ताङ्ग",
+    "district_en": "Mustang",
+    "mun_id": 4593,
+    "mun_ne": "थासाङ",
+    "mun_en": "Thasang",
+    "ward_no": "5"
+  },
+  {
+    "id": 401,
+    "district_id": 48,
+    "district_ne": "मुस्ताङ्ग",
+    "district_en": "Mustang",
+    "mun_id": 4594,
+    "mun_ne": "दालोमे",
+    "mun_en": "Dalome",
+    "ward_no": "5"
+  },
+  {
+    "id": 402,
+    "district_id": 48,
+    "district_ne": "मुस्ताङ्ग",
+    "district_en": "Mustang",
+    "mun_id": 4595,
+    "mun_ne": "लोमन्थाङ",
+    "mun_en": "Lomanthang",
+    "ward_no": "5"
+  },
+  {
+    "id": 403,
+    "district_id": 48,
+    "district_ne": "मुस्ताङ्ग",
+    "district_en": "Mustang",
+    "mun_id": 4596,
+    "mun_ne": "बाह्रगाउँ मुक्तिक्षेत्र",
+    "mun_en": "Barhagaun Muktichhetra",
+    "ward_no": "5"
+  },
+  {
+    "id": 404,
+    "district_id": 51,
+    "district_ne": "पर्वत",
+    "district_en": "Parbat",
+    "mun_id": 4597,
+    "mun_ne": "कुश्मा",
+    "mun_en": "Kushma",
+    "ward_no": "14"
+  },
+  {
+    "id": 405,
+    "district_id": 51,
+    "district_ne": "पर्वत",
+    "district_en": "Parbat",
+    "mun_id": 4598,
+    "mun_ne": "फलेवास",
+    "mun_en": "Phalewas",
+    "ward_no": "11"
+  },
+  {
+    "id": 406,
+    "district_id": 51,
+    "district_ne": "पर्वत",
+    "district_en": "Parbat",
+    "mun_id": 4599,
+    "mun_ne": "जलजला",
+    "mun_en": "Jaljala",
+    "ward_no": "9"
+  },
+  {
+    "id": 407,
+    "district_id": 51,
+    "district_ne": "पर्वत",
+    "district_en": "Parbat",
+    "mun_id": 4600,
+    "mun_ne": "पैयूं",
+    "mun_en": "Paiyu",
+    "ward_no": "7"
+  },
+  {
+    "id": 408,
+    "district_id": 51,
+    "district_ne": "पर्वत",
+    "district_en": "Parbat",
+    "mun_id": 4601,
+    "mun_ne": "महाशिला",
+    "mun_en": "Mahashila",
+    "ward_no": "6"
+  },
+  {
+    "id": 409,
+    "district_id": 51,
+    "district_ne": "पर्वत",
+    "district_en": "Parbat",
+    "mun_id": 4602,
+    "mun_ne": "मोदी",
+    "mun_en": "Modi",
+    "ward_no": "8"
+  },
+  {
+    "id": 410,
+    "district_id": 51,
+    "district_ne": "पर्वत",
+    "district_en": "Parbat",
+    "mun_id": 4603,
+    "mun_ne": "विहादी",
+    "mun_en": "Bihadi",
+    "ward_no": "6"
+  },
+  {
+    "id": 411,
+    "district_id": 37,
+    "district_ne": "मनाङ",
+    "district_en": "Manang",
+    "mun_id": 4604,
+    "mun_ne": "नार्फु",
+    "mun_en": "Narfu",
+    "ward_no": "5"
+  },
+  {
+    "id": 412,
+    "district_id": 37,
+    "district_ne": "मनाङ",
+    "district_en": "Manang",
+    "mun_id": 4605,
+    "mun_ne": "नाशोङ",
+    "mun_en": "Nashon",
+    "ward_no": "9"
+  },
+  {
+    "id": 413,
+    "district_id": 37,
+    "district_ne": "मनाङ",
+    "district_en": "Manang",
+    "mun_id": 4606,
+    "mun_ne": "नेस्याङ",
+    "mun_en": "Neshyang",
+    "ward_no": "9"
+  },
+  {
+    "id": 414,
+    "district_id": 37,
+    "district_ne": "मनाङ",
+    "district_en": "Manang",
+    "mun_id": 4607,
+    "mun_ne": "चामे",
+    "mun_en": "Chame",
+    "ward_no": "5"
+  },
+  {
+    "id": 415,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4608,
+    "mun_ne": "भानु",
+    "mun_en": "Bhanu",
+    "ward_no": "13"
+  },
+  {
+    "id": 416,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4609,
+    "mun_ne": "भिमाद",
+    "mun_en": "Bhimad",
+    "ward_no": "9"
+  },
+  {
+    "id": 417,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4610,
+    "mun_ne": "व्यास",
+    "mun_en": "Vyas",
+    "ward_no": "14"
+  },
+  {
+    "id": 418,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4611,
+    "mun_ne": "शुक्लागण्डकी",
+    "mun_en": "Shuklagandaki",
+    "ward_no": "12"
+  },
+  {
+    "id": 419,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4612,
+    "mun_ne": "आँबुखैरेनी",
+    "mun_en": "Aanbookhaireni",
+    "ward_no": "6"
+  },
+  {
+    "id": 420,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4613,
+    "mun_ne": "ऋषिङ",
+    "mun_en": "Rhishing",
+    "ward_no": "8"
+  },
+  {
+    "id": 421,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4614,
+    "mun_ne": "घिरिङ",
+    "mun_en": "Ghiring",
+    "ward_no": "5"
+  },
+  {
+    "id": 422,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4615,
+    "mun_ne": "देवघाट",
+    "mun_en": "Devghat",
+    "ward_no": "5"
+  },
+  {
+    "id": 423,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4616,
+    "mun_ne": "म्याग्दे",
+    "mun_en": "Myagde",
+    "ward_no": "7"
+  },
+  {
+    "id": 424,
+    "district_id": 40,
+    "district_ne": "तनहुँ",
+    "district_en": "Tanahun",
+    "mun_id": 4617,
+    "mun_ne": "बन्दिपुर",
+    "mun_en": "Bandipur",
+    "ward_no": "6"
+  },
+  {
+    "id": 425,
+    "district_id": 49,
+    "district_ne": "म्याग्दी",
+    "district_en": "Myagdi",
+    "mun_id": 4618,
+    "mun_ne": "बेनी",
+    "mun_en": "Beni",
+    "ward_no": "10"
+  },
+  {
+    "id": 426,
+    "district_id": 49,
+    "district_ne": "म्याग्दी",
+    "district_en": "Myagdi",
+    "mun_id": 4619,
+    "mun_ne": "अन्नपूर्ण",
+    "mun_en": "Annapurna",
+    "ward_no": "8"
+  },
+  {
+    "id": 427,
+    "district_id": 49,
+    "district_ne": "म्याग्दी",
+    "district_en": "Myagdi",
+    "mun_id": 4620,
+    "mun_ne": "धवलागिरी",
+    "mun_en": "Dhaulagiri",
+    "ward_no": "7"
+  },
+  {
+    "id": 428,
+    "district_id": 49,
+    "district_ne": "म्याग्दी",
+    "district_en": "Myagdi",
+    "mun_id": 4621,
+    "mun_ne": "मंगला",
+    "mun_en": "Mangala",
+    "ward_no": "5"
+  },
+  {
+    "id": 429,
+    "district_id": 49,
+    "district_ne": "म्याग्दी",
+    "district_en": "Myagdi",
+    "mun_id": 4622,
+    "mun_ne": "मालिका",
+    "mun_en": "Malika",
+    "ward_no": "7"
+  },
+  {
+    "id": 430,
+    "district_id": 49,
+    "district_ne": "म्याग्दी",
+    "district_en": "Myagdi",
+    "mun_id": 4623,
+    "mun_ne": "रघुगंगा",
+    "mun_en": "Raghuganga",
+    "ward_no": "8"
+  },
+  {
+    "id": 431,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4624,
+    "mun_ne": "बागलुङ",
+    "mun_en": "Baglung",
+    "ward_no": "14"
+  },
+  {
+    "id": 432,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4625,
+    "mun_ne": "गल्कोट",
+    "mun_en": "Galkot",
+    "ward_no": "11"
+  },
+  {
+    "id": 433,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4626,
+    "mun_ne": "जैमिनी",
+    "mun_en": "Jaimini",
+    "ward_no": "10"
+  },
+  {
+    "id": 434,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4627,
+    "mun_ne": "ढोरपाटन",
+    "mun_en": "Dhorpatan",
+    "ward_no": "9"
+  },
+  {
+    "id": 435,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4628,
+    "mun_ne": "वरेङ",
+    "mun_en": "Bareng",
+    "ward_no": "5"
+  },
+  {
+    "id": 436,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4629,
+    "mun_ne": "काठेखोला",
+    "mun_en": "Kathekhola",
+    "ward_no": "8"
+  },
+  {
+    "id": 437,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4630,
+    "mun_ne": "तमानखोला",
+    "mun_en": "Tamankhola",
+    "ward_no": "6"
+  },
+  {
+    "id": 438,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4631,
+    "mun_ne": "ताराखोला",
+    "mun_en": "Tarakhola",
+    "ward_no": "5"
+  },
+  {
+    "id": 439,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4632,
+    "mun_ne": "निसीखोला",
+    "mun_en": "Nisikhola",
+    "ward_no": "7"
+  },
+  {
+    "id": 440,
+    "district_id": 50,
+    "district_ne": "बाग्लुङ",
+    "district_en": "Baglung",
+    "mun_id": 4633,
+    "mun_ne": "वडिगाड",
+    "mun_en": "Badigad",
+    "ward_no": "10"
+  },
+  {
+    "id": 441,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4634,
+    "mun_ne": "गोरखा",
+    "mun_en": "Gorkha",
+    "ward_no": "14"
+  },
+  {
+    "id": 442,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4635,
+    "mun_ne": "पालुङटार",
+    "mun_en": "Palungtar",
+    "ward_no": "10"
+  },
+  {
+    "id": 443,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4636,
+    "mun_ne": "सुलीकोट",
+    "mun_en": "Sulikot",
+    "ward_no": "8"
+  },
+  {
+    "id": 444,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4637,
+    "mun_ne": "सिरानचोक",
+    "mun_en": "Siranchok",
+    "ward_no": "8"
+  },
+  {
+    "id": 445,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4638,
+    "mun_ne": "अजिरकोट",
+    "mun_en": "Ajirkot",
+    "ward_no": "5"
+  },
+  {
+    "id": 446,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4639,
+    "mun_ne": "आरुघाट",
+    "mun_en": "Aarughat",
+    "ward_no": "10"
+  },
+  {
+    "id": 447,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4640,
+    "mun_ne": "गण्डकी",
+    "mun_en": "Gandaki",
+    "ward_no": "8"
+  },
+  {
+    "id": 448,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4641,
+    "mun_ne": "चुमनुव्री",
+    "mun_en": "Chumnubri",
+    "ward_no": "7"
+  },
+  {
+    "id": 449,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4642,
+    "mun_ne": "धार्चे",
+    "mun_en": "Dharche",
+    "ward_no": "7"
+  },
+  {
+    "id": 450,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4643,
+    "mun_ne": "भिमसेन",
+    "mun_en": "Bhimsen",
+    "ward_no": "8"
+  },
+  {
+    "id": 451,
+    "district_id": 36,
+    "district_ne": "गोरखा",
+    "district_en": "Gorkha",
+    "mun_id": 4644,
+    "mun_ne": "शहिद लखन",
+    "mun_en": "Sahid Lakhan",
+    "ward_no": "9"
+  },
+  {
+    "id": 452,
+    "district_id": 38,
+    "district_ne": "लम्जुङ्ग",
+    "district_en": "Lamjung",
+    "mun_id": 4645,
+    "mun_ne": "बेसीशहर",
+    "mun_en": "Besishahar",
+    "ward_no": "11"
+  },
+  {
+    "id": 453,
+    "district_id": 38,
+    "district_ne": "लम्जुङ्ग",
+    "district_en": "Lamjung",
+    "mun_id": 4646,
+    "mun_ne": "मध्यनेपाल",
+    "mun_en": "Madhya Nepal",
+    "ward_no": "10"
+  },
+  {
+    "id": 454,
+    "district_id": 38,
+    "district_ne": "लम्जुङ्ग",
+    "district_en": "Lamjung",
+    "mun_id": 4647,
+    "mun_ne": "रार्इनास",
+    "mun_en": "Rainas",
+    "ward_no": "10"
+  },
+  {
+    "id": 455,
+    "district_id": 38,
+    "district_ne": "लम्जुङ्ग",
+    "district_en": "Lamjung",
+    "mun_id": 4648,
+    "mun_ne": "सुन्दरबजार",
+    "mun_en": "Sundar Bajar",
+    "ward_no": "11"
+  },
+  {
+    "id": 456,
+    "district_id": 38,
+    "district_ne": "लम्जुङ्ग",
+    "district_en": "Lamjung",
+    "mun_id": 4649,
+    "mun_ne": "क्व्होलासोथार",
+    "mun_en": "Kobholasothar",
+    "ward_no": "9"
+  },
+  {
+    "id": 457,
+    "district_id": 38,
+    "district_ne": "लम्जुङ्ग",
+    "district_en": "Lamjung",
+    "mun_id": 4650,
+    "mun_ne": "दूधपोखरी",
+    "mun_en": "Dudhpokhari",
+    "ward_no": "6"
+  },
+  {
+    "id": 458,
+    "district_id": 38,
+    "district_ne": "लम्जुङ्ग",
+    "district_en": "Lamjung",
+    "mun_id": 4651,
+    "mun_ne": "दोर्दी",
+    "mun_en": "Dordi",
+    "ward_no": "9"
+  },
+  {
+    "id": 459,
+    "district_id": 38,
+    "district_ne": "लम्जुङ्ग",
+    "district_en": "Lamjung",
+    "mun_id": 4652,
+    "mun_ne": "मर्स्याङदी",
+    "mun_en": "Marsyandi",
+    "ward_no": "9"
+  },
+  {
+    "id": 460,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4653,
+    "mun_ne": "बुटवल",
+    "mun_en": "Butwal",
+    "ward_no": "19"
+  },
+  {
+    "id": 461,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4654,
+    "mun_ne": "लुम्बिनी सांस्कृतिक",
+    "mun_en": "Lumbini Saskritik",
+    "ward_no": "13"
+  },
+  {
+    "id": 462,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4655,
+    "mun_ne": "सिद्धार्थनगर",
+    "mun_en": "Sidharthanager",
+    "ward_no": "13"
+  },
+  {
+    "id": 463,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4656,
+    "mun_ne": "सम्मरीमार्इ",
+    "mun_en": "Sammarimai",
+    "ward_no": "7"
+  },
+  {
+    "id": 464,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4657,
+    "mun_ne": "देवदह",
+    "mun_en": "Devdaha",
+    "ward_no": "12"
+  },
+  {
+    "id": 465,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4658,
+    "mun_ne": "सैनामैना",
+    "mun_en": "Sainamaina",
+    "ward_no": "11"
+  },
+  {
+    "id": 466,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4659,
+    "mun_ne": "तिलोत्तमा",
+    "mun_en": "Tilottama",
+    "ward_no": "17"
+  },
+  {
+    "id": 467,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4660,
+    "mun_ne": "सियारी",
+    "mun_en": "Siyari",
+    "ward_no": "7"
+  },
+  {
+    "id": 468,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4661,
+    "mun_ne": "गैडहवा",
+    "mun_en": "Gaidahawa",
+    "ward_no": "9"
+  },
+  {
+    "id": 469,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4662,
+    "mun_ne": "कन्चन",
+    "mun_en": "Kanchan",
+    "ward_no": "5"
+  },
+  {
+    "id": 470,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4663,
+    "mun_ne": "कोटहीमार्इ",
+    "mun_en": "Kotahimai",
+    "ward_no": "7"
+  },
+  {
+    "id": 471,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4664,
+    "mun_ne": "मर्चवारी",
+    "mun_en": "Marchawari",
+    "ward_no": "7"
+  },
+  {
+    "id": 472,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4665,
+    "mun_ne": "मायादेवी",
+    "mun_en": "Mayadevi",
+    "ward_no": "8"
+  },
+  {
+    "id": 473,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4666,
+    "mun_ne": "ओमसतिया",
+    "mun_en": "Omsatiya",
+    "ward_no": "6"
+  },
+  {
+    "id": 474,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4667,
+    "mun_ne": "रोहिणी",
+    "mun_en": "Rohindi",
+    "ward_no": "7"
+  },
+  {
+    "id": 475,
+    "district_id": 46,
+    "district_ne": "रुपन्देही",
+    "district_en": "Rupandehi",
+    "mun_id": 4668,
+    "mun_ne": "सुद्धाेधन",
+    "mun_en": "Suddodhan",
+    "ward_no": "7"
+  },
+  {
+    "id": 476,
+    "district_id": 44,
+    "district_ne": "अर्घाखाँची",
+    "district_en": "Arghakhanchi",
+    "mun_id": 4669,
+    "mun_ne": "सन्धिखर्क",
+    "mun_en": "Sandhikharka",
+    "ward_no": "12"
+  },
+  {
+    "id": 477,
+    "district_id": 44,
+    "district_ne": "अर्घाखाँची",
+    "district_en": "Arghakhanchi",
+    "mun_id": 4670,
+    "mun_ne": "शितगंगा",
+    "mun_en": "Sitganga",
+    "ward_no": "14"
+  },
+  {
+    "id": 478,
+    "district_id": 44,
+    "district_ne": "अर्घाखाँची",
+    "district_en": "Arghakhanchi",
+    "mun_id": 4671,
+    "mun_ne": "भुमिकास्थान",
+    "mun_en": "Bhumikasthan",
+    "ward_no": "10"
+  },
+  {
+    "id": 479,
+    "district_id": 44,
+    "district_ne": "अर्घाखाँची",
+    "district_en": "Arghakhanchi",
+    "mun_id": 4672,
+    "mun_ne": "छत्रदेव",
+    "mun_en": "Chhatradev",
+    "ward_no": "8"
+  },
+  {
+    "id": 480,
+    "district_id": 44,
+    "district_ne": "अर्घाखाँची",
+    "district_en": "Arghakhanchi",
+    "mun_id": 4673,
+    "mun_ne": "पाणिनी",
+    "mun_en": "Pandini",
+    "ward_no": "8"
+  },
+  {
+    "id": 481,
+    "district_id": 44,
+    "district_ne": "अर्घाखाँची",
+    "district_en": "Arghakhanchi",
+    "mun_id": 4674,
+    "mun_ne": "मालारानी",
+    "mun_en": "Malarani",
+    "ward_no": "9"
+  },
+  {
+    "id": 482,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4675,
+    "mun_ne": "कावासोती",
+    "mun_en": "Kawasoti",
+    "ward_no": "17"
+  },
+  {
+    "id": 483,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4676,
+    "mun_ne": "गैंडाकोट",
+    "mun_en": "Gaindakot",
+    "ward_no": "18"
+  },
+  {
+    "id": 484,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4677,
+    "mun_ne": "देवचुली",
+    "mun_en": "Devchuli",
+    "ward_no": "17"
+  },
+  {
+    "id": 485,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4678,
+    "mun_ne": "बर्दघाट",
+    "mun_en": "Bardghat",
+    "ward_no": "16"
+  },
+  {
+    "id": 486,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4679,
+    "mun_ne": "मध्यविन्दु",
+    "mun_en": "Madhyabindu",
+    "ward_no": "15"
+  },
+  {
+    "id": 487,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4680,
+    "mun_ne": "रामग्राम",
+    "mun_en": "Ramgram",
+    "ward_no": "18"
+  },
+  {
+    "id": 488,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4681,
+    "mun_ne": "सुनवल",
+    "mun_en": "Sunwal",
+    "ward_no": "13"
+  },
+  {
+    "id": 489,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4682,
+    "mun_ne": "सुस्ता",
+    "mun_en": "Susta",
+    "ward_no": "7"
+  },
+  {
+    "id": 490,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4683,
+    "mun_ne": "पाल्हिनन्दन",
+    "mun_en": "Palhinandan",
+    "ward_no": "6"
+  },
+  {
+    "id": 491,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4684,
+    "mun_ne": "प्रतापपुर",
+    "mun_en": "Pratappur",
+    "ward_no": "9"
+  },
+  {
+    "id": 492,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4685,
+    "mun_ne": "बुङ्दीकाली",
+    "mun_en": "Bungdikali",
+    "ward_no": "6"
+  },
+  {
+    "id": 493,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4686,
+    "mun_ne": "बुलिङटार",
+    "mun_en": "Bulingtar",
+    "ward_no": "6"
+  },
+  {
+    "id": 494,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4687,
+    "mun_ne": "विनयी त्रिबेणी",
+    "mun_en": "Binaie Triveni",
+    "ward_no": "7"
+  },
+  {
+    "id": 495,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4688,
+    "mun_ne": "सरावल",
+    "mun_en": "Sarawal",
+    "ward_no": "7"
+  },
+  {
+    "id": 496,
+    "district_id": 45,
+    "district_ne": "नवलपरासी",
+    "district_en": "Nawalparasi",
+    "mun_id": 4689,
+    "mun_ne": "हुप्सेकोट",
+    "mun_en": "Hupsekot",
+    "ward_no": "6"
+  },
+  {
+    "id": 497,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4690,
+    "mun_ne": "तुल्सीपुर",
+    "mun_en": "Tulsipur",
+    "ward_no": "19"
+  },
+  {
+    "id": 498,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4691,
+    "mun_ne": "घोराही",
+    "mun_en": "Ghorahi",
+    "ward_no": "19"
+  },
+  {
+    "id": 499,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4692,
+    "mun_ne": "लमही",
+    "mun_en": "Lamahi",
+    "ward_no": "9"
+  },
+  {
+    "id": 500,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4693,
+    "mun_ne": "बँगलाचुली",
+    "mun_en": "Bangalichuli",
+    "ward_no": "8"
+  },
+  {
+    "id": 501,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4694,
+    "mun_ne": "दँगीशरण",
+    "mun_en": "Dangisaran",
+    "ward_no": "7"
+  },
+  {
+    "id": 502,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4695,
+    "mun_ne": "गढवा",
+    "mun_en": "Gadhawa",
+    "ward_no": "8"
+  },
+  {
+    "id": 503,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4696,
+    "mun_ne": "राजपुर",
+    "mun_en": "Rajpur",
+    "ward_no": "7"
+  },
+  {
+    "id": 504,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4697,
+    "mun_ne": "राप्ती",
+    "mun_en": "Rapti",
+    "ward_no": "9"
+  },
+  {
+    "id": 505,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4698,
+    "mun_ne": "शान्तिनगर",
+    "mun_en": "Santinagar",
+    "ward_no": "7"
+  },
+  {
+    "id": 506,
+    "district_id": 56,
+    "district_ne": "दाङ",
+    "district_en": "Dang",
+    "mun_id": 4699,
+    "mun_ne": "बबर्इ",
+    "mun_en": "Babai",
+    "ward_no": "7"
+  },
+  {
+    "id": 507,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4700,
+    "mun_ne": "सारदा",
+    "mun_en": "Sarada",
+    "ward_no": "15"
+  },
+  {
+    "id": 508,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4701,
+    "mun_ne": "बागचौर",
+    "mun_en": "Bagchaur",
+    "ward_no": "12"
+  },
+  {
+    "id": 509,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4702,
+    "mun_ne": "बनगाड",
+    "mun_en": "Bangad",
+    "ward_no": "12"
+  },
+  {
+    "id": 510,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4703,
+    "mun_ne": "कालीमाटी",
+    "mun_en": "Kalimati",
+    "ward_no": "7"
+  },
+  {
+    "id": 511,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4704,
+    "mun_ne": "त्रिवेणी",
+    "mun_en": "Tribeni",
+    "ward_no": "6"
+  },
+  {
+    "id": 512,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4705,
+    "mun_ne": "कपुरकोट",
+    "mun_en": "Kapurkot",
+    "ward_no": "6"
+  },
+  {
+    "id": 513,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4706,
+    "mun_ne": "छत्रेश्वरी",
+    "mun_en": "Chhatreswori",
+    "ward_no": "7"
+  },
+  {
+    "id": 514,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4707,
+    "mun_ne": "ढोचौर",
+    "mun_en": "Dhorchaur",
+    "ward_no": "5"
+  },
+  {
+    "id": 515,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4708,
+    "mun_ne": "कुमाखमालिका",
+    "mun_en": "Kumakhamalika",
+    "ward_no": "7"
+  },
+  {
+    "id": 516,
+    "district_id": 55,
+    "district_ne": "सल्यान",
+    "district_en": "Salyan",
+    "mun_id": 4709,
+    "mun_ne": "दार्मा",
+    "mun_en": "Darma",
+    "ward_no": "6"
+  },
+  {
+    "id": 517,
+    "district_id": 52,
+    "district_ne": "रुकुम",
+    "district_en": "Rukum",
+    "mun_id": 4710,
+    "mun_ne": "मुसिकोट",
+    "mun_en": "Musikot",
+    "ward_no": "14"
+  },
+  {
+    "id": 518,
+    "district_id": 52,
+    "district_ne": "रुकुम",
+    "district_en": "Rukum",
+    "mun_id": 4711,
+    "mun_ne": "चौरजहारी",
+    "mun_en": "Chaurjahari",
+    "ward_no": "14"
+  },
+  {
+    "id": 519,
+    "district_id": 52,
+    "district_ne": "रुकुम",
+    "district_en": "Rukum",
+    "mun_id": 4712,
+    "mun_ne": "आठबिसकोट",
+    "mun_en": "Aathabiskot",
+    "ward_no": "14"
+  },
+  {
+    "id": 520,
+    "district_id": 52,
+    "district_ne": "रुकुम",
+    "district_en": "Rukum",
+    "mun_id": 4713,
+    "mun_ne": "पुथ उत्तरगँगा",
+    "mun_en": "Putha Uttarganga",
+    "ward_no": "14"
+  },
+  {
+    "id": 521,
+    "district_id": 52,
+    "district_ne": "रुकुम",
+    "district_en": "Rukum",
+    "mun_id": 4714,
+    "mun_ne": "भूमे",
+    "mun_en": "Bhume",
+    "ward_no": "9"
+  },
+  {
+    "id": 522,
+    "district_id": 52,
+    "district_ne": "रुकुम",
+    "district_en": "Rukum",
+    "mun_id": 4715,
+    "mun_ne": "सिस्ने",
+    "mun_en": "Sisne",
+    "ward_no": "8"
+  },
+  {
+    "id": 523,
+    "district_id": 52,
+    "district_ne": "रुकुम",
+    "district_en": "Rukum",
+    "mun_id": 4716,
+    "mun_ne": "बाँफिकोट",
+    "mun_en": "Baphikot",
+    "ward_no": "10"
+  },
+  {
+    "id": 524,
+    "district_id": 52,
+    "district_ne": "रुकुम",
+    "district_en": "Rukum",
+    "mun_id": 4717,
+    "mun_ne": "त्रिवेणी",
+    "mun_en": "Tribeni ",
+    "ward_no": "10"
+  },
+  {
+    "id": 525,
+    "district_id": 52,
+    "district_ne": "रुकुम",
+    "district_en": "Rukum",
+    "mun_id": 4718,
+    "mun_ne": "सानीभेरी",
+    "mun_en": "Sanibheri",
+    "ward_no": "11"
+  },
+  {
+    "id": 526,
+    "district_id": 65,
+    "district_ne": "बाँके",
+    "district_en": "Banke",
+    "mun_id": 4719,
+    "mun_ne": "नेपालगँज",
+    "mun_en": "Nepaljung",
+    "ward_no": "23"
+  },
+  {
+    "id": 527,
+    "district_id": 65,
+    "district_ne": "बाँके",
+    "district_en": "Banke",
+    "mun_id": 4720,
+    "mun_ne": "कोहलपुर",
+    "mun_en": "Kohalpur",
+    "ward_no": "15"
+  },
+  {
+    "id": 528,
+    "district_id": 65,
+    "district_ne": "बाँके",
+    "district_en": "Banke",
+    "mun_id": 4721,
+    "mun_ne": "नरैनापुर",
+    "mun_en": "Narainapur",
+    "ward_no": "6"
+  },
+  {
+    "id": 529,
+    "district_id": 65,
+    "district_ne": "बाँके",
+    "district_en": "Banke",
+    "mun_id": 4722,
+    "mun_ne": "राप्तीसोनारी",
+    "mun_en": "Raptisonari",
+    "ward_no": "9"
+  },
+  {
+    "id": 530,
+    "district_id": 65,
+    "district_ne": "बाँके",
+    "district_en": "Banke",
+    "mun_id": 4723,
+    "mun_ne": "बैजनाथ",
+    "mun_en": "Baijanath",
+    "ward_no": "8"
+  },
+  {
+    "id": 531,
+    "district_id": 65,
+    "district_ne": "बाँके",
+    "district_en": "Banke",
+    "mun_id": 4724,
+    "mun_ne": "खजुरा",
+    "mun_en": "Khajura",
+    "ward_no": "8"
+  },
+  {
+    "id": 532,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4725,
+    "mun_ne": "रोल्पा",
+    "mun_en": "Rolpa",
+    "ward_no": "10"
+  },
+  {
+    "id": 533,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4726,
+    "mun_ne": "त्रिवेणी",
+    "mun_en": "Tribeni",
+    "ward_no": "7"
+  },
+  {
+    "id": 534,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4727,
+    "mun_ne": "दुर्इ खोली",
+    "mun_en": "Duikholi",
+    "ward_no": "6"
+  },
+  {
+    "id": 535,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4728,
+    "mun_ne": "माडी",
+    "mun_en": "Madi",
+    "ward_no": "6"
+  },
+  {
+    "id": 536,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4729,
+    "mun_ne": "रुन्टीगढी",
+    "mun_en": "Runtigadhi",
+    "ward_no": "9"
+  },
+  {
+    "id": 537,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4730,
+    "mun_ne": "लुङग्री",
+    "mun_en": "Lungri",
+    "ward_no": "7"
+  },
+  {
+    "id": 538,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4731,
+    "mun_ne": "सुकीदह",
+    "mun_en": "Sukidaha",
+    "ward_no": "7"
+  },
+  {
+    "id": 539,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4732,
+    "mun_ne": "सुनछहरी",
+    "mun_en": "Sunchhahari",
+    "ward_no": "7"
+  },
+  {
+    "id": 540,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4733,
+    "mun_ne": "सुवर्णवती",
+    "mun_en": "Subarnawoti",
+    "ward_no": "8"
+  },
+  {
+    "id": 541,
+    "district_id": 53,
+    "district_ne": "रोल्पा",
+    "district_en": "Rolpa",
+    "mun_id": 4734,
+    "mun_ne": "थबाङ",
+    "mun_en": "Thabang",
+    "ward_no": "5"
+  },
+  {
+    "id": 542,
+    "district_id": 54,
+    "district_ne": "प्युठान",
+    "district_en": "Pyuthan",
+    "mun_id": 4735,
+    "mun_ne": "प्युठान",
+    "mun_en": "Pyuthan",
+    "ward_no": "10"
+  },
+  {
+    "id": 543,
+    "district_id": 54,
+    "district_ne": "प्युठान",
+    "district_en": "Pyuthan",
+    "mun_id": 4736,
+    "mun_ne": "स्वर्गद्वारी",
+    "mun_en": "Sworgadwari",
+    "ward_no": "9"
+  },
+  {
+    "id": 544,
+    "district_id": 54,
+    "district_ne": "प्युठान",
+    "district_en": "Pyuthan",
+    "mun_id": 4737,
+    "mun_ne": "गौमुखी",
+    "mun_en": "Gaumukhi",
+    "ward_no": "7"
+  },
+  {
+    "id": 545,
+    "district_id": 54,
+    "district_ne": "प्युठान",
+    "district_en": "Pyuthan",
+    "mun_id": 4738,
+    "mun_ne": "माण्डवी",
+    "mun_en": "Mandabi",
+    "ward_no": "5"
+  },
+  {
+    "id": 546,
+    "district_id": 54,
+    "district_ne": "प्युठान",
+    "district_en": "Pyuthan",
+    "mun_id": 4739,
+    "mun_ne": "सरुमारानी",
+    "mun_en": "Sarumarani",
+    "ward_no": "6"
+  },
+  {
+    "id": 547,
+    "district_id": 54,
+    "district_ne": "प्युठान",
+    "district_en": "Pyuthan",
+    "mun_id": 4740,
+    "mun_ne": "मल्लरानी",
+    "mun_en": "Mallarani",
+    "ward_no": "5"
+  },
+  {
+    "id": 548,
+    "district_id": 54,
+    "district_ne": "प्युठान",
+    "district_en": "Pyuthan",
+    "mun_id": 4741,
+    "mun_ne": "नौबहिनी",
+    "mun_en": "Naubahini",
+    "ward_no": "8"
+  },
+  {
+    "id": 549,
+    "district_id": 54,
+    "district_ne": "प्युठान",
+    "district_en": "Pyuthan",
+    "mun_id": 4742,
+    "mun_ne": "झिमरुक",
+    "mun_en": "Jhimruk",
+    "ward_no": "8"
+  },
+  {
+    "id": 550,
+    "district_id": 54,
+    "district_ne": "प्युठान",
+    "district_en": "Pyuthan",
+    "mun_id": 4743,
+    "mun_ne": "ऐरावती",
+    "mun_en": "Arawoti",
+    "ward_no": "6"
+  },
+  {
+    "id": 551,
+    "district_id": 66,
+    "district_ne": "बर्दिया",
+    "district_en": "Bardiya",
+    "mun_id": 4744,
+    "mun_ne": "गुलरिया",
+    "mun_en": "Gulariya",
+    "ward_no": "12"
+  },
+  {
+    "id": 552,
+    "district_id": 66,
+    "district_ne": "बर्दिया",
+    "district_en": "Bardiya",
+    "mun_id": 4745,
+    "mun_ne": "मधुवन",
+    "mun_en": "Madhuban",
+    "ward_no": "9"
+  },
+  {
+    "id": 553,
+    "district_id": 66,
+    "district_ne": "बर्दिया",
+    "district_en": "Bardiya",
+    "mun_id": 4746,
+    "mun_ne": "राजापुर",
+    "mun_en": "Rajapur",
+    "ward_no": "10"
+  },
+  {
+    "id": 554,
+    "district_id": 66,
+    "district_ne": "बर्दिया",
+    "district_en": "Bardiya",
+    "mun_id": 4747,
+    "mun_ne": "ठाकुरबाबा",
+    "mun_en": "Thakurbaba",
+    "ward_no": "9"
+  },
+  {
+    "id": 555,
+    "district_id": 66,
+    "district_ne": "बर्दिया",
+    "district_en": "Bardiya",
+    "mun_id": 4748,
+    "mun_ne": "बाँसगढी",
+    "mun_en": "Bansgadhi",
+    "ward_no": "9"
+  },
+  {
+    "id": 556,
+    "district_id": 66,
+    "district_ne": "बर्दिया",
+    "district_en": "Bardiya",
+    "mun_id": 4749,
+    "mun_ne": "बारबर्दिया",
+    "mun_en": "Barbardiya",
+    "ward_no": "11"
+  },
+  {
+    "id": 557,
+    "district_id": 66,
+    "district_ne": "बर्दिया",
+    "district_en": "Bardiya",
+    "mun_id": 4750,
+    "mun_ne": "बढैयाताल",
+    "mun_en": "Badhaiyatal",
+    "ward_no": "9"
+  },
+  {
+    "id": 558,
+    "district_id": 66,
+    "district_ne": "बर्दिया",
+    "district_en": "Bardiya",
+    "mun_id": 4751,
+    "mun_ne": "गेरुवा",
+    "mun_en": "Geruwa",
+    "ward_no": "6"
+  },
+  {
+    "id": 559,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4752,
+    "mun_ne": "मुसिकोट",
+    "mun_en": "Musikot",
+    "ward_no": "9"
+  },
+  {
+    "id": 560,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4753,
+    "mun_ne": "रेसुङ्गा",
+    "mun_en": "Resunga",
+    "ward_no": "14"
+  },
+  {
+    "id": 561,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4754,
+    "mun_ne": "इस्मा",
+    "mun_en": "Ishma",
+    "ward_no": "6"
+  },
+  {
+    "id": 562,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4755,
+    "mun_ne": "कालीगण्डकी",
+    "mun_en": "Kaligandaki",
+    "ward_no": "7"
+  },
+  {
+    "id": 563,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4756,
+    "mun_ne": "गुल्मीदरबार",
+    "mun_en": "Gulmidarbar",
+    "ward_no": "7"
+  },
+  {
+    "id": 564,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4757,
+    "mun_ne": "सत्यवती",
+    "mun_en": "Satyawoti",
+    "ward_no": "8"
+  },
+  {
+    "id": 565,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4758,
+    "mun_ne": "चन्द्रकोट",
+    "mun_en": "Chandrakot",
+    "ward_no": "8"
+  },
+  {
+    "id": 566,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4759,
+    "mun_ne": "रुरु",
+    "mun_en": "Ruru",
+    "ward_no": "6"
+  },
+  {
+    "id": 567,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4760,
+    "mun_ne": "छत्रकोट",
+    "mun_en": "Chhatrakot",
+    "ward_no": "6"
+  },
+  {
+    "id": 568,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4761,
+    "mun_ne": "धुर्कोट",
+    "mun_en": "Dhurkot",
+    "ward_no": "7"
+  },
+  {
+    "id": 569,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4762,
+    "mun_ne": "मदाने",
+    "mun_en": "Madane",
+    "ward_no": "7"
+  },
+  {
+    "id": 570,
+    "district_id": 42,
+    "district_ne": "गुल्मी",
+    "district_en": "Gulmi",
+    "mun_id": 4763,
+    "mun_ne": "मालिका",
+    "mun_en": "Malika",
+    "ward_no": "8"
+  },
+  {
+    "id": 571,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4764,
+    "mun_ne": "रामपुर",
+    "mun_en": "Rampur",
+    "ward_no": "10"
+  },
+  {
+    "id": 572,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4765,
+    "mun_ne": "तानसेन",
+    "mun_en": "Tansen",
+    "ward_no": "14"
+  },
+  {
+    "id": 573,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4766,
+    "mun_ne": "निस्दि",
+    "mun_en": "Nisdi",
+    "ward_no": "7"
+  },
+  {
+    "id": 574,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4767,
+    "mun_ne": "पुर्वखोला",
+    "mun_en": "Purbakhola",
+    "ward_no": "6"
+  },
+  {
+    "id": 575,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4768,
+    "mun_ne": "रम्भा",
+    "mun_en": "Rambha",
+    "ward_no": "5"
+  },
+  {
+    "id": 576,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4769,
+    "mun_ne": "माथागढी",
+    "mun_en": "Mathagadi",
+    "ward_no": "8"
+  },
+  {
+    "id": 577,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4770,
+    "mun_ne": "तिनाउ",
+    "mun_en": "Tinau",
+    "ward_no": "6"
+  },
+  {
+    "id": 578,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4771,
+    "mun_ne": "बगनासकाली ",
+    "mun_en": "Baganaskali",
+    "ward_no": "9"
+  },
+  {
+    "id": 579,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4772,
+    "mun_ne": "रिब्दिकोट",
+    "mun_en": "Ribdikot",
+    "ward_no": "8"
+  },
+  {
+    "id": 580,
+    "district_id": 43,
+    "district_ne": "पाल्पा",
+    "district_en": "Palpa",
+    "mun_id": 4773,
+    "mun_ne": "रैनादेवी छहरा",
+    "mun_en": " Rainadevi Chhahara",
+    "ward_no": "8"
+  },
+  {
+    "id": 581,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4774,
+    "mun_ne": "कपिलवस्तु",
+    "mun_en": "Kapilvastu",
+    "ward_no": "12"
+  },
+  {
+    "id": 582,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4775,
+    "mun_ne": "बुद्दभुमी",
+    "mun_en": "Buddhabhumi",
+    "ward_no": "10"
+  },
+  {
+    "id": 583,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4776,
+    "mun_ne": "शिवराज",
+    "mun_en": "Shivaraj",
+    "ward_no": "11"
+  },
+  {
+    "id": 584,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4777,
+    "mun_ne": "महाराजग‌ंज",
+    "mun_en": "Maharajgang",
+    "ward_no": "11"
+  },
+  {
+    "id": 585,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4778,
+    "mun_ne": "कृष्णनगर",
+    "mun_en": "Krishnanagar",
+    "ward_no": "12"
+  },
+  {
+    "id": 586,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4779,
+    "mun_ne": "बाणगंगा",
+    "mun_en": "Bandganga",
+    "ward_no": "11"
+  },
+  {
+    "id": 587,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4780,
+    "mun_ne": "मायादेवी",
+    "mun_en": "Mayadevi",
+    "ward_no": "8"
+  },
+  {
+    "id": 588,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4781,
+    "mun_ne": "यशोधरा",
+    "mun_en": "Yesodhara",
+    "ward_no": "8"
+  },
+  {
+    "id": 589,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4782,
+    "mun_ne": "विजयनगर",
+    "mun_en": "Bijayanagar",
+    "ward_no": "7"
+  },
+  {
+    "id": 590,
+    "district_id": 47,
+    "district_ne": "कपिलवस्तु",
+    "district_en": "Kapilvastu",
+    "mun_id": 4783,
+    "mun_ne": "शुद्दोधन",
+    "mun_en": "Suddhodhan",
+    "ward_no": "6"
+  },
+  {
+    "id": 591,
+    "district_id": 61,
+    "district_ne": "हुम्ला",
+    "district_en": "Humla",
+    "mun_id": 4784,
+    "mun_ne": "सिमिकोट",
+    "mun_en": "Simkot",
+    "ward_no": "8"
+  },
+  {
+    "id": 592,
+    "district_id": 61,
+    "district_ne": "हुम्ला",
+    "district_en": "Humla",
+    "mun_id": 4785,
+    "mun_ne": "नाम्खा",
+    "mun_en": "Namkha",
+    "ward_no": "6"
+  },
+  {
+    "id": 593,
+    "district_id": 61,
+    "district_ne": "हुम्ला",
+    "district_en": "Humla",
+    "mun_id": 4786,
+    "mun_ne": "खार्पुनाथ",
+    "mun_en": "kharpunath",
+    "ward_no": "5"
+  },
+  {
+    "id": 594,
+    "district_id": 61,
+    "district_ne": "हुम्ला",
+    "district_en": "Humla",
+    "mun_id": 4787,
+    "mun_ne": "सर्केगाड",
+    "mun_en": "Surkegad",
+    "ward_no": "8"
+  },
+  {
+    "id": 595,
+    "district_id": 61,
+    "district_ne": "हुम्ला",
+    "district_en": "Humla",
+    "mun_id": 4788,
+    "mun_ne": "चंखेली",
+    "mun_en": "Chankheli",
+    "ward_no": "6"
+  },
+  {
+    "id": 596,
+    "district_id": 61,
+    "district_ne": "हुम्ला",
+    "district_en": "Humla",
+    "mun_id": 4789,
+    "mun_ne": "अदानचुली",
+    "mun_en": "Adanchuli",
+    "ward_no": "6"
+  },
+  {
+    "id": 597,
+    "district_id": 61,
+    "district_ne": "हुम्ला",
+    "district_en": "Humla",
+    "mun_id": 4790,
+    "mun_ne": "ताजाकोट",
+    "mun_en": "Tajakot",
+    "ward_no": "5"
+  },
+  {
+    "id": 598,
+    "district_id": 58,
+    "district_ne": "मुगु",
+    "district_en": "Mugu",
+    "mun_id": 4791,
+    "mun_ne": "छायानाथ",
+    "mun_en": "Chhayanath",
+    "ward_no": "14"
+  },
+  {
+    "id": 599,
+    "district_id": 58,
+    "district_ne": "मुगु",
+    "district_en": "Mugu",
+    "mun_id": 4792,
+    "mun_ne": "कुमुगकार्मारोग",
+    "mun_en": "Mugumkarmarog",
+    "ward_no": "9"
+  },
+  {
+    "id": 600,
+    "district_id": 58,
+    "district_ne": "मुगु",
+    "district_en": "Mugu",
+    "mun_id": 4793,
+    "mun_ne": "सोरु",
+    "mun_en": "Soru",
+    "ward_no": "11"
+  },
+  {
+    "id": 601,
+    "district_id": 58,
+    "district_ne": "मुगु",
+    "district_en": "Mugu",
+    "mun_id": 4794,
+    "mun_ne": "खत्याङ",
+    "mun_en": "Khatyang",
+    "ward_no": "11"
+  },
+  {
+    "id": 602,
+    "district_id": 60,
+    "district_ne": "कालिकोट",
+    "district_en": "Kalikot",
+    "mun_id": 4795,
+    "mun_ne": "खाडाचक्र",
+    "mun_en": "Khadachakra",
+    "ward_no": "11"
+  },
+  {
+    "id": 603,
+    "district_id": 60,
+    "district_ne": "कालिकोट",
+    "district_en": "Kalikot",
+    "mun_id": 4796,
+    "mun_ne": "रास्कोट",
+    "mun_en": "Raskot",
+    "ward_no": "9"
+  },
+  {
+    "id": 604,
+    "district_id": 60,
+    "district_ne": "कालिकोट",
+    "district_en": "Kalikot",
+    "mun_id": 4797,
+    "mun_ne": "तिलागुफा",
+    "mun_en": "Tilagupha",
+    "ward_no": "11"
+  },
+  {
+    "id": 605,
+    "district_id": 60,
+    "district_ne": "कालिकोट",
+    "district_en": "Kalikot",
+    "mun_id": 4798,
+    "mun_ne": "पचालझरना",
+    "mun_en": "Pachaljharana",
+    "ward_no": "9"
+  },
+  {
+    "id": 606,
+    "district_id": 60,
+    "district_ne": "कालिकोट",
+    "district_en": "Kalikot",
+    "mun_id": 4799,
+    "mun_ne": "सान्नी त्रीवेणी",
+    "mun_en": "Sanni tribeni",
+    "ward_no": "9"
+  },
+  {
+    "id": 607,
+    "district_id": 60,
+    "district_ne": "कालिकोट",
+    "district_en": "Kalikot",
+    "mun_id": 4800,
+    "mun_ne": "नरहरीनाथ",
+    "mun_en": "Naraharinath",
+    "ward_no": "9"
+  },
+  {
+    "id": 608,
+    "district_id": 60,
+    "district_ne": "कालिकोट",
+    "district_en": "Kalikot",
+    "mun_id": 4801,
+    "mun_ne": "कालिका ",
+    "mun_en": "Kalika",
+    "ward_no": "8"
+  },
+  {
+    "id": 609,
+    "district_id": 60,
+    "district_ne": "कालिकोट",
+    "district_en": "Kalikot",
+    "mun_id": 4802,
+    "mun_ne": "महावै",
+    "mun_en": "Mahabai",
+    "ward_no": "7"
+  },
+  {
+    "id": 610,
+    "district_id": 60,
+    "district_ne": "कालिकोट",
+    "district_en": "Kalikot",
+    "mun_id": 4803,
+    "mun_ne": "पलता",
+    "mun_en": "Palata",
+    "ward_no": "9"
+  },
+  {
+    "id": 611,
+    "district_id": 59,
+    "district_ne": "जुम्ला",
+    "district_en": "Jumla",
+    "mun_id": 4804,
+    "mun_ne": "चन्दननाथ",
+    "mun_en": "Chandannath",
+    "ward_no": "10"
+  },
+  {
+    "id": 612,
+    "district_id": 59,
+    "district_ne": "जुम्ला",
+    "district_en": "Jumla",
+    "mun_id": 4805,
+    "mun_ne": "कनकासुन्दरी",
+    "mun_en": "Kankasundari",
+    "ward_no": "8"
+  },
+  {
+    "id": 613,
+    "district_id": 59,
+    "district_ne": "जुम्ला",
+    "district_en": "Jumla",
+    "mun_id": 4806,
+    "mun_ne": "सिंजा",
+    "mun_en": "Sinja",
+    "ward_no": "6"
+  },
+  {
+    "id": 614,
+    "district_id": 59,
+    "district_ne": "जुम्ला",
+    "district_en": "Jumla",
+    "mun_id": 4807,
+    "mun_ne": "हिमा",
+    "mun_en": "Hima",
+    "ward_no": "7"
+  },
+  {
+    "id": 615,
+    "district_id": 59,
+    "district_ne": "जुम्ला",
+    "district_en": "Jumla",
+    "mun_id": 4808,
+    "mun_ne": "तिला ",
+    "mun_en": "Tila",
+    "ward_no": "9"
+  },
+  {
+    "id": 616,
+    "district_id": 59,
+    "district_ne": "जुम्ला",
+    "district_en": "Jumla",
+    "mun_id": 4809,
+    "mun_ne": "गुठीचौर",
+    "mun_en": "Guthichaur",
+    "ward_no": "5"
+  },
+  {
+    "id": 617,
+    "district_id": 59,
+    "district_ne": "जुम्ला",
+    "district_en": "Jumla",
+    "mun_id": 4810,
+    "mun_ne": "तातोपानी",
+    "mun_en": "Tatopani",
+    "ward_no": "8"
+  },
+  {
+    "id": 618,
+    "district_id": 59,
+    "district_ne": "जुम्ला",
+    "district_en": "Jumla",
+    "mun_id": 4811,
+    "mun_ne": "पातारासी",
+    "mun_en": "Patarasi",
+    "ward_no": "7"
+  },
+  {
+    "id": 619,
+    "district_id": 64,
+    "district_ne": "सुर्खेत",
+    "district_en": "Surkhet",
+    "mun_id": 4812,
+    "mun_ne": "वीरेन्द्रनगर",
+    "mun_en": "Birendranagar ",
+    "ward_no": "16"
+  },
+  {
+    "id": 620,
+    "district_id": 64,
+    "district_ne": "सुर्खेत",
+    "district_en": "Surkhet",
+    "mun_id": 4813,
+    "mun_ne": "भेरिगंगा",
+    "mun_en": "Bheriganga",
+    "ward_no": "13"
+  },
+  {
+    "id": 621,
+    "district_id": 64,
+    "district_ne": "सुर्खेत",
+    "district_en": "Surkhet",
+    "mun_id": 4814,
+    "mun_ne": "गुर्भाकोट",
+    "mun_en": "Gurbhakot",
+    "ward_no": "14"
+  },
+  {
+    "id": 622,
+    "district_id": 64,
+    "district_ne": "सुर्खेत",
+    "district_en": "Surkhet",
+    "mun_id": 4815,
+    "mun_ne": "पञ्चपुरी",
+    "mun_en": "Pabchapuri",
+    "ward_no": "11"
+  },
+  {
+    "id": 623,
+    "district_id": 64,
+    "district_ne": "सुर्खेत",
+    "district_en": "Surkhet",
+    "mun_id": 4816,
+    "mun_ne": "लेकवेशी",
+    "mun_en": "Lekbesi",
+    "ward_no": "10"
+  },
+  {
+    "id": 624,
+    "district_id": 64,
+    "district_ne": "सुर्खेत",
+    "district_en": "Surkhet",
+    "mun_id": 4817,
+    "mun_ne": "चौकुने",
+    "mun_en": "Chaukune",
+    "ward_no": "10"
+  },
+  {
+    "id": 625,
+    "district_id": 64,
+    "district_ne": "सुर्खेत",
+    "district_en": "Surkhet",
+    "mun_id": 4818,
+    "mun_ne": "बराहताल",
+    "mun_en": "Barahatal",
+    "ward_no": "10"
+  },
+  {
+    "id": 626,
+    "district_id": 64,
+    "district_ne": "सुर्खेत",
+    "district_en": "Surkhet",
+    "mun_id": 4819,
+    "mun_ne": "चिङ्गाड",
+    "mun_en": "Chingad",
+    "ward_no": "6"
+  },
+  {
+    "id": 627,
+    "district_id": 64,
+    "district_ne": "सुर्खेत",
+    "district_en": "Surkhet",
+    "mun_id": 4820,
+    "mun_ne": "सिम्ता",
+    "mun_en": "Simta ",
+    "ward_no": "9"
+  },
+  {
+    "id": 628,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4821,
+    "mun_ne": "नारायण",
+    "mun_en": "Narayan",
+    "ward_no": "11"
+  },
+  {
+    "id": 629,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4822,
+    "mun_ne": "दुल्लु",
+    "mun_en": "Dullu",
+    "ward_no": "13"
+  },
+  {
+    "id": 630,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4823,
+    "mun_ne": "चामुण्डा विन्द्रासैनी",
+    "mun_en": "Chamunda Bindrasaini",
+    "ward_no": "9"
+  },
+  {
+    "id": 631,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4824,
+    "mun_ne": "आठविस",
+    "mun_en": "Aathbis",
+    "ward_no": "9"
+  },
+  {
+    "id": 632,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4825,
+    "mun_ne": "भगवतिमाइ",
+    "mun_en": "Bhagawatimai",
+    "ward_no": "7"
+  },
+  {
+    "id": 633,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4826,
+    "mun_ne": "गुरास",
+    "mun_en": "Gurash",
+    "ward_no": "8"
+  },
+  {
+    "id": 634,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4827,
+    "mun_ne": "डुङ्गेश्वर",
+    "mun_en": "Dungeshwar",
+    "ward_no": "6"
+  },
+  {
+    "id": 635,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4828,
+    "mun_ne": "नौमुले",
+    "mun_en": "Naumule",
+    "ward_no": "8"
+  },
+  {
+    "id": 636,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4829,
+    "mun_ne": "महावु",
+    "mun_en": "Mahabu",
+    "ward_no": "6"
+  },
+  {
+    "id": 637,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4830,
+    "mun_ne": "भैरवी",
+    "mun_en": "Bhairabi",
+    "ward_no": "7"
+  },
+  {
+    "id": 638,
+    "district_id": 63,
+    "district_ne": "दैलेख",
+    "district_en": "Dailekh",
+    "mun_id": 4831,
+    "mun_ne": "ठाँटीकाध",
+    "mun_en": "Thatikadh",
+    "ward_no": "6"
+  },
+  {
+    "id": 639,
+    "district_id": 57,
+    "district_ne": "डोल्पा",
+    "district_en": "Dolpa",
+    "mun_id": 4832,
+    "mun_ne": "ठुलिभेरी",
+    "mun_en": "Thuli veri",
+    "ward_no": "11"
+  },
+  {
+    "id": 640,
+    "district_id": 57,
+    "district_ne": "डोल्पा",
+    "district_en": "Dolpa",
+    "mun_id": 4833,
+    "mun_ne": "त्रिपुरासुन्दरी",
+    "mun_en": "Tripurasundari",
+    "ward_no": "11"
+  },
+  {
+    "id": 641,
+    "district_id": 57,
+    "district_ne": "डोल्पा",
+    "district_en": "Dolpa",
+    "mun_id": 4834,
+    "mun_ne": "डोल्पा वुद्ध",
+    "mun_en": "Dolpa buddha",
+    "ward_no": "6"
+  },
+  {
+    "id": 642,
+    "district_id": 57,
+    "district_ne": "डोल्पा",
+    "district_en": "Dolpa",
+    "mun_id": 4835,
+    "mun_ne": "शे फोक्सुण्डो",
+    "mun_en": "She phoksundo",
+    "ward_no": "9"
+  },
+  {
+    "id": 643,
+    "district_id": 57,
+    "district_ne": "डोल्पा",
+    "district_en": "Dolpa",
+    "mun_id": 4836,
+    "mun_ne": "जगदुल्ला",
+    "mun_en": "Jagdulla",
+    "ward_no": "6"
+  },
+  {
+    "id": 644,
+    "district_id": 57,
+    "district_ne": "डोल्पा",
+    "district_en": "Dolpa",
+    "mun_id": 4837,
+    "mun_ne": "मुड्केचुला",
+    "mun_en": "Mudkechula",
+    "ward_no": "9"
+  },
+  {
+    "id": 645,
+    "district_id": 57,
+    "district_ne": "डोल्पा",
+    "district_en": "Dolpa",
+    "mun_id": 4838,
+    "mun_ne": "काइके",
+    "mun_en": "Kaike",
+    "ward_no": "7"
+  },
+  {
+    "id": 646,
+    "district_id": 57,
+    "district_ne": "डोल्पा",
+    "district_en": "Dolpa",
+    "mun_id": 4839,
+    "mun_ne": "छार्का ताङसोङ",
+    "mun_en": "Chharka tangsong",
+    "ward_no": "6"
+  },
+  {
+    "id": 647,
+    "district_id": 62,
+    "district_ne": "जाजरकोट",
+    "district_en": "Jajarkot",
+    "mun_id": 4840,
+    "mun_ne": "भेरी",
+    "mun_en": "veri",
+    "ward_no": "13"
+  },
+  {
+    "id": 648,
+    "district_id": 62,
+    "district_ne": "जाजरकोट",
+    "district_en": "Jajarkot",
+    "mun_id": 4841,
+    "mun_ne": "छेडागाड",
+    "mun_en": "Chhedagad",
+    "ward_no": "13"
+  },
+  {
+    "id": 649,
+    "district_id": 62,
+    "district_ne": "जाजरकोट",
+    "district_en": "Jajarkot",
+    "mun_id": 4842,
+    "mun_ne": "त्रिवेणी नलगाड",
+    "mun_en": "Tribeni nalgad ",
+    "ward_no": "13"
+  },
+  {
+    "id": 650,
+    "district_id": 62,
+    "district_ne": "जाजरकोट",
+    "district_en": "Jajarkot",
+    "mun_id": 4843,
+    "mun_ne": "कुसे",
+    "mun_en": "Kuse ",
+    "ward_no": "9"
+  },
+  {
+    "id": 651,
+    "district_id": 62,
+    "district_ne": "जाजरकोट",
+    "district_en": "Jajarkot",
+    "mun_id": 4844,
+    "mun_ne": "जुनिचादे",
+    "mun_en": "Junichande",
+    "ward_no": "11"
+  },
+  {
+    "id": 652,
+    "district_id": 62,
+    "district_ne": "जाजरकोट",
+    "district_en": "Jajarkot",
+    "mun_id": 4845,
+    "mun_ne": "बारेकोट",
+    "mun_en": "Barekot",
+    "ward_no": "9"
+  },
+  {
+    "id": 653,
+    "district_id": 62,
+    "district_ne": "जाजरकोट",
+    "district_en": "Jajarkot",
+    "mun_id": 4846,
+    "mun_ne": "सिवालय",
+    "mun_en": "Shibalaya",
+    "ward_no": "9"
+  },
+  {
+    "id": 654,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4847,
+    "mun_ne": "दशरथचन्द",
+    "mun_en": "Dashrathachanda",
+    "ward_no": "11"
+  },
+  {
+    "id": 655,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4848,
+    "mun_ne": "पाटन",
+    "mun_en": "Patan ",
+    "ward_no": "10"
+  },
+  {
+    "id": 656,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4849,
+    "mun_ne": "मेलौली ",
+    "mun_en": "Melauli ",
+    "ward_no": "9"
+  },
+  {
+    "id": 657,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4850,
+    "mun_ne": "पुर्चौडी ",
+    "mun_en": "Purchaudi ",
+    "ward_no": "10"
+  },
+  {
+    "id": 658,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4851,
+    "mun_ne": "सुर्नया ",
+    "mun_en": "Surnaya",
+    "ward_no": "8"
+  },
+  {
+    "id": 659,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4852,
+    "mun_ne": "सिगास",
+    "mun_en": "Sigas",
+    "ward_no": "9"
+  },
+  {
+    "id": 660,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4853,
+    "mun_ne": "शिवनाथ",
+    "mun_en": "Shivanath",
+    "ward_no": "6"
+  },
+  {
+    "id": 661,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4854,
+    "mun_ne": "पन्चेश्वर",
+    "mun_en": "Pancheshwar",
+    "ward_no": "6"
+  },
+  {
+    "id": 662,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4855,
+    "mun_ne": "दोगडाकेदार",
+    "mun_en": "Dogdakedar",
+    "ward_no": "8"
+  },
+  {
+    "id": 663,
+    "district_id": 73,
+    "district_ne": "बैतडी",
+    "district_en": "Baitadi",
+    "mun_id": 4856,
+    "mun_ne": "डिलासैनी ",
+    "mun_en": "Dilasaini",
+    "ward_no": "7"
+  },
+  {
+    "id": 664,
+    "district_id": 74,
+    "district_ne": "डडेलधुरा",
+    "district_en": "Dadeldhura",
+    "mun_id": 4857,
+    "mun_ne": "अमरगढी ",
+    "mun_en": "Amargadhi ",
+    "ward_no": "11"
+  },
+  {
+    "id": 665,
+    "district_id": 74,
+    "district_ne": "डडेलधुरा",
+    "district_en": "Dadeldhura",
+    "mun_id": 4858,
+    "mun_ne": "परशुराम",
+    "mun_en": "Parsuram ",
+    "ward_no": "12"
+  },
+  {
+    "id": 666,
+    "district_id": 74,
+    "district_ne": "डडेलधुरा",
+    "district_en": "Dadeldhura",
+    "mun_id": 4859,
+    "mun_ne": "आलिताल",
+    "mun_en": "Aalital",
+    "ward_no": "8"
+  },
+  {
+    "id": 667,
+    "district_id": 74,
+    "district_ne": "डडेलधुरा",
+    "district_en": "Dadeldhura",
+    "mun_id": 4860,
+    "mun_ne": "भागेश्वर",
+    "mun_en": "Bhageshwar",
+    "ward_no": "5"
+  },
+  {
+    "id": 668,
+    "district_id": 74,
+    "district_ne": "डडेलधुरा",
+    "district_en": "Dadeldhura",
+    "mun_id": 4861,
+    "mun_ne": "नवदुर्गा",
+    "mun_en": "nabadurga",
+    "ward_no": "5"
+  },
+  {
+    "id": 669,
+    "district_id": 74,
+    "district_ne": "डडेलधुरा",
+    "district_en": "Dadeldhura",
+    "mun_id": 4862,
+    "mun_ne": "अजयमेरु",
+    "mun_en": "Ajayameru ",
+    "ward_no": "6"
+  },
+  {
+    "id": 670,
+    "district_id": 74,
+    "district_ne": "डडेलधुरा",
+    "district_en": "Dadeldhura",
+    "mun_id": 4863,
+    "mun_ne": "गन्यापधुरा ",
+    "mun_en": "Ganyapdhura",
+    "ward_no": "5"
+  },
+  {
+    "id": 671,
+    "district_id": 75,
+    "district_ne": "कन्चनपुर",
+    "district_en": "Kanchanpur",
+    "mun_id": 4864,
+    "mun_ne": "भिमदत्त",
+    "mun_en": "bhimdatta",
+    "ward_no": "19"
+  },
+  {
+    "id": 672,
+    "district_id": 75,
+    "district_ne": "कन्चनपुर",
+    "district_en": "Kanchanpur",
+    "mun_id": 4865,
+    "mun_ne": "पुनर्वास",
+    "mun_en": "Punarbas",
+    "ward_no": "11"
+  },
+  {
+    "id": 673,
+    "district_id": 75,
+    "district_ne": "कन्चनपुर",
+    "district_en": "Kanchanpur",
+    "mun_id": 4866,
+    "mun_ne": "बेदकोट",
+    "mun_en": "Bedkot ",
+    "ward_no": "10"
+  },
+  {
+    "id": 674,
+    "district_id": 75,
+    "district_ne": "कन्चनपुर",
+    "district_en": "Kanchanpur",
+    "mun_id": 4867,
+    "mun_ne": "माहाकाली",
+    "mun_en": "Mahakali",
+    "ward_no": "10"
+  },
+  {
+    "id": 675,
+    "district_id": 75,
+    "district_ne": "कन्चनपुर",
+    "district_en": "Kanchanpur",
+    "mun_id": 4868,
+    "mun_ne": "शुक्लाफाँटा",
+    "mun_en": "Shuklaphata",
+    "ward_no": "12"
+  },
+  {
+    "id": 676,
+    "district_id": 75,
+    "district_ne": "कन्चनपुर",
+    "district_en": "Kanchanpur",
+    "mun_id": 4869,
+    "mun_ne": "बेलौरी ",
+    "mun_en": "Belauri",
+    "ward_no": "10"
+  },
+  {
+    "id": 677,
+    "district_id": 75,
+    "district_ne": "कन्चनपुर",
+    "district_en": "Kanchanpur",
+    "mun_id": 4870,
+    "mun_ne": "कृष्णपुर ",
+    "mun_en": "Krishnapur",
+    "ward_no": "9"
+  },
+  {
+    "id": 678,
+    "district_id": 75,
+    "district_ne": "कन्चनपुर",
+    "district_en": "Kanchanpur",
+    "mun_id": 4871,
+    "mun_ne": "बेलडाँडी",
+    "mun_en": "Beldandi",
+    "ward_no": "5"
+  },
+  {
+    "id": 679,
+    "district_id": 75,
+    "district_ne": "कन्चनपुर",
+    "district_en": "Kanchanpur",
+    "mun_id": 4872,
+    "mun_ne": "लालझाडी",
+    "mun_en": "Laljhadi",
+    "ward_no": "6"
+  },
+  {
+    "id": 680,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4873,
+    "mun_ne": "धनगढी",
+    "mun_en": "Dhangadhi",
+    "ward_no": "19"
+  },
+  {
+    "id": 681,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4874,
+    "mun_ne": "टिकापुर ",
+    "mun_en": "Tikapur ",
+    "ward_no": "9"
+  },
+  {
+    "id": 682,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4875,
+    "mun_ne": "घोडाघोडी",
+    "mun_en": "Ghodaghodi ",
+    "ward_no": "12"
+  },
+  {
+    "id": 683,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4876,
+    "mun_ne": "लम्किचुहा",
+    "mun_en": "Lamkichuha",
+    "ward_no": "10"
+  },
+  {
+    "id": 684,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4877,
+    "mun_ne": "भजनी",
+    "mun_en": "bhajani ",
+    "ward_no": "9"
+  },
+  {
+    "id": 685,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4878,
+    "mun_ne": "गोदावरी",
+    "mun_en": "Godawari",
+    "ward_no": "12"
+  },
+  {
+    "id": 686,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4879,
+    "mun_ne": "गौरीगंगा",
+    "mun_en": "Gauriganga",
+    "ward_no": "11"
+  },
+  {
+    "id": 687,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4880,
+    "mun_ne": "जानकी",
+    "mun_en": "Janaki",
+    "ward_no": "9"
+  },
+  {
+    "id": 688,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4881,
+    "mun_ne": "बर्दगोरिया",
+    "mun_en": "Bardagoriya",
+    "ward_no": "6"
+  },
+  {
+    "id": 689,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4882,
+    "mun_ne": "मोहन्याल",
+    "mun_en": "Mohanyal",
+    "ward_no": "7"
+  },
+  {
+    "id": 690,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4883,
+    "mun_ne": "कैलारी",
+    "mun_en": "Kailari",
+    "ward_no": "9"
+  },
+  {
+    "id": 691,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4884,
+    "mun_ne": "जोशिपुर",
+    "mun_en": "Joshipur ",
+    "ward_no": "7"
+  },
+  {
+    "id": 692,
+    "district_id": 71,
+    "district_ne": "कैलाली",
+    "district_en": "Kailali",
+    "mun_id": 4885,
+    "mun_ne": "चुरे",
+    "mun_en": "Chure",
+    "ward_no": "6"
+  },
+  {
+    "id": 693,
+    "district_id": 70,
+    "district_ne": "डोटी",
+    "district_en": "Doti",
+    "mun_id": 4886,
+    "mun_ne": "दिपायल सिलगढी",
+    "mun_en": "Dipayal silgadhi",
+    "ward_no": "9"
+  },
+  {
+    "id": 694,
+    "district_id": 70,
+    "district_ne": "डोटी",
+    "district_en": "Doti",
+    "mun_id": 4887,
+    "mun_ne": "शिखर",
+    "mun_en": "Shikhar",
+    "ward_no": "11"
+  },
+  {
+    "id": 695,
+    "district_id": 70,
+    "district_ne": "डोटी",
+    "district_en": "Doti",
+    "mun_id": 4888,
+    "mun_ne": "पुर्विचौकी",
+    "mun_en": "Purbichauki",
+    "ward_no": "7"
+  },
+  {
+    "id": 696,
+    "district_id": 70,
+    "district_ne": "डोटी",
+    "district_en": "Doti",
+    "mun_id": 4889,
+    "mun_ne": "बुडिकेदार",
+    "mun_en": "Badikedar",
+    "ward_no": "5"
+  },
+  {
+    "id": 697,
+    "district_id": 70,
+    "district_ne": "डोटी",
+    "district_en": "Doti",
+    "mun_id": 4890,
+    "mun_ne": "जोरायल",
+    "mun_en": "Jorayal",
+    "ward_no": "6"
+  },
+  {
+    "id": 698,
+    "district_id": 70,
+    "district_ne": "डोटी",
+    "district_en": "Doti",
+    "mun_id": 4891,
+    "mun_ne": "सायल",
+    "mun_en": "Sayal",
+    "ward_no": "6"
+  },
+  {
+    "id": 699,
+    "district_id": 70,
+    "district_ne": "डोटी",
+    "district_en": "Doti",
+    "mun_id": 4892,
+    "mun_ne": "आदर्श",
+    "mun_en": "Aadarsh",
+    "ward_no": "7"
+  },
+  {
+    "id": 700,
+    "district_id": 70,
+    "district_ne": "डोटी",
+    "district_en": "Doti",
+    "mun_id": 4893,
+    "mun_ne": "के.आइ.सी",
+    "mun_en": "K.I.C",
+    "ward_no": "7"
+  },
+  {
+    "id": 701,
+    "district_id": 70,
+    "district_ne": "डोटी",
+    "district_en": "Doti",
+    "mun_id": 4894,
+    "mun_ne": "बोगटान",
+    "mun_en": "Bogatan",
+    "ward_no": "7"
+  },
+  {
+    "id": 702,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4895,
+    "mun_ne": "मंगलसेन ",
+    "mun_en": "Mangalsen",
+    "ward_no": "14"
+  },
+  {
+    "id": 703,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4896,
+    "mun_ne": "कमलबजार",
+    "mun_en": "Kamalbajar",
+    "ward_no": "10"
+  },
+  {
+    "id": 704,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4897,
+    "mun_ne": "साँफेबगर",
+    "mun_en": "Sanphebagar",
+    "ward_no": "14"
+  },
+  {
+    "id": 705,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4898,
+    "mun_ne": "पंचदेवल विनायक",
+    "mun_en": "Panchadewal Binayak",
+    "ward_no": "9"
+  },
+  {
+    "id": 706,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4899,
+    "mun_ne": "चौरपाटी",
+    "mun_en": "Chaurpati ",
+    "ward_no": "7"
+  },
+  {
+    "id": 707,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4900,
+    "mun_ne": "मेल्लेख",
+    "mun_en": "Mellekh",
+    "ward_no": "8"
+  },
+  {
+    "id": 708,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4901,
+    "mun_ne": "बान्नीगढी जयगढ",
+    "mun_en": "Bannigadi Jayagadh",
+    "ward_no": "6"
+  },
+  {
+    "id": 709,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4902,
+    "mun_ne": "रामारोशन",
+    "mun_en": "Ramaroshan",
+    "ward_no": "7"
+  },
+  {
+    "id": 710,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4903,
+    "mun_ne": "ढकारी",
+    "mun_en": "Dhakari",
+    "ward_no": "8"
+  },
+  {
+    "id": 711,
+    "district_id": 68,
+    "district_ne": "अछाम",
+    "district_en": "Achham",
+    "mun_id": 4904,
+    "mun_ne": "तुर्माखाद",
+    "mun_en": "Turmakhad",
+    "ward_no": "8"
+  },
+  {
+    "id": 712,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4905,
+    "mun_ne": "जयपृथ्वी",
+    "mun_en": "jayaprithvi",
+    "ward_no": "11"
+  },
+  {
+    "id": 713,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4906,
+    "mun_ne": "बुंगल",
+    "mun_en": "Bungal",
+    "ward_no": "11"
+  },
+  {
+    "id": 714,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4907,
+    "mun_ne": "तलकोट",
+    "mun_en": "Talkot",
+    "ward_no": "7"
+  },
+  {
+    "id": 715,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4908,
+    "mun_ne": "मष्टा",
+    "mun_en": "Masta",
+    "ward_no": "7"
+  },
+  {
+    "id": 716,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4909,
+    "mun_ne": "खप्तडछान्ना",
+    "mun_en": "Khaptadchhanna",
+    "ward_no": "7"
+  },
+  {
+    "id": 717,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4910,
+    "mun_ne": "थलारा",
+    "mun_en": "Thalara",
+    "ward_no": "9"
+  },
+  {
+    "id": 718,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4911,
+    "mun_ne": "वित्थडचिर ",
+    "mun_en": "Bitthadchir",
+    "ward_no": "9"
+  },
+  {
+    "id": 719,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4912,
+    "mun_ne": "सूर्मा",
+    "mun_en": "Surma ",
+    "ward_no": "5"
+  },
+  {
+    "id": 720,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4913,
+    "mun_ne": "छविसपाथिभेरा",
+    "mun_en": "Chhabispathibhera",
+    "ward_no": "7"
+  },
+  {
+    "id": 721,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4914,
+    "mun_ne": "दुर्गाथली",
+    "mun_en": "Durgathali",
+    "ward_no": "7"
+  },
+  {
+    "id": 722,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4915,
+    "mun_ne": "केदारस्युँ",
+    "mun_en": "Kedarsyun",
+    "ward_no": "9"
+  },
+  {
+    "id": 723,
+    "district_id": 69,
+    "district_ne": "बझाङ्ग",
+    "district_en": "Bajhang",
+    "mun_id": 4916,
+    "mun_ne": "काँडा",
+    "mun_en": "Kanda",
+    "ward_no": "5"
+  },
+  {
+    "id": 724,
+    "district_id": 67,
+    "district_ne": "बाजुरा",
+    "district_en": "Bajura",
+    "mun_id": 4917,
+    "mun_ne": "बडिमालिका",
+    "mun_en": "Badimalika",
+    "ward_no": "9"
+  },
+  {
+    "id": 725,
+    "district_id": 67,
+    "district_ne": "बाजुरा",
+    "district_en": "Bajura",
+    "mun_id": 4918,
+    "mun_ne": "त्रिवेणी",
+    "mun_en": "Tribeni",
+    "ward_no": "9"
+  },
+  {
+    "id": 726,
+    "district_id": 67,
+    "district_ne": "बाजुरा",
+    "district_en": "Bajura",
+    "mun_id": 4919,
+    "mun_ne": "बुढिगंगा",
+    "mun_en": "Budhiganga",
+    "ward_no": "10"
+  },
+  {
+    "id": 727,
+    "district_id": 67,
+    "district_ne": "बाजुरा",
+    "district_en": "Bajura",
+    "mun_id": 4920,
+    "mun_ne": "बुढिनन्दा",
+    "mun_en": "Budhinanda",
+    "ward_no": "10"
+  },
+  {
+    "id": 728,
+    "district_id": 67,
+    "district_ne": "बाजुरा",
+    "district_en": "Bajura",
+    "mun_id": 4921,
+    "mun_ne": "गौमुल",
+    "mun_en": "Gaumun ",
+    "ward_no": "6"
+  },
+  {
+    "id": 729,
+    "district_id": 67,
+    "district_ne": "बाजुरा",
+    "district_en": "Bajura",
+    "mun_id": 4922,
+    "mun_ne": "पाण्डव गुफा",
+    "mun_en": "Pandav Gupha",
+    "ward_no": "6"
+  },
+  {
+    "id": 730,
+    "district_id": 67,
+    "district_ne": "बाजुरा",
+    "district_en": "Bajura",
+    "mun_id": 4923,
+    "mun_ne": "स्वामिकार्तिक",
+    "mun_en": "Swamikartik",
+    "ward_no": "5"
+  },
+  {
+    "id": 731,
+    "district_id": 67,
+    "district_ne": "बाजुरा",
+    "district_en": "Bajura",
+    "mun_id": 4924,
+    "mun_ne": "छेडेदह",
+    "mun_en": "Chhededaha",
+    "ward_no": "7"
+  },
+  {
+    "id": 732,
+    "district_id": 67,
+    "district_ne": "बाजुरा",
+    "district_en": "Bajura",
+    "mun_id": 4925,
+    "mun_ne": "हिमाली",
+    "mun_en": "Himali",
+    "ward_no": "7"
+  },
+  {
+    "id": 733,
+    "district_id": 72,
+    "district_ne": "दार्चुला",
+    "district_en": "Darchula",
+    "mun_id": 4926,
+    "mun_ne": "माहाकाली",
+    "mun_en": "Mahakali",
+    "ward_no": "9"
+  },
+  {
+    "id": 734,
+    "district_id": 72,
+    "district_ne": "दार्चुला",
+    "district_en": "Darchula",
+    "mun_id": 4927,
+    "mun_ne": "शैल्यशिखर",
+    "mun_en": "Shailyashikar",
+    "ward_no": "9"
+  },
+  {
+    "id": 735,
+    "district_id": 72,
+    "district_ne": "दार्चुला",
+    "district_en": "Darchula",
+    "mun_id": 4928,
+    "mun_ne": "मालिकार्जुन",
+    "mun_en": "Malikarjun",
+    "ward_no": "8"
+  },
+  {
+    "id": 736,
+    "district_id": 72,
+    "district_ne": "दार्चुला",
+    "district_en": "Darchula",
+    "mun_id": 4929,
+    "mun_ne": "अपिहिमाल",
+    "mun_en": "Apihimal",
+    "ward_no": "6"
+  },
+  {
+    "id": 737,
+    "district_id": 72,
+    "district_ne": "दार्चुला",
+    "district_en": "Darchula",
+    "mun_id": 4930,
+    "mun_ne": "देहुँ",
+    "mun_en": "Duhu ",
+    "ward_no": "5"
+  },
+  {
+    "id": 738,
+    "district_id": 72,
+    "district_ne": "दार्चुला",
+    "district_en": "Darchula",
+    "mun_id": 4931,
+    "mun_ne": "नौगाड",
+    "mun_en": "Naugad",
+    "ward_no": "6"
+  },
+  {
+    "id": 739,
+    "district_id": 72,
+    "district_ne": "दार्चुला",
+    "district_en": "Darchula",
+    "mun_id": 4932,
+    "mun_ne": "मार्मा",
+    "mun_en": "Marma",
+    "ward_no": "6"
+  },
+  {
+    "id": 740,
+    "district_id": 72,
+    "district_ne": "दार्चुला",
+    "district_en": "Darchula",
+    "mun_id": 4933,
+    "mun_ne": "लेकम",
+    "mun_en": "Lekam",
+    "ward_no": "6"
+  },
+  {
+    "id": 741,
+    "district_id": 72,
+    "district_ne": "दार्चुला",
+    "district_en": "Darchula",
+    "mun_id": 4934,
+    "mun_ne": "व्यास ",
+    "mun_en": "Byash",
+    "ward_no": "6"
+  },
+  {
+    "id": 742,
+    "district_id": 65,
+    "district_ne": "बाँके",
+    "district_en": "Banke",
+    "mun_id": 4935,
+    "mun_ne": "डुडुवा",
+    "mun_en": "Duduwa",
+    "ward_no": "6"
+  },
+  {
+    "id": 743,
+    "district_id": 65,
+    "district_ne": "बाँके",
+    "district_en": "Banke",
+    "mun_id": 4936,
+    "mun_ne": "जानकी",
+    "mun_en": "Janaki",
+    "ward_no": "6"
+  },
+  {
+    "id": 744,
+    "district_id": 15,
+    "district_ne": "सप्तरी",
+    "district_en": "Saptari",
+    "mun_id": 4937,
+    "mun_ne": "बलान-विहुल",
+    "mun_en": "Balan-Bihul",
+    "ward_no": "6"
+  },
+  {
+    "id": 745,
+    "district_id": 20,
+    "district_ne": "धनुषा",
+    "district_en": "Dhanusha",
+    "mun_id": 4938,
+    "mun_ne": "धनौजी",
+    "mun_en": "Dhanauji",
+    "ward_no": ""
+  },
+  {
+    "id": 746,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4939,
+    "mun_ne": "बसबरिया",
+    "mun_en": "Basbariya",
+    "ward_no": ""
+  },
+  {
+    "id": 747,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4940,
+    "mun_ne": "कौडेना",
+    "mun_en": "Kaudena",
+    "ward_no": "7"
+  },
+  {
+    "id": 748,
+    "district_id": 22,
+    "district_ne": "सर्लाही",
+    "district_en": "Sarlahi",
+    "mun_id": 4941,
+    "mun_ne": "पर्सा",
+    "mun_en": "Parsa",
+    "ward_no": ""
+  },
+  {
+    "id": 749,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4942,
+    "mun_ne": "राजदेवी",
+    "mun_en": "Rajdevi",
+    "ward_no": "9"
+  },
+  {
+    "id": 750,
+    "district_id": 32,
+    "district_ne": "रौतहट",
+    "district_en": "Rautahat",
+    "mun_id": 4943,
+    "mun_ne": "यमुनामाई",
+    "mun_en": "Yamunamai",
+    "ward_no": "5"
+  },
+  {
+    "id": 751,
+    "district_id": 33,
+    "district_ne": "बारा",
+    "district_en": "Bara",
+    "mun_id": 4944,
+    "mun_ne": "विश्रामपुर",
+    "mun_en": "Vishrampur",
+    "ward_no": "5"
+  },
+  {
+    "id": 752,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4945,
+    "mun_ne": "कालिकामाई",
+    "mun_en": "Kalikamai",
+    "ward_no": ""
+  },
+  {
+    "id": 753,
+    "district_id": 34,
+    "district_ne": "पर्सा",
+    "district_en": "Parsa",
+    "mun_id": 4946,
+    "mun_ne": "जिराभवानी",
+    "mun_en": "Jirabhawani",
+    "ward_no": "5"
+  }
+]

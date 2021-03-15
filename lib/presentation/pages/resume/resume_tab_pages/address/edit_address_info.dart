@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
@@ -13,6 +14,7 @@ import 'package:wallet_app/presentation/widgets/colors.dart';
 import 'package:wallet_app/presentation/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:wallet_app/presentation/widgets/masked_input_text_field.dart';
 
 class EditAddressInfoForm extends StatelessWidget {
   final UpdateAddressInfoActorBloc actorBloc;
@@ -181,9 +183,11 @@ class _CountryInputField extends StatelessWidget {
         title: "Country",
         child: CustomDropDownWidget(
           hintText: "Country",
-          value: "Japan",
-          options: const ["Japan"],
-          onChanged: (value) {},
+          value: state.country,
+          options: state.listOfCountries,
+          onChanged: (value) => context
+              .read<UpdateAddressInfoActorBloc>()
+              .add(UpdateAddressInfoActorEvent.changeCountry(value)),
         ),
       ),
     );
@@ -212,8 +216,14 @@ class _PostalCodeInputField extends StatelessWidget {
         child: InputTextWidget(
             hintText: "Postal Code",
             textInputType: TextInputType.number,
-            // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
             value: isCurrent ? state.currPostalCode : state.contPostalCode,
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(8),
+              MaskedTextInputFormatter(
+                mask: "xxx-xxxx",
+                separator: "-",
+              ),
+            ],
             onChanged: (value) {
               if (isCurrent) {
                 context.read<UpdateAddressInfoActorBloc>().add(
@@ -240,75 +250,47 @@ class _PrefectureInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) {
         if (isCurrent) {
-          return previous.currPrefecture != current.currPrefecture;
+          return previous.currPrefecture != current.currPrefecture ||
+              previous.country != current.country;
         } else {
-          return previous.contPrefecture != current.contPrefecture;
+          return previous.contPrefecture != current.contPrefecture ||
+              previous.country != current.country;
         }
       },
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
-        child: CustomDropDownWidget(
-          hintText: "Prefecture",
-          value: isCurrent ? state.currPrefecture : state.contPrefecture,
-          options: const [
-            "Hokkaidō",
-            "Aomori",
-            "Iwate",
-            "Miyagi",
-            "Akita",
-            "Yamagata",
-            "Fukushima",
-            "Ibaraki",
-            "Tochigi",
-            "Gunma",
-            "Saitama",
-            "Chiba",
-            "Tokyo",
-            "Kanagawa",
-            "Niigata",
-            "Toyama",
-            "Ishikawa",
-            "Fukui",
-            "Yamanashi",
-            "Nagano",
-            "Gifu",
-            "Shizuoka",
-            "Aichi",
-            "Mie",
-            "Shiga",
-            "Kyōto",
-            "Ōsaka",
-            "Hyōgo",
-            "Nara",
-            "Wakayama",
-            "Tottori",
-            "Shimane",
-            "Okayama",
-            "Hiroshima",
-            "Yamaguchi",
-            "Tokushima",
-            "Kagawa",
-            "Ehime",
-            "Kōchi",
-            "Fukuoka",
-            "Saga",
-            "Nagasaki",
-            "Kumamoto",
-            "Ōita",
-            "Miyazaki",
-            "Kagoshima",
-            "Okinawa",
-          ],
-          onChanged: (value) {
-            if (isCurrent) {
-              context.read<UpdateAddressInfoActorBloc>().add(
-                  UpdateAddressInfoActorEvent.changedCurrPrefecture(value));
-            } else {
-              context.read<UpdateAddressInfoActorBloc>().add(
-                  UpdateAddressInfoActorEvent.changedContPrefecture(value));
-            }
-          },
-        ),
+        child: state.country.toLowerCase() == "japan"
+            ? CustomDropDownWidget(
+                hintText: "Prefecture",
+                value: isCurrent ? state.currPrefecture : state.contPrefecture,
+                options: state.listOfPrefectures,
+                onChanged: (value) {
+                  if (isCurrent) {
+                    context.read<UpdateAddressInfoActorBloc>().add(
+                        UpdateAddressInfoActorEvent.changedCurrPrefecture(
+                            value));
+                  } else {
+                    context.read<UpdateAddressInfoActorBloc>().add(
+                        UpdateAddressInfoActorEvent.changedContPrefecture(
+                            value));
+                  }
+                },
+              )
+            : InputTextWidget(
+                hintText: "Prefecture",
+                value: isCurrent ? state.currPrefecture : state.contPrefecture,
+                onChanged: (value) {
+                  if (isCurrent) {
+                    context.read<UpdateAddressInfoActorBloc>().add(
+                        UpdateAddressInfoActorEvent.changedCurrPrefecture(
+                            value));
+                  } else {
+                    context.read<UpdateAddressInfoActorBloc>().add(
+                        UpdateAddressInfoActorEvent.changedContPrefecture(
+                            value));
+                  }
+                },
+              ),
       ),
     );
   }
@@ -326,50 +308,46 @@ class _CityInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) {
         if (isCurrent) {
-          return previous.currCity != current.currCity;
+          return previous.currCity != current.currCity ||
+              previous.currPrefecture != current.currPrefecture ||
+              previous.country != current.country;
         } else {
-          return previous.contCity != current.contCity;
+          return previous.contCity != current.contCity ||
+              previous.contPrefecture != current.contPrefecture ||
+              previous.country != current.country;
         }
       },
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
-        child: CustomDropDownWidget(
-          hintText: "City",
-          value: isCurrent ? state.currCity : state.contCity,
-          options: const [
-            "Nagoya",
-            "Toyohashi",
-            "Okazaki",
-            "Ichinomiya",
-            "Seto",
-            "Handa",
-            "Kasugai",
-            "Toyokawa",
-            "Tsushima",
-            "Hekinan",
-            "Kariya",
-            "Toyota",
-            "Anjō",
-            "Nishio",
-            "Gamagōri",
-            "Inuyama",
-            "Tokoname",
-            "Kōnan",
-            "Komaki",
-            "Inazawa",
-          ],
-          onChanged: (value) {
-            if (isCurrent) {
-              context
-                  .read<UpdateAddressInfoActorBloc>()
-                  .add(UpdateAddressInfoActorEvent.changedCurrCity(value));
-            } else {
-              context
-                  .read<UpdateAddressInfoActorBloc>()
-                  .add(UpdateAddressInfoActorEvent.changedContCity(value));
-            }
-          },
-        ),
+        child: state.country.toLowerCase() == "japan"
+            ? CustomDropDownWidget(
+                hintText: "City",
+                value: isCurrent ? state.currCity : state.contCity,
+                options:
+                    isCurrent ? state.listOfCurrCities : state.listOfContCities,
+                onChanged: (value) {
+                  if (isCurrent) {
+                    context.read<UpdateAddressInfoActorBloc>().add(
+                        UpdateAddressInfoActorEvent.changedCurrCity(value));
+                  } else {
+                    context.read<UpdateAddressInfoActorBloc>().add(
+                        UpdateAddressInfoActorEvent.changedContCity(value));
+                  }
+                },
+              )
+            : InputTextWidget(
+                hintText: "City",
+                value: isCurrent ? state.currCity : state.contCity,
+                onChanged: (value) {
+                  if (isCurrent) {
+                    context.read<UpdateAddressInfoActorBloc>().add(
+                        UpdateAddressInfoActorEvent.changedCurrCity(value));
+                  } else {
+                    context.read<UpdateAddressInfoActorBloc>().add(
+                        UpdateAddressInfoActorEvent.changedContCity(value));
+                  }
+                },
+              ),
       ),
     );
   }
@@ -436,9 +414,16 @@ class _PhoneInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Phone",
         child: InputTextWidget(
-          hintText: "090-XXXX-XXXX",
+          hintText: "XXX-XXXX-XXXX",
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          textInputType: TextInputType.phone,
           value: isCurrent ? state.currPhone : state.contPhone,
+          inputFormatters: [
+            MaskedTextInputFormatter(
+              mask: "090-xxxx-xxxx",
+              separator: "-",
+            ),
+          ],
           onChanged: (value) {
             if (isCurrent) {
               context

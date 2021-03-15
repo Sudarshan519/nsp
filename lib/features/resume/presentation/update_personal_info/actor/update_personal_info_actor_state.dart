@@ -13,6 +13,7 @@ abstract class UpdatePersonalInfoActorState
     @required String nationality,
     @required String email,
     @required String phone,
+    @required List<String> listOfNationality,
     @required bool isSubmitting,
     @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
   }) = _UpdatePersonalInfoActorState;
@@ -28,6 +29,7 @@ abstract class UpdatePersonalInfoActorState
         nationality: '',
         email: '',
         phone: '',
+        listOfNationality: [],
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );

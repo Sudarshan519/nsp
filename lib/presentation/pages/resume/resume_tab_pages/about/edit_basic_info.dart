@@ -384,12 +384,10 @@ class _NationalityInputField extends StatelessWidget {
           previous.nationality != current.nationality,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Nationality",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "Nationality",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.nationality,
-          onEditingCompleted: callBack,
+          options: state.listOfNationality,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeNationality(value)),

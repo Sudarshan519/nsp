@@ -7,6 +7,7 @@ import 'package:wallet_app/features/resume/domain/entities/academic_history.dart
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 
 part 'resume_watcher_event.dart';
@@ -33,6 +34,7 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
           academics: e.data.academicHistory ?? [],
           works: e.data.workHistory ?? [],
           qualifications: e.data.qualificationHistory ?? [],
+          options: e.data.options,
           isLoading: false,
         );
       },

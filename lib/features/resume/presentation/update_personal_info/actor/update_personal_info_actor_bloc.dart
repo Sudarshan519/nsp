@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
 
@@ -14,10 +15,12 @@ part 'update_personal_info_actor_bloc.freezed.dart';
 class UpdatePersonalInfoActorBloc
     extends Bloc<UpdatePersonalInfoActorEvent, UpdatePersonalInfoActorState> {
   final UpdatePersonalInfo updatePersonalInfo;
+  final GetCountries getCountries;
   PersonalInfo _personalInfo;
 
   UpdatePersonalInfoActorBloc({
     @required this.updatePersonalInfo,
+    @required this.getCountries,
   }) : super(UpdatePersonalInfoActorState.initial());
 
   @override
@@ -63,6 +66,12 @@ class UpdatePersonalInfoActorBloc
 
   Stream<UpdatePersonalInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+    );
+
+    final listOfNationality = await getCountries();
+
     final userInfo = _setInitialState.info;
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
@@ -76,6 +85,7 @@ class UpdatePersonalInfoActorBloc
         nationality: userInfo.nationality ?? "",
         email: userInfo.email ?? "",
         phone: userInfo.contPhone ?? "",
+        listOfNationality: listOfNationality ?? [],
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );

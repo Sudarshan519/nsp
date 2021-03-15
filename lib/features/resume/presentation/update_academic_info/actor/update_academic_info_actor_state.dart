@@ -10,6 +10,7 @@ abstract class UpdateAcademicInfoActorState
     @required String yearOfCpmpletion,
     @required String monthOfEnroll,
     @required String monthOfCompletion,
+    @required List<String> majorSubjectList,
     @required bool isSubmitting,
     @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
   }) = _UpdateAcademicInfoActorState;
@@ -22,6 +23,7 @@ abstract class UpdateAcademicInfoActorState
         yearOfCpmpletion: '',
         monthOfEnroll: '',
         monthOfCompletion: '',
+        majorSubjectList: [],
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );

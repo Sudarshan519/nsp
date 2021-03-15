@@ -19,14 +19,21 @@ import '../utils/config_reader.dart';
 import '../core/database/local_database_provider.dart';
 import 'injectable/data_connection_checker_injectable_module.dart';
 import 'injectable/flutter_secure_storage_module.dart';
+import '../features/location_information/domain/usecases/get_countries.dart';
 import '../features/home/domain/usecases/get_home_page_data.dart';
+import '../features/location_information/domain/usecases/get_japan_city.dart';
+import '../features/location_information/domain/usecases/get_nepal_district.dart';
 import '../features/news/domain/usecase/get_news.dart';
+import '../features/location_information/domain/usecases/get_prefecture.dart';
 import '../features/auth/domain/usecase/get_wallet_user.dart';
 import '../features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import '../features/home/data/datasource/home_remote_data_source.dart';
 import '../features/home/domain/repositories/home_repository.dart';
 import '../features/home/data/repositories/home_repository.dart';
 import 'injectable/http_client_injectable_module.dart';
+import '../features/location_information/data/datasource/location_information_local_datasource.dart';
+import '../features/location_information/data/repository/location_information_repositories.dart';
+import '../features/location_information/domain/repository/location_information_repositories.dart';
 import '../features/auth/domain/usecase/logout_user.dart';
 import '../core/network/newtork_info.dart';
 import '../features/news/presentation/news_list/news_bloc.dart';
@@ -72,6 +79,11 @@ Future<GetIt> $initGetIt(
       () => dataConnectionCheckerModule.dataConnectionChecker);
   gh.lazySingleton<FlutterSecureStorage>(
       () => flutterStorageModule.secureStorate);
+  gh.lazySingleton<LocationInformationLocalDataSourceProtocol>(
+      () => LocationInformationLocalDataSource(client: get<Client>()));
+  gh.lazySingleton<LocationInformationRepositoryProtocol>(() =>
+      LocationInformationRepository(
+          localDataSource: get<LocationInformationLocalDataSourceProtocol>()));
   gh.lazySingleton<NetworkInfo>(() =>
       NetworkInfoImpl(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(() =>
@@ -87,6 +99,14 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<AuthRepository>(() => AuthRepositoryImpl(
       remoteDataSource: get<AuthRemoteDataSource>(),
       localDataSource: get<AuthLocalDataSource>()));
+  gh.lazySingleton<GetCountries>(() =>
+      GetCountries(repository: get<LocationInformationRepositoryProtocol>()));
+  gh.lazySingleton<GetJapanCity>(() =>
+      GetJapanCity(repository: get<LocationInformationRepositoryProtocol>()));
+  gh.lazySingleton<GetNepalDistrict>(() => GetNepalDistrict(
+      repository: get<LocationInformationRepositoryProtocol>()));
+  gh.lazySingleton<GetPrefecture>(() =>
+      GetPrefecture(repository: get<LocationInformationRepositoryProtocol>()));
   gh.lazySingleton<GetWalletUser>(
       () => GetWalletUser(repository: get<AuthRepository>()));
   gh.lazySingleton<HomePageRemoteDataSource>(() => HomePageRemoteDataSourceImpl(

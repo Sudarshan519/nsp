@@ -205,8 +205,8 @@ class _CurrentCountryInputField extends StatelessWidget {
         title: "Country",
         child: CustomDropDownWidget(
           hintText: "Country",
-          value: "Japan",
-          options: const ["Japan"],
+          value: state.country,
+          options: [state.country],
           alignment: Alignment.centerRight,
         ),
       ),

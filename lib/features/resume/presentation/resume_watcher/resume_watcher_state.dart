@@ -7,6 +7,7 @@ abstract class ResumeWatcherState with _$ResumeWatcherState {
     @required List<AcademicHistory> academics,
     @required List<WorkHistory> works,
     @required List<QualificationHistory> qualifications,
+    @required ResumeOptions options,
     @required bool isLoading,
   }) = _ResumeWatcherState;
 
@@ -15,6 +16,7 @@ abstract class ResumeWatcherState with _$ResumeWatcherState {
         academics: [],
         works: [],
         qualifications: [],
+        options: ResumeOptions(),
         isLoading: true,
       );
 }

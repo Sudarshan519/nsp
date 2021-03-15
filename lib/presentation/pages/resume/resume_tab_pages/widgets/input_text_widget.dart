@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wallet_app/presentation/widgets/widgets.dart';
 
 // ignore: must_be_immutable
@@ -15,6 +16,7 @@ class InputTextWidget extends StatelessWidget {
   final Function(String) onChanged;
   final Function() onEditingCompleted;
   final TextAlign textAlign;
+  final List<TextInputFormatter> inputFormatters;
 
   Timer _debounce;
 
@@ -30,6 +32,7 @@ class InputTextWidget extends StatelessWidget {
     this.onEditingCompleted,
     this.validator,
     this.textAlign,
+    this.inputFormatters,
   })  : assert(hintText != null),
         assert(onChanged != null),
         super(key: key);
@@ -59,6 +62,7 @@ class InputTextWidget extends StatelessWidget {
         fontWeight: FontWeight.w400,
         fontSize: 14.0,
       ),
+      inputFormatters: inputFormatters,
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       keyboardType: textInputType,

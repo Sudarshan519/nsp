@@ -17,19 +17,24 @@ import 'package:wallet_app/utils/constant.dart';
 class EditAcademicInfoForm extends StatelessWidget {
   final AcademicHistory info;
   final UpdateAcademicInfoActorBloc actorBloc;
+  final List<String> listOfSubjects;
 
   const EditAcademicInfoForm({
     Key key,
     @required this.actorBloc,
     @required this.info,
+    @required this.listOfSubjects,
   })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          actorBloc..add(UpdateAcademicInfoActorEvent.setInitialState(info)),
+      create: (context) => actorBloc
+        ..add(UpdateAcademicInfoActorEvent.setInitialState(
+          info,
+          listOfSubjects,
+        )),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -120,10 +125,6 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             _YearOfEnrollField(),
             SizedBox(height: 20),
             _YearOfCompletionField(),
-            SizedBox(height: 20),
-            _MonthOfEnrollField(),
-            SizedBox(height: 20),
-            _MonthOfCompletionField()
           ],
         ),
       ),
@@ -213,12 +214,7 @@ class _MajorSubjectField extends StatelessWidget {
         child: CustomDropDownWidget(
           hintText: "Major Subject",
           value: state.yearOFEnroll,
-          options: const [
-            "IT/Engineering",
-            "Hospitality/Tourism",
-            "Marketing/Media",
-            "Others",
-          ],
+          options: state.majorSubjectList,
           onChanged: (value) => context
               .read<UpdateAcademicInfoActorBloc>()
               .add(UpdateAcademicInfoActorEvent.changedMajorSubject(value)),
@@ -241,46 +237,80 @@ class _YearOfEnrollField extends StatelessWidget {
           previous.yearOFEnroll != current.yearOFEnroll,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Year of Enroll",
-        child: CustomDropDownWidget(
-          hintText: "2010",
-          value: state.yearOFEnroll,
-          options: const [
-            "1990",
-            "1991",
-            "1992",
-            "1993",
-            "1994",
-            "1995",
-            "1996",
-            "1997",
-            "1998",
-            "1999",
-            "2000",
-            "2001",
-            "2002",
-            "2003",
-            "2004",
-            "2005",
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
+        child: Row(
+          children: [
+            Flexible(
+              child: CustomDropDownWidget(
+                hintText: "Select Year",
+                value: state.yearOFEnroll,
+                options: const [
+                  "1990",
+                  "1991",
+                  "1992",
+                  "1993",
+                  "1994",
+                  "1995",
+                  "1996",
+                  "1997",
+                  "1998",
+                  "1999",
+                  "2000",
+                  "2001",
+                  "2002",
+                  "2003",
+                  "2004",
+                  "2005",
+                  "2006",
+                  "2007",
+                  "2008",
+                  "2009",
+                  "2010",
+                  "2011",
+                  "2012",
+                  "2013",
+                  "2014",
+                  "2015",
+                  "2016",
+                  "2017",
+                  "2018",
+                  "2019",
+                  "2020",
+                  "2021",
+                ],
+                alignment: Alignment.topCenter,
+                onChanged: (value) => context
+                    .read<UpdateAcademicInfoActorBloc>()
+                    .add(UpdateAcademicInfoActorEvent.changedYearOfEnroll(
+                        value)),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Flexible(
+              child: CustomDropDownWidget(
+                hintText: "Select Month",
+                value: state.monthOfEnroll,
+                alignment: Alignment.topCenter,
+                options: const [
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "July",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                ],
+                onChanged: (value) => context
+                    .read<UpdateAcademicInfoActorBloc>()
+                    .add(UpdateAcademicInfoActorEvent.changedMonthOfEnroll(
+                        value)),
+              ),
+            ),
           ],
-          onChanged: (value) => context
-              .read<UpdateAcademicInfoActorBloc>()
-              .add(UpdateAcademicInfoActorEvent.changedYearOfEnroll(value)),
         ),
       ),
     );
@@ -310,123 +340,123 @@ class _YearOfCompletionField extends StatelessWidget {
         //       .read<UpdateAcademicInfoActorBloc>()
         //       .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(value)),
         // ),
-        child: CustomDropDownWidget(
-          hintText: "2014",
-          value: state.yearOfCpmpletion,
-          options: const [
-            "1990",
-            "1991",
-            "1992",
-            "1993",
-            "1994",
-            "1995",
-            "1996",
-            "1997",
-            "1998",
-            "1999",
-            "2000",
-            "2001",
-            "2002",
-            "2003",
-            "2004",
-            "2005",
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
+        child:
+            // CustomDropDownWidget(
+            //   hintText: "2014",
+            //   value: state.yearOfCpmpletion,
+            //   options: const [
+            //     "1990",
+            //     "1991",
+            //     "1992",
+            //     "1993",
+            //     "1994",
+            //     "1995",
+            //     "1996",
+            //     "1997",
+            //     "1998",
+            //     "1999",
+            //     "2000",
+            //     "2001",
+            //     "2002",
+            //     "2003",
+            //     "2004",
+            //     "2005",
+            //     "2006",
+            //     "2007",
+            //     "2008",
+            //     "2009",
+            //     "2010",
+            //     "2011",
+            //     "2012",
+            //     "2013",
+            //     "2014",
+            //     "2015",
+            //     "2016",
+            //     "2017",
+            //     "2018",
+            //     "2019",
+            //     "2020",
+            //     "2021",
+            //   ],
+            //   onChanged: (value) => context
+            //       .read<UpdateAcademicInfoActorBloc>()
+            //       .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(value)),
+            // ),
+
+            Row(
+          children: [
+            Flexible(
+              child: CustomDropDownWidget(
+                hintText: "Select Year",
+                value: state.yearOfCpmpletion,
+                options: const [
+                  "1990",
+                  "1991",
+                  "1992",
+                  "1993",
+                  "1994",
+                  "1995",
+                  "1996",
+                  "1997",
+                  "1998",
+                  "1999",
+                  "2000",
+                  "2001",
+                  "2002",
+                  "2003",
+                  "2004",
+                  "2005",
+                  "2006",
+                  "2007",
+                  "2008",
+                  "2009",
+                  "2010",
+                  "2011",
+                  "2012",
+                  "2013",
+                  "2014",
+                  "2015",
+                  "2016",
+                  "2017",
+                  "2018",
+                  "2019",
+                  "2020",
+                  "2021",
+                ],
+                alignment: Alignment.topCenter,
+                onChanged: (value) => context
+                    .read<UpdateAcademicInfoActorBloc>()
+                    .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(
+                        value)),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Flexible(
+              child: CustomDropDownWidget(
+                hintText: "Select Month",
+                value: state.monthOfCompletion,
+                alignment: Alignment.topCenter,
+                options: const [
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "July",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                ],
+                onChanged: (value) => context
+                    .read<UpdateAcademicInfoActorBloc>()
+                    .add(UpdateAcademicInfoActorEvent.changedMonthOfCompletion(
+                        value)),
+              ),
+            ),
           ],
-          onChanged: (value) => context
-              .read<UpdateAcademicInfoActorBloc>()
-              .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(value)),
-        ),
-      ),
-    );
-  }
-}
-
-class _MonthOfEnrollField extends StatelessWidget {
-  const _MonthOfEnrollField({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAcademicInfoActorBloc,
-        UpdateAcademicInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.monthOfEnroll != current.monthOfEnroll,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Month of Enroll",
-        child: CustomDropDownWidget(
-          hintText: "Sep",
-          value: state.monthOfEnroll,
-          options: const [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "July",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
-          onChanged: (value) => context
-              .read<UpdateAcademicInfoActorBloc>()
-              .add(UpdateAcademicInfoActorEvent.changedMonthOfEnroll(value)),
-        ),
-      ),
-    );
-  }
-}
-
-class _MonthOfCompletionField extends StatelessWidget {
-  const _MonthOfCompletionField({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAcademicInfoActorBloc,
-        UpdateAcademicInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.monthOfCompletion != current.monthOfCompletion,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Month of Completion",
-        child: CustomDropDownWidget(
-          hintText: "Oct",
-          value: state.monthOfCompletion,
-          options: const [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "July",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
-          onChanged: (value) => context.read<UpdateAcademicInfoActorBloc>().add(
-              UpdateAcademicInfoActorEvent.changedMonthOfCompletion(value)),
         ),
       ),
     );
