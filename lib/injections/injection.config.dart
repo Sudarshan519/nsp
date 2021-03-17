@@ -18,8 +18,10 @@ import '../features/auth/data/repository/auth_repository.dart';
 import '../utils/config_reader.dart';
 import '../core/database/local_database_provider.dart';
 import 'injectable/data_connection_checker_injectable_module.dart';
+import '../features/resume/presentation/download_pdf/download_pdf_bloc.dart';
 import 'injectable/flutter_secure_storage_module.dart';
 import '../features/location_information/domain/usecases/get_countries.dart';
+import '../features/resume/domain/usecases/get_downloadable_pdf_link.dart';
 import '../features/home/domain/usecases/get_home_page_data.dart';
 import '../features/location_information/domain/usecases/get_japan_city.dart';
 import '../features/location_information/domain/usecases/get_nepal_district.dart';
@@ -152,6 +154,8 @@ Future<GetIt> $initGetIt(
       repository: get<AuthRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<VerifyEmailBloc>(
       () => VerifyEmailBloc(verifyEmail: get<VerifyEmail>()));
+  gh.factory<GetDownloadablePdfLink>(() => GetDownloadablePdfLink(
+      repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<GetHomePageData>(
       () => GetHomePageData(repository: get<HomeReporisitory>()));
   gh.lazySingleton<GetNews>(() => GetNews(
@@ -164,6 +168,8 @@ Future<GetIt> $initGetIt(
       () => SignInFormBloc(get<SignInWithEmailAndPassword>()));
   gh.factory<SignUpFormBloc>(() => SignUpFormBloc(
       signUpWithEmailUsecase: get<SignUpWithEmailPasswordAndUserDetail>()));
+  gh.factory<DownloadPdfBloc>(() =>
+      DownloadPdfBloc(getDownloadablePdfLink: get<GetDownloadablePdfLink>()));
 
   // Eager singletons must be registered in the right order
   gh.singleton<ConfigReader>(ConfigReader());

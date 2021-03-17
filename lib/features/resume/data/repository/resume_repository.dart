@@ -93,4 +93,13 @@ class ResumeRepositoryImpl implements ResumeRepository {
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
+
+  @override
+  Future<Either<ApiFailure, String>> getResumePdfLink() async {
+    try {
+      return Right(await dataSource.downloadPdf());
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
 }

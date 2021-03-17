@@ -12,7 +12,7 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class ResumeRemoteDataSource {
-  void downloadPdf();
+  Future<String> downloadPdf();
 
   Future<Unit> updateResume({
     @required Map<String, dynamic> body,
@@ -39,8 +39,40 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
         assert(auth != null);
 
   @override
-  void downloadPdf() {
-    // TODO: implement downloadPdf
+  Future<String> downloadPdf() async {
+    http.Response response;
+
+    final url = "${config.resumeBaseUrl}${ResumeApiEndpoints.downloadResume}";
+    final uuid = (await auth.getUserDetail())?.uuid ?? "";
+
+    if (uuid.isEmpty) {
+      //TODO: route user to login page as the user does not have uuid
+    }
+
+    _headers["Authorization"] = "Bearer $uuid";
+
+    try {
+      response = await client.get(
+        url,
+        headers: _headers,
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    if (response.statusCode == 200) {
+      final responseJson = json.decode(response.body);
+      if (responseJson["status"] == false) {
+        throw ServerException(
+            message: errorMessageFromServerWithMessage(response.body) ??
+                AppConstants.someThingWentWrong);
+      }
+      return responseJson["download_link"] as String;
+    } else {
+      throw ServerException(
+          message: errorMessageFromServerWithMessage(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
   }
 
   @override

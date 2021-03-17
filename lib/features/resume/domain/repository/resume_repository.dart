@@ -30,4 +30,6 @@ abstract class ResumeRepository {
   Future<Either<ApiFailure, Unit>> updateQualification({
     @required QualificationHistory data,
   });
+
+  Future<Either<ApiFailure, String>> getResumePdfLink();
 }

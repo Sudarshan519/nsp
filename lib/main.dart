@@ -10,11 +10,12 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureInjection(Environment.prod);
 
-//TODO: change it to get it
-  await FlutterDownloader.initialize();
-
   /// for registering the factory.
   await Future.delayed(const Duration(seconds: 2));
   await getIt<ConfigReader>().initialize();
+  await FlutterDownloader.initialize(
+    debug: getIt<ConfigReader>()
+        .isDebugApp, // optional: set false to disable printing logs to console
+  );
   runApp(WalletApp());
 }
