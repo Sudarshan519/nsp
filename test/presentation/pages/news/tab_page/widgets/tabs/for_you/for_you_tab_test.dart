@@ -6,7 +6,7 @@ import 'package:mockito/mockito.dart';
 // import 'package:network_image_mock/network_image_mock.dart';
 import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/presentation/pages/news/tab_page/tabs/for_you/for_you_tab.dart';
+import 'package:wallet_app/ui/pages/news/tab_page/tabs/for_you/for_you_tab.dart';
 
 class MockBuildContext extends Mock implements BuildContext {}
 

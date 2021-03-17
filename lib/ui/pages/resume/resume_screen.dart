@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/ui/pages/resume/widgets/resume_header_widget.dart';
+import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/widgets.dart';
+
+import 'resume_tab_pages/resume_tab_page.dart';
+
+class ResumePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Resume",
+          style: TextStyle(
+            color: Palette.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w300,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: SvgPicture.asset(
+              "assets/images/resume/share.svg",
+              height: 25.0,
+            ),
+          ),
+        ],
+        elevation: 0,
+      ),
+      body: Column(
+        children: [
+          ResumeHeaderWidget(),
+          Expanded(child: ResumeTabBarScreen()),
+        ],
+      ),
+    );
+  }
+}

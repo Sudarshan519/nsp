@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:wallet_app/main.dart' as app;
-import 'package:wallet_app/presentation/pages/auth/login_screen.dart';
-import 'package:wallet_app/presentation/pages/auth/register_screen.dart';
-import 'package:wallet_app/presentation/pages/auth/widgets/input_text_widget.dart';
+import 'package:wallet_app/ui/pages/auth/login_screen.dart';
+import 'package:wallet_app/ui/pages/auth/register_screen.dart';
+import 'package:wallet_app/ui/pages/auth/widgets/input_text_widget.dart';
 // import 'package:wallet_app/main.dart' as app;
 
 void main() {
