@@ -176,7 +176,7 @@ class _SaveButton extends StatelessWidget {
   }
 }
 
-class _NameInputField extends StatefulWidget {
+class _NameInputField extends StatelessWidget {
   final Function() callBack;
 
   const _NameInputField({
@@ -185,14 +185,17 @@ class _NameInputField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  __NameInputFieldState createState() => __NameInputFieldState();
-}
-
-class __NameInputFieldState extends State<_NameInputField> {
-  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
+      listenWhen: (previous, current) =>
+          previous.firstName != current.firstName,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.firstName;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) => previous.firstName != current.firstName,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Name",
@@ -200,8 +203,8 @@ class __NameInputFieldState extends State<_NameInputField> {
           hintText: "Name",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.firstName,
-          onEditingCompleted: widget.callBack,
+          controller: _controller,
+          onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeFirstName(value)),
@@ -221,8 +224,15 @@ class _FamilyNameInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
+      listenWhen: (previous, current) => previous.lastName != current.lastName,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.lastName;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) => previous.lastName != current.lastName,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Family Name",
@@ -230,7 +240,7 @@ class _FamilyNameInputField extends StatelessWidget {
           hintText: "Family Name",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.lastName,
+          controller: _controller,
           onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
@@ -322,15 +332,22 @@ class _AgeInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
+      listenWhen: (previous, current) => previous.age != current.age,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.age;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) => previous.age != current.age,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Age",
         child: InputTextWidget(
           hintText: "Age",
           textInputType: TextInputType.number,
-          value: state.age,
+          controller: _controller,
           onEditingCompleted: callBack,
           isEnable: false,
           onChanged: (_) {},
@@ -407,8 +424,15 @@ class _EmailInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
+      listenWhen: (previous, current) => previous.email != current.email,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.email;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Email",
@@ -416,7 +440,7 @@ class _EmailInputField extends StatelessWidget {
           hintText: "Email",
           textInputType: TextInputType.emailAddress,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.email,
+          controller: _controller,
           isEnable: false,
           onEditingCompleted: callBack,
           onChanged: (value) => context

@@ -11,6 +11,7 @@ class CustomDatePicker extends StatelessWidget {
   final bool isEnable;
   final bool futureDataAvailable;
   final bool showAge;
+  final TextAlign textAlign;
 
   const CustomDatePicker({
     Key key,
@@ -21,6 +22,7 @@ class CustomDatePicker extends StatelessWidget {
     this.isEnable = true,
     this.futureDataAvailable = false,
     this.showAge = true,
+    this.textAlign = TextAlign.start,
   }) : super(key: key);
 
   @override
@@ -46,6 +48,7 @@ class CustomDatePicker extends StatelessWidget {
                     color: Palette.textFieldPlaceholderColor,
                   ),
                 ),
+                textAlign: textAlign,
                 style: TextStyle(
                   color: Palette.blackTextColor,
                   fontWeight: FontWeight.w400,

@@ -179,7 +179,15 @@ class _NameOfCompanyField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      listenWhen: (previous, current) =>
+          previous.nameOfComapny != current.nameOfComapny,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.nameOfComapny;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) =>
           previous.nameOfComapny != current.nameOfComapny,
       builder: (context, state) => TextWidetWithLabelAndChild(
@@ -188,7 +196,7 @@ class _NameOfCompanyField extends StatelessWidget {
           hintText: "XYZ Company",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.nameOfComapny,
+          controller: _controller,
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
               .add(UpdateWorkInfoActorEvent.changedNameOfCompany(value)),
@@ -434,7 +442,15 @@ class _PurposeOfResignField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      // listenWhen: (previous, current) =>
+      //     previous.firstName != current.firstName,
+      listener: (context, state) {
+        // final TextSelection previousSelection = _controller.selection;
+        // _controller.text = state.firstName;
+        // _controller.selection = previousSelection;
+      },
       // buildWhen: (previous, current) =>
       //     previous.nameOfComapny != current.nameOfComapny,
       builder: (context, state) => TextWidetWithLabelAndChild(
@@ -443,7 +459,7 @@ class _PurposeOfResignField extends StatelessWidget {
           hintText: "purpose of resign",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: "",
+          controller: _controller,
           onChanged: (value) {},
         ),
       ),

@@ -170,8 +170,16 @@ class _NameOfQualificationField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateQualificationInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdateQualificationInfoActorBloc,
         UpdateQualificationInfoActorState>(
+      listenWhen: (previous, current) =>
+          previous.qualificationName != current.qualificationName,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.qualificationName;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) =>
           previous.qualificationName != current.qualificationName,
       builder: (context, state) => TextWidetWithLabelAndChild(
@@ -180,7 +188,7 @@ class _NameOfQualificationField extends StatelessWidget {
           hintText: "AWS Certification",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.qualificationName,
+          controller: _controller,
           onChanged: (value) => context
               .read<UpdateQualificationInfoActorBloc>()
               .add(UpdateQualificationInfoActorEvent.changedQualificationName(

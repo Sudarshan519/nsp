@@ -13,6 +13,7 @@ import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:wallet_app/utils/validator.dart';
 
 class EditAcademicInfoForm extends StatelessWidget {
   final AcademicHistory info;
@@ -177,8 +178,16 @@ class _NameOfInstituteField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAcademicInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdateAcademicInfoActorBloc,
         UpdateAcademicInfoActorState>(
+      listenWhen: (previous, current) =>
+          previous.nameOfInstitute != current.nameOfInstitute,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.nameOfInstitute;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) =>
           previous.nameOfInstitute != current.nameOfInstitute,
       builder: (context, state) => TextWidetWithLabelAndChild(
@@ -186,9 +195,8 @@ class _NameOfInstituteField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Name of Institute",
           textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.nameOfInstitute,
-
+          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          controller: _controller,
           onChanged: (value) => context
               .read<UpdateAcademicInfoActorBloc>()
               .add(UpdateAcademicInfoActorEvent.changedNameOfInstitute(value)),
@@ -330,60 +338,7 @@ class _YearOfCompletionField extends StatelessWidget {
           previous.yearOfCpmpletion != current.yearOfCpmpletion,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Year of Completion",
-        // child: InputTextWidget(
-        //   hintText: "2014",
-        //   textInputType: TextInputType.number,
-        //   // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-        //   value: state.yearOfCpmpletion,
-
-        //   onChanged: (value) => context
-        //       .read<UpdateAcademicInfoActorBloc>()
-        //       .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(value)),
-        // ),
-        child:
-            // CustomDropDownWidget(
-            //   hintText: "2014",
-            //   value: state.yearOfCpmpletion,
-            //   options: const [
-            //     "1990",
-            //     "1991",
-            //     "1992",
-            //     "1993",
-            //     "1994",
-            //     "1995",
-            //     "1996",
-            //     "1997",
-            //     "1998",
-            //     "1999",
-            //     "2000",
-            //     "2001",
-            //     "2002",
-            //     "2003",
-            //     "2004",
-            //     "2005",
-            //     "2006",
-            //     "2007",
-            //     "2008",
-            //     "2009",
-            //     "2010",
-            //     "2011",
-            //     "2012",
-            //     "2013",
-            //     "2014",
-            //     "2015",
-            //     "2016",
-            //     "2017",
-            //     "2018",
-            //     "2019",
-            //     "2020",
-            //     "2021",
-            //   ],
-            //   onChanged: (value) => context
-            //       .read<UpdateAcademicInfoActorBloc>()
-            //       .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(value)),
-            // ),
-
-            Row(
+        child: Row(
           children: [
             Flexible(
               child: CustomDropDownWidget(

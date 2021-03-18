@@ -12,6 +12,8 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/resume_optio
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_date_picker.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
@@ -177,8 +179,16 @@ class _NameInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
+      listenWhen: (previous, current) =>
+          previous.firstName != current.firstName,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.firstName;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) => previous.firstName != current.firstName,
       builder: (context, state) => FormFieldDecoration(
         title: "Name",
@@ -186,9 +196,9 @@ class _NameInputField extends StatelessWidget {
           hintText: "Name",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.firstName,
+          controller: _controller,
           textAlign: TextAlign.end,
-          // isEnable: false,
+          isEnable: false,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeFirstName(value)),
@@ -205,8 +215,15 @@ class _FamilyNameInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
+      listenWhen: (previous, current) => previous.lastName != current.lastName,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.lastName;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) => previous.lastName != current.lastName,
       builder: (context, state) => FormFieldDecoration(
         title: "Family Name",
@@ -214,7 +231,7 @@ class _FamilyNameInputField extends StatelessWidget {
           hintText: "Family Name",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.lastName,
+          controller: _controller,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context
@@ -239,16 +256,18 @@ class _ProfessionInputField extends StatelessWidget {
           previous.profession != current.profession,
       builder: (context, state) => FormFieldDecoration(
         title: "Profession",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "Profession",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.profession,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeProfession(value)),
+          alignment: Alignment.centerRight,
+          options: const [
+            "Language Student",
+            "College/University Student",
+            "Skilled Professional",
+            "Cook",
+            "Dependement",
+            "Others"
+          ],
         ),
       ),
     );
@@ -267,16 +286,22 @@ class _DateofBirthInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.dob != current.dob,
       builder: (context, state) => FormFieldDecoration(
         title: "Date of Birth",
-        child: InputTextWidget(
+        child: CustomDatePicker(
           hintText: "Date of Birth",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          textAlign: TextAlign.end,
-          value: state.dob,
+          showAge: false,
           isEnable: false,
-          onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeDob(value)),
+          textAlign: TextAlign.end,
+          controller: TextEditingController(text: state.dob),
+          onChanged: (dob, age) {
+            context
+                .read<UpdatePersonalInfoActorBloc>()
+                .add(UpdatePersonalInfoActorEvent.changeDob(dob));
+            context
+                .read<UpdatePersonalInfoActorBloc>()
+                .add(UpdatePersonalInfoActorEvent.changeAge(age));
+
+            FocusScope.of(context).unfocus();
+          },
         ),
       ),
     );
@@ -290,15 +315,22 @@ class _AgeInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
+      listenWhen: (previous, current) => previous.age != current.age,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.age;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) => previous.age != current.age,
       builder: (context, state) => FormFieldDecoration(
         title: "Age",
         child: InputTextWidget(
           hintText: "Age",
           textInputType: TextInputType.number,
-          value: state.age,
+          controller: _controller,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context
@@ -322,16 +354,11 @@ class _GenderInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.gender != current.gender,
       builder: (context, state) => FormFieldDecoration(
         title: "Gender",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "Gender",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          textAlign: TextAlign.end,
           value: state.gender,
-          isEnable: false,
-          onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeGender(value)),
+          options: const ["Male", "Female"],
+          alignment: Alignment.centerRight,
         ),
       ),
     );
@@ -351,16 +378,11 @@ class _NationalityInputField extends StatelessWidget {
           previous.nationality != current.nationality,
       builder: (context, state) => FormFieldDecoration(
         title: "Nationality",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "Nationality",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.nationality,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) => context
-              .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeNationality(value)),
+          options: state.listOfNationality,
+          alignment: Alignment.centerRight,
         ),
       ),
     );
@@ -374,8 +396,15 @@ class _EmailInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdatePersonalInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
+      listenWhen: (previous, current) => previous.email != current.email,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.email;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) => FormFieldDecoration(
         title: "Email",
@@ -384,7 +413,7 @@ class _EmailInputField extends StatelessWidget {
           textInputType: TextInputType.emailAddress,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           textAlign: TextAlign.end,
-          value: state.email,
+          controller: _controller,
           isEnable: false,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()

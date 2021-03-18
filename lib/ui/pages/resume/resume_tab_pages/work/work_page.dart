@@ -11,6 +11,7 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_w
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class WorkPage extends StatelessWidget {
@@ -183,7 +184,15 @@ class _NameOfCompanyField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      listenWhen: (previous, current) =>
+          previous.nameOfComapny != current.nameOfComapny,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.nameOfComapny;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) =>
           previous.nameOfComapny != current.nameOfComapny,
       builder: (context, state) => FormFieldDecoration(
@@ -192,7 +201,7 @@ class _NameOfCompanyField extends StatelessWidget {
           hintText: "XYZ Company",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.nameOfComapny,
+          controller: _controller,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context
@@ -216,14 +225,33 @@ class _TypeOfCompanyField extends StatelessWidget {
           previous.companyType != current.companyType,
       builder: (context, state) => FormFieldDecoration(
         title: "Company Type",
-        child: InputTextWidget(
-          hintText: "IT Company",
-          textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        child: CustomDropDownWidget(
+          hintText: "Select a type of company.",
           value: state.companyType,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) {},
+          alignment: Alignment.centerRight,
+          options: const [
+            "Agriculture, Food and Natural Resources",
+            "Architecture and Construction",
+            "Arts, Audio/Video Technology and Communications",
+            "Business Management and Administration",
+            "Education and Training",
+            "Finance",
+            "Government and Public Administration",
+            "Health Science",
+            "Hospitality and Tourism",
+            "Human Services",
+            "Information Technology",
+            "Law, Public Safety, Corrections and Security",
+            "Manufacturing",
+            "Marketing, Sales and Service",
+            "Science, Technology, Engineering and Mathematics",
+            "Gaming",
+            "F&B",
+            "Advertisement and Marketing",
+            "Patrol and Curfews",
+            "Government Level",
+            "Others",
+          ],
         ),
       ),
     );
@@ -242,16 +270,44 @@ class _StartedYearField extends StatelessWidget {
           previous.startedYear != current.startedYear,
       builder: (context, state) => FormFieldDecoration(
         title: "Started Year",
-        child: InputTextWidget(
-          hintText: "2018",
-          textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        child: CustomDropDownWidget(
+          hintText: "Select Year",
           value: state.startedYear,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) => context
-              .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedStartedYear(value)),
+          options: const [
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+          ],
+          alignment: Alignment.centerRight,
         ),
       ),
     );
@@ -270,12 +326,24 @@ class _StartedMonthField extends StatelessWidget {
           previous.startedMonth != current.startedMonth,
       builder: (context, state) => FormFieldDecoration(
         title: "Started Month",
-        child: InputTextWidget(
-          hintText: "Oct",
+        child: CustomDropDownWidget(
+          hintText: "Select Month",
           value: state.startedMonth,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) {},
+          alignment: Alignment.centerRight,
+          options: const [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "July",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
         ),
       ),
     );
@@ -293,16 +361,44 @@ class _EndYearField extends StatelessWidget {
       buildWhen: (previous, current) => previous.endYear != current.endYear,
       builder: (context, state) => FormFieldDecoration(
         title: "End Year",
-        child: InputTextWidget(
-          hintText: "2020",
-          textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+        child: CustomDropDownWidget(
+          hintText: "Select Year",
           value: state.endYear,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) => context
-              .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedEndYear(value)),
+          options: const [
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+          ],
+          alignment: Alignment.centerRight,
         ),
       ),
     );
@@ -320,12 +416,24 @@ class _EndMonthField extends StatelessWidget {
       buildWhen: (previous, current) => previous.endMonth != current.endMonth,
       builder: (context, state) => FormFieldDecoration(
         title: "End Month",
-        child: InputTextWidget(
-          hintText: "Jan",
+        child: CustomDropDownWidget(
+          hintText: "Select Month",
           value: state.endMonth,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) {},
+          alignment: Alignment.centerRight,
+          options: const [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "July",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
         ),
       ),
     );
@@ -339,14 +447,24 @@ class _PurposeOfResignField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      // listenWhen: (previous, current) =>
+      //     previous.firstName != current.firstName,
+      listener: (context, state) {
+        // final TextSelection previousSelection = _controller.selection;
+        // _controller.text = state.firstName;
+        // _controller.selection = previousSelection;
+      },
+      // buildWhen: (previous, current) =>
+      //     previous.nameOfComapny != current.nameOfComapny,
       buildWhen: (previous, current) =>
           previous.startedYear != current.startedYear,
       builder: (context, state) => FormFieldDecoration(
         title: "Purpose of Resign",
         child: InputTextWidget(
           hintText: "Purpose of Resign",
-          value: "",
+          controller: _controller,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) {},

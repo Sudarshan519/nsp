@@ -11,6 +11,7 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_w
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class QualificationPage extends StatelessWidget {
@@ -168,8 +169,16 @@ class _NameOfQualificationField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateQualificationInfoActorBloc,
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdateQualificationInfoActorBloc,
         UpdateQualificationInfoActorState>(
+      listenWhen: (previous, current) =>
+          previous.qualificationName != current.qualificationName,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.qualificationName;
+        _controller.selection = previousSelection;
+      },
       buildWhen: (previous, current) =>
           previous.qualificationName != current.qualificationName,
       builder: (context, state) => FormFieldDecoration(
@@ -178,7 +187,7 @@ class _NameOfQualificationField extends StatelessWidget {
           hintText: "AWS Certification",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          value: state.qualificationName,
+          controller: _controller,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context
@@ -204,15 +213,44 @@ class _CertifiedYearField extends StatelessWidget {
           previous.certifiedYear != current.certifiedYear,
       builder: (context, state) => FormFieldDecoration(
         title: "Certified Year",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "2010",
           value: state.certifiedYear,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) => context
-              .read<UpdateQualificationInfoActorBloc>()
-              .add(UpdateQualificationInfoActorEvent.changedCertifiedYear(
-                  value)),
+          alignment: Alignment.centerRight,
+          options: const [
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+          ],
         ),
       ),
     );
@@ -232,15 +270,24 @@ class _CertifiedMonthField extends StatelessWidget {
           previous.certifiedMonth != current.certifiedMonth,
       builder: (context, state) => FormFieldDecoration(
         title: "Certified Month",
-        child: InputTextWidget(
+        child: CustomDropDownWidget(
           hintText: "Sep",
           value: state.certifiedMonth,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) => context
-              .read<UpdateQualificationInfoActorBloc>()
-              .add(UpdateQualificationInfoActorEvent.changedCertifiedMonth(
-                  value)),
+          alignment: Alignment.centerRight,
+          options: const [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "July",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
         ),
       ),
     );
