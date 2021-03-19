@@ -9,6 +9,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/home/domain/entities/japanese_manner.dart';
+import '../../features/home/domain/entities/services.dart';
+import '../../features/news/domain/entity/news_item.dart';
 import '../../features/resume/domain/entities/academic_history.dart';
 import '../../features/resume/domain/entities/personal_info.dart';
 import '../../features/resume/domain/entities/qualification_history.dart';
@@ -23,6 +26,9 @@ import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
 import '../pages/auth/register_screen.dart';
 import '../pages/auth/validate_user_screen.dart';
+import '../pages/home/detail_pages/japanese_manner_detail.dart';
+import '../pages/home/detail_pages/service_detail.dart';
+import '../pages/news/detail_page/news_detail.dart';
 import '../pages/resume/resume_tab_pages/about/edit_basic_info.dart';
 import '../pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
 import '../pages/resume/resume_tab_pages/address/edit_address_info.dart';
@@ -31,6 +37,7 @@ import '../pages/resume/resume_tab_pages/qualification/edit_qualification_info.d
 import '../pages/resume/resume_tab_pages/work/edit_work_info.dart';
 import '../pages/splash/splash_screen.dart';
 import '../pages/tab_bar/tab_bar_screen.dart';
+import '../pages/webview/app_web_view.dart';
 
 class Routes {
   static const String splashScreen = '/';
@@ -46,6 +53,10 @@ class Routes {
   static const String editQualificationInfoForm =
       '/edit-qualification-info-form';
   static const String editOtherInfoForm = '/edit-other-info-form';
+  static const String servicesDetail = '/services-detail';
+  static const String japaneseMannerDetailPage = '/japanese-manner-detail-page';
+  static const String newsDetail = '/news-detail';
+  static const String appWebView = '/app-web-view';
   static const all = <String>{
     splashScreen,
     loginPage,
@@ -59,6 +70,10 @@ class Routes {
     editAcademicInfoForm,
     editQualificationInfoForm,
     editOtherInfoForm,
+    servicesDetail,
+    japaneseMannerDetailPage,
+    newsDetail,
+    appWebView,
   };
 }
 
@@ -78,6 +93,10 @@ class Router extends RouterBase {
     RouteDef(Routes.editAcademicInfoForm, page: EditAcademicInfoForm),
     RouteDef(Routes.editQualificationInfoForm, page: EditQualificationInfoForm),
     RouteDef(Routes.editOtherInfoForm, page: EditOtherInfoForm),
+    RouteDef(Routes.servicesDetail, page: ServicesDetail),
+    RouteDef(Routes.japaneseMannerDetailPage, page: JapaneseMannerDetailPage),
+    RouteDef(Routes.newsDetail, page: NewsDetail),
+    RouteDef(Routes.appWebView, page: AppWebView),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -192,6 +211,48 @@ class Router extends RouterBase {
         settings: data,
       );
     },
+    ServicesDetail: (data) {
+      final args = data.getArgs<ServicesDetailArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ServicesDetail(
+          key: args.key,
+          services: args.services,
+        ),
+        settings: data,
+      );
+    },
+    JapaneseMannerDetailPage: (data) {
+      final args =
+          data.getArgs<JapaneseMannerDetailPageArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => JapaneseMannerDetailPage(
+          key: args.key,
+          japaneseManner: args.japaneseManner,
+        ),
+        settings: data,
+      );
+    },
+    NewsDetail: (data) {
+      final args = data.getArgs<NewsDetailArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => NewsDetail(
+          key: args.key,
+          newsItem: args.newsItem,
+        ),
+        settings: data,
+      );
+    },
+    AppWebView: (data) {
+      final args = data.getArgs<AppWebViewArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => AppWebView(
+          key: args.key,
+          url: args.url,
+          title: args.title,
+        ),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -294,6 +355,44 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: EditOtherInfoFormArguments(
             key: key, info: info, actorBloc: actorBloc),
       );
+
+  Future<dynamic> pushServicesDetail({
+    Key key,
+    @required Services services,
+  }) =>
+      push<dynamic>(
+        Routes.servicesDetail,
+        arguments: ServicesDetailArguments(key: key, services: services),
+      );
+
+  Future<dynamic> pushJapaneseMannerDetailPage({
+    Key key,
+    @required JapaneseManner japaneseManner,
+  }) =>
+      push<dynamic>(
+        Routes.japaneseMannerDetailPage,
+        arguments: JapaneseMannerDetailPageArguments(
+            key: key, japaneseManner: japaneseManner),
+      );
+
+  Future<dynamic> pushNewsDetail({
+    Key key,
+    @required NewsItem newsItem,
+  }) =>
+      push<dynamic>(
+        Routes.newsDetail,
+        arguments: NewsDetailArguments(key: key, newsItem: newsItem),
+      );
+
+  Future<dynamic> pushAppWebView({
+    Key key,
+    @required String url,
+    @required String title,
+  }) =>
+      push<dynamic>(
+        Routes.appWebView,
+        arguments: AppWebViewArguments(key: key, url: url, title: title),
+      );
 }
 
 /// ************************************************************************
@@ -371,4 +470,33 @@ class EditOtherInfoFormArguments {
   final UpdateOtherInfoActorBloc actorBloc;
   EditOtherInfoFormArguments(
       {this.key, @required this.info, @required this.actorBloc});
+}
+
+/// ServicesDetail arguments holder class
+class ServicesDetailArguments {
+  final Key key;
+  final Services services;
+  ServicesDetailArguments({this.key, @required this.services});
+}
+
+/// JapaneseMannerDetailPage arguments holder class
+class JapaneseMannerDetailPageArguments {
+  final Key key;
+  final JapaneseManner japaneseManner;
+  JapaneseMannerDetailPageArguments({this.key, @required this.japaneseManner});
+}
+
+/// NewsDetail arguments holder class
+class NewsDetailArguments {
+  final Key key;
+  final NewsItem newsItem;
+  NewsDetailArguments({this.key, @required this.newsItem});
+}
+
+/// AppWebView arguments holder class
+class AppWebViewArguments {
+  final Key key;
+  final String url;
+  final String title;
+  AppWebViewArguments({this.key, @required this.url, @required this.title});
 }

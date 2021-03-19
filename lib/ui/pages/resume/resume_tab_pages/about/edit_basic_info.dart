@@ -33,7 +33,6 @@ class EditBasicInfoForm extends StatelessWidget {
       create: (context) =>
           actorBloc..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
       child: Scaffold(
-        key: UniqueKey(),
         appBar: AppBar(
           title: Text(
             "Edit Basic Info",

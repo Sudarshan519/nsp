@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/features/home/domain/entities/services.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/category_title_text.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
@@ -130,11 +132,15 @@ class HomeServiceWidget extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 10),
-            Text(
-              "Know More",
-              style: TextStyle(
-                color: Palette.primary,
-                fontWeight: FontWeight.bold,
+            InkWell(
+              onTap: () => ExtendedNavigator.of(context)
+                  .pushServicesDetail(services: services),
+              child: Text(
+                "Know More",
+                style: TextStyle(
+                  color: Palette.primary,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],

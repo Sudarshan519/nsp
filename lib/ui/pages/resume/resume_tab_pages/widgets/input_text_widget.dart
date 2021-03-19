@@ -16,7 +16,7 @@ class InputTextWidget extends StatelessWidget {
   final TextAlign textAlign;
   final List<TextInputFormatter> inputFormatters;
 
-  InputTextWidget({
+  const InputTextWidget({
     Key key,
     @required this.hintText,
     @required this.onChanged,

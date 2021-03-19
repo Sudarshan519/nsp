@@ -3,6 +3,9 @@ import 'package:wallet_app/ui/pages/auth/forgot_password_screen.dart';
 import 'package:wallet_app/ui/pages/auth/login_screen.dart';
 import 'package:wallet_app/ui/pages/auth/register_screen.dart';
 import 'package:wallet_app/ui/pages/auth/validate_user_screen.dart';
+import 'package:wallet_app/ui/pages/home/detail_pages/japanese_manner_detail.dart';
+import 'package:wallet_app/ui/pages/home/detail_pages/service_detail.dart';
+import 'package:wallet_app/ui/pages/news/detail_page/news_detail.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/about/edit_basic_info.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/address/edit_address_info.dart';
@@ -11,6 +14,7 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/qualification/edit_q
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/work/edit_work_info.dart';
 import 'package:wallet_app/ui/pages/splash/splash_screen.dart';
 import 'package:wallet_app/ui/pages/tab_bar/tab_bar_screen.dart';
+import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
 
 @MaterialAutoRouter(
   generateNavigationHelperExtension: true,
@@ -27,6 +31,10 @@ import 'package:wallet_app/ui/pages/tab_bar/tab_bar_screen.dart';
     MaterialRoute(page: EditAcademicInfoForm),
     MaterialRoute(page: EditQualificationInfoForm),
     MaterialRoute(page: EditOtherInfoForm),
+    MaterialRoute(page: ServicesDetail),
+    MaterialRoute(page: JapaneseMannerDetailPage),
+    MaterialRoute(page: NewsDetail),
+    MaterialRoute(page: AppWebView),
   ],
 )
 class $Router {
