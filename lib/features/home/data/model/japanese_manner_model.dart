@@ -7,12 +7,14 @@ class JapaneseMannerModel extends JapaneseManner {
     final String title,
     final String image,
     final String description,
+    final bool isYoutube,
   }) : super(
           id: id,
           category: category,
           title: title,
           image: image,
           description: description,
+          isYoutube: isYoutube,
         );
 
   factory JapaneseMannerModel.fromJson(Map<String, dynamic> json) =>
@@ -23,6 +25,7 @@ class JapaneseMannerModel extends JapaneseManner {
         title: json["title"] as String,
         image: json["image"] as String,
         description: json["description"] as String,
+        isYoutube: json["is_youtube"] as bool,
       );
 }
 

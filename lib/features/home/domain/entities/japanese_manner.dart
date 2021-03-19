@@ -8,6 +8,7 @@ class JapaneseManner extends Equatable {
     @required this.title,
     @required this.image,
     @required this.description,
+    @required this.isYoutube,
   });
 
   final int id;
@@ -15,6 +16,7 @@ class JapaneseManner extends Equatable {
   final String title;
   final String image;
   final String description;
+  final bool isYoutube;
 
   @override
   List<Object> get props => [
@@ -23,6 +25,7 @@ class JapaneseManner extends Equatable {
         title,
         image,
         description,
+        isYoutube,
       ];
 }
 
