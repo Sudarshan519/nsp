@@ -21,28 +21,34 @@ class NewsRepository implements NewsRepositoryProtocol {
         assert(remoteDataSource != null);
 
   @override
-  Future<Either<ApiFailure, News>> getNewsFromLocalStorage() async {
-    try {
-      final news = await localDataSource.getNews();
-      if (news != null) {
-        return Right(news);
-      }
-      return const Left(ApiFailure.serverError(message: ""));
-    } catch (ex) {
-      return const Left(ApiFailure.serverError(message: ""));
-    }
-  }
-
-  @override
-  Future<Either<ApiFailure, News>> getNewsFromRemote({
+  Future<Either<ApiFailure, News>> getNewsForYou({
     @required String page,
   }) async {
-    try {
-      final news = await remoteDataSource.getNews(
+    return _getNews(request: () {
+      return remoteDataSource.getNewsForYou(
         page: page,
         limit: NewsConstant.limit,
       );
-      localDataSource.saveNews(news: news);
+    });
+  }
+
+  @override
+  Future<Either<ApiFailure, News>> getLatestNews({
+    @required String page,
+  }) async {
+    return _getNews(request: () {
+      return remoteDataSource.getLatestNews(
+        page: page,
+        limit: NewsConstant.limit,
+      );
+    });
+  }
+
+  Future<Either<ApiFailure, News>> _getNews(
+      {@required Future<News> Function() request}) async {
+    try {
+      final news = await request();
+      // localDataSource.saveNews(news: news);
       return Right(news);
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));

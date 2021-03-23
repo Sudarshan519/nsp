@@ -4,8 +4,13 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/news/domain/entity/news.dart';
 
 abstract class NewsRepositoryProtocol {
-  Future<Either<ApiFailure, News>> getNewsFromRemote({
+  Future<Either<ApiFailure, News>> getNewsForYou({
     @required String page,
   });
-  Future<Either<ApiFailure, News>> getNewsFromLocalStorage();
+
+  Future<Either<ApiFailure, News>> getLatestNews({
+    @required String page,
+  });
+
+  // Future<Either<ApiFailure, News>> getNewsFromLocalStorage();
 }

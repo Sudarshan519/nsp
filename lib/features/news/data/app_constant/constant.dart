@@ -4,5 +4,5 @@ class NewsApiEndpoints {
 }
 
 class NewsConstant {
-  static const limit = "2";
+  static const limit = "10";
 }

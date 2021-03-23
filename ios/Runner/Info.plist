@@ -49,6 +49,8 @@
 	<string>Location is used to get relevant news and weather information for you.</string>
 	<key>NSMotionUsageDescription</key>
 	<string>$(PRODUCT_NAME) motion uses</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library is used to change the person documents</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>This is used for speect to text feature.</string>
 	<key>UIBackgroundModes</key>

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
+import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 import 'tab_page/news_tab_page.dart';

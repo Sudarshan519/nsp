@@ -112,18 +112,23 @@ class PersonalInfo extends Equatable {
   final String image;
 
   String get workingHoursOnly {
-    final split = workingHours.split(":");
-    if (split.isNotEmpty) {
-      return split.first;
+    if (workingHours != null) {
+      final split = workingHours.split(":");
+      if (split.isNotEmpty) {
+        return split.first;
+      }
     }
     return "";
   }
 
   String get workingMinutesOnly {
-    final split = workingHours.split(":");
-    if (split.isNotEmpty) {
-      return split.last ?? "";
+    if (workingHours != null) {
+      final split = workingHours.split(":");
+      if (split.isNotEmpty) {
+        return split.last ?? "";
+      }
     }
+
     return "";
   }
 

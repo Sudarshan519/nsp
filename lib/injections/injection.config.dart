@@ -25,6 +25,7 @@ import '../features/location_information/domain/usecases/get_countries.dart';
 import '../features/resume/domain/usecases/get_downloadable_pdf_link.dart';
 import '../features/home/domain/usecases/get_home_page_data.dart';
 import '../features/location_information/domain/usecases/get_japan_city.dart';
+import '../features/news/domain/usecase/get_latest_news.dart';
 import '../features/location_information/domain/usecases/get_nepal_district.dart';
 import '../features/news/domain/usecase/get_news_for_you.dart';
 import '../features/location_information/domain/usecases/get_prefecture.dart';
@@ -34,12 +35,13 @@ import '../features/home/data/datasource/home_remote_data_source.dart';
 import '../features/home/domain/repositories/home_repository.dart';
 import '../features/home/data/repositories/home_repository.dart';
 import 'injectable/http_client_injectable_module.dart';
+import '../features/news/presentation/latest_news/latest_news_bloc.dart';
 import '../features/location_information/data/datasource/location_information_local_datasource.dart';
 import '../features/location_information/data/repository/location_information_repositories.dart';
 import '../features/location_information/domain/repository/location_information_repositories.dart';
 import '../features/auth/domain/usecase/logout_user.dart';
 import '../core/network/newtork_info.dart';
-import '../features/news/presentation/news_list/news_bloc.dart';
+import '../features/news/presentation/news_for_you/news_bloc.dart';
 import '../features/news/data/datasource/news_local_data_source.dart';
 import '../core/database/news_provider.dart';
 import '../features/news/data/datasource/news_remote_data_source.dart';
@@ -160,11 +162,16 @@ Future<GetIt> $initGetIt(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<GetHomePageData>(
       () => GetHomePageData(repository: get<HomeReporisitory>()));
+  gh.lazySingleton<GetLatestNews>(() => GetLatestNews(
+      repository: get<NewsRepositoryProtocol>(),
+      networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<GetNewsForYou>(() => GetNewsForYou(
       repository: get<NewsRepositoryProtocol>(),
       networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<HomePageDataBloc>(
       () => HomePageDataBloc(getHomePageData: get<GetHomePageData>()));
+  gh.factory<LatestNewsBloc>(
+      () => LatestNewsBloc(getNews: get<GetLatestNews>()));
   gh.factory<NewsBloc>(() => NewsBloc(getNews: get<GetNewsForYou>()));
   gh.factory<SignInFormBloc>(
       () => SignInFormBloc(get<SignInWithEmailAndPassword>()));

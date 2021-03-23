@@ -7,12 +7,10 @@ import 'news_carousel_item.dart';
 
 class NewsCarousel extends StatefulWidget {
   final List<NewsItem> newsList;
-  // final List<String> newsImageList;
 
   const NewsCarousel({
     Key key,
     @required this.newsList,
-    // @required this.newsImageList,
   }) : super(key: key);
 
   @override

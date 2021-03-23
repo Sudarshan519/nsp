@@ -11,11 +11,13 @@ class GetJapanCity {
   });
 
   Future<List<String>> call(String prefecture) async {
-    if (prefecture.isEmpty) {
+    if (prefecture == null) {
       return [];
     }
 
-    // final prefectureName = prefecture.split(" ");
+    if (prefecture.isEmpty) {
+      return [];
+    }
 
     final result = await repository.getJapanCities();
 

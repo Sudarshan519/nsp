@@ -36,7 +36,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.asBroadcastStream(),
+      bloc.stream,
       emitsInOrder(assertExpected),
     );
 
@@ -67,7 +67,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.asBroadcastStream(),
+      bloc.stream,
       emitsInOrder(assertExpected),
     );
 
@@ -96,7 +96,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.asBroadcastStream(),
+      bloc.stream,
       emitsInOrder(assertExpected),
     );
 
@@ -127,7 +127,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.asBroadcastStream(),
+      bloc.stream,
       emitsInOrder(assertExpected),
     );
 
@@ -156,7 +156,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.asBroadcastStream(),
+      bloc.stream,
       emitsInOrder(assertExpected),
     );
 

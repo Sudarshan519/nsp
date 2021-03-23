@@ -35,9 +35,23 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
           (event) {
             add(_OnSpanShotEvent(event));
           },
-        );
+        ).onDone(() => _OnCompletedEvent);
       },
       onSpanShotEvent: (e) async* {
+        yield* e.event.fold(
+          (failure) async* {
+            yield _Failure(failure);
+          },
+          (news) async* {
+            // yield _Loaded(news);
+            // TODO: hack fixed change it later
+            yield const _Loading();
+            yield _LoadingWith(news);
+          },
+        );
+        isFetching = false;
+      },
+      onCompletedEvent: (e) async* {
         yield* e.event.fold(
           (failure) async* {
             yield _Failure(failure);

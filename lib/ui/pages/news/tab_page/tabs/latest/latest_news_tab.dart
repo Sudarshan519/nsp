@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
-import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
+import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/widgets/news_carousel.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/widgets/news_item.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class ForYouNewsTab extends StatelessWidget {
+class LatestNewsTab extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NewsBloc, NewsState>(
+    return BlocConsumer<LatestNewsBloc, LatestNewsState>(
       listener: (context, state) {
         state.map(
           initial: (_) {},
@@ -36,7 +36,7 @@ class ForYouNewsTab extends StatelessWidget {
             return _buildBodyWithData(
               context: context,
               newsList: news,
-              // isLoading: false,
+              // isLoading: true,
               isPagination: true,
             );
           },
@@ -85,18 +85,16 @@ class ForYouNewsTab extends StatelessWidget {
       children: [
         SingleChildScrollView(
           controller: _scrollController
-            ..addListener(
-              () {
-                if (_scrollController.offset ==
-                        _scrollController.position.maxScrollExtent &&
-                    !context.read<NewsBloc>().isFetching) {
-                  debugPrint("reached end");
-                  context.read<NewsBloc>().add(
-                        const NewsEvent.paginateIfAvailable(),
-                      );
-                }
-              },
-            ),
+            ..addListener(() {
+              if (_scrollController.offset ==
+                      _scrollController.position.maxScrollExtent &&
+                  !context.read<LatestNewsBloc>().isFetching) {
+                debugPrint("reached end");
+                context.read<LatestNewsBloc>().add(
+                      const LatestNewsEvent.paginateIfAvailable(),
+                    );
+              }
+            }),
           child: Column(
             children: [
               NewsCarousel(

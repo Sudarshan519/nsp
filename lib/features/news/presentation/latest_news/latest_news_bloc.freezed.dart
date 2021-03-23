@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'news_bloc.dart';
+part of 'latest_news_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'news_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$NewsEventTearOff {
-  const _$NewsEventTearOff();
+class _$LatestNewsEventTearOff {
+  const _$LatestNewsEventTearOff();
 
 // ignore: unused_element
   _FetchNewsData fetchNewsData() {
@@ -21,6 +21,13 @@ class _$NewsEventTearOff {
 // ignore: unused_element
   _OnSpanShotEvent onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event) {
     return _OnSpanShotEvent(
+      event,
+    );
+  }
+
+// ignore: unused_element
+  _OnCompletedEvent onCompletedEvent(Either<ApiFailure, List<NewsItem>> event) {
+    return _OnCompletedEvent(
       event,
     );
   }
@@ -38,14 +45,16 @@ class _$NewsEventTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $NewsEvent = _$NewsEventTearOff();
+const $LatestNewsEvent = _$LatestNewsEventTearOff();
 
 /// @nodoc
-mixin _$NewsEvent {
+mixin _$LatestNewsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetchNewsData(),
     @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    @required
+        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     @required TResult pullToRefresh(),
     @required TResult paginateIfAvailable(),
   });
@@ -53,6 +62,7 @@ mixin _$NewsEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult fetchNewsData(),
     TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     TResult pullToRefresh(),
     TResult paginateIfAvailable(),
     @required TResult orElse(),
@@ -61,6 +71,7 @@ mixin _$NewsEvent {
   TResult map<TResult extends Object>({
     @required TResult fetchNewsData(_FetchNewsData value),
     @required TResult onSpanShotEvent(_OnSpanShotEvent value),
+    @required TResult onCompletedEvent(_OnCompletedEvent value),
     @required TResult pullToRefresh(_PullToRefresh value),
     @required TResult paginateIfAvailable(_PaginateIfAvailable value),
   });
@@ -68,6 +79,7 @@ mixin _$NewsEvent {
   TResult maybeMap<TResult extends Object>({
     TResult fetchNewsData(_FetchNewsData value),
     TResult onSpanShotEvent(_OnSpanShotEvent value),
+    TResult onCompletedEvent(_OnCompletedEvent value),
     TResult pullToRefresh(_PullToRefresh value),
     TResult paginateIfAvailable(_PaginateIfAvailable value),
     @required TResult orElse(),
@@ -75,18 +87,20 @@ mixin _$NewsEvent {
 }
 
 /// @nodoc
-abstract class $NewsEventCopyWith<$Res> {
-  factory $NewsEventCopyWith(NewsEvent value, $Res Function(NewsEvent) then) =
-      _$NewsEventCopyWithImpl<$Res>;
+abstract class $LatestNewsEventCopyWith<$Res> {
+  factory $LatestNewsEventCopyWith(
+          LatestNewsEvent value, $Res Function(LatestNewsEvent) then) =
+      _$LatestNewsEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$NewsEventCopyWithImpl<$Res> implements $NewsEventCopyWith<$Res> {
-  _$NewsEventCopyWithImpl(this._value, this._then);
+class _$LatestNewsEventCopyWithImpl<$Res>
+    implements $LatestNewsEventCopyWith<$Res> {
+  _$LatestNewsEventCopyWithImpl(this._value, this._then);
 
-  final NewsEvent _value;
+  final LatestNewsEvent _value;
   // ignore: unused_field
-  final $Res Function(NewsEvent) _then;
+  final $Res Function(LatestNewsEvent) _then;
 }
 
 /// @nodoc
@@ -97,7 +111,8 @@ abstract class _$FetchNewsDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$FetchNewsDataCopyWithImpl<$Res> extends _$NewsEventCopyWithImpl<$Res>
+class __$FetchNewsDataCopyWithImpl<$Res>
+    extends _$LatestNewsEventCopyWithImpl<$Res>
     implements _$FetchNewsDataCopyWith<$Res> {
   __$FetchNewsDataCopyWithImpl(
       _FetchNewsData _value, $Res Function(_FetchNewsData) _then)
@@ -113,7 +128,7 @@ class _$_FetchNewsData implements _FetchNewsData {
 
   @override
   String toString() {
-    return 'NewsEvent.fetchNewsData()';
+    return 'LatestNewsEvent.fetchNewsData()';
   }
 
   @override
@@ -129,11 +144,14 @@ class _$_FetchNewsData implements _FetchNewsData {
   TResult when<TResult extends Object>({
     @required TResult fetchNewsData(),
     @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    @required
+        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     @required TResult pullToRefresh(),
     @required TResult paginateIfAvailable(),
   }) {
     assert(fetchNewsData != null);
     assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
     assert(paginateIfAvailable != null);
     return fetchNewsData();
@@ -144,6 +162,7 @@ class _$_FetchNewsData implements _FetchNewsData {
   TResult maybeWhen<TResult extends Object>({
     TResult fetchNewsData(),
     TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     TResult pullToRefresh(),
     TResult paginateIfAvailable(),
     @required TResult orElse(),
@@ -160,11 +179,13 @@ class _$_FetchNewsData implements _FetchNewsData {
   TResult map<TResult extends Object>({
     @required TResult fetchNewsData(_FetchNewsData value),
     @required TResult onSpanShotEvent(_OnSpanShotEvent value),
+    @required TResult onCompletedEvent(_OnCompletedEvent value),
     @required TResult pullToRefresh(_PullToRefresh value),
     @required TResult paginateIfAvailable(_PaginateIfAvailable value),
   }) {
     assert(fetchNewsData != null);
     assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
     assert(paginateIfAvailable != null);
     return fetchNewsData(this);
@@ -175,6 +196,7 @@ class _$_FetchNewsData implements _FetchNewsData {
   TResult maybeMap<TResult extends Object>({
     TResult fetchNewsData(_FetchNewsData value),
     TResult onSpanShotEvent(_OnSpanShotEvent value),
+    TResult onCompletedEvent(_OnCompletedEvent value),
     TResult pullToRefresh(_PullToRefresh value),
     TResult paginateIfAvailable(_PaginateIfAvailable value),
     @required TResult orElse(),
@@ -187,7 +209,7 @@ class _$_FetchNewsData implements _FetchNewsData {
   }
 }
 
-abstract class _FetchNewsData implements NewsEvent {
+abstract class _FetchNewsData implements LatestNewsEvent {
   const factory _FetchNewsData() = _$_FetchNewsData;
 }
 
@@ -200,7 +222,8 @@ abstract class _$OnSpanShotEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$OnSpanShotEventCopyWithImpl<$Res> extends _$NewsEventCopyWithImpl<$Res>
+class __$OnSpanShotEventCopyWithImpl<$Res>
+    extends _$LatestNewsEventCopyWithImpl<$Res>
     implements _$OnSpanShotEventCopyWith<$Res> {
   __$OnSpanShotEventCopyWithImpl(
       _OnSpanShotEvent _value, $Res Function(_OnSpanShotEvent) _then)
@@ -230,7 +253,7 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
 
   @override
   String toString() {
-    return 'NewsEvent.onSpanShotEvent(event: $event)';
+    return 'LatestNewsEvent.onSpanShotEvent(event: $event)';
   }
 
   @override
@@ -255,11 +278,14 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
   TResult when<TResult extends Object>({
     @required TResult fetchNewsData(),
     @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    @required
+        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     @required TResult pullToRefresh(),
     @required TResult paginateIfAvailable(),
   }) {
     assert(fetchNewsData != null);
     assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
     assert(paginateIfAvailable != null);
     return onSpanShotEvent(event);
@@ -270,6 +296,7 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult fetchNewsData(),
     TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     TResult pullToRefresh(),
     TResult paginateIfAvailable(),
     @required TResult orElse(),
@@ -286,11 +313,13 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
   TResult map<TResult extends Object>({
     @required TResult fetchNewsData(_FetchNewsData value),
     @required TResult onSpanShotEvent(_OnSpanShotEvent value),
+    @required TResult onCompletedEvent(_OnCompletedEvent value),
     @required TResult pullToRefresh(_PullToRefresh value),
     @required TResult paginateIfAvailable(_PaginateIfAvailable value),
   }) {
     assert(fetchNewsData != null);
     assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
     assert(paginateIfAvailable != null);
     return onSpanShotEvent(this);
@@ -301,6 +330,7 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
   TResult maybeMap<TResult extends Object>({
     TResult fetchNewsData(_FetchNewsData value),
     TResult onSpanShotEvent(_OnSpanShotEvent value),
+    TResult onCompletedEvent(_OnCompletedEvent value),
     TResult pullToRefresh(_PullToRefresh value),
     TResult paginateIfAvailable(_PaginateIfAvailable value),
     @required TResult orElse(),
@@ -313,13 +343,152 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
   }
 }
 
-abstract class _OnSpanShotEvent implements NewsEvent {
+abstract class _OnSpanShotEvent implements LatestNewsEvent {
   const factory _OnSpanShotEvent(Either<ApiFailure, List<NewsItem>> event) =
       _$_OnSpanShotEvent;
 
   Either<ApiFailure, List<NewsItem>> get event;
   @JsonKey(ignore: true)
   _$OnSpanShotEventCopyWith<_OnSpanShotEvent> get copyWith;
+}
+
+/// @nodoc
+abstract class _$OnCompletedEventCopyWith<$Res> {
+  factory _$OnCompletedEventCopyWith(
+          _OnCompletedEvent value, $Res Function(_OnCompletedEvent) then) =
+      __$OnCompletedEventCopyWithImpl<$Res>;
+  $Res call({Either<ApiFailure, List<NewsItem>> event});
+}
+
+/// @nodoc
+class __$OnCompletedEventCopyWithImpl<$Res>
+    extends _$LatestNewsEventCopyWithImpl<$Res>
+    implements _$OnCompletedEventCopyWith<$Res> {
+  __$OnCompletedEventCopyWithImpl(
+      _OnCompletedEvent _value, $Res Function(_OnCompletedEvent) _then)
+      : super(_value, (v) => _then(v as _OnCompletedEvent));
+
+  @override
+  _OnCompletedEvent get _value => super._value as _OnCompletedEvent;
+
+  @override
+  $Res call({
+    Object event = freezed,
+  }) {
+    return _then(_OnCompletedEvent(
+      event == freezed
+          ? _value.event
+          : event as Either<ApiFailure, List<NewsItem>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_OnCompletedEvent implements _OnCompletedEvent {
+  const _$_OnCompletedEvent(this.event) : assert(event != null);
+
+  @override
+  final Either<ApiFailure, List<NewsItem>> event;
+
+  @override
+  String toString() {
+    return 'LatestNewsEvent.onCompletedEvent(event: $event)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _OnCompletedEvent &&
+            (identical(other.event, event) ||
+                const DeepCollectionEquality().equals(other.event, event)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(event);
+
+  @JsonKey(ignore: true)
+  @override
+  _$OnCompletedEventCopyWith<_OnCompletedEvent> get copyWith =>
+      __$OnCompletedEventCopyWithImpl<_OnCompletedEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult fetchNewsData(),
+    @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    @required
+        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
+    @required TResult pullToRefresh(),
+    @required TResult paginateIfAvailable(),
+  }) {
+    assert(fetchNewsData != null);
+    assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
+    assert(pullToRefresh != null);
+    assert(paginateIfAvailable != null);
+    return onCompletedEvent(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult fetchNewsData(),
+    TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
+    TResult pullToRefresh(),
+    TResult paginateIfAvailable(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (onCompletedEvent != null) {
+      return onCompletedEvent(event);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult fetchNewsData(_FetchNewsData value),
+    @required TResult onSpanShotEvent(_OnSpanShotEvent value),
+    @required TResult onCompletedEvent(_OnCompletedEvent value),
+    @required TResult pullToRefresh(_PullToRefresh value),
+    @required TResult paginateIfAvailable(_PaginateIfAvailable value),
+  }) {
+    assert(fetchNewsData != null);
+    assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
+    assert(pullToRefresh != null);
+    assert(paginateIfAvailable != null);
+    return onCompletedEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult fetchNewsData(_FetchNewsData value),
+    TResult onSpanShotEvent(_OnSpanShotEvent value),
+    TResult onCompletedEvent(_OnCompletedEvent value),
+    TResult pullToRefresh(_PullToRefresh value),
+    TResult paginateIfAvailable(_PaginateIfAvailable value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (onCompletedEvent != null) {
+      return onCompletedEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnCompletedEvent implements LatestNewsEvent {
+  const factory _OnCompletedEvent(Either<ApiFailure, List<NewsItem>> event) =
+      _$_OnCompletedEvent;
+
+  Either<ApiFailure, List<NewsItem>> get event;
+  @JsonKey(ignore: true)
+  _$OnCompletedEventCopyWith<_OnCompletedEvent> get copyWith;
 }
 
 /// @nodoc
@@ -330,7 +499,8 @@ abstract class _$PullToRefreshCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PullToRefreshCopyWithImpl<$Res> extends _$NewsEventCopyWithImpl<$Res>
+class __$PullToRefreshCopyWithImpl<$Res>
+    extends _$LatestNewsEventCopyWithImpl<$Res>
     implements _$PullToRefreshCopyWith<$Res> {
   __$PullToRefreshCopyWithImpl(
       _PullToRefresh _value, $Res Function(_PullToRefresh) _then)
@@ -346,7 +516,7 @@ class _$_PullToRefresh implements _PullToRefresh {
 
   @override
   String toString() {
-    return 'NewsEvent.pullToRefresh()';
+    return 'LatestNewsEvent.pullToRefresh()';
   }
 
   @override
@@ -362,11 +532,14 @@ class _$_PullToRefresh implements _PullToRefresh {
   TResult when<TResult extends Object>({
     @required TResult fetchNewsData(),
     @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    @required
+        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     @required TResult pullToRefresh(),
     @required TResult paginateIfAvailable(),
   }) {
     assert(fetchNewsData != null);
     assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
     assert(paginateIfAvailable != null);
     return pullToRefresh();
@@ -377,6 +550,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   TResult maybeWhen<TResult extends Object>({
     TResult fetchNewsData(),
     TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     TResult pullToRefresh(),
     TResult paginateIfAvailable(),
     @required TResult orElse(),
@@ -393,11 +567,13 @@ class _$_PullToRefresh implements _PullToRefresh {
   TResult map<TResult extends Object>({
     @required TResult fetchNewsData(_FetchNewsData value),
     @required TResult onSpanShotEvent(_OnSpanShotEvent value),
+    @required TResult onCompletedEvent(_OnCompletedEvent value),
     @required TResult pullToRefresh(_PullToRefresh value),
     @required TResult paginateIfAvailable(_PaginateIfAvailable value),
   }) {
     assert(fetchNewsData != null);
     assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
     assert(paginateIfAvailable != null);
     return pullToRefresh(this);
@@ -408,6 +584,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   TResult maybeMap<TResult extends Object>({
     TResult fetchNewsData(_FetchNewsData value),
     TResult onSpanShotEvent(_OnSpanShotEvent value),
+    TResult onCompletedEvent(_OnCompletedEvent value),
     TResult pullToRefresh(_PullToRefresh value),
     TResult paginateIfAvailable(_PaginateIfAvailable value),
     @required TResult orElse(),
@@ -420,7 +597,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   }
 }
 
-abstract class _PullToRefresh implements NewsEvent {
+abstract class _PullToRefresh implements LatestNewsEvent {
   const factory _PullToRefresh() = _$_PullToRefresh;
 }
 
@@ -433,7 +610,7 @@ abstract class _$PaginateIfAvailableCopyWith<$Res> {
 
 /// @nodoc
 class __$PaginateIfAvailableCopyWithImpl<$Res>
-    extends _$NewsEventCopyWithImpl<$Res>
+    extends _$LatestNewsEventCopyWithImpl<$Res>
     implements _$PaginateIfAvailableCopyWith<$Res> {
   __$PaginateIfAvailableCopyWithImpl(
       _PaginateIfAvailable _value, $Res Function(_PaginateIfAvailable) _then)
@@ -449,7 +626,7 @@ class _$_PaginateIfAvailable implements _PaginateIfAvailable {
 
   @override
   String toString() {
-    return 'NewsEvent.paginateIfAvailable()';
+    return 'LatestNewsEvent.paginateIfAvailable()';
   }
 
   @override
@@ -465,11 +642,14 @@ class _$_PaginateIfAvailable implements _PaginateIfAvailable {
   TResult when<TResult extends Object>({
     @required TResult fetchNewsData(),
     @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    @required
+        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     @required TResult pullToRefresh(),
     @required TResult paginateIfAvailable(),
   }) {
     assert(fetchNewsData != null);
     assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
     assert(paginateIfAvailable != null);
     return paginateIfAvailable();
@@ -480,6 +660,7 @@ class _$_PaginateIfAvailable implements _PaginateIfAvailable {
   TResult maybeWhen<TResult extends Object>({
     TResult fetchNewsData(),
     TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
+    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     TResult pullToRefresh(),
     TResult paginateIfAvailable(),
     @required TResult orElse(),
@@ -496,11 +677,13 @@ class _$_PaginateIfAvailable implements _PaginateIfAvailable {
   TResult map<TResult extends Object>({
     @required TResult fetchNewsData(_FetchNewsData value),
     @required TResult onSpanShotEvent(_OnSpanShotEvent value),
+    @required TResult onCompletedEvent(_OnCompletedEvent value),
     @required TResult pullToRefresh(_PullToRefresh value),
     @required TResult paginateIfAvailable(_PaginateIfAvailable value),
   }) {
     assert(fetchNewsData != null);
     assert(onSpanShotEvent != null);
+    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
     assert(paginateIfAvailable != null);
     return paginateIfAvailable(this);
@@ -511,6 +694,7 @@ class _$_PaginateIfAvailable implements _PaginateIfAvailable {
   TResult maybeMap<TResult extends Object>({
     TResult fetchNewsData(_FetchNewsData value),
     TResult onSpanShotEvent(_OnSpanShotEvent value),
+    TResult onCompletedEvent(_OnCompletedEvent value),
     TResult pullToRefresh(_PullToRefresh value),
     TResult paginateIfAvailable(_PaginateIfAvailable value),
     @required TResult orElse(),
@@ -523,13 +707,13 @@ class _$_PaginateIfAvailable implements _PaginateIfAvailable {
   }
 }
 
-abstract class _PaginateIfAvailable implements NewsEvent {
+abstract class _PaginateIfAvailable implements LatestNewsEvent {
   const factory _PaginateIfAvailable() = _$_PaginateIfAvailable;
 }
 
 /// @nodoc
-class _$NewsStateTearOff {
-  const _$NewsStateTearOff();
+class _$LatestNewsStateTearOff {
+  const _$LatestNewsStateTearOff();
 
 // ignore: unused_element
   _Initial initial() {
@@ -579,10 +763,10 @@ class _$NewsStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $NewsState = _$NewsStateTearOff();
+const $LatestNewsState = _$LatestNewsStateTearOff();
 
 /// @nodoc
-mixin _$NewsState {
+mixin _$LatestNewsState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
@@ -628,18 +812,20 @@ mixin _$NewsState {
 }
 
 /// @nodoc
-abstract class $NewsStateCopyWith<$Res> {
-  factory $NewsStateCopyWith(NewsState value, $Res Function(NewsState) then) =
-      _$NewsStateCopyWithImpl<$Res>;
+abstract class $LatestNewsStateCopyWith<$Res> {
+  factory $LatestNewsStateCopyWith(
+          LatestNewsState value, $Res Function(LatestNewsState) then) =
+      _$LatestNewsStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$NewsStateCopyWithImpl<$Res> implements $NewsStateCopyWith<$Res> {
-  _$NewsStateCopyWithImpl(this._value, this._then);
+class _$LatestNewsStateCopyWithImpl<$Res>
+    implements $LatestNewsStateCopyWith<$Res> {
+  _$LatestNewsStateCopyWithImpl(this._value, this._then);
 
-  final NewsState _value;
+  final LatestNewsState _value;
   // ignore: unused_field
-  final $Res Function(NewsState) _then;
+  final $Res Function(LatestNewsState) _then;
 }
 
 /// @nodoc
@@ -649,7 +835,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$LatestNewsStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -664,7 +850,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'NewsState.initial()';
+    return 'LatestNewsState.initial()';
   }
 
   @override
@@ -756,7 +942,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements NewsState {
+abstract class _Initial implements LatestNewsState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -767,7 +953,7 @@ abstract class _$LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
+class __$LoadingCopyWithImpl<$Res> extends _$LatestNewsStateCopyWithImpl<$Res>
     implements _$LoadingCopyWith<$Res> {
   __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
       : super(_value, (v) => _then(v as _Loading));
@@ -782,7 +968,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'NewsState.loading()';
+    return 'LatestNewsState.loading()';
   }
 
   @override
@@ -874,7 +1060,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements NewsState {
+abstract class _Loading implements LatestNewsState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -887,7 +1073,8 @@ abstract class _$LoadingWithCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadingWithCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
+class __$LoadingWithCopyWithImpl<$Res>
+    extends _$LatestNewsStateCopyWithImpl<$Res>
     implements _$LoadingWithCopyWith<$Res> {
   __$LoadingWithCopyWithImpl(
       _LoadingWith _value, $Res Function(_LoadingWith) _then)
@@ -917,7 +1104,7 @@ class _$_LoadingWith implements _LoadingWith {
 
   @override
   String toString() {
-    return 'NewsState.loadingWith(offlinedata: $offlinedata)';
+    return 'LatestNewsState.loadingWith(offlinedata: $offlinedata)';
   }
 
   @override
@@ -1019,7 +1206,7 @@ class _$_LoadingWith implements _LoadingWith {
   }
 }
 
-abstract class _LoadingWith implements NewsState {
+abstract class _LoadingWith implements LatestNewsState {
   const factory _LoadingWith(List<NewsItem> offlinedata) = _$_LoadingWith;
 
   List<NewsItem> get offlinedata;
@@ -1035,7 +1222,7 @@ abstract class _$LoadedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
+class __$LoadedCopyWithImpl<$Res> extends _$LatestNewsStateCopyWithImpl<$Res>
     implements _$LoadedCopyWith<$Res> {
   __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
       : super(_value, (v) => _then(v as _Loaded));
@@ -1062,7 +1249,7 @@ class _$_Loaded implements _Loaded {
 
   @override
   String toString() {
-    return 'NewsState.loaded(newsData: $newsData)';
+    return 'LatestNewsState.loaded(newsData: $newsData)';
   }
 
   @override
@@ -1164,7 +1351,7 @@ class _$_Loaded implements _Loaded {
   }
 }
 
-abstract class _Loaded implements NewsState {
+abstract class _Loaded implements LatestNewsState {
   const factory _Loaded(List<NewsItem> newsData) = _$_Loaded;
 
   List<NewsItem> get newsData;
@@ -1182,7 +1369,7 @@ abstract class _$ShowPullToRefreshCopyWith<$Res> {
 
 /// @nodoc
 class __$ShowPullToRefreshCopyWithImpl<$Res>
-    extends _$NewsStateCopyWithImpl<$Res>
+    extends _$LatestNewsStateCopyWithImpl<$Res>
     implements _$ShowPullToRefreshCopyWith<$Res> {
   __$ShowPullToRefreshCopyWithImpl(
       _ShowPullToRefresh _value, $Res Function(_ShowPullToRefresh) _then)
@@ -1210,7 +1397,7 @@ class _$_ShowPullToRefresh implements _ShowPullToRefresh {
 
   @override
   String toString() {
-    return 'NewsState.showPullToRefresh(newsData: $newsData)';
+    return 'LatestNewsState.showPullToRefresh(newsData: $newsData)';
   }
 
   @override
@@ -1312,7 +1499,7 @@ class _$_ShowPullToRefresh implements _ShowPullToRefresh {
   }
 }
 
-abstract class _ShowPullToRefresh implements NewsState {
+abstract class _ShowPullToRefresh implements LatestNewsState {
   const factory _ShowPullToRefresh(List<NewsItem> newsData) =
       _$_ShowPullToRefresh;
 
@@ -1330,7 +1517,8 @@ abstract class _$PaginationCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PaginationCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
+class __$PaginationCopyWithImpl<$Res>
+    extends _$LatestNewsStateCopyWithImpl<$Res>
     implements _$PaginationCopyWith<$Res> {
   __$PaginationCopyWithImpl(
       _Pagination _value, $Res Function(_Pagination) _then)
@@ -1358,7 +1546,7 @@ class _$_Pagination implements _Pagination {
 
   @override
   String toString() {
-    return 'NewsState.pagination(newsData: $newsData)';
+    return 'LatestNewsState.pagination(newsData: $newsData)';
   }
 
   @override
@@ -1460,7 +1648,7 @@ class _$_Pagination implements _Pagination {
   }
 }
 
-abstract class _Pagination implements NewsState {
+abstract class _Pagination implements LatestNewsState {
   const factory _Pagination(List<NewsItem> newsData) = _$_Pagination;
 
   List<NewsItem> get newsData;
@@ -1478,7 +1666,7 @@ abstract class _$FailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
+class __$FailureCopyWithImpl<$Res> extends _$LatestNewsStateCopyWithImpl<$Res>
     implements _$FailureCopyWith<$Res> {
   __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
       : super(_value, (v) => _then(v as _Failure));
@@ -1515,7 +1703,7 @@ class _$_Failure implements _Failure {
 
   @override
   String toString() {
-    return 'NewsState.failure(failure: $failure)';
+    return 'LatestNewsState.failure(failure: $failure)';
   }
 
   @override
@@ -1616,7 +1804,7 @@ class _$_Failure implements _Failure {
   }
 }
 
-abstract class _Failure implements NewsState {
+abstract class _Failure implements LatestNewsState {
   const factory _Failure(ApiFailure failure) = _$_Failure;
 
   ApiFailure get failure;

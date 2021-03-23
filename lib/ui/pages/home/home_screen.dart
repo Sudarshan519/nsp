@@ -6,7 +6,9 @@ import 'package:wallet_app/features/home/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/home/data/model/services_model.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 import 'package:wallet_app/features/resume/data/model/resume_model.dart';
+import 'package:wallet_app/features/resume/data/model/resume_options_model.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
@@ -25,8 +27,9 @@ import 'widgets/news/segmented_news_widget.dart';
 
 class HomePage extends StatelessWidget {
   final Function(int) changeTabPage;
+  final ScrollController _scrollController = ScrollController();
 
-  const HomePage({
+  HomePage({
     Key key,
     @required this.changeTabPage,
   })  : assert(changeTabPage != null),
@@ -41,12 +44,34 @@ class HomePage extends StatelessWidget {
           children: [
             HomeHeaderWidget(),
             Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const HomePageHeader(),
-                    _homePageBody(),
-                  ],
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  context.read<HomePageDataBloc>().add(
+                        const HomePageDataEvent.fetch(),
+                      );
+                  // await 2 sec for the loader to show
+                  await Future.delayed(const Duration(seconds: 2), () {});
+                },
+                child: SingleChildScrollView(
+                  controller: _scrollController
+                    ..addListener(
+                      () {
+                        if (_scrollController.offset ==
+                                _scrollController.position.maxScrollExtent &&
+                            !context.read<NewsBloc>().isFetching) {
+                          debugPrint("home screen reached end");
+                          context.read<NewsBloc>().add(
+                                const NewsEvent.paginateIfAvailable(),
+                              );
+                        }
+                      },
+                    ),
+                  child: Column(
+                    children: [
+                      const HomePageHeader(),
+                      _homePageBody(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -135,14 +160,20 @@ class HomePage extends StatelessWidget {
         if (data["status"] as bool == true) {
           return buildResumeSection(context, data, userDetail);
         } else {
-          context
-              .read<ResumeWatcherBloc>()
-              .add(ResumeWatcherEvent.setResumeData(ResumeData(
-                  personalInfo: PersonalInfo(
-                firstName: userDetail.firstName,
-                lastName: userDetail.lastName,
-                email: userDetail.email,
-              ))));
+          final optionJson = data["options"] as Map<String, dynamic>;
+
+          context.read<ResumeWatcherBloc>().add(
+                ResumeWatcherEvent.setResumeData(
+                  ResumeData(
+                    personalInfo: PersonalInfo(
+                      firstName: userDetail.firstName,
+                      lastName: userDetail.lastName,
+                      email: userDetail.email,
+                    ),
+                    options: ResumeOptionsModel.fromJson(optionJson),
+                  ),
+                ),
+              );
           return BuildResume(
             changeTabPage: changeTabPage,
           );

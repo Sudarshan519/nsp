@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/features/resume/data/model/resume_options_model.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
@@ -34,7 +35,7 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
           academics: e.data.academicHistory ?? [],
           works: e.data.workHistory ?? [],
           qualifications: e.data.qualificationHistory ?? [],
-          options: e.data.options,
+          options: e.data.options ?? const ResumeOptions(),
           isLoading: false,
         );
       },

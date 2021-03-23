@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
+import 'package:wallet_app/features/news/domain/entity/news_item.dart';
+import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/widgets/news_item.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
@@ -92,39 +92,45 @@ class SegmentedNewViewWidget extends StatelessWidget {
       return state.map(
         initial: (_) => const SizedBox.shrink(),
         loading: (_) => const SizedBox.shrink(),
-        loadingWith: (data) => const SizedBox.shrink(),
+        loadingWith: (data) {
+          final newsList = data.offlinedata;
+          return _newsData(newsList);
+        },
         loaded: (data) {
           final newsList = data.newsData;
-          return ShadowBoxWidget(
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            padding: const EdgeInsets.only(bottom: 16),
-            // padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Column(
-              children: [
-                ListView.builder(
-                  primary: false,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: newsList.length,
-                  itemBuilder: (context, index) {
-                    return NewsItemWidget(
-                      newsItem: newsList[index],
-                    );
-                  },
-                ),
-                const SizedBox(height: 16),
-                CustomButton(
-                  title: "View all",
-                  onTap: () {},
-                ),
-              ],
-            ),
-          );
+          return _newsData(newsList);
         },
         showPullToRefresh: (_) => const SizedBox.shrink(),
         pagination: (_) => const SizedBox.shrink(),
         failure: (_) => const SizedBox.shrink(),
       );
     });
+  }
+
+  Widget _newsData(List<NewsItem> newsList) {
+    return ShadowBoxWidget(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.only(bottom: 16),
+      // padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Column(
+        children: [
+          ListView.builder(
+            primary: false,
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: newsList.length,
+            itemBuilder: (context, index) {
+              return NewsItemWidget(
+                newsItem: newsList[index],
+              );
+            },
+          ),
+          SizedBox(
+            height: 70,
+            child: loadingPage(),
+          )
+        ],
+      ),
+    );
   }
 }

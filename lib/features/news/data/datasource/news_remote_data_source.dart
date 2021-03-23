@@ -14,7 +14,12 @@ abstract class NewsRemoteDataSourceProtocol {
   ///
   /// Throws [ServerException] for all error codes.
   ///
-  Future<NewsModel> getNews({
+  Future<NewsModel> getLatestNews({
+    @required String page,
+    @required String limit,
+  });
+
+  Future<NewsModel> getNewsForYou({
     @required String page,
     @required String limit,
   });
@@ -39,14 +44,29 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         );
 
   @override
-  Future<NewsModel> getNews({
+  Future<NewsModel> getLatestNews({
     @required String page,
     @required String limit,
-  }) async {
-    http.Response response;
+  }) {
+    final url =
+        "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNewsLatest}?page=$page&limit=$limit";
+    return _getNews(url: url);
+  }
 
+  @override
+  Future<NewsModel> getNewsForYou({
+    @required String page,
+    @required String limit,
+  }) {
     final url =
         "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNewsForYou}?page=$page&limit=$limit";
+    return _getNews(url: url);
+  }
+
+  Future<NewsModel> _getNews({
+    @required String url,
+  }) async {
+    http.Response response;
 
     try {
       response = await client.get(

@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
-import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
+import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
+import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -25,6 +26,12 @@ class WalletApp extends StatelessWidget {
           create: (context) => getIt<NewsBloc>()
             ..add(
               const NewsEvent.fetchNewsData(),
+            ),
+        ),
+        BlocProvider(
+          create: (context) => getIt<LatestNewsBloc>()
+            ..add(
+              const LatestNewsEvent.fetchNewsData(),
             ),
         ),
         BlocProvider(

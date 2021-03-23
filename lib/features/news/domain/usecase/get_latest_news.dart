@@ -8,7 +8,7 @@ import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/features/news/domain/repository/news_repository.dart';
 
 @lazySingleton
-class GetNewsForYou
+class GetLatestNews
     implements UsecaseStream<ApiFailure, List<NewsItem>, NoParams> {
   final NewsRepositoryProtocol repository;
   final NetworkInfo networkInfo;
@@ -16,7 +16,7 @@ class GetNewsForYou
   int _page = 1;
   List<NewsItem> _news;
 
-  GetNewsForYou({
+  GetLatestNews({
     @required this.repository,
     @required this.networkInfo,
   });
@@ -24,7 +24,7 @@ class GetNewsForYou
   @override
   Stream<Either<ApiFailure, List<NewsItem>>> call(NoParams params) async* {
     if (await networkInfo.isConnected) {
-      final remoteData = await repository.getNewsForYou(page: "$_page");
+      final remoteData = await repository.getLatestNews(page: "$_page");
       yield* remoteData.fold(
         (failure) async* {
           yield Left(failure);
