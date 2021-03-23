@@ -1,3 +1,4 @@
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/ui/pages/resume/widgets/resume_header_widget.dart';
@@ -20,6 +21,16 @@ class ResumePage extends StatelessWidget {
           ),
         ),
         actions: [
+          // IconButton(
+          //   onPressed: () {
+          //     FlushbarHelper.createInformation(
+          //             message:
+          //                 "Currently download can be started from Home screen.")
+          //         .show(context);
+          //   },
+          //   icon: const Icon(Icons.file_download),
+          //   color: Palette.white,
+          // ),
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: SvgPicture.asset(

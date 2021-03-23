@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/pages/home/home_screen.dart';
+import 'package:wallet_app/ui/pages/more/more_screen.dart';
 import 'package:wallet_app/ui/pages/news/news_screen.dart';
 import 'package:wallet_app/ui/pages/resume/resume_screen.dart';
 
@@ -69,7 +70,7 @@ class TabBarScreenState extends State<TabBarScreen> {
       ),
       ResumePage(),
       NewsPage(),
-      Container(),
+      const MorePage(),
     ];
   }
 

@@ -19,13 +19,14 @@ import '../utils/config_reader.dart';
 import '../core/database/local_database_provider.dart';
 import 'injectable/data_connection_checker_injectable_module.dart';
 import '../features/resume/presentation/download_pdf/download_pdf_bloc.dart';
+import '../core/file_picker/file_provider.dart';
 import 'injectable/flutter_secure_storage_module.dart';
 import '../features/location_information/domain/usecases/get_countries.dart';
 import '../features/resume/domain/usecases/get_downloadable_pdf_link.dart';
 import '../features/home/domain/usecases/get_home_page_data.dart';
 import '../features/location_information/domain/usecases/get_japan_city.dart';
 import '../features/location_information/domain/usecases/get_nepal_district.dart';
-import '../features/news/domain/usecase/get_news.dart';
+import '../features/news/domain/usecase/get_news_for_you.dart';
 import '../features/location_information/domain/usecases/get_prefecture.dart';
 import '../features/auth/domain/usecase/get_wallet_user.dart';
 import '../features/home/presentation/home_page_data/home_page_data_bloc.dart';
@@ -79,6 +80,7 @@ Future<GetIt> $initGetIt(
   gh.factory<Client>(() => httpClientInjectableModule.client);
   gh.lazySingleton<DataConnectionChecker>(
       () => dataConnectionCheckerModule.dataConnectionChecker);
+  gh.lazySingleton<FileProvider>(() => FileProvider());
   gh.lazySingleton<FlutterSecureStorage>(
       () => flutterStorageModule.secureStorate);
   gh.lazySingleton<LocationInformationLocalDataSourceProtocol>(
@@ -158,12 +160,12 @@ Future<GetIt> $initGetIt(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<GetHomePageData>(
       () => GetHomePageData(repository: get<HomeReporisitory>()));
-  gh.lazySingleton<GetNews>(() => GetNews(
+  gh.lazySingleton<GetNewsForYou>(() => GetNewsForYou(
       repository: get<NewsRepositoryProtocol>(),
       networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<HomePageDataBloc>(
       () => HomePageDataBloc(getHomePageData: get<GetHomePageData>()));
-  gh.factory<NewsBloc>(() => NewsBloc(getNews: get<GetNews>()));
+  gh.factory<NewsBloc>(() => NewsBloc(getNews: get<GetNewsForYou>()));
   gh.factory<SignInFormBloc>(
       () => SignInFormBloc(get<SignInWithEmailAndPassword>()));
   gh.factory<SignUpFormBloc>(() => SignUpFormBloc(

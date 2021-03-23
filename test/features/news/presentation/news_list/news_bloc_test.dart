@@ -2,12 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
-import 'package:wallet_app/features/news/domain/usecase/get_news.dart';
+import 'package:wallet_app/features/news/domain/usecase/get_news_for_you.dart';
 import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
 
 import '../../../../utils/test_constant/news/test_constant.dart';
 
-class MockGetNews extends Mock implements GetNews {}
+class MockGetNews extends Mock implements GetNewsForYou {}
 
 void main() {
   NewsBloc bloc;

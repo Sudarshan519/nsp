@@ -22,11 +22,11 @@ class SocialLoginWidget extends StatelessWidget {
           icon: "apple",
           onTap: () {},
         ),
-        const SizedBox(width: 15),
-        getSocialLoginBox(
-          icon: "viber",
-          onTap: () {},
-        ),
+        // const SizedBox(width: 15),
+        // getSocialLoginBox(
+        //   icon: "viber",
+        //   onTap: () {},
+        // ),
       ],
     );
   }

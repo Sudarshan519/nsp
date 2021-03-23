@@ -38,7 +38,7 @@ class JapaneseMannerWidget extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               color: Palette.white,
-              height: 270,
+              height: 240,
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: data.length,
@@ -78,7 +78,7 @@ class JapaneseMannerWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               child: Image.network(
                 "$baseURL${data.image}",
-                height: 160,
+                height: 130,
                 fit: BoxFit.cover,
               ),
             ),
@@ -88,7 +88,7 @@ class JapaneseMannerWidget extends StatelessWidget {
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
               ),
-              textAlign: TextAlign.justify,
+              // textAlign: TextAlign.justify,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
@@ -154,7 +154,7 @@ class JapaneseMannerWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             child: Container(
               color: Palette.white,
-              height: 160,
+              height: 130,
               child: YoutubePlayer(
                 controller: _controller,
                 showVideoProgressIndicator: true,

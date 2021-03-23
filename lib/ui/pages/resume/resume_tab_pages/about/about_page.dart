@@ -126,45 +126,6 @@ class AboutPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomButton(
-                onTap: () {
-                  showMaterialModalBottomSheet(
-                    expand: false,
-                    context: context,
-                    backgroundColor: Colors.transparent,
-                    builder: (context) => Container(
-                      height: 200,
-                      padding: const EdgeInsets.only(top: 40),
-                      decoration: ShapeDecoration(
-                        color: Palette.white,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(32),
-                            topRight: Radius.circular(32),
-                          ),
-                        ),
-                      ),
-                      child: ResumeOptionWidget(),
-                    ),
-                  );
-                },
-                title: "English",
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              CustomButton(
-                onTap: () {},
-                title: "Japanese",
-              ),
-            ],
-          ),
           const SizedBox(height: 20),
         ],
       ),

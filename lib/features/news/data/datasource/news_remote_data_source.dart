@@ -45,7 +45,8 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
   }) async {
     http.Response response;
 
-    final url = "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNews}";
+    final url =
+        "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNewsForYou}?page=$page&limit=$limit";
 
     try {
       response = await client.get(

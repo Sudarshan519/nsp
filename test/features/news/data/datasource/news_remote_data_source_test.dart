@@ -83,7 +83,7 @@ void main() {
     );
 
     //assert
-    verify(client.get(NewsApiEndpoints.getNews, headers: _headers));
+    verify(client.get(NewsApiEndpoints.getNewsForYou, headers: _headers));
   });
 
   test('should return news if status code is 200', () async {

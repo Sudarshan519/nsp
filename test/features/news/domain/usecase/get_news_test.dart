@@ -5,7 +5,7 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/news/domain/repository/news_repository.dart';
-import 'package:wallet_app/features/news/domain/usecase/get_news.dart';
+import 'package:wallet_app/features/news/domain/usecase/get_news_for_you.dart';
 
 import '../../../../utils/test_constant/news/test_constant.dart';
 
@@ -14,7 +14,7 @@ class MockNewsRepository extends Mock implements NewsRepositoryProtocol {}
 class MockNetworkInfo extends Mock implements NetworkInfo {}
 
 void main() {
-  GetNews getNews;
+  GetNewsForYou getNews;
   MockNewsRepository repository;
   MockNetworkInfo networkInfo;
 
@@ -41,7 +41,7 @@ void main() {
   setUp(() {
     repository = MockNewsRepository();
     networkInfo = MockNetworkInfo();
-    getNews = GetNews(
+    getNews = GetNewsForYou(
       repository: repository,
       networkInfo: networkInfo,
     );

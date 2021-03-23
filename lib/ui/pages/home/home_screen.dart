@@ -1,7 +1,6 @@
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/home/data/model/services_model.dart';
@@ -19,10 +18,10 @@ import 'package:wallet_app/utils/constant.dart';
 
 import 'widgets/banner_widget.dart';
 import 'widgets/build_resume.dart';
+import 'widgets/home_page_header.dart';
 import 'widgets/home_service_widget.dart';
 import 'widgets/japanese_manner_widget.dart';
 import 'widgets/news/segmented_news_widget.dart';
-import 'widgets/user_info_widget.dart';
 
 class HomePage extends StatelessWidget {
   final Function(int) changeTabPage;
@@ -45,7 +44,7 @@ class HomePage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    _homePageHeader(),
+                    const HomePageHeader(),
                     _homePageBody(),
                   ],
                 ),
@@ -54,50 +53,14 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Palette.white,
-        onPressed: () {},
-        child: SvgPicture.asset(
-          "assets/images/home/chat.svg",
-          height: 30.0,
-        ),
-      ),
-    );
-  }
-
-  Widget _homePageHeader() {
-    return BlocBuilder<HomePageDataBloc, HomePageDataState>(
-      buildWhen: (previous, next) => previous.hashCode != next.hashCode,
-      builder: (context, state) {
-        return state.map(
-          initial: (_) => const UserInfoWidget(user: null),
-          loading: (_) => const UserInfoWidget(user: null),
-          loadingWithData: (success) =>
-              UserInfoWidget(user: success.data.userDetail),
-          loaded: (success) => UserInfoWidget(user: success.data.userDetail),
-          failure: (error) {
-            FlushbarHelper.createError(
-              message: error.failure.map(
-                noInternetConnection: (error) => AppConstants.noNetwork,
-                serverError: (error) => error.message,
-                invalidUser: (error) => AppConstants.someThingWentWrong,
-              ),
-            ).show(context);
-            return const UserInfoWidget(user: null);
-          },
-          failureWithData: (failure) {
-            FlushbarHelper.createError(
-              message: failure.failure.map(
-                noInternetConnection: (error) => AppConstants.noNetwork,
-                serverError: (error) => error.message,
-                invalidUser: (error) => AppConstants.someThingWentWrong,
-              ),
-            ).show(context);
-            return _homePageBodyContent(
-                context, failure.data.homeData, failure.data.userDetail);
-          },
-        );
-      },
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: Palette.white,
+      //   onPressed: () {},
+      //   child: SvgPicture.asset(
+      //     "assets/images/home/chat.svg",
+      //     height: 30.0,
+      //   ),
+      // ),
     );
   }
 

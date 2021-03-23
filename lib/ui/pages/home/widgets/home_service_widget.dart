@@ -87,7 +87,7 @@ class HomeServiceWidget extends StatelessWidget {
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
-                        textAlign: TextAlign.justify,
+                        // textAlign: TextAlign.justify,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -127,7 +127,7 @@ class HomeServiceWidget extends StatelessWidget {
               style: const TextStyle(
                 fontWeight: FontWeight.w400,
               ),
-              textAlign: TextAlign.justify,
+              // textAlign: TextAlign.justify,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),

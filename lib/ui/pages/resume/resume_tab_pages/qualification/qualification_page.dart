@@ -43,26 +43,6 @@ class QualificationPage extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              if (qualifications.isNotEmpty)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomButton(
-                      onTap: () {},
-                      title: "English",
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    CustomButton(
-                      onTap: () {},
-                      title: "Japanese",
-                    ),
-                  ],
-                ),
               const SizedBox(height: 20),
             ],
           ),

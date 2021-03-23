@@ -11,6 +11,7 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/input_multi_select_drop_down.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
@@ -190,13 +191,8 @@ class _LanguageInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.languages != current.languages,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Languages",
-        child: InputTextWidget(
-          hintText: "Name",
-          textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
-          onEditingCompleted: callBack,
-          onChanged: (value) {},
+        child: CustomMultiSelectDropDownWidget(
+          onConfirm: (values) {},
         ),
       ),
     );

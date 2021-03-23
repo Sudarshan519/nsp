@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
-import 'package:wallet_app/features/news/domain/usecase/get_news.dart';
+import 'package:wallet_app/features/news/domain/usecase/get_news_for_you.dart';
 
 part 'news_event.dart';
 part 'news_state.dart';
@@ -15,8 +15,9 @@ part 'news_bloc.freezed.dart';
 
 @injectable
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
-  final GetNews getNews;
-  // List<NewsItem> _news;
+  final GetNewsForYou getNews;
+  bool isFetching = false;
+
   NewsBloc({
     @required this.getNews,
   }) : super(const _Initial());
@@ -27,6 +28,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   ) async* {
     yield* event.map(
       fetchNewsData: (e) async* {
+        isFetching = true;
         yield const _Loading();
 
         getNews(NoParams()).listen(
@@ -44,9 +46,27 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
             yield _Loaded(news);
           },
         );
+        isFetching = false;
       },
-      pullToRefresh: (e) async* {},
-      paginateIfAvailable: (e) async* {},
+      pullToRefresh: (e) async* {
+        isFetching = true;
+        yield const _Loading();
+        getNews.resetPage();
+
+        getNews(NoParams()).listen(
+          (event) {
+            add(_OnSpanShotEvent(event));
+          },
+        );
+      },
+      paginateIfAvailable: (e) async* {
+        isFetching = true;
+        getNews(NoParams()).listen(
+          (event) {
+            add(_OnSpanShotEvent(event));
+          },
+        );
+      },
     );
   }
 }

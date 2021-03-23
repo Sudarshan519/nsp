@@ -9,7 +9,6 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -46,26 +45,6 @@ class WorkPage extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              if (works.isNotEmpty)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomButton(
-                      onTap: () {},
-                      title: "English",
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    CustomButton(
-                      onTap: () {},
-                      title: "Japanese",
-                    ),
-                  ],
-                ),
               const SizedBox(height: 20),
             ],
           ),

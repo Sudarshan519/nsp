@@ -8,14 +8,15 @@ import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/features/news/domain/repository/news_repository.dart';
 
 @lazySingleton
-class GetNews implements UsecaseStream<ApiFailure, List<NewsItem>, NoParams> {
+class GetNewsForYou
+    implements UsecaseStream<ApiFailure, List<NewsItem>, NoParams> {
   final NewsRepositoryProtocol repository;
   final NetworkInfo networkInfo;
 
   int _page = 1;
   List<NewsItem> _news;
 
-  GetNews({
+  GetNewsForYou({
     @required this.repository,
     @required this.networkInfo,
   });
@@ -40,12 +41,20 @@ class GetNews implements UsecaseStream<ApiFailure, List<NewsItem>, NoParams> {
         },
         (news) async* {
           _page = int.parse(news.page) + 1;
-          _news = news.data;
+          if (_news == null) {
+            _news = news.data;
+          } else {
+            _news.addAll(news.data);
+          }
           yield Right(_news);
         },
       );
     } else {
       yield const Left(ApiFailure.noInternetConnection());
     }
+  }
+
+  void resetPage() {
+    _page = 1;
   }
 }
