@@ -1,15 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
+import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/widgets/news_item.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class SegmentedNewViewWidget extends StatelessWidget {
+class SegmentedNewViewWidget extends StatefulWidget {
   const SegmentedNewViewWidget({
     Key key,
   }) : super(key: key);
+
+  @override
+  _SegmentedNewViewWidgetState createState() => _SegmentedNewViewWidgetState();
+}
+
+class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
+  int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = 0;
+  }
+
+  void setSelectedIndex(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,35 +55,52 @@ class SegmentedNewViewWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Container(
-            height: 40,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              color: Palette.primaryButtonColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Center(
-              child: Text(
-                "For You",
-                style: TextStyle(
-                  color: Palette.white,
-                  fontWeight: FontWeight.bold,
+          InkWell(
+            onTap: () {
+              setSelectedIndex(0);
+            },
+            child: Container(
+              height: 40,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: _selectedIndex == 0
+                    ? Palette.primaryButtonColor
+                    : Palette.primaryBackground,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Text(
+                  "For You",
+                  style: TextStyle(
+                    color: _selectedIndex == 0 ? Palette.white : Palette.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
           ),
           const Spacer(),
-          Container(
-            height: 40,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              color: Palette.primaryBackground,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const Center(
-              child: Text(
-                "News",
-                style: TextStyle(fontWeight: FontWeight.bold),
+          InkWell(
+            onTap: () {
+              setSelectedIndex(1);
+            },
+            child: Container(
+              height: 40,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: _selectedIndex == 1
+                    ? Palette.primaryButtonColor
+                    : Palette.primaryBackground,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Text(
+                  "News",
+                  style: TextStyle(
+                    color: _selectedIndex == 1 ? Palette.white : Palette.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
           ),
@@ -88,7 +125,40 @@ class SegmentedNewViewWidget extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
+    if (_selectedIndex == 0) {
+      return _forYouBody(context);
+    }
+
+    if (_selectedIndex == 1) {
+      return _latestNewsBody(context);
+    }
+
+    return _forYouBody(context);
+  }
+
+  Widget _forYouBody(BuildContext context) {
     return BlocBuilder<NewsBloc, NewsState>(builder: (context, state) {
+      return state.map(
+        initial: (_) => const SizedBox.shrink(),
+        loading: (_) => const SizedBox.shrink(),
+        loadingWith: (data) {
+          final newsList = data.offlinedata;
+          return _newsData(newsList);
+        },
+        loaded: (data) {
+          final newsList = data.newsData;
+          return _newsData(newsList);
+        },
+        showPullToRefresh: (_) => const SizedBox.shrink(),
+        pagination: (_) => const SizedBox.shrink(),
+        failure: (_) => const SizedBox.shrink(),
+      );
+    });
+  }
+
+  Widget _latestNewsBody(BuildContext context) {
+    return BlocBuilder<LatestNewsBloc, LatestNewsState>(
+        builder: (context, state) {
       return state.map(
         initial: (_) => const SizedBox.shrink(),
         loading: (_) => const SizedBox.shrink(),

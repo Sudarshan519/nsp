@@ -10,7 +10,8 @@ import 'package:wallet_app/utils/config_reader.dart';
 
 class HomeServiceWidget extends StatelessWidget {
   final List<Services> services;
-  const HomeServiceWidget({
+  final _positionNotifier = ValueNotifier<String>("1");
+  HomeServiceWidget({
     Key key,
     @required this.services,
   }) : super(key: key);
@@ -22,14 +23,29 @@ class HomeServiceWidget extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            children: const [
-              CategoryTitleWidget(title: "Services"),
-              Spacer(),
-              Text(
-                "1/4",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                ),
+            children: [
+              const CategoryTitleWidget(title: "Services"),
+              const Spacer(),
+              Row(
+                children: [
+                  ValueListenableBuilder(
+                    valueListenable: _positionNotifier,
+                    builder: (context, position, child) {
+                      return Text(
+                        position as String,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      );
+                    },
+                  ),
+                  Text(
+                    "/${services.length}",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -37,13 +53,20 @@ class HomeServiceWidget extends StatelessWidget {
           Container(
             color: Palette.white,
             height: 210,
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: services.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return getServiceItem(context, services[index]);
+            child: NotificationListener<ScrollUpdateNotification>(
+              onNotification: (notification) {
+                final pixel = notification.metrics.pixels / 260;
+                _positionNotifier.value = "${pixel.toInt() + 1}";
+                return true;
               },
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: services.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return getServiceItem(context, services[index]);
+                },
+              ),
             ),
           ),
         ],
@@ -62,88 +85,88 @@ class HomeServiceWidget extends StatelessWidget {
         right: 8,
         left: 8,
       ),
-      child: ShadowBoxWidget(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.network(
-                    "$baseURL${services.companyLogo}",
-                    height: 76,
-                    width: 90,
-                    fit: BoxFit.cover,
+      child: InkWell(
+        onTap: () => ExtendedNavigator.of(context)
+            .pushServicesDetail(services: services),
+        child: ShadowBoxWidget(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.network(
+                      "$baseURL${services.companyLogo}",
+                      height: 76,
+                      width: 90,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        services?.serviceProductName ?? "",
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          services?.serviceProductName ?? "",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          // textAlign: TextAlign.justify,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        // textAlign: TextAlign.justify,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 5),
-                      // CustomButton(
-                      //   title: services?.category ?? "",
-                      //   onTap: () {},
-                      // ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 4,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: Palette.black.withOpacity(0.3),
+                        const SizedBox(height: 5),
+                        // CustomButton(
+                        //   title: services?.category ?? "",
+                        //   onTap: () {},
+                        // ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 4,
+                            vertical: 2,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: Palette.black.withOpacity(0.3),
+                            ),
+                          ),
+                          child: Text(
+                            services?.category ?? "",
+                            style: TextStyle(
+                              color: Palette.black.withOpacity(0.7),
+                              fontSize: 10,
+                            ),
+                            overflow: TextOverflow.clip,
                           ),
                         ),
-                        child: Text(
-                          services?.category ?? "",
-                          style: TextStyle(
-                            color: Palette.black.withOpacity(0.7),
-                            fontSize: 10,
-                          ),
-                          overflow: TextOverflow.clip,
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Text(
-              services?.description ?? "",
-              style: const TextStyle(
-                fontWeight: FontWeight.w400,
+                ],
               ),
-              // textAlign: TextAlign.justify,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 10),
-            InkWell(
-              onTap: () => ExtendedNavigator.of(context)
-                  .pushServicesDetail(services: services),
-              child: Text(
+              const SizedBox(height: 10),
+              Text(
+                services?.description ?? "",
+                style: const TextStyle(
+                  fontWeight: FontWeight.w400,
+                ),
+                // textAlign: TextAlign.justify,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 10),
+              Text(
                 "Know More",
                 style: TextStyle(
                   color: Palette.primary,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

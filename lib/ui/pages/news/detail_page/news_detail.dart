@@ -42,117 +42,97 @@ class NewsDetail extends StatelessWidget {
 
   Widget newsBody(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return ColumnSuper(
-      innerDistance: -60,
-      children: [
-        Image.network(
-          newsItem.image,
-          width: width,
-          fit: BoxFit.fitWidth,
-        ),
-        ShadowBoxWidget(
-          margin: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                children: [
-                  Image.network(
-                    newsItem.sourceImage,
-                    fit: BoxFit.fitHeight,
-                    height: 10,
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    newsItem?.source ?? "",
-                    style: TextStyle(
-                      color: Palette.black,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
+    return SingleChildScrollView(
+      child: ColumnSuper(
+        innerDistance: -60,
+        children: [
+          Image.network(
+            newsItem.image,
+            width: width,
+            fit: BoxFit.fitWidth,
+          ),
+          ShadowBoxWidget(
+            margin: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    Image.network(
+                      newsItem.sourceImage,
+                      fit: BoxFit.fitHeight,
+                      height: 10,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
-              ),
-              Text(
-                newsItem?.title ?? "",
-                style: TextStyle(
-                  color: Palette.black,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(
-                height: 4,
-              ),
-              // TODO: change it to List builder
-              // SingleChildScrollView(
-              //   child:
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 4,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Palette.black.withOpacity(0.3),
-                      ),
-                    ),
-                    child: Text(
-                      newsItem.category,
+                    const SizedBox(width: 5),
+                    Text(
+                      newsItem?.source ?? "",
                       style: TextStyle(
-                        color: Palette.black.withOpacity(0.7),
-                        fontSize: 10,
+                        color: Palette.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
                       ),
-                      overflow: TextOverflow.clip,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
+                  ],
+                ),
+                Text(
+                  newsItem?.title ?? "",
+                  style: TextStyle(
+                    color: Palette.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                   ),
-                ],
-              ),
-              // ),
-              const SizedBox(
-                height: 4,
-              ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(
+                  height: 4,
+                ),
+                // TODO: change it to List builder
+                // SingleChildScrollView(
+                //   child:
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 4,
+                        vertical: 2,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Palette.black.withOpacity(0.3),
+                        ),
+                      ),
+                      child: Text(
+                        newsItem.category,
+                        style: TextStyle(
+                          color: Palette.black.withOpacity(0.7),
+                          fontSize: 10,
+                        ),
+                        overflow: TextOverflow.clip,
+                      ),
+                    ),
+                  ],
+                ),
+                // ),
+                const SizedBox(
+                  height: 4,
+                ),
 
-              Row(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/news/calender.svg",
-                    height: 15.0,
-                  ),
-                  const SizedBox(
-                    width: 2,
-                  ),
-                  Text(
-                    newsItem.publishedYearOnly,
-                    style: TextStyle(
-                      color: Palette.black,
-                      fontSize: 11,
-                      fontWeight: FontWeight.w300,
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      "assets/images/news/calender.svg",
+                      height: 15.0,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  SvgPicture.asset(
-                    "assets/images/news/clock.svg",
-                    height: 15.0,
-                  ),
-                  const SizedBox(
-                    width: 2,
-                  ),
-                  Expanded(
-                    child: Text(
-                      newsItem.publishedTimeAgo,
+                    const SizedBox(
+                      width: 2,
+                    ),
+                    Text(
+                      newsItem.publishedYearOnly,
                       style: TextStyle(
                         color: Palette.black,
                         fontSize: 11,
@@ -161,43 +141,65 @@ class NewsDetail extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 4,
-              ),
-              Container(
-                height: 1,
-                color: Palette.dividerColor,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    SvgPicture.asset(
+                      "assets/images/news/clock.svg",
+                      height: 15.0,
+                    ),
+                    const SizedBox(
+                      width: 2,
+                    ),
+                    Expanded(
+                      child: Text(
+                        newsItem.publishedTimeAgo,
+                        style: TextStyle(
+                          color: Palette.black,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w300,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 4,
+                ),
+                Container(
+                  height: 1,
+                  color: Palette.dividerColor,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
 
-              // Text(newsItem.description)
-              Html(data: newsItem.description),
+                // Text(newsItem.description)
+                Html(data: newsItem.description),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              Center(
-                child: CustomButton(
-                  title: "Load More",
-                  textStyle: TextStyle(
-                    color: Palette.white,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  onTap: () => ExtendedNavigator.of(context).pushAppWebView(
-                    url: newsItem.link ?? "",
-                    title: newsItem.title ?? "",
+                Center(
+                  child: CustomButton(
+                    title: "Load More",
+                    textStyle: TextStyle(
+                      color: Palette.white,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    onTap: () => ExtendedNavigator.of(context).pushAppWebView(
+                      url: newsItem.link ?? "",
+                      title: newsItem.title ?? "",
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

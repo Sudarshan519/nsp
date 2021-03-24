@@ -10,7 +10,8 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class JapaneseMannerWidget extends StatelessWidget {
   final List<JapaneseManner> data;
-  const JapaneseMannerWidget({
+  final _positionNotifier = ValueNotifier<String>("1");
+  JapaneseMannerWidget({
     Key key,
     @required this.data,
   })  : assert(data != null),
@@ -27,11 +28,26 @@ class JapaneseMannerWidget extends StatelessWidget {
               children: [
                 const CategoryTitleWidget(title: "Japanese Manner"),
                 const Spacer(),
-                Text(
-                  "1/${data.length}",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w500,
-                  ),
+                Row(
+                  children: [
+                    ValueListenableBuilder(
+                      valueListenable: _positionNotifier,
+                      builder: (context, position, child) {
+                        return Text(
+                          position as String,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        );
+                      },
+                    ),
+                    Text(
+                      "/${data.length}",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -39,16 +55,23 @@ class JapaneseMannerWidget extends StatelessWidget {
             Container(
               color: Palette.white,
               height: 240,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: data.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  if (data[index].isYoutube) {
-                    return _getYoutubePlayer(context, data[index]);
-                  }
-                  return _getServiceItem(context, data[index]);
+              child: NotificationListener<ScrollUpdateNotification>(
+                onNotification: (notification) {
+                  final pixel = notification.metrics.pixels / 170;
+                  _positionNotifier.value = "${pixel.toInt() + 1}";
+                  return true;
                 },
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: data.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    if (data[index].isYoutube) {
+                      return _getYoutubePlayer(context, data[index]);
+                    }
+                    return _getServiceItem(context, data[index]);
+                  },
+                ),
               ),
             ),
           ],

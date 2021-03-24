@@ -1,12 +1,9 @@
-import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/features/home/domain/entities/japanese_manner.dart';
-import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:wallet_app/utils/config_reader.dart';
 
 class JapaneseMannerDetailPage extends StatelessWidget {
   final JapaneseManner japaneseManner;
@@ -40,17 +37,6 @@ class JapaneseMannerDetailPage extends StatelessWidget {
   }
 
   Widget newsBody(BuildContext context) {
-    // final width = MediaQuery.of(context).size.width;
-    // final baseURL = getIt<ConfigReader>().baseURL;
-    // return ColumnSuper(
-    // innerDistance: -60,
-    // children: [
-    // Image.network(
-    //   "$baseURL${japaneseManner.image}",
-    //   width: width,
-    //   fit: BoxFit.fitWidth,
-    // ),
-
     return ShadowBoxWidget(
       margin: const EdgeInsets.all(16),
       child: Column(

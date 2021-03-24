@@ -135,39 +135,35 @@ class MyResumeWidget extends StatelessWidget {
       final academicHistoryArray = data.academicHistory;
 
       if (academicHistoryArray.isNotEmpty) {
-        final academicHistory = data.academicHistory.first;
-
-        final name = academicHistory.institute;
-        // final subject = academicHistory.majorSubject;
-        final completion =
-            "${academicHistory.completionMonth} ${academicHistory.completionYear}";
-
-        return _ResumeInformationWidget(
-          title: title,
+        return _ResumeInformationWidgetWithArrayChild(
           percentage: percentage,
-          containerTitle: name,
-          infoText1: "Major subject",
-          infoText1Icon: "assets/images/resume/academy.svg",
-          infoText2: completion,
-          infoText2Icon: "",
-          infoText3: "",
-          infoText3Icon: "",
-          infoText4: "",
-          infoText4Icon: "",
-        );
-      } else {
-        return _ResumeInformationWidget(
           title: title,
-          percentage: percentage,
-          containerTitle: "",
-          infoText1: "",
-          infoText1Icon: "",
-          infoText2: "",
-          infoText2Icon: "",
-          infoText3: "",
-          infoText3Icon: "",
-          infoText4: "",
-          infoText4Icon: "",
+          child: ListView.separated(
+            primary: false,
+            padding: EdgeInsets.zero,
+            // physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: academicHistoryArray.length,
+            itemBuilder: (context, index) {
+              final started =
+                  "${academicHistoryArray[index].startMonth} ${academicHistoryArray[index].startYear}";
+
+              final completion =
+                  "${academicHistoryArray[index].completionMonth} ${academicHistoryArray[index].completionYear}";
+              return _ResumeDescriptionItem(
+                containerTitle: academicHistoryArray[index].institute,
+                infoText1: academicHistoryArray[index].majorSubject,
+                infoText1Icon: "assets/images/resume/academy.svg",
+                infoText2: started,
+                infoText2Icon: "",
+                infoText3: completion,
+                infoText3Icon: "",
+                infoText4: "",
+                infoText4Icon: "",
+              );
+            },
+            separatorBuilder: (_, __) => const SizedBox(height: 15),
+          ),
         );
       }
     }
@@ -179,38 +175,35 @@ class MyResumeWidget extends StatelessWidget {
       final workHistoryArray = data.workHistory;
 
       if (workHistoryArray.isNotEmpty) {
-        final workHistory = workHistoryArray.first;
-
-        final name = workHistory.companyName;
-        // final type = workHistory.companyType;
-        final started = "${workHistory.startMonth} ${workHistory.startYear}";
-
-        return _ResumeInformationWidget(
-          title: title,
+        return _ResumeInformationWidgetWithArrayChild(
           percentage: percentage,
-          containerTitle: name,
-          infoText1: "Company Type",
-          infoText2: started,
-          infoText3: "",
-          infoText4: "",
-          infoText1Icon: "",
-          infoText2Icon: "",
-          infoText3Icon: "",
-          infoText4Icon: "",
-        );
-      } else {
-        return _ResumeInformationWidget(
           title: title,
-          percentage: percentage,
-          containerTitle: "",
-          infoText1: "",
-          infoText2: "",
-          infoText3: "",
-          infoText4: "",
-          infoText1Icon: "",
-          infoText2Icon: "",
-          infoText3Icon: "",
-          infoText4Icon: "",
+          child: ListView.separated(
+            primary: false,
+            padding: EdgeInsets.zero,
+            // physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: workHistoryArray.length,
+            itemBuilder: (context, index) {
+              final started =
+                  "${workHistoryArray[index].startMonth} ${workHistoryArray[index].startYear}";
+
+              final completion =
+                  "${workHistoryArray[index].endMonth} ${workHistoryArray[index].endYear}";
+              return _ResumeDescriptionItem(
+                containerTitle: workHistoryArray[index].companyName,
+                infoText1: workHistoryArray[index].companyType,
+                infoText1Icon: "assets/images/resume/academy.svg",
+                infoText2: started,
+                infoText2Icon: "",
+                infoText3: completion,
+                infoText3Icon: "",
+                infoText4: "",
+                infoText4Icon: "",
+              );
+            },
+            separatorBuilder: (_, __) => const SizedBox(height: 15),
+          ),
         );
       }
     }
@@ -222,42 +215,139 @@ class MyResumeWidget extends StatelessWidget {
       final qualificationHistoryArray = data.qualificationHistory;
 
       if (qualificationHistoryArray.isNotEmpty) {
-        final qualificationHistory = data.qualificationHistory.first;
-
-        final name = qualificationHistory.qualificationName;
-        final certified =
-            "${qualificationHistory.certifiedMonth} ${qualificationHistory.certifiedYear}";
-
-        return _ResumeInformationWidget(
-          title: title,
+        return _ResumeInformationWidgetWithArrayChild(
           percentage: percentage,
-          containerTitle: name,
-          infoText1: certified,
-          infoText2: "",
-          infoText3: "",
-          infoText4: "",
-          infoText1Icon: "",
-          infoText2Icon: "",
-          infoText3Icon: "",
-          infoText4Icon: "",
-        );
-      } else {
-        return _ResumeInformationWidget(
           title: title,
-          percentage: percentage,
-          containerTitle: "",
-          infoText1: "",
-          infoText2: "",
-          infoText3: "",
-          infoText4: "",
-          infoText1Icon: "",
-          infoText2Icon: "",
-          infoText3Icon: "",
-          infoText4Icon: "",
+          child: ListView.separated(
+            primary: false,
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            itemCount: qualificationHistoryArray.length,
+            itemBuilder: (context, index) {
+              final certifiedYear =
+                  "${qualificationHistoryArray[index].certifiedMonth} ${qualificationHistoryArray[index].certifiedYear}";
+
+              return _ResumeDescriptionItem(
+                containerTitle:
+                    qualificationHistoryArray[index].qualificationName,
+                infoText1: certifiedYear,
+                infoText1Icon: "assets/images/resume/academy.svg",
+                infoText2: "",
+                infoText2Icon: "",
+                infoText3: "",
+                infoText3Icon: "",
+                infoText4: "",
+                infoText4Icon: "",
+              );
+            },
+            separatorBuilder: (_, __) => const SizedBox(height: 15),
+          ),
         );
       }
     }
     return const SizedBox.shrink();
+  }
+}
+
+class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
+  final String title;
+  final int percentage;
+  final Widget child;
+
+  final Function(int) changeTabPage;
+
+  const _ResumeInformationWidgetWithArrayChild({
+    Key key,
+    @required this.title,
+    @required this.percentage,
+    @required this.child,
+    this.changeTabPage,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 180,
+      margin: const EdgeInsets.only(right: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 2),
+          Row(
+            children: [
+              Text(
+                title ?? "",
+                style: const TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const Spacer(),
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Text(
+                    "${percentage ?? ""}",
+                    style: TextStyle(
+                      fontSize: 8,
+                      fontWeight: FontWeight.w700,
+                      color: Palette.appGreenColor,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: CircularProgressIndicator(
+                      value: percentage / 100,
+                      strokeWidth: 3,
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Palette.appGreenColor),
+                      backgroundColor: Palette.primaryBackground,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Container(
+            width: double.maxFinite,
+            padding: const EdgeInsets.all(12.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Palette.primaryBackground,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  color: Palette.primaryBackground,
+                  height: 100,
+                  child: child,
+                ),
+                InkWell(
+                  onTap: () {
+                    if (changeTabPage != null) {
+                      DefaultTabController.of(context).animateTo(1);
+                      changeTabPage(1);
+                    }
+                  },
+                  child: Text(
+                    "View Details",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Palette.primary,
+                      fontWeight: FontWeight.w500,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -348,25 +438,17 @@ class _ResumeInformationWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  containerTitle ?? "",
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                _ResumeDescriptionItem(
+                  containerTitle: containerTitle,
+                  infoText1Icon: infoText1Icon,
+                  infoText1: infoText1,
+                  infoText2Icon: infoText2Icon,
+                  infoText2: infoText2,
+                  infoText3Icon: infoText3Icon,
+                  infoText3: infoText3,
+                  infoText4Icon: infoText4Icon,
+                  infoText4: infoText4,
                 ),
-                const SizedBox(height: 5),
-                _buildInformation(assetIcon: infoText1Icon, value: infoText1),
-                const SizedBox(height: 5),
-                _buildInformation(assetIcon: infoText2Icon, value: infoText2),
-                const SizedBox(height: 5),
-                _buildInformation(assetIcon: infoText3Icon, value: infoText3),
-                const SizedBox(height: 5),
-                _buildInformation(assetIcon: infoText4Icon, value: infoText4),
-                const SizedBox(height: 5),
-                const SizedBox(height: 10),
                 InkWell(
                   onTap: () {
                     if (changeTabPage != null) {
@@ -384,12 +466,83 @@ class _ResumeInformationWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 5),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _ResumeDescriptionItem extends StatelessWidget {
+  final String containerTitle;
+  final String infoText1Icon;
+  final String infoText1;
+  final String infoText2Icon;
+  final String infoText2;
+  final String infoText3Icon;
+  final String infoText3;
+  final String infoText4Icon;
+  final String infoText4;
+
+  const _ResumeDescriptionItem({
+    Key key,
+    @required this.containerTitle,
+    @required this.infoText1Icon,
+    @required this.infoText1,
+    @required this.infoText2Icon,
+    @required this.infoText2,
+    @required this.infoText3Icon,
+    @required this.infoText3,
+    @required this.infoText4Icon,
+    @required this.infoText4,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          containerTitle ?? "",
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          ),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        const SizedBox(height: 5),
+        if (infoText1.isNotEmpty)
+          Column(
+            children: [
+              _buildInformation(assetIcon: infoText1Icon, value: infoText1),
+              const SizedBox(height: 5),
+            ],
+          ),
+        if (infoText2.isNotEmpty)
+          Column(
+            children: [
+              _buildInformation(assetIcon: infoText2Icon, value: infoText2),
+              const SizedBox(height: 5),
+            ],
+          ),
+        if (infoText3.isNotEmpty)
+          Column(
+            children: [
+              _buildInformation(assetIcon: infoText3Icon, value: infoText3),
+              const SizedBox(height: 5),
+            ],
+          ),
+        if (infoText4.isNotEmpty)
+          Column(
+            children: [
+              _buildInformation(assetIcon: infoText4Icon, value: infoText4),
+              const SizedBox(height: 5),
+            ],
+          ),
+      ],
     );
   }
 

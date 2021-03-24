@@ -42,117 +42,120 @@ class ServicesDetail extends StatelessWidget {
   Widget newsBody(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final baseURL = getIt<ConfigReader>().baseURL;
-    return ColumnSuper(
-      innerDistance: -50,
-      children: [
-        Image.network(
-          "$baseURL${services.companyBannerImage}",
-          width: width,
-          fit: BoxFit.fitWidth,
-          // loadingBuilder: (_, __, ___) => loadingPage(),
-        ),
-        ShadowBoxWidget(
-          margin: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            // mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: FadeInImage.assetNetwork(
-                      image: "$baseURL${services.companyLogo}",
-                      height: 76,
-                      width: 90,
-                      fit: BoxFit.cover,
-                      placeholder: "",
-                    ),
+    return SingleChildScrollView(
+      child: ColumnSuper(
+        innerDistance: -50,
+        children: [
+          Image.network(
+            "$baseURL${services.companyBannerImage}",
+            width: width,
+            fit: BoxFit.fitWidth,
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent loadingProgress) {
+              if (loadingProgress == null) return child;
+              return Container(
+                color: Palette.primaryBackground,
+                height: 200,
+                child: Center(
+                  child: CircularProgressIndicator(
+                    value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded /
+                            loadingProgress.expectedTotalBytes
+                        : null,
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          services?.serviceProductName ?? "",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.justify,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          "${services?.companyAddressHeadStreet ?? ""}, ${services?.companyAddressHeadCity ?? ""}, ${services?.companyAddressHeadProvince ?? ""}, ${services?.companyAddressHeadCountry ?? ""}",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                          ),
-                          textAlign: TextAlign.justify,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const SizedBox(height: 5),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 4,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Palette.black.withOpacity(0.3),
-                            ),
-                          ),
-                          child: Text(
-                            services?.category ?? "",
-                            style: TextStyle(
-                              color: Palette.black.withOpacity(0.7),
-                              fontSize: 10,
-                            ),
-                            overflow: TextOverflow.clip,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              // ),
-              const SizedBox(
-                height: 4,
-              ),
-              Container(
-                height: 1,
-                color: Palette.dividerColor,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-
-              // Text(newsItem.description)
-              // Html(data: services.description),
-              // Expanded(
-              //   child:
-              SingleChildScrollView(
-                child: Column(
+                ),
+              );
+            },
+          ),
+          ShadowBoxWidget(
+            margin: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
                   children: [
-                    Html(
-                      data: services.description,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: FadeInImage.assetNetwork(
+                        image: "$baseURL${services.companyLogo}",
+                        height: 76,
+                        width: 90,
+                        fit: BoxFit.cover,
+                        placeholder: "",
+                      ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            services?.serviceProductName ?? "",
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.justify,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "${services?.companyAddressHeadStreet ?? ""}, ${services?.companyAddressHeadCity ?? ""}, ${services?.companyAddressHeadProvince ?? ""}, ${services?.companyAddressHeadCountry ?? ""}",
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12,
+                            ),
+                            textAlign: TextAlign.justify,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(height: 5),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 4,
+                              vertical: 2,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: Palette.black.withOpacity(0.3),
+                              ),
+                            ),
+                            child: Text(
+                              services?.category ?? "",
+                              style: TextStyle(
+                                color: Palette.black.withOpacity(0.7),
+                                fontSize: 10,
+                              ),
+                              overflow: TextOverflow.clip,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-              ),
-              // ),
+                // ),
+                const SizedBox(
+                  height: 4,
+                ),
+                Container(
+                  height: 1,
+                  color: Palette.dividerColor,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Html(
+                  data: services.description,
+                ),
 
-              const SizedBox(height: 20),
-            ],
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
@@ -59,7 +61,8 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
     final statusCode = response.statusCode;
 
     if (statusCode == 200) {
-      final homeResponse = homeResponseModelFromJson(response.body);
+      final responseBody = utf8.decode(response.bodyBytes);
+      final homeResponse = homeResponseModelFromJson(responseBody);
       final userDetails = homeResponse.first.userDetail as UserDetailModel;
       final homeData = homeResponse.last.homeData as List<HomeDataModel>;
 
