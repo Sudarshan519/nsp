@@ -89,11 +89,10 @@ class AddressPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () =>
-                          ExtendedNavigator.of(context).pushEditAddressInfoForm(
+                      onTap: () => ExtendedNavigator.of(context)
+                          .pushEditCurrentAddressInfoForm(
                         info: info,
                         actorBloc: addressInfoActorBloc,
-                        isCurrent: true,
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
@@ -136,11 +135,10 @@ class AddressPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () =>
-                          ExtendedNavigator.of(context).pushEditAddressInfoForm(
+                      onTap: () => ExtendedNavigator.of(context)
+                          .pushEditContactAddressInfoForm(
                         info: info,
                         actorBloc: addressInfoActorBloc,
-                        isCurrent: false,
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",

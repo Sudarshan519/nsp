@@ -141,7 +141,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     if (statusCode == 200) {
       return WalletUserModel.fromJSON(
           json.decode(response.body) as Map<String, dynamic>);
-    } else if (statusCode == 403) {
+    } else if (statusCode == 400) {
       return WalletUserModel.fromUnVerifiedUser();
     } else {
       throw ServerException(

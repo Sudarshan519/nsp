@@ -42,37 +42,45 @@ class JapaneseMannerDetailPage extends StatelessWidget {
   Widget newsBody(BuildContext context) {
     // final width = MediaQuery.of(context).size.width;
     // final baseURL = getIt<ConfigReader>().baseURL;
-    return ColumnSuper(
-      // innerDistance: -60,
-      children: [
-        // Image.network(
-        //   "$baseURL${japaneseManner.image}",
-        //   width: width,
-        //   fit: BoxFit.fitWidth,
-        // ),
+    // return ColumnSuper(
+    // innerDistance: -60,
+    // children: [
+    // Image.network(
+    //   "$baseURL${japaneseManner.image}",
+    //   width: width,
+    //   fit: BoxFit.fitWidth,
+    // ),
 
-        ShadowBoxWidget(
-          margin: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                japaneseManner.title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Html(data: japaneseManner.description),
-              const SizedBox(height: 10),
-            ],
+    return ShadowBoxWidget(
+      margin: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            japaneseManner.title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
           ),
-        ),
-      ],
+          const SizedBox(
+            height: 10,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Html(
+                    data: japaneseManner.description,
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

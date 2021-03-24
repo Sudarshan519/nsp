@@ -30,11 +30,11 @@ class Services extends Equatable {
   final String companyLogo;
   final String companyBannerImage;
   final String salesContactEmail;
-  final int salesContactPhone;
+  final String salesContactPhone;
   final String supportContactEmail;
-  final int supportContactPhone;
+  final String supportContactPhone;
   final String companyAddressHeadCountry;
-  final int companyAddressHeadPostCode;
+  final String companyAddressHeadPostCode;
   final String companyAddressHeadProvince;
   final String companyAddressHeadCity;
   final String companyAddressHeadStreet;

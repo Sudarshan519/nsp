@@ -36,6 +36,7 @@ class CustomDropDownWidget extends StatelessWidget {
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: hintText,
+            // hintTextDirection: TextDirection.rtl,
             hintStyle: TextStyle(
               fontSize: 14.0,
               fontWeight: FontWeight.w300,

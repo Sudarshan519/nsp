@@ -9,7 +9,6 @@ import 'package:wallet_app/features/location_information/domain/usecases/get_jap
 import 'package:wallet_app/features/location_information/domain/usecases/get_prefecture.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
-import 'package:wallet_app/injections/injection.dart';
 
 part 'update_address_info_actor_event.dart';
 part 'update_address_info_actor_state.dart';
@@ -18,13 +17,16 @@ part 'update_address_info_actor_bloc.freezed.dart';
 class UpdateAddressInfoActorBloc
     extends Bloc<UpdateAddressInfoActorEvent, UpdateAddressInfoActorState> {
   final UpdateAddressInfo updateAddressInfo;
-  final GetCountries _getCountries = getIt<GetCountries>();
-  final GetPrefecture _getPrefecture = getIt<GetPrefecture>();
-  final GetJapanCity _getJapanCity = getIt<GetJapanCity>();
+  final GetCountries getCountries;
+  final GetPrefecture getPrefecture;
+  final GetJapanCity getJapanCity;
   PersonalInfo _personalInfo;
 
   UpdateAddressInfoActorBloc({
     @required this.updateAddressInfo,
+    @required this.getCountries,
+    @required this.getPrefecture,
+    @required this.getJapanCity,
   }) : super(UpdateAddressInfoActorState.initial());
 
   @override
@@ -33,42 +35,55 @@ class UpdateAddressInfoActorBloc
   ) async* {
     yield* event.map(
       changeCountry: (e) async* {
+        print("changeCountry");
         yield _mapChangeCountryToState(e);
       },
       changedCurrPostalCode: (e) async* {
+        print("changedCurrPostalCode");
         yield _mapChangeCurrPostalCodeToState(e);
       },
       changedCurrPrefecture: (e) async* {
+        print("changedCurrPrefecture");
         yield* _mapChangeCurrPrefectureToState(e);
       },
       changedCurrCity: (e) async* {
+        print("changedCurrCity");
         yield _mapChangeCurrCityToState(e);
       },
       changedCurrAddress: (e) async* {
+        print("changedCurrAddress");
         yield _mapChangeCurrAddressToState(e);
       },
       changedCurrPhone: (e) async* {
+        print("changedCurrPhone");
         yield _mapChangeCurrPhoneToState(e);
       },
       changedContPostalCode: (e) async* {
+        print("changedContPostalCode");
         yield _mapChangeContPostalCodeToState(e);
       },
       changedContPrefecture: (e) async* {
+        print("changedContPrefecture");
         yield* _mapChangeContPrefectureToState(e);
       },
       changedContCity: (e) async* {
+        print("changedContCity");
         yield _mapChangeContCityToState(e);
       },
       changedContAddress: (e) async* {
+        print("changedContAddress");
         yield _mapChangeContAddressToState(e);
       },
       changedContPhone: (e) async* {
+        print("changedContPhone");
         yield _mapChangeContPhoneToState(e);
       },
       setInitialState: (e) async* {
+        print("setInitialState");
         yield* _mapsetInitialState(e);
       },
       save: (e) async* {
+        print("save");
         yield* _mapSaveToState(e);
       },
     );
@@ -76,15 +91,15 @@ class UpdateAddressInfoActorBloc
 
   Stream<UpdateAddressInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
-    yield state.copyWith(
-      isSubmitting: true,
-    );
+    // yield state.copyWith(
+    //   isSubmitting: true,
+    // );
 
     final userInfo = _setInitialState.info;
-    final listOfCountry = await _getCountries();
-    final listOfPrefecture = await _getPrefecture();
-    final listOfCurrCities = await _getJapanCity(userInfo.currPrefecture);
-    final listOfContCities = await _getJapanCity(userInfo.contPrefecture);
+    final listOfCountry = await getCountries();
+    final listOfPrefecture = await getPrefecture();
+    final listOfCurrCities = await getJapanCity(userInfo.currPrefecture);
+    final listOfContCities = await getJapanCity(userInfo.contPrefecture);
 
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
@@ -119,6 +134,7 @@ class UpdateAddressInfoActorBloc
 
   UpdateAddressInfoActorState _mapChangeCurrPostalCodeToState(
       _ChangedCurrPostalCode _changedPostalCode) {
+    print("current postal code: ${_changedPostalCode.code}");
     return state.copyWith(
       currPostalCode: _changedPostalCode.code,
       authFailureOrSuccessOption: none(),
@@ -127,7 +143,7 @@ class UpdateAddressInfoActorBloc
 
   Stream<UpdateAddressInfoActorState> _mapChangeCurrPrefectureToState(
       _ChangedCurrPrefecture _changedPrefecture) async* {
-    final listOfCurrCities = await _getJapanCity(_changedPrefecture.prefecture);
+    final listOfCurrCities = await getJapanCity(_changedPrefecture.prefecture);
     yield state.copyWith(
       currPrefecture: _changedPrefecture.prefecture,
       listOfCurrCities: listOfCurrCities,
@@ -170,7 +186,7 @@ class UpdateAddressInfoActorBloc
 
   Stream<UpdateAddressInfoActorState> _mapChangeContPrefectureToState(
       _ChangedContPrefecture _changedPrefecture) async* {
-    final listOfContCities = await _getJapanCity(_changedPrefecture.prefecture);
+    final listOfContCities = await getJapanCity(_changedPrefecture.prefecture);
     yield state.copyWith(
       contPrefecture: _changedPrefecture.prefecture,
       listOfContCities: listOfContCities,

@@ -49,22 +49,24 @@ class ServicesDetail extends StatelessWidget {
           "$baseURL${services.companyBannerImage}",
           width: width,
           fit: BoxFit.fitWidth,
+          // loadingBuilder: (_, __, ___) => loadingPage(),
         ),
         ShadowBoxWidget(
           margin: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
+            // mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(16),
-                    child: Image.network(
-                      "$baseURL${services.companyLogo}",
+                    child: FadeInImage.assetNetwork(
+                      image: "$baseURL${services.companyLogo}",
                       height: 76,
                       width: 90,
                       fit: BoxFit.cover,
+                      placeholder: "",
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -131,7 +133,20 @@ class ServicesDetail extends StatelessWidget {
               ),
 
               // Text(newsItem.description)
-              Html(data: services.description),
+              // Html(data: services.description),
+              // Expanded(
+              //   child:
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Html(
+                      data: services.description,
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                ),
+              ),
+              // ),
 
               const SizedBox(height: 20),
             ],

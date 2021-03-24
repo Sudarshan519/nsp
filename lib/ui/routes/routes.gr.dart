@@ -31,7 +31,8 @@ import '../pages/home/detail_pages/service_detail.dart';
 import '../pages/news/detail_page/news_detail.dart';
 import '../pages/resume/resume_tab_pages/about/edit_basic_info.dart';
 import '../pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
-import '../pages/resume/resume_tab_pages/address/edit_address_info.dart';
+import '../pages/resume/resume_tab_pages/address/contact_address/edit_current_address_info.dart';
+import '../pages/resume/resume_tab_pages/address/current_address/edit_contact_address_info.dart';
 import '../pages/resume/resume_tab_pages/other/edit_other_info.dart';
 import '../pages/resume/resume_tab_pages/qualification/edit_qualification_info.dart';
 import '../pages/resume/resume_tab_pages/work/edit_work_info.dart';
@@ -47,7 +48,10 @@ class Routes {
   static const String signupPage = '/signup-page';
   static const String tabBarScreen = '/tab-bar-screen';
   static const String editBasicInfoForm = '/edit-basic-info-form';
-  static const String editAddressInfoForm = '/edit-address-info-form';
+  static const String editCurrentAddressInfoForm =
+      '/edit-current-address-info-form';
+  static const String editContactAddressInfoForm =
+      '/edit-contact-address-info-form';
   static const String editWorkInfoForm = '/edit-work-info-form';
   static const String editAcademicInfoForm = '/edit-academic-info-form';
   static const String editQualificationInfoForm =
@@ -65,7 +69,8 @@ class Routes {
     signupPage,
     tabBarScreen,
     editBasicInfoForm,
-    editAddressInfoForm,
+    editCurrentAddressInfoForm,
+    editContactAddressInfoForm,
     editWorkInfoForm,
     editAcademicInfoForm,
     editQualificationInfoForm,
@@ -88,7 +93,10 @@ class Router extends RouterBase {
     RouteDef(Routes.signupPage, page: SignupPage),
     RouteDef(Routes.tabBarScreen, page: TabBarScreen),
     RouteDef(Routes.editBasicInfoForm, page: EditBasicInfoForm),
-    RouteDef(Routes.editAddressInfoForm, page: EditAddressInfoForm),
+    RouteDef(Routes.editCurrentAddressInfoForm,
+        page: EditCurrentAddressInfoForm),
+    RouteDef(Routes.editContactAddressInfoForm,
+        page: EditContactAddressInfoForm),
     RouteDef(Routes.editWorkInfoForm, page: EditWorkInfoForm),
     RouteDef(Routes.editAcademicInfoForm, page: EditAcademicInfoForm),
     RouteDef(Routes.editQualificationInfoForm, page: EditQualificationInfoForm),
@@ -152,14 +160,26 @@ class Router extends RouterBase {
         settings: data,
       );
     },
-    EditAddressInfoForm: (data) {
-      final args = data.getArgs<EditAddressInfoFormArguments>(nullOk: false);
+    EditCurrentAddressInfoForm: (data) {
+      final args =
+          data.getArgs<EditCurrentAddressInfoFormArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => EditAddressInfoForm(
+        builder: (context) => EditCurrentAddressInfoForm(
           key: args.key,
           info: args.info,
           actorBloc: args.actorBloc,
-          isCurrent: args.isCurrent,
+        ),
+        settings: data,
+      );
+    },
+    EditContactAddressInfoForm: (data) {
+      final args =
+          data.getArgs<EditContactAddressInfoFormArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => EditContactAddressInfoForm(
+          key: args.key,
+          info: args.info,
+          actorBloc: args.actorBloc,
         ),
         settings: data,
       );
@@ -292,16 +312,26 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
             key: key, info: info, actorBloc: actorBloc),
       );
 
-  Future<dynamic> pushEditAddressInfoForm({
+  Future<dynamic> pushEditCurrentAddressInfoForm({
     Key key,
     @required PersonalInfo info,
     @required UpdateAddressInfoActorBloc actorBloc,
-    @required bool isCurrent,
   }) =>
       push<dynamic>(
-        Routes.editAddressInfoForm,
-        arguments: EditAddressInfoFormArguments(
-            key: key, info: info, actorBloc: actorBloc, isCurrent: isCurrent),
+        Routes.editCurrentAddressInfoForm,
+        arguments: EditCurrentAddressInfoFormArguments(
+            key: key, info: info, actorBloc: actorBloc),
+      );
+
+  Future<dynamic> pushEditContactAddressInfoForm({
+    Key key,
+    @required PersonalInfo info,
+    @required UpdateAddressInfoActorBloc actorBloc,
+  }) =>
+      push<dynamic>(
+        Routes.editContactAddressInfoForm,
+        arguments: EditContactAddressInfoFormArguments(
+            key: key, info: info, actorBloc: actorBloc),
       );
 
   Future<dynamic> pushEditWorkInfoForm({
@@ -415,17 +445,22 @@ class EditBasicInfoFormArguments {
       {this.key, @required this.info, @required this.actorBloc});
 }
 
-/// EditAddressInfoForm arguments holder class
-class EditAddressInfoFormArguments {
+/// EditCurrentAddressInfoForm arguments holder class
+class EditCurrentAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
   final UpdateAddressInfoActorBloc actorBloc;
-  final bool isCurrent;
-  EditAddressInfoFormArguments(
-      {this.key,
-      @required this.info,
-      @required this.actorBloc,
-      @required this.isCurrent});
+  EditCurrentAddressInfoFormArguments(
+      {this.key, @required this.info, @required this.actorBloc});
+}
+
+/// EditContactAddressInfoForm arguments holder class
+class EditContactAddressInfoFormArguments {
+  final Key key;
+  final PersonalInfo info;
+  final UpdateAddressInfoActorBloc actorBloc;
+  EditContactAddressInfoFormArguments(
+      {this.key, @required this.info, @required this.actorBloc});
 }
 
 /// EditWorkInfoForm arguments holder class

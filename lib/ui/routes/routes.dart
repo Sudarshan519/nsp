@@ -8,7 +8,8 @@ import 'package:wallet_app/ui/pages/home/detail_pages/service_detail.dart';
 import 'package:wallet_app/ui/pages/news/detail_page/news_detail.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/about/edit_basic_info.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
-import 'package:wallet_app/ui/pages/resume/resume_tab_pages/address/edit_address_info.dart';
+import 'package:wallet_app/ui/pages/resume/resume_tab_pages/address/contact_address/edit_current_address_info.dart';
+import 'package:wallet_app/ui/pages/resume/resume_tab_pages/address/current_address/edit_contact_address_info.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/other/edit_other_info.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/qualification/edit_qualification_info.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/work/edit_work_info.dart';
@@ -26,7 +27,8 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     MaterialRoute(page: SignupPage),
     MaterialRoute(page: TabBarScreen),
     MaterialRoute(page: EditBasicInfoForm),
-    MaterialRoute(page: EditAddressInfoForm),
+    MaterialRoute(page: EditCurrentAddressInfoForm),
+    MaterialRoute(page: EditContactAddressInfoForm),
     MaterialRoute(page: EditWorkInfoForm),
     MaterialRoute(page: EditAcademicInfoForm),
     MaterialRoute(page: EditQualificationInfoForm),

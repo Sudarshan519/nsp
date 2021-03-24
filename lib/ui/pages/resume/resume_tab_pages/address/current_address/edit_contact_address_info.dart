@@ -16,16 +16,14 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 
-class EditAddressInfoForm extends StatelessWidget {
+class EditContactAddressInfoForm extends StatelessWidget {
   final UpdateAddressInfoActorBloc actorBloc;
   final PersonalInfo info;
-  final bool isCurrent;
 
-  const EditAddressInfoForm({
+  const EditContactAddressInfoForm({
     Key key,
     @required this.info,
     @required this.actorBloc,
-    @required this.isCurrent,
   })  : assert(info != null),
         super(key: key);
 
@@ -94,19 +92,15 @@ class EditAddressInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        return _EditBasicInfoFormBody(
-          isCurrent: isCurrent,
-        );
+        return const _EditBasicInfoFormBody();
       },
     );
   }
 }
 
 class _EditBasicInfoFormBody extends StatelessWidget {
-  final bool isCurrent;
   const _EditBasicInfoFormBody({
     Key key,
-    @required this.isCurrent,
   }) : super(key: key);
 
   @override
@@ -115,18 +109,18 @@ class _EditBasicInfoFormBody extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
         child: Column(
-          children: [
-            const _CountryInputField(),
-            const SizedBox(height: 20),
-            _PostalCodeInputField(isCurrent: isCurrent),
-            const SizedBox(height: 20),
-            _PrefectureInputField(isCurrent: isCurrent),
-            const SizedBox(height: 20),
-            _CityInputField(isCurrent: isCurrent),
-            const SizedBox(height: 20),
-            _AddressInputField(isCurrent: isCurrent),
-            const SizedBox(height: 20),
-            _PhoneInputField(isCurrent: isCurrent),
+          children: const [
+            _CountryInputField(),
+            SizedBox(height: 20),
+            _PostalCodeInputField(),
+            SizedBox(height: 20),
+            _PrefectureInputField(),
+            SizedBox(height: 20),
+            _CityInputField(),
+            SizedBox(height: 20),
+            _AddressInputField(),
+            SizedBox(height: 20),
+            _PhoneInputField(),
           ],
         ),
       ),
@@ -195,10 +189,8 @@ class _CountryInputField extends StatelessWidget {
 }
 
 class _PostalCodeInputField extends StatelessWidget {
-  final bool isCurrent;
   const _PostalCodeInputField({
     Key key,
-    @required this.isCurrent,
   }) : super(key: key);
 
   @override
@@ -207,64 +199,43 @@ class _PostalCodeInputField extends StatelessWidget {
     String value;
     return BlocConsumer<UpdateAddressInfoActorBloc,
         UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currPostalCode != current.currPostalCode;
-        } else {
-          return previous.contPostalCode != current.contPostalCode;
-        }
-      },
+      listenWhen: (previous, current) =>
+          previous.contPostalCode != current.contPostalCode,
       listener: (context, state) {
         final TextSelection previousSelection = _controller.selection;
-        if (isCurrent) {
-          _controller.text = state.currPostalCode;
-          value = state.currPostalCode;
-        } else {
-          _controller.text = state.contPostalCode;
-          value = state.contPostalCode;
-        }
-
+        _controller.text = state.contPostalCode;
+        value = state.contPostalCode;
         _controller.selection = previousSelection;
       },
-      buildWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currPostalCode != current.currPostalCode;
-        } else {
-          return previous.contPostalCode != current.contPostalCode;
-        }
-      },
+      buildWhen: (previous, current) =>
+          previous.contPostalCode != current.contPostalCode,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Postal Code",
         child: InputTextWidget(
-            hintText: "Postal Code",
-            textInputType: TextInputType.number,
-            controller: TextEditingController(text: value),
-            inputFormatters: [
-              LengthLimitingTextInputFormatter(8),
-              MaskedTextInputFormatter(
-                mask: "xxx-xxxx",
-                separator: "-",
-              ),
-            ],
-            onChanged: (value) {
-              if (isCurrent) {
-                context.read<UpdateAddressInfoActorBloc>().add(
-                    UpdateAddressInfoActorEvent.changedCurrPostalCode(value));
-              } else {
-                context.read<UpdateAddressInfoActorBloc>().add(
-                    UpdateAddressInfoActorEvent.changedContPostalCode(value));
-              }
-            }),
+          hintText: "Postal Code",
+          textInputType: TextInputType.number,
+          controller: _controller,
+          inputFormatters: [
+            LengthLimitingTextInputFormatter(8),
+            MaskedTextInputFormatter(
+              mask: "xxx-xxxx",
+              separator: "-",
+            ),
+          ],
+          onChanged: (value) {
+            context
+                .read<UpdateAddressInfoActorBloc>()
+                .add(UpdateAddressInfoActorEvent.changedContPostalCode(value));
+          },
+        ),
       ),
     );
   }
 }
 
 class _PrefectureInputField extends StatelessWidget {
-  final bool isCurrent;
   const _PrefectureInputField({
     Key key,
-    @required this.isCurrent,
   }) : super(key: key);
 
   @override
@@ -272,66 +243,37 @@ class _PrefectureInputField extends StatelessWidget {
     final TextEditingController _controller = TextEditingController();
     return BlocConsumer<UpdateAddressInfoActorBloc,
         UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currPrefecture != current.currPrefecture ||
-              previous.country != current.country;
-        } else {
-          return previous.contPrefecture != current.contPrefecture ||
-              previous.country != current.country;
-        }
-      },
+      listenWhen: (previous, current) =>
+          previous.contPrefecture != current.contPrefecture ||
+          previous.country != current.country,
       listener: (context, state) {
         final TextSelection previousSelection = _controller.selection;
-        if (isCurrent) {
-          _controller.text = state.currPrefecture;
-        } else {
-          _controller.text = state.contPrefecture;
-        }
+
+        _controller.text = state.contPrefecture;
 
         _controller.selection = previousSelection;
       },
-      buildWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currPrefecture != current.currPrefecture ||
-              previous.country != current.country;
-        } else {
-          return previous.contPrefecture != current.contPrefecture ||
-              previous.country != current.country;
-        }
-      },
+      buildWhen: (previous, current) =>
+          previous.contPrefecture != current.contPrefecture ||
+          previous.country != current.country,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
         child: state.country.toLowerCase() == "japan"
             ? CustomDropDownWidget(
                 hintText: "Prefecture",
-                value: isCurrent ? state.currPrefecture : state.contPrefecture,
+                value: state.contPrefecture,
                 options: state.listOfPrefectures,
                 onChanged: (value) {
-                  if (isCurrent) {
-                    context.read<UpdateAddressInfoActorBloc>().add(
-                        UpdateAddressInfoActorEvent.changedCurrPrefecture(
-                            value));
-                  } else {
-                    context.read<UpdateAddressInfoActorBloc>().add(
-                        UpdateAddressInfoActorEvent.changedContPrefecture(
-                            value));
-                  }
+                  context.read<UpdateAddressInfoActorBloc>().add(
+                      UpdateAddressInfoActorEvent.changedContPrefecture(value));
                 },
               )
             : InputTextWidget(
                 hintText: "Prefecture",
                 controller: _controller,
                 onChanged: (value) {
-                  if (isCurrent) {
-                    context.read<UpdateAddressInfoActorBloc>().add(
-                        UpdateAddressInfoActorEvent.changedCurrPrefecture(
-                            value));
-                  } else {
-                    context.read<UpdateAddressInfoActorBloc>().add(
-                        UpdateAddressInfoActorEvent.changedContPrefecture(
-                            value));
-                  }
+                  context.read<UpdateAddressInfoActorBloc>().add(
+                      UpdateAddressInfoActorEvent.changedContPrefecture(value));
                 },
               ),
       ),
@@ -340,10 +282,8 @@ class _PrefectureInputField extends StatelessWidget {
 }
 
 class _CityInputField extends StatelessWidget {
-  final bool isCurrent;
   const _CityInputField({
     Key key,
-    @required this.isCurrent,
   }) : super(key: key);
 
   @override
@@ -351,67 +291,41 @@ class _CityInputField extends StatelessWidget {
     final TextEditingController _controller = TextEditingController();
     return BlocConsumer<UpdateAddressInfoActorBloc,
         UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currCity != current.currCity ||
-              previous.currPrefecture != current.currPrefecture ||
-              previous.country != current.country;
-        } else {
-          return previous.contCity != current.contCity ||
-              previous.contPrefecture != current.contPrefecture ||
-              previous.country != current.country;
-        }
-      },
+      listenWhen: (previous, current) =>
+          previous.contCity != current.contCity ||
+          previous.contPrefecture != current.contPrefecture ||
+          previous.country != current.country,
       listener: (context, state) {
         final TextSelection previousSelection = _controller.selection;
-        if (isCurrent) {
-          _controller.text = state.currCity;
-        } else {
-          _controller.text = state.contCity;
-        }
+
+        _controller.text = state.contCity;
 
         _controller.selection = previousSelection;
       },
-      buildWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currCity != current.currCity ||
-              previous.currPrefecture != current.currPrefecture ||
-              previous.country != current.country;
-        } else {
-          return previous.contCity != current.contCity ||
-              previous.contPrefecture != current.contPrefecture ||
-              previous.country != current.country;
-        }
-      },
+      buildWhen: (previous, current) =>
+          previous.contCity != current.contCity ||
+          previous.contPrefecture != current.contPrefecture ||
+          previous.country != current.country,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
         child: state.country.toLowerCase() == "japan"
             ? CustomDropDownWidget(
                 hintText: "City",
-                value: isCurrent ? state.currCity : state.contCity,
-                options:
-                    isCurrent ? state.listOfCurrCities : state.listOfContCities,
+                value: state.contCity,
+                options: state.listOfCurrCities,
                 onChanged: (value) {
-                  if (isCurrent) {
-                    context.read<UpdateAddressInfoActorBloc>().add(
-                        UpdateAddressInfoActorEvent.changedCurrCity(value));
-                  } else {
-                    context.read<UpdateAddressInfoActorBloc>().add(
-                        UpdateAddressInfoActorEvent.changedContCity(value));
-                  }
+                  context
+                      .read<UpdateAddressInfoActorBloc>()
+                      .add(UpdateAddressInfoActorEvent.changedContCity(value));
                 },
               )
             : InputTextWidget(
                 hintText: "City",
                 controller: _controller,
                 onChanged: (value) {
-                  if (isCurrent) {
-                    context.read<UpdateAddressInfoActorBloc>().add(
-                        UpdateAddressInfoActorEvent.changedCurrCity(value));
-                  } else {
-                    context.read<UpdateAddressInfoActorBloc>().add(
-                        UpdateAddressInfoActorEvent.changedContCity(value));
-                  }
+                  context
+                      .read<UpdateAddressInfoActorBloc>()
+                      .add(UpdateAddressInfoActorEvent.changedContCity(value));
                 },
               ),
       ),
@@ -420,10 +334,8 @@ class _CityInputField extends StatelessWidget {
 }
 
 class _AddressInputField extends StatelessWidget {
-  final bool isCurrent;
   const _AddressInputField({
     Key key,
-    @required this.isCurrent,
   }) : super(key: key);
 
   @override
@@ -431,30 +343,17 @@ class _AddressInputField extends StatelessWidget {
     final TextEditingController _controller = TextEditingController();
     return BlocConsumer<UpdateAddressInfoActorBloc,
         UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currAddress != current.currAddress;
-        } else {
-          return previous.contAddress != current.contAddress;
-        }
-      },
+      listenWhen: (previous, current) =>
+          previous.contAddress != current.contAddress,
       listener: (context, state) {
         final TextSelection previousSelection = _controller.selection;
-        if (isCurrent) {
-          _controller.text = state.currAddress;
-        } else {
-          _controller.text = state.contAddress;
-        }
+
+        _controller.text = state.contAddress;
 
         _controller.selection = previousSelection;
       },
-      buildWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currAddress != current.currAddress;
-        } else {
-          return previous.contAddress != current.contAddress;
-        }
-      },
+      buildWhen: (previous, current) =>
+          previous.contAddress != current.contAddress,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Address",
         child: InputTextWidget(
@@ -462,15 +361,9 @@ class _AddressInputField extends StatelessWidget {
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           controller: _controller,
           onChanged: (value) {
-            if (isCurrent) {
-              context
-                  .read<UpdateAddressInfoActorBloc>()
-                  .add(UpdateAddressInfoActorEvent.changedCurrAddress(value));
-            } else {
-              context
-                  .read<UpdateAddressInfoActorBloc>()
-                  .add(UpdateAddressInfoActorEvent.changedContAddress(value));
-            }
+            context
+                .read<UpdateAddressInfoActorBloc>()
+                .add(UpdateAddressInfoActorEvent.changedContAddress(value));
           },
         ),
       ),
@@ -479,10 +372,8 @@ class _AddressInputField extends StatelessWidget {
 }
 
 class _PhoneInputField extends StatelessWidget {
-  final bool isCurrent;
   const _PhoneInputField({
     Key key,
-    @required this.isCurrent,
   }) : super(key: key);
 
   @override
@@ -490,29 +381,17 @@ class _PhoneInputField extends StatelessWidget {
     final TextEditingController _controller = TextEditingController();
     return BlocConsumer<UpdateAddressInfoActorBloc,
         UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currPhone != current.currPhone;
-        } else {
-          return previous.contPhone != current.contPhone;
-        }
-      },
+      listenWhen: (previous, current) =>
+          previous.contPhone != current.contPhone,
       listener: (context, state) {
         final TextSelection previousSelection = _controller.selection;
-        if (isCurrent) {
-          _controller.text = state.currPhone;
-        } else {
-          _controller.text = state.contPhone;
-        }
+
+        _controller.text = state.contPhone;
 
         _controller.selection = previousSelection;
       },
       buildWhen: (previous, current) {
-        if (isCurrent) {
-          return previous.currPhone != current.currPhone;
-        } else {
-          return previous.contPhone != current.contPhone;
-        }
+        return previous.contPhone != current.contPhone;
       },
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Phone",
@@ -528,15 +407,9 @@ class _PhoneInputField extends StatelessWidget {
             ),
           ],
           onChanged: (value) {
-            if (isCurrent) {
-              context
-                  .read<UpdateAddressInfoActorBloc>()
-                  .add(UpdateAddressInfoActorEvent.changedCurrPhone(value));
-            } else {
-              context
-                  .read<UpdateAddressInfoActorBloc>()
-                  .add(UpdateAddressInfoActorEvent.changedContPhone(value));
-            }
+            context
+                .read<UpdateAddressInfoActorBloc>()
+                .add(UpdateAddressInfoActorEvent.changedContPhone(value));
           },
         ),
       ),

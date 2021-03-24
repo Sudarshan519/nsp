@@ -21,6 +21,7 @@ class HomeHeaderWidget extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: [
+            const SizedBox(height: 5),
             _navigationBar(),
             const SizedBox(
               height: 5,

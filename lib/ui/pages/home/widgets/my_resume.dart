@@ -497,7 +497,7 @@ class _DownloadResumeButton extends StatelessWidget {
     final status = await Permission.storage.request();
 
     if (status.isGranted) {
-      Directory externalDir = null;
+      Directory externalDir;
 
       if (Platform.isAndroid) {
         externalDir = await getExternalStorageDirectory();

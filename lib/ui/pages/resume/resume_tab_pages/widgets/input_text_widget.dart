@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-// ignore: must_be_immutable
 class InputTextWidget extends StatelessWidget {
   final String hintText;
   final bool obscureText;

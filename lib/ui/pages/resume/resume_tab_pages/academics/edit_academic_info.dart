@@ -216,7 +216,8 @@ class _MajorSubjectField extends StatelessWidget {
     return BlocBuilder<UpdateAcademicInfoActorBloc,
         UpdateAcademicInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.majorSubject != current.majorSubject,
+          previous.majorSubject != current.majorSubject ||
+          previous.majorSubjectList != current.majorSubjectList,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Major Subject",
         child: CustomDropDownWidget(

@@ -397,7 +397,8 @@ class _NationalityInputField extends StatelessWidget {
     return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.nationality != current.nationality,
+          previous.nationality != current.nationality ||
+          previous.listOfNationality != current.listOfNationality,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Nationality",
         child: CustomDropDownWidget(
