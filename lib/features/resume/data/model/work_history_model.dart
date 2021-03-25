@@ -14,6 +14,7 @@ class WorkHistoryModel extends WorkHistory {
     @required String endMonth,
     @required String description,
     @required String language,
+    @required String purposeOfResign,
     @required String createdAt,
     @required String updatedAt,
   }) : super(
@@ -27,6 +28,7 @@ class WorkHistoryModel extends WorkHistory {
           endMonth: endMonth,
           description: description,
           language: language,
+          purposeOfResign: purposeOfResign,
           createdAt: createdAt,
           updatedAt: updatedAt,
         );
@@ -42,6 +44,7 @@ class WorkHistoryModel extends WorkHistory {
         endYear: json["end_year"] as String,
         endMonth: json["end_month"] as String,
         description: json["description"] as String,
+        purposeOfResign: json["purpose_of_resign"] as String,
         language: json["language"] as String,
         createdAt: json["created_at"] as String,
         updatedAt: json["updated_at"] as String,
@@ -78,6 +81,10 @@ class WorkHistoryModel extends WorkHistory {
       params["end_month"] = endMonth;
     }
 
+    if (purposeOfResign != null) {
+      params["purpose_of_resign"] = purposeOfResign;
+    }
+
     final Map<String, dynamic> parent = {};
 
     parent["experience"] = [params];
@@ -98,6 +105,7 @@ extension WorkHistoryExt on WorkHistory {
         endMonth: endMonth,
         description: description,
         language: language,
+        purposeOfResign: purposeOfResign,
         createdAt: createdAt,
         updatedAt: updatedAt,
       );

@@ -26,11 +26,13 @@ class UpdateAddressInfo extends Usecase<ApiFailure, Unit, UpdateAddressParams> {
     }
 
     final userData = PersonalInfo(
+      currCountry: params.currCountry,
       currPostalCode: params.currPostalCode,
       currPrefecture: params.currPrefecture,
       currCity: params.currCity,
       currAddress: params.currAddress,
-      currPhone: params.currAddress,
+      currPhone: params.currPhone,
+      contCountry: params.contCountry,
       contPostalCode: params.contPostalCode,
       contPrefecture: params.contPrefecture,
       contCity: params.contCity,
@@ -44,11 +46,13 @@ class UpdateAddressInfo extends Usecase<ApiFailure, Unit, UpdateAddressParams> {
 
 class UpdateAddressParams {
   UpdateAddressParams({
+    @required this.currCountry,
     @required this.currPostalCode,
     @required this.currPrefecture,
     @required this.currCity,
     @required this.currAddress,
     @required this.currPhone,
+    @required this.contCountry,
     @required this.contPostalCode,
     @required this.contPrefecture,
     @required this.contCity,
@@ -56,12 +60,14 @@ class UpdateAddressParams {
     @required this.contPhone,
   });
 
+  final String currCountry;
   final String currPostalCode;
   final String currPrefecture;
   final String currCity;
   final String currAddress;
   final String currPhone;
 
+  final String contCountry;
   final String contPostalCode;
   final String contPrefecture;
   final String contCity;

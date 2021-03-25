@@ -33,6 +33,7 @@ class UpdateWorkInfo extends Usecase<ApiFailure, Unit, UpdateWorkInfoParams> {
       startMonth: params.startMonth,
       endYear: params.endYear,
       endMonth: params.endMonth,
+      purposeOfResign: params.purposeOfResign,
     );
 
     return repository.updateWork(data: qualificationData);
@@ -48,6 +49,7 @@ class UpdateWorkInfoParams {
     @required this.startMonth,
     @required this.endYear,
     @required this.endMonth,
+    @required this.purposeOfResign,
   });
 
   final int id;
@@ -57,4 +59,5 @@ class UpdateWorkInfoParams {
   final String startMonth;
   final String endYear;
   final String endMonth;
+  final String purposeOfResign;
 }

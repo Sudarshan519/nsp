@@ -42,6 +42,9 @@ class UpdateWorkInfoActorBloc
       changedEndMonth: (e) async* {
         yield _mapChangeEndMonthToState(e);
       },
+      changedPurposeOfResign: (e) async* {
+        yield _mapChangePurposeOfResign(e);
+      },
       setInitialState: (e) async* {
         yield* _mapsetInitialState(e);
       },
@@ -99,6 +102,14 @@ class UpdateWorkInfoActorBloc
     );
   }
 
+  UpdateWorkInfoActorState _mapChangePurposeOfResign(
+      _ChangedPurposeOfResign _changedPurposeOfResign) {
+    return state.copyWith(
+      purposeOfResign: _changedPurposeOfResign.puropse,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
   Stream<UpdateWorkInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
     final workHistory = _setInitialState.workHistory;
@@ -132,6 +143,7 @@ class UpdateWorkInfoActorBloc
         startMonth: state.startedMonth,
         endMonth: state.endMonth,
         endYear: state.endYear,
+        purposeOfResign: state.purposeOfResign,
       ),
     );
 

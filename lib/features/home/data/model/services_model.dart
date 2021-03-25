@@ -4,7 +4,7 @@ import 'package:wallet_app/features/home/domain/entities/services.dart';
 class ServicesModel extends Services {
   const ServicesModel({
     @required int id,
-    @required List branches,
+    // @required List branches,
     @required String serviceProductName,
     @required String category,
     @required String companyName,
@@ -22,7 +22,7 @@ class ServicesModel extends Services {
     @required String description,
   }) : super(
           id: id,
-          branches: branches,
+          // branches: branches,
           serviceProductName: serviceProductName,
           category: category,
           companyName: companyName,
@@ -42,8 +42,8 @@ class ServicesModel extends Services {
 
   factory ServicesModel.fromJson(Map<String, dynamic> json) => ServicesModel(
         id: json["id"] as int,
-        branches:
-            List<dynamic>.from((json["branches"] as Iterable).map((x) => x)),
+        // branches:
+        //     List<dynamic>.from((json["branches"] as Iterable).map((x) => x)),
         serviceProductName: json["service_product_name"] as String,
         category: json["category"] as String,
         companyName: json["company_name"] as String,
@@ -66,7 +66,7 @@ class ServicesModel extends Services {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "branches": List<dynamic>.from(branches.map((x) => x)),
+        // "branches": List<dynamic>.from(branches.map((x) => x)),
         "service_product_name": serviceProductName,
         "category": category,
         "company_name": companyName,

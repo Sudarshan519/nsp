@@ -12,6 +12,7 @@ class WorkHistory extends Equatable {
     this.endMonth,
     this.description,
     this.language,
+    this.purposeOfResign,
     this.createdAt,
     this.updatedAt,
   });
@@ -26,6 +27,7 @@ class WorkHistory extends Equatable {
   final String endMonth;
   final String description;
   final String language;
+  final String purposeOfResign;
   final String createdAt;
   final String updatedAt;
 
@@ -41,6 +43,7 @@ class WorkHistory extends Equatable {
         endMonth,
         description,
         language,
+        purposeOfResign,
         createdAt,
         updatedAt,
       ];

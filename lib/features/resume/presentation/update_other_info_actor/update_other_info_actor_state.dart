@@ -22,7 +22,7 @@ abstract class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
         JLPTLevel: '',
         selfPR: '',
         motivationsSpecialSkills: '',
-        workinHours: '',
+        workinHours: 'Full-time',
         workingMinutes: '00',
         numberOfDependent: '',
         isSpouse: '',

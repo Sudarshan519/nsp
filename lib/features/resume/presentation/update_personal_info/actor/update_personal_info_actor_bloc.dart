@@ -66,9 +66,9 @@ class UpdatePersonalInfoActorBloc
 
   Stream<UpdatePersonalInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
-    yield state.copyWith(
-      isSubmitting: true,
-    );
+    // yield state.copyWith(
+    //   isSubmitting: true,
+    // );
 
     final listOfNationality = await getCountries();
 

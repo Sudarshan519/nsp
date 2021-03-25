@@ -4,31 +4,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_work_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class EditWorkInfoForm extends StatelessWidget {
-  final UpdateWorkInfoActorBloc actorBloc;
   final WorkHistory info;
   final List<String> typeOfCompanyList;
 
   const EditWorkInfoForm({
     Key key,
     @required this.info,
-    @required this.actorBloc,
     @required this.typeOfCompanyList,
   })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final actorBloc =
+        UpdateWorkInfoActorBloc(updateWorkInfo: getIt<UpdateWorkInfo>());
     return BlocProvider(
       create: (context) => actorBloc
         ..add(
@@ -268,8 +270,9 @@ class _StartedYearField extends StatelessWidget {
         title: "Started Year",
         child: Row(
           children: [
-            Flexible(
-              child: CustomSearchableDropDownWidget(
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
                 hintText: "Select Year",
                 value: state.startedYear,
                 options: const [
@@ -313,8 +316,9 @@ class _StartedYearField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            Flexible(
-              child: CustomSearchableDropDownWidget(
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
                 hintText: "Select Month",
                 value: state.startedMonth,
                 alignment: Alignment.topCenter,
@@ -359,8 +363,9 @@ class _EndYearField extends StatelessWidget {
         title: "End Year",
         child: Row(
           children: [
-            Flexible(
-              child: CustomSearchableDropDownWidget(
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
                 hintText: "Select Year",
                 value: state.endYear,
                 options: const [
@@ -404,8 +409,9 @@ class _EndYearField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            Flexible(
-              child: CustomSearchableDropDownWidget(
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
                 hintText: "Select Month",
                 value: state.endMonth,
                 alignment: Alignment.topCenter,
@@ -444,23 +450,26 @@ class _PurposeOfResignField extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
     return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      // listenWhen: (previous, current) =>
-      //     previous.firstName != current.firstName,
+      listenWhen: (previous, current) =>
+          previous.purposeOfResign != current.purposeOfResign,
       listener: (context, state) {
-        // final TextSelection previousSelection = _controller.selection;
-        // _controller.text = state.firstName;
-        // _controller.selection = previousSelection;
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.purposeOfResign;
+        _controller.selection = previousSelection;
       },
-      // buildWhen: (previous, current) =>
-      //     previous.nameOfComapny != current.nameOfComapny,
+      buildWhen: (previous, current) =>
+          previous.purposeOfResign != current.purposeOfResign,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Purpose of Resign",
         child: InputTextWidget(
           hintText: "purpose of resign",
           textInputType: TextInputType.name,
+
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           controller: _controller,
-          onChanged: (value) {},
+          onChanged: (value) => context
+              .read<UpdateWorkInfoActorBloc>()
+              .add(UpdateWorkInfoActorEvent.changedPurposeOfResign(value)),
         ),
       ),
     );

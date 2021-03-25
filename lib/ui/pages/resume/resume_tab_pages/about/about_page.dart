@@ -66,15 +66,14 @@ class AboutPage extends StatelessWidget {
       },
       builder: (context, state) {
         if (state.isSubmitting) {
-          loadingPage();
+          return loadingPage();
         }
-
-        return _aboutPageBody(context, info);
+        return _aboutPageBody(context);
       },
     );
   }
 
-  Widget _aboutPageBody(BuildContext context, PersonalInfo info) {
+  Widget _aboutPageBody(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

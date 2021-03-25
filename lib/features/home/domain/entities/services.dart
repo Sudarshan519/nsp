@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 class Services extends Equatable {
   const Services({
     @required this.id,
-    @required this.branches,
+    // @required this.branches,
     @required this.serviceProductName,
     @required this.category,
     @required this.companyName,
@@ -23,7 +23,7 @@ class Services extends Equatable {
   });
 
   final int id;
-  final List<dynamic> branches;
+  // final List<dynamic> branches;
   final String serviceProductName;
   final String category;
   final String companyName;
@@ -43,7 +43,7 @@ class Services extends Equatable {
   @override
   List<Object> get props => [
         id,
-        branches,
+        // branches,
         serviceProductName,
         category,
         companyName,

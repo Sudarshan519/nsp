@@ -14,6 +14,8 @@ abstract class UpdateWorkInfoActorEvent with _$UpdateWorkInfoActorEvent {
       _ChangedEndYear;
   const factory UpdateWorkInfoActorEvent.changedEndMonth(String month) =
       _ChangedEndMonth;
+  const factory UpdateWorkInfoActorEvent.changedPurposeOfResign(
+      String puropse) = _ChangedPurposeOfResign;
   const factory UpdateWorkInfoActorEvent.setInitialState(
           WorkHistory workHistory, List<String> typeOfCompanyList) =
       _SetInitialState;

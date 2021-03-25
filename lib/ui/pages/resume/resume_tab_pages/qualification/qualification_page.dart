@@ -52,12 +52,8 @@ class QualificationPage extends StatelessWidget {
           child: FloatingActionButton(
             backgroundColor: Palette.white,
             onPressed: () {
-              final actorBloc = UpdateQualificationInfoActorBloc(
-                updateQualificationInfo: getIt<UpdateQualificationInfo>(),
-              );
               ExtendedNavigator.of(context).pushEditQualificationInfoForm(
                 info: const QualificationHistory(),
-                actorBloc: actorBloc,
               );
             },
             child: SvgPicture.asset(
@@ -120,8 +116,7 @@ class _CreateQualificationInfoBox extends StatelessWidget {
               const Spacer(),
               InkWell(
                 onTap: () => ExtendedNavigator.of(context)
-                    .pushEditQualificationInfoForm(
-                        actorBloc: actorBloc, info: qualification),
+                    .pushEditQualificationInfoForm(info: qualification),
                 child: SvgPicture.asset(
                   "assets/images/resume/edit.svg",
                   color: Palette.primary,

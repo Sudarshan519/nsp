@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_academics_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -17,12 +19,10 @@ import 'package:wallet_app/utils/validator.dart';
 
 class EditAcademicInfoForm extends StatelessWidget {
   final AcademicHistory info;
-  final UpdateAcademicInfoActorBloc actorBloc;
   final List<String> listOfSubjects;
 
   const EditAcademicInfoForm({
     Key key,
-    @required this.actorBloc,
     @required this.info,
     @required this.listOfSubjects,
   })  : assert(info != null),
@@ -30,6 +30,8 @@ class EditAcademicInfoForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final actorBloc = UpdateAcademicInfoActorBloc(
+        updateAcadamicInfo: getIt<UpdateAcadamicInfo>());
     return BlocProvider(
       create: (context) => actorBloc
         ..add(UpdateAcademicInfoActorEvent.setInitialState(
@@ -248,8 +250,9 @@ class _YearOfEnrollField extends StatelessWidget {
         title: "Year of Enroll",
         child: Row(
           children: [
-            Flexible(
-              child: CustomSearchableDropDownWidget(
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
                 hintText: "Select Year",
                 value: state.yearOFEnroll,
                 options: const [
@@ -294,8 +297,9 @@ class _YearOfEnrollField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            Flexible(
-              child: CustomSearchableDropDownWidget(
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
                 hintText: "Select Month",
                 value: state.monthOfEnroll,
                 alignment: Alignment.topCenter,
@@ -341,8 +345,9 @@ class _YearOfCompletionField extends StatelessWidget {
         title: "Year of Completion",
         child: Row(
           children: [
-            Flexible(
-              child: CustomSearchableDropDownWidget(
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
                 hintText: "Select Year",
                 value: state.yearOfCpmpletion,
                 options: const [
@@ -387,8 +392,9 @@ class _YearOfCompletionField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            Flexible(
-              child: CustomSearchableDropDownWidget(
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
                 hintText: "Select Month",
                 value: state.monthOfCompletion,
                 alignment: Alignment.topCenter,

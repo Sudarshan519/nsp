@@ -14,8 +14,8 @@ class _$UpdateAddressInfoActorEventTearOff {
   const _$UpdateAddressInfoActorEventTearOff();
 
 // ignore: unused_element
-  _ChangedCountry changeCountry(String country) {
-    return _ChangedCountry(
+  _ChangedCurrCountry changeCurrCountry(String country) {
+    return _ChangedCurrCountry(
       country,
     );
   }
@@ -52,6 +52,20 @@ class _$UpdateAddressInfoActorEventTearOff {
   _ChangedCurrPhone changedCurrPhone(String phone) {
     return _ChangedCurrPhone(
       phone,
+    );
+  }
+
+// ignore: unused_element
+  _ChangedSameAsCurrAddressInfo changeSameAsCurrAddressInfo(String country) {
+    return _ChangedSameAsCurrAddressInfo(
+      country,
+    );
+  }
+
+// ignore: unused_element
+  _ChangedContCountry changeContCountry(String country) {
+    return _ChangedContCountry(
+      country,
     );
   }
 
@@ -111,12 +125,14 @@ const $UpdateAddressInfoActorEvent = _$UpdateAddressInfoActorEventTearOff();
 mixin _$UpdateAddressInfoActorEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -127,12 +143,14 @@ mixin _$UpdateAddressInfoActorEvent {
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -144,12 +162,16 @@ mixin _$UpdateAddressInfoActorEvent {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -160,12 +182,14 @@ mixin _$UpdateAddressInfoActorEvent {
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -196,50 +220,50 @@ class _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ChangedCountryCopyWith<$Res> {
-  factory _$ChangedCountryCopyWith(
-          _ChangedCountry value, $Res Function(_ChangedCountry) then) =
-      __$ChangedCountryCopyWithImpl<$Res>;
+abstract class _$ChangedCurrCountryCopyWith<$Res> {
+  factory _$ChangedCurrCountryCopyWith(
+          _ChangedCurrCountry value, $Res Function(_ChangedCurrCountry) then) =
+      __$ChangedCurrCountryCopyWithImpl<$Res>;
   $Res call({String country});
 }
 
 /// @nodoc
-class __$ChangedCountryCopyWithImpl<$Res>
+class __$ChangedCurrCountryCopyWithImpl<$Res>
     extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCountryCopyWith<$Res> {
-  __$ChangedCountryCopyWithImpl(
-      _ChangedCountry _value, $Res Function(_ChangedCountry) _then)
-      : super(_value, (v) => _then(v as _ChangedCountry));
+    implements _$ChangedCurrCountryCopyWith<$Res> {
+  __$ChangedCurrCountryCopyWithImpl(
+      _ChangedCurrCountry _value, $Res Function(_ChangedCurrCountry) _then)
+      : super(_value, (v) => _then(v as _ChangedCurrCountry));
 
   @override
-  _ChangedCountry get _value => super._value as _ChangedCountry;
+  _ChangedCurrCountry get _value => super._value as _ChangedCurrCountry;
 
   @override
   $Res call({
     Object country = freezed,
   }) {
-    return _then(_ChangedCountry(
+    return _then(_ChangedCurrCountry(
       country == freezed ? _value.country : country as String,
     ));
   }
 }
 
 /// @nodoc
-class _$_ChangedCountry implements _ChangedCountry {
-  const _$_ChangedCountry(this.country) : assert(country != null);
+class _$_ChangedCurrCountry implements _ChangedCurrCountry {
+  const _$_ChangedCurrCountry(this.country) : assert(country != null);
 
   @override
   final String country;
 
   @override
   String toString() {
-    return 'UpdateAddressInfoActorEvent.changeCountry(country: $country)';
+    return 'UpdateAddressInfoActorEvent.changeCurrCountry(country: $country)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCountry &&
+        (other is _ChangedCurrCountry &&
             (identical(other.country, country) ||
                 const DeepCollectionEquality().equals(other.country, country)));
   }
@@ -250,18 +274,20 @@ class _$_ChangedCountry implements _ChangedCountry {
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCountryCopyWith<_ChangedCountry> get copyWith =>
-      __$ChangedCountryCopyWithImpl<_ChangedCountry>(this, _$identity);
+  _$ChangedCurrCountryCopyWith<_ChangedCurrCountry> get copyWith =>
+      __$ChangedCurrCountryCopyWithImpl<_ChangedCurrCountry>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -270,12 +296,14 @@ class _$_ChangedCountry implements _ChangedCountry {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -283,18 +311,20 @@ class _$_ChangedCountry implements _ChangedCountry {
     assert(changedContPhone != null);
     assert(setInitialState != null);
     assert(save != null);
-    return changeCountry(country);
+    return changeCurrCountry(country);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -305,8 +335,8 @@ class _$_ChangedCountry implements _ChangedCountry {
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (changeCountry != null) {
-      return changeCountry(country);
+    if (changeCurrCountry != null) {
+      return changeCurrCountry(country);
     }
     return orElse();
   }
@@ -314,12 +344,16 @@ class _$_ChangedCountry implements _ChangedCountry {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -328,12 +362,14 @@ class _$_ChangedCountry implements _ChangedCountry {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -341,18 +377,20 @@ class _$_ChangedCountry implements _ChangedCountry {
     assert(changedContPhone != null);
     assert(setInitialState != null);
     assert(save != null);
-    return changeCountry(this);
+    return changeCurrCountry(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -363,19 +401,19 @@ class _$_ChangedCountry implements _ChangedCountry {
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (changeCountry != null) {
-      return changeCountry(this);
+    if (changeCurrCountry != null) {
+      return changeCurrCountry(this);
     }
     return orElse();
   }
 }
 
-abstract class _ChangedCountry implements UpdateAddressInfoActorEvent {
-  const factory _ChangedCountry(String country) = _$_ChangedCountry;
+abstract class _ChangedCurrCountry implements UpdateAddressInfoActorEvent {
+  const factory _ChangedCurrCountry(String country) = _$_ChangedCurrCountry;
 
   String get country;
   @JsonKey(ignore: true)
-  _$ChangedCountryCopyWith<_ChangedCountry> get copyWith;
+  _$ChangedCurrCountryCopyWith<_ChangedCurrCountry> get copyWith;
 }
 
 /// @nodoc
@@ -440,12 +478,14 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -454,12 +494,14 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -473,12 +515,14 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -498,12 +542,16 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -512,12 +560,14 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -531,12 +581,14 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -625,12 +677,14 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -639,12 +693,14 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -658,12 +714,14 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -683,12 +741,16 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -697,12 +759,14 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -716,12 +780,14 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -809,12 +875,14 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -823,12 +891,14 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -842,12 +912,14 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -867,12 +939,16 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -881,12 +957,14 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -900,12 +978,14 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -992,12 +1072,14 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -1006,12 +1088,14 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1025,12 +1109,14 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -1050,12 +1136,16 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -1064,12 +1154,14 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1083,12 +1175,14 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -1175,12 +1269,14 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -1189,12 +1285,14 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1208,12 +1306,14 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -1233,12 +1333,16 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -1247,12 +1351,14 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1266,12 +1372,14 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -1295,6 +1403,407 @@ abstract class _ChangedCurrPhone implements UpdateAddressInfoActorEvent {
   String get phone;
   @JsonKey(ignore: true)
   _$ChangedCurrPhoneCopyWith<_ChangedCurrPhone> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ChangedSameAsCurrAddressInfoCopyWith<$Res> {
+  factory _$ChangedSameAsCurrAddressInfoCopyWith(
+          _ChangedSameAsCurrAddressInfo value,
+          $Res Function(_ChangedSameAsCurrAddressInfo) then) =
+      __$ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>;
+  $Res call({String country});
+}
+
+/// @nodoc
+class __$ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
+    implements _$ChangedSameAsCurrAddressInfoCopyWith<$Res> {
+  __$ChangedSameAsCurrAddressInfoCopyWithImpl(
+      _ChangedSameAsCurrAddressInfo _value,
+      $Res Function(_ChangedSameAsCurrAddressInfo) _then)
+      : super(_value, (v) => _then(v as _ChangedSameAsCurrAddressInfo));
+
+  @override
+  _ChangedSameAsCurrAddressInfo get _value =>
+      super._value as _ChangedSameAsCurrAddressInfo;
+
+  @override
+  $Res call({
+    Object country = freezed,
+  }) {
+    return _then(_ChangedSameAsCurrAddressInfo(
+      country == freezed ? _value.country : country as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
+  const _$_ChangedSameAsCurrAddressInfo(this.country) : assert(country != null);
+
+  @override
+  final String country;
+
+  @override
+  String toString() {
+    return 'UpdateAddressInfoActorEvent.changeSameAsCurrAddressInfo(country: $country)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangedSameAsCurrAddressInfo &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(other.country, country)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(country);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedSameAsCurrAddressInfoCopyWith<_ChangedSameAsCurrAddressInfo>
+      get copyWith => __$ChangedSameAsCurrAddressInfoCopyWithImpl<
+          _ChangedSameAsCurrAddressInfo>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult changeCurrCountry(String country),
+    @required TResult changedCurrPostalCode(String code),
+    @required TResult changedCurrPrefecture(String prefecture),
+    @required TResult changedCurrCity(String city),
+    @required TResult changedCurrAddress(String address),
+    @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
+    @required TResult changedContPostalCode(String code),
+    @required TResult changedContPrefecture(String prefecture),
+    @required TResult changedContCity(String city),
+    @required TResult changedContAddress(String address),
+    @required TResult changedContPhone(String phone),
+    @required TResult setInitialState(PersonalInfo info),
+    @required TResult save(),
+  }) {
+    assert(changeCurrCountry != null);
+    assert(changedCurrPostalCode != null);
+    assert(changedCurrPrefecture != null);
+    assert(changedCurrCity != null);
+    assert(changedCurrAddress != null);
+    assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
+    assert(changedContPostalCode != null);
+    assert(changedContPrefecture != null);
+    assert(changedContCity != null);
+    assert(changedContAddress != null);
+    assert(changedContPhone != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeSameAsCurrAddressInfo(country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult changeCurrCountry(String country),
+    TResult changedCurrPostalCode(String code),
+    TResult changedCurrPrefecture(String prefecture),
+    TResult changedCurrCity(String city),
+    TResult changedCurrAddress(String address),
+    TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
+    TResult changedContPostalCode(String code),
+    TResult changedContPrefecture(String prefecture),
+    TResult changedContCity(String city),
+    TResult changedContAddress(String address),
+    TResult changedContPhone(String phone),
+    TResult setInitialState(PersonalInfo info),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeSameAsCurrAddressInfo != null) {
+      return changeSameAsCurrAddressInfo(country);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
+    @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
+    @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
+    @required TResult changedCurrCity(_ChangedCurrCity value),
+    @required TResult changedCurrAddress(_ChangedCurrAddress value),
+    @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
+    @required TResult changedContPostalCode(_ChangedContPostalCode value),
+    @required TResult changedContPrefecture(_ChangedContPrefecture value),
+    @required TResult changedContCity(_ChangedContCity value),
+    @required TResult changedContAddress(_ChangedContAddress value),
+    @required TResult changedContPhone(_ChangedContPhone value),
+    @required TResult setInitialState(_SetInitialState value),
+    @required TResult save(_Save value),
+  }) {
+    assert(changeCurrCountry != null);
+    assert(changedCurrPostalCode != null);
+    assert(changedCurrPrefecture != null);
+    assert(changedCurrCity != null);
+    assert(changedCurrAddress != null);
+    assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
+    assert(changedContPostalCode != null);
+    assert(changedContPrefecture != null);
+    assert(changedContCity != null);
+    assert(changedContAddress != null);
+    assert(changedContPhone != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeSameAsCurrAddressInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult changeCurrCountry(_ChangedCurrCountry value),
+    TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
+    TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
+    TResult changedCurrCity(_ChangedCurrCity value),
+    TResult changedCurrAddress(_ChangedCurrAddress value),
+    TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
+    TResult changedContPostalCode(_ChangedContPostalCode value),
+    TResult changedContPrefecture(_ChangedContPrefecture value),
+    TResult changedContCity(_ChangedContCity value),
+    TResult changedContAddress(_ChangedContAddress value),
+    TResult changedContPhone(_ChangedContPhone value),
+    TResult setInitialState(_SetInitialState value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeSameAsCurrAddressInfo != null) {
+      return changeSameAsCurrAddressInfo(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedSameAsCurrAddressInfo
+    implements UpdateAddressInfoActorEvent {
+  const factory _ChangedSameAsCurrAddressInfo(String country) =
+      _$_ChangedSameAsCurrAddressInfo;
+
+  String get country;
+  @JsonKey(ignore: true)
+  _$ChangedSameAsCurrAddressInfoCopyWith<_ChangedSameAsCurrAddressInfo>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class _$ChangedContCountryCopyWith<$Res> {
+  factory _$ChangedContCountryCopyWith(
+          _ChangedContCountry value, $Res Function(_ChangedContCountry) then) =
+      __$ChangedContCountryCopyWithImpl<$Res>;
+  $Res call({String country});
+}
+
+/// @nodoc
+class __$ChangedContCountryCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
+    implements _$ChangedContCountryCopyWith<$Res> {
+  __$ChangedContCountryCopyWithImpl(
+      _ChangedContCountry _value, $Res Function(_ChangedContCountry) _then)
+      : super(_value, (v) => _then(v as _ChangedContCountry));
+
+  @override
+  _ChangedContCountry get _value => super._value as _ChangedContCountry;
+
+  @override
+  $Res call({
+    Object country = freezed,
+  }) {
+    return _then(_ChangedContCountry(
+      country == freezed ? _value.country : country as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ChangedContCountry implements _ChangedContCountry {
+  const _$_ChangedContCountry(this.country) : assert(country != null);
+
+  @override
+  final String country;
+
+  @override
+  String toString() {
+    return 'UpdateAddressInfoActorEvent.changeContCountry(country: $country)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangedContCountry &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(other.country, country)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(country);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedContCountryCopyWith<_ChangedContCountry> get copyWith =>
+      __$ChangedContCountryCopyWithImpl<_ChangedContCountry>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult changeCurrCountry(String country),
+    @required TResult changedCurrPostalCode(String code),
+    @required TResult changedCurrPrefecture(String prefecture),
+    @required TResult changedCurrCity(String city),
+    @required TResult changedCurrAddress(String address),
+    @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
+    @required TResult changedContPostalCode(String code),
+    @required TResult changedContPrefecture(String prefecture),
+    @required TResult changedContCity(String city),
+    @required TResult changedContAddress(String address),
+    @required TResult changedContPhone(String phone),
+    @required TResult setInitialState(PersonalInfo info),
+    @required TResult save(),
+  }) {
+    assert(changeCurrCountry != null);
+    assert(changedCurrPostalCode != null);
+    assert(changedCurrPrefecture != null);
+    assert(changedCurrCity != null);
+    assert(changedCurrAddress != null);
+    assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
+    assert(changedContPostalCode != null);
+    assert(changedContPrefecture != null);
+    assert(changedContCity != null);
+    assert(changedContAddress != null);
+    assert(changedContPhone != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeContCountry(country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult changeCurrCountry(String country),
+    TResult changedCurrPostalCode(String code),
+    TResult changedCurrPrefecture(String prefecture),
+    TResult changedCurrCity(String city),
+    TResult changedCurrAddress(String address),
+    TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
+    TResult changedContPostalCode(String code),
+    TResult changedContPrefecture(String prefecture),
+    TResult changedContCity(String city),
+    TResult changedContAddress(String address),
+    TResult changedContPhone(String phone),
+    TResult setInitialState(PersonalInfo info),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeContCountry != null) {
+      return changeContCountry(country);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
+    @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
+    @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
+    @required TResult changedCurrCity(_ChangedCurrCity value),
+    @required TResult changedCurrAddress(_ChangedCurrAddress value),
+    @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
+    @required TResult changedContPostalCode(_ChangedContPostalCode value),
+    @required TResult changedContPrefecture(_ChangedContPrefecture value),
+    @required TResult changedContCity(_ChangedContCity value),
+    @required TResult changedContAddress(_ChangedContAddress value),
+    @required TResult changedContPhone(_ChangedContPhone value),
+    @required TResult setInitialState(_SetInitialState value),
+    @required TResult save(_Save value),
+  }) {
+    assert(changeCurrCountry != null);
+    assert(changedCurrPostalCode != null);
+    assert(changedCurrPrefecture != null);
+    assert(changedCurrCity != null);
+    assert(changedCurrAddress != null);
+    assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
+    assert(changedContPostalCode != null);
+    assert(changedContPrefecture != null);
+    assert(changedContCity != null);
+    assert(changedContAddress != null);
+    assert(changedContPhone != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeContCountry(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult changeCurrCountry(_ChangedCurrCountry value),
+    TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
+    TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
+    TResult changedCurrCity(_ChangedCurrCity value),
+    TResult changedCurrAddress(_ChangedCurrAddress value),
+    TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
+    TResult changedContPostalCode(_ChangedContPostalCode value),
+    TResult changedContPrefecture(_ChangedContPrefecture value),
+    TResult changedContCity(_ChangedContCity value),
+    TResult changedContAddress(_ChangedContAddress value),
+    TResult changedContPhone(_ChangedContPhone value),
+    TResult setInitialState(_SetInitialState value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeContCountry != null) {
+      return changeContCountry(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedContCountry implements UpdateAddressInfoActorEvent {
+  const factory _ChangedContCountry(String country) = _$_ChangedContCountry;
+
+  String get country;
+  @JsonKey(ignore: true)
+  _$ChangedContCountryCopyWith<_ChangedContCountry> get copyWith;
 }
 
 /// @nodoc
@@ -1359,12 +1868,14 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -1373,12 +1884,14 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1392,12 +1905,14 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -1417,12 +1932,16 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -1431,12 +1950,14 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1450,12 +1971,14 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -1544,12 +2067,14 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -1558,12 +2083,14 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1577,12 +2104,14 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -1602,12 +2131,16 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -1616,12 +2149,14 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1635,12 +2170,14 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -1728,12 +2265,14 @@ class _$_ChangedContCity implements _ChangedContCity {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -1742,12 +2281,14 @@ class _$_ChangedContCity implements _ChangedContCity {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1761,12 +2302,14 @@ class _$_ChangedContCity implements _ChangedContCity {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -1786,12 +2329,16 @@ class _$_ChangedContCity implements _ChangedContCity {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -1800,12 +2347,14 @@ class _$_ChangedContCity implements _ChangedContCity {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1819,12 +2368,14 @@ class _$_ChangedContCity implements _ChangedContCity {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -1911,12 +2462,14 @@ class _$_ChangedContAddress implements _ChangedContAddress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -1925,12 +2478,14 @@ class _$_ChangedContAddress implements _ChangedContAddress {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -1944,12 +2499,14 @@ class _$_ChangedContAddress implements _ChangedContAddress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -1969,12 +2526,16 @@ class _$_ChangedContAddress implements _ChangedContAddress {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -1983,12 +2544,14 @@ class _$_ChangedContAddress implements _ChangedContAddress {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -2002,12 +2565,14 @@ class _$_ChangedContAddress implements _ChangedContAddress {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -2094,12 +2659,14 @@ class _$_ChangedContPhone implements _ChangedContPhone {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -2108,12 +2675,14 @@ class _$_ChangedContPhone implements _ChangedContPhone {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -2127,12 +2696,14 @@ class _$_ChangedContPhone implements _ChangedContPhone {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -2152,12 +2723,16 @@ class _$_ChangedContPhone implements _ChangedContPhone {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -2166,12 +2741,14 @@ class _$_ChangedContPhone implements _ChangedContPhone {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -2185,12 +2762,14 @@ class _$_ChangedContPhone implements _ChangedContPhone {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -2277,12 +2856,14 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -2291,12 +2872,14 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -2310,12 +2893,14 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -2335,12 +2920,16 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -2349,12 +2938,14 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -2368,12 +2959,14 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -2436,12 +3029,14 @@ class _$_Save implements _Save {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeCountry(String country),
+    @required TResult changeCurrCountry(String country),
     @required TResult changedCurrPostalCode(String code),
     @required TResult changedCurrPrefecture(String prefecture),
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
+    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
     @required TResult changedContCity(String city),
@@ -2450,12 +3045,14 @@ class _$_Save implements _Save {
     @required TResult setInitialState(PersonalInfo info),
     @required TResult save(),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -2469,12 +3066,14 @@ class _$_Save implements _Save {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeCountry(String country),
+    TResult changeCurrCountry(String country),
     TResult changedCurrPostalCode(String code),
     TResult changedCurrPrefecture(String prefecture),
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
+    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
     TResult changedContCity(String city),
@@ -2494,12 +3093,16 @@ class _$_Save implements _Save {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult changeCountry(_ChangedCountry value),
+    @required TResult changeCurrCountry(_ChangedCurrCountry value),
     @required TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     @required TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     @required TResult changedCurrCity(_ChangedCurrCity value),
     @required TResult changedCurrAddress(_ChangedCurrAddress value),
     @required TResult changedCurrPhone(_ChangedCurrPhone value),
+    @required
+        TResult changeSameAsCurrAddressInfo(
+            _ChangedSameAsCurrAddressInfo value),
+    @required TResult changeContCountry(_ChangedContCountry value),
     @required TResult changedContPostalCode(_ChangedContPostalCode value),
     @required TResult changedContPrefecture(_ChangedContPrefecture value),
     @required TResult changedContCity(_ChangedContCity value),
@@ -2508,12 +3111,14 @@ class _$_Save implements _Save {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult save(_Save value),
   }) {
-    assert(changeCountry != null);
+    assert(changeCurrCountry != null);
     assert(changedCurrPostalCode != null);
     assert(changedCurrPrefecture != null);
     assert(changedCurrCity != null);
     assert(changedCurrAddress != null);
     assert(changedCurrPhone != null);
+    assert(changeSameAsCurrAddressInfo != null);
+    assert(changeContCountry != null);
     assert(changedContPostalCode != null);
     assert(changedContPrefecture != null);
     assert(changedContCity != null);
@@ -2527,12 +3132,14 @@ class _$_Save implements _Save {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult changeCountry(_ChangedCountry value),
+    TResult changeCurrCountry(_ChangedCurrCountry value),
     TResult changedCurrPostalCode(_ChangedCurrPostalCode value),
     TResult changedCurrPrefecture(_ChangedCurrPrefecture value),
     TResult changedCurrCity(_ChangedCurrCity value),
     TResult changedCurrAddress(_ChangedCurrAddress value),
     TResult changedCurrPhone(_ChangedCurrPhone value),
+    TResult changeSameAsCurrAddressInfo(_ChangedSameAsCurrAddressInfo value),
+    TResult changeContCountry(_ChangedContCountry value),
     TResult changedContPostalCode(_ChangedContPostalCode value),
     TResult changedContPrefecture(_ChangedContPrefecture value),
     TResult changedContCity(_ChangedContCity value),
@@ -2560,12 +3167,14 @@ class _$UpdateAddressInfoActorStateTearOff {
 
 // ignore: unused_element
   _UpdateAddressInfoActorState call(
-      {@required String country,
+      {@required String currCountry,
       @required String currPostalCode,
       @required String currPrefecture,
       @required String currCity,
       @required String currAddress,
       @required String currPhone,
+      @required bool sameAsCurrAddressInfo,
+      @required String contCountry,
       @required String contPostalCode,
       @required String contPrefecture,
       @required String contCity,
@@ -2578,12 +3187,14 @@ class _$UpdateAddressInfoActorStateTearOff {
       @required bool isSubmitting,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateAddressInfoActorState(
-      country: country,
+      currCountry: currCountry,
       currPostalCode: currPostalCode,
       currPrefecture: currPrefecture,
       currCity: currCity,
       currAddress: currAddress,
       currPhone: currPhone,
+      sameAsCurrAddressInfo: sameAsCurrAddressInfo,
+      contCountry: contCountry,
       contPostalCode: contPostalCode,
       contPrefecture: contPrefecture,
       contCity: contCity,
@@ -2605,12 +3216,14 @@ const $UpdateAddressInfoActorState = _$UpdateAddressInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdateAddressInfoActorState {
-  String get country;
+  String get currCountry;
   String get currPostalCode;
   String get currPrefecture;
   String get currCity;
   String get currAddress;
   String get currPhone;
+  bool get sameAsCurrAddressInfo;
+  String get contCountry;
   String get contPostalCode;
   String get contPrefecture;
   String get contCity;
@@ -2635,12 +3248,14 @@ abstract class $UpdateAddressInfoActorStateCopyWith<$Res> {
           $Res Function(UpdateAddressInfoActorState) then) =
       _$UpdateAddressInfoActorStateCopyWithImpl<$Res>;
   $Res call(
-      {String country,
+      {String currCountry,
       String currPostalCode,
       String currPrefecture,
       String currCity,
       String currAddress,
       String currPhone,
+      bool sameAsCurrAddressInfo,
+      String contCountry,
       String contPostalCode,
       String contPrefecture,
       String contCity,
@@ -2665,12 +3280,14 @@ class _$UpdateAddressInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object country = freezed,
+    Object currCountry = freezed,
     Object currPostalCode = freezed,
     Object currPrefecture = freezed,
     Object currCity = freezed,
     Object currAddress = freezed,
     Object currPhone = freezed,
+    Object sameAsCurrAddressInfo = freezed,
+    Object contCountry = freezed,
     Object contPostalCode = freezed,
     Object contPrefecture = freezed,
     Object contCity = freezed,
@@ -2684,7 +3301,8 @@ class _$UpdateAddressInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
-      country: country == freezed ? _value.country : country as String,
+      currCountry:
+          currCountry == freezed ? _value.currCountry : currCountry as String,
       currPostalCode: currPostalCode == freezed
           ? _value.currPostalCode
           : currPostalCode as String,
@@ -2695,6 +3313,11 @@ class _$UpdateAddressInfoActorStateCopyWithImpl<$Res>
       currAddress:
           currAddress == freezed ? _value.currAddress : currAddress as String,
       currPhone: currPhone == freezed ? _value.currPhone : currPhone as String,
+      sameAsCurrAddressInfo: sameAsCurrAddressInfo == freezed
+          ? _value.sameAsCurrAddressInfo
+          : sameAsCurrAddressInfo as bool,
+      contCountry:
+          contCountry == freezed ? _value.contCountry : contCountry as String,
       contPostalCode: contPostalCode == freezed
           ? _value.contPostalCode
           : contPostalCode as String,
@@ -2735,12 +3358,14 @@ abstract class _$UpdateAddressInfoActorStateCopyWith<$Res>
       __$UpdateAddressInfoActorStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String country,
+      {String currCountry,
       String currPostalCode,
       String currPrefecture,
       String currCity,
       String currAddress,
       String currPhone,
+      bool sameAsCurrAddressInfo,
+      String contCountry,
       String contPostalCode,
       String contPrefecture,
       String contCity,
@@ -2769,12 +3394,14 @@ class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object country = freezed,
+    Object currCountry = freezed,
     Object currPostalCode = freezed,
     Object currPrefecture = freezed,
     Object currCity = freezed,
     Object currAddress = freezed,
     Object currPhone = freezed,
+    Object sameAsCurrAddressInfo = freezed,
+    Object contCountry = freezed,
     Object contPostalCode = freezed,
     Object contPrefecture = freezed,
     Object contCity = freezed,
@@ -2788,7 +3415,8 @@ class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateAddressInfoActorState(
-      country: country == freezed ? _value.country : country as String,
+      currCountry:
+          currCountry == freezed ? _value.currCountry : currCountry as String,
       currPostalCode: currPostalCode == freezed
           ? _value.currPostalCode
           : currPostalCode as String,
@@ -2799,6 +3427,11 @@ class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
       currAddress:
           currAddress == freezed ? _value.currAddress : currAddress as String,
       currPhone: currPhone == freezed ? _value.currPhone : currPhone as String,
+      sameAsCurrAddressInfo: sameAsCurrAddressInfo == freezed
+          ? _value.sameAsCurrAddressInfo
+          : sameAsCurrAddressInfo as bool,
+      contCountry:
+          contCountry == freezed ? _value.contCountry : contCountry as String,
       contPostalCode: contPostalCode == freezed
           ? _value.contPostalCode
           : contPostalCode as String,
@@ -2833,12 +3466,14 @@ class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
   const _$_UpdateAddressInfoActorState(
-      {@required this.country,
+      {@required this.currCountry,
       @required this.currPostalCode,
       @required this.currPrefecture,
       @required this.currCity,
       @required this.currAddress,
       @required this.currPhone,
+      @required this.sameAsCurrAddressInfo,
+      @required this.contCountry,
       @required this.contPostalCode,
       @required this.contPrefecture,
       @required this.contCity,
@@ -2850,12 +3485,14 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
       @required this.listOfContCities,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
-      : assert(country != null),
+      : assert(currCountry != null),
         assert(currPostalCode != null),
         assert(currPrefecture != null),
         assert(currCity != null),
         assert(currAddress != null),
         assert(currPhone != null),
+        assert(sameAsCurrAddressInfo != null),
+        assert(contCountry != null),
         assert(contPostalCode != null),
         assert(contPrefecture != null),
         assert(contCity != null),
@@ -2869,7 +3506,7 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
         assert(authFailureOrSuccessOption != null);
 
   @override
-  final String country;
+  final String currCountry;
   @override
   final String currPostalCode;
   @override
@@ -2880,6 +3517,10 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
   final String currAddress;
   @override
   final String currPhone;
+  @override
+  final bool sameAsCurrAddressInfo;
+  @override
+  final String contCountry;
   @override
   final String contPostalCode;
   @override
@@ -2905,16 +3546,16 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
 
   @override
   String toString() {
-    return 'UpdateAddressInfoActorState(country: $country, currPostalCode: $currPostalCode, currPrefecture: $currPrefecture, currCity: $currCity, currAddress: $currAddress, currPhone: $currPhone, contPostalCode: $contPostalCode, contPrefecture: $contPrefecture, contCity: $contCity, contAddress: $contAddress, contPhone: $contPhone, listOfCountries: $listOfCountries, listOfPrefectures: $listOfPrefectures, listOfCurrCities: $listOfCurrCities, listOfContCities: $listOfContCities, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateAddressInfoActorState(currCountry: $currCountry, currPostalCode: $currPostalCode, currPrefecture: $currPrefecture, currCity: $currCity, currAddress: $currAddress, currPhone: $currPhone, sameAsCurrAddressInfo: $sameAsCurrAddressInfo, contCountry: $contCountry, contPostalCode: $contPostalCode, contPrefecture: $contPrefecture, contCity: $contCity, contAddress: $contAddress, contPhone: $contPhone, listOfCountries: $listOfCountries, listOfPrefectures: $listOfPrefectures, listOfCurrCities: $listOfCurrCities, listOfContCities: $listOfContCities, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateAddressInfoActorState &&
-            (identical(other.country, country) ||
+            (identical(other.currCountry, currCountry) ||
                 const DeepCollectionEquality()
-                    .equals(other.country, country)) &&
+                    .equals(other.currCountry, currCountry)) &&
             (identical(other.currPostalCode, currPostalCode) ||
                 const DeepCollectionEquality()
                     .equals(other.currPostalCode, currPostalCode)) &&
@@ -2930,6 +3571,12 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
             (identical(other.currPhone, currPhone) ||
                 const DeepCollectionEquality()
                     .equals(other.currPhone, currPhone)) &&
+            (identical(other.sameAsCurrAddressInfo, sameAsCurrAddressInfo) ||
+                const DeepCollectionEquality().equals(
+                    other.sameAsCurrAddressInfo, sameAsCurrAddressInfo)) &&
+            (identical(other.contCountry, contCountry) ||
+                const DeepCollectionEquality()
+                    .equals(other.contCountry, contCountry)) &&
             (identical(other.contPostalCode, contPostalCode) ||
                 const DeepCollectionEquality()
                     .equals(other.contPostalCode, contPostalCode)) &&
@@ -2970,12 +3617,14 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(currCountry) ^
       const DeepCollectionEquality().hash(currPostalCode) ^
       const DeepCollectionEquality().hash(currPrefecture) ^
       const DeepCollectionEquality().hash(currCity) ^
       const DeepCollectionEquality().hash(currAddress) ^
       const DeepCollectionEquality().hash(currPhone) ^
+      const DeepCollectionEquality().hash(sameAsCurrAddressInfo) ^
+      const DeepCollectionEquality().hash(contCountry) ^
       const DeepCollectionEquality().hash(contPostalCode) ^
       const DeepCollectionEquality().hash(contPrefecture) ^
       const DeepCollectionEquality().hash(contCity) ^
@@ -2999,7 +3648,7 @@ abstract class _UpdateAddressInfoActorState
     implements UpdateAddressInfoActorState {
   const factory _UpdateAddressInfoActorState(
           {@required
-              String country,
+              String currCountry,
           @required
               String currPostalCode,
           @required
@@ -3010,6 +3659,10 @@ abstract class _UpdateAddressInfoActorState
               String currAddress,
           @required
               String currPhone,
+          @required
+              bool sameAsCurrAddressInfo,
+          @required
+              String contCountry,
           @required
               String contPostalCode,
           @required
@@ -3035,7 +3688,7 @@ abstract class _UpdateAddressInfoActorState
       _$_UpdateAddressInfoActorState;
 
   @override
-  String get country;
+  String get currCountry;
   @override
   String get currPostalCode;
   @override
@@ -3046,6 +3699,10 @@ abstract class _UpdateAddressInfoActorState
   String get currAddress;
   @override
   String get currPhone;
+  @override
+  bool get sameAsCurrAddressInfo;
+  @override
+  String get contCountry;
   @override
   String get contPostalCode;
   @override

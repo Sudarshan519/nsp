@@ -68,15 +68,14 @@ class AddressPage extends StatelessWidget {
       },
       builder: (context, state) {
         if (state.isSubmitting) {
-          loadingPage();
+          return loadingPage();
         }
-
-        return _addressPageBody(context, info);
+        return _addressPageBody(context);
       },
     );
   }
 
-  Widget _addressPageBody(BuildContext context, PersonalInfo info) {
+  Widget _addressPageBody(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -190,7 +189,7 @@ class _CurrentCountryInputField extends StatelessWidget {
         title: "Country",
         child: CustomSearchableDropDownWidget(
           hintText: "Country",
-          value: state.country,
+          value: state.currCountry,
           isEnable: false,
           options: state.listOfCountries,
           alignment: Alignment.centerRight,
@@ -390,7 +389,7 @@ class _ContactCountryInputField extends StatelessWidget {
         title: "Country",
         child: CustomSearchableDropDownWidget(
           hintText: "Country",
-          value: state.country,
+          value: state.contCountry,
           options: state.listOfCountries,
           isEnable: false,
           alignment: Alignment.centerRight,

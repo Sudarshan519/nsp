@@ -34,8 +34,8 @@ class UpdateAddressInfoActorBloc
     UpdateAddressInfoActorEvent event,
   ) async* {
     yield* event.map(
-      changeCountry: (e) async* {
-        yield _mapChangeCountryToState(e);
+      changeCurrCountry: (e) async* {
+        yield _mapChangeCurrCountryToState(e);
       },
       changedCurrPostalCode: (e) async* {
         yield _mapChangeCurrPostalCodeToState(e);
@@ -51,6 +51,10 @@ class UpdateAddressInfoActorBloc
       },
       changedCurrPhone: (e) async* {
         yield _mapChangeCurrPhoneToState(e);
+      },
+      changeSameAsCurrAddressInfo: (e) async* {},
+      changeContCountry: (e) async* {
+        yield _mapChangeContCountryToState(e);
       },
       changedContPostalCode: (e) async* {
         yield _mapChangeContPostalCodeToState(e);
@@ -78,10 +82,10 @@ class UpdateAddressInfoActorBloc
 
   Stream<UpdateAddressInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
-    yield state.copyWith(
-      isSubmitting: true,
-      authFailureOrSuccessOption: none(),
-    );
+    // yield state.copyWith(
+    //   isSubmitting: true,
+    //   authFailureOrSuccessOption: none(),
+    // );
 
     final userInfo = _setInitialState.info;
     final listOfCountry = await getCountries();
@@ -112,10 +116,10 @@ class UpdateAddressInfoActorBloc
     }
   }
 
-  UpdateAddressInfoActorState _mapChangeCountryToState(
-      _ChangedCountry _changedCountry) {
+  UpdateAddressInfoActorState _mapChangeCurrCountryToState(
+      _ChangedCurrCountry _changedCountry) {
     return state.copyWith(
-      country: _changedCountry.country,
+      currCountry: _changedCountry.country,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -159,6 +163,14 @@ class UpdateAddressInfoActorBloc
       _ChangedCurrPhone _changedPhone) {
     return state.copyWith(
       currPhone: _changedPhone.phone,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateAddressInfoActorState _mapChangeContCountryToState(
+      _ChangedContCountry _changedCountry) {
+    return state.copyWith(
+      contCountry: _changedCountry.country,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -213,11 +225,13 @@ class UpdateAddressInfoActorBloc
     );
     failureOrSuccess = await updateAddressInfo(
       UpdateAddressParams(
+        currCountry: state.currCountry,
         currPostalCode: state.currPostalCode,
         currPrefecture: state.currPrefecture,
         currCity: state.currCity,
         currAddress: state.currAddress,
         currPhone: state.currPhone,
+        contCountry: state.contCountry,
         contPostalCode: state.contPostalCode,
         contPrefecture: state.contPrefecture,
         contCity: state.contCity,

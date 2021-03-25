@@ -55,12 +55,9 @@ class WorkPage extends StatelessWidget {
           child: FloatingActionButton(
             backgroundColor: Palette.white,
             onPressed: () {
-              final actorBloc = UpdateWorkInfoActorBloc(
-                  updateWorkInfo: getIt<UpdateWorkInfo>());
               ExtendedNavigator.of(context).pushEditWorkInfoForm(
                 info: const WorkHistory(),
                 typeOfCompanyList: typeOfCompanyList,
-                actorBloc: actorBloc,
               );
             },
             child: SvgPicture.asset(
@@ -123,7 +120,6 @@ class _CreateWorkInfoBox extends StatelessWidget {
                 onTap: () => ExtendedNavigator.of(context).pushEditWorkInfoForm(
                   info: work,
                   typeOfCompanyList: typeOfCompanyList,
-                  actorBloc: actorBloc,
                 ),
                 child: SvgPicture.asset(
                   "assets/images/resume/edit.svg",

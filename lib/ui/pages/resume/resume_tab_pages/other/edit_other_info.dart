@@ -11,6 +11,7 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_w
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_multi_select_drop_down.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -323,21 +324,25 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
             const SizedBox(height: 10),
             Row(
               children: const [
-                Expanded(
+                SizedBox(
+                  width: 120,
                   child: Center(child: Text("Hours")),
                 ),
-                Expanded(
+                SizedBox(
+                  width: 120,
                   child: Center(child: Text("Minutes")),
                 ),
               ],
             ),
             Row(
               children: [
-                Flexible(
-                  child: CustomSearchableDropDownWidget(
+                SizedBox(
+                  width: 120,
+                  child: CustomDropDownWidget(
                     hintText: "Select hours",
                     value: state.workinHours,
                     options: const [
+                      "0",
                       "1",
                       "2",
                       "3",
@@ -346,21 +351,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                       "6",
                       "7",
                       "8",
-                      "9",
-                      "10",
-                      "11",
-                      "12",
-                      "13",
-                      "14",
-                      "15",
-                      "16",
-                      "17",
-                      "18",
-                      "19",
-                      "20",
-                      "21",
-                      "22",
-                      "23",
+                      "Full-time",
                     ],
                     alignment: Alignment.topCenter,
                     onChanged: (value) => context
@@ -370,8 +361,9 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Flexible(
-                  child: CustomSearchableDropDownWidget(
+                SizedBox(
+                  width: 125,
+                  child: CustomDropDownWidget(
                     hintText: "Select minutes",
                     value: state.workingMinutes,
                     alignment: Alignment.topCenter,
@@ -405,8 +397,8 @@ class _NumberOfDependentInputField extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.numberOfDependent != current.numberOfDependent,
       builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Number Of Dependent((Excluding Spouse))",
-        child: CustomSearchableDropDownWidget(
+        title: "Number Of Dependent(Excluding Spouse)",
+        child: CustomDropDownWidget(
           hintText: "select from the options",
           value: state.numberOfDependent,
           options: const [
@@ -441,7 +433,7 @@ class _SpouseInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.isSpouse != current.isSpouse,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Spouse",
-        child: CustomSearchableDropDownWidget(
+        child: CustomDropDownWidget(
           hintText: "select from the options",
           value: state.isSpouse,
           options: const [
@@ -476,7 +468,7 @@ class _SpouseSupportObligationInputField extends StatelessWidget {
               children: [
                 TextWidetWithLabelAndChild(
                   title: "Spouse Support Obligation",
-                  child: CustomSearchableDropDownWidget(
+                  child: CustomDropDownWidget(
                     hintText: "select from the options",
                     value: state.isSpouseSupportObligation,
                     options: const [

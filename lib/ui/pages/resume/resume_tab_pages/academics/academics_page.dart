@@ -55,12 +55,9 @@ class AcademicsPage extends StatelessWidget {
           child: FloatingActionButton(
             backgroundColor: Palette.white,
             onPressed: () {
-              final actorBloc = UpdateAcademicInfoActorBloc(
-                  updateAcadamicInfo: getIt<UpdateAcadamicInfo>());
               ExtendedNavigator.of(context).pushEditAcademicInfoForm(
                 info: const AcademicHistory(),
                 listOfSubjects: listOfSubjects,
-                actorBloc: actorBloc,
               );
             },
             child: SvgPicture.asset(
@@ -124,7 +121,6 @@ class _CreateAcademicInfoBox extends StatelessWidget {
                     ExtendedNavigator.of(context).pushEditAcademicInfoForm(
                   info: academicHistory,
                   listOfSubjects: listOfSubjects,
-                  actorBloc: actorBloc,
                 ),
                 child: SvgPicture.asset(
                   "assets/images/resume/edit.svg",

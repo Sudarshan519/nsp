@@ -20,17 +20,19 @@ class PersonalInfo extends Equatable {
     this.age,
     this.gender,
     this.nationality,
+    this.currCountry,
     this.currPostalCode,
     this.currPrefecture,
     this.currCity,
     this.currAddress,
     this.currPhone,
+    this.contCountry,
     this.contPostalCode,
     this.contPrefecture,
     this.contCity,
     this.contAddress,
     this.contPhone,
-    //  this.knownLanguages,
+    this.knownLanguages,
     this.jlpt,
     this.selfPr,
     this.extraPoint,
@@ -75,17 +77,19 @@ class PersonalInfo extends Equatable {
   final String age;
   final String gender;
   final String nationality;
+  final String currCountry;
   final String currPostalCode;
   final String currPrefecture;
   final String currCity;
   final String currAddress;
   final String currPhone;
+  final String contCountry;
   final String contPostalCode;
   final String contPrefecture;
   final String contCity;
   final String contAddress;
   final String contPhone;
-  // final String knownLanguages;
+  final List<String> knownLanguages;
   final String jlpt;
   final String selfPr;
   final String extraPoint;
@@ -162,7 +166,7 @@ class PersonalInfo extends Equatable {
         contCity,
         contAddress,
         contPhone,
-        //  knownLanguages,
+        knownLanguages,
         jlpt,
         selfPr,
         extraPoint,

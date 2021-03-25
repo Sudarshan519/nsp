@@ -185,11 +185,11 @@ class _CountryInputField extends StatelessWidget {
         title: "Country",
         child: CustomSearchableDropDownWidget(
           hintText: "Country",
-          value: state.country,
+          value: state.contCountry,
           options: state.listOfCountries,
           onChanged: (value) => context
               .read<UpdateAddressInfoActorBloc>()
-              .add(UpdateAddressInfoActorEvent.changeCountry(value)),
+              .add(UpdateAddressInfoActorEvent.changeContCountry(value)),
         ),
       ),
     );
@@ -253,7 +253,7 @@ class _PrefectureInputField extends StatelessWidget {
         UpdateAddressInfoActorState>(
       listenWhen: (previous, current) =>
           previous.contPrefecture != current.contPrefecture ||
-          previous.country != current.country,
+          previous.contCountry != current.contCountry,
       listener: (context, state) {
         final TextSelection previousSelection = _controller.selection;
 
@@ -263,10 +263,10 @@ class _PrefectureInputField extends StatelessWidget {
       },
       buildWhen: (previous, current) =>
           previous.contPrefecture != current.contPrefecture ||
-          previous.country != current.country,
+          previous.contCountry != current.contCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
-        child: state.country.toLowerCase() == "japan"
+        child: state.contCountry.toLowerCase() == "japan"
             ? CustomSearchableDropDownWidget(
                 hintText: "Prefecture",
                 value: state.contPrefecture,
@@ -302,7 +302,7 @@ class _CityInputField extends StatelessWidget {
       listenWhen: (previous, current) =>
           previous.contCity != current.contCity ||
           previous.contPrefecture != current.contPrefecture ||
-          previous.country != current.country,
+          previous.contCountry != current.contCountry,
       listener: (context, state) {
         final TextSelection previousSelection = _controller.selection;
 
@@ -313,10 +313,10 @@ class _CityInputField extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.contCity != current.contCity ||
           previous.contPrefecture != current.contPrefecture ||
-          previous.country != current.country,
+          previous.contCountry != current.contCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
-        child: state.country.toLowerCase() == "japan"
+        child: state.contCountry.toLowerCase() == "japan"
             ? CustomSearchableDropDownWidget(
                 hintText: "City",
                 value: state.contCity,

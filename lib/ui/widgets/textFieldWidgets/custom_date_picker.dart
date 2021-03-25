@@ -69,8 +69,7 @@ class CustomDatePicker extends StatelessWidget {
     );
   }
 
-  // ignore: always_declare_return_types
-  _selectDate(BuildContext context) async {
+  Future _selectDate(BuildContext context) async {
     final today = DateTime.now();
     final DateTime picked = await showDatePicker(
       context: context,

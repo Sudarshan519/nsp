@@ -4,29 +4,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_qualification_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_qualification_info_actor/update_qualification_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class EditQualificationInfoForm extends StatelessWidget {
   final QualificationHistory info;
-  final UpdateQualificationInfoActorBloc actorBloc;
 
   const EditQualificationInfoForm({
     Key key,
-    @required this.actorBloc,
     @required this.info,
   })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final actorBloc = UpdateQualificationInfoActorBloc(
+      updateQualificationInfo: getIt<UpdateQualificationInfo>(),
+    );
     return BlocProvider(
       create: (context) => actorBloc
         ..add(UpdateQualificationInfoActorEvent.setInitialState(info)),
@@ -116,8 +119,6 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             _NameOfQualificationField(),
             SizedBox(height: 20),
             _CertifiedYearField(),
-            SizedBox(height: 20),
-            _CertifiedMonthField(),
           ],
         ),
       ),
@@ -212,87 +213,83 @@ class _CertifiedYearField extends StatelessWidget {
           previous.certifiedYear != current.certifiedYear,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Certified Year",
-        child: CustomSearchableDropDownWidget(
-          hintText: "2010",
-          value: state.certifiedYear,
-          options: const [
-            "1990",
-            "1991",
-            "1992",
-            "1993",
-            "1994",
-            "1995",
-            "1996",
-            "1997",
-            "1998",
-            "1999",
-            "2000",
-            "2001",
-            "2002",
-            "2003",
-            "2004",
-            "2005",
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
+        child: Row(
+          children: [
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
+                hintText: "Select Year",
+                value: state.certifiedYear,
+                options: const [
+                  "1990",
+                  "1991",
+                  "1992",
+                  "1993",
+                  "1994",
+                  "1995",
+                  "1996",
+                  "1997",
+                  "1998",
+                  "1999",
+                  "2000",
+                  "2001",
+                  "2002",
+                  "2003",
+                  "2004",
+                  "2005",
+                  "2006",
+                  "2007",
+                  "2008",
+                  "2009",
+                  "2010",
+                  "2011",
+                  "2012",
+                  "2013",
+                  "2014",
+                  "2015",
+                  "2016",
+                  "2017",
+                  "2018",
+                  "2019",
+                  "2020",
+                  "2021",
+                ],
+                alignment: Alignment.topCenter,
+                onChanged: (value) => context
+                    .read<UpdateQualificationInfoActorBloc>()
+                    .add(UpdateQualificationInfoActorEvent.changedCertifiedYear(
+                        value)),
+              ),
+            ),
+            const SizedBox(width: 10),
+            SizedBox(
+              width: 120,
+              child: CustomDropDownWidget(
+                hintText: "Select Month",
+                value: state.certifiedMonth,
+                alignment: Alignment.topCenter,
+                options: const [
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "July",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                ],
+                onChanged: (value) => context
+                    .read<UpdateQualificationInfoActorBloc>()
+                    .add(
+                        UpdateQualificationInfoActorEvent.changedCertifiedMonth(
+                            value)),
+              ),
+            ),
           ],
-          onChanged: (value) => context
-              .read<UpdateQualificationInfoActorBloc>()
-              .add(UpdateQualificationInfoActorEvent.changedCertifiedYear(
-                  value)),
-        ),
-      ),
-    );
-  }
-}
-
-class _CertifiedMonthField extends StatelessWidget {
-  const _CertifiedMonthField({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdateQualificationInfoActorBloc,
-        UpdateQualificationInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.certifiedMonth != current.certifiedMonth,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Certified Month",
-        child: CustomSearchableDropDownWidget(
-          hintText: "Sep",
-          value: state.certifiedMonth,
-          options: const [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "July",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
-          onChanged: (value) => context
-              .read<UpdateQualificationInfoActorBloc>()
-              .add(UpdateQualificationInfoActorEvent.changedCertifiedMonth(
-                  value)),
         ),
       ),
     );

@@ -16,9 +16,6 @@ import '../../features/resume/domain/entities/academic_history.dart';
 import '../../features/resume/domain/entities/personal_info.dart';
 import '../../features/resume/domain/entities/qualification_history.dart';
 import '../../features/resume/domain/entities/work_history.dart';
-import '../../features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
-import '../../features/resume/presentation/update_qualification_info_actor/update_qualification_info_actor_bloc.dart';
-import '../../features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
 import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
 import '../pages/auth/register_screen.dart';
@@ -184,7 +181,6 @@ class Router extends RouterBase {
         builder: (context) => EditWorkInfoForm(
           key: args.key,
           info: args.info,
-          actorBloc: args.actorBloc,
           typeOfCompanyList: args.typeOfCompanyList,
         ),
         settings: data,
@@ -195,7 +191,6 @@ class Router extends RouterBase {
       return MaterialPageRoute<dynamic>(
         builder: (context) => EditAcademicInfoForm(
           key: args.key,
-          actorBloc: args.actorBloc,
           info: args.info,
           listOfSubjects: args.listOfSubjects,
         ),
@@ -208,7 +203,6 @@ class Router extends RouterBase {
       return MaterialPageRoute<dynamic>(
         builder: (context) => EditQualificationInfoForm(
           key: args.key,
-          actorBloc: args.actorBloc,
           info: args.info,
         ),
         settings: data,
@@ -324,42 +318,32 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushEditWorkInfoForm({
     Key key,
     @required WorkHistory info,
-    @required UpdateWorkInfoActorBloc actorBloc,
     @required List<String> typeOfCompanyList,
   }) =>
       push<dynamic>(
         Routes.editWorkInfoForm,
         arguments: EditWorkInfoFormArguments(
-            key: key,
-            info: info,
-            actorBloc: actorBloc,
-            typeOfCompanyList: typeOfCompanyList),
+            key: key, info: info, typeOfCompanyList: typeOfCompanyList),
       );
 
   Future<dynamic> pushEditAcademicInfoForm({
     Key key,
-    @required UpdateAcademicInfoActorBloc actorBloc,
     @required AcademicHistory info,
     @required List<String> listOfSubjects,
   }) =>
       push<dynamic>(
         Routes.editAcademicInfoForm,
         arguments: EditAcademicInfoFormArguments(
-            key: key,
-            actorBloc: actorBloc,
-            info: info,
-            listOfSubjects: listOfSubjects),
+            key: key, info: info, listOfSubjects: listOfSubjects),
       );
 
   Future<dynamic> pushEditQualificationInfoForm({
     Key key,
-    @required UpdateQualificationInfoActorBloc actorBloc,
     @required QualificationHistory info,
   }) =>
       push<dynamic>(
         Routes.editQualificationInfoForm,
-        arguments: EditQualificationInfoFormArguments(
-            key: key, actorBloc: actorBloc, info: info),
+        arguments: EditQualificationInfoFormArguments(key: key, info: info),
       );
 
   Future<dynamic> pushEditOtherInfoForm({
@@ -446,35 +430,25 @@ class EditContactAddressInfoFormArguments {
 class EditWorkInfoFormArguments {
   final Key key;
   final WorkHistory info;
-  final UpdateWorkInfoActorBloc actorBloc;
   final List<String> typeOfCompanyList;
   EditWorkInfoFormArguments(
-      {this.key,
-      @required this.info,
-      @required this.actorBloc,
-      @required this.typeOfCompanyList});
+      {this.key, @required this.info, @required this.typeOfCompanyList});
 }
 
 /// EditAcademicInfoForm arguments holder class
 class EditAcademicInfoFormArguments {
   final Key key;
-  final UpdateAcademicInfoActorBloc actorBloc;
   final AcademicHistory info;
   final List<String> listOfSubjects;
   EditAcademicInfoFormArguments(
-      {this.key,
-      @required this.actorBloc,
-      @required this.info,
-      @required this.listOfSubjects});
+      {this.key, @required this.info, @required this.listOfSubjects});
 }
 
 /// EditQualificationInfoForm arguments holder class
 class EditQualificationInfoFormArguments {
   final Key key;
-  final UpdateQualificationInfoActorBloc actorBloc;
   final QualificationHistory info;
-  EditQualificationInfoFormArguments(
-      {this.key, @required this.actorBloc, @required this.info});
+  EditQualificationInfoFormArguments({this.key, @required this.info});
 }
 
 /// EditOtherInfoForm arguments holder class

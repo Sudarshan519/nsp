@@ -3,12 +3,14 @@ part of 'update_address_info_actor_bloc.dart';
 @freezed
 abstract class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
   const factory UpdateAddressInfoActorState({
-    @required String country,
+    @required String currCountry,
     @required String currPostalCode,
     @required String currPrefecture,
     @required String currCity,
     @required String currAddress,
     @required String currPhone,
+    @required bool sameAsCurrAddressInfo,
+    @required String contCountry,
     @required String contPostalCode,
     @required String contPrefecture,
     @required String contCity,
@@ -23,12 +25,14 @@ abstract class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
   }) = _UpdateAddressInfoActorState;
 
   factory UpdateAddressInfoActorState.initial() => UpdateAddressInfoActorState(
-        country: '',
+        currCountry: '',
         currPostalCode: '',
         currPrefecture: '',
         currCity: '',
         currAddress: '',
         currPhone: '',
+        sameAsCurrAddressInfo: false,
+        contCountry: '',
         contPostalCode: '',
         contPrefecture: '',
         contCity: '',

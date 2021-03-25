@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 
 import '../../domain/entities/personal_info.dart';
 
@@ -22,17 +23,19 @@ class PersonalInfoModel extends PersonalInfo {
     @required String age,
     @required String gender,
     @required String nationality,
+    @required String currCountry,
     @required String currPostalCode,
     @required String currPrefecture,
     @required String currCity,
     @required String currAddress,
     @required String currPhone,
+    @required String contCountry,
     @required String contPostalCode,
     @required String contPrefecture,
     @required String contCity,
     @required String contAddress,
     @required String contPhone,
-    // @required String knownLanguages,
+    @required List<String> knownLanguages,
     @required String jlpt,
     @required String selfPr,
     @required String extraPoint,
@@ -76,17 +79,19 @@ class PersonalInfoModel extends PersonalInfo {
           age: age,
           gender: gender,
           nationality: nationality,
+          currCountry: currCountry,
           currPostalCode: currPostalCode,
           currPrefecture: currPrefecture,
           currCity: currCity,
           currAddress: currAddress,
           currPhone: currPhone,
+          contCountry: contCountry,
           contPostalCode: contPostalCode,
           contPrefecture: contPrefecture,
           contCity: contCity,
           contAddress: contAddress,
           contPhone: contPhone,
-          // knownLanguages: knownLanguages,
+          knownLanguages: knownLanguages,
           jlpt: jlpt,
           selfPr: selfPr,
           extraPoint: extraPoint,
@@ -113,63 +118,74 @@ class PersonalInfoModel extends PersonalInfo {
           image: image,
         );
 
-  factory PersonalInfoModel.fromJson(Map<String, dynamic> json) =>
-      PersonalInfoModel(
-        id: json["id"] as int,
-        jobSeekerId: json["job_seeker_id"] as int,
-        firstName: json["first_name"] as String,
-        lastName: json["last_name"] as String,
-        profession: json["profession"] as String,
-        languageSchool: json["language_school"] as String,
-        languageSchoolPostalCode: json["language_school_postal_code"] as String,
-        languageSchoolAddress: json["language_school_address"] as String,
-        languageSchoolPhone: json["language_school_phone"] as String,
-        university: json["university"] as String,
-        universityPostalCode: json["university_postal_code"] as String,
-        universityAddress: json["university_address"] as String,
-        universityPhone: json["university_phone"] as String,
-        furigana: json["furigana"] as String,
-        dob: json["dob"] as String,
-        age: json["age"] as String,
-        gender: json["gender"] as String,
-        nationality: json["nationality"] as String,
-        currPostalCode: json["curr_postal_code"] as String,
-        currPrefecture: json["curr_prefecture"] as String,
-        currCity: json["curr_city"] as String,
-        currAddress: json["curr_address"] as String,
-        currPhone: json["curr_phone"] as String,
-        contPostalCode: json["cont_postal_code"] as String,
-        contPrefecture: json["cont_prefecture"] as String,
-        contCity: json["cont_city"] as String,
-        contAddress: json["cont_address"] as String,
-        contPhone: json["cont_phone"] as String,
-        // knownLanguages: json["known_languages"] as String,
-        jlpt: json["jlpt"] as String,
-        selfPr: json["self_pr"] as String,
-        extraPoint: json["extra_point"] as String,
-        workingHours: json["working_hours"] as String,
-        dependentsExceptSpouse: json["dependents_except_spouse"] as String,
-        spouse: json["spouse"] as String,
-        spouseSupportObligation: json["spouse_support_obligation"] as String,
-        specialConditions: json["special_conditions"] as String,
-        language: json["language"] as String,
-        createdAt: json["created_at"] as String,
-        updatedAt: json["updated_at"] as String,
-        email: json["email"] as String,
-        emailVerified: json["email_verified"] as int,
-        contactNumber: json["contact_number"] as String,
-        phoneVerified: json["phone_verified"] as int,
-        // languageSchoolPrefecture: json["language_school_prefecture"] as String,
-        // languageSchoolPrefectureId:
-        //     json["language_school_prefecture_id"] as String,
-        // languageSchoolCity: json["language_school_city"] as String,
-        // languageSchoolCityId: json["language_school_city_id"] as String,
-        // universityPrefecture: json["university_prefecture"] as String,
-        // universityPrefectureId: json["university_prefecture_id"] as String,
-        // universityCity: json["university_city"] as String,
-        // universityCityId: json["university_city_id"] as String,
-        image: json["image"] as String,
-      );
+  factory PersonalInfoModel.fromJson(Map<String, dynamic> json) {
+    var knownLanguageData = json["known_languages"];
+
+    if (knownLanguageData is List<String>) {
+    } else {
+      knownLanguageData = List<String>();
+    }
+
+    return PersonalInfoModel(
+      id: json["id"] as int,
+      jobSeekerId: json["job_seeker_id"] as int,
+      firstName: json["first_name"] as String,
+      lastName: json["last_name"] as String,
+      profession: json["profession"] as String,
+      languageSchool: json["language_school"] as String,
+      languageSchoolPostalCode: json["language_school_postal_code"] as String,
+      languageSchoolAddress: json["language_school_address"] as String,
+      languageSchoolPhone: json["language_school_phone"] as String,
+      university: json["university"] as String,
+      universityPostalCode: json["university_postal_code"] as String,
+      universityAddress: json["university_address"] as String,
+      universityPhone: json["university_phone"] as String,
+      furigana: json["furigana"] as String,
+      dob: json["dob"] as String,
+      age: json["age"] as String,
+      gender: json["gender"] as String,
+      nationality: json["nationality"] as String,
+      currCountry: json["curr_country"] as String,
+      currPostalCode: json["curr_postal_code"] as String,
+      currPrefecture: json["curr_prefecture"] as String,
+      currCity: json["curr_city"] as String,
+      currAddress: json["curr_address"] as String,
+      currPhone: json["curr_phone"] as String,
+      contCountry: json["cont_country"] as String,
+      contPostalCode: json["cont_postal_code"] as String,
+      contPrefecture: json["cont_prefecture"] as String,
+      contCity: json["cont_city"] as String,
+      contAddress: json["cont_address"] as String,
+      contPhone: json["cont_phone"] as String,
+      knownLanguages: knownLanguageData as List<String>,
+      // knownLanguages: const ["known_languages"],
+      jlpt: json["jlpt"] as String,
+      selfPr: json["self_pr"] as String,
+      extraPoint: json["extra_point"] as String,
+      workingHours: json["working_hours"] as String,
+      dependentsExceptSpouse: json["dependents_except_spouse"] as String,
+      spouse: json["spouse"] as String,
+      spouseSupportObligation: json["spouse_support_obligation"] as String,
+      specialConditions: json["special_conditions"] as String,
+      language: json["language"] as String,
+      createdAt: json["created_at"] as String,
+      updatedAt: json["updated_at"] as String,
+      email: json["email"] as String,
+      emailVerified: json["email_verified"] as int,
+      contactNumber: json["contact_number"] as String,
+      phoneVerified: json["phone_verified"] as int,
+      // languageSchoolPrefecture: json["language_school_prefecture"] as String,
+      // languageSchoolPrefectureId:
+      //     json["language_school_prefecture_id"] as String,
+      // languageSchoolCity: json["language_school_city"] as String,
+      // languageSchoolCityId: json["language_school_city_id"] as String,
+      // universityPrefecture: json["university_prefecture"] as String,
+      // universityPrefectureId: json["university_prefecture_id"] as String,
+      // universityCity: json["university_city"] as String,
+      // universityCityId: json["university_city_id"] as String,
+      image: json["image"] as String,
+    );
+  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> params = {};
@@ -216,6 +232,10 @@ class PersonalInfoModel extends PersonalInfo {
   Map<String, dynamic> toCurrentAddressJson() {
     final Map<String, dynamic> params = {};
 
+    if (currCountry != null) {
+      params["curr_country"] = currCountry;
+    }
+
     if (currPostalCode != null) {
       params["curr_postal_code"] = currPostalCode;
     }
@@ -234,6 +254,10 @@ class PersonalInfoModel extends PersonalInfo {
 
     if (currPhone != null) {
       params["curr_phone"] = currPhone;
+    }
+
+    if (contCountry != null) {
+      params["cont_country"] = contCountry;
     }
 
     if (contPostalCode != null) {
@@ -335,11 +359,13 @@ extension PersonalInfoExt on PersonalInfo {
         age: age,
         gender: gender,
         nationality: nationality,
+        currCountry: currCountry,
         currPostalCode: currPostalCode,
         currPrefecture: currPrefecture,
         currCity: currCity,
         currAddress: currAddress,
         currPhone: currPhone,
+        contCountry: contCountry,
         contPostalCode: contPostalCode,
         contPrefecture: contPrefecture,
         contCity: contCity,
@@ -360,6 +386,7 @@ extension PersonalInfoExt on PersonalInfo {
         emailVerified: emailVerified,
         contactNumber: contactNumber,
         phoneVerified: phoneVerified,
+        knownLanguages: knownLanguages,
         // languageSchoolPrefecture: languageSchoolPrefecture,
         // languageSchoolPrefectureId: languageSchoolPrefectureId,
         // languageSchoolCity: languageSchoolCity,
