@@ -10,7 +10,7 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_w
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
@@ -220,7 +220,7 @@ class _MajorSubjectField extends StatelessWidget {
           previous.majorSubjectList != current.majorSubjectList,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Major Subject",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Major Subject",
           value: state.yearOFEnroll,
           options: state.majorSubjectList,
@@ -249,7 +249,7 @@ class _YearOfEnrollField extends StatelessWidget {
         child: Row(
           children: [
             Flexible(
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.yearOFEnroll,
                 options: const [
@@ -295,7 +295,7 @@ class _YearOfEnrollField extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             Flexible(
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.monthOfEnroll,
                 alignment: Alignment.topCenter,
@@ -342,7 +342,7 @@ class _YearOfCompletionField extends StatelessWidget {
         child: Row(
           children: [
             Flexible(
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.yearOfCpmpletion,
                 options: const [
@@ -388,7 +388,7 @@ class _YearOfCompletionField extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             Flexible(
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.monthOfCompletion,
                 alignment: Alignment.topCenter,

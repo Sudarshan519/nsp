@@ -3,33 +3,36 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
-import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/resume_options.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_date_picker.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
 
 class AboutPage extends StatelessWidget {
-  final UpdatePersonalInfoActorBloc aboutPageActor;
   final PersonalInfo info;
 
   const AboutPage({
     Key key,
-    @required this.aboutPageActor,
     @required this.info,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final aboutPageActor = UpdatePersonalInfoActorBloc(
+      updatePersonalInfo: getIt<UpdatePersonalInfo>(),
+      getCountries: getIt<GetCountries>(),
+    );
+
     return BlocProvider(
       create: (_) => aboutPageActor
         ..add(
@@ -95,7 +98,6 @@ class AboutPage extends StatelessWidget {
                       onTap: () =>
                           ExtendedNavigator.of(context).pushEditBasicInfoForm(
                         info: info,
-                        actorBloc: aboutPageActor,
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
@@ -217,9 +219,10 @@ class _ProfessionInputField extends StatelessWidget {
           previous.profession != current.profession,
       builder: (context, state) => FormFieldDecoration(
         title: "Profession",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Profession",
           value: state.profession,
+          isEnable: false,
           alignment: Alignment.centerRight,
           options: const [
             "Language Student",
@@ -315,9 +318,10 @@ class _GenderInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.gender != current.gender,
       builder: (context, state) => FormFieldDecoration(
         title: "Gender",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Gender",
           value: state.gender,
+          isEnable: false,
           options: const ["Male", "Female"],
           alignment: Alignment.centerRight,
         ),
@@ -339,10 +343,11 @@ class _NationalityInputField extends StatelessWidget {
           previous.nationality != current.nationality,
       builder: (context, state) => FormFieldDecoration(
         title: "Nationality",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Nationality",
           value: state.nationality,
           options: state.listOfNationality,
+          isEnable: false,
           alignment: Alignment.centerRight,
         ),
       ),

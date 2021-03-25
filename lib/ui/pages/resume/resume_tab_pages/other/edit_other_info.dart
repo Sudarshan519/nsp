@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_other_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_other_info_actor/update_other_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_multi_select_drop_down.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -18,17 +19,17 @@ import 'package:wallet_app/utils/validator.dart';
 
 class EditOtherInfoForm extends StatelessWidget {
   final PersonalInfo info;
-  final UpdateOtherInfoActorBloc actorBloc;
 
   const EditOtherInfoForm({
     Key key,
     @required this.info,
-    @required this.actorBloc,
   })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final actorBloc =
+        UpdateOtherInfoActorBloc(updateOtherInfo: getIt<UpdateOtherInfo>());
     return BlocProvider(
       create: (context) =>
           actorBloc..add(UpdateOtherInfoActorEvent.setInitialState(info)),
@@ -209,7 +210,7 @@ class _JLPTLevelField extends StatelessWidget {
       buildWhen: (previous, current) => previous.JLPTLevel != current.JLPTLevel,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Japanese Language Completence (JLPT Level)",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "N3",
           value: state.JLPTLevel,
           options: const [
@@ -333,7 +334,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
             Row(
               children: [
                 Flexible(
-                  child: CustomDropDownWidget(
+                  child: CustomSearchableDropDownWidget(
                     hintText: "Select hours",
                     value: state.workinHours,
                     options: const [
@@ -370,7 +371,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 Flexible(
-                  child: CustomDropDownWidget(
+                  child: CustomSearchableDropDownWidget(
                     hintText: "Select minutes",
                     value: state.workingMinutes,
                     alignment: Alignment.topCenter,
@@ -405,7 +406,7 @@ class _NumberOfDependentInputField extends StatelessWidget {
           previous.numberOfDependent != current.numberOfDependent,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Number Of Dependent((Excluding Spouse))",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "select from the options",
           value: state.numberOfDependent,
           options: const [
@@ -440,7 +441,7 @@ class _SpouseInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.isSpouse != current.isSpouse,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Spouse",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "select from the options",
           value: state.isSpouse,
           options: const [
@@ -475,7 +476,7 @@ class _SpouseSupportObligationInputField extends StatelessWidget {
               children: [
                 TextWidetWithLabelAndChild(
                   title: "Spouse Support Obligation",
-                  child: CustomDropDownWidget(
+                  child: CustomSearchableDropDownWidget(
                     hintText: "select from the options",
                     value: state.isSpouseSupportObligation,
                     options: const [

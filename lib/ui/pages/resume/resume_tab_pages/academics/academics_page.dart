@@ -10,9 +10,8 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/form_field_d
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 
 class AcademicsPage extends StatelessWidget {
   final List<AcademicHistory> academics;
@@ -206,10 +205,11 @@ class _MajorSubjectField extends StatelessWidget {
           previous.majorSubject != current.majorSubject,
       builder: (context, state) => FormFieldDecoration(
         title: "Major Subject",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Major Subject",
           value: state.yearOFEnroll,
           options: state.majorSubjectList,
+          isEnable: false,
           alignment: Alignment.centerRight,
         ),
       ),
@@ -230,9 +230,10 @@ class _YearOfEnrollField extends StatelessWidget {
           previous.yearOFEnroll != current.yearOFEnroll,
       builder: (context, state) => FormFieldDecoration(
         title: "Year of Enroll",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select Year",
           value: state.yearOFEnroll,
+          isEnable: false,
           options: const [
             "1990",
             "1991",
@@ -287,9 +288,10 @@ class _YearOfCompletionField extends StatelessWidget {
           previous.yearOfCpmpletion != current.yearOfCpmpletion,
       builder: (context, state) => FormFieldDecoration(
         title: "Year of Completion",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select Year",
           value: state.yearOfCpmpletion,
+          isEnable: false,
           options: const [
             "1990",
             "1991",
@@ -344,10 +346,11 @@ class _MonthOfEnrollField extends StatelessWidget {
           previous.monthOfEnroll != current.monthOfEnroll,
       builder: (context, state) => FormFieldDecoration(
         title: "Month of Enroll",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select Month",
           value: state.monthOfEnroll,
           alignment: Alignment.centerRight,
+          isEnable: false,
           options: const [
             "Jan",
             "Feb",
@@ -381,10 +384,11 @@ class _MonthOfCompletionField extends StatelessWidget {
           previous.monthOfCompletion != current.monthOfCompletion,
       builder: (context, state) => FormFieldDecoration(
         title: "Month of Completion",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select Month",
           value: state.monthOfCompletion,
           alignment: Alignment.centerRight,
+          isEnable: false,
           options: const [
             "Jan",
             "Feb",

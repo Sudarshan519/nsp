@@ -31,5 +31,9 @@ abstract class ResumeRepository {
     @required QualificationHistory data,
   });
 
+  Future<Either<ApiFailure, Unit>> updateResumeImage({
+    @required PersonalInfo data,
+  });
+
   Future<Either<ApiFailure, String>> getResumePdfLink();
 }

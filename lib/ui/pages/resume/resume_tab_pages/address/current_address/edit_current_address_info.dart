@@ -4,34 +4,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_japan_city.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_prefecture.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 
 class EditCurrentAddressInfoForm extends StatelessWidget {
-  final UpdateAddressInfoActorBloc actorBloc;
   final PersonalInfo info;
 
   const EditCurrentAddressInfoForm({
     Key key,
     @required this.info,
-    @required this.actorBloc,
   })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final addressInfoActorBloc = UpdateAddressInfoActorBloc(
+      updateAddressInfo: getIt<UpdateAddressInfo>(),
+      getCountries: getIt<GetCountries>(),
+      getPrefecture: getIt<GetPrefecture>(),
+      getJapanCity: getIt<GetJapanCity>(),
+    );
     return BlocProvider(
-      create: (context) =>
-          actorBloc..add(UpdateAddressInfoActorEvent.setInitialState(info)),
+      create: (context) => addressInfoActorBloc
+        ..add(UpdateAddressInfoActorEvent.setInitialState(info)),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -175,7 +183,7 @@ class _CountryInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Country",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Country",
           value: state.country,
           options: state.listOfCountries,
@@ -259,7 +267,7 @@ class _PrefectureInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
         child: state.country.toLowerCase() == "japan"
-            ? CustomDropDownWidget(
+            ? CustomSearchableDropDownWidget(
                 hintText: "Prefecture",
                 value: state.currPrefecture,
                 options: state.listOfPrefectures,
@@ -309,7 +317,7 @@ class _CityInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
         child: state.country.toLowerCase() == "japan"
-            ? CustomDropDownWidget(
+            ? CustomSearchableDropDownWidget(
                 hintText: "City",
                 value: state.currCity,
                 options: state.listOfCurrCities,

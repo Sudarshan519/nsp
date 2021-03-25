@@ -305,6 +305,14 @@ class PersonalInfoModel extends PersonalInfo {
 
     return params;
   }
+
+  Map<String, dynamic> toImageJson() {
+    final Map<String, dynamic> params = {};
+    if (image != null) {
+      params["image"] = image;
+    }
+    return params;
+  }
 }
 
 extension PersonalInfoExt on PersonalInfo {

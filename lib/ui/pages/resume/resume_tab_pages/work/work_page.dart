@@ -10,7 +10,7 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/form_field_d
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class WorkPage extends StatelessWidget {
@@ -204,10 +204,11 @@ class _TypeOfCompanyField extends StatelessWidget {
           previous.companyType != current.companyType,
       builder: (context, state) => FormFieldDecoration(
         title: "Company Type",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select a type of company.",
           value: state.companyType,
           alignment: Alignment.centerRight,
+          isEnable: false,
           options: const [
             "Agriculture, Food and Natural Resources",
             "Architecture and Construction",
@@ -249,9 +250,10 @@ class _StartedYearField extends StatelessWidget {
           previous.startedYear != current.startedYear,
       builder: (context, state) => FormFieldDecoration(
         title: "Started Year",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select Year",
           value: state.startedYear,
+          isEnable: false,
           options: const [
             "1990",
             "1991",
@@ -305,9 +307,10 @@ class _StartedMonthField extends StatelessWidget {
           previous.startedMonth != current.startedMonth,
       builder: (context, state) => FormFieldDecoration(
         title: "Started Month",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select Month",
           value: state.startedMonth,
+          isEnable: false,
           alignment: Alignment.centerRight,
           options: const [
             "Jan",
@@ -340,9 +343,10 @@ class _EndYearField extends StatelessWidget {
       buildWhen: (previous, current) => previous.endYear != current.endYear,
       builder: (context, state) => FormFieldDecoration(
         title: "End Year",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select Year",
           value: state.endYear,
+          isEnable: false,
           options: const [
             "1990",
             "1991",
@@ -395,9 +399,10 @@ class _EndMonthField extends StatelessWidget {
       buildWhen: (previous, current) => previous.endMonth != current.endMonth,
       builder: (context, state) => FormFieldDecoration(
         title: "End Month",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select Month",
           value: state.endMonth,
+          isEnable: false,
           alignment: Alignment.centerRight,
           options: const [
             "Jan",

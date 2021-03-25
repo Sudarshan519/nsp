@@ -5,12 +5,8 @@ import 'package:wallet_app/features/location_information/domain/usecases/get_cou
 import 'package:wallet_app/features/location_information/domain/usecases/get_japan_city.dart';
 import 'package:wallet_app/features/location_information/domain/usecases/get_prefecture.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
-import 'package:wallet_app/features/resume/domain/usecases/update_other_info.dart';
-import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
-import 'package:wallet_app/features/resume/presentation/update_other_info_actor/update_other_info_actor_bloc.dart';
-import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/qualification/qualification_page.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/work/work_page.dart';
@@ -135,11 +131,6 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
   ];
 
   List<Widget> getPages(ResumeWatcherState state) {
-    final aboutPageActor = UpdatePersonalInfoActorBloc(
-      updatePersonalInfo: getIt<UpdatePersonalInfo>(),
-      getCountries: getIt<GetCountries>(),
-    );
-
     final addressPageActor = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
       getCountries: getIt<GetCountries>(),
@@ -147,17 +138,12 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
       getJapanCity: getIt<GetJapanCity>(),
     );
 
-    final otherInfoActor =
-        UpdateOtherInfoActorBloc(updateOtherInfo: getIt<UpdateOtherInfo>());
-
     return [
       AboutPage(
         info: state.info,
-        aboutPageActor: aboutPageActor,
       ),
       AddressPage(
         info: state.info,
-        addressInfoActorBloc: addressPageActor,
       ),
       AcademicsPage(
         academics: state.academics ?? [],
@@ -172,7 +158,6 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
       ),
       OtherInfo(
         info: state.info,
-        actorBloc: otherInfoActor,
       ),
     ];
   }

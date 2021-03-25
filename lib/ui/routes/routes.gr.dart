@@ -17,9 +17,6 @@ import '../../features/resume/domain/entities/personal_info.dart';
 import '../../features/resume/domain/entities/qualification_history.dart';
 import '../../features/resume/domain/entities/work_history.dart';
 import '../../features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
-import '../../features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
-import '../../features/resume/presentation/update_other_info_actor/update_other_info_actor_bloc.dart';
-import '../../features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import '../../features/resume/presentation/update_qualification_info_actor/update_qualification_info_actor_bloc.dart';
 import '../../features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
 import '../pages/auth/forgot_password_screen.dart';
@@ -155,7 +152,6 @@ class Router extends RouterBase {
         builder: (context) => EditBasicInfoForm(
           key: args.key,
           info: args.info,
-          actorBloc: args.actorBloc,
         ),
         settings: data,
       );
@@ -167,7 +163,6 @@ class Router extends RouterBase {
         builder: (context) => EditCurrentAddressInfoForm(
           key: args.key,
           info: args.info,
-          actorBloc: args.actorBloc,
         ),
         settings: data,
       );
@@ -179,7 +174,6 @@ class Router extends RouterBase {
         builder: (context) => EditContactAddressInfoForm(
           key: args.key,
           info: args.info,
-          actorBloc: args.actorBloc,
         ),
         settings: data,
       );
@@ -226,7 +220,6 @@ class Router extends RouterBase {
         builder: (context) => EditOtherInfoForm(
           key: args.key,
           info: args.info,
-          actorBloc: args.actorBloc,
         ),
         settings: data,
       );
@@ -304,34 +297,28 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushEditBasicInfoForm({
     Key key,
     @required PersonalInfo info,
-    @required UpdatePersonalInfoActorBloc actorBloc,
   }) =>
       push<dynamic>(
         Routes.editBasicInfoForm,
-        arguments: EditBasicInfoFormArguments(
-            key: key, info: info, actorBloc: actorBloc),
+        arguments: EditBasicInfoFormArguments(key: key, info: info),
       );
 
   Future<dynamic> pushEditCurrentAddressInfoForm({
     Key key,
     @required PersonalInfo info,
-    @required UpdateAddressInfoActorBloc actorBloc,
   }) =>
       push<dynamic>(
         Routes.editCurrentAddressInfoForm,
-        arguments: EditCurrentAddressInfoFormArguments(
-            key: key, info: info, actorBloc: actorBloc),
+        arguments: EditCurrentAddressInfoFormArguments(key: key, info: info),
       );
 
   Future<dynamic> pushEditContactAddressInfoForm({
     Key key,
     @required PersonalInfo info,
-    @required UpdateAddressInfoActorBloc actorBloc,
   }) =>
       push<dynamic>(
         Routes.editContactAddressInfoForm,
-        arguments: EditContactAddressInfoFormArguments(
-            key: key, info: info, actorBloc: actorBloc),
+        arguments: EditContactAddressInfoFormArguments(key: key, info: info),
       );
 
   Future<dynamic> pushEditWorkInfoForm({
@@ -378,12 +365,10 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushEditOtherInfoForm({
     Key key,
     @required PersonalInfo info,
-    @required UpdateOtherInfoActorBloc actorBloc,
   }) =>
       push<dynamic>(
         Routes.editOtherInfoForm,
-        arguments: EditOtherInfoFormArguments(
-            key: key, info: info, actorBloc: actorBloc),
+        arguments: EditOtherInfoFormArguments(key: key, info: info),
       );
 
   Future<dynamic> pushServicesDetail({
@@ -440,27 +425,21 @@ class VerifyUserPageArguments {
 class EditBasicInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  final UpdatePersonalInfoActorBloc actorBloc;
-  EditBasicInfoFormArguments(
-      {this.key, @required this.info, @required this.actorBloc});
+  EditBasicInfoFormArguments({this.key, @required this.info});
 }
 
 /// EditCurrentAddressInfoForm arguments holder class
 class EditCurrentAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  final UpdateAddressInfoActorBloc actorBloc;
-  EditCurrentAddressInfoFormArguments(
-      {this.key, @required this.info, @required this.actorBloc});
+  EditCurrentAddressInfoFormArguments({this.key, @required this.info});
 }
 
 /// EditContactAddressInfoForm arguments holder class
 class EditContactAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  final UpdateAddressInfoActorBloc actorBloc;
-  EditContactAddressInfoFormArguments(
-      {this.key, @required this.info, @required this.actorBloc});
+  EditContactAddressInfoFormArguments({this.key, @required this.info});
 }
 
 /// EditWorkInfoForm arguments holder class
@@ -502,9 +481,7 @@ class EditQualificationInfoFormArguments {
 class EditOtherInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  final UpdateOtherInfoActorBloc actorBloc;
-  EditOtherInfoFormArguments(
-      {this.key, @required this.info, @required this.actorBloc});
+  EditOtherInfoFormArguments({this.key, @required this.info});
 }
 
 /// ServicesDetail arguments holder class

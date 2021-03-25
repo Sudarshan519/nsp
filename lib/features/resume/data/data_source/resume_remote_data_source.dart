@@ -88,6 +88,8 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
       //TODO: route user to login page as the user does not have uuid
     }
 
+    debugPrint("json: ${body["image"]}");
+
     _headers["Authorization"] = "Bearer $uuid";
 
     try {

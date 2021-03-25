@@ -62,6 +62,7 @@ import '../features/resume/domain/usecases/update_address_info.dart';
 import '../features/resume/domain/usecases/update_other_info.dart';
 import '../features/resume/domain/usecases/update_personal_info.dart';
 import '../features/resume/domain/usecases/update_qualification_info.dart';
+import '../features/resume/domain/usecases/update_resume_image.dart';
 import '../features/resume/domain/usecases/update_work_info.dart';
 import '../features/auth/domain/usecase/verify_email.dart';
 import '../features/auth/presentation/verify_email/verify_email_bloc.dart';
@@ -151,6 +152,8 @@ Future<GetIt> $initGetIt(
   gh.factory<UpdatePersonalInfo>(() => UpdatePersonalInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<UpdateQualificationInfo>(() => UpdateQualificationInfo(
+      repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
+  gh.factory<UpdateResumeImage>(() => UpdateResumeImage(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.factory<UpdateWorkInfo>(() => UpdateWorkInfo(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));

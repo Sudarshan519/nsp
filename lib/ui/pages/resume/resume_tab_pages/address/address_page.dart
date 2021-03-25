@@ -3,30 +3,38 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_japan_city.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_prefecture.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class AddressPage extends StatelessWidget {
-  final UpdateAddressInfoActorBloc addressInfoActorBloc;
   final PersonalInfo info;
 
   const AddressPage({
     Key key,
-    @required this.addressInfoActorBloc,
     @required this.info,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final addressInfoActorBloc = UpdateAddressInfoActorBloc(
+      updateAddressInfo: getIt<UpdateAddressInfo>(),
+      getCountries: getIt<GetCountries>(),
+      getPrefecture: getIt<GetPrefecture>(),
+      getJapanCity: getIt<GetJapanCity>(),
+    );
     return BlocProvider(
       create: (_) => addressInfoActorBloc
         ..add(
@@ -92,7 +100,6 @@ class AddressPage extends StatelessWidget {
                       onTap: () => ExtendedNavigator.of(context)
                           .pushEditCurrentAddressInfoForm(
                         info: info,
-                        actorBloc: addressInfoActorBloc,
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
@@ -138,7 +145,6 @@ class AddressPage extends StatelessWidget {
                       onTap: () => ExtendedNavigator.of(context)
                           .pushEditContactAddressInfoForm(
                         info: info,
-                        actorBloc: addressInfoActorBloc,
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
@@ -182,10 +188,11 @@ class _CurrentCountryInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => FormFieldDecoration(
         title: "Country",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Country",
           value: state.country,
-          options: [state.country],
+          isEnable: false,
+          options: state.listOfCountries,
           alignment: Alignment.centerRight,
         ),
       ),
@@ -381,10 +388,11 @@ class _ContactCountryInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => FormFieldDecoration(
         title: "Country",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Country",
-          value: "Japan",
-          options: const ["Japan"],
+          value: state.country,
+          options: state.listOfCountries,
+          isEnable: false,
           alignment: Alignment.centerRight,
         ),
       ),

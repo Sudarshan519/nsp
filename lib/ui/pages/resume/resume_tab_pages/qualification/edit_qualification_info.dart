@@ -10,7 +10,7 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_w
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -212,7 +212,7 @@ class _CertifiedYearField extends StatelessWidget {
           previous.certifiedYear != current.certifiedYear,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Certified Year",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "2010",
           value: state.certifiedYear,
           options: const [
@@ -272,7 +272,7 @@ class _CertifiedMonthField extends StatelessWidget {
           previous.certifiedMonth != current.certifiedMonth,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Certified Month",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Sep",
           value: state.certifiedMonth,
           options: const [

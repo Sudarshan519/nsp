@@ -35,55 +35,42 @@ class UpdateAddressInfoActorBloc
   ) async* {
     yield* event.map(
       changeCountry: (e) async* {
-        print("changeCountry");
         yield _mapChangeCountryToState(e);
       },
       changedCurrPostalCode: (e) async* {
-        print("changedCurrPostalCode");
         yield _mapChangeCurrPostalCodeToState(e);
       },
       changedCurrPrefecture: (e) async* {
-        print("changedCurrPrefecture");
         yield* _mapChangeCurrPrefectureToState(e);
       },
       changedCurrCity: (e) async* {
-        print("changedCurrCity");
         yield _mapChangeCurrCityToState(e);
       },
       changedCurrAddress: (e) async* {
-        print("changedCurrAddress");
         yield _mapChangeCurrAddressToState(e);
       },
       changedCurrPhone: (e) async* {
-        print("changedCurrPhone");
         yield _mapChangeCurrPhoneToState(e);
       },
       changedContPostalCode: (e) async* {
-        print("changedContPostalCode");
         yield _mapChangeContPostalCodeToState(e);
       },
       changedContPrefecture: (e) async* {
-        print("changedContPrefecture");
         yield* _mapChangeContPrefectureToState(e);
       },
       changedContCity: (e) async* {
-        print("changedContCity");
         yield _mapChangeContCityToState(e);
       },
       changedContAddress: (e) async* {
-        print("changedContAddress");
         yield _mapChangeContAddressToState(e);
       },
       changedContPhone: (e) async* {
-        print("changedContPhone");
         yield _mapChangeContPhoneToState(e);
       },
       setInitialState: (e) async* {
-        print("setInitialState");
         yield* _mapsetInitialState(e);
       },
       save: (e) async* {
-        print("save");
         yield* _mapSaveToState(e);
       },
     );
@@ -91,9 +78,10 @@ class UpdateAddressInfoActorBloc
 
   Stream<UpdateAddressInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
-    // yield state.copyWith(
-    //   isSubmitting: true,
-    // );
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
 
     final userInfo = _setInitialState.info;
     final listOfCountry = await getCountries();
@@ -134,7 +122,6 @@ class UpdateAddressInfoActorBloc
 
   UpdateAddressInfoActorState _mapChangeCurrPostalCodeToState(
       _ChangedCurrPostalCode _changedPostalCode) {
-    print("current postal code: ${_changedPostalCode.code}");
     return state.copyWith(
       currPostalCode: _changedPostalCode.code,
       authFailureOrSuccessOption: none(),

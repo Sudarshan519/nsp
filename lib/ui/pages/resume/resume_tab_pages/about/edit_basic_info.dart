@@ -3,7 +3,9 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
@@ -11,27 +13,29 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_date_picker.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
 
 class EditBasicInfoForm extends StatelessWidget {
   final PersonalInfo info;
-  final UpdatePersonalInfoActorBloc actorBloc;
 
   const EditBasicInfoForm({
     Key key,
     @required this.info,
-    @required this.actorBloc,
   })  : assert(info != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final aboutPageActor = UpdatePersonalInfoActorBloc(
+      updatePersonalInfo: getIt<UpdatePersonalInfo>(),
+      getCountries: getIt<GetCountries>(),
+    );
     return BlocProvider(
-      create: (context) =>
-          actorBloc..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
+      create: (context) => aboutPageActor
+        ..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -266,7 +270,7 @@ class _ProfessionInputField extends StatelessWidget {
           previous.profession != current.profession,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Profession",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Profession",
           value: state.profession,
           options: const [
@@ -371,7 +375,7 @@ class _GenderInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.gender != current.gender,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Gender",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Gender",
           value: state.gender,
           options: const ["Male", "Female"],
@@ -401,7 +405,7 @@ class _NationalityInputField extends StatelessWidget {
           previous.listOfNationality != current.listOfNationality,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Nationality",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Nationality",
           value: state.nationality,
           options: state.listOfNationality,

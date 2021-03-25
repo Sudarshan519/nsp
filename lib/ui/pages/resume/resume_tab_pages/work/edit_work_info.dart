@@ -10,7 +10,7 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_w
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -218,7 +218,7 @@ class _MajorSubjectField extends StatelessWidget {
           previous.companyType != current.companyType,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Type of company",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Select a type of company.",
           value: state.companyType,
           options: const [
@@ -269,7 +269,7 @@ class _StartedYearField extends StatelessWidget {
         child: Row(
           children: [
             Flexible(
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.startedYear,
                 options: const [
@@ -314,7 +314,7 @@ class _StartedYearField extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             Flexible(
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.startedMonth,
                 alignment: Alignment.topCenter,
@@ -360,7 +360,7 @@ class _EndYearField extends StatelessWidget {
         child: Row(
           children: [
             Flexible(
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.endYear,
                 options: const [
@@ -405,7 +405,7 @@ class _EndYearField extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             Flexible(
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.endMonth,
                 alignment: Alignment.topCenter,

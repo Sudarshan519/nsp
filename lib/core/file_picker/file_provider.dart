@@ -14,7 +14,9 @@ class FileProvider {
         .getImage(source: ImageSource.gallery, imageQuality: 2);
 
     if (result == null) {
-      return const Left("");
+      return const Left(
+        "Sorry the file you choose could not be fetch. Please select another one.",
+      );
     }
 
     return Right(File(result.path));

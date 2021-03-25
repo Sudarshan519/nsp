@@ -9,9 +9,8 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class QualificationPage extends StatelessWidget {
@@ -193,10 +192,11 @@ class _CertifiedYearField extends StatelessWidget {
           previous.certifiedYear != current.certifiedYear,
       builder: (context, state) => FormFieldDecoration(
         title: "Certified Year",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "2010",
           value: state.certifiedYear,
           alignment: Alignment.centerRight,
+          isEnable: false,
           options: const [
             "1990",
             "1991",
@@ -250,10 +250,11 @@ class _CertifiedMonthField extends StatelessWidget {
           previous.certifiedMonth != current.certifiedMonth,
       builder: (context, state) => FormFieldDecoration(
         title: "Certified Month",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Sep",
           value: state.certifiedMonth,
           alignment: Alignment.centerRight,
+          isEnable: false,
           options: const [
             "Jan",
             "Feb",

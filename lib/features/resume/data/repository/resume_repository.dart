@@ -95,6 +95,18 @@ class ResumeRepositoryImpl implements ResumeRepository {
   }
 
   @override
+  Future<Either<ApiFailure, Unit>> updateResumeImage({
+    @required PersonalInfo data,
+  }) async {
+    try {
+      return Right(await dataSource.updateResume(
+          body: data.toPersonalInfoModel().toImageJson()));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
   Future<Either<ApiFailure, String>> getResumePdfLink() async {
     try {
       return Right(await dataSource.downloadPdf());
