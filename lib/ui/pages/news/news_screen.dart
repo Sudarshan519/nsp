@@ -10,8 +10,34 @@ class NewsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("News"),
-        backgroundColor: Palette.primary,
+        title: Text(
+          "News",
+          style: TextStyle(
+            color: Palette.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          // IconButton(
+          //   onPressed: () {
+          //     FlushbarHelper.createInformation(
+          //             message:
+          //                 "Currently download can be started from Home screen.")
+          //         .show(context);
+          //   },
+          //   icon: const Icon(Icons.file_download),
+          //   color: Palette.white,
+          // ),
+          Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: Icon(
+                Icons.search,
+                color: Palette.white,
+              )),
+        ],
+        elevation: 0,
       ),
       body: _NewsPageBody(),
     );

@@ -17,9 +17,10 @@ class ResumePage extends StatelessWidget {
           style: TextStyle(
             color: Palette.white,
             fontSize: 16,
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.w500,
           ),
         ),
+        centerTitle: true,
         actions: [
           // IconButton(
           //   onPressed: () {

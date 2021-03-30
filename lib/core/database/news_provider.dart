@@ -7,8 +7,11 @@ import 'database_table_constant/table_constant.dart';
 import 'local_database_provider.dart';
 
 abstract class NewsLocalProvider {
-  Future insert(NewsModel newsModel);
-  Future<NewsModel> getNews();
+  Future insertNewsForYou(NewsModel newsModel);
+  Future<NewsModel> getNewsForYou();
+
+  Future insertFavouriteNews(NewsItemModel newsModel);
+  Future<List<NewsItemModel>> getFavouriteNews();
 }
 
 @Singleton(as: NewsLocalProvider)
@@ -18,12 +21,12 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
   NewsLocalProviderImpl({@required this.provider});
 
   @override
-  Future insert(NewsModel newsModel) async {
+  Future insertNewsForYou(NewsModel newsModel) async {
     await provider.open();
 
     for (final news in newsModel.data) {
       await provider.insert(
-        tableName: NewsItemTable.tableNewsItem,
+        tableName: NewsItemTable.tableNewsForYou,
         values: (news as NewsItemModel).toJson(),
       );
     }
@@ -38,11 +41,11 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
   }
 
   @override
-  Future<NewsModel> getNews() async {
+  Future<NewsModel> getNewsForYou() async {
     await provider.open();
 
     final newsJson =
-        await provider.getAllFrom(tableName: NewsItemTable.tableNewsItem);
+        await provider.getAllFrom(tableName: NewsItemTable.tableNewsForYou);
 
     final sourceJson =
         await provider.getAllFrom(tableName: NewsSourceTable.tableNewsSource);
@@ -83,5 +86,65 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
       data: newsList.isEmpty ? null : newsList,
       error: null,
     );
+  }
+
+  @override
+  Future insertFavouriteNews(NewsItemModel newsModel) async {
+    await provider.open();
+
+    // check if news already in database,
+    // if present then delete
+    // else add to database
+
+    final isAvailable = await provider.checkIfAvailable(
+      tableName: NewsItemTable.tableNewsLocalSaved,
+      columns: [
+        NewsItemTable.newsItemColumnGuid,
+      ],
+      where: "${NewsItemTable.newsItemColumnGuid} = ?",
+      whereArgs: [newsModel.guid],
+    );
+
+    if (isAvailable) {
+      await removeFavouriteNews(newsModel);
+    } else {
+      await provider.insert(
+        tableName: NewsItemTable.tableNewsLocalSaved,
+        values: newsModel.toJson(),
+      );
+    }
+
+    await provider.close();
+  }
+
+  Future removeFavouriteNews(NewsItemModel newsModel) async {
+    await provider.delete(
+      tableName: NewsItemTable.tableNewsLocalSaved,
+      values: newsModel.toJson(),
+    );
+  }
+
+  @override
+  Future<List<NewsItemModel>> getFavouriteNews() async {
+    await provider.open();
+
+    final newsJson =
+        await provider.getAllFrom(tableName: NewsItemTable.tableNewsLocalSaved);
+
+    await provider.close();
+
+    final List<NewsItemModel> newsList = [];
+
+    if (newsJson != null && newsJson.isNotEmpty) {
+      for (final newsItemJson in newsJson) {
+        final newsItemModel = NewsItemModel.fromJson(newsItemJson);
+        if (newsItemModel.title != null &&
+            newsItemModel.image != null &&
+            newsItemModel.description != null) {
+          newsList.add(newsItemModel);
+        }
+      }
+    }
+    return newsList;
   }
 }

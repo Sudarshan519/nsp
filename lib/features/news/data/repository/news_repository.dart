@@ -6,7 +6,9 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/news/data/app_constant/constant.dart';
 import 'package:wallet_app/features/news/data/datasource/news_local_data_source.dart';
 import 'package:wallet_app/features/news/data/datasource/news_remote_data_source.dart';
+import 'package:wallet_app/features/news/data/model/news_item_model.dart';
 import 'package:wallet_app/features/news/domain/entity/news.dart';
+import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/features/news/domain/repository/news_repository.dart';
 
 @LazySingleton(as: NewsRepositoryProtocol)
@@ -55,5 +57,19 @@ class NewsRepository implements NewsRepositoryProtocol {
     } catch (ex) {
       return Left(ApiFailure.serverError(message: ex.toString()));
     }
+  }
+
+  @override
+  Future<List<NewsItemModel>> getFavouriteNews() async {
+    try {
+      return await localDataSource.getFavouriteNews();
+    } catch (ex) {
+      return [];
+    }
+  }
+
+  @override
+  Future saveFavouriteNews({@required NewsItem item}) async {
+    await localDataSource.saveFavouriteNews(news: NewsItemModel.fromNewsItem(item));
   }
 }

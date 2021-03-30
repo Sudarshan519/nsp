@@ -27,6 +27,7 @@ class UpdateOtherInfo extends Usecase<ApiFailure, Unit, UpdateOtherInfoParams> {
 
 //TODO: known Languages are not added.
     final userData = PersonalInfo(
+      knownLanguages: params.languages,
       jlpt: params.JLPTLevel,
       selfPr: params.selfPR,
       workingHours: "${params.workinHours}:${params.workingMinutes}",

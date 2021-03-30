@@ -152,7 +152,7 @@ class UpdateOtherInfoActorBloc
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
-        languages: [],
+        languages: userInfo.knownLanguages,
         JLPTLevel: userInfo.jlpt ?? "",
         selfPR: userInfo.selfPr ?? "",
         motivationsSpecialSkills: userInfo.extraPoint ?? "",

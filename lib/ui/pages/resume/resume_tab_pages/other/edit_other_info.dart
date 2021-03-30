@@ -193,7 +193,11 @@ class _LanguageInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Languages",
         child: CustomMultiSelectDropDownWidget(
-          onConfirm: (values) {},
+          values: state.languages,
+          onConfirm: (values) => context.read<UpdateOtherInfoActorBloc>().add(
+                UpdateOtherInfoActorEvent.changeLanguages(
+                    values as List<String>),
+              ),
         ),
       ),
     );

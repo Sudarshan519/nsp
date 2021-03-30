@@ -162,11 +162,12 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                     clipBehavior: Clip.none,
                     children: [
                       const CircleAvatar(
-                        radius: 41,
+                        radius: 40,
                         backgroundImage: AssetImage(
                           'assets/images/navigation_bar/u1.png',
                         ),
                       ),
+                      _userImage(userDetail?.avatar ?? ""),
                       Positioned(
                         right: 0,
                         bottom: 0,
@@ -301,6 +302,36 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
           ),
         );
       },
+    );
+  }
+
+  Widget _userImage(String image) {
+    return SizedBox(
+      width: 82,
+      height: 82,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(41),
+        child: Image.network(
+          image,
+          fit: BoxFit.cover,
+          loadingBuilder: (BuildContext context, Widget child,
+              ImageChunkEvent loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Container(
+              color: Palette.primaryBackground,
+              height: 100,
+              child: Center(
+                child: CircularProgressIndicator(
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes
+                      : null,
+                ),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }

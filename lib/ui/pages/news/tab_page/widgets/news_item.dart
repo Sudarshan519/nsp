@@ -1,16 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
+import 'package:wallet_app/features/news/presentation/favourite_news/favourite_news_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class NewsItemWidget extends StatelessWidget {
   final NewsItem newsItem;
+  final bool isSaved;
 
   const NewsItemWidget({
     Key key,
     @required this.newsItem,
+    this.isSaved = false,
   }) : super(key: key);
 
   @override
@@ -46,15 +50,27 @@ class NewsItemWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        newsItem?.title ?? "",
-                        style: TextStyle(
-                          color: Palette.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              newsItem?.title ?? "",
+                              style: TextStyle(
+                                color: Palette.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          const SizedBox(width: 2),
+                          _FavouriteButton(
+                            item: newsItem,
+                            isSaved: isSaved,
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 4,
@@ -173,6 +189,38 @@ class NewsItemWidget extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class _FavouriteButton extends StatelessWidget {
+  final NewsItem item;
+  final bool isSaved;
+
+  const _FavouriteButton({
+    Key key,
+    @required this.item,
+    @required this.isSaved,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<FavouriteNewsBloc, FavouriteNewsState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () {
+            context
+                .read<FavouriteNewsBloc>()
+                .add(FavouriteNewsEvent.save(item));
+          },
+          child: SvgPicture.asset(
+            isSaved
+                ? "assets/images/news/bookmark-selected.svg"
+                : "assets/images/news/bookmark.svg",
+            height: 15.0,
+          ),
+        );
+      },
     );
   }
 }

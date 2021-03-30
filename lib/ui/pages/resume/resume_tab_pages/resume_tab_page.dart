@@ -131,13 +131,6 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
   ];
 
   List<Widget> getPages(ResumeWatcherState state) {
-    final addressPageActor = UpdateAddressInfoActorBloc(
-      updateAddressInfo: getIt<UpdateAddressInfo>(),
-      getCountries: getIt<GetCountries>(),
-      getPrefecture: getIt<GetPrefecture>(),
-      getJapanCity: getIt<GetJapanCity>(),
-    );
-
     return [
       AboutPage(
         info: state.info,

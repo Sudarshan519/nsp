@@ -1,5 +1,8 @@
 class NewsItemTable {
-  static const String tableNewsItem = "News";
+  static const String tableNewsForYou = "for_you_news";
+  static const String tableNewsLatest = "latest_news";
+  static const String tableNewsLocalSaved = "saved_news";
+
   static const String newsItemColumnId = "id";
   static const String newsItemColumnTitle = "title";
   static const String newsItemColumnLink = "link";

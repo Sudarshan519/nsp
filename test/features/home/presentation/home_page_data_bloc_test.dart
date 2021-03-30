@@ -43,7 +43,7 @@ void main() {
     ];
 
     expectLater(
-      sut.stream,
+      sut.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 
@@ -75,7 +75,7 @@ void main() {
     ];
 
     expectLater(
-      sut.stream,
+      sut.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 
@@ -108,7 +108,7 @@ void main() {
     ];
 
     expectLater(
-      sut.stream,
+      sut.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 
@@ -145,7 +145,7 @@ void main() {
     ];
 
     expectLater(
-      sut.stream,
+      sut.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 
@@ -176,7 +176,7 @@ void main() {
     ];
 
     expectLater(
-      sut.stream,
+      sut.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 

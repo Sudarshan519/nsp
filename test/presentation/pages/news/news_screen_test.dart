@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
+import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 
 class MockBuildContext extends Mock implements BuildContext {}
 

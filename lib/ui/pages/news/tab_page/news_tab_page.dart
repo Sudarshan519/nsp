@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app/ui/pages/news/tab_page/tabs/tabs.dart';
 
 import 'tabs/for_you/for_you_tab.dart';
 import 'tabs/latest/latest_news_tab.dart';
+import 'tabs/preferences/news_preferences_tab.dart';
+import 'tabs/saved_news/save_news_tab.dart';
 import 'tabs/tab_bar/news_tab_bar.dart';
 
 class TabBarScreen extends StatefulWidget {
@@ -17,8 +18,8 @@ class TabBarScreenState extends State<TabBarScreen> {
   final List<Widget> _children = [
     ForYouNewsTab(),
     LatestNewsTab(),
-    NewsTab(),
-    NewsTab(),
+    NewsPreferenceTab(),
+    SaveNewsTab(),
   ];
 
   final List<NewsTabBarData> _tabBarData = [

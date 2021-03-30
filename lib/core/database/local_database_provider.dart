@@ -13,12 +13,24 @@ abstract class DBProvider {
     @required Map<String, dynamic> values,
   });
 
+  Future<bool> checkIfAvailable({
+    @required String tableName,
+    @required List<String> columns,
+    @required String where,
+    @required List<dynamic> whereArgs,
+  });
+
+  Future delete({
+    @required String tableName,
+    @required Map<String, dynamic> values,
+  });
+
   Future<List<Map<String, dynamic>>> getAllFrom({@required String tableName});
 }
 
 @Singleton(as: DBProvider)
 class DBProviderImpl implements DBProvider {
-  static const int _version = 2;
+  static const int _version = 3;
   Database _database;
 
   @override
@@ -28,14 +40,15 @@ class DBProviderImpl implements DBProvider {
     _database = await openDatabase(path, version: _version, onOpen: (db) {},
         onCreate: (Database db, int version) async {
       final dbBatch = db.batch();
-      dbBatch.execute(_createNewsTable());
+      dbBatch.execute(_createNewsForYouTable());
+      dbBatch.execute(_createFavouriteNewsTable());
       dbBatch.execute(_createNewsSourceTable());
       await dbBatch.commit(noResult: true);
     }, onUpgrade: (Database db, currentVersion, newVersion) async {
       final upgradeCalls = {
         2: (Database db, Batch dbBatch) async {
-          dbBatch.execute(_createNewsTable());
-          dbBatch.execute(_createNewsSourceTable());
+          dbBatch.execute(_createNewsForYouTable());
+          dbBatch.execute(_createFavouriteNewsTable());
         },
       };
       final dbBatch = db.batch();
@@ -61,9 +74,27 @@ class DBProviderImpl implements DBProvider {
   Future<List<Map<String, dynamic>>> getAllFrom({@required String tableName}) =>
       _database.rawQuery("SELECT * from $tableName");
 
-  String _createNewsTable() {
+  String _createNewsForYouTable() {
     return '''
-    CREATE TABLE ${NewsItemTable.tableNewsItem}
+    CREATE TABLE ${NewsItemTable.tableNewsForYou}
+     ( 
+      ${NewsItemTable.newsItemColumnId} INT PRIMARY KEY,
+      ${NewsItemTable.newsItemColumnTitle} TEXT,
+      ${NewsItemTable.newsItemColumnLink} TEXT,
+      ${NewsItemTable.newsItemColumnCategory} TEXT,
+      ${NewsItemTable.newsItemColumnPublishedDate} TEXT,
+      ${NewsItemTable.newsItemColumnGuid} TEXT,
+      ${NewsItemTable.newsItemColumnSource} TEXT,
+      ${NewsItemTable.newsItemColumnDescription} TEXT, 
+      ${NewsItemTable.newsItemColumnImageUrl} TEXT,
+      ${NewsItemTable.newsItemColumnImageLogo} TEXT 
+      )
+    ''';
+  }
+
+  String _createFavouriteNewsTable() {
+    return '''
+    CREATE TABLE ${NewsItemTable.tableNewsLocalSaved}
      ( 
       ${NewsItemTable.newsItemColumnId} INT PRIMARY KEY,
       ${NewsItemTable.newsItemColumnTitle} TEXT,
@@ -87,5 +118,36 @@ class DBProviderImpl implements DBProvider {
       ${NewsSourceTable.newsSourceColumnSource} TEXT 
       )
     ''';
+  }
+
+  @override
+  Future<bool> checkIfAvailable({
+    @required String tableName,
+    @required List<String> columns,
+    @required String where,
+    @required List<dynamic> whereArgs,
+  }) async {
+    final some = await _database.query(
+      tableName,
+      columns: columns,
+      where: where,
+      whereArgs: whereArgs,
+    );
+
+    if (some.isNotEmpty) {
+      return true;
+    }
+
+    return false;
+  }
+
+  @override
+  Future delete({
+    @required String tableName,
+    @required Map<String, dynamic> values,
+  }) async {
+    await _database.delete(tableName,
+        where: '${NewsItemTable.newsItemColumnGuid} = ?',
+        whereArgs: [values[NewsItemTable.newsItemColumnGuid]]);
   }
 }

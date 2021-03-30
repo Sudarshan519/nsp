@@ -119,11 +119,14 @@ class PersonalInfoModel extends PersonalInfo {
         );
 
   factory PersonalInfoModel.fromJson(Map<String, dynamic> json) {
-    var knownLanguageData = json["known_languages"];
+    final knownLanguage = json["known_languages"] as List;
+    final List<String> knownLanguageData = [];
 
-    if (knownLanguageData is List<String>) {
-    } else {
-      knownLanguageData = List<String>();
+    if (knownLanguage.isNotEmpty) {
+      // ignore: avoid_function_literals_in_foreach_calls
+      knownLanguage.forEach((language) {
+        knownLanguageData.add(language as String);
+      });
     }
 
     return PersonalInfoModel(
@@ -157,7 +160,7 @@ class PersonalInfoModel extends PersonalInfo {
       contCity: json["cont_city"] as String,
       contAddress: json["cont_address"] as String,
       contPhone: json["cont_phone"] as String,
-      knownLanguages: knownLanguageData as List<String>,
+      knownLanguages: knownLanguageData,
       // knownLanguages: const ["known_languages"],
       jlpt: json["jlpt"] as String,
       selfPr: json["self_pr"] as String,
@@ -287,9 +290,9 @@ class PersonalInfoModel extends PersonalInfo {
     final Map<String, dynamic> params = {};
 
     // TODO: add known languages here.
-    // if (contPostalCode != null) {
-    //   params["cont_postal_code"] = contPostalCode;
-    // }
+    if (knownLanguages != null) {
+      params["known_languages"] = knownLanguages;
+    }
 
     if (jlpt != null) {
       params["jlpt"] = jlpt;

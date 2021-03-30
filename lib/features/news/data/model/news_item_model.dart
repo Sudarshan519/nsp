@@ -47,4 +47,16 @@ class NewsItemModel extends NewsItem {
         "source": source,
         "source_logo": sourceImage,
       };
+
+  factory NewsItemModel.fromNewsItem(NewsItem item) => NewsItemModel(
+        title: item.title,
+        link: item.link,
+        category: item.category,
+        publishedDate: item.publishedDate,
+        guid: item.guid,
+        image: item.image,
+        description: item.description,
+        source: item.source,
+        sourceImage: item.sourceImage,
+      );
 }

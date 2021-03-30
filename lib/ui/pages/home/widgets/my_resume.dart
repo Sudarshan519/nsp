@@ -47,7 +47,7 @@ class MyResumeWidget extends StatelessWidget {
                     itemCount: 5,
                     itemBuilder: (context, index) {
                       return index == 0
-                          ? _userImage()
+                          ? _userImage(data.personalInfo.image)
                           : _resumeInformationBuilderWidget(index - 1, data);
                     },
                   ),
@@ -89,14 +89,34 @@ class MyResumeWidget extends StatelessWidget {
     );
   }
 
-  Widget _userImage() {
+  Widget _userImage(String image) {
     return Container(
       padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.only(top: 26, bottom: 30),
       width: 120,
       height: 120,
-      child: Image.asset(
-        'assets/images/navigation_bar/u1.png',
-        fit: BoxFit.fitWidth,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16.0),
+        child: Image.network(
+          image,
+          fit: BoxFit.cover,
+          loadingBuilder: (BuildContext context, Widget child,
+              ImageChunkEvent loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Container(
+              color: Palette.primaryBackground,
+              height: 100,
+              child: Center(
+                child: CircularProgressIndicator(
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes
+                      : null,
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

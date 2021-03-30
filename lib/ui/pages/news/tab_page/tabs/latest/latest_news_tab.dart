@@ -83,40 +83,49 @@ class LatestNewsTab extends StatelessWidget {
 
     return Stack(
       children: [
-        SingleChildScrollView(
-          controller: _scrollController
-            ..addListener(() {
-              if (_scrollController.offset ==
-                      _scrollController.position.maxScrollExtent &&
-                  !context.read<LatestNewsBloc>().isFetching) {
-                debugPrint("reached end");
-                context.read<LatestNewsBloc>().add(
-                      const LatestNewsEvent.paginateIfAvailable(),
-                    );
-              }
-            }),
-          child: Column(
-            children: [
-              NewsCarousel(
-                newsList: bannerList,
-              ),
-              ListView.builder(
-                primary: false,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: newsList.length,
-                itemBuilder: (context, index) {
-                  return NewsItemWidget(
-                    newsItem: newsList[index],
-                  );
-                },
-              ),
-              if (isPagination)
-                SizedBox(
-                  height: 70,
-                  child: loadingPage(),
+        RefreshIndicator(
+          onRefresh: () async {
+            context.read<LatestNewsBloc>().add(
+                  const LatestNewsEvent.pullToRefresh(),
+                );
+            // await 2 sec for the loader to show
+            await Future.delayed(const Duration(seconds: 2), () {});
+          },
+          child: SingleChildScrollView(
+            controller: _scrollController
+              ..addListener(() {
+                if (_scrollController.offset ==
+                        _scrollController.position.maxScrollExtent &&
+                    !context.read<LatestNewsBloc>().isFetching) {
+                  debugPrint("reached end");
+                  context.read<LatestNewsBloc>().add(
+                        const LatestNewsEvent.paginateIfAvailable(),
+                      );
+                }
+              }),
+            child: Column(
+              children: [
+                NewsCarousel(
+                  newsList: bannerList,
                 ),
-            ],
+                ListView.builder(
+                  primary: false,
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: newsList.length,
+                  itemBuilder: (context, index) {
+                    return NewsItemWidget(
+                      newsItem: newsList[index],
+                    );
+                  },
+                ),
+                if (isPagination)
+                  SizedBox(
+                    height: 70,
+                    child: loadingPage(),
+                  ),
+              ],
+            ),
           ),
         ),
         if (isLoading)

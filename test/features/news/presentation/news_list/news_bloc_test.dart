@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/news/domain/usecase/get_news_for_you.dart';
-import 'package:wallet_app/features/news/presentation/news_list/news_bloc.dart';
+import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 
 import '../../../../utils/test_constant/news/test_constant.dart';
 
@@ -36,7 +36,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.stream,
+      bloc.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 
@@ -67,7 +67,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.stream,
+      bloc.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 
@@ -96,7 +96,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.stream,
+      bloc.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 
@@ -127,7 +127,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.stream,
+      bloc.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 
@@ -156,7 +156,7 @@ void main() {
     ];
 
     expectLater(
-      bloc.stream,
+      bloc.asBroadcastStream(),
       emitsInOrder(assertExpected),
     );
 

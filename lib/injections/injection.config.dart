@@ -19,10 +19,12 @@ import '../utils/config_reader.dart';
 import '../core/database/local_database_provider.dart';
 import 'injectable/data_connection_checker_injectable_module.dart';
 import '../features/resume/presentation/download_pdf/download_pdf_bloc.dart';
+import '../features/news/presentation/favourite_news/favourite_news_bloc.dart';
 import '../core/file_picker/file_provider.dart';
 import 'injectable/flutter_secure_storage_module.dart';
 import '../features/location_information/domain/usecases/get_countries.dart';
 import '../features/resume/domain/usecases/get_downloadable_pdf_link.dart';
+import '../features/news/domain/usecase/get_favourite_news.dart';
 import '../features/home/domain/usecases/get_home_page_data.dart';
 import '../features/location_information/domain/usecases/get_japan_city.dart';
 import '../features/news/domain/usecase/get_latest_news.dart';
@@ -163,6 +165,8 @@ Future<GetIt> $initGetIt(
       () => VerifyEmailBloc(verifyEmail: get<VerifyEmail>()));
   gh.factory<GetDownloadablePdfLink>(() => GetDownloadablePdfLink(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
+  gh.lazySingleton<GetFavouriteNews>(
+      () => GetFavouriteNews(repository: get<NewsRepositoryProtocol>()));
   gh.lazySingleton<GetHomePageData>(
       () => GetHomePageData(repository: get<HomeReporisitory>()));
   gh.lazySingleton<GetLatestNews>(() => GetLatestNews(
@@ -182,6 +186,8 @@ Future<GetIt> $initGetIt(
       signUpWithEmailUsecase: get<SignUpWithEmailPasswordAndUserDetail>()));
   gh.factory<DownloadPdfBloc>(() =>
       DownloadPdfBloc(getDownloadablePdfLink: get<GetDownloadablePdfLink>()));
+  gh.factory<FavouriteNewsBloc>(
+      () => FavouriteNewsBloc(getFavouriteNews: get<GetFavouriteNews>()));
 
   // Eager singletons must be registered in the right order
   gh.singleton<ConfigReader>(ConfigReader());
