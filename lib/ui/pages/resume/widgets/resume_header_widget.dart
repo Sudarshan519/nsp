@@ -9,6 +9,7 @@ import 'package:wallet_app/core/file_picker/file_provider.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_resume_image.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/upload_resume_image/upload_resume_image_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_switch_widget.dart';
@@ -285,7 +286,7 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                   const SizedBox(
                     width: 5,
                   ),
-                  const CustomSwitch(),
+                  _languageSwitch(),
                   const SizedBox(
                     width: 5,
                   ),
@@ -332,6 +333,26 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
           },
         ),
       ),
+    );
+  }
+
+  Widget _languageSwitch() {
+    return BlocBuilder<ResumeWatcherBloc, ResumeWatcherState>(
+      builder: (context, state) {
+        return CustomSwitch(
+          onChanged: (value) {
+            if (value) {
+              context
+                  .read<ResumeWatcherBloc>()
+                  .add(const ResumeWatcherEvent.changeLanguage("jp"));
+            } else {
+              context
+                  .read<ResumeWatcherBloc>()
+                  .add(const ResumeWatcherEvent.changeLanguage("en"));
+            }
+          },
+        );
+      },
     );
   }
 }

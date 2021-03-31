@@ -11,6 +11,7 @@ import 'package:wallet_app/features/resume/data/model/work_history_model.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume_model.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/domain/repository/resume_repository.dart';
 
@@ -21,6 +22,15 @@ class ResumeRepositoryImpl implements ResumeRepository {
   ResumeRepositoryImpl({
     @required this.dataSource,
   });
+
+  @override
+  Future<Either<ApiFailure, Resume>> getResumeData() async {
+    try {
+      return Right(await dataSource.getResumeData());
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
 
   @override
   Future<Either<ApiFailure, Unit>> updatePersonalInfo({

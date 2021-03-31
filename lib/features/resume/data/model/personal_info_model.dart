@@ -336,7 +336,7 @@ class PersonalInfoModel extends PersonalInfo {
   Map<String, dynamic> toImageJson() {
     final Map<String, dynamic> params = {};
     if (image != null) {
-      params["image"] = image;
+      params["img"] = image;
     }
     return params;
   }

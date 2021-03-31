@@ -31,6 +31,7 @@ import '../features/news/domain/usecase/get_latest_news.dart';
 import '../features/location_information/domain/usecases/get_nepal_district.dart';
 import '../features/news/domain/usecase/get_news_for_you.dart';
 import '../features/location_information/domain/usecases/get_prefecture.dart';
+import '../features/resume/domain/usecases/get_resume.dart';
 import '../features/auth/domain/usecase/get_wallet_user.dart';
 import '../features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import '../features/home/data/datasource/home_remote_data_source.dart';
@@ -97,7 +98,6 @@ Future<GetIt> $initGetIt(
       NetworkInfoImpl(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(() =>
       NewsRemoteDataSource(client: get<Client>(), config: get<ConfigReader>()));
-  gh.factory<ResumeWatcherBloc>(() => ResumeWatcherBloc());
   final resolvedSharedPreferences = await sharedPreferenceModule.prefs;
   gh.factory<SharedPreferences>(() => resolvedSharedPreferences);
   gh.lazySingleton<AuthLocalDataSource>(() => AuthLocalDataSourceImpl(
@@ -175,11 +175,15 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<GetNewsForYou>(() => GetNewsForYou(
       repository: get<NewsRepositoryProtocol>(),
       networkInfo: get<NetworkInfo>()));
+  gh.factory<GetResume>(() => GetResume(
+      repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<HomePageDataBloc>(
       () => HomePageDataBloc(getHomePageData: get<GetHomePageData>()));
   gh.factory<LatestNewsBloc>(
       () => LatestNewsBloc(getNews: get<GetLatestNews>()));
   gh.factory<NewsBloc>(() => NewsBloc(getNews: get<GetNewsForYou>()));
+  gh.factory<ResumeWatcherBloc>(
+      () => ResumeWatcherBloc(getResume: get<GetResume>()));
   gh.factory<SignInFormBloc>(
       () => SignInFormBloc(get<SignInWithEmailAndPassword>()));
   gh.factory<SignUpFormBloc>(() => SignUpFormBloc(

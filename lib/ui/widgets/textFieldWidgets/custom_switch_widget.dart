@@ -5,7 +5,7 @@ import '../widgets.dart';
 class CustomSwitch extends StatefulWidget {
   final bool value;
   final ValueChanged<bool> onChanged;
-  final isUserChangeAble;
+  final bool isUserChangeAble;
 
   const CustomSwitch({
     Key key,

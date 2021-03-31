@@ -7,7 +7,7 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:wallet_app/features/resume/domain/entities/resume.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume_data.dart';
 import 'package:wallet_app/features/resume/presentation/download_pdf/download_pdf_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';

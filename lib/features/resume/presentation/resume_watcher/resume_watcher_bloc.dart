@@ -1,15 +1,18 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:wallet_app/features/resume/data/model/resume_options_model.dart';
+import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
-import 'package:wallet_app/features/resume/domain/entities/resume.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume_data.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
+import 'package:wallet_app/features/resume/domain/usecases/get_resume.dart';
 
 part 'resume_watcher_event.dart';
 part 'resume_watcher_state.dart';
@@ -17,27 +20,78 @@ part 'resume_watcher_bloc.freezed.dart';
 
 @injectable
 class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
-  ResumeWatcherBloc() : super(ResumeWatcherState.initial());
+  final GetResume getResume;
+
+  ResumeData _english;
+  ResumeData _japanese;
+  ResumeOptions _options;
+
+  ResumeWatcherBloc({
+    @required this.getResume,
+  }) : super(ResumeWatcherState.initial());
 
   @override
   Stream<ResumeWatcherState> mapEventToState(
     ResumeWatcherEvent event,
   ) async* {
     yield* event.map(
-      loading: (e) async* {
+      getResumeData: (e) async* {
         yield state.copyWith(
           isLoading: true,
+          failureOrSuccessOption: none(),
+        );
+
+        final result = await getResume(NoParams());
+
+        yield result.fold(
+          (failure) => state.copyWith(
+            isLoading: false,
+            failureOrSuccessOption: optionOf(failure),
+          ),
+          (resume) {
+            _english = resume.resumeData.data.en;
+            _japanese = resume.resumeData.data.jp;
+            _options = resume.resumeData.data.options;
+            add(const _SetResumeData());
+            return state.copyWith(
+              isLoading: false,
+              failureOrSuccessOption: none(),
+            );
+          },
         );
       },
       setResumeData: (e) async* {
         yield state.copyWith(
-          info: e.data.personalInfo ?? const PersonalInfo(),
-          academics: e.data.academicHistory ?? [],
-          works: e.data.workHistory ?? [],
-          qualifications: e.data.qualificationHistory ?? [],
-          options: e.data.options ?? const ResumeOptions(),
-          isLoading: false,
+          isLoading: true,
+          failureOrSuccessOption: none(),
         );
+        if (state.language == "en") {
+          yield state.copyWith(
+            isLoading: false,
+            info: _english?.personalInfo ?? const PersonalInfo(),
+            academics: _english?.academicHistory ?? [],
+            works: _english?.workHistory ?? [],
+            qualifications: _english?.qualificationHistory ?? [],
+            options: _options ?? const ResumeOptions(),
+            failureOrSuccessOption: none(),
+          );
+        } else {
+          yield state.copyWith(
+            isLoading: false,
+            info: _japanese?.personalInfo ?? const PersonalInfo(),
+            academics: _japanese?.academicHistory ?? [],
+            works: _japanese?.workHistory ?? [],
+            qualifications: _japanese?.qualificationHistory ?? [],
+            options: _options ?? const ResumeOptions(),
+            failureOrSuccessOption: none(),
+          );
+        }
+      },
+      changeLanguage: (e) async* {
+        yield state.copyWith(
+          language: e.language,
+        );
+        add(const _SetResumeData());
       },
     );
   }

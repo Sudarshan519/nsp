@@ -7,11 +7,15 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/resume/data/app_constant/constant.dart';
+import 'package:wallet_app/features/resume/data/model/resume_model.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume_model.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class ResumeRemoteDataSource {
+  Future<Resume> getResumeData();
+
   Future<String> downloadPdf();
 
   Future<Unit> updateResume({
@@ -37,6 +41,43 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
   })  : assert(client != null),
         assert(config != null),
         assert(auth != null);
+
+  @override
+  Future<Resume> getResumeData() async {
+    http.Response response;
+    final url =
+        "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.getResume}";
+    final accessToken = (await auth.getWalletUser()).accessToken;
+
+    if (accessToken.isEmpty) {
+      //TODO: route user to login page as the user does not have uuid
+    }
+
+    _headers["Authorization"] = "Bearer $accessToken";
+
+    try {
+      response = await client.get(
+        url,
+        headers: _headers,
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    if (response.statusCode == 200) {
+      final responseBody = utf8.decode(response.bodyBytes);
+      final resumeDataArray = resumeModelFromJson(responseBody);
+
+      return Resume(
+        userDetail: resumeDataArray.first.userDetail,
+        resumeData: resumeDataArray.last.resumeData,
+      );
+    } else {
+      throw ServerException(
+          message: errorMessageFromServerWithMessage(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
 
   @override
   Future<String> downloadPdf() async {

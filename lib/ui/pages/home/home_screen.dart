@@ -7,11 +7,7 @@ import 'package:wallet_app/features/home/data/model/services_model.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
-import 'package:wallet_app/features/resume/data/model/resume_model.dart';
-import 'package:wallet_app/features/resume/data/model/resume_options_model.dart';
-import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
-import 'package:wallet_app/features/resume/domain/entities/resume.dart';
-import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
+import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
@@ -97,9 +93,6 @@ class HomePage extends StatelessWidget {
           initial: (_) => const SizedBox.shrink(),
           loading: (_) {
             // also load watcher for Resume bloc
-            context.read<ResumeWatcherBloc>().add(
-                  const ResumeWatcherEvent.loading(),
-                );
             return loadingPage();
           },
           loadingWithData: (success) => _homePageBodyContent(
@@ -160,20 +153,6 @@ class HomePage extends StatelessWidget {
         if (data["status"] as bool == true) {
           return buildResumeSection(context, data, userDetail);
         } else {
-          final optionJson = data["options"] as Map<String, dynamic>;
-
-          context.read<ResumeWatcherBloc>().add(
-                ResumeWatcherEvent.setResumeData(
-                  ResumeData(
-                    personalInfo: PersonalInfo(
-                      firstName: userDetail.firstName,
-                      lastName: userDetail.lastName,
-                      email: userDetail.email,
-                    ),
-                    options: ResumeOptionsModel.fromJson(optionJson),
-                  ),
-                ),
-              );
           return BuildResume(
             changeTabPage: changeTabPage,
           );
@@ -220,21 +199,6 @@ class HomePage extends StatelessWidget {
   ) {
     final map = data["data"] as Map<String, dynamic>;
     final resumeModel = ResumeDataModel.fromJson(map);
-
-    if (resumeModel != null) {
-      context
-          .read<ResumeWatcherBloc>()
-          .add(ResumeWatcherEvent.setResumeData(resumeModel));
-    } else {
-      context
-          .read<ResumeWatcherBloc>()
-          .add(ResumeWatcherEvent.setResumeData(ResumeData(
-              personalInfo: PersonalInfo(
-            firstName: userDetail.firstName,
-            lastName: userDetail.lastName,
-            email: userDetail.email,
-          ))));
-    }
 
     return MyResumeWidget(
       data: resumeModel,
