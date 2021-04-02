@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
-import 'package:wallet_app/features/location_information/domain/usecases/get_japan_city.dart';
-import 'package:wallet_app/features/location_information/domain/usecases/get_prefecture.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -21,11 +20,15 @@ import 'package:wallet_app/utils/constant.dart';
 
 class AddressPage extends StatelessWidget {
   final PersonalInfo info;
+  final List<JapanesePrefecture> prefecture;
+  final List<JapaneseCity> cities;
   final String lang;
 
   const AddressPage({
     Key key,
     @required this.info,
+    @required this.prefecture,
+    @required this.cities,
     @required this.lang,
   }) : super(key: key);
 
@@ -34,15 +37,15 @@ class AddressPage extends StatelessWidget {
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
       getCountries: getIt<GetCountries>(),
-      getPrefecture: getIt<GetPrefecture>(),
-      getJapanCity: getIt<GetJapanCity>(),
     );
     return BlocProvider(
       create: (_) => addressInfoActorBloc
         ..add(
           UpdateAddressInfoActorEvent.setInitialState(
-            info,
-            lang,
+            info: info,
+            prefectures: prefecture,
+            cities: cities,
+            lang: lang,
           ),
         ),
       child: _aboutPageBlocConsumer(context, info),
@@ -104,6 +107,8 @@ class AddressPage extends StatelessWidget {
                       onTap: () => ExtendedNavigator.of(context)
                           .pushEditCurrentAddressInfoForm(
                         info: info,
+                        prefecture: prefecture,
+                        cities: cities,
                         lang: lang,
                       ),
                       child: SvgPicture.asset(
@@ -150,6 +155,8 @@ class AddressPage extends StatelessWidget {
                       onTap: () => ExtendedNavigator.of(context)
                           .pushEditContactAddressInfoForm(
                         info: info,
+                        prefecture: prefecture,
+                        cities: cities,
                         lang: lang,
                       ),
                       child: SvgPicture.asset(

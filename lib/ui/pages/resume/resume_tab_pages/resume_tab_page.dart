@@ -142,6 +142,8 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
       ),
       AddressPage(
         info: state.info,
+        prefecture: state?.options?.prefectures ?? [],
+        cities: state?.options?.cities ?? [],
         lang: state.language,
       ),
       AcademicsPage(
@@ -158,9 +160,6 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
         qualifications: state.qualifications ?? [],
         lang: state.language,
       ),
-
-      // TODO: Knownlanguages are complicated
-
       OtherInfo(
         info: state.info,
         listOfLanguages: state?.options?.knownLanguages

@@ -15,6 +15,7 @@ import '../../features/news/domain/entity/news_item.dart';
 import '../../features/resume/domain/entities/academic_history.dart';
 import '../../features/resume/domain/entities/personal_info.dart';
 import '../../features/resume/domain/entities/qualification_history.dart';
+import '../../features/resume/domain/entities/resume_options.dart';
 import '../../features/resume/domain/entities/work_history.dart';
 import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
@@ -164,6 +165,8 @@ class Router extends RouterBase {
           key: args.key,
           info: args.info,
           lang: args.lang,
+          prefecture: args.prefecture,
+          cities: args.cities,
         ),
         settings: data,
       );
@@ -176,6 +179,8 @@ class Router extends RouterBase {
           key: args.key,
           info: args.info,
           lang: args.lang,
+          prefecture: args.prefecture,
+          cities: args.cities,
         ),
         settings: data,
       );
@@ -321,22 +326,34 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
     Key key,
     @required PersonalInfo info,
     @required String lang,
+    @required List<JapanesePrefecture> prefecture,
+    @required List<JapaneseCity> cities,
   }) =>
       push<dynamic>(
         Routes.editCurrentAddressInfoForm,
         arguments: EditCurrentAddressInfoFormArguments(
-            key: key, info: info, lang: lang),
+            key: key,
+            info: info,
+            lang: lang,
+            prefecture: prefecture,
+            cities: cities),
       );
 
   Future<dynamic> pushEditContactAddressInfoForm({
     Key key,
     @required PersonalInfo info,
     @required String lang,
+    @required List<JapanesePrefecture> prefecture,
+    @required List<JapaneseCity> cities,
   }) =>
       push<dynamic>(
         Routes.editContactAddressInfoForm,
         arguments: EditContactAddressInfoFormArguments(
-            key: key, info: info, lang: lang),
+            key: key,
+            info: info,
+            lang: lang,
+            prefecture: prefecture,
+            cities: cities),
       );
 
   Future<dynamic> pushEditWorkInfoForm({
@@ -466,8 +483,14 @@ class EditCurrentAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
   final String lang;
+  final List<JapanesePrefecture> prefecture;
+  final List<JapaneseCity> cities;
   EditCurrentAddressInfoFormArguments(
-      {this.key, @required this.info, @required this.lang});
+      {this.key,
+      @required this.info,
+      @required this.lang,
+      @required this.prefecture,
+      @required this.cities});
 }
 
 /// EditContactAddressInfoForm arguments holder class
@@ -475,8 +498,14 @@ class EditContactAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
   final String lang;
+  final List<JapanesePrefecture> prefecture;
+  final List<JapaneseCity> cities;
   EditContactAddressInfoFormArguments(
-      {this.key, @required this.info, @required this.lang});
+      {this.key,
+      @required this.info,
+      @required this.lang,
+      @required this.prefecture,
+      @required this.cities});
 }
 
 /// EditWorkInfoForm arguments holder class

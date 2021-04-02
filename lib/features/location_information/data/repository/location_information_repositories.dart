@@ -18,36 +18,9 @@ class LocationInformationRepository
   });
 
   @override
-  Future<Either<ApiFailure, List<Prefecture>>> getPrefectures() async {
-    try {
-      return Right(await localDataSource.getPrefectures());
-    } catch (ex) {
-      return const Left(ApiFailure.serverError(message: ''));
-    }
-  }
-
-  @override
-  Future<Either<ApiFailure, List<JapanCity>>> getJapanCities() async {
-    try {
-      return Right(await localDataSource.getJapanCities());
-    } catch (ex) {
-      return const Left(ApiFailure.serverError(message: ''));
-    }
-  }
-
-  @override
   Future<Either<ApiFailure, List<Country>>> getCountry() async {
     try {
       return Right(await localDataSource.getCounties());
-    } catch (ex) {
-      return const Left(ApiFailure.serverError(message: ''));
-    }
-  }
-
-  @override
-  Future<Either<ApiFailure, List<String>>> getNepalDistrice() async {
-    try {
-      return Right(await localDataSource.getNepalDistric());
     } catch (ex) {
       return const Left(ApiFailure.serverError(message: ''));
     }

@@ -10,6 +10,9 @@ class ResumeOptions extends Equatable {
     this.preferences,
     this.hobbies,
     this.skills,
+    this.cities,
+    this.prefectures,
+    this.professions,
   });
 
   final List<String> nationalities;
@@ -19,6 +22,9 @@ class ResumeOptions extends Equatable {
   final List<ResumePreference> preferences;
   final List<String> hobbies;
   final List<String> skills;
+  final List<String> professions;
+  final List<JapanesePrefecture> prefectures;
+  final List<JapaneseCity> cities;
 
   @override
   List<Object> get props => [
@@ -29,6 +35,9 @@ class ResumeOptions extends Equatable {
         preferences,
         hobbies,
         skills,
+        cities,
+        prefectures,
+        professions,
       ];
 }
 
@@ -61,5 +70,40 @@ class ResumePreference extends Equatable {
         id,
         value,
         label,
+      ];
+}
+
+class JapaneseCity extends Equatable {
+  const JapaneseCity({
+    @required this.id,
+    @required this.prefectureId,
+    @required this.name,
+  });
+
+  final int id;
+  final int prefectureId;
+  final String name;
+
+  @override
+  List<Object> get props => [
+        id,
+        prefectureId,
+        name,
+      ];
+}
+
+class JapanesePrefecture extends Equatable {
+  const JapanesePrefecture({
+    @required this.id,
+    @required this.name,
+  });
+
+  final int id;
+  final String name;
+
+  @override
+  List<Object> get props => [
+        id,
+        name,
       ];
 }

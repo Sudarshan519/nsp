@@ -5,9 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
-import 'package:wallet_app/features/location_information/domain/usecases/get_japan_city.dart';
-import 'package:wallet_app/features/location_information/domain/usecases/get_prefecture.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
@@ -23,12 +22,16 @@ import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 
 class EditCurrentAddressInfoForm extends StatelessWidget {
   final PersonalInfo info;
+  final List<JapanesePrefecture> prefecture;
+  final List<JapaneseCity> cities;
   final String lang;
 
   const EditCurrentAddressInfoForm({
     Key key,
     @required this.info,
     @required this.lang,
+    @required this.prefecture,
+    @required this.cities,
   })  : assert(info != null),
         super(key: key);
 
@@ -37,14 +40,14 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
       getCountries: getIt<GetCountries>(),
-      getPrefecture: getIt<GetPrefecture>(),
-      getJapanCity: getIt<GetJapanCity>(),
     );
     return BlocProvider(
       create: (context) => addressInfoActorBloc
         ..add(UpdateAddressInfoActorEvent.setInitialState(
-          info,
-          lang,
+          info: info,
+          prefectures: prefecture,
+          cities: cities,
+          lang: lang,
         )),
       child: Scaffold(
         appBar: AppBar(
