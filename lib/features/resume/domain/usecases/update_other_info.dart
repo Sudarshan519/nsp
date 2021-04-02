@@ -25,29 +25,36 @@ class UpdateOtherInfo extends Usecase<ApiFailure, Unit, UpdateOtherInfoParams> {
       return const Left(ApiFailure.noInternetConnection());
     }
 
-//TODO: known Languages are not added.
     final userData = PersonalInfo(
       knownLanguages: params.languages,
       jlpt: params.JLPTLevel,
       selfPr: params.selfPR,
       workingHours: "${params.workinHours}:${params.workingMinutes}",
       extraPoint: params.motivationsSpecialSkills,
+      hobbies: params.hobbies,
+      skills: params.skills,
       dependentsExceptSpouse: params.numberOfDependent,
       spouse: params.isSpouse,
       spouseSupportObligation: params.isSpouseSupportObligation,
       specialConditions: params.specialConditions,
     );
 
-    return repository.updateOtherInfo(data: userData);
+    return repository.updateOtherInfo(
+      data: userData,
+      lang: params.lang,
+    );
   }
 }
 
 class UpdateOtherInfoParams {
   UpdateOtherInfoParams({
+    @required this.lang,
     @required this.languages,
     @required this.JLPTLevel,
     @required this.selfPR,
     @required this.motivationsSpecialSkills,
+    @required this.hobbies,
+    @required this.skills,
     @required this.workinHours,
     @required this.workingMinutes,
     @required this.numberOfDependent,
@@ -56,10 +63,14 @@ class UpdateOtherInfoParams {
     @required this.specialConditions,
   });
 
+  final String lang;
+
   final List<String> languages;
   final String JLPTLevel;
   final String selfPR;
   final String motivationsSpecialSkills;
+  final List<String> hobbies;
+  final List<String> skills;
   final String workinHours;
   final String workingMinutes;
   final String numberOfDependent;

@@ -32,6 +32,8 @@ class PersonalInfo extends Equatable {
     this.contCity,
     this.contAddress,
     this.contPhone,
+    this.hobbies,
+    this.skills,
     this.knownLanguages,
     this.jlpt,
     this.selfPr,
@@ -90,6 +92,8 @@ class PersonalInfo extends Equatable {
   final String contAddress;
   final String contPhone;
   final List<String> knownLanguages;
+  final List<String> hobbies;
+  final List<String> skills;
   final String jlpt;
   final String selfPr;
   final String extraPoint;

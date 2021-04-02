@@ -129,23 +129,47 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
     return [
       AboutPage(
         info: state.info,
+        listOfNationality: state?.options?.nationalities ?? [],
+        listOfProfession: const [
+          "Language Student",
+          "College/University Student",
+          "Skilled Professional",
+          "Cook",
+          "Dependement",
+          "Others"
+        ],
+        lang: state.language,
       ),
       AddressPage(
         info: state.info,
+        lang: state.language,
       ),
       AcademicsPage(
         academics: state.academics ?? [],
         listOfSubjects: state?.options?.majorSubjects ?? [],
+        lang: state.language,
       ),
       WorkPage(
         works: state.works ?? [],
         typeOfCompanyList: state?.options?.companyTypes ?? [],
+        lang: state.language,
       ),
       QualificationPage(
         qualifications: state.qualifications ?? [],
+        lang: state.language,
       ),
+
+      // TODO: Knownlanguages are complicated
+
       OtherInfo(
         info: state.info,
+        listOfLanguages: state?.options?.knownLanguages
+                ?.map((language) => language.label)
+                ?.toList() ??
+            [],
+        listOfHobbies: state?.options?.hobbies ?? [],
+        listOfSkills: state?.options?.skills ?? [],
+        lang: state.language,
       ),
     ];
   }

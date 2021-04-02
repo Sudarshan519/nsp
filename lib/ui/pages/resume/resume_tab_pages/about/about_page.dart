@@ -3,7 +3,6 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
@@ -20,23 +19,33 @@ import 'package:wallet_app/utils/validator.dart';
 
 class AboutPage extends StatelessWidget {
   final PersonalInfo info;
+  final List<String> listOfNationality;
+  final List<String> listOfProfession;
+  final String lang;
 
   const AboutPage({
     Key key,
     @required this.info,
+    @required this.listOfNationality,
+    @required this.listOfProfession,
+    @required this.lang,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final aboutPageActor = UpdatePersonalInfoActorBloc(
       updatePersonalInfo: getIt<UpdatePersonalInfo>(),
-      getCountries: getIt<GetCountries>(),
     );
 
     return BlocProvider(
       create: (_) => aboutPageActor
         ..add(
-          UpdatePersonalInfoActorEvent.setInitialState(info),
+          UpdatePersonalInfoActorEvent.setInitialState(
+            info: info,
+            listOfNationality: listOfNationality,
+            listOfProfession: listOfProfession,
+            lang: lang,
+          ),
         ),
       child: _aboutPageBlocConsumer(context, info),
     );
@@ -97,6 +106,9 @@ class AboutPage extends StatelessWidget {
                       onTap: () =>
                           ExtendedNavigator.of(context).pushEditBasicInfoForm(
                         info: info,
+                        listOfNationality: listOfNationality,
+                        listOfProfession: listOfProfession,
+                        lang: lang,
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",

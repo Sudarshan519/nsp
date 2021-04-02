@@ -34,11 +34,14 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updatePersonalInfo({
+    @required String lang,
     @required PersonalInfo data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
-          body: data.toPersonalInfoModel().toJson()));
+        lang: lang,
+        body: data.toPersonalInfoModel().toJson(),
+      ));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
@@ -46,11 +49,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateAddress({
+    @required String lang,
     @required PersonalInfo data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
-          body: data.toPersonalInfoModel().toCurrentAddressJson()));
+          lang: lang, body: data.toPersonalInfoModel().toCurrentAddressJson()));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
@@ -58,11 +62,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateOtherInfo({
+    @required String lang,
     @required PersonalInfo data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
-          body: data.toPersonalInfoModel().toOtherJson()));
+          lang: lang, body: data.toPersonalInfoModel().toOtherJson()));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
@@ -70,11 +75,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateAcademic({
+    @required String lang,
     @required AcademicHistory data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
-          body: data.toAcademicHistoryModel().toJson()));
+          lang: lang, body: data.toAcademicHistoryModel().toJson()));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
@@ -82,11 +88,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateWork({
+    @required String lang,
     @required WorkHistory data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
-          body: data.toWorkHistoryModel().toJson()));
+          lang: lang, body: data.toWorkHistoryModel().toJson()));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
@@ -94,11 +101,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateQualification({
+    @required String lang,
     @required QualificationHistory data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
-          body: data.toQualificationHistoryModel().toJson()));
+          lang: lang, body: data.toQualificationHistoryModel().toJson()));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
@@ -106,20 +114,25 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateResumeImage({
+    @required String lang,
     @required PersonalInfo data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
-          body: data.toPersonalInfoModel().toImageJson()));
+          lang: lang, body: data.toPersonalInfoModel().toImageJson()));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
 
   @override
-  Future<Either<ApiFailure, String>> getResumePdfLink() async {
+  Future<Either<ApiFailure, String>> getResumePdfLink({
+    @required String lang,
+  }) async {
     try {
-      return Right(await dataSource.downloadPdf());
+      return Right(await dataSource.downloadPdf(
+        lang: lang,
+      ));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }

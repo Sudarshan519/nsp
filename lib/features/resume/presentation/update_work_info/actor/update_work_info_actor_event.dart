@@ -17,8 +17,9 @@ abstract class UpdateWorkInfoActorEvent with _$UpdateWorkInfoActorEvent {
   const factory UpdateWorkInfoActorEvent.changedPurposeOfResign(
       String puropse) = _ChangedPurposeOfResign;
   const factory UpdateWorkInfoActorEvent.setInitialState(
-          WorkHistory workHistory, List<String> typeOfCompanyList) =
-      _SetInitialState;
+      WorkHistory workHistory,
+      List<String> typeOfCompanyList,
+      String lang) = _SetInitialState;
 
   const factory UpdateWorkInfoActorEvent.save() = _Save;
 }

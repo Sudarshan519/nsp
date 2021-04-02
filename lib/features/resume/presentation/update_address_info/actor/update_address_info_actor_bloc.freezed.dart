@@ -105,9 +105,10 @@ class _$UpdateAddressInfoActorEventTearOff {
   }
 
 // ignore: unused_element
-  _SetInitialState setInitialState(PersonalInfo info) {
+  _SetInitialState setInitialState(PersonalInfo info, String lang) {
     return _SetInitialState(
       info,
+      lang,
     );
   }
 
@@ -138,7 +139,7 @@ mixin _$UpdateAddressInfoActorEvent {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   });
   @optionalTypeArgs
@@ -156,7 +157,7 @@ mixin _$UpdateAddressInfoActorEvent {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   });
@@ -293,7 +294,7 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -330,7 +331,7 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -491,7 +492,7 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -528,7 +529,7 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -690,7 +691,7 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -727,7 +728,7 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -888,7 +889,7 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -925,7 +926,7 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1085,7 +1086,7 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -1122,7 +1123,7 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1282,7 +1283,7 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -1319,7 +1320,7 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1483,7 +1484,7 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -1520,7 +1521,7 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1683,7 +1684,7 @@ class _$_ChangedContCountry implements _ChangedContCountry {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -1720,7 +1721,7 @@ class _$_ChangedContCountry implements _ChangedContCountry {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1881,7 +1882,7 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -1918,7 +1919,7 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -2080,7 +2081,7 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -2117,7 +2118,7 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -2278,7 +2279,7 @@ class _$_ChangedContCity implements _ChangedContCity {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -2315,7 +2316,7 @@ class _$_ChangedContCity implements _ChangedContCity {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -2475,7 +2476,7 @@ class _$_ChangedContAddress implements _ChangedContAddress {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -2512,7 +2513,7 @@ class _$_ChangedContAddress implements _ChangedContAddress {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -2672,7 +2673,7 @@ class _$_ChangedContPhone implements _ChangedContPhone {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -2709,7 +2710,7 @@ class _$_ChangedContPhone implements _ChangedContPhone {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -2800,7 +2801,7 @@ abstract class _$SetInitialStateCopyWith<$Res> {
   factory _$SetInitialStateCopyWith(
           _SetInitialState value, $Res Function(_SetInitialState) then) =
       __$SetInitialStateCopyWithImpl<$Res>;
-  $Res call({PersonalInfo info});
+  $Res call({PersonalInfo info, String lang});
 }
 
 /// @nodoc
@@ -2817,23 +2818,29 @@ class __$SetInitialStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object info = freezed,
+    Object lang = freezed,
   }) {
     return _then(_SetInitialState(
       info == freezed ? _value.info : info as PersonalInfo,
+      lang == freezed ? _value.lang : lang as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_SetInitialState implements _SetInitialState {
-  const _$_SetInitialState(this.info) : assert(info != null);
+  const _$_SetInitialState(this.info, this.lang)
+      : assert(info != null),
+        assert(lang != null);
 
   @override
   final PersonalInfo info;
+  @override
+  final String lang;
 
   @override
   String toString() {
-    return 'UpdateAddressInfoActorEvent.setInitialState(info: $info)';
+    return 'UpdateAddressInfoActorEvent.setInitialState(info: $info, lang: $lang)';
   }
 
   @override
@@ -2841,12 +2848,16 @@ class _$_SetInitialState implements _SetInitialState {
     return identical(this, other) ||
         (other is _SetInitialState &&
             (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)));
+                const DeepCollectionEquality().equals(other.info, info)) &&
+            (identical(other.lang, lang) ||
+                const DeepCollectionEquality().equals(other.lang, lang)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(info);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(info) ^
+      const DeepCollectionEquality().hash(lang);
 
   @JsonKey(ignore: true)
   @override
@@ -2869,7 +2880,7 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -2887,7 +2898,7 @@ class _$_SetInitialState implements _SetInitialState {
     assert(changedContPhone != null);
     assert(setInitialState != null);
     assert(save != null);
-    return setInitialState(info);
+    return setInitialState(info, lang);
   }
 
   @override
@@ -2906,13 +2917,13 @@ class _$_SetInitialState implements _SetInitialState {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (setInitialState != null) {
-      return setInitialState(info);
+      return setInitialState(info, lang);
     }
     return orElse();
   }
@@ -2985,9 +2996,11 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdateAddressInfoActorEvent {
-  const factory _SetInitialState(PersonalInfo info) = _$_SetInitialState;
+  const factory _SetInitialState(PersonalInfo info, String lang) =
+      _$_SetInitialState;
 
   PersonalInfo get info;
+  String get lang;
   @JsonKey(ignore: true)
   _$SetInitialStateCopyWith<_SetInitialState> get copyWith;
 }
@@ -3042,7 +3055,7 @@ class _$_Save implements _Save {
     @required TResult changedContCity(String city),
     @required TResult changedContAddress(String address),
     @required TResult changedContPhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required TResult setInitialState(PersonalInfo info, String lang),
     @required TResult save(),
   }) {
     assert(changeCurrCountry != null);
@@ -3079,7 +3092,7 @@ class _$_Save implements _Save {
     TResult changedContCity(String city),
     TResult changedContAddress(String address),
     TResult changedContPhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {

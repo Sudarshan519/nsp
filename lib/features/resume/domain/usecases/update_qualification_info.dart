@@ -34,17 +34,23 @@ class UpdateQualificationInfo
       certifiedMonth: params.certifiedMonth,
     );
 
-    return repository.updateQualification(data: qualificationData);
+    return repository.updateQualification(
+      data: qualificationData,
+      lang: params.lang,
+    );
   }
 }
 
 class UpdateQualificationInfoParams {
   UpdateQualificationInfoParams({
+    @required this.lang,
     @required this.id,
     @required this.qualificationName,
     @required this.certifiedYear,
     @required this.certifiedMonth,
   });
+
+  final String lang;
 
   final int id;
   final String qualificationName;

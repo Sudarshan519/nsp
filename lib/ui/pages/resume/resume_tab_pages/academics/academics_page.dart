@@ -16,11 +16,13 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_do
 class AcademicsPage extends StatelessWidget {
   final List<AcademicHistory> academics;
   final List<String> listOfSubjects;
+  final String lang;
 
   const AcademicsPage({
     Key key,
     @required this.academics,
     @required this.listOfSubjects,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -42,6 +44,7 @@ class AcademicsPage extends StatelessWidget {
                     history: academics[index],
                     listOfSubjects: listOfSubjects,
                     index: index + 1,
+                    lang: lang,
                   );
                 },
               ),
@@ -58,6 +61,7 @@ class AcademicsPage extends StatelessWidget {
               ExtendedNavigator.of(context).pushEditAcademicInfoForm(
                 info: const AcademicHistory(),
                 listOfSubjects: listOfSubjects,
+                lang: lang,
               );
             },
             child: SvgPicture.asset(
@@ -75,12 +79,14 @@ class _CreateAcademicInfoBox extends StatelessWidget {
   final AcademicHistory history;
   final List<String> listOfSubjects;
   final int index;
+  final String lang;
 
   const _CreateAcademicInfoBox({
     Key key,
     @required this.history,
     @required this.listOfSubjects,
     @required this.index,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -93,6 +99,7 @@ class _CreateAcademicInfoBox extends StatelessWidget {
           UpdateAcademicInfoActorEvent.setInitialState(
             history,
             listOfSubjects,
+            lang,
           ),
         ),
       child: _createBody(context, actor, history),
@@ -121,6 +128,7 @@ class _CreateAcademicInfoBox extends StatelessWidget {
                     ExtendedNavigator.of(context).pushEditAcademicInfoForm(
                   info: academicHistory,
                   listOfSubjects: listOfSubjects,
+                  lang: lang,
                 ),
                 child: SvgPicture.asset(
                   "assets/images/resume/edit.svg",
@@ -139,9 +147,9 @@ class _CreateAcademicInfoBox extends StatelessWidget {
           const SizedBox(height: 10),
           const _YearOfEnrollField(),
           const SizedBox(height: 10),
-          const _YearOfCompletionField(),
-          const SizedBox(height: 10),
           const _MonthOfEnrollField(),
+          const SizedBox(height: 10),
+          const _YearOfCompletionField(),
           const SizedBox(height: 10),
           const _MonthOfCompletionField(),
         ],
@@ -203,7 +211,7 @@ class _MajorSubjectField extends StatelessWidget {
         title: "Major Subject",
         child: CustomSearchableDropDownWidget(
           hintText: "Major Subject",
-          value: state.yearOFEnroll,
+          value: state.majorSubject,
           options: state.majorSubjectList,
           isEnable: false,
           alignment: Alignment.centerRight,

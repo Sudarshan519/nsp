@@ -34,13 +34,13 @@ void main() {
   group('Remote Data source', () {
     test('should return News when remote data return News Data', () async {
       // assign
-      when(remoteDataSource.getNews(
+      when(remoteDataSource.getNewsForYou(
         page: anyNamed('page'),
         limit: anyNamed('limit'),
       )).thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
       // act
-      final result = await repository.getNewsFromRemote(page: "1");
+      final result = await repository.getNewsForYou(page: "1");
 
       // assert
       expect(result, const Right(NewsTestConstant.tNewsModel));
@@ -48,13 +48,13 @@ void main() {
 
     test('should save News when fetch from the remote source.', () async {
       // assign
-      when(remoteDataSource.getNews(
+      when(remoteDataSource.getNewsForYou(
         page: anyNamed('page'),
         limit: anyNamed('limit'),
       )).thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
       // act
-      await repository.getNewsFromRemote(page: "1");
+      await repository.getNewsForYou(page: "1");
 
       // assert
       verify(localDataSource.saveNews(news: NewsTestConstant.tNewsModel));
@@ -65,14 +65,14 @@ void main() {
     Never save anything is remote data throws exception
     ''', () async {
       // assign
-      when(remoteDataSource.getNews(
+      when(remoteDataSource.getNewsForYou(
         page: anyNamed('page'),
         limit: anyNamed('limit'),
       )).thenThrow(
           const ServerException(message: AppConstants.someThingWentWrong));
 
       // act
-      final result = await repository.getNewsFromRemote(page: "1");
+      final result = await repository.getNewsForYou(page: "1");
 
       // assert
       expect(
@@ -88,13 +88,13 @@ void main() {
     Never save anything is remote data throws exception
     ''', () async {
       // assign
-      when(remoteDataSource.getNews(
+      when(remoteDataSource.getNewsForYou(
         page: anyNamed('page'),
         limit: anyNamed('limit'),
       )).thenThrow(Exception("Something Bad Happen"));
 
       // act
-      final result = await repository.getNewsFromRemote(page: "1");
+      final result = await repository.getNewsForYou(page: "1");
 
       // assert
       expect(
@@ -109,11 +109,11 @@ void main() {
   group('local data source', () {
     test('Should return new is available in local storage', () async {
       // assign
-      when(localDataSource.getNews())
+      when(localDataSource.getNewsForYou())
           .thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
       //act
-      final result = await repository.getNewsFromLocalStorage();
+      final result = await repository.getNewsForYou(page: "1");
 
       //assert
       expect(result, const Right(NewsTestConstant.tNewsModel));
@@ -122,10 +122,10 @@ void main() {
     test('Should return APIFailure when data is not available is local storage',
         () async {
       // assign
-      when(localDataSource.getNews()).thenThrow(CacheException());
+      when(localDataSource.getNewsForYou()).thenThrow(CacheException());
 
       //act
-      final result = await repository.getNewsFromLocalStorage();
+      final result = await repository.getNewsForYou(page: "1");
 
       //assert
       expect(result, const Left(ApiFailure.serverError(message: "")));

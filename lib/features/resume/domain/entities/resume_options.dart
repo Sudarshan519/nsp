@@ -8,6 +8,8 @@ class ResumeOptions extends Equatable {
     this.majorSubjects,
     this.companyTypes,
     this.preferences,
+    this.hobbies,
+    this.skills,
   });
 
   final List<String> nationalities;
@@ -15,6 +17,8 @@ class ResumeOptions extends Equatable {
   final List<String> majorSubjects;
   final List<String> companyTypes;
   final List<ResumePreference> preferences;
+  final List<String> hobbies;
+  final List<String> skills;
 
   @override
   List<Object> get props => [
@@ -23,6 +27,8 @@ class ResumeOptions extends Equatable {
         majorSubjects,
         companyTypes,
         preferences,
+        hobbies,
+        skills,
       ];
 }
 

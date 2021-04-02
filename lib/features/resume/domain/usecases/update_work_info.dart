@@ -36,12 +36,16 @@ class UpdateWorkInfo extends Usecase<ApiFailure, Unit, UpdateWorkInfoParams> {
       purposeOfResign: params.purposeOfResign,
     );
 
-    return repository.updateWork(data: qualificationData);
+    return repository.updateWork(
+      data: qualificationData,
+      lang: params.lang,
+    );
   }
 }
 
 class UpdateWorkInfoParams {
   UpdateWorkInfoParams({
+    @required this.lang,
     @required this.id,
     @required this.companyName,
     @required this.companyType,
@@ -52,6 +56,7 @@ class UpdateWorkInfoParams {
     @required this.purposeOfResign,
   });
 
+  final String lang;
   final int id;
   final String companyName;
   final String companyType;

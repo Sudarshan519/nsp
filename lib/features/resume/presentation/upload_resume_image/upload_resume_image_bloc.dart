@@ -36,7 +36,9 @@ class UploadResumeImageBloc
         final encodedString = base64.encode(await imageFile.readAsBytes());
 
         failureOrSuccess = await updateResumeImage(UpdateResumeImageParams(
-            image: "data:image/png;base64,$encodedString"));
+          image: "data:image/png;base64,$encodedString",
+          lang: e.lang,
+        ));
 
         yield state.copyWith(
           isSubmitting: false,

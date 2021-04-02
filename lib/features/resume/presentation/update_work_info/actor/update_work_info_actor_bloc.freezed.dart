@@ -64,10 +64,11 @@ class _$UpdateWorkInfoActorEventTearOff {
 
 // ignore: unused_element
   _SetInitialState setInitialState(
-      WorkHistory workHistory, List<String> typeOfCompanyList) {
+      WorkHistory workHistory, List<String> typeOfCompanyList, String lang) {
     return _SetInitialState(
       workHistory,
       typeOfCompanyList,
+      lang,
     );
   }
 
@@ -93,8 +94,8 @@ mixin _$UpdateWorkInfoActorEvent {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   });
   @optionalTypeArgs
@@ -107,7 +108,7 @@ mixin _$UpdateWorkInfoActorEvent {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   });
@@ -225,8 +226,8 @@ class _$_ChangedNameOfCompany implements _ChangedNameOfCompany {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -252,7 +253,7 @@ class _$_ChangedNameOfCompany implements _ChangedNameOfCompany {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -388,8 +389,8 @@ class _$_ChangedTypeOfCompany implements _ChangedTypeOfCompany {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -415,7 +416,7 @@ class _$_ChangedTypeOfCompany implements _ChangedTypeOfCompany {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -550,8 +551,8 @@ class _$_ChangedStartedYear implements _ChangedStartedYear {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -577,7 +578,7 @@ class _$_ChangedStartedYear implements _ChangedStartedYear {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -713,8 +714,8 @@ class _$_ChangedStartedMonth implements _ChangedStartedMonth {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -740,7 +741,7 @@ class _$_ChangedStartedMonth implements _ChangedStartedMonth {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -875,8 +876,8 @@ class _$_ChangedEndYear implements _ChangedEndYear {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -902,7 +903,7 @@ class _$_ChangedEndYear implements _ChangedEndYear {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1037,8 +1038,8 @@ class _$_ChangedEndMonth implements _ChangedEndMonth {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -1064,7 +1065,7 @@ class _$_ChangedEndMonth implements _ChangedEndMonth {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1200,8 +1201,8 @@ class _$_ChangedPurposeOfResign implements _ChangedPurposeOfResign {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -1227,7 +1228,7 @@ class _$_ChangedPurposeOfResign implements _ChangedPurposeOfResign {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1299,7 +1300,8 @@ abstract class _$SetInitialStateCopyWith<$Res> {
   factory _$SetInitialStateCopyWith(
           _SetInitialState value, $Res Function(_SetInitialState) then) =
       __$SetInitialStateCopyWithImpl<$Res>;
-  $Res call({WorkHistory workHistory, List<String> typeOfCompanyList});
+  $Res call(
+      {WorkHistory workHistory, List<String> typeOfCompanyList, String lang});
 }
 
 /// @nodoc
@@ -1317,30 +1319,35 @@ class __$SetInitialStateCopyWithImpl<$Res>
   $Res call({
     Object workHistory = freezed,
     Object typeOfCompanyList = freezed,
+    Object lang = freezed,
   }) {
     return _then(_SetInitialState(
       workHistory == freezed ? _value.workHistory : workHistory as WorkHistory,
       typeOfCompanyList == freezed
           ? _value.typeOfCompanyList
           : typeOfCompanyList as List<String>,
+      lang == freezed ? _value.lang : lang as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_SetInitialState implements _SetInitialState {
-  const _$_SetInitialState(this.workHistory, this.typeOfCompanyList)
+  const _$_SetInitialState(this.workHistory, this.typeOfCompanyList, this.lang)
       : assert(workHistory != null),
-        assert(typeOfCompanyList != null);
+        assert(typeOfCompanyList != null),
+        assert(lang != null);
 
   @override
   final WorkHistory workHistory;
   @override
   final List<String> typeOfCompanyList;
+  @override
+  final String lang;
 
   @override
   String toString() {
-    return 'UpdateWorkInfoActorEvent.setInitialState(workHistory: $workHistory, typeOfCompanyList: $typeOfCompanyList)';
+    return 'UpdateWorkInfoActorEvent.setInitialState(workHistory: $workHistory, typeOfCompanyList: $typeOfCompanyList, lang: $lang)';
   }
 
   @override
@@ -1352,14 +1359,17 @@ class _$_SetInitialState implements _SetInitialState {
                     .equals(other.workHistory, workHistory)) &&
             (identical(other.typeOfCompanyList, typeOfCompanyList) ||
                 const DeepCollectionEquality()
-                    .equals(other.typeOfCompanyList, typeOfCompanyList)));
+                    .equals(other.typeOfCompanyList, typeOfCompanyList)) &&
+            (identical(other.lang, lang) ||
+                const DeepCollectionEquality().equals(other.lang, lang)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(workHistory) ^
-      const DeepCollectionEquality().hash(typeOfCompanyList);
+      const DeepCollectionEquality().hash(typeOfCompanyList) ^
+      const DeepCollectionEquality().hash(lang);
 
   @JsonKey(ignore: true)
   @override
@@ -1377,8 +1387,8 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -1390,7 +1400,7 @@ class _$_SetInitialState implements _SetInitialState {
     assert(changedPurposeOfResign != null);
     assert(setInitialState != null);
     assert(save != null);
-    return setInitialState(workHistory, typeOfCompanyList);
+    return setInitialState(workHistory, typeOfCompanyList, lang);
   }
 
   @override
@@ -1404,13 +1414,13 @@ class _$_SetInitialState implements _SetInitialState {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (setInitialState != null) {
-      return setInitialState(workHistory, typeOfCompanyList);
+      return setInitialState(workHistory, typeOfCompanyList, lang);
     }
     return orElse();
   }
@@ -1463,12 +1473,12 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdateWorkInfoActorEvent {
-  const factory _SetInitialState(
-          WorkHistory workHistory, List<String> typeOfCompanyList) =
-      _$_SetInitialState;
+  const factory _SetInitialState(WorkHistory workHistory,
+      List<String> typeOfCompanyList, String lang) = _$_SetInitialState;
 
   WorkHistory get workHistory;
   List<String> get typeOfCompanyList;
+  String get lang;
   @JsonKey(ignore: true)
   _$SetInitialStateCopyWith<_SetInitialState> get copyWith;
 }
@@ -1518,8 +1528,8 @@ class _$_Save implements _Save {
     @required TResult changedEndMonth(String month),
     @required TResult changedPurposeOfResign(String puropse),
     @required
-        TResult setInitialState(
-            WorkHistory workHistory, List<String> typeOfCompanyList),
+        TResult setInitialState(WorkHistory workHistory,
+            List<String> typeOfCompanyList, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfCompany != null);
@@ -1545,7 +1555,7 @@ class _$_Save implements _Save {
     TResult changedEndMonth(String month),
     TResult changedPurposeOfResign(String puropse),
     TResult setInitialState(
-        WorkHistory workHistory, List<String> typeOfCompanyList),
+        WorkHistory workHistory, List<String> typeOfCompanyList, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {

@@ -140,7 +140,10 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
     return BlocBuilder<NewsBloc, NewsState>(builder: (context, state) {
       return state.map(
         initial: (_) => const SizedBox.shrink(),
-        loading: (_) => const SizedBox.shrink(),
+        loading: (_) => SizedBox(
+          height: 70,
+          child: loadingPage(),
+        ),
         loadingWith: (data) {
           final newsList = data.offlinedata;
           return _newsData(newsList);

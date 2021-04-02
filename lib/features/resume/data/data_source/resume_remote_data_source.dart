@@ -16,9 +16,12 @@ import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 abstract class ResumeRemoteDataSource {
   Future<Resume> getResumeData();
 
-  Future<String> downloadPdf();
+  Future<String> downloadPdf({
+    @required String lang,
+  });
 
   Future<Unit> updateResume({
+    @required String lang,
     @required Map<String, dynamic> body,
   });
 }
@@ -80,10 +83,13 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
   }
 
   @override
-  Future<String> downloadPdf() async {
+  Future<String> downloadPdf({
+    @required String lang,
+  }) async {
     http.Response response;
 
-    final url = "${config.resumeBaseUrl}${ResumeApiEndpoints.downloadResume}";
+    final url =
+        "${config.resumeBaseUrl}${ResumeApiEndpoints.downloadResume}$lang";
     final uuid = (await auth.getUserDetail())?.uuid ?? "";
 
     if (uuid.isEmpty) {
@@ -118,11 +124,13 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
 
   @override
   Future<Unit> updateResume({
+    @required String lang,
     @required Map<String, dynamic> body,
   }) async {
     http.Response response;
 
-    final url = "${config.resumeBaseUrl}${ResumeApiEndpoints.updateProfile}";
+    final url =
+        "${config.resumeBaseUrl}${ResumeApiEndpoints.updateProfile}$lang";
     final uuid = (await auth.getUserDetail())?.uuid ?? "";
 
     if (uuid.isEmpty) {

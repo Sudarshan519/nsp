@@ -38,12 +38,16 @@ class UpdatePersonalInfo
       contPhone: params.phone,
     );
 
-    return repository.updatePersonalInfo(data: userData);
+    return repository.updatePersonalInfo(
+      data: userData,
+      lang: params.lang,
+    );
   }
 }
 
 class UpdatePersonalInfoParams {
   UpdatePersonalInfoParams({
+    @required this.lang,
     @required this.firstName,
     @required this.lastName,
     @required this.profession,
@@ -54,6 +58,8 @@ class UpdatePersonalInfoParams {
     @required this.email,
     @required this.phone,
   });
+
+  final String lang;
 
   final String firstName;
   final String lastName;

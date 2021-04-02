@@ -15,6 +15,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     UpdateQualificationInfoActorEvent, UpdateQualificationInfoActorState> {
   final UpdateQualificationInfo updateQualificationInfo;
   QualificationHistory _qualificationHistory;
+  String _lang;
 
   UpdateQualificationInfoActorBloc({
     @required this.updateQualificationInfo,
@@ -70,6 +71,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
   Stream<UpdateQualificationInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
     final qualificationHistory = _setInitialState.qualificationHistory;
+    _lang = _setInitialState.lang;
     if (qualificationHistory != null &&
         qualificationHistory != _qualificationHistory) {
       _qualificationHistory = qualificationHistory;
@@ -91,6 +93,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     );
     failureOrSuccess = await updateQualificationInfo(
       UpdateQualificationInfoParams(
+        lang: _lang,
         id: _qualificationHistory.id,
         qualificationName: state.qualificationName,
         certifiedYear: state.certifiedYear,

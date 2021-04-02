@@ -15,10 +15,12 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class QualificationPage extends StatelessWidget {
   final List<QualificationHistory> qualifications;
+  final String lang;
 
   const QualificationPage({
     Key key,
     @required this.qualifications,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -39,6 +41,7 @@ class QualificationPage extends StatelessWidget {
                   return _CreateQualificationInfoBox(
                     qualification: qualifications[index],
                     index: index + 1,
+                    lang: lang,
                   );
                 },
               ),
@@ -54,6 +57,7 @@ class QualificationPage extends StatelessWidget {
             onPressed: () {
               ExtendedNavigator.of(context).pushEditQualificationInfoForm(
                 info: const QualificationHistory(),
+                lang: lang,
               );
             },
             child: SvgPicture.asset(
@@ -70,11 +74,13 @@ class QualificationPage extends StatelessWidget {
 class _CreateQualificationInfoBox extends StatelessWidget {
   final QualificationHistory qualification;
   final int index;
+  final String lang;
 
   const _CreateQualificationInfoBox({
     Key key,
     @required this.qualification,
     @required this.index,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -86,7 +92,10 @@ class _CreateQualificationInfoBox extends StatelessWidget {
     return BlocProvider(
       create: (_) => actorBloc
         ..add(
-          UpdateQualificationInfoActorEvent.setInitialState(qualification),
+          UpdateQualificationInfoActorEvent.setInitialState(
+            qualification,
+            lang,
+          ),
         ),
       child: _createdBody(context, actorBloc, qualification),
     );
@@ -115,8 +124,11 @@ class _CreateQualificationInfoBox extends StatelessWidget {
               ),
               const Spacer(),
               InkWell(
-                onTap: () => ExtendedNavigator.of(context)
-                    .pushEditQualificationInfoForm(info: qualification),
+                onTap: () =>
+                    ExtendedNavigator.of(context).pushEditQualificationInfoForm(
+                  info: qualification,
+                  lang: lang,
+                ),
                 child: SvgPicture.asset(
                   "assets/images/resume/edit.svg",
                   color: Palette.primary,

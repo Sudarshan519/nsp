@@ -3,9 +3,9 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
-import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_personal_info/actor/update_personal_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
@@ -21,10 +21,16 @@ import 'package:wallet_app/utils/validator.dart';
 
 class EditBasicInfoForm extends StatelessWidget {
   final PersonalInfo info;
+  final List<String> listOfNationality;
+  final List<String> listOfProfession;
+  final String lang;
 
   const EditBasicInfoForm({
     Key key,
     @required this.info,
+    @required this.listOfNationality,
+    @required this.listOfProfession,
+    @required this.lang,
   })  : assert(info != null),
         super(key: key);
 
@@ -32,11 +38,15 @@ class EditBasicInfoForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final aboutPageActor = UpdatePersonalInfoActorBloc(
       updatePersonalInfo: getIt<UpdatePersonalInfo>(),
-      getCountries: getIt<GetCountries>(),
     );
     return BlocProvider(
       create: (context) => aboutPageActor
-        ..add(UpdatePersonalInfoActorEvent.setInitialState(info)),
+        ..add(UpdatePersonalInfoActorEvent.setInitialState(
+          info: info,
+          listOfNationality: listOfNationality,
+          listOfProfession: listOfProfession,
+          lang: lang,
+        )),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -76,6 +86,8 @@ class EditBasicInfoForm extends StatelessWidget {
             },
             (success) {
               getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<ResumeWatcherBloc>()
+                  .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
                 context: context,
@@ -268,20 +280,14 @@ class _ProfessionInputField extends StatelessWidget {
     return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.profession != current.profession,
+          previous.profession != current.profession ||
+          previous.listOfProfession != current.listOfProfession,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Profession",
         child: CustomSearchableDropDownWidget(
           hintText: "Profession",
           value: state.profession,
-          options: const [
-            "Language Student",
-            "College/University Student",
-            "Skilled Professional",
-            "Cook",
-            "Dependement",
-            "Others"
-          ],
+          options: state.listOfProfession,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeProfession(value)),

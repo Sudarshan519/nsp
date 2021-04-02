@@ -11,7 +11,8 @@ abstract class UpdateQualificationInfoActorEvent
       String month) = _ChangedCertifiedMonth;
 
   const factory UpdateQualificationInfoActorEvent.setInitialState(
-      QualificationHistory qualificationHistory) = _SetInitialState;
+          QualificationHistory qualificationHistory, String lang) =
+      _SetInitialState;
 
   const factory UpdateQualificationInfoActorEvent.save() = _Save;
 }

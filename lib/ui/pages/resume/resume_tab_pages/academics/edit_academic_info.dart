@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_academics_info.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
@@ -20,11 +21,13 @@ import 'package:wallet_app/utils/validator.dart';
 class EditAcademicInfoForm extends StatelessWidget {
   final AcademicHistory info;
   final List<String> listOfSubjects;
+  final String lang;
 
   const EditAcademicInfoForm({
     Key key,
     @required this.info,
     @required this.listOfSubjects,
+    @required this.lang,
   })  : assert(info != null),
         super(key: key);
 
@@ -37,6 +40,7 @@ class EditAcademicInfoForm extends StatelessWidget {
         ..add(UpdateAcademicInfoActorEvent.setInitialState(
           info,
           listOfSubjects,
+          lang,
         )),
       child: Scaffold(
         appBar: AppBar(
@@ -77,6 +81,8 @@ class EditAcademicInfoForm extends StatelessWidget {
             },
             (success) {
               getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<ResumeWatcherBloc>()
+                  .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
                 context: context,
@@ -224,7 +230,7 @@ class _MajorSubjectField extends StatelessWidget {
         title: "Major Subject",
         child: CustomSearchableDropDownWidget(
           hintText: "Major Subject",
-          value: state.yearOFEnroll,
+          value: state.majorSubject,
           options: state.majorSubjectList,
           onChanged: (value) => context
               .read<UpdateAcademicInfoActorBloc>()

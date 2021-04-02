@@ -39,7 +39,6 @@ class HomeHeaderWidget extends StatelessWidget {
           height: 35,
           width: 35,
           child: CircleAvatar(
-            // backgroundColor: Palette.primaryBackground,
             backgroundImage: AssetImage('assets/images/navigation_bar/u1.png'),
           ),
         ),

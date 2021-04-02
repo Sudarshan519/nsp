@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 
 import '../../domain/entities/personal_info.dart';
 
@@ -36,6 +35,8 @@ class PersonalInfoModel extends PersonalInfo {
     @required String contAddress,
     @required String contPhone,
     @required List<String> knownLanguages,
+    @required List<String> hobbies,
+    @required List<String> skills,
     @required String jlpt,
     @required String selfPr,
     @required String extraPoint,
@@ -92,6 +93,8 @@ class PersonalInfoModel extends PersonalInfo {
           contAddress: contAddress,
           contPhone: contPhone,
           knownLanguages: knownLanguages,
+          hobbies: hobbies,
+          skills: skills,
           jlpt: jlpt,
           selfPr: selfPr,
           extraPoint: extraPoint,
@@ -119,15 +122,15 @@ class PersonalInfoModel extends PersonalInfo {
         );
 
   factory PersonalInfoModel.fromJson(Map<String, dynamic> json) {
-    final knownLanguage = json["known_languages"] as List;
-    final List<String> knownLanguageData = [];
+    // final knownLanguage = json["known_languages"] as List;
+    // final List<String> knownLanguageData = [];
 
-    if (knownLanguage.isNotEmpty) {
-      // ignore: avoid_function_literals_in_foreach_calls
-      knownLanguage.forEach((language) {
-        knownLanguageData.add(language as String);
-      });
-    }
+    // if (knownLanguage.isNotEmpty) {
+    //   // ignore: avoid_function_literals_in_foreach_calls
+    //   knownLanguage.forEach((language) {
+    //     knownLanguageData.add(language as String);
+    //   });
+    // }
 
     return PersonalInfoModel(
       id: json["id"] as int,
@@ -160,8 +163,10 @@ class PersonalInfoModel extends PersonalInfo {
       contCity: json["cont_city"] as String,
       contAddress: json["cont_address"] as String,
       contPhone: json["cont_phone"] as String,
-      knownLanguages: knownLanguageData,
-      // knownLanguages: const ["known_languages"],
+      knownLanguages: List<String>.from(
+          (json["known_languages"] as Iterable).map((x) => x)),
+      hobbies: List<String>.from((json["hobbies"] as Iterable).map((x) => x)),
+      skills: List<String>.from((json["skills"] as Iterable).map((x) => x)),
       jlpt: json["jlpt"] as String,
       selfPr: json["self_pr"] as String,
       extraPoint: json["extra_point"] as String,
@@ -306,6 +311,14 @@ class PersonalInfoModel extends PersonalInfo {
       params["extra_point"] = extraPoint;
     }
 
+    if (hobbies != null) {
+      params["hobbies"] = hobbies;
+    }
+
+    if (skills != null) {
+      params["skills"] = skills;
+    }
+
     if (workingHours != null) {
       params["working_hours"] = workingHours;
     }
@@ -389,6 +402,8 @@ extension PersonalInfoExt on PersonalInfo {
         emailVerified: emailVerified,
         contactNumber: contactNumber,
         phoneVerified: phoneVerified,
+        hobbies: hobbies,
+        skills: skills,
         knownLanguages: knownLanguages,
         // languageSchoolPrefecture: languageSchoolPrefecture,
         // languageSchoolPrefectureId: languageSchoolPrefectureId,

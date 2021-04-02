@@ -18,10 +18,10 @@ void main() {
   });
 
   test('should return News Model from local data source', () async {
-    when(localProvider.getNews())
+    when(localProvider.getNewsForYou())
         .thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
-    final result = await localDataSource.getNews();
+    final result = await localDataSource.getNewsForYou();
 
     expect(result, NewsTestConstant.tNewsModel);
   });
@@ -29,9 +29,9 @@ void main() {
   test(
       'should throw Catch Exception from local data source when there is no data',
       () async {
-    when(localProvider.getNews()).thenAnswer((realInvocation) => null);
+    when(localProvider.getNewsForYou()).thenAnswer((realInvocation) => null);
 
-    final call = localDataSource.getNews;
+    final call = localDataSource.getNewsForYou;
 
     expect(
       () => call(),
@@ -41,12 +41,12 @@ void main() {
 
   test('should save News Model to local data source when available', () async {
     localDataSource.saveNews(news: NewsTestConstant.tNewsModel);
-    verify(localProvider.insert(any));
+    verify(localProvider.insertNewsForYou(any));
   });
 
   test('should not save News Model to local data source when data has null',
       () async {
     localDataSource.saveNews(news: NewsTestConstant.tNewsModelWithNull);
-    verifyNever(localProvider.insert(any));
+    verifyNever(localProvider.insertNewsForYou(any));
   });
 }

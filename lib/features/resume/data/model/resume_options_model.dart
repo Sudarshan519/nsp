@@ -9,12 +9,16 @@ class ResumeOptionsModel extends ResumeOptions {
     @required List<String> majorSubjects,
     @required List<String> companyTypes,
     @required List<ResumePreferenceModel> preferences,
+    @required List<String> hobbies,
+    @required List<String> skills,
   }) : super(
           nationalities: nationalities,
           knownLanguages: knownLanguages,
           majorSubjects: majorSubjects,
           companyTypes: companyTypes,
           preferences: preferences,
+          hobbies: hobbies,
+          skills: skills,
         );
 
   factory ResumeOptionsModel.fromJson(Map<String, dynamic> json) =>
@@ -31,6 +35,8 @@ class ResumeOptionsModel extends ResumeOptions {
         preferences: List<ResumePreferenceModel>.from(
             (json["preferences"] as Iterable).map((x) =>
                 ResumePreferenceModel.fromJson(x as Map<String, dynamic>))),
+        hobbies: List<String>.from((json["hobbies"] as Iterable).map((x) => x)),
+        skills: List<String>.from((json["skills"] as Iterable).map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
@@ -114,5 +120,7 @@ extension ResumeOptionsExt on ResumeOptions {
         preferences: preferences
             .map((preference) => preference.toResumePreferenceModel())
             .toList(),
+        hobbies: hobbies,
+        skills: skills,
       );
 }

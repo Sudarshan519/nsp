@@ -149,6 +149,9 @@ class Router extends RouterBase {
         builder: (context) => EditBasicInfoForm(
           key: args.key,
           info: args.info,
+          listOfNationality: args.listOfNationality,
+          listOfProfession: args.listOfProfession,
+          lang: args.lang,
         ),
         settings: data,
       );
@@ -160,6 +163,7 @@ class Router extends RouterBase {
         builder: (context) => EditCurrentAddressInfoForm(
           key: args.key,
           info: args.info,
+          lang: args.lang,
         ),
         settings: data,
       );
@@ -171,6 +175,7 @@ class Router extends RouterBase {
         builder: (context) => EditContactAddressInfoForm(
           key: args.key,
           info: args.info,
+          lang: args.lang,
         ),
         settings: data,
       );
@@ -182,6 +187,7 @@ class Router extends RouterBase {
           key: args.key,
           info: args.info,
           typeOfCompanyList: args.typeOfCompanyList,
+          lang: args.lang,
         ),
         settings: data,
       );
@@ -193,6 +199,7 @@ class Router extends RouterBase {
           key: args.key,
           info: args.info,
           listOfSubjects: args.listOfSubjects,
+          lang: args.lang,
         ),
         settings: data,
       );
@@ -204,6 +211,7 @@ class Router extends RouterBase {
         builder: (context) => EditQualificationInfoForm(
           key: args.key,
           info: args.info,
+          lang: args.lang,
         ),
         settings: data,
       );
@@ -214,6 +222,10 @@ class Router extends RouterBase {
         builder: (context) => EditOtherInfoForm(
           key: args.key,
           info: args.info,
+          listOfLanguages: args.listOfLanguages,
+          listOfHobbies: args.listOfHobbies,
+          listOfSkills: args.listOfSkills,
+          lang: args.lang,
         ),
         settings: data,
       );
@@ -291,68 +303,97 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushEditBasicInfoForm({
     Key key,
     @required PersonalInfo info,
+    @required List<String> listOfNationality,
+    @required List<String> listOfProfession,
+    @required String lang,
   }) =>
       push<dynamic>(
         Routes.editBasicInfoForm,
-        arguments: EditBasicInfoFormArguments(key: key, info: info),
+        arguments: EditBasicInfoFormArguments(
+            key: key,
+            info: info,
+            listOfNationality: listOfNationality,
+            listOfProfession: listOfProfession,
+            lang: lang),
       );
 
   Future<dynamic> pushEditCurrentAddressInfoForm({
     Key key,
     @required PersonalInfo info,
+    @required String lang,
   }) =>
       push<dynamic>(
         Routes.editCurrentAddressInfoForm,
-        arguments: EditCurrentAddressInfoFormArguments(key: key, info: info),
+        arguments: EditCurrentAddressInfoFormArguments(
+            key: key, info: info, lang: lang),
       );
 
   Future<dynamic> pushEditContactAddressInfoForm({
     Key key,
     @required PersonalInfo info,
+    @required String lang,
   }) =>
       push<dynamic>(
         Routes.editContactAddressInfoForm,
-        arguments: EditContactAddressInfoFormArguments(key: key, info: info),
+        arguments: EditContactAddressInfoFormArguments(
+            key: key, info: info, lang: lang),
       );
 
   Future<dynamic> pushEditWorkInfoForm({
     Key key,
     @required WorkHistory info,
     @required List<String> typeOfCompanyList,
+    @required String lang,
   }) =>
       push<dynamic>(
         Routes.editWorkInfoForm,
         arguments: EditWorkInfoFormArguments(
-            key: key, info: info, typeOfCompanyList: typeOfCompanyList),
+            key: key,
+            info: info,
+            typeOfCompanyList: typeOfCompanyList,
+            lang: lang),
       );
 
   Future<dynamic> pushEditAcademicInfoForm({
     Key key,
     @required AcademicHistory info,
     @required List<String> listOfSubjects,
+    @required String lang,
   }) =>
       push<dynamic>(
         Routes.editAcademicInfoForm,
         arguments: EditAcademicInfoFormArguments(
-            key: key, info: info, listOfSubjects: listOfSubjects),
+            key: key, info: info, listOfSubjects: listOfSubjects, lang: lang),
       );
 
   Future<dynamic> pushEditQualificationInfoForm({
     Key key,
     @required QualificationHistory info,
+    @required String lang,
   }) =>
       push<dynamic>(
         Routes.editQualificationInfoForm,
-        arguments: EditQualificationInfoFormArguments(key: key, info: info),
+        arguments: EditQualificationInfoFormArguments(
+            key: key, info: info, lang: lang),
       );
 
   Future<dynamic> pushEditOtherInfoForm({
     Key key,
     @required PersonalInfo info,
+    @required List<String> listOfLanguages,
+    @required List<String> listOfHobbies,
+    @required List<String> listOfSkills,
+    @required String lang,
   }) =>
       push<dynamic>(
         Routes.editOtherInfoForm,
-        arguments: EditOtherInfoFormArguments(key: key, info: info),
+        arguments: EditOtherInfoFormArguments(
+            key: key,
+            info: info,
+            listOfLanguages: listOfLanguages,
+            listOfHobbies: listOfHobbies,
+            listOfSkills: listOfSkills,
+            lang: lang),
       );
 
   Future<dynamic> pushServicesDetail({
@@ -409,21 +450,33 @@ class VerifyUserPageArguments {
 class EditBasicInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  EditBasicInfoFormArguments({this.key, @required this.info});
+  final List<String> listOfNationality;
+  final List<String> listOfProfession;
+  final String lang;
+  EditBasicInfoFormArguments(
+      {this.key,
+      @required this.info,
+      @required this.listOfNationality,
+      @required this.listOfProfession,
+      @required this.lang});
 }
 
 /// EditCurrentAddressInfoForm arguments holder class
 class EditCurrentAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  EditCurrentAddressInfoFormArguments({this.key, @required this.info});
+  final String lang;
+  EditCurrentAddressInfoFormArguments(
+      {this.key, @required this.info, @required this.lang});
 }
 
 /// EditContactAddressInfoForm arguments holder class
 class EditContactAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  EditContactAddressInfoFormArguments({this.key, @required this.info});
+  final String lang;
+  EditContactAddressInfoFormArguments(
+      {this.key, @required this.info, @required this.lang});
 }
 
 /// EditWorkInfoForm arguments holder class
@@ -431,8 +484,12 @@ class EditWorkInfoFormArguments {
   final Key key;
   final WorkHistory info;
   final List<String> typeOfCompanyList;
+  final String lang;
   EditWorkInfoFormArguments(
-      {this.key, @required this.info, @required this.typeOfCompanyList});
+      {this.key,
+      @required this.info,
+      @required this.typeOfCompanyList,
+      @required this.lang});
 }
 
 /// EditAcademicInfoForm arguments holder class
@@ -440,22 +497,38 @@ class EditAcademicInfoFormArguments {
   final Key key;
   final AcademicHistory info;
   final List<String> listOfSubjects;
+  final String lang;
   EditAcademicInfoFormArguments(
-      {this.key, @required this.info, @required this.listOfSubjects});
+      {this.key,
+      @required this.info,
+      @required this.listOfSubjects,
+      @required this.lang});
 }
 
 /// EditQualificationInfoForm arguments holder class
 class EditQualificationInfoFormArguments {
   final Key key;
   final QualificationHistory info;
-  EditQualificationInfoFormArguments({this.key, @required this.info});
+  final String lang;
+  EditQualificationInfoFormArguments(
+      {this.key, @required this.info, @required this.lang});
 }
 
 /// EditOtherInfoForm arguments holder class
 class EditOtherInfoFormArguments {
   final Key key;
   final PersonalInfo info;
-  EditOtherInfoFormArguments({this.key, @required this.info});
+  final List<String> listOfLanguages;
+  final List<String> listOfHobbies;
+  final List<String> listOfSkills;
+  final String lang;
+  EditOtherInfoFormArguments(
+      {this.key,
+      @required this.info,
+      @required this.listOfLanguages,
+      @required this.listOfHobbies,
+      @required this.listOfSkills,
+      @required this.lang});
 }
 
 /// ServicesDetail arguments holder class

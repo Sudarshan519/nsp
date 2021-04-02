@@ -14,9 +14,10 @@ class _$UploadResumeImageEventTearOff {
   const _$UploadResumeImageEventTearOff();
 
 // ignore: unused_element
-  _UpdateProfileImage updateProfileImage(File image) {
+  _UpdateProfileImage updateProfileImage(File image, String lang) {
     return _UpdateProfileImage(
       image,
+      lang,
     );
   }
 }
@@ -28,14 +29,15 @@ const $UploadResumeImageEvent = _$UploadResumeImageEventTearOff();
 /// @nodoc
 mixin _$UploadResumeImageEvent {
   File get image;
+  String get lang;
 
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult updateProfileImage(File image),
+    @required TResult updateProfileImage(File image, String lang),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult updateProfileImage(File image),
+    TResult updateProfileImage(File image, String lang),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -57,7 +59,7 @@ abstract class $UploadResumeImageEventCopyWith<$Res> {
   factory $UploadResumeImageEventCopyWith(UploadResumeImageEvent value,
           $Res Function(UploadResumeImageEvent) then) =
       _$UploadResumeImageEventCopyWithImpl<$Res>;
-  $Res call({File image});
+  $Res call({File image, String lang});
 }
 
 /// @nodoc
@@ -72,9 +74,11 @@ class _$UploadResumeImageEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object image = freezed,
+    Object lang = freezed,
   }) {
     return _then(_value.copyWith(
       image: image == freezed ? _value.image : image as File,
+      lang: lang == freezed ? _value.lang : lang as String,
     ));
   }
 }
@@ -86,7 +90,7 @@ abstract class _$UpdateProfileImageCopyWith<$Res>
           _UpdateProfileImage value, $Res Function(_UpdateProfileImage) then) =
       __$UpdateProfileImageCopyWithImpl<$Res>;
   @override
-  $Res call({File image});
+  $Res call({File image, String lang});
 }
 
 /// @nodoc
@@ -103,23 +107,29 @@ class __$UpdateProfileImageCopyWithImpl<$Res>
   @override
   $Res call({
     Object image = freezed,
+    Object lang = freezed,
   }) {
     return _then(_UpdateProfileImage(
       image == freezed ? _value.image : image as File,
+      lang == freezed ? _value.lang : lang as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_UpdateProfileImage implements _UpdateProfileImage {
-  const _$_UpdateProfileImage(this.image) : assert(image != null);
+  const _$_UpdateProfileImage(this.image, this.lang)
+      : assert(image != null),
+        assert(lang != null);
 
   @override
   final File image;
+  @override
+  final String lang;
 
   @override
   String toString() {
-    return 'UploadResumeImageEvent.updateProfileImage(image: $image)';
+    return 'UploadResumeImageEvent.updateProfileImage(image: $image, lang: $lang)';
   }
 
   @override
@@ -127,12 +137,16 @@ class _$_UpdateProfileImage implements _UpdateProfileImage {
     return identical(this, other) ||
         (other is _UpdateProfileImage &&
             (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)));
+                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.lang, lang) ||
+                const DeepCollectionEquality().equals(other.lang, lang)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(image);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(lang);
 
   @JsonKey(ignore: true)
   @override
@@ -142,21 +156,21 @@ class _$_UpdateProfileImage implements _UpdateProfileImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult updateProfileImage(File image),
+    @required TResult updateProfileImage(File image, String lang),
   }) {
     assert(updateProfileImage != null);
-    return updateProfileImage(image);
+    return updateProfileImage(image, lang);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult updateProfileImage(File image),
+    TResult updateProfileImage(File image, String lang),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (updateProfileImage != null) {
-      return updateProfileImage(image);
+      return updateProfileImage(image, lang);
     }
     return orElse();
   }
@@ -185,10 +199,13 @@ class _$_UpdateProfileImage implements _UpdateProfileImage {
 }
 
 abstract class _UpdateProfileImage implements UploadResumeImageEvent {
-  const factory _UpdateProfileImage(File image) = _$_UpdateProfileImage;
+  const factory _UpdateProfileImage(File image, String lang) =
+      _$_UpdateProfileImage;
 
   @override
   File get image;
+  @override
+  String get lang;
   @override
   @JsonKey(ignore: true)
   _$UpdateProfileImageCopyWith<_UpdateProfileImage> get copyWith;

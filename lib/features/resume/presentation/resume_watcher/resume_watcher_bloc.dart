@@ -18,13 +18,12 @@ part 'resume_watcher_event.dart';
 part 'resume_watcher_state.dart';
 part 'resume_watcher_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
   final GetResume getResume;
 
   ResumeData _english;
   ResumeData _japanese;
-  ResumeOptions _options;
 
   ResumeWatcherBloc({
     @required this.getResume,
@@ -49,9 +48,26 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             failureOrSuccessOption: optionOf(failure),
           ),
           (resume) {
-            _english = resume.resumeData.data.en;
-            _japanese = resume.resumeData.data.jp;
-            _options = resume.resumeData.data.options;
+            if (resume.resumeData.status == false) {
+              final userDetails = resume.userDetail;
+              _english = ResumeData(
+                personalInfo: PersonalInfo(
+                  firstName: userDetails.firstName,
+                  lastName: userDetails.lastName,
+                  email: userDetails.email,
+                ),
+              );
+              _japanese = ResumeData(
+                personalInfo: PersonalInfo(
+                  firstName: userDetails.firstName,
+                  lastName: userDetails.lastName,
+                  email: userDetails.email,
+                ),
+              );
+            } else {
+              _english = resume.resumeData.data.en;
+              _japanese = resume.resumeData.data.jp;
+            }
             add(const _SetResumeData());
             return state.copyWith(
               isLoading: false,
@@ -72,7 +88,7 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             academics: _english?.academicHistory ?? [],
             works: _english?.workHistory ?? [],
             qualifications: _english?.qualificationHistory ?? [],
-            options: _options ?? const ResumeOptions(),
+            options: _english?.options ?? const ResumeOptions(),
             failureOrSuccessOption: none(),
           );
         } else {
@@ -82,7 +98,7 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             academics: _japanese?.academicHistory ?? [],
             works: _japanese?.workHistory ?? [],
             qualifications: _japanese?.qualificationHistory ?? [],
-            options: _options ?? const ResumeOptions(),
+            options: _japanese?.options ?? const ResumeOptions(),
             failureOrSuccessOption: none(),
           );
         }

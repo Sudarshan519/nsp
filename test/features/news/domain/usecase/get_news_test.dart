@@ -47,143 +47,143 @@ void main() {
     );
   });
 
-  runTestOnline(() {
-    test('''
-    should emit data from local storage
-    should emit data from remote storage once fetch from remote
-    ''', () {
-      // assign
-      when(repository.getNewsFromLocalStorage())
-          .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
+  // runTestOnline(() {
+  //   test('''
+  //   should emit data from local storage
+  //   should emit data from remote storage once fetch from remote
+  //   ''', () {
+  //     // assign
+  //     when(repository.getNewsFromLocalStorage())
+  //         .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
 
-      when(repository.getNewsFromRemote(page: anyNamed('page')))
-          .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
+  //     when(repository.getNewsFromRemote(page: anyNamed('page')))
+  //         .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
 
-      // assert fucture
-      final assertExpected = [
-        Right(NewsTestConstant.tNewsModel.data),
-        Right(NewsTestConstant.tNewsModel.data),
-      ];
+  //     // assert fucture
+  //     final assertExpected = [
+  //       Right(NewsTestConstant.tNewsModel.data),
+  //       Right(NewsTestConstant.tNewsModel.data),
+  //     ];
 
-      expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
+  //     expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
 
-      // act
-      getNews(NoParams());
-    });
+  //     // act
+  //     getNews(NoParams());
+  //   });
 
-    test('''
-    nothing is emitted if fetch from local storage is failed.
-    should emit data from remote storage only once fetch from remote
-    ''', () {
-      // assign
-      when(repository.getNewsFromLocalStorage()).thenAnswer(
-          (_) async => const Left(ApiFailure.serverError(message: "")));
+  //   test('''
+  //   nothing is emitted if fetch from local storage is failed.
+  //   should emit data from remote storage only once fetch from remote
+  //   ''', () {
+  //     // assign
+  //     when(repository.getNewsFromLocalStorage()).thenAnswer(
+  //         (_) async => const Left(ApiFailure.serverError(message: "")));
 
-      when(repository.getNewsFromRemote(page: anyNamed('page')))
-          .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
+  //     when(repository.getNewsFromRemote(page: anyNamed('page')))
+  //         .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
 
-      // assert fucture
-      final assertExpected = [
-        Right(NewsTestConstant.tNewsModel.data),
-      ];
+  //     // assert fucture
+  //     final assertExpected = [
+  //       Right(NewsTestConstant.tNewsModel.data),
+  //     ];
 
-      expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
+  //     expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
 
-      // act
-      getNews(NoParams());
-    });
+  //     // act
+  //     getNews(NoParams());
+  //   });
 
-    test('''
-    should emit data from local storage
-    should emit error message if fetch from remote failed
-    ''', () {
-      // assign
-      when(repository.getNewsFromLocalStorage())
-          .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
+  //   test('''
+  //   should emit data from local storage
+  //   should emit error message if fetch from remote failed
+  //   ''', () {
+  //     // assign
+  //     when(repository.getNewsFromLocalStorage())
+  //         .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
 
-      when(repository.getNewsFromRemote(page: anyNamed('page'))).thenAnswer(
-          (_) async => const Left(ApiFailure.serverError(message: "")));
+  //     when(repository.getNewsFromRemote(page: anyNamed('page'))).thenAnswer(
+  //         (_) async => const Left(ApiFailure.serverError(message: "")));
 
-      // assert fucture
-      final assertExpected = [
-        Right(NewsTestConstant.tNewsModel.data),
-        const Left(ApiFailure.serverError(message: "")),
-      ];
+  //     // assert fucture
+  //     final assertExpected = [
+  //       Right(NewsTestConstant.tNewsModel.data),
+  //       const Left(ApiFailure.serverError(message: "")),
+  //     ];
 
-      expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
+  //     expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
 
-      // act
-      getNews(NoParams());
-    });
+  //     // act
+  //     getNews(NoParams());
+  //   });
 
-    test('''
-    nothing is emitted if fetch from local storage is failed.
-    should emit error message if fetch from remote failed
-    ''', () {
-      // assign
-      when(repository.getNewsFromLocalStorage()).thenAnswer(
-          (_) async => const Left(ApiFailure.serverError(message: "")));
+  //   test('''
+  //   nothing is emitted if fetch from local storage is failed.
+  //   should emit error message if fetch from remote failed
+  //   ''', () {
+  //     // assign
+  //     when(repository.getNewsFromLocalStorage()).thenAnswer(
+  //         (_) async => const Left(ApiFailure.serverError(message: "")));
 
-      when(repository.getNewsFromRemote(page: anyNamed('page'))).thenAnswer(
-          (_) async => const Left(ApiFailure.serverError(message: "")));
+  //     when(repository.getNewsFromRemote(page: anyNamed('page'))).thenAnswer(
+  //         (_) async => const Left(ApiFailure.serverError(message: "")));
 
-      // assert fucture
-      final assertExpected = [
-        const Left(ApiFailure.serverError(message: "")),
-      ];
+  //     // assert fucture
+  //     final assertExpected = [
+  //       const Left(ApiFailure.serverError(message: "")),
+  //     ];
 
-      expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
+  //     expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
 
-      // act
-      getNews(NoParams());
-    });
-  });
+  //     // act
+  //     getNews(NoParams());
+  //   });
+  // });
 
-  runTestOffline(() {
-    test('''
-    noting is emitted if fetch from local storage is failed.
-    should emit error message is network is offline.
-    ''', () {
-      // assign
-      when(repository.getNewsFromLocalStorage()).thenAnswer(
-          (_) async => const Left(ApiFailure.serverError(message: "")));
+  // runTestOffline(() {
+  //   test('''
+  //   noting is emitted if fetch from local storage is failed.
+  //   should emit error message is network is offline.
+  //   ''', () {
+  //     // assign
+  //     when(repository.getNewsFromLocalStorage()).thenAnswer(
+  //         (_) async => const Left(ApiFailure.serverError(message: "")));
 
-      when(repository.getNewsFromRemote(page: anyNamed('page'))).thenAnswer(
-          (_) async => const Left(ApiFailure.noInternetConnection()));
+  //     when(repository.getNewsFromRemote(page: anyNamed('page'))).thenAnswer(
+  //         (_) async => const Left(ApiFailure.noInternetConnection()));
 
-      // assert fucture
-      final assertExpected = [
-        const Left(ApiFailure.noInternetConnection()),
-      ];
+  //     // assert fucture
+  //     final assertExpected = [
+  //       const Left(ApiFailure.noInternetConnection()),
+  //     ];
 
-      expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
+  //     expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
 
-      // act
-      getNews(NoParams());
-    });
+  //     // act
+  //     getNews(NoParams());
+  //   });
 
-    test('''
-    should emit data from local storage
-    should emit error message is network is offline.
-    ''', () async {
-      // assign
-      when(repository.getNewsFromLocalStorage())
-          .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
+  //   test('''
+  //   should emit data from local storage
+  //   should emit error message is network is offline.
+  //   ''', () async {
+  //     // assign
+  //     when(repository.getNewsFromLocalStorage())
+  //         .thenAnswer((_) async => const Right(NewsTestConstant.tNewsModel));
 
-      when(repository.getNewsFromRemote(page: anyNamed('page'))).thenAnswer(
-          (_) async => const Left(ApiFailure.noInternetConnection()));
+  //     when(repository.getNewsFromRemote(page: anyNamed('page'))).thenAnswer(
+  //         (_) async => const Left(ApiFailure.noInternetConnection()));
 
-      // assert fucture
-      final assertExpected = [
-        Right(NewsTestConstant.tNewsModel.data),
-        const Left(ApiFailure.noInternetConnection()),
-      ];
+  //     // assert fucture
+  //     final assertExpected = [
+  //       Right(NewsTestConstant.tNewsModel.data),
+  //       const Left(ApiFailure.noInternetConnection()),
+  //     ];
 
-      expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
+  //     expectLater(getNews(NoParams()), emitsInOrder(assertExpected));
 
-      // act
-      getNews(NoParams());
-      // await untilCalled(getNews(any));
-    });
-  });
+  //     // act
+  //     getNews(NoParams());
+  //     // await untilCalled(getNews(any));
+  //   });
+  // });
 }

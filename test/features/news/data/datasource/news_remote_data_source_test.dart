@@ -77,7 +77,7 @@ void main() {
     setUpHTTPCLient200();
 
     // act
-    await dataSource.getNews(
+    await dataSource.getNewsForYou(
       page: _page,
       limit: _limit,
     );
@@ -91,7 +91,7 @@ void main() {
     setUpHTTPCLient200();
 
     // act
-    final result = await dataSource.getNews(
+    final result = await dataSource.getNewsForYou(
       page: _page,
       limit: _limit,
     );
@@ -105,7 +105,7 @@ void main() {
     setUpHTTPCLient400();
 
     // act
-    final call = dataSource.getNews;
+    final call = dataSource.getNewsForYou;
 
     //assert
     expect(
@@ -125,7 +125,7 @@ void main() {
     setUpHTTPCLient400();
 
     // act
-    final call = dataSource.getNews;
+    final call = dataSource.getNewsForYou;
 
     //assert
     expect(
@@ -150,7 +150,7 @@ void main() {
     setUpHTTPCLient500();
 
     // act
-    final call = dataSource.getNews;
+    final call = dataSource.getNewsForYou;
 
     //assert
     expect(
@@ -181,7 +181,7 @@ void main() {
     ).thenThrow(Exception("Something went bad"));
 
     // act
-    final call = dataSource.getNews;
+    final call = dataSource.getNewsForYou;
 
     //assert
     expect(

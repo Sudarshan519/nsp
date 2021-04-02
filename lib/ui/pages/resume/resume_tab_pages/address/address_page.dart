@@ -21,10 +21,12 @@ import 'package:wallet_app/utils/constant.dart';
 
 class AddressPage extends StatelessWidget {
   final PersonalInfo info;
+  final String lang;
 
   const AddressPage({
     Key key,
     @required this.info,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -38,7 +40,10 @@ class AddressPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => addressInfoActorBloc
         ..add(
-          UpdateAddressInfoActorEvent.setInitialState(info),
+          UpdateAddressInfoActorEvent.setInitialState(
+            info,
+            lang,
+          ),
         ),
       child: _aboutPageBlocConsumer(context, info),
     );
@@ -99,6 +104,7 @@ class AddressPage extends StatelessWidget {
                       onTap: () => ExtendedNavigator.of(context)
                           .pushEditCurrentAddressInfoForm(
                         info: info,
+                        lang: lang,
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
@@ -144,6 +150,7 @@ class AddressPage extends StatelessWidget {
                       onTap: () => ExtendedNavigator.of(context)
                           .pushEditContactAddressInfoForm(
                         info: info,
+                        lang: lang,
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",

@@ -56,11 +56,12 @@ class _$UpdateAcademicInfoActorEventTearOff {
   }
 
 // ignore: unused_element
-  _SetInitialState setInitialState(
-      AcademicHistory academicHistory, List<String> listOfMajorSubject) {
+  _SetInitialState setInitialState(AcademicHistory academicHistory,
+      List<String> listOfMajorSubject, String lang) {
     return _SetInitialState(
       academicHistory,
       listOfMajorSubject,
+      lang,
     );
   }
 
@@ -85,8 +86,8 @@ mixin _$UpdateAcademicInfoActorEvent {
     @required TResult changedMonthOfEnroll(String month),
     @required TResult changedMonthOfCompletion(String month),
     @required
-        TResult setInitialState(
-            AcademicHistory academicHistory, List<String> listOfMajorSubject),
+        TResult setInitialState(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang),
     @required TResult save(),
   });
   @optionalTypeArgs
@@ -97,8 +98,8 @@ mixin _$UpdateAcademicInfoActorEvent {
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
     TResult changedMonthOfCompletion(String month),
-    TResult setInitialState(
-        AcademicHistory academicHistory, List<String> listOfMajorSubject),
+    TResult setInitialState(AcademicHistory academicHistory,
+        List<String> listOfMajorSubject, String lang),
     TResult save(),
     @required TResult orElse(),
   });
@@ -215,8 +216,8 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
     @required TResult changedMonthOfEnroll(String month),
     @required TResult changedMonthOfCompletion(String month),
     @required
-        TResult setInitialState(
-            AcademicHistory academicHistory, List<String> listOfMajorSubject),
+        TResult setInitialState(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
@@ -239,8 +240,8 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
     TResult changedMonthOfCompletion(String month),
-    TResult setInitialState(
-        AcademicHistory academicHistory, List<String> listOfMajorSubject),
+    TResult setInitialState(AcademicHistory academicHistory,
+        List<String> listOfMajorSubject, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -373,8 +374,8 @@ class _$_ChangedMajorSubject implements _ChangedMajorSubject {
     @required TResult changedMonthOfEnroll(String month),
     @required TResult changedMonthOfCompletion(String month),
     @required
-        TResult setInitialState(
-            AcademicHistory academicHistory, List<String> listOfMajorSubject),
+        TResult setInitialState(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
@@ -397,8 +398,8 @@ class _$_ChangedMajorSubject implements _ChangedMajorSubject {
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
     TResult changedMonthOfCompletion(String month),
-    TResult setInitialState(
-        AcademicHistory academicHistory, List<String> listOfMajorSubject),
+    TResult setInitialState(AcademicHistory academicHistory,
+        List<String> listOfMajorSubject, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -530,8 +531,8 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
     @required TResult changedMonthOfEnroll(String month),
     @required TResult changedMonthOfCompletion(String month),
     @required
-        TResult setInitialState(
-            AcademicHistory academicHistory, List<String> listOfMajorSubject),
+        TResult setInitialState(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
@@ -554,8 +555,8 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
     TResult changedMonthOfCompletion(String month),
-    TResult setInitialState(
-        AcademicHistory academicHistory, List<String> listOfMajorSubject),
+    TResult setInitialState(AcademicHistory academicHistory,
+        List<String> listOfMajorSubject, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -688,8 +689,8 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
     @required TResult changedMonthOfEnroll(String month),
     @required TResult changedMonthOfCompletion(String month),
     @required
-        TResult setInitialState(
-            AcademicHistory academicHistory, List<String> listOfMajorSubject),
+        TResult setInitialState(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
@@ -712,8 +713,8 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
     TResult changedMonthOfCompletion(String month),
-    TResult setInitialState(
-        AcademicHistory academicHistory, List<String> listOfMajorSubject),
+    TResult setInitialState(AcademicHistory academicHistory,
+        List<String> listOfMajorSubject, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -847,8 +848,8 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
     @required TResult changedMonthOfEnroll(String month),
     @required TResult changedMonthOfCompletion(String month),
     @required
-        TResult setInitialState(
-            AcademicHistory academicHistory, List<String> listOfMajorSubject),
+        TResult setInitialState(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
@@ -871,8 +872,8 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
     TResult changedMonthOfCompletion(String month),
-    TResult setInitialState(
-        AcademicHistory academicHistory, List<String> listOfMajorSubject),
+    TResult setInitialState(AcademicHistory academicHistory,
+        List<String> listOfMajorSubject, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1005,8 +1006,8 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
     @required TResult changedMonthOfEnroll(String month),
     @required TResult changedMonthOfCompletion(String month),
     @required
-        TResult setInitialState(
-            AcademicHistory academicHistory, List<String> listOfMajorSubject),
+        TResult setInitialState(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
@@ -1029,8 +1030,8 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
     TResult changedMonthOfCompletion(String month),
-    TResult setInitialState(
-        AcademicHistory academicHistory, List<String> listOfMajorSubject),
+    TResult setInitialState(AcademicHistory academicHistory,
+        List<String> listOfMajorSubject, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1100,7 +1101,10 @@ abstract class _$SetInitialStateCopyWith<$Res> {
   factory _$SetInitialStateCopyWith(
           _SetInitialState value, $Res Function(_SetInitialState) then) =
       __$SetInitialStateCopyWithImpl<$Res>;
-  $Res call({AcademicHistory academicHistory, List<String> listOfMajorSubject});
+  $Res call(
+      {AcademicHistory academicHistory,
+      List<String> listOfMajorSubject,
+      String lang});
 }
 
 /// @nodoc
@@ -1118,6 +1122,7 @@ class __$SetInitialStateCopyWithImpl<$Res>
   $Res call({
     Object academicHistory = freezed,
     Object listOfMajorSubject = freezed,
+    Object lang = freezed,
   }) {
     return _then(_SetInitialState(
       academicHistory == freezed
@@ -1126,24 +1131,29 @@ class __$SetInitialStateCopyWithImpl<$Res>
       listOfMajorSubject == freezed
           ? _value.listOfMajorSubject
           : listOfMajorSubject as List<String>,
+      lang == freezed ? _value.lang : lang as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_SetInitialState implements _SetInitialState {
-  const _$_SetInitialState(this.academicHistory, this.listOfMajorSubject)
+  const _$_SetInitialState(
+      this.academicHistory, this.listOfMajorSubject, this.lang)
       : assert(academicHistory != null),
-        assert(listOfMajorSubject != null);
+        assert(listOfMajorSubject != null),
+        assert(lang != null);
 
   @override
   final AcademicHistory academicHistory;
   @override
   final List<String> listOfMajorSubject;
+  @override
+  final String lang;
 
   @override
   String toString() {
-    return 'UpdateAcademicInfoActorEvent.setInitialState(academicHistory: $academicHistory, listOfMajorSubject: $listOfMajorSubject)';
+    return 'UpdateAcademicInfoActorEvent.setInitialState(academicHistory: $academicHistory, listOfMajorSubject: $listOfMajorSubject, lang: $lang)';
   }
 
   @override
@@ -1155,14 +1165,17 @@ class _$_SetInitialState implements _SetInitialState {
                     .equals(other.academicHistory, academicHistory)) &&
             (identical(other.listOfMajorSubject, listOfMajorSubject) ||
                 const DeepCollectionEquality()
-                    .equals(other.listOfMajorSubject, listOfMajorSubject)));
+                    .equals(other.listOfMajorSubject, listOfMajorSubject)) &&
+            (identical(other.lang, lang) ||
+                const DeepCollectionEquality().equals(other.lang, lang)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(academicHistory) ^
-      const DeepCollectionEquality().hash(listOfMajorSubject);
+      const DeepCollectionEquality().hash(listOfMajorSubject) ^
+      const DeepCollectionEquality().hash(lang);
 
   @JsonKey(ignore: true)
   @override
@@ -1179,8 +1192,8 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult changedMonthOfEnroll(String month),
     @required TResult changedMonthOfCompletion(String month),
     @required
-        TResult setInitialState(
-            AcademicHistory academicHistory, List<String> listOfMajorSubject),
+        TResult setInitialState(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
@@ -1191,7 +1204,7 @@ class _$_SetInitialState implements _SetInitialState {
     assert(changedMonthOfCompletion != null);
     assert(setInitialState != null);
     assert(save != null);
-    return setInitialState(academicHistory, listOfMajorSubject);
+    return setInitialState(academicHistory, listOfMajorSubject, lang);
   }
 
   @override
@@ -1203,14 +1216,14 @@ class _$_SetInitialState implements _SetInitialState {
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
     TResult changedMonthOfCompletion(String month),
-    TResult setInitialState(
-        AcademicHistory academicHistory, List<String> listOfMajorSubject),
+    TResult setInitialState(AcademicHistory academicHistory,
+        List<String> listOfMajorSubject, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (setInitialState != null) {
-      return setInitialState(academicHistory, listOfMajorSubject);
+      return setInitialState(academicHistory, listOfMajorSubject, lang);
     }
     return orElse();
   }
@@ -1260,12 +1273,12 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdateAcademicInfoActorEvent {
-  const factory _SetInitialState(
-          AcademicHistory academicHistory, List<String> listOfMajorSubject) =
-      _$_SetInitialState;
+  const factory _SetInitialState(AcademicHistory academicHistory,
+      List<String> listOfMajorSubject, String lang) = _$_SetInitialState;
 
   AcademicHistory get academicHistory;
   List<String> get listOfMajorSubject;
+  String get lang;
   @JsonKey(ignore: true)
   _$SetInitialStateCopyWith<_SetInitialState> get copyWith;
 }
@@ -1314,8 +1327,8 @@ class _$_Save implements _Save {
     @required TResult changedMonthOfEnroll(String month),
     @required TResult changedMonthOfCompletion(String month),
     @required
-        TResult setInitialState(
-            AcademicHistory academicHistory, List<String> listOfMajorSubject),
+        TResult setInitialState(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang),
     @required TResult save(),
   }) {
     assert(changedNameOfInstitute != null);
@@ -1338,8 +1351,8 @@ class _$_Save implements _Save {
     TResult changedYearOfCompletion(String year),
     TResult changedMonthOfEnroll(String month),
     TResult changedMonthOfCompletion(String month),
-    TResult setInitialState(
-        AcademicHistory academicHistory, List<String> listOfMajorSubject),
+    TResult setInitialState(AcademicHistory academicHistory,
+        List<String> listOfMajorSubject, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {

@@ -182,7 +182,7 @@ Future<GetIt> $initGetIt(
   gh.factory<LatestNewsBloc>(
       () => LatestNewsBloc(getNews: get<GetLatestNews>()));
   gh.factory<NewsBloc>(() => NewsBloc(getNews: get<GetNewsForYou>()));
-  gh.factory<ResumeWatcherBloc>(
+  gh.lazySingleton<ResumeWatcherBloc>(
       () => ResumeWatcherBloc(getResume: get<GetResume>()));
   gh.factory<SignInFormBloc>(
       () => SignInFormBloc(get<SignInWithEmailAndPassword>()));

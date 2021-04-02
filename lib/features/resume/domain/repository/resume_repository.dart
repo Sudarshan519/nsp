@@ -11,32 +11,41 @@ abstract class ResumeRepository {
   Future<Either<ApiFailure, Resume>> getResumeData();
 
   Future<Either<ApiFailure, Unit>> updatePersonalInfo({
+    @required String lang,
     @required PersonalInfo data,
   });
 
   Future<Either<ApiFailure, Unit>> updateAddress({
+    @required String lang,
     @required PersonalInfo data,
   });
 
   Future<Either<ApiFailure, Unit>> updateOtherInfo({
+    @required String lang,
     @required PersonalInfo data,
   });
 
   Future<Either<ApiFailure, Unit>> updateAcademic({
+    @required String lang,
     @required AcademicHistory data,
   });
 
   Future<Either<ApiFailure, Unit>> updateWork({
+    @required String lang,
     @required WorkHistory data,
   });
 
   Future<Either<ApiFailure, Unit>> updateQualification({
+    @required String lang,
     @required QualificationHistory data,
   });
 
   Future<Either<ApiFailure, Unit>> updateResumeImage({
+    @required String lang,
     @required PersonalInfo data,
   });
 
-  Future<Either<ApiFailure, String>> getResumePdfLink();
+  Future<Either<ApiFailure, String>> getResumePdfLink({
+    @required String lang,
+  });
 }

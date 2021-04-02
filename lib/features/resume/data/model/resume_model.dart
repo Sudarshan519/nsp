@@ -45,8 +45,10 @@ class ResumeStatusDataModel extends ResumeStatusData {
   factory ResumeStatusDataModel.fromJson(Map<String, dynamic> json) =>
       ResumeStatusDataModel(
         status: json["status"] as bool,
-        data: ResumeWithLanguageModel.fromJson(
-            json["data"] as Map<String, dynamic>),
+        data: json["data"] == null
+            ? null
+            : ResumeWithLanguageModel.fromJson(
+                json["data"] as Map<String, dynamic>),
         hasResume: json["has_resume"] as bool,
       );
 }

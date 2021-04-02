@@ -27,7 +27,7 @@ void main() {
         .thenAnswer((realInvocation) async => 1);
 
     // act
-    await newsLocalProvider.insert(NewsTestConstant.tNewsModel);
+    await newsLocalProvider.insertNewsForYou(NewsTestConstant.tNewsModel);
 
     //assert
     verify(dbProvider.open());
@@ -45,7 +45,7 @@ void main() {
               {"": ""}
             ]);
 
-    await newsLocalProvider.getNews();
+    await newsLocalProvider.getNewsForYou();
 
     verify(dbProvider.open());
     verify(dbProvider.getAllFrom(tableName: anyNamed('tableName')));
@@ -59,7 +59,7 @@ void main() {
     when(dbProvider.getAllFrom(tableName: anyNamed('tableName')))
         .thenAnswer((realInvocation) async => null);
 
-    final newsModel = await newsLocalProvider.getNews();
+    final newsModel = await newsLocalProvider.getNewsForYou();
 
     expect(newsModel, null);
   });
@@ -71,7 +71,7 @@ void main() {
     when(dbProvider.getAllFrom(tableName: anyNamed('tableName')))
         .thenAnswer((realInvocation) async => []);
 
-    final newsModel = await newsLocalProvider.getNews();
+    final newsModel = await newsLocalProvider.getNewsForYou();
 
     expect(newsModel, null);
   });

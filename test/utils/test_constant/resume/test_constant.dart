@@ -1,4 +1,4 @@
-import 'package:wallet_app/features/resume/data/model/resume_model.dart';
+import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
 
 class ResumeTestConstant {
   static const RESUME_DATA_NULL = ResumeDataModel(

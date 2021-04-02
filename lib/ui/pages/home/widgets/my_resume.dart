@@ -36,12 +36,14 @@ class MyResumeWidget extends StatelessWidget {
           const CategoryTitleWidget(title: "My Resume"),
           const SizedBox(height: 10),
           ShadowBoxWidget(
+            // padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Container(
                   color: Palette.white,
                   height: 190,
                   child: ListView.builder(
+                    padding: EdgeInsets.zero,
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
@@ -90,6 +92,22 @@ class MyResumeWidget extends StatelessWidget {
   }
 
   Widget _userImage(String image) {
+    if (image.isEmpty) {
+      return Container(
+        padding: const EdgeInsets.only(right: 18),
+        margin: const EdgeInsets.only(top: 26, bottom: 30),
+        width: 120,
+        height: 120,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16.0),
+          child: Image.asset(
+            'assets/images/navigation_bar/u1.png',
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
+    }
+
     return Container(
       padding: const EdgeInsets.all(8),
       margin: const EdgeInsets.only(top: 26, bottom: 30),
@@ -174,9 +192,9 @@ class MyResumeWidget extends StatelessWidget {
                 containerTitle: academicHistoryArray[index].institute,
                 infoText1: academicHistoryArray[index].majorSubject,
                 infoText1Icon: "assets/images/resume/academy.svg",
-                infoText2: started,
+                infoText2: "$started - $completion",
                 infoText2Icon: "",
-                infoText3: completion,
+                infoText3: "",
                 infoText3Icon: "",
                 infoText4: "",
                 infoText4Icon: "",
@@ -214,9 +232,9 @@ class MyResumeWidget extends StatelessWidget {
                 containerTitle: workHistoryArray[index].companyName,
                 infoText1: workHistoryArray[index].companyType,
                 infoText1Icon: "assets/images/resume/academy.svg",
-                infoText2: started,
+                infoText2: "$started - $completion",
                 infoText2Icon: "",
-                infoText3: completion,
+                infoText3: "",
                 infoText3Icon: "",
                 infoText4: "",
                 infoText4Icon: "",
@@ -678,13 +696,13 @@ class _DownloadResumeButton extends StatelessWidget {
         externalDir = await getApplicationDocumentsDirectory();
       }
 
-      final id = await FlutterDownloader.enqueue(
+      await FlutterDownloader.enqueue(
         url: url,
         savedDir: externalDir.path,
         fileName: "Resume.pdf",
       );
     } else {
-      print("Permission not granted");
+      // print("Permission not granted");
     }
   }
 }

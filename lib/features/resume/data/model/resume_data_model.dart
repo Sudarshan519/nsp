@@ -32,23 +32,40 @@ class ResumeDataModel extends ResumeData {
 
   factory ResumeDataModel.fromJson(Map<String, dynamic> json) =>
       ResumeDataModel(
-        personalInfo: PersonalInfoModel.fromJson(
-            json["personal_info"] as Map<String, dynamic>),
+        personalInfo: json["personal_info"] == null
+            ? null
+            : PersonalInfoModel.fromJson(
+                json["personal_info"] as Map<String, dynamic>),
         personalInfoCompletionRate:
-            json["personal_info_completion_rate"] as int,
-        academicHistory: List<AcademicHistoryModel>.from(
-            (json["academic_history"] as Iterable).map((x) =>
-                AcademicHistoryModel.fromJson(x as Map<String, dynamic>))),
-        academicsCompletionRate: json["academics_completion_rate"] as int,
-        workHistory: List<WorkHistoryModel>.from((json["work_history"]
-                as Iterable)
-            .map((x) => WorkHistoryModel.fromJson(x as Map<String, dynamic>))),
-        worksCompletionRate: json["works_completion_rate"] as int,
-        qualificationHistory: List<QualificationHistoryModel>.from(
-            (json["qualification_history"] as Iterable).map((x) =>
-                QualificationHistoryModel.fromJson(x as Map<String, dynamic>))),
+            json["personal_info_completion_rate"] == null
+                ? null
+                : json["personal_info_completion_rate"] as int,
+        academicHistory: json["academic_history"] == null
+            ? null
+            : List<AcademicHistoryModel>.from(
+                (json["academic_history"] as Iterable).map((x) =>
+                    AcademicHistoryModel.fromJson(x as Map<String, dynamic>))),
+        academicsCompletionRate: json["academics_completion_rate"] == null
+            ? null
+            : json["academics_completion_rate"] as int,
+        workHistory: json["work_history"] == null
+            ? null
+            : List<WorkHistoryModel>.from((json["work_history"] as Iterable)
+                .map((x) =>
+                    WorkHistoryModel.fromJson(x as Map<String, dynamic>))),
+        worksCompletionRate: json["works_completion_rate"] == null
+            ? null
+            : json["works_completion_rate"] as int,
+        qualificationHistory: json["qualification_history"] == null
+            ? null
+            : List<QualificationHistoryModel>.from(
+                (json["qualification_history"] as Iterable).map((x) =>
+                    QualificationHistoryModel.fromJson(
+                        x as Map<String, dynamic>))),
         qualificationCompletionRate:
-            json["qualification_completion_rate"] as int,
+            json["qualification_completion_rate"] == null
+                ? null
+                : json["qualification_completion_rate"] as int,
         options: json["options"] == null
             ? null
             : ResumeOptionsModel.fromJson(

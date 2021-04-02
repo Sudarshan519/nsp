@@ -22,6 +22,8 @@ class UpdateAddressInfoActorBloc
   final GetJapanCity getJapanCity;
   PersonalInfo _personalInfo;
 
+  String _lang;
+
   UpdateAddressInfoActorBloc({
     @required this.updateAddressInfo,
     @required this.getCountries,
@@ -92,6 +94,8 @@ class UpdateAddressInfoActorBloc
     final listOfPrefecture = await getPrefecture();
     final listOfCurrCities = await getJapanCity(userInfo.currPrefecture);
     final listOfContCities = await getJapanCity(userInfo.contPrefecture);
+
+    _lang = _setInitialState.lang;
 
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
@@ -225,6 +229,7 @@ class UpdateAddressInfoActorBloc
     );
     failureOrSuccess = await updateAddressInfo(
       UpdateAddressParams(
+        lang: _lang,
         currCountry: state.currCountry,
         currPostalCode: state.currPostalCode,
         currPrefecture: state.currPrefecture,

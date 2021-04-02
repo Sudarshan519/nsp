@@ -19,7 +19,11 @@ abstract class UpdatePersonalInfoActorEvent
       _ChangeEmail;
   const factory UpdatePersonalInfoActorEvent.changePhone(String phone) =
       _ChangePhone;
-  const factory UpdatePersonalInfoActorEvent.setInitialState(
-      PersonalInfo info) = _SetInitialState;
+  const factory UpdatePersonalInfoActorEvent.setInitialState({
+    @required PersonalInfo info,
+    @required List<String> listOfNationality,
+    @required List<String> listOfProfession,
+    @required String lang,
+  }) = _SetInitialState;
   const factory UpdatePersonalInfoActorEvent.save() = _Save;
 }

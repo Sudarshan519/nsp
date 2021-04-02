@@ -35,9 +35,11 @@ class _$UpdateQualificationInfoActorEventTearOff {
   }
 
 // ignore: unused_element
-  _SetInitialState setInitialState(QualificationHistory qualificationHistory) {
+  _SetInitialState setInitialState(
+      QualificationHistory qualificationHistory, String lang) {
     return _SetInitialState(
       qualificationHistory,
+      lang,
     );
   }
 
@@ -60,7 +62,8 @@ mixin _$UpdateQualificationInfoActorEvent {
     @required TResult changedCertifiedYear(String year),
     @required TResult changedCertifiedMonth(String month),
     @required
-        TResult setInitialState(QualificationHistory qualificationHistory),
+        TResult setInitialState(
+            QualificationHistory qualificationHistory, String lang),
     @required TResult save(),
   });
   @optionalTypeArgs
@@ -68,7 +71,8 @@ mixin _$UpdateQualificationInfoActorEvent {
     TResult changedQualificationName(String name),
     TResult changedCertifiedYear(String year),
     TResult changedCertifiedMonth(String month),
-    TResult setInitialState(QualificationHistory qualificationHistory),
+    TResult setInitialState(
+        QualificationHistory qualificationHistory, String lang),
     TResult save(),
     @required TResult orElse(),
   });
@@ -176,7 +180,8 @@ class _$_ChangedQualificationName implements _ChangedQualificationName {
     @required TResult changedCertifiedYear(String year),
     @required TResult changedCertifiedMonth(String month),
     @required
-        TResult setInitialState(QualificationHistory qualificationHistory),
+        TResult setInitialState(
+            QualificationHistory qualificationHistory, String lang),
     @required TResult save(),
   }) {
     assert(changedQualificationName != null);
@@ -193,7 +198,8 @@ class _$_ChangedQualificationName implements _ChangedQualificationName {
     TResult changedQualificationName(String name),
     TResult changedCertifiedYear(String year),
     TResult changedCertifiedMonth(String month),
-    TResult setInitialState(QualificationHistory qualificationHistory),
+    TResult setInitialState(
+        QualificationHistory qualificationHistory, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -315,7 +321,8 @@ class _$_ChangedCertifiedYear implements _ChangedCertifiedYear {
     @required TResult changedCertifiedYear(String year),
     @required TResult changedCertifiedMonth(String month),
     @required
-        TResult setInitialState(QualificationHistory qualificationHistory),
+        TResult setInitialState(
+            QualificationHistory qualificationHistory, String lang),
     @required TResult save(),
   }) {
     assert(changedQualificationName != null);
@@ -332,7 +339,8 @@ class _$_ChangedCertifiedYear implements _ChangedCertifiedYear {
     TResult changedQualificationName(String name),
     TResult changedCertifiedYear(String year),
     TResult changedCertifiedMonth(String month),
-    TResult setInitialState(QualificationHistory qualificationHistory),
+    TResult setInitialState(
+        QualificationHistory qualificationHistory, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -453,7 +461,8 @@ class _$_ChangedCertifiedMonth implements _ChangedCertifiedMonth {
     @required TResult changedCertifiedYear(String year),
     @required TResult changedCertifiedMonth(String month),
     @required
-        TResult setInitialState(QualificationHistory qualificationHistory),
+        TResult setInitialState(
+            QualificationHistory qualificationHistory, String lang),
     @required TResult save(),
   }) {
     assert(changedQualificationName != null);
@@ -470,7 +479,8 @@ class _$_ChangedCertifiedMonth implements _ChangedCertifiedMonth {
     TResult changedQualificationName(String name),
     TResult changedCertifiedYear(String year),
     TResult changedCertifiedMonth(String month),
-    TResult setInitialState(QualificationHistory qualificationHistory),
+    TResult setInitialState(
+        QualificationHistory qualificationHistory, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -530,7 +540,7 @@ abstract class _$SetInitialStateCopyWith<$Res> {
   factory _$SetInitialStateCopyWith(
           _SetInitialState value, $Res Function(_SetInitialState) then) =
       __$SetInitialStateCopyWithImpl<$Res>;
-  $Res call({QualificationHistory qualificationHistory});
+  $Res call({QualificationHistory qualificationHistory, String lang});
 }
 
 /// @nodoc
@@ -547,26 +557,31 @@ class __$SetInitialStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object qualificationHistory = freezed,
+    Object lang = freezed,
   }) {
     return _then(_SetInitialState(
       qualificationHistory == freezed
           ? _value.qualificationHistory
           : qualificationHistory as QualificationHistory,
+      lang == freezed ? _value.lang : lang as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_SetInitialState implements _SetInitialState {
-  const _$_SetInitialState(this.qualificationHistory)
-      : assert(qualificationHistory != null);
+  const _$_SetInitialState(this.qualificationHistory, this.lang)
+      : assert(qualificationHistory != null),
+        assert(lang != null);
 
   @override
   final QualificationHistory qualificationHistory;
+  @override
+  final String lang;
 
   @override
   String toString() {
-    return 'UpdateQualificationInfoActorEvent.setInitialState(qualificationHistory: $qualificationHistory)';
+    return 'UpdateQualificationInfoActorEvent.setInitialState(qualificationHistory: $qualificationHistory, lang: $lang)';
   }
 
   @override
@@ -574,14 +589,17 @@ class _$_SetInitialState implements _SetInitialState {
     return identical(this, other) ||
         (other is _SetInitialState &&
             (identical(other.qualificationHistory, qualificationHistory) ||
-                const DeepCollectionEquality()
-                    .equals(other.qualificationHistory, qualificationHistory)));
+                const DeepCollectionEquality().equals(
+                    other.qualificationHistory, qualificationHistory)) &&
+            (identical(other.lang, lang) ||
+                const DeepCollectionEquality().equals(other.lang, lang)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(qualificationHistory);
+      const DeepCollectionEquality().hash(qualificationHistory) ^
+      const DeepCollectionEquality().hash(lang);
 
   @JsonKey(ignore: true)
   @override
@@ -595,7 +613,8 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult changedCertifiedYear(String year),
     @required TResult changedCertifiedMonth(String month),
     @required
-        TResult setInitialState(QualificationHistory qualificationHistory),
+        TResult setInitialState(
+            QualificationHistory qualificationHistory, String lang),
     @required TResult save(),
   }) {
     assert(changedQualificationName != null);
@@ -603,7 +622,7 @@ class _$_SetInitialState implements _SetInitialState {
     assert(changedCertifiedMonth != null);
     assert(setInitialState != null);
     assert(save != null);
-    return setInitialState(qualificationHistory);
+    return setInitialState(qualificationHistory, lang);
   }
 
   @override
@@ -612,13 +631,14 @@ class _$_SetInitialState implements _SetInitialState {
     TResult changedQualificationName(String name),
     TResult changedCertifiedYear(String year),
     TResult changedCertifiedMonth(String month),
-    TResult setInitialState(QualificationHistory qualificationHistory),
+    TResult setInitialState(
+        QualificationHistory qualificationHistory, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (setInitialState != null) {
-      return setInitialState(qualificationHistory);
+      return setInitialState(qualificationHistory, lang);
     }
     return orElse();
   }
@@ -659,10 +679,12 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdateQualificationInfoActorEvent {
-  const factory _SetInitialState(QualificationHistory qualificationHistory) =
+  const factory _SetInitialState(
+          QualificationHistory qualificationHistory, String lang) =
       _$_SetInitialState;
 
   QualificationHistory get qualificationHistory;
+  String get lang;
   @JsonKey(ignore: true)
   _$SetInitialStateCopyWith<_SetInitialState> get copyWith;
 }
@@ -708,7 +730,8 @@ class _$_Save implements _Save {
     @required TResult changedCertifiedYear(String year),
     @required TResult changedCertifiedMonth(String month),
     @required
-        TResult setInitialState(QualificationHistory qualificationHistory),
+        TResult setInitialState(
+            QualificationHistory qualificationHistory, String lang),
     @required TResult save(),
   }) {
     assert(changedQualificationName != null);
@@ -725,7 +748,8 @@ class _$_Save implements _Save {
     TResult changedQualificationName(String name),
     TResult changedCertifiedYear(String year),
     TResult changedCertifiedMonth(String month),
-    TResult setInitialState(QualificationHistory qualificationHistory),
+    TResult setInitialState(
+        QualificationHistory qualificationHistory, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {

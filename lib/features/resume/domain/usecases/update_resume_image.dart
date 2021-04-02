@@ -28,14 +28,19 @@ class UpdateResumeImage
 
     final userData = PersonalInfo(image: params.image);
 
-    return repository.updateResumeImage(data: userData);
+    return repository.updateResumeImage(
+      data: userData,
+      lang: params.lang,
+    );
   }
 }
 
 class UpdateResumeImageParams {
   UpdateResumeImageParams({
+    @required this.lang,
     @required this.image,
   });
 
+  final String lang;
   final String image;
 }

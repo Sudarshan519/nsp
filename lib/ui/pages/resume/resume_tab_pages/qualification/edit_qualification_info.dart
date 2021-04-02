@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_qualification_info.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_qualification_info_actor/update_qualification_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
@@ -12,16 +13,17 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class EditQualificationInfoForm extends StatelessWidget {
   final QualificationHistory info;
+  final String lang;
 
   const EditQualificationInfoForm({
     Key key,
     @required this.info,
+    @required this.lang,
   })  : assert(info != null),
         super(key: key);
 
@@ -32,7 +34,10 @@ class EditQualificationInfoForm extends StatelessWidget {
     );
     return BlocProvider(
       create: (context) => actorBloc
-        ..add(UpdateQualificationInfoActorEvent.setInitialState(info)),
+        ..add(UpdateQualificationInfoActorEvent.setInitialState(
+          info,
+          lang,
+        )),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -72,6 +77,8 @@ class EditQualificationInfoForm extends StatelessWidget {
             },
             (success) {
               getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<ResumeWatcherBloc>()
+                  .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
                 context: context,

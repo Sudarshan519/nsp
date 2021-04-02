@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_work_info.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
@@ -19,11 +20,13 @@ import 'package:wallet_app/utils/constant.dart';
 class EditWorkInfoForm extends StatelessWidget {
   final WorkHistory info;
   final List<String> typeOfCompanyList;
+  final String lang;
 
   const EditWorkInfoForm({
     Key key,
     @required this.info,
     @required this.typeOfCompanyList,
+    @required this.lang,
   })  : assert(info != null),
         super(key: key);
 
@@ -37,6 +40,7 @@ class EditWorkInfoForm extends StatelessWidget {
           UpdateWorkInfoActorEvent.setInitialState(
             info,
             typeOfCompanyList,
+            lang,
           ),
         ),
       child: Scaffold(
@@ -77,6 +81,8 @@ class EditWorkInfoForm extends StatelessWidget {
             },
             (success) {
               getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<ResumeWatcherBloc>()
+                  .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
                 context: context,

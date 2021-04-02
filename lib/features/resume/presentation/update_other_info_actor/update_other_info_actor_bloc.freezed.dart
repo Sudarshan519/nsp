@@ -43,6 +43,20 @@ class _$UpdateOtherInfoActorEventTearOff {
   }
 
 // ignore: unused_element
+  _ChangeHobbies changeHobbies(List<String> hobbies) {
+    return _ChangeHobbies(
+      hobbies,
+    );
+  }
+
+// ignore: unused_element
+  _ChangeSkills changeSkills(List<String> skills) {
+    return _ChangeSkills(
+      skills,
+    );
+  }
+
+// ignore: unused_element
   _ChangeWorkinHours changeWorkinHours(String hours) {
     return _ChangeWorkinHours(
       hours,
@@ -86,9 +100,18 @@ class _$UpdateOtherInfoActorEventTearOff {
   }
 
 // ignore: unused_element
-  _SetInitialState setInitialState(PersonalInfo info) {
+  _SetInitialState setInitialState(
+      {@required PersonalInfo info,
+      @required String lang,
+      @required List<String> listOfLanguages,
+      @required List<String> listOHobbies,
+      @required List<String> listOfSkills}) {
     return _SetInitialState(
-      info,
+      info: info,
+      lang: lang,
+      listOfLanguages: listOfLanguages,
+      listOHobbies: listOHobbies,
+      listOfSkills: listOfSkills,
     );
   }
 
@@ -111,6 +134,8 @@ mixin _$UpdateOtherInfoActorEvent {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -119,7 +144,13 @@ mixin _$UpdateOtherInfoActorEvent {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   });
   @optionalTypeArgs
@@ -128,13 +159,20 @@ mixin _$UpdateOtherInfoActorEvent {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   });
@@ -146,6 +184,8 @@ mixin _$UpdateOtherInfoActorEvent {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -164,6 +204,8 @@ mixin _$UpdateOtherInfoActorEvent {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -261,6 +303,8 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -269,13 +313,21 @@ class _$_ChangeLanguages implements _ChangeLanguages {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -294,13 +346,20 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -320,6 +379,8 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -335,6 +396,8 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -354,6 +417,8 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -448,6 +513,8 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -456,13 +523,21 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -481,13 +556,20 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -507,6 +589,8 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -522,6 +606,8 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -541,6 +627,8 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -634,6 +722,8 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -642,13 +732,21 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -667,13 +765,20 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -693,6 +798,8 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -708,6 +815,8 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -727,6 +836,8 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -831,6 +942,8 @@ class _$_ChangeMotivationsSpecialSkills
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -839,13 +952,21 @@ class _$_ChangeMotivationsSpecialSkills
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -864,13 +985,20 @@ class _$_ChangeMotivationsSpecialSkills
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -890,6 +1018,8 @@ class _$_ChangeMotivationsSpecialSkills
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -905,6 +1035,8 @@ class _$_ChangeMotivationsSpecialSkills
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -924,6 +1056,8 @@ class _$_ChangeMotivationsSpecialSkills
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -952,6 +1086,424 @@ abstract class _ChangeMotivationsSpecialSkills
   @JsonKey(ignore: true)
   _$ChangeMotivationsSpecialSkillsCopyWith<_ChangeMotivationsSpecialSkills>
       get copyWith;
+}
+
+/// @nodoc
+abstract class _$ChangeHobbiesCopyWith<$Res> {
+  factory _$ChangeHobbiesCopyWith(
+          _ChangeHobbies value, $Res Function(_ChangeHobbies) then) =
+      __$ChangeHobbiesCopyWithImpl<$Res>;
+  $Res call({List<String> hobbies});
+}
+
+/// @nodoc
+class __$ChangeHobbiesCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
+    implements _$ChangeHobbiesCopyWith<$Res> {
+  __$ChangeHobbiesCopyWithImpl(
+      _ChangeHobbies _value, $Res Function(_ChangeHobbies) _then)
+      : super(_value, (v) => _then(v as _ChangeHobbies));
+
+  @override
+  _ChangeHobbies get _value => super._value as _ChangeHobbies;
+
+  @override
+  $Res call({
+    Object hobbies = freezed,
+  }) {
+    return _then(_ChangeHobbies(
+      hobbies == freezed ? _value.hobbies : hobbies as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ChangeHobbies implements _ChangeHobbies {
+  const _$_ChangeHobbies(this.hobbies) : assert(hobbies != null);
+
+  @override
+  final List<String> hobbies;
+
+  @override
+  String toString() {
+    return 'UpdateOtherInfoActorEvent.changeHobbies(hobbies: $hobbies)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeHobbies &&
+            (identical(other.hobbies, hobbies) ||
+                const DeepCollectionEquality().equals(other.hobbies, hobbies)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(hobbies);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeHobbiesCopyWith<_ChangeHobbies> get copyWith =>
+      __$ChangeHobbiesCopyWithImpl<_ChangeHobbies>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult changeLanguages(List<String> languages),
+    @required TResult changeJLPTLevel(String JLPTLevel),
+    @required TResult changeSelfPR(String selfPR),
+    @required
+        TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
+    @required TResult changeWorkinHours(String hours),
+    @required TResult changeWorkingMinutes(String minutes),
+    @required TResult changeNumberOfDependent(String numberOfDependent),
+    @required TResult changeIsSpouse(String isSpouse),
+    @required
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
+    @required TResult changeSpecialConditions(String specialConditions),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
+    @required TResult save(),
+  }) {
+    assert(changeLanguages != null);
+    assert(changeJLPTLevel != null);
+    assert(changeSelfPR != null);
+    assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
+    assert(changeWorkinHours != null);
+    assert(changeWorkingMinutes != null);
+    assert(changeNumberOfDependent != null);
+    assert(changeIsSpouse != null);
+    assert(changeIsSpouseSupportObligation != null);
+    assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeHobbies(hobbies);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult changeLanguages(List<String> languages),
+    TResult changeJLPTLevel(String JLPTLevel),
+    TResult changeSelfPR(String selfPR),
+    TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
+    TResult changeWorkinHours(String hours),
+    TResult changeWorkingMinutes(String minutes),
+    TResult changeNumberOfDependent(String numberOfDependent),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
+    TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeHobbies != null) {
+      return changeHobbies(hobbies);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult changeLanguages(_ChangeLanguages value),
+    @required TResult changeJLPTLevel(_ChangeJLPTLevel value),
+    @required TResult changeSelfPR(_ChangeSelfPR value),
+    @required
+        TResult changeMotivationsSpecialSkills(
+            _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
+    @required TResult changeWorkinHours(_ChangeWorkinHours value),
+    @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
+    @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
+    @required TResult changeIsSpouse(_ChangeIsSpouse value),
+    @required
+        TResult changeIsSpouseSupportObligation(
+            _ChangeIsSpouseSupportObligation value),
+    @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
+    @required TResult save(_Save value),
+  }) {
+    assert(changeLanguages != null);
+    assert(changeJLPTLevel != null);
+    assert(changeSelfPR != null);
+    assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
+    assert(changeWorkinHours != null);
+    assert(changeWorkingMinutes != null);
+    assert(changeNumberOfDependent != null);
+    assert(changeIsSpouse != null);
+    assert(changeIsSpouseSupportObligation != null);
+    assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeHobbies(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult changeLanguages(_ChangeLanguages value),
+    TResult changeJLPTLevel(_ChangeJLPTLevel value),
+    TResult changeSelfPR(_ChangeSelfPR value),
+    TResult changeMotivationsSpecialSkills(
+        _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
+    TResult changeWorkinHours(_ChangeWorkinHours value),
+    TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
+    TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
+    TResult changeIsSpouse(_ChangeIsSpouse value),
+    TResult changeIsSpouseSupportObligation(
+        _ChangeIsSpouseSupportObligation value),
+    TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeHobbies != null) {
+      return changeHobbies(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeHobbies implements UpdateOtherInfoActorEvent {
+  const factory _ChangeHobbies(List<String> hobbies) = _$_ChangeHobbies;
+
+  List<String> get hobbies;
+  @JsonKey(ignore: true)
+  _$ChangeHobbiesCopyWith<_ChangeHobbies> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ChangeSkillsCopyWith<$Res> {
+  factory _$ChangeSkillsCopyWith(
+          _ChangeSkills value, $Res Function(_ChangeSkills) then) =
+      __$ChangeSkillsCopyWithImpl<$Res>;
+  $Res call({List<String> skills});
+}
+
+/// @nodoc
+class __$ChangeSkillsCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
+    implements _$ChangeSkillsCopyWith<$Res> {
+  __$ChangeSkillsCopyWithImpl(
+      _ChangeSkills _value, $Res Function(_ChangeSkills) _then)
+      : super(_value, (v) => _then(v as _ChangeSkills));
+
+  @override
+  _ChangeSkills get _value => super._value as _ChangeSkills;
+
+  @override
+  $Res call({
+    Object skills = freezed,
+  }) {
+    return _then(_ChangeSkills(
+      skills == freezed ? _value.skills : skills as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ChangeSkills implements _ChangeSkills {
+  const _$_ChangeSkills(this.skills) : assert(skills != null);
+
+  @override
+  final List<String> skills;
+
+  @override
+  String toString() {
+    return 'UpdateOtherInfoActorEvent.changeSkills(skills: $skills)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeSkills &&
+            (identical(other.skills, skills) ||
+                const DeepCollectionEquality().equals(other.skills, skills)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(skills);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeSkillsCopyWith<_ChangeSkills> get copyWith =>
+      __$ChangeSkillsCopyWithImpl<_ChangeSkills>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult changeLanguages(List<String> languages),
+    @required TResult changeJLPTLevel(String JLPTLevel),
+    @required TResult changeSelfPR(String selfPR),
+    @required
+        TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
+    @required TResult changeWorkinHours(String hours),
+    @required TResult changeWorkingMinutes(String minutes),
+    @required TResult changeNumberOfDependent(String numberOfDependent),
+    @required TResult changeIsSpouse(String isSpouse),
+    @required
+        TResult changeIsSpouseSupportObligation(
+            String isSpouseSupportObligation),
+    @required TResult changeSpecialConditions(String specialConditions),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
+    @required TResult save(),
+  }) {
+    assert(changeLanguages != null);
+    assert(changeJLPTLevel != null);
+    assert(changeSelfPR != null);
+    assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
+    assert(changeWorkinHours != null);
+    assert(changeWorkingMinutes != null);
+    assert(changeNumberOfDependent != null);
+    assert(changeIsSpouse != null);
+    assert(changeIsSpouseSupportObligation != null);
+    assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeSkills(skills);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult changeLanguages(List<String> languages),
+    TResult changeJLPTLevel(String JLPTLevel),
+    TResult changeSelfPR(String selfPR),
+    TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
+    TResult changeWorkinHours(String hours),
+    TResult changeWorkingMinutes(String minutes),
+    TResult changeNumberOfDependent(String numberOfDependent),
+    TResult changeIsSpouse(String isSpouse),
+    TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
+    TResult changeSpecialConditions(String specialConditions),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeSkills != null) {
+      return changeSkills(skills);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult changeLanguages(_ChangeLanguages value),
+    @required TResult changeJLPTLevel(_ChangeJLPTLevel value),
+    @required TResult changeSelfPR(_ChangeSelfPR value),
+    @required
+        TResult changeMotivationsSpecialSkills(
+            _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
+    @required TResult changeWorkinHours(_ChangeWorkinHours value),
+    @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
+    @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
+    @required TResult changeIsSpouse(_ChangeIsSpouse value),
+    @required
+        TResult changeIsSpouseSupportObligation(
+            _ChangeIsSpouseSupportObligation value),
+    @required TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    @required TResult setInitialState(_SetInitialState value),
+    @required TResult save(_Save value),
+  }) {
+    assert(changeLanguages != null);
+    assert(changeJLPTLevel != null);
+    assert(changeSelfPR != null);
+    assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
+    assert(changeWorkinHours != null);
+    assert(changeWorkingMinutes != null);
+    assert(changeNumberOfDependent != null);
+    assert(changeIsSpouse != null);
+    assert(changeIsSpouseSupportObligation != null);
+    assert(changeSpecialConditions != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeSkills(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult changeLanguages(_ChangeLanguages value),
+    TResult changeJLPTLevel(_ChangeJLPTLevel value),
+    TResult changeSelfPR(_ChangeSelfPR value),
+    TResult changeMotivationsSpecialSkills(
+        _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
+    TResult changeWorkinHours(_ChangeWorkinHours value),
+    TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
+    TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
+    TResult changeIsSpouse(_ChangeIsSpouse value),
+    TResult changeIsSpouseSupportObligation(
+        _ChangeIsSpouseSupportObligation value),
+    TResult changeSpecialConditions(_ChangeSpecialConditions value),
+    TResult setInitialState(_SetInitialState value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeSkills != null) {
+      return changeSkills(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeSkills implements UpdateOtherInfoActorEvent {
+  const factory _ChangeSkills(List<String> skills) = _$_ChangeSkills;
+
+  List<String> get skills;
+  @JsonKey(ignore: true)
+  _$ChangeSkillsCopyWith<_ChangeSkills> get copyWith;
 }
 
 /// @nodoc
@@ -1020,6 +1572,8 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -1028,13 +1582,21 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1053,13 +1615,20 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1079,6 +1648,8 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1094,6 +1665,8 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1113,6 +1686,8 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1207,6 +1782,8 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -1215,13 +1792,21 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1240,13 +1825,20 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1266,6 +1858,8 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1281,6 +1875,8 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1300,6 +1896,8 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1400,6 +1998,8 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -1408,13 +2008,21 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1433,13 +2041,20 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1459,6 +2074,8 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1474,6 +2091,8 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1493,6 +2112,8 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1588,6 +2209,8 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -1596,13 +2219,21 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1621,13 +2252,20 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1647,6 +2285,8 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1662,6 +2302,8 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1681,6 +2323,8 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1786,6 +2430,8 @@ class _$_ChangeIsSpouseSupportObligation
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -1794,13 +2440,21 @@ class _$_ChangeIsSpouseSupportObligation
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1819,13 +2473,20 @@ class _$_ChangeIsSpouseSupportObligation
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1845,6 +2506,8 @@ class _$_ChangeIsSpouseSupportObligation
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1860,6 +2523,8 @@ class _$_ChangeIsSpouseSupportObligation
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -1879,6 +2544,8 @@ class _$_ChangeIsSpouseSupportObligation
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -1982,6 +2649,8 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -1990,13 +2659,21 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -2015,13 +2692,20 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -2041,6 +2725,8 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -2056,6 +2742,8 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -2075,6 +2763,8 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -2108,7 +2798,12 @@ abstract class _$SetInitialStateCopyWith<$Res> {
   factory _$SetInitialStateCopyWith(
           _SetInitialState value, $Res Function(_SetInitialState) then) =
       __$SetInitialStateCopyWithImpl<$Res>;
-  $Res call({PersonalInfo info});
+  $Res call(
+      {PersonalInfo info,
+      String lang,
+      List<String> listOfLanguages,
+      List<String> listOHobbies,
+      List<String> listOfSkills});
 }
 
 /// @nodoc
@@ -2125,23 +2820,55 @@ class __$SetInitialStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object info = freezed,
+    Object lang = freezed,
+    Object listOfLanguages = freezed,
+    Object listOHobbies = freezed,
+    Object listOfSkills = freezed,
   }) {
     return _then(_SetInitialState(
-      info == freezed ? _value.info : info as PersonalInfo,
+      info: info == freezed ? _value.info : info as PersonalInfo,
+      lang: lang == freezed ? _value.lang : lang as String,
+      listOfLanguages: listOfLanguages == freezed
+          ? _value.listOfLanguages
+          : listOfLanguages as List<String>,
+      listOHobbies: listOHobbies == freezed
+          ? _value.listOHobbies
+          : listOHobbies as List<String>,
+      listOfSkills: listOfSkills == freezed
+          ? _value.listOfSkills
+          : listOfSkills as List<String>,
     ));
   }
 }
 
 /// @nodoc
 class _$_SetInitialState implements _SetInitialState {
-  const _$_SetInitialState(this.info) : assert(info != null);
+  const _$_SetInitialState(
+      {@required this.info,
+      @required this.lang,
+      @required this.listOfLanguages,
+      @required this.listOHobbies,
+      @required this.listOfSkills})
+      : assert(info != null),
+        assert(lang != null),
+        assert(listOfLanguages != null),
+        assert(listOHobbies != null),
+        assert(listOfSkills != null);
 
   @override
   final PersonalInfo info;
+  @override
+  final String lang;
+  @override
+  final List<String> listOfLanguages;
+  @override
+  final List<String> listOHobbies;
+  @override
+  final List<String> listOfSkills;
 
   @override
   String toString() {
-    return 'UpdateOtherInfoActorEvent.setInitialState(info: $info)';
+    return 'UpdateOtherInfoActorEvent.setInitialState(info: $info, lang: $lang, listOfLanguages: $listOfLanguages, listOHobbies: $listOHobbies, listOfSkills: $listOfSkills)';
   }
 
   @override
@@ -2149,12 +2876,28 @@ class _$_SetInitialState implements _SetInitialState {
     return identical(this, other) ||
         (other is _SetInitialState &&
             (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)));
+                const DeepCollectionEquality().equals(other.info, info)) &&
+            (identical(other.lang, lang) ||
+                const DeepCollectionEquality().equals(other.lang, lang)) &&
+            (identical(other.listOfLanguages, listOfLanguages) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfLanguages, listOfLanguages)) &&
+            (identical(other.listOHobbies, listOHobbies) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOHobbies, listOHobbies)) &&
+            (identical(other.listOfSkills, listOfSkills) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfSkills, listOfSkills)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(info);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(info) ^
+      const DeepCollectionEquality().hash(lang) ^
+      const DeepCollectionEquality().hash(listOfLanguages) ^
+      const DeepCollectionEquality().hash(listOHobbies) ^
+      const DeepCollectionEquality().hash(listOfSkills);
 
   @JsonKey(ignore: true)
   @override
@@ -2169,6 +2912,8 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -2177,13 +2922,21 @@ class _$_SetInitialState implements _SetInitialState {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -2192,7 +2945,8 @@ class _$_SetInitialState implements _SetInitialState {
     assert(changeSpecialConditions != null);
     assert(setInitialState != null);
     assert(save != null);
-    return setInitialState(info);
+    return setInitialState(
+        info, lang, listOfLanguages, listOHobbies, listOfSkills);
   }
 
   @override
@@ -2202,19 +2956,27 @@ class _$_SetInitialState implements _SetInitialState {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (setInitialState != null) {
-      return setInitialState(info);
+      return setInitialState(
+          info, lang, listOfLanguages, listOHobbies, listOfSkills);
     }
     return orElse();
   }
@@ -2228,6 +2990,8 @@ class _$_SetInitialState implements _SetInitialState {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -2243,6 +3007,8 @@ class _$_SetInitialState implements _SetInitialState {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -2262,6 +3028,8 @@ class _$_SetInitialState implements _SetInitialState {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -2282,9 +3050,18 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdateOtherInfoActorEvent {
-  const factory _SetInitialState(PersonalInfo info) = _$_SetInitialState;
+  const factory _SetInitialState(
+      {@required PersonalInfo info,
+      @required String lang,
+      @required List<String> listOfLanguages,
+      @required List<String> listOHobbies,
+      @required List<String> listOfSkills}) = _$_SetInitialState;
 
   PersonalInfo get info;
+  String get lang;
+  List<String> get listOfLanguages;
+  List<String> get listOHobbies;
+  List<String> get listOfSkills;
   @JsonKey(ignore: true)
   _$SetInitialStateCopyWith<_SetInitialState> get copyWith;
 }
@@ -2331,6 +3108,8 @@ class _$_Save implements _Save {
     @required TResult changeSelfPR(String selfPR),
     @required
         TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    @required TResult changeHobbies(List<String> hobbies),
+    @required TResult changeSkills(List<String> skills),
     @required TResult changeWorkinHours(String hours),
     @required TResult changeWorkingMinutes(String minutes),
     @required TResult changeNumberOfDependent(String numberOfDependent),
@@ -2339,13 +3118,21 @@ class _$_Save implements _Save {
         TResult changeIsSpouseSupportObligation(
             String isSpouseSupportObligation),
     @required TResult changeSpecialConditions(String specialConditions),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills),
     @required TResult save(),
   }) {
     assert(changeLanguages != null);
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -2364,13 +3151,20 @@ class _$_Save implements _Save {
     TResult changeJLPTLevel(String JLPTLevel),
     TResult changeSelfPR(String selfPR),
     TResult changeMotivationsSpecialSkills(String motivationsSpecialSkills),
+    TResult changeHobbies(List<String> hobbies),
+    TResult changeSkills(List<String> skills),
     TResult changeWorkinHours(String hours),
     TResult changeWorkingMinutes(String minutes),
     TResult changeNumberOfDependent(String numberOfDependent),
     TResult changeIsSpouse(String isSpouse),
     TResult changeIsSpouseSupportObligation(String isSpouseSupportObligation),
     TResult changeSpecialConditions(String specialConditions),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(
+        PersonalInfo info,
+        String lang,
+        List<String> listOfLanguages,
+        List<String> listOHobbies,
+        List<String> listOfSkills),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -2390,6 +3184,8 @@ class _$_Save implements _Save {
     @required
         TResult changeMotivationsSpecialSkills(
             _ChangeMotivationsSpecialSkills value),
+    @required TResult changeHobbies(_ChangeHobbies value),
+    @required TResult changeSkills(_ChangeSkills value),
     @required TResult changeWorkinHours(_ChangeWorkinHours value),
     @required TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     @required TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -2405,6 +3201,8 @@ class _$_Save implements _Save {
     assert(changeJLPTLevel != null);
     assert(changeSelfPR != null);
     assert(changeMotivationsSpecialSkills != null);
+    assert(changeHobbies != null);
+    assert(changeSkills != null);
     assert(changeWorkinHours != null);
     assert(changeWorkingMinutes != null);
     assert(changeNumberOfDependent != null);
@@ -2424,6 +3222,8 @@ class _$_Save implements _Save {
     TResult changeSelfPR(_ChangeSelfPR value),
     TResult changeMotivationsSpecialSkills(
         _ChangeMotivationsSpecialSkills value),
+    TResult changeHobbies(_ChangeHobbies value),
+    TResult changeSkills(_ChangeSkills value),
     TResult changeWorkinHours(_ChangeWorkinHours value),
     TResult changeWorkingMinutes(_ChangeWorkingMinutes value),
     TResult changeNumberOfDependent(_ChangeNumberOfDependent value),
@@ -2457,12 +3257,17 @@ class _$UpdateOtherInfoActorStateTearOff {
       @required String JLPTLevel,
       @required String selfPR,
       @required String motivationsSpecialSkills,
+      @required List<String> hobbies,
+      @required List<String> skills,
       @required String workinHours,
       @required String workingMinutes,
       @required String numberOfDependent,
       @required String isSpouse,
       @required String isSpouseSupportObligation,
       @required String specialConditions,
+      @required List<String> knownLanguages,
+      @required List<String> listOfHobbies,
+      @required List<String> listOfSkills,
       @required bool isSubmitting,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateOtherInfoActorState(
@@ -2470,12 +3275,17 @@ class _$UpdateOtherInfoActorStateTearOff {
       JLPTLevel: JLPTLevel,
       selfPR: selfPR,
       motivationsSpecialSkills: motivationsSpecialSkills,
+      hobbies: hobbies,
+      skills: skills,
       workinHours: workinHours,
       workingMinutes: workingMinutes,
       numberOfDependent: numberOfDependent,
       isSpouse: isSpouse,
       isSpouseSupportObligation: isSpouseSupportObligation,
       specialConditions: specialConditions,
+      knownLanguages: knownLanguages,
+      listOfHobbies: listOfHobbies,
+      listOfSkills: listOfSkills,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
@@ -2492,12 +3302,17 @@ mixin _$UpdateOtherInfoActorState {
   String get JLPTLevel;
   String get selfPR;
   String get motivationsSpecialSkills;
+  List<String> get hobbies;
+  List<String> get skills;
   String get workinHours;
   String get workingMinutes;
   String get numberOfDependent;
   String get isSpouse;
   String get isSpouseSupportObligation;
   String get specialConditions;
+  List<String> get knownLanguages;
+  List<String> get listOfHobbies;
+  List<String> get listOfSkills;
   bool get isSubmitting;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
@@ -2515,12 +3330,17 @@ abstract class $UpdateOtherInfoActorStateCopyWith<$Res> {
       String JLPTLevel,
       String selfPR,
       String motivationsSpecialSkills,
+      List<String> hobbies,
+      List<String> skills,
       String workinHours,
       String workingMinutes,
       String numberOfDependent,
       String isSpouse,
       String isSpouseSupportObligation,
       String specialConditions,
+      List<String> knownLanguages,
+      List<String> listOfHobbies,
+      List<String> listOfSkills,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -2540,12 +3360,17 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
     Object JLPTLevel = freezed,
     Object selfPR = freezed,
     Object motivationsSpecialSkills = freezed,
+    Object hobbies = freezed,
+    Object skills = freezed,
     Object workinHours = freezed,
     Object workingMinutes = freezed,
     Object numberOfDependent = freezed,
     Object isSpouse = freezed,
     Object isSpouseSupportObligation = freezed,
     Object specialConditions = freezed,
+    Object knownLanguages = freezed,
+    Object listOfHobbies = freezed,
+    Object listOfSkills = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -2557,6 +3382,8 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
       motivationsSpecialSkills: motivationsSpecialSkills == freezed
           ? _value.motivationsSpecialSkills
           : motivationsSpecialSkills as String,
+      hobbies: hobbies == freezed ? _value.hobbies : hobbies as List<String>,
+      skills: skills == freezed ? _value.skills : skills as List<String>,
       workinHours:
           workinHours == freezed ? _value.workinHours : workinHours as String,
       workingMinutes: workingMinutes == freezed
@@ -2572,6 +3399,15 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
       specialConditions: specialConditions == freezed
           ? _value.specialConditions
           : specialConditions as String,
+      knownLanguages: knownLanguages == freezed
+          ? _value.knownLanguages
+          : knownLanguages as List<String>,
+      listOfHobbies: listOfHobbies == freezed
+          ? _value.listOfHobbies
+          : listOfHobbies as List<String>,
+      listOfSkills: listOfSkills == freezed
+          ? _value.listOfSkills
+          : listOfSkills as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -2593,12 +3429,17 @@ abstract class _$UpdateOtherInfoActorStateCopyWith<$Res>
       String JLPTLevel,
       String selfPR,
       String motivationsSpecialSkills,
+      List<String> hobbies,
+      List<String> skills,
       String workinHours,
       String workingMinutes,
       String numberOfDependent,
       String isSpouse,
       String isSpouseSupportObligation,
       String specialConditions,
+      List<String> knownLanguages,
+      List<String> listOfHobbies,
+      List<String> listOfSkills,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -2621,12 +3462,17 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
     Object JLPTLevel = freezed,
     Object selfPR = freezed,
     Object motivationsSpecialSkills = freezed,
+    Object hobbies = freezed,
+    Object skills = freezed,
     Object workinHours = freezed,
     Object workingMinutes = freezed,
     Object numberOfDependent = freezed,
     Object isSpouse = freezed,
     Object isSpouseSupportObligation = freezed,
     Object specialConditions = freezed,
+    Object knownLanguages = freezed,
+    Object listOfHobbies = freezed,
+    Object listOfSkills = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -2638,6 +3484,8 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
       motivationsSpecialSkills: motivationsSpecialSkills == freezed
           ? _value.motivationsSpecialSkills
           : motivationsSpecialSkills as String,
+      hobbies: hobbies == freezed ? _value.hobbies : hobbies as List<String>,
+      skills: skills == freezed ? _value.skills : skills as List<String>,
       workinHours:
           workinHours == freezed ? _value.workinHours : workinHours as String,
       workingMinutes: workingMinutes == freezed
@@ -2653,6 +3501,15 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
       specialConditions: specialConditions == freezed
           ? _value.specialConditions
           : specialConditions as String,
+      knownLanguages: knownLanguages == freezed
+          ? _value.knownLanguages
+          : knownLanguages as List<String>,
+      listOfHobbies: listOfHobbies == freezed
+          ? _value.listOfHobbies
+          : listOfHobbies as List<String>,
+      listOfSkills: listOfSkills == freezed
+          ? _value.listOfSkills
+          : listOfSkills as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -2669,24 +3526,34 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
       @required this.JLPTLevel,
       @required this.selfPR,
       @required this.motivationsSpecialSkills,
+      @required this.hobbies,
+      @required this.skills,
       @required this.workinHours,
       @required this.workingMinutes,
       @required this.numberOfDependent,
       @required this.isSpouse,
       @required this.isSpouseSupportObligation,
       @required this.specialConditions,
+      @required this.knownLanguages,
+      @required this.listOfHobbies,
+      @required this.listOfSkills,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
       : assert(languages != null),
         assert(JLPTLevel != null),
         assert(selfPR != null),
         assert(motivationsSpecialSkills != null),
+        assert(hobbies != null),
+        assert(skills != null),
         assert(workinHours != null),
         assert(workingMinutes != null),
         assert(numberOfDependent != null),
         assert(isSpouse != null),
         assert(isSpouseSupportObligation != null),
         assert(specialConditions != null),
+        assert(knownLanguages != null),
+        assert(listOfHobbies != null),
+        assert(listOfSkills != null),
         assert(isSubmitting != null),
         assert(authFailureOrSuccessOption != null);
 
@@ -2698,6 +3565,10 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   final String selfPR;
   @override
   final String motivationsSpecialSkills;
+  @override
+  final List<String> hobbies;
+  @override
+  final List<String> skills;
   @override
   final String workinHours;
   @override
@@ -2711,13 +3582,19 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   @override
   final String specialConditions;
   @override
+  final List<String> knownLanguages;
+  @override
+  final List<String> listOfHobbies;
+  @override
+  final List<String> listOfSkills;
+  @override
   final bool isSubmitting;
   @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdateOtherInfoActorState(languages: $languages, JLPTLevel: $JLPTLevel, selfPR: $selfPR, motivationsSpecialSkills: $motivationsSpecialSkills, workinHours: $workinHours, workingMinutes: $workingMinutes, numberOfDependent: $numberOfDependent, isSpouse: $isSpouse, isSpouseSupportObligation: $isSpouseSupportObligation, specialConditions: $specialConditions, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateOtherInfoActorState(languages: $languages, JLPTLevel: $JLPTLevel, selfPR: $selfPR, motivationsSpecialSkills: $motivationsSpecialSkills, hobbies: $hobbies, skills: $skills, workinHours: $workinHours, workingMinutes: $workingMinutes, numberOfDependent: $numberOfDependent, isSpouse: $isSpouse, isSpouseSupportObligation: $isSpouseSupportObligation, specialConditions: $specialConditions, knownLanguages: $knownLanguages, listOfHobbies: $listOfHobbies, listOfSkills: $listOfSkills, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -2736,6 +3613,11 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
                 const DeepCollectionEquality().equals(
                     other.motivationsSpecialSkills,
                     motivationsSpecialSkills)) &&
+            (identical(other.hobbies, hobbies) ||
+                const DeepCollectionEquality()
+                    .equals(other.hobbies, hobbies)) &&
+            (identical(other.skills, skills) ||
+                const DeepCollectionEquality().equals(other.skills, skills)) &&
             (identical(other.workinHours, workinHours) ||
                 const DeepCollectionEquality()
                     .equals(other.workinHours, workinHours)) &&
@@ -2748,22 +3630,26 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
             (identical(other.isSpouse, isSpouse) ||
                 const DeepCollectionEquality()
                     .equals(other.isSpouse, isSpouse)) &&
-            (identical(other.isSpouseSupportObligation,
-                    isSpouseSupportObligation) ||
+            (identical(other.isSpouseSupportObligation, isSpouseSupportObligation) ||
                 const DeepCollectionEquality().equals(
                     other.isSpouseSupportObligation,
                     isSpouseSupportObligation)) &&
             (identical(other.specialConditions, specialConditions) ||
                 const DeepCollectionEquality()
                     .equals(other.specialConditions, specialConditions)) &&
+            (identical(other.knownLanguages, knownLanguages) ||
+                const DeepCollectionEquality()
+                    .equals(other.knownLanguages, knownLanguages)) &&
+            (identical(other.listOfHobbies, listOfHobbies) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfHobbies, listOfHobbies)) &&
+            (identical(other.listOfSkills, listOfSkills) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfSkills, listOfSkills)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption)));
+            (identical(other.authFailureOrSuccessOption, authFailureOrSuccessOption) || const DeepCollectionEquality().equals(other.authFailureOrSuccessOption, authFailureOrSuccessOption)));
   }
 
   @override
@@ -2773,12 +3659,17 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
       const DeepCollectionEquality().hash(JLPTLevel) ^
       const DeepCollectionEquality().hash(selfPR) ^
       const DeepCollectionEquality().hash(motivationsSpecialSkills) ^
+      const DeepCollectionEquality().hash(hobbies) ^
+      const DeepCollectionEquality().hash(skills) ^
       const DeepCollectionEquality().hash(workinHours) ^
       const DeepCollectionEquality().hash(workingMinutes) ^
       const DeepCollectionEquality().hash(numberOfDependent) ^
       const DeepCollectionEquality().hash(isSpouse) ^
       const DeepCollectionEquality().hash(isSpouseSupportObligation) ^
       const DeepCollectionEquality().hash(specialConditions) ^
+      const DeepCollectionEquality().hash(knownLanguages) ^
+      const DeepCollectionEquality().hash(listOfHobbies) ^
+      const DeepCollectionEquality().hash(listOfSkills) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
@@ -2801,6 +3692,10 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
           @required
               String motivationsSpecialSkills,
           @required
+              List<String> hobbies,
+          @required
+              List<String> skills,
+          @required
               String workinHours,
           @required
               String workingMinutes,
@@ -2812,6 +3707,12 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
               String isSpouseSupportObligation,
           @required
               String specialConditions,
+          @required
+              List<String> knownLanguages,
+          @required
+              List<String> listOfHobbies,
+          @required
+              List<String> listOfSkills,
           @required
               bool isSubmitting,
           @required
@@ -2827,6 +3728,10 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
   @override
   String get motivationsSpecialSkills;
   @override
+  List<String> get hobbies;
+  @override
+  List<String> get skills;
+  @override
   String get workinHours;
   @override
   String get workingMinutes;
@@ -2838,6 +3743,12 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
   String get isSpouseSupportObligation;
   @override
   String get specialConditions;
+  @override
+  List<String> get knownLanguages;
+  @override
+  List<String> get listOfHobbies;
+  @override
+  List<String> get listOfSkills;
   @override
   bool get isSubmitting;
   @override

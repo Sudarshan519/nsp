@@ -16,6 +16,7 @@ class UpdateAcademicInfoActorBloc
   final UpdateAcadamicInfo updateAcadamicInfo;
 
   AcademicHistory _academicHistory;
+  String _lang;
 
   UpdateAcademicInfoActorBloc({
     @required this.updateAcadamicInfo,
@@ -104,19 +105,21 @@ class UpdateAcademicInfoActorBloc
   Stream<UpdateAcademicInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
     final acadimicInfo = _setInitialState.academicHistory;
-    if (acadimicInfo != null && acadimicInfo != _academicHistory) {
-      _academicHistory = acadimicInfo;
-      yield state.copyWith(
-        nameOfInstitute: acadimicInfo.institute ?? "",
-        yearOFEnroll: acadimicInfo.startYear ?? "",
-        monthOfEnroll: acadimicInfo.startMonth ?? "",
-        yearOfCpmpletion: acadimicInfo.completionYear ?? "",
-        monthOfCompletion: acadimicInfo.completionMonth ?? "",
-        majorSubjectList: _setInitialState.listOfMajorSubject ?? [],
-        isSubmitting: false,
-        authFailureOrSuccessOption: none(),
-      );
-    }
+    // if (acadimicInfo != null && acadimicInfo != _academicHistory) {
+    _academicHistory = acadimicInfo;
+    _lang = _setInitialState.lang;
+    yield state.copyWith(
+      nameOfInstitute: acadimicInfo.institute ?? "",
+      yearOFEnroll: acadimicInfo.startYear ?? "",
+      monthOfEnroll: acadimicInfo.startMonth ?? "",
+      majorSubject: acadimicInfo.majorSubject ?? "",
+      yearOfCpmpletion: acadimicInfo.completionYear ?? "",
+      monthOfCompletion: acadimicInfo.completionMonth ?? "",
+      majorSubjectList: _setInitialState.listOfMajorSubject ?? [],
+      isSubmitting: false,
+      authFailureOrSuccessOption: none(),
+    );
+    // }
   }
 
   Stream<UpdateAcademicInfoActorState> _mapSaveToState(_Save _save) async* {
@@ -126,6 +129,7 @@ class UpdateAcademicInfoActorBloc
     );
     failureOrSuccess = await updateAcadamicInfo(
       UpdateAcadamicInfoParams(
+        lang: _lang,
         id: _academicHistory.id,
         insutitute: state.nameOfInstitute,
         majorSubject: state.majorSubject,

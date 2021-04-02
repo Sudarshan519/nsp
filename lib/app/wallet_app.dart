@@ -43,7 +43,7 @@ class WalletApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<ResumeWatcherBloc>()
-            ..add(ResumeWatcherEvent.getResumeData()),
+            ..add(const ResumeWatcherEvent.getResumeData()),
         ),
         BlocProvider(
           create: (_) => getIt<HomePageDataBloc>()

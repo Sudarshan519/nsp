@@ -16,11 +16,13 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 class WorkPage extends StatelessWidget {
   final List<WorkHistory> works;
   final List<String> typeOfCompanyList;
+  final String lang;
 
   const WorkPage({
     Key key,
     @required this.works,
     @required this.typeOfCompanyList,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -42,6 +44,7 @@ class WorkPage extends StatelessWidget {
                     work: works[index],
                     typeOfCompanyList: typeOfCompanyList,
                     index: index + 1,
+                    lang: lang,
                   );
                 },
               ),
@@ -58,6 +61,7 @@ class WorkPage extends StatelessWidget {
               ExtendedNavigator.of(context).pushEditWorkInfoForm(
                 info: const WorkHistory(),
                 typeOfCompanyList: typeOfCompanyList,
+                lang: lang,
               );
             },
             child: SvgPicture.asset(
@@ -75,12 +79,14 @@ class _CreateWorkInfoBox extends StatelessWidget {
   final WorkHistory work;
   final List<String> typeOfCompanyList;
   final int index;
+  final String lang;
 
   const _CreateWorkInfoBox({
     Key key,
     @required this.work,
     @required this.typeOfCompanyList,
     @required this.index,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -93,6 +99,7 @@ class _CreateWorkInfoBox extends StatelessWidget {
           UpdateWorkInfoActorEvent.setInitialState(
             work,
             typeOfCompanyList,
+            lang,
           ),
         ),
       child: _createBody(context, actor, work),
@@ -120,6 +127,7 @@ class _CreateWorkInfoBox extends StatelessWidget {
                 onTap: () => ExtendedNavigator.of(context).pushEditWorkInfoForm(
                   info: work,
                   typeOfCompanyList: typeOfCompanyList,
+                  lang: lang,
                 ),
                 child: SvgPicture.asset(
                   "assets/images/resume/edit.svg",

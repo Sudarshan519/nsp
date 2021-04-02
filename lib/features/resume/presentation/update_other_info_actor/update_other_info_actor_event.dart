@@ -10,6 +10,10 @@ abstract class UpdateOtherInfoActorEvent with _$UpdateOtherInfoActorEvent {
       _ChangeSelfPR;
   const factory UpdateOtherInfoActorEvent.changeMotivationsSpecialSkills(
       String motivationsSpecialSkills) = _ChangeMotivationsSpecialSkills;
+  const factory UpdateOtherInfoActorEvent.changeHobbies(List<String> hobbies) =
+      _ChangeHobbies;
+  const factory UpdateOtherInfoActorEvent.changeSkills(List<String> skills) =
+      _ChangeSkills;
   const factory UpdateOtherInfoActorEvent.changeWorkinHours(String hours) =
       _ChangeWorkinHours;
   const factory UpdateOtherInfoActorEvent.changeWorkingMinutes(String minutes) =
@@ -22,7 +26,12 @@ abstract class UpdateOtherInfoActorEvent with _$UpdateOtherInfoActorEvent {
       String isSpouseSupportObligation) = _ChangeIsSpouseSupportObligation;
   const factory UpdateOtherInfoActorEvent.changeSpecialConditions(
       String specialConditions) = _ChangeSpecialConditions;
-  const factory UpdateOtherInfoActorEvent.setInitialState(PersonalInfo info) =
-      _SetInitialState;
+  const factory UpdateOtherInfoActorEvent.setInitialState({
+    @required PersonalInfo info,
+    @required String lang,
+    @required List<String> listOfLanguages,
+    @required List<String> listOHobbies,
+    @required List<String> listOfSkills,
+  }) = _SetInitialState;
   const factory UpdateOtherInfoActorEvent.save() = _Save;
 }

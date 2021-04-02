@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_other_info.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_other_info_actor/update_other_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
@@ -20,10 +21,18 @@ import 'package:wallet_app/utils/validator.dart';
 
 class EditOtherInfoForm extends StatelessWidget {
   final PersonalInfo info;
+  final List<String> listOfLanguages;
+  final List<String> listOfHobbies;
+  final List<String> listOfSkills;
+  final String lang;
 
   const EditOtherInfoForm({
     Key key,
     @required this.info,
+    @required this.listOfLanguages,
+    @required this.listOfHobbies,
+    @required this.listOfSkills,
+    @required this.lang,
   })  : assert(info != null),
         super(key: key);
 
@@ -32,8 +41,14 @@ class EditOtherInfoForm extends StatelessWidget {
     final actorBloc =
         UpdateOtherInfoActorBloc(updateOtherInfo: getIt<UpdateOtherInfo>());
     return BlocProvider(
-      create: (context) =>
-          actorBloc..add(UpdateOtherInfoActorEvent.setInitialState(info)),
+      create: (context) => actorBloc
+        ..add(UpdateOtherInfoActorEvent.setInitialState(
+          info: info,
+          listOfLanguages: listOfLanguages,
+          listOHobbies: listOfHobbies,
+          listOfSkills: listOfSkills,
+          lang: lang,
+        )),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -72,6 +87,8 @@ class EditOtherInfoForm extends StatelessWidget {
             },
             (success) {
               getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<ResumeWatcherBloc>()
+                  .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
                 context: context,
@@ -122,7 +139,11 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             const SizedBox(height: 20),
             _SelfPrInputField(callBack: () {}),
             const SizedBox(height: 20),
-            _MotivationSpecialSkillsInputField(callBack: () {}),
+            _HobbiesInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _SkillsInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _MotivationInputField(callBack: () {}),
             const SizedBox(height: 20),
             _AvailableWorkingHoursInputField(callBack: () {}),
             const SizedBox(height: 20),
@@ -176,7 +197,6 @@ class _SaveButton extends StatelessWidget {
   }
 }
 
-//TODO: This fields need to be multi select
 class _LanguageInputField extends StatelessWidget {
   final Function() callBack;
 
@@ -187,13 +207,16 @@ class _LanguageInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
-      buildWhen: (previous, current) => previous.languages != current.languages,
+      buildWhen: (previous, current) =>
+          previous.languages != current.languages ||
+          previous.knownLanguages != current.knownLanguages,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Languages",
         child: CustomMultiSelectDropDownWidget(
+          key: UniqueKey(),
           values: state.languages,
+          options: state.knownLanguages,
           onConfirm: (values) => context.read<UpdateOtherInfoActorBloc>().add(
                 UpdateOtherInfoActorEvent.changeLanguages(
                     values as List<String>),
@@ -270,10 +293,68 @@ class _SelfPrInputField extends StatelessWidget {
   }
 }
 
-class _MotivationSpecialSkillsInputField extends StatelessWidget {
+class _HobbiesInputField extends StatelessWidget {
   final Function() callBack;
 
-  const _MotivationSpecialSkillsInputField({
+  const _HobbiesInputField({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.languages != current.languages ||
+          previous.listOfHobbies != current.listOfHobbies,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Hobbies",
+        child: CustomMultiSelectDropDownWidget(
+          key: UniqueKey(),
+          values: state.hobbies,
+          options: state.listOfHobbies,
+          onConfirm: (values) => context.read<UpdateOtherInfoActorBloc>().add(
+                UpdateOtherInfoActorEvent.changeHobbies(values as List<String>),
+              ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SkillsInputField extends StatelessWidget {
+  final Function() callBack;
+
+  const _SkillsInputField({
+    Key key,
+    @required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.skills != current.skills ||
+          previous.listOfSkills != current.listOfSkills,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Skills",
+        child: CustomMultiSelectDropDownWidget(
+          key: UniqueKey(),
+          values: state.skills,
+          options: state.listOfSkills,
+          onConfirm: (values) => context.read<UpdateOtherInfoActorBloc>().add(
+                UpdateOtherInfoActorEvent.changeSkills(values as List<String>),
+              ),
+        ),
+      ),
+    );
+  }
+}
+
+class _MotivationInputField extends StatelessWidget {
+  final Function() callBack;
+
+  const _MotivationInputField({
     Key key,
     @required this.callBack,
   }) : super(key: key);
@@ -292,9 +373,9 @@ class _MotivationSpecialSkillsInputField extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.motivationsSpecialSkills != current.motivationsSpecialSkills,
       builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Motivation, Special Skills, Hobbies etc",
+        title: "Motivations",
         child: InputTextWidget(
-          hintText: "Motivation, Special Skills, Hobbies etc",
+          hintText: "Motivations",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           controller: _controller,

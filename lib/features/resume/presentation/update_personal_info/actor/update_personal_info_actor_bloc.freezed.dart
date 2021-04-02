@@ -77,9 +77,16 @@ class _$UpdatePersonalInfoActorEventTearOff {
   }
 
 // ignore: unused_element
-  _SetInitialState setInitialState(PersonalInfo info) {
+  _SetInitialState setInitialState(
+      {@required PersonalInfo info,
+      @required List<String> listOfNationality,
+      @required List<String> listOfProfession,
+      @required String lang}) {
     return _SetInitialState(
-      info,
+      info: info,
+      listOfNationality: listOfNationality,
+      listOfProfession: listOfProfession,
+      lang: lang,
     );
   }
 
@@ -106,7 +113,12 @@ mixin _$UpdatePersonalInfoActorEvent {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   });
   @optionalTypeArgs
@@ -120,7 +132,8 @@ mixin _$UpdatePersonalInfoActorEvent {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   });
@@ -243,7 +256,12 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -272,7 +290,8 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -414,7 +433,12 @@ class _$_ChangeLastName implements _ChangeLastName {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -443,7 +467,8 @@ class _$_ChangeLastName implements _ChangeLastName {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -586,7 +611,12 @@ class _$_ChangeProfession implements _ChangeProfession {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -615,7 +645,8 @@ class _$_ChangeProfession implements _ChangeProfession {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -756,7 +787,12 @@ class _$_ChangeDob implements _ChangeDob {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -785,7 +821,8 @@ class _$_ChangeDob implements _ChangeDob {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -926,7 +963,12 @@ class _$_ChangeAge implements _ChangeAge {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -955,7 +997,8 @@ class _$_ChangeAge implements _ChangeAge {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1097,7 +1140,12 @@ class _$_ChangeGender implements _ChangeGender {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -1126,7 +1174,8 @@ class _$_ChangeGender implements _ChangeGender {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1269,7 +1318,12 @@ class _$_ChangeNationality implements _ChangeNationality {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -1298,7 +1352,8 @@ class _$_ChangeNationality implements _ChangeNationality {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1440,7 +1495,12 @@ class _$_ChangeEmail implements _ChangeEmail {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -1469,7 +1529,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1611,7 +1672,12 @@ class _$_ChangePhone implements _ChangePhone {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -1640,7 +1706,8 @@ class _$_ChangePhone implements _ChangePhone {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -1717,7 +1784,11 @@ abstract class _$SetInitialStateCopyWith<$Res> {
   factory _$SetInitialStateCopyWith(
           _SetInitialState value, $Res Function(_SetInitialState) then) =
       __$SetInitialStateCopyWithImpl<$Res>;
-  $Res call({PersonalInfo info});
+  $Res call(
+      {PersonalInfo info,
+      List<String> listOfNationality,
+      List<String> listOfProfession,
+      String lang});
 }
 
 /// @nodoc
@@ -1734,23 +1805,47 @@ class __$SetInitialStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object info = freezed,
+    Object listOfNationality = freezed,
+    Object listOfProfession = freezed,
+    Object lang = freezed,
   }) {
     return _then(_SetInitialState(
-      info == freezed ? _value.info : info as PersonalInfo,
+      info: info == freezed ? _value.info : info as PersonalInfo,
+      listOfNationality: listOfNationality == freezed
+          ? _value.listOfNationality
+          : listOfNationality as List<String>,
+      listOfProfession: listOfProfession == freezed
+          ? _value.listOfProfession
+          : listOfProfession as List<String>,
+      lang: lang == freezed ? _value.lang : lang as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_SetInitialState implements _SetInitialState {
-  const _$_SetInitialState(this.info) : assert(info != null);
+  const _$_SetInitialState(
+      {@required this.info,
+      @required this.listOfNationality,
+      @required this.listOfProfession,
+      @required this.lang})
+      : assert(info != null),
+        assert(listOfNationality != null),
+        assert(listOfProfession != null),
+        assert(lang != null);
 
   @override
   final PersonalInfo info;
+  @override
+  final List<String> listOfNationality;
+  @override
+  final List<String> listOfProfession;
+  @override
+  final String lang;
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoActorEvent.setInitialState(info: $info)';
+    return 'UpdatePersonalInfoActorEvent.setInitialState(info: $info, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, lang: $lang)';
   }
 
   @override
@@ -1758,12 +1853,24 @@ class _$_SetInitialState implements _SetInitialState {
     return identical(this, other) ||
         (other is _SetInitialState &&
             (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)));
+                const DeepCollectionEquality().equals(other.info, info)) &&
+            (identical(other.listOfNationality, listOfNationality) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfNationality, listOfNationality)) &&
+            (identical(other.listOfProfession, listOfProfession) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfProfession, listOfProfession)) &&
+            (identical(other.lang, lang) ||
+                const DeepCollectionEquality().equals(other.lang, lang)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(info);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(info) ^
+      const DeepCollectionEquality().hash(listOfNationality) ^
+      const DeepCollectionEquality().hash(listOfProfession) ^
+      const DeepCollectionEquality().hash(lang);
 
   @JsonKey(ignore: true)
   @override
@@ -1782,7 +1889,12 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -1796,7 +1908,7 @@ class _$_SetInitialState implements _SetInitialState {
     assert(changePhone != null);
     assert(setInitialState != null);
     assert(save != null);
-    return setInitialState(info);
+    return setInitialState(info, listOfNationality, listOfProfession, lang);
   }
 
   @override
@@ -1811,13 +1923,14 @@ class _$_SetInitialState implements _SetInitialState {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (setInitialState != null) {
-      return setInitialState(info);
+      return setInitialState(info, listOfNationality, listOfProfession, lang);
     }
     return orElse();
   }
@@ -1876,9 +1989,16 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdatePersonalInfoActorEvent {
-  const factory _SetInitialState(PersonalInfo info) = _$_SetInitialState;
+  const factory _SetInitialState(
+      {@required PersonalInfo info,
+      @required List<String> listOfNationality,
+      @required List<String> listOfProfession,
+      @required String lang}) = _$_SetInitialState;
 
   PersonalInfo get info;
+  List<String> get listOfNationality;
+  List<String> get listOfProfession;
+  String get lang;
   @JsonKey(ignore: true)
   _$SetInitialStateCopyWith<_SetInitialState> get copyWith;
 }
@@ -1929,7 +2049,12 @@ class _$_Save implements _Save {
     @required TResult changeNationality(String nationality),
     @required TResult changeEmail(String email),
     @required TResult changePhone(String phone),
-    @required TResult setInitialState(PersonalInfo info),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
     @required TResult save(),
   }) {
     assert(changeFirstName != null);
@@ -1958,7 +2083,8 @@ class _$_Save implements _Save {
     TResult changeNationality(String nationality),
     TResult changeEmail(String email),
     TResult changePhone(String phone),
-    TResult setInitialState(PersonalInfo info),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
     TResult save(),
     @required TResult orElse(),
   }) {
@@ -2042,6 +2168,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
       @required String email,
       @required String phone,
       @required List<String> listOfNationality,
+      @required List<String> listOfProfession,
       @required bool isSubmitting,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdatePersonalInfoActorState(
@@ -2055,6 +2182,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
       email: email,
       phone: phone,
       listOfNationality: listOfNationality,
+      listOfProfession: listOfProfession,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
@@ -2077,6 +2205,7 @@ mixin _$UpdatePersonalInfoActorState {
   String get email;
   String get phone;
   List<String> get listOfNationality;
+  List<String> get listOfProfession;
   bool get isSubmitting;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
@@ -2102,6 +2231,7 @@ abstract class $UpdatePersonalInfoActorStateCopyWith<$Res> {
       String email,
       String phone,
       List<String> listOfNationality,
+      List<String> listOfProfession,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -2127,6 +2257,7 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     Object email = freezed,
     Object phone = freezed,
     Object listOfNationality = freezed,
+    Object listOfProfession = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -2145,6 +2276,9 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
       listOfNationality: listOfNationality == freezed
           ? _value.listOfNationality
           : listOfNationality as List<String>,
+      listOfProfession: listOfProfession == freezed
+          ? _value.listOfProfession
+          : listOfProfession as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -2173,6 +2307,7 @@ abstract class _$UpdatePersonalInfoActorStateCopyWith<$Res>
       String email,
       String phone,
       List<String> listOfNationality,
+      List<String> listOfProfession,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -2202,6 +2337,7 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     Object email = freezed,
     Object phone = freezed,
     Object listOfNationality = freezed,
+    Object listOfProfession = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -2220,6 +2356,9 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
       listOfNationality: listOfNationality == freezed
           ? _value.listOfNationality
           : listOfNationality as List<String>,
+      listOfProfession: listOfProfession == freezed
+          ? _value.listOfProfession
+          : listOfProfession as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -2242,6 +2381,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       @required this.email,
       @required this.phone,
       @required this.listOfNationality,
+      @required this.listOfProfession,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
       : assert(firstName != null),
@@ -2254,6 +2394,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
         assert(email != null),
         assert(phone != null),
         assert(listOfNationality != null),
+        assert(listOfProfession != null),
         assert(isSubmitting != null),
         assert(authFailureOrSuccessOption != null);
 
@@ -2278,13 +2419,15 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
   @override
   final List<String> listOfNationality;
   @override
+  final List<String> listOfProfession;
+  @override
   final bool isSubmitting;
   @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoActorState(firstName: $firstName, lastName: $lastName, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdatePersonalInfoActorState(firstName: $firstName, lastName: $lastName, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -2316,6 +2459,9 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
             (identical(other.listOfNationality, listOfNationality) ||
                 const DeepCollectionEquality()
                     .equals(other.listOfNationality, listOfNationality)) &&
+            (identical(other.listOfProfession, listOfProfession) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfProfession, listOfProfession)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
@@ -2339,6 +2485,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(listOfNationality) ^
+      const DeepCollectionEquality().hash(listOfProfession) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
@@ -2373,6 +2520,8 @@ abstract class _UpdatePersonalInfoActorState
           @required
               List<String> listOfNationality,
           @required
+              List<String> listOfProfession,
+          @required
               bool isSubmitting,
           @required
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
@@ -2398,6 +2547,8 @@ abstract class _UpdatePersonalInfoActorState
   String get phone;
   @override
   List<String> get listOfNationality;
+  @override
+  List<String> get listOfProfession;
   @override
   bool get isSubmitting;
   @override

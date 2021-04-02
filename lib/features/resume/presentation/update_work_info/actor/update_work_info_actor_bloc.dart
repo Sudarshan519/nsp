@@ -15,6 +15,8 @@ class UpdateWorkInfoActorBloc
     extends Bloc<UpdateWorkInfoActorEvent, UpdateWorkInfoActorState> {
   final UpdateWorkInfo updateWorkInfo;
   WorkHistory _workHistory;
+  String _lang;
+
   UpdateWorkInfoActorBloc({
     @required this.updateWorkInfo,
   }) : super(UpdateWorkInfoActorState.initial());
@@ -113,6 +115,7 @@ class UpdateWorkInfoActorBloc
   Stream<UpdateWorkInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
     final workHistory = _setInitialState.workHistory;
+    _lang = _setInitialState.lang;
     if (workHistory != null && workHistory != _workHistory) {
       _workHistory = workHistory;
       yield state.copyWith(
@@ -136,6 +139,7 @@ class UpdateWorkInfoActorBloc
     );
     failureOrSuccess = await updateWorkInfo(
       UpdateWorkInfoParams(
+        lang: _lang,
         id: _workHistory.id,
         companyName: state.nameOfComapny,
         companyType: state.companyType,

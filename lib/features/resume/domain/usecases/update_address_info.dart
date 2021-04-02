@@ -40,12 +40,16 @@ class UpdateAddressInfo extends Usecase<ApiFailure, Unit, UpdateAddressParams> {
       contPhone: params.contPhone,
     );
 
-    return repository.updateAddress(data: userData);
+    return repository.updateAddress(
+      data: userData,
+      lang: params.lang,
+    );
   }
 }
 
 class UpdateAddressParams {
   UpdateAddressParams({
+    @required this.lang,
     @required this.currCountry,
     @required this.currPostalCode,
     @required this.currPrefecture,
@@ -59,6 +63,8 @@ class UpdateAddressParams {
     @required this.contAddress,
     @required this.contPhone,
   });
+
+  final String lang;
 
   final String currCountry;
   final String currPostalCode;

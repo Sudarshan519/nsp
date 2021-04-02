@@ -36,12 +36,16 @@ class UpdateAcadamicInfo
       completionYear: params.completionYear,
     );
 
-    return repository.updateAcademic(data: academicData);
+    return repository.updateAcademic(
+      data: academicData,
+      lang: params.lang,
+    );
   }
 }
 
 class UpdateAcadamicInfoParams {
   UpdateAcadamicInfoParams({
+    @required this.lang,
     @required this.id,
     @required this.insutitute,
     @required this.majorSubject,
@@ -51,6 +55,7 @@ class UpdateAcadamicInfoParams {
     @required this.completionMonth,
   });
 
+  final String lang;
   final int id;
   final String insutitute;
   final String majorSubject;

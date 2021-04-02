@@ -15,6 +15,7 @@ class UpdateOtherInfoActorBloc
     extends Bloc<UpdateOtherInfoActorEvent, UpdateOtherInfoActorState> {
   final UpdateOtherInfo updateOtherInfo;
   PersonalInfo _personalInfo;
+  String _lang;
 
   UpdateOtherInfoActorBloc({
     @required this.updateOtherInfo,
@@ -36,6 +37,12 @@ class UpdateOtherInfoActorBloc
       },
       changeMotivationsSpecialSkills: (e) async* {
         yield _mapChangeMotivationsSpecialSkillsToState(e);
+      },
+      changeHobbies: (e) async* {
+        yield _mapChangeHobbiesToState(e);
+      },
+      changeSkills: (e) async* {
+        yield _mapChangeSkillsToState(e);
       },
       changeWorkinHours: (e) async* {
         yield _mapChangeWorkinHoursToState(e);
@@ -97,6 +104,22 @@ class UpdateOtherInfoActorBloc
     );
   }
 
+  UpdateOtherInfoActorState _mapChangeHobbiesToState(
+      _ChangeHobbies _changeHobbies) {
+    return state.copyWith(
+      hobbies: _changeHobbies.hobbies,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateOtherInfoActorState _mapChangeSkillsToState(
+      _ChangeSkills _changeSkills) {
+    return state.copyWith(
+      skills: _changeSkills.skills,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
   UpdateOtherInfoActorState _mapChangeWorkinHoursToState(
       _ChangeWorkinHours _changeWorkinHours) {
     return state.copyWith(
@@ -149,6 +172,7 @@ class UpdateOtherInfoActorBloc
   Stream<UpdateOtherInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
     final userInfo = _setInitialState.info;
+    _lang = _setInitialState.lang;
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
@@ -156,12 +180,17 @@ class UpdateOtherInfoActorBloc
         JLPTLevel: userInfo.jlpt ?? "",
         selfPR: userInfo.selfPr ?? "",
         motivationsSpecialSkills: userInfo.extraPoint ?? "",
+        hobbies: userInfo.hobbies ?? [],
+        skills: userInfo.skills ?? [],
         workinHours: userInfo.workingHoursOnly ?? "",
         workingMinutes: userInfo.workingMinutesOnly ?? "",
         numberOfDependent: userInfo.dependentsExceptSpouse ?? "",
         isSpouse: userInfo.spouse ?? "",
         isSpouseSupportObligation: userInfo.spouseSupportObligation ?? "",
         specialConditions: userInfo.specialConditions ?? "",
+        knownLanguages: _setInitialState.listOfLanguages ?? [],
+        listOfHobbies: _setInitialState.listOHobbies ?? [],
+        listOfSkills: _setInitialState.listOfSkills ?? [],
       );
     }
   }
@@ -173,10 +202,13 @@ class UpdateOtherInfoActorBloc
     );
     failureOrSuccess = await updateOtherInfo(
       UpdateOtherInfoParams(
+        lang: _lang,
         languages: state.languages,
         JLPTLevel: state.JLPTLevel,
         selfPR: state.selfPR,
         motivationsSpecialSkills: state.motivationsSpecialSkills,
+        hobbies: state.hobbies,
+        skills: state.skills,
         workinHours: state.workinHours,
         workingMinutes: state.workingMinutes,
         numberOfDependent: state.numberOfDependent,

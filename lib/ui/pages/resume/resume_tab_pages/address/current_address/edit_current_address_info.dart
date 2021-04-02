@@ -9,6 +9,7 @@ import 'package:wallet_app/features/location_information/domain/usecases/get_jap
 import 'package:wallet_app/features/location_information/domain/usecases/get_prefecture.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
@@ -22,10 +23,12 @@ import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 
 class EditCurrentAddressInfoForm extends StatelessWidget {
   final PersonalInfo info;
+  final String lang;
 
   const EditCurrentAddressInfoForm({
     Key key,
     @required this.info,
+    @required this.lang,
   })  : assert(info != null),
         super(key: key);
 
@@ -39,7 +42,10 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
     );
     return BlocProvider(
       create: (context) => addressInfoActorBloc
-        ..add(UpdateAddressInfoActorEvent.setInitialState(info)),
+        ..add(UpdateAddressInfoActorEvent.setInitialState(
+          info,
+          lang,
+        )),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -79,6 +85,8 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
             },
             (success) {
               getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<ResumeWatcherBloc>()
+                  .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
                 context: context,
@@ -204,7 +212,7 @@ class _PostalCodeInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    String value;
+
     return BlocConsumer<UpdateAddressInfoActorBloc,
         UpdateAddressInfoActorState>(
       listenWhen: (previous, current) =>
@@ -212,7 +220,6 @@ class _PostalCodeInputField extends StatelessWidget {
       listener: (context, state) {
         final TextSelection previousSelection = _controller.selection;
         _controller.text = state.currPostalCode;
-        value = state.currPostalCode;
         _controller.selection = previousSelection;
       },
       buildWhen: (previous, current) =>

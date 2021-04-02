@@ -17,10 +17,17 @@ import 'package:wallet_app/utils/constant.dart';
 
 class OtherInfo extends StatelessWidget {
   final PersonalInfo info;
-
+  final List<String> listOfLanguages;
+  final List<String> listOfHobbies;
+  final List<String> listOfSkills;
+  final String lang;
   const OtherInfo({
     Key key,
     @required this.info,
+    @required this.listOfLanguages,
+    @required this.listOfHobbies,
+    @required this.listOfSkills,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -31,7 +38,13 @@ class OtherInfo extends StatelessWidget {
     return BlocProvider(
       create: (_) => actorBloc
         ..add(
-          UpdateOtherInfoActorEvent.setInitialState(info),
+          UpdateOtherInfoActorEvent.setInitialState(
+            info: info,
+            listOfLanguages: listOfLanguages,
+            listOHobbies: listOfHobbies,
+            listOfSkills: listOfSkills,
+            lang: lang,
+          ),
         ),
       child: _aboutPageBlocConsumer(context, info),
     );
@@ -90,6 +103,10 @@ class OtherInfo extends StatelessWidget {
                       onTap: () =>
                           ExtendedNavigator.of(context).pushEditOtherInfoForm(
                         info: info,
+                        listOfLanguages: listOfLanguages,
+                        listOfHobbies: listOfHobbies,
+                        listOfSkills: listOfSkills,
+                        lang: lang,
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
@@ -137,19 +154,24 @@ class _LanguageInputField extends StatelessWidget {
     final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) => previous.languages != current.languages,
-      builder: (context, state) => FormFieldDecoration(
-        title: "Languages",
-        child: InputTextWidget(
-          hintText: "Name",
-          textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
-          onEditingCompleted: () {},
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) {},
-        ),
-      ),
+      builder: (context, state) {
+        final selectedValues = state.languages;
+        final values = selectedValues.join(", ");
+        _controller.text = values;
+        return FormFieldDecoration(
+          title: "Languages",
+          child: InputTextWidget(
+            hintText: "Languages",
+            textInputType: TextInputType.name,
+            // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            controller: _controller,
+            onEditingCompleted: () {},
+            textAlign: TextAlign.end,
+            isEnable: false,
+            onChanged: (value) {},
+          ),
+        );
+      },
     );
   }
 }
@@ -237,9 +259,9 @@ class _MotivationSpecialSkillsInputField extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.motivationsSpecialSkills != current.motivationsSpecialSkills,
       builder: (context, state) => FormFieldDecoration(
-        title: "Motivation,\nSpecial Skills,\nHobbies\netc",
+        title: "Motivations",
         child: InputTextWidget(
-          hintText: "Motivation, Special Skills, Hobbies etc",
+          hintText: "Motivations",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           controller: _controller,

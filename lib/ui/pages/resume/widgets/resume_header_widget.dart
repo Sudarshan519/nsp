@@ -162,12 +162,6 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                     alignment: Alignment.center,
                     clipBehavior: Clip.none,
                     children: [
-                      const CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage(
-                          'assets/images/navigation_bar/u1.png',
-                        ),
-                      ),
                       _userImage(userDetail?.avatar ?? ""),
                       Positioned(
                         right: 0,
@@ -210,9 +204,12 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                       children: [
                         InkWell(
                           onTap: () {
-                            context.read<UploadResumeImageBloc>().add(
-                                UploadResumeImageEvent.updateProfileImage(
-                                    _selectedImage));
+                            context
+                                .read<UploadResumeImageBloc>()
+                                .add(UploadResumeImageEvent.updateProfileImage(
+                                  _selectedImage,
+                                  "en",
+                                ));
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -307,6 +304,14 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
   }
 
   Widget _userImage(String image) {
+    if (image.isEmpty) {
+      return const CircleAvatar(
+        radius: 40,
+        backgroundImage: AssetImage(
+          'assets/images/navigation_bar/u1.png',
+        ),
+      );
+    }
     return SizedBox(
       width: 82,
       height: 82,
