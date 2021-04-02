@@ -3,19 +3,27 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
+import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/features/location_information/data/model/country_model.dart';
+import 'package:wallet_app/features/location_information/data/model/prefecture_and_city_from_postal_code_model.dart';
+import 'package:wallet_app/utils/config_reader.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 abstract class LocationInformationLocalDataSourceProtocol {
   Future<List<CountryModel>> getCounties();
+  Future<List<PrefectureAndCityFromPostalCodeModel>>
+      getPreferenceAndCityFromPostalCode(String postalCode);
 }
 
 @LazySingleton(as: LocationInformationLocalDataSourceProtocol)
 class LocationInformationLocalDataSource
     implements LocationInformationLocalDataSourceProtocol {
   final http.Client client;
+  final ConfigReader config;
 
   LocationInformationLocalDataSource({
     @required this.client,
+    @required this.config,
   });
 
   @override
@@ -26,6 +34,31 @@ class LocationInformationLocalDataSource
       return countryModelModelFromJson(listOfPrefectureString);
     } catch (ex) {
       rethrow;
+    }
+  }
+
+  @override
+  Future<List<PrefectureAndCityFromPostalCodeModel>>
+      getPreferenceAndCityFromPostalCode(String postalCode) async {
+    http.Response response;
+    try {
+      final code = postalCode.replaceAll("-", "");
+      final url =
+          "${config.baseURL}${config.apiPath}/postal_codes/$code/details/";
+      response = await client.get(url);
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+    if (response.statusCode == 200) {
+      final model = locationFromPostalCodeModelFromJson(response.body);
+      if (model.postalCode != null) {
+        return model.postalCode;
+      } else {
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
+    } else {
+      throw const ServerException(
+          message: "No Information found for the current postal address.");
     }
   }
 

@@ -29,6 +29,7 @@ class CustomSearchableDropDownWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SearchableDropdown.single(
+      key: UniqueKey(),
       isExpanded: isExpanded,
       readOnly: !isEnable,
       value: (value ?? "").isEmpty ? null : value,
@@ -61,8 +62,8 @@ class CustomSearchableDropDownWidget extends StatelessWidget {
         );
       }).toList(),
       displayClearIcon: false,
-      onChanged: (value) {
-        onChanged(value as String);
+      onChanged: (changed) {
+        onChanged(changed as String);
         FocusScope.of(context).unfocus();
       },
     );

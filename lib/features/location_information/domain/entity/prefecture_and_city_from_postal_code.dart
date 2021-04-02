@@ -1,17 +1,33 @@
-class PrefectureAndCityFromPostalCode {
-  PrefectureAndCityFromPostalCode({
-    this.id,
-    this.postalCode,
-    this.prefecture,
-    this.city,
-    this.street,
+import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
+
+class PrefectureAndCityFromPostalCode extends Equatable {
+  const PrefectureAndCityFromPostalCode({
+    @required this.id,
+    @required this.postalCode,
+    @required this.prefectureJp,
+    @required this.prefecture,
+    @required this.cityJp,
+    @required this.city,
+    @required this.street,
   });
 
-  int id;
-  String postalCode;
-  String prefectureJp;
-  String cityJp;
-  String prefecture;
-  String city;
-  String street;
+  final int id;
+  final String postalCode;
+  final String prefectureJp;
+  final String cityJp;
+  final String prefecture;
+  final String city;
+  final String street;
+
+  @override
+  List<Object> get props => [
+        id,
+        postalCode,
+        prefectureJp,
+        prefecture,
+        cityJp,
+        city,
+        street,
+      ];
 }

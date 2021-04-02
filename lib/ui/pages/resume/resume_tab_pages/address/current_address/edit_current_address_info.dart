@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
+import 'package:wallet_app/features/location_information/presentation/bloc/location_via_postal_code_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
@@ -192,6 +193,9 @@ class _CountryInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      buildWhen: (previous, current) =>
+          previous.currCountry != current.currCountry ||
+          previous.listOfCountries != current.listOfCountries,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Country",
         child: CustomSearchableDropDownWidget(
@@ -226,27 +230,142 @@ class _PostalCodeInputField extends StatelessWidget {
         _controller.selection = previousSelection;
       },
       buildWhen: (previous, current) =>
-          previous.currPostalCode != current.currPostalCode,
+          previous.currPostalCode != current.currPostalCode ||
+          previous.currCountry != current.currCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Postal Code",
-        child: InputTextWidget(
-          hintText: "Postal Code",
-          textInputType: TextInputType.number,
-          controller: _controller,
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(8),
-            MaskedTextInputFormatter(
-              mask: "xxx-xxxx",
-              separator: "-",
+        child: Row(
+          children: [
+            Expanded(
+              child: InputTextWidget(
+                hintText: "Postal Code",
+                textInputType: TextInputType.number,
+                controller: _controller,
+                inputFormatters: [
+                  LengthLimitingTextInputFormatter(8),
+                  MaskedTextInputFormatter(
+                    mask: "xxx-xxxx",
+                    separator: "-",
+                  ),
+                ],
+                onChanged: (value) {
+                  context.read<UpdateAddressInfoActorBloc>().add(
+                      UpdateAddressInfoActorEvent.changedCurrPostalCode(value));
+                },
+              ),
             ),
+            if (state.currCountry.toLowerCase() == "japan")
+              BlocProvider(
+                create: (context) => getIt<LocationViaPostalCodeBloc>(),
+                child: _SearchAddressViaPostalCode(
+                  parentContext: context,
+                  parentState: state,
+                ),
+              ),
           ],
-          onChanged: (value) {
-            context
-                .read<UpdateAddressInfoActorBloc>()
-                .add(UpdateAddressInfoActorEvent.changedCurrPostalCode(value));
-          },
         ),
       ),
+    );
+  }
+}
+
+class _SearchAddressViaPostalCode extends StatelessWidget {
+  final BuildContext parentContext;
+  final UpdateAddressInfoActorState parentState;
+
+  const _SearchAddressViaPostalCode({
+    Key key,
+    @required this.parentContext,
+    @required this.parentState,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LocationViaPostalCodeBloc, LocationViaPostalCodeState>(
+      buildWhen: (previous, current) => previous.hashCode != current.hashCode,
+      builder: (context, state) {
+        return state.map(
+          failure: (failure) {
+            FlushbarHelper.createError(
+              message: failure.failure.map(
+                serverError: (error) => error.message,
+                invalidUser: (_) => AppConstants.someThingWentWrong,
+                noInternetConnection: (_) => AppConstants.noNetwork,
+              ),
+            ).show(context);
+            return _buildSearchBoxWithLoading(context: context);
+          },
+          success: (success) {
+            final data = success.data;
+
+            if (data.isNotEmpty) {
+              final addressData = data.first;
+              String prefecture = addressData.prefecture.toLowerCase();
+              prefecture =
+                  "${prefecture[0].toUpperCase()}${prefecture.substring(1)}";
+
+              String city = addressData.city.toLowerCase();
+              city = "${city[0].toUpperCase()}${city.substring(1)}";
+
+              parentContext.read<UpdateAddressInfoActorBloc>().add(
+                  UpdateAddressInfoActorEvent.changedCurrPrefecture(
+                      prefecture));
+              parentContext
+                  .read<UpdateAddressInfoActorBloc>()
+                  .add(UpdateAddressInfoActorEvent.changedCurrCity(city));
+              parentContext.read<UpdateAddressInfoActorBloc>().add(
+                  UpdateAddressInfoActorEvent.changedCurrAddress(
+                      addressData.street));
+            }
+
+            return _buildSearchBoxWithLoading(context: context);
+          },
+          initial: (_) => _buildSearchBoxWithLoading(context: context),
+          loading: (_) =>
+              _buildSearchBoxWithLoading(context: context, isLoading: true),
+        );
+      },
+    );
+  }
+
+  Widget _buildSearchBoxWithLoading(
+      {@required BuildContext context, bool isLoading = false}) {
+    return Row(
+      children: [
+        const SizedBox(width: 5),
+        InkWell(
+          onTap: () {
+            if (isLoading) {
+              return;
+            }
+            context.read<LocationViaPostalCodeBloc>().add(
+                LocationViaPostalCodeEvent.fetch(parentState.currPostalCode));
+          },
+          child: Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Palette.primaryButtonColor,
+            ),
+            child: Center(
+              child: isLoading
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircularProgressIndicator(
+                        strokeWidth: 1,
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(Palette.white),
+                      ),
+                    )
+                  : Icon(
+                      Icons.search,
+                      color: Palette.white,
+                    ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

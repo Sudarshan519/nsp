@@ -51,7 +51,9 @@ class UpdateAddressInfoActorBloc
       changedCurrPhone: (e) async* {
         yield _mapChangeCurrPhoneToState(e);
       },
-      changeSameAsCurrAddressInfo: (e) async* {},
+      changeSameAsCurrAddressInfo: (e) async* {
+        yield _mapChangeSameAsCurrAddressInfoToState(e);
+      },
       changeContCountry: (e) async* {
         yield _mapChangeContCountryToState(e);
       },
@@ -98,11 +100,13 @@ class UpdateAddressInfoActorBloc
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
+        currCountry: userInfo.currCountry ?? "",
         currPostalCode: userInfo.currPostalCode ?? "",
         currPrefecture: userInfo.currPrefecture ?? "",
         currCity: userInfo.currCity ?? "",
         currAddress: userInfo.currAddress ?? "",
         currPhone: userInfo.currPhone ?? "",
+        contCountry: userInfo.contCountry ?? "",
         contPostalCode: userInfo.contPostalCode ?? "",
         contPrefecture: userInfo.contPrefecture ?? "",
         contCity: userInfo.contCity ?? "",
@@ -136,22 +140,36 @@ class UpdateAddressInfoActorBloc
     );
   }
 
+  // TODO watch out for this addition of prefecture
+  // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeCurrPrefectureToState(
       _ChangedCurrPrefecture _changedPrefecture) async* {
     final listOfCurrCities =
         _getListOfCities(prefectureName: _changedPrefecture.prefecture);
+    final List<String> listOfPrefectures = state.listOfPrefectures;
+    if (!listOfPrefectures.contains(_changedPrefecture.prefecture)) {
+      listOfPrefectures.add(_changedPrefecture.prefecture);
+    }
     yield state.copyWith(
       currPrefecture: _changedPrefecture.prefecture,
+      listOfPrefectures: listOfPrefectures,
       listOfCurrCities: listOfCurrCities,
       currCity: '',
       authFailureOrSuccessOption: none(),
     );
   }
 
+  // TODO watch out for this addition of city
+  // may need to remove later
   UpdateAddressInfoActorState _mapChangeCurrCityToState(
       _ChangedCurrCity _changedCity) {
+    final List<String> listOfCities = state.listOfCurrCities;
+    if (!listOfCities.contains(_changedCity.city)) {
+      listOfCities.add(_changedCity.city);
+    }
     return state.copyWith(
       currCity: _changedCity.city,
+      listOfCurrCities: listOfCities,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -168,6 +186,23 @@ class UpdateAddressInfoActorBloc
       _ChangedCurrPhone _changedPhone) {
     return state.copyWith(
       currPhone: _changedPhone.phone,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateAddressInfoActorState _mapChangeSameAsCurrAddressInfoToState(
+      _ChangedSameAsCurrAddressInfo _changedSameAsCurrAddressInfo) {
+    final sameAsCurrAddressInfo = !state.sameAsCurrAddressInfo;
+
+    return state.copyWith(
+      sameAsCurrAddressInfo: sameAsCurrAddressInfo,
+      contCountry: sameAsCurrAddressInfo ? state.currCountry : "",
+      contPostalCode: sameAsCurrAddressInfo ? state.currPostalCode : "",
+      contPrefecture: sameAsCurrAddressInfo ? state.currPrefecture : "",
+      contCity: sameAsCurrAddressInfo ? state.currCity : "",
+      contAddress: sameAsCurrAddressInfo ? state.currAddress : "",
+      contPhone: sameAsCurrAddressInfo ? state.currPhone : "",
+      isSubmitting: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -190,13 +225,20 @@ class UpdateAddressInfoActorBloc
     );
   }
 
+  // TODO watch out for this addition of prefecture
+  // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeContPrefectureToState(
       _ChangedContPrefecture _changedPrefecture) async* {
+    final List<String> listOfPrefectures = state.listOfPrefectures;
+    if (!listOfPrefectures.contains(_changedPrefecture.prefecture)) {
+      listOfPrefectures.add(_changedPrefecture.prefecture);
+    }
     final listOfContCities =
         _getListOfCities(prefectureName: _changedPrefecture.prefecture);
     yield state.copyWith(
       contPrefecture: _changedPrefecture.prefecture,
       listOfContCities: listOfContCities,
+      listOfPrefectures: listOfPrefectures,
       contCity: '',
       authFailureOrSuccessOption: none(),
     );
@@ -204,8 +246,13 @@ class UpdateAddressInfoActorBloc
 
   UpdateAddressInfoActorState _mapChangeContCityToState(
       _ChangedContCity _changedCity) {
+    final List<String> listOfCities = state.listOfContCities;
+    if (!listOfCities.contains(_changedCity.city)) {
+      listOfCities.add(_changedCity.city);
+    }
     return state.copyWith(
       contCity: _changedCity.city,
+      listOfContCities: listOfCities,
       authFailureOrSuccessOption: none(),
     );
   }

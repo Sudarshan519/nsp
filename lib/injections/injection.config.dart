@@ -26,11 +26,9 @@ import '../features/location_information/domain/usecases/get_countries.dart';
 import '../features/resume/domain/usecases/get_downloadable_pdf_link.dart';
 import '../features/news/domain/usecase/get_favourite_news.dart';
 import '../features/home/domain/usecases/get_home_page_data.dart';
-import '../features/location_information/domain/usecases/get_japan_city.dart';
 import '../features/news/domain/usecase/get_latest_news.dart';
-import '../features/location_information/domain/usecases/get_nepal_district.dart';
 import '../features/news/domain/usecase/get_news_for_you.dart';
-import '../features/location_information/domain/usecases/get_prefecture.dart';
+import '../features/location_information/domain/usecases/get_prefecture_city_from_postalcode.dart';
 import '../features/resume/domain/usecases/get_resume.dart';
 import '../features/auth/domain/usecase/get_wallet_user.dart';
 import '../features/home/presentation/home_page_data/home_page_data_bloc.dart';
@@ -42,6 +40,7 @@ import '../features/news/presentation/latest_news/latest_news_bloc.dart';
 import '../features/location_information/data/datasource/location_information_local_datasource.dart';
 import '../features/location_information/data/repository/location_information_repositories.dart';
 import '../features/location_information/domain/repository/location_information_repositories.dart';
+import '../features/location_information/presentation/bloc/location_via_postal_code_bloc.dart';
 import '../features/auth/domain/usecase/logout_user.dart';
 import '../core/network/newtork_info.dart';
 import '../features/news/presentation/news_for_you/news_bloc.dart';
@@ -89,8 +88,9 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<FileProvider>(() => FileProvider());
   gh.lazySingleton<FlutterSecureStorage>(
       () => flutterStorageModule.secureStorate);
-  gh.lazySingleton<LocationInformationLocalDataSourceProtocol>(
-      () => LocationInformationLocalDataSource(client: get<Client>()));
+  gh.lazySingleton<LocationInformationLocalDataSourceProtocol>(() =>
+      LocationInformationLocalDataSource(
+          client: get<Client>(), config: get<ConfigReader>()));
   gh.lazySingleton<LocationInformationRepositoryProtocol>(() =>
       LocationInformationRepository(
           localDataSource: get<LocationInformationLocalDataSourceProtocol>()));
@@ -110,12 +110,9 @@ Future<GetIt> $initGetIt(
       localDataSource: get<AuthLocalDataSource>()));
   gh.lazySingleton<GetCountries>(() =>
       GetCountries(repository: get<LocationInformationRepositoryProtocol>()));
-  gh.lazySingleton<GetJapanCity>(() =>
-      GetJapanCity(repository: get<LocationInformationRepositoryProtocol>()));
-  gh.lazySingleton<GetNepalDistrict>(() => GetNepalDistrict(
-      repository: get<LocationInformationRepositoryProtocol>()));
-  gh.lazySingleton<GetPrefecture>(() =>
-      GetPrefecture(repository: get<LocationInformationRepositoryProtocol>()));
+  gh.lazySingleton<GetPrefectureCityFromPostalCode>(() =>
+      GetPrefectureCityFromPostalCode(
+          repository: get<LocationInformationRepositoryProtocol>()));
   gh.lazySingleton<GetWalletUser>(
       () => GetWalletUser(repository: get<AuthRepository>()));
   gh.lazySingleton<HomePageRemoteDataSource>(() => HomePageRemoteDataSourceImpl(
@@ -125,6 +122,8 @@ Future<GetIt> $initGetIt(
       ));
   gh.lazySingleton<HomeReporisitory>(() =>
       HomeRepositoryImpl(remoteDataSource: get<HomePageRemoteDataSource>()));
+  gh.factory<LocationViaPostalCodeBloc>(() => LocationViaPostalCodeBloc(
+      getPrefectureCityFromPostalCode: get<GetPrefectureCityFromPostalCode>()));
   gh.lazySingleton<LogoutUser>(
       () => LogoutUser(repository: get<AuthRepository>()));
   gh.lazySingleton<NewsLocalDataSourceProtocol>(

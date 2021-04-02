@@ -56,9 +56,9 @@ class _$UpdateAddressInfoActorEventTearOff {
   }
 
 // ignore: unused_element
-  _ChangedSameAsCurrAddressInfo changeSameAsCurrAddressInfo(String country) {
+  _ChangedSameAsCurrAddressInfo changeSameAsCurrAddressInfo(bool value) {
     return _ChangedSameAsCurrAddressInfo(
-      country,
+      value,
     );
   }
 
@@ -138,7 +138,7 @@ mixin _$UpdateAddressInfoActorEvent {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -161,7 +161,7 @@ mixin _$UpdateAddressInfoActorEvent {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -302,7 +302,7 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -344,7 +344,7 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -509,7 +509,7 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -551,7 +551,7 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -717,7 +717,7 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -759,7 +759,7 @@ class _$_ChangedCurrPrefecture implements _ChangedCurrPrefecture {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -924,7 +924,7 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -966,7 +966,7 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -1130,7 +1130,7 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -1172,7 +1172,7 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -1336,7 +1336,7 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -1378,7 +1378,7 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -1481,7 +1481,7 @@ abstract class _$ChangedSameAsCurrAddressInfoCopyWith<$Res> {
           _ChangedSameAsCurrAddressInfo value,
           $Res Function(_ChangedSameAsCurrAddressInfo) then) =
       __$ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>;
-  $Res call({String country});
+  $Res call({bool value});
 }
 
 /// @nodoc
@@ -1499,37 +1499,37 @@ class __$ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object country = freezed,
+    Object value = freezed,
   }) {
     return _then(_ChangedSameAsCurrAddressInfo(
-      country == freezed ? _value.country : country as String,
+      value == freezed ? _value.value : value as bool,
     ));
   }
 }
 
 /// @nodoc
 class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
-  const _$_ChangedSameAsCurrAddressInfo(this.country) : assert(country != null);
+  const _$_ChangedSameAsCurrAddressInfo(this.value) : assert(value != null);
 
   @override
-  final String country;
+  final bool value;
 
   @override
   String toString() {
-    return 'UpdateAddressInfoActorEvent.changeSameAsCurrAddressInfo(country: $country)';
+    return 'UpdateAddressInfoActorEvent.changeSameAsCurrAddressInfo(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ChangedSameAsCurrAddressInfo &&
-            (identical(other.country, country) ||
-                const DeepCollectionEquality().equals(other.country, country)));
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(country);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
 
   @JsonKey(ignore: true)
   @override
@@ -1546,7 +1546,7 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -1576,7 +1576,7 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
     assert(changedContPhone != null);
     assert(setInitialState != null);
     assert(save != null);
-    return changeSameAsCurrAddressInfo(country);
+    return changeSameAsCurrAddressInfo(value);
   }
 
   @override
@@ -1588,7 +1588,7 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -1605,7 +1605,7 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
   }) {
     assert(orElse != null);
     if (changeSameAsCurrAddressInfo != null) {
-      return changeSameAsCurrAddressInfo(country);
+      return changeSameAsCurrAddressInfo(value);
     }
     return orElse();
   }
@@ -1679,10 +1679,10 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
 
 abstract class _ChangedSameAsCurrAddressInfo
     implements UpdateAddressInfoActorEvent {
-  const factory _ChangedSameAsCurrAddressInfo(String country) =
+  const factory _ChangedSameAsCurrAddressInfo(bool value) =
       _$_ChangedSameAsCurrAddressInfo;
 
-  String get country;
+  bool get value;
   @JsonKey(ignore: true)
   _$ChangedSameAsCurrAddressInfoCopyWith<_ChangedSameAsCurrAddressInfo>
       get copyWith;
@@ -1755,7 +1755,7 @@ class _$_ChangedContCountry implements _ChangedContCountry {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -1797,7 +1797,7 @@ class _$_ChangedContCountry implements _ChangedContCountry {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -1962,7 +1962,7 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -2004,7 +2004,7 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -2170,7 +2170,7 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -2212,7 +2212,7 @@ class _$_ChangedContPrefecture implements _ChangedContPrefecture {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -2377,7 +2377,7 @@ class _$_ChangedContCity implements _ChangedContCity {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -2419,7 +2419,7 @@ class _$_ChangedContCity implements _ChangedContCity {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -2583,7 +2583,7 @@ class _$_ChangedContAddress implements _ChangedContAddress {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -2625,7 +2625,7 @@ class _$_ChangedContAddress implements _ChangedContAddress {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -2789,7 +2789,7 @@ class _$_ChangedContPhone implements _ChangedContPhone {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -2831,7 +2831,7 @@ class _$_ChangedContPhone implements _ChangedContPhone {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -3032,7 +3032,7 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -3074,7 +3074,7 @@ class _$_SetInitialState implements _SetInitialState {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),
@@ -3221,7 +3221,7 @@ class _$_Save implements _Save {
     @required TResult changedCurrCity(String city),
     @required TResult changedCurrAddress(String address),
     @required TResult changedCurrPhone(String phone),
-    @required TResult changeSameAsCurrAddressInfo(String country),
+    @required TResult changeSameAsCurrAddressInfo(bool value),
     @required TResult changeContCountry(String country),
     @required TResult changedContPostalCode(String code),
     @required TResult changedContPrefecture(String prefecture),
@@ -3263,7 +3263,7 @@ class _$_Save implements _Save {
     TResult changedCurrCity(String city),
     TResult changedCurrAddress(String address),
     TResult changedCurrPhone(String phone),
-    TResult changeSameAsCurrAddressInfo(String country),
+    TResult changeSameAsCurrAddressInfo(bool value),
     TResult changeContCountry(String country),
     TResult changedContPostalCode(String code),
     TResult changedContPrefecture(String prefecture),

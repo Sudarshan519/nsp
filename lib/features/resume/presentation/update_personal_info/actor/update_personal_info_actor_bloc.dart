@@ -65,6 +65,7 @@ class UpdatePersonalInfoActorBloc
   Stream<UpdatePersonalInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
     final userInfo = _setInitialState.info;
+    _lang = _setInitialState.lang;
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
