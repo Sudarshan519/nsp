@@ -32,7 +32,9 @@ void main() {
   setUp(() {
     // _context = MockBuildContext();
     configureInjection(injectable.Environment.test);
-    _widget = ForYouNewsTab();
+    _widget = ForYouNewsTab(
+      editGenre: () {},
+    );
   });
 
   test('ForYouNewsTab is sub class of StatelessWidget', () {

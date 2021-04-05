@@ -34,15 +34,23 @@ class NewsPreferenceTab extends StatelessWidget {
           color: Palette.black.withOpacity(0.1),
         ),
         const SizedBox(height: 10),
-        const _LanguageWithSource(
-          title: "English",
-          isExpanded: true,
-          sources: [
-            "cnn",
-            "start Sports",
-            "bbc",
-          ],
-        )
+        Expanded(
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return const _LanguageWithSource(
+                title: "English",
+                isExpanded: true,
+                sources: [
+                  "cnn",
+                  "start Sports",
+                  "bbc",
+                ],
+              );
+            },
+          ),
+        ),
       ],
     );
   }
@@ -70,33 +78,56 @@ class _LanguageWithSource extends StatelessWidget {
         children: [
           Row(
             children: [
+              SizedBox(
+                height: 24.0,
+                width: 24.0,
+                child: Checkbox(
+                  value: false,
+                  activeColor: Palette.primary,
+                  onChanged: (bool value) {},
+                ),
+              ),
               Text(
                 "$title (${sources.length})",
               ),
               const Spacer(),
               const Text(
                 "-",
+                style: TextStyle(
+                  fontSize: 20,
+                ),
               ),
             ],
           ),
           Flexible(
             child: GridView.count(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              // crossAxisCount is the number of columns
               crossAxisCount: 2,
+              childAspectRatio: 3,
               // This creates two columns with two items in each column
-              children: List.generate(sources.length, (index) {
-                return Container(
-                  margin: const EdgeInsets.all(16.0),
-                  height: 20,
-                  decoration: BoxDecoration(border: Border.all()),
-                  child: Center(
-                    child: Text(
-                      sources[index],
+              children: List.generate(
+                sources.length,
+                (index) {
+                  return Container(
+                    height: 20,
+                    margin: const EdgeInsets.only(
+                      left: 16.0,
+                      top: 16.0,
                     ),
-                  ),
-                );
-              }),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Palette.black.withOpacity(0.1),
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        sources[index],
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ],

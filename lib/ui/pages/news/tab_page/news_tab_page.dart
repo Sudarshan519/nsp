@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'tabs/for_you/for_you_category_selection.dart';
 import 'tabs/for_you/for_you_tab.dart';
 import 'tabs/latest/latest_news_tab.dart';
 import 'tabs/preferences/news_preferences_tab.dart';
@@ -15,8 +16,10 @@ class TabBarScreen extends StatefulWidget {
 
 class TabBarScreenState extends State<TabBarScreen> {
   int _selectedIndex = 0;
-  final List<Widget> _children = [
-    ForYouNewsTab(),
+  bool _showForYouPreferencePage = false;
+
+  List<Widget> _children = [
+    const SizedBox.shrink(),
     LatestNewsTab(),
     NewsPreferenceTab(),
     SaveNewsTab(),
@@ -31,7 +34,7 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final screenSize = MediaQuery.of(context).size;
+    _children = _getChildren();
     return DefaultTabController(
       length: _children.length,
       child: Scaffold(
@@ -53,5 +56,24 @@ class TabBarScreenState extends State<TabBarScreen> {
         ),
       ),
     );
+  }
+
+  List<Widget> _getChildren() {
+    final forYouPage = _showForYouPreferencePage
+        ? ForYouCategorySelectionPage(editGenre: _selectedForYouPreferencePage)
+        : ForYouNewsTab(editGenre: _selectedForYouPreferencePage);
+
+    return [
+      forYouPage,
+      LatestNewsTab(),
+      NewsPreferenceTab(),
+      SaveNewsTab(),
+    ];
+  }
+
+  void _selectedForYouPreferencePage() {
+    setState(() {
+      _showForYouPreferencePage = !_showForYouPreferencePage;
+    });
   }
 }
