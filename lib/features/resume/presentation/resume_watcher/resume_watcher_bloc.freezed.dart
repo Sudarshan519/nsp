@@ -412,6 +412,9 @@ class _$ResumeWatcherStateTearOff {
       @required List<WorkHistory> works,
       @required List<QualificationHistory> qualifications,
       @required ResumeOptions options,
+      @required List<String> prefectures,
+      @required List<String> provinces,
+      @required bool hasResume,
       @required bool isLoading,
       @required Option<ApiFailure> failureOrSuccessOption}) {
     return _ResumeWatcherState(
@@ -421,6 +424,9 @@ class _$ResumeWatcherStateTearOff {
       works: works,
       qualifications: qualifications,
       options: options,
+      prefectures: prefectures,
+      provinces: provinces,
+      hasResume: hasResume,
       isLoading: isLoading,
       failureOrSuccessOption: failureOrSuccessOption,
     );
@@ -439,6 +445,9 @@ mixin _$ResumeWatcherState {
   List<WorkHistory> get works;
   List<QualificationHistory> get qualifications;
   ResumeOptions get options;
+  List<String> get prefectures;
+  List<String> get provinces;
+  bool get hasResume;
   bool get isLoading;
   Option<ApiFailure> get failureOrSuccessOption;
 
@@ -458,6 +467,9 @@ abstract class $ResumeWatcherStateCopyWith<$Res> {
       List<WorkHistory> works,
       List<QualificationHistory> qualifications,
       ResumeOptions options,
+      List<String> prefectures,
+      List<String> provinces,
+      bool hasResume,
       bool isLoading,
       Option<ApiFailure> failureOrSuccessOption});
 }
@@ -479,6 +491,9 @@ class _$ResumeWatcherStateCopyWithImpl<$Res>
     Object works = freezed,
     Object qualifications = freezed,
     Object options = freezed,
+    Object prefectures = freezed,
+    Object provinces = freezed,
+    Object hasResume = freezed,
     Object isLoading = freezed,
     Object failureOrSuccessOption = freezed,
   }) {
@@ -493,6 +508,12 @@ class _$ResumeWatcherStateCopyWithImpl<$Res>
           ? _value.qualifications
           : qualifications as List<QualificationHistory>,
       options: options == freezed ? _value.options : options as ResumeOptions,
+      prefectures: prefectures == freezed
+          ? _value.prefectures
+          : prefectures as List<String>,
+      provinces:
+          provinces == freezed ? _value.provinces : provinces as List<String>,
+      hasResume: hasResume == freezed ? _value.hasResume : hasResume as bool,
       isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
       failureOrSuccessOption: failureOrSuccessOption == freezed
           ? _value.failureOrSuccessOption
@@ -515,6 +536,9 @@ abstract class _$ResumeWatcherStateCopyWith<$Res>
       List<WorkHistory> works,
       List<QualificationHistory> qualifications,
       ResumeOptions options,
+      List<String> prefectures,
+      List<String> provinces,
+      bool hasResume,
       bool isLoading,
       Option<ApiFailure> failureOrSuccessOption});
 }
@@ -538,6 +562,9 @@ class __$ResumeWatcherStateCopyWithImpl<$Res>
     Object works = freezed,
     Object qualifications = freezed,
     Object options = freezed,
+    Object prefectures = freezed,
+    Object provinces = freezed,
+    Object hasResume = freezed,
     Object isLoading = freezed,
     Object failureOrSuccessOption = freezed,
   }) {
@@ -552,6 +579,12 @@ class __$ResumeWatcherStateCopyWithImpl<$Res>
           ? _value.qualifications
           : qualifications as List<QualificationHistory>,
       options: options == freezed ? _value.options : options as ResumeOptions,
+      prefectures: prefectures == freezed
+          ? _value.prefectures
+          : prefectures as List<String>,
+      provinces:
+          provinces == freezed ? _value.provinces : provinces as List<String>,
+      hasResume: hasResume == freezed ? _value.hasResume : hasResume as bool,
       isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
       failureOrSuccessOption: failureOrSuccessOption == freezed
           ? _value.failureOrSuccessOption
@@ -569,6 +602,9 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
       @required this.works,
       @required this.qualifications,
       @required this.options,
+      @required this.prefectures,
+      @required this.provinces,
+      @required this.hasResume,
       @required this.isLoading,
       @required this.failureOrSuccessOption})
       : assert(language != null),
@@ -577,6 +613,9 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
         assert(works != null),
         assert(qualifications != null),
         assert(options != null),
+        assert(prefectures != null),
+        assert(provinces != null),
+        assert(hasResume != null),
         assert(isLoading != null),
         assert(failureOrSuccessOption != null);
 
@@ -593,13 +632,19 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
   @override
   final ResumeOptions options;
   @override
+  final List<String> prefectures;
+  @override
+  final List<String> provinces;
+  @override
+  final bool hasResume;
+  @override
   final bool isLoading;
   @override
   final Option<ApiFailure> failureOrSuccessOption;
 
   @override
   String toString() {
-    return 'ResumeWatcherState(language: $language, info: $info, academics: $academics, works: $works, qualifications: $qualifications, options: $options, isLoading: $isLoading, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'ResumeWatcherState(language: $language, info: $info, academics: $academics, works: $works, qualifications: $qualifications, options: $options, prefectures: $prefectures, provinces: $provinces, hasResume: $hasResume, isLoading: $isLoading, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -622,6 +667,15 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
             (identical(other.options, options) ||
                 const DeepCollectionEquality()
                     .equals(other.options, options)) &&
+            (identical(other.prefectures, prefectures) ||
+                const DeepCollectionEquality()
+                    .equals(other.prefectures, prefectures)) &&
+            (identical(other.provinces, provinces) ||
+                const DeepCollectionEquality()
+                    .equals(other.provinces, provinces)) &&
+            (identical(other.hasResume, hasResume) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasResume, hasResume)) &&
             (identical(other.isLoading, isLoading) ||
                 const DeepCollectionEquality()
                     .equals(other.isLoading, isLoading)) &&
@@ -639,6 +693,9 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
       const DeepCollectionEquality().hash(works) ^
       const DeepCollectionEquality().hash(qualifications) ^
       const DeepCollectionEquality().hash(options) ^
+      const DeepCollectionEquality().hash(prefectures) ^
+      const DeepCollectionEquality().hash(provinces) ^
+      const DeepCollectionEquality().hash(hasResume) ^
       const DeepCollectionEquality().hash(isLoading) ^
       const DeepCollectionEquality().hash(failureOrSuccessOption);
 
@@ -656,6 +713,9 @@ abstract class _ResumeWatcherState implements ResumeWatcherState {
           @required List<WorkHistory> works,
           @required List<QualificationHistory> qualifications,
           @required ResumeOptions options,
+          @required List<String> prefectures,
+          @required List<String> provinces,
+          @required bool hasResume,
           @required bool isLoading,
           @required Option<ApiFailure> failureOrSuccessOption}) =
       _$_ResumeWatcherState;
@@ -672,6 +732,12 @@ abstract class _ResumeWatcherState implements ResumeWatcherState {
   List<QualificationHistory> get qualifications;
   @override
   ResumeOptions get options;
+  @override
+  List<String> get prefectures;
+  @override
+  List<String> get provinces;
+  @override
+  bool get hasResume;
   @override
   bool get isLoading;
   @override

@@ -27,6 +27,7 @@ import '../features/resume/domain/usecases/get_downloadable_pdf_link.dart';
 import '../features/news/domain/usecase/get_favourite_news.dart';
 import '../features/home/domain/usecases/get_home_page_data.dart';
 import '../features/news/domain/usecase/get_latest_news.dart';
+import '../features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart';
 import '../features/news/domain/usecase/get_news_for_you.dart';
 import '../features/location_information/domain/usecases/get_prefecture_city_from_postalcode.dart';
 import '../features/resume/domain/usecases/get_resume.dart';
@@ -93,7 +94,7 @@ Future<GetIt> $initGetIt(
           client: get<Client>(), config: get<ConfigReader>()));
   gh.lazySingleton<LocationInformationRepositoryProtocol>(() =>
       LocationInformationRepository(
-          localDataSource: get<LocationInformationLocalDataSourceProtocol>()));
+          dataSource: get<LocationInformationLocalDataSourceProtocol>()));
   gh.lazySingleton<NetworkInfo>(() =>
       NetworkInfoImpl(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(() =>
@@ -110,6 +111,9 @@ Future<GetIt> $initGetIt(
       localDataSource: get<AuthLocalDataSource>()));
   gh.lazySingleton<GetCountries>(() =>
       GetCountries(repository: get<LocationInformationRepositoryProtocol>()));
+  gh.lazySingleton<GetListOfCityFromPrefectures>(() =>
+      GetListOfCityFromPrefectures(
+          repository: get<LocationInformationRepositoryProtocol>()));
   gh.lazySingleton<GetPrefectureCityFromPostalCode>(() =>
       GetPrefectureCityFromPostalCode(
           repository: get<LocationInformationRepositoryProtocol>()));

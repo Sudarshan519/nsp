@@ -2,11 +2,12 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
-import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
 
 part 'update_address_info_actor_event.dart';
@@ -17,15 +18,14 @@ class UpdateAddressInfoActorBloc
     extends Bloc<UpdateAddressInfoActorEvent, UpdateAddressInfoActorState> {
   final UpdateAddressInfo updateAddressInfo;
   final GetCountries getCountries;
+  final GetListOfCityFromPrefectures getListOfCityFromPrefectures;
   PersonalInfo _personalInfo;
-  List<JapanesePrefecture> _prefectures;
-  List<JapaneseCity> _cities;
-
   String _lang;
 
   UpdateAddressInfoActorBloc({
     @required this.updateAddressInfo,
     @required this.getCountries,
+    @required this.getListOfCityFromPrefectures,
   }) : super(UpdateAddressInfoActorState.initial());
 
   @override
@@ -39,8 +39,11 @@ class UpdateAddressInfoActorBloc
       changedCurrPostalCode: (e) async* {
         yield _mapChangeCurrPostalCodeToState(e);
       },
-      changedCurrPrefecture: (e) async* {
-        yield* _mapChangeCurrPrefectureToState(e);
+      changedCurrJapanesePrefecture: (e) async* {
+        yield* _mapChangeCurrJapanesePrefectureToState(e);
+      },
+      changedCurrNepaliProvince: (e) async* {
+        yield* _mapChangeCurrNepaliPrefectureToState(e);
       },
       changedCurrCity: (e) async* {
         yield _mapChangeCurrCityToState(e);
@@ -60,8 +63,11 @@ class UpdateAddressInfoActorBloc
       changedContPostalCode: (e) async* {
         yield _mapChangeContPostalCodeToState(e);
       },
-      changedContPrefecture: (e) async* {
-        yield* _mapChangeContPrefectureToState(e);
+      changedContJapanesePrefecture: (e) async* {
+        yield* _mapChangeContJapanesePrefectureToState(e);
+      },
+      changedContNepaliProvince: (e) async* {
+        yield* _mapChangeContNepaliPrefectureToState(e);
       },
       changedContCity: (e) async* {
         yield _mapChangeContCityToState(e);
@@ -85,17 +91,17 @@ class UpdateAddressInfoActorBloc
       _SetInitialState _setInitialState) async* {
     final userInfo = _setInitialState.info;
     final listOfCountry = await getCountries();
-    _prefectures = _setInitialState.prefectures;
-    _cities = _setInitialState.cities;
-    final listOfPrefecture =
-        _prefectures.map((prefecture) => prefecture.name).toList();
-
-    final List<String> _currCityArray =
-        _getListOfCities(prefectureName: userInfo.currPrefecture);
-    final List<String> _contCityArray =
-        _getListOfCities(prefectureName: userInfo.contPrefecture);
 
     _lang = _setInitialState.lang;
+
+    final List<String> _currCityArray = await _getListOfCities(
+      country: userInfo.currCountry,
+      prefectureName: userInfo.currPrefecture,
+    );
+    final List<String> _contCityArray = await _getListOfCities(
+      country: userInfo.currCountry,
+      prefectureName: userInfo.contPrefecture,
+    );
 
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
@@ -113,9 +119,10 @@ class UpdateAddressInfoActorBloc
         contAddress: userInfo.contAddress ?? "",
         contPhone: userInfo.contPhone ?? "",
         listOfCountries: listOfCountry ?? [],
-        listOfPrefectures: listOfPrefecture,
-        listOfCurrCities: _currCityArray ?? [],
-        listOfContCities: _contCityArray ?? [],
+        listOfJapanesePrefectures: _setInitialState.prefectures,
+        listOfNepaliProvinces: _setInitialState.provinces,
+        listOfCurrCities: _currCityArray,
+        listOfContCities: _contCityArray,
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );
@@ -142,17 +149,36 @@ class UpdateAddressInfoActorBloc
 
   // TODO watch out for this addition of prefecture
   // may need to remove later
-  Stream<UpdateAddressInfoActorState> _mapChangeCurrPrefectureToState(
-      _ChangedCurrPrefecture _changedPrefecture) async* {
-    final listOfCurrCities =
-        _getListOfCities(prefectureName: _changedPrefecture.prefecture);
-    final List<String> listOfPrefectures = state.listOfPrefectures;
+  Stream<UpdateAddressInfoActorState> _mapChangeCurrJapanesePrefectureToState(
+      _ChangedCurJapaneserPrefecture _changedPrefecture) async* {
+    final listOfCurrCities = await _getListOfCities(
+        country: state.currCountry,
+        prefectureName: _changedPrefecture.prefecture);
+    final List<String> listOfPrefectures = state.listOfJapanesePrefectures;
     if (!listOfPrefectures.contains(_changedPrefecture.prefecture)) {
       listOfPrefectures.add(_changedPrefecture.prefecture);
     }
     yield state.copyWith(
       currPrefecture: _changedPrefecture.prefecture,
-      listOfPrefectures: listOfPrefectures,
+      listOfJapanesePrefectures: listOfPrefectures,
+      listOfCurrCities: listOfCurrCities,
+      currCity: '',
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  Stream<UpdateAddressInfoActorState> _mapChangeCurrNepaliPrefectureToState(
+      _ChangedCurrNepaliProvince _changedPrefecture) async* {
+    final listOfCurrCities = await _getListOfCities(
+        country: state.currCountry,
+        prefectureName: _changedPrefecture.province);
+    final List<String> listOfPrefectures = state.listOfJapanesePrefectures;
+    if (!listOfPrefectures.contains(_changedPrefecture.province)) {
+      listOfPrefectures.add(_changedPrefecture.province);
+    }
+    yield state.copyWith(
+      currPrefecture: _changedPrefecture.province,
+      listOfNepaliProvinces: listOfPrefectures,
       listOfCurrCities: listOfCurrCities,
       currCity: '',
       authFailureOrSuccessOption: none(),
@@ -227,18 +253,37 @@ class UpdateAddressInfoActorBloc
 
   // TODO watch out for this addition of prefecture
   // may need to remove later
-  Stream<UpdateAddressInfoActorState> _mapChangeContPrefectureToState(
-      _ChangedContPrefecture _changedPrefecture) async* {
-    final List<String> listOfPrefectures = state.listOfPrefectures;
-    if (!listOfPrefectures.contains(_changedPrefecture.prefecture)) {
-      listOfPrefectures.add(_changedPrefecture.prefecture);
-    }
-    final listOfContCities =
-        _getListOfCities(prefectureName: _changedPrefecture.prefecture);
+  Stream<UpdateAddressInfoActorState> _mapChangeContJapanesePrefectureToState(
+      _ChangedContJapanesePrefecture _changedPrefecture) async* {
+    // final List<String> listOfPrefectures = state.listOfJapanesePrefectures;
+    // if (!listOfPrefectures.contains(_changedPrefecture.prefecture)) {
+    //   listOfPrefectures.add(_changedPrefecture.prefecture);
+    // }
+    final listOfContCities = await _getListOfCities(
+        country: state.contCountry,
+        prefectureName: _changedPrefecture.prefecture);
     yield state.copyWith(
       contPrefecture: _changedPrefecture.prefecture,
       listOfContCities: listOfContCities,
-      listOfPrefectures: listOfPrefectures,
+      // listOfPrefectures: listOfPrefectures,
+      contCity: '',
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  Stream<UpdateAddressInfoActorState> _mapChangeContNepaliPrefectureToState(
+      _ChangedContNepaliProvince _changedPrefecture) async* {
+    // final List<String> listOfPrefectures = state.listOfNepaliProvinces;
+    // if (!listOfPrefectures.contains(_changedPrefecture.province)) {
+    //   listOfPrefectures.add(_changedPrefecture.province);
+    // }
+    final listOfContCities = await _getListOfCities(
+        country: state.contCountry,
+        prefectureName: _changedPrefecture.province);
+    yield state.copyWith(
+      contPrefecture: _changedPrefecture.province,
+      listOfContCities: listOfContCities,
+      // listOfPrefectures: listOfPrefectures,
       contCity: '',
       authFailureOrSuccessOption: none(),
     );
@@ -302,22 +347,28 @@ class UpdateAddressInfoActorBloc
     );
   }
 
-  List<String> _getListOfCities({
+  Future<List<String>> _getListOfCities({
+    @required String country,
     @required String prefectureName,
-  }) {
-    List<String> _cityArray = [];
-    if (prefectureName.isNotEmpty) {
-      final prefecture = _prefectures.firstWhere(
-          (prefecture) => prefecture.name == prefectureName,
-          orElse: () => null);
+  }) async {
+    // if (country.toLowerCase() != "japan" || country.toLowerCase() != "nepal") {
+    //   return [];
+    // }
 
-      if (prefecture != null) {
-        _cityArray = _cities
-            .where((city) => city.prefectureId == prefecture.id)
-            .map((city) => city.name)
-            .toList();
-      }
+    // debugPrint("Japan or Nepal");
+
+    if (prefectureName.isNotEmpty) {
+      final result =
+          await getListOfCityFromPrefectures(GetListOfCityFromPrefecturesParams(
+        country: country,
+        prefecture: prefectureName,
+        lang: _lang,
+      ));
+      return result.fold(
+        (failure) => [],
+        (cities) => cities,
+      );
     }
-    return _cityArray;
+    return [];
   }
 }

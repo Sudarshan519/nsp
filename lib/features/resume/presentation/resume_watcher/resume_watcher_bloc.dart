@@ -10,6 +10,7 @@ import 'package:wallet_app/features/resume/domain/entities/academic_history.dart
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_data.dart';
+import 'package:wallet_app/features/resume/domain/entities/resume_model.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/get_resume.dart';
@@ -24,6 +25,9 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
 
   ResumeData _english;
   ResumeData _japanese;
+
+  AddressesJp _addressesJp;
+  AddressesNp _addressesNp;
 
   ResumeWatcherBloc({
     @required this.getResume,
@@ -48,6 +52,7 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             failureOrSuccessOption: optionOf(failure),
           ),
           (resume) {
+            final hasResume = resume?.resumeData?.hasResume ?? false;
             if (resume.resumeData.status == false) {
               final userDetails = resume.userDetail;
               _english = ResumeData(
@@ -68,9 +73,14 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
               _english = resume.resumeData.data.en;
               _japanese = resume.resumeData.data.jp;
             }
+
+            _addressesJp = resume.addressesJp;
+            _addressesNp = resume.addressesNp;
+
             add(const _SetResumeData());
             return state.copyWith(
               isLoading: false,
+              hasResume: hasResume,
               failureOrSuccessOption: none(),
             );
           },
@@ -82,6 +92,10 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
           failureOrSuccessOption: none(),
         );
         if (state.language == "en") {
+          final prefectures = _addressesJp?.en?.prefectures;
+          final provinces =
+              _addressesNp?.en?.province?.map((p) => p.provinceName)?.toList();
+
           yield state.copyWith(
             isLoading: false,
             info: _english?.personalInfo ?? const PersonalInfo(),
@@ -89,9 +103,14 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             works: _english?.workHistory ?? [],
             qualifications: _english?.qualificationHistory ?? [],
             options: _english?.options ?? const ResumeOptions(),
+            prefectures: prefectures ?? [],
+            provinces: provinces ?? [],
             failureOrSuccessOption: none(),
           );
         } else {
+          final prefectures = _addressesJp?.jp?.prefectures;
+          final provinces =
+              _addressesNp?.jp?.province?.map((p) => p.provinceName)?.toList();
           yield state.copyWith(
             isLoading: false,
             info: _japanese?.personalInfo ?? const PersonalInfo(),
@@ -99,6 +118,8 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             works: _japanese?.workHistory ?? [],
             qualifications: _japanese?.qualificationHistory ?? [],
             options: _japanese?.options ?? const ResumeOptions(),
+            prefectures: prefectures ?? [],
+            provinces: provinces ?? [],
             failureOrSuccessOption: none(),
           );
         }

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
-import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -20,15 +20,15 @@ import 'package:wallet_app/utils/constant.dart';
 
 class AddressPage extends StatelessWidget {
   final PersonalInfo info;
-  final List<JapanesePrefecture> prefecture;
-  final List<JapaneseCity> cities;
+  final List<String> prefecture;
+  final List<String> provinces;
   final String lang;
 
   const AddressPage({
     Key key,
     @required this.info,
     @required this.prefecture,
-    @required this.cities,
+    @required this.provinces,
     @required this.lang,
   }) : super(key: key);
 
@@ -37,6 +37,7 @@ class AddressPage extends StatelessWidget {
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
       getCountries: getIt<GetCountries>(),
+      getListOfCityFromPrefectures: getIt<GetListOfCityFromPrefectures>(),
     );
     return BlocProvider(
       create: (_) => addressInfoActorBloc
@@ -44,7 +45,7 @@ class AddressPage extends StatelessWidget {
           UpdateAddressInfoActorEvent.setInitialState(
             info: info,
             prefectures: prefecture,
-            cities: cities,
+            provinces: provinces,
             lang: lang,
           ),
         ),
@@ -108,7 +109,7 @@ class AddressPage extends StatelessWidget {
                           .pushEditCurrentAddressInfoForm(
                         info: info,
                         prefecture: prefecture,
-                        cities: cities,
+                        provinces: provinces,
                         lang: lang,
                       ),
                       child: SvgPicture.asset(
@@ -156,7 +157,7 @@ class AddressPage extends StatelessWidget {
                           .pushEditContactAddressInfoForm(
                         info: info,
                         prefecture: prefecture,
-                        cities: cities,
+                        provinces: provinces,
                         lang: lang,
                       ),
                       child: SvgPicture.asset(
@@ -277,9 +278,8 @@ class _CurrentPrefectureInputField extends StatelessWidget {
           controller: _controller,
           textAlign: TextAlign.end,
           isEnable: false,
-          onChanged: (value) => context
-              .read<UpdateAddressInfoActorBloc>()
-              .add(UpdateAddressInfoActorEvent.changedCurrPrefecture(value)),
+          onChanged: (value) => context.read<UpdateAddressInfoActorBloc>().add(
+              UpdateAddressInfoActorEvent.changedCurrJapanesePrefecture(value)),
         ),
       ),
     );
@@ -477,9 +477,8 @@ class _ContactPrefectureInputField extends StatelessWidget {
           controller: _controller,
           textAlign: TextAlign.end,
           isEnable: false,
-          onChanged: (value) => context
-              .read<UpdateAddressInfoActorBloc>()
-              .add(UpdateAddressInfoActorEvent.changedContPrefecture(value)),
+          onChanged: (value) => context.read<UpdateAddressInfoActorBloc>().add(
+              UpdateAddressInfoActorEvent.changedContJapanesePrefecture(value)),
         ),
       ),
     );

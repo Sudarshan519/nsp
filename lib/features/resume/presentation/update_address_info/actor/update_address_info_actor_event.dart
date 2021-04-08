@@ -6,8 +6,10 @@ abstract class UpdateAddressInfoActorEvent with _$UpdateAddressInfoActorEvent {
       _ChangedCurrCountry;
   const factory UpdateAddressInfoActorEvent.changedCurrPostalCode(String code) =
       _ChangedCurrPostalCode;
-  const factory UpdateAddressInfoActorEvent.changedCurrPrefecture(
-      String prefecture) = _ChangedCurrPrefecture;
+  const factory UpdateAddressInfoActorEvent.changedCurrJapanesePrefecture(
+      String prefecture) = _ChangedCurJapaneserPrefecture;
+  const factory UpdateAddressInfoActorEvent.changedCurrNepaliProvince(
+      String province) = _ChangedCurrNepaliProvince;
   const factory UpdateAddressInfoActorEvent.changedCurrCity(String city) =
       _ChangedCurrCity;
   const factory UpdateAddressInfoActorEvent.changedCurrAddress(String address) =
@@ -22,8 +24,10 @@ abstract class UpdateAddressInfoActorEvent with _$UpdateAddressInfoActorEvent {
       _ChangedContCountry;
   const factory UpdateAddressInfoActorEvent.changedContPostalCode(String code) =
       _ChangedContPostalCode;
-  const factory UpdateAddressInfoActorEvent.changedContPrefecture(
-      String prefecture) = _ChangedContPrefecture;
+  const factory UpdateAddressInfoActorEvent.changedContJapanesePrefecture(
+      String prefecture) = _ChangedContJapanesePrefecture;
+  const factory UpdateAddressInfoActorEvent.changedContNepaliProvince(
+      String province) = _ChangedContNepaliProvince;
   const factory UpdateAddressInfoActorEvent.changedContCity(String city) =
       _ChangedContCity;
   const factory UpdateAddressInfoActorEvent.changedContAddress(String address) =
@@ -33,8 +37,8 @@ abstract class UpdateAddressInfoActorEvent with _$UpdateAddressInfoActorEvent {
 
   const factory UpdateAddressInfoActorEvent.setInitialState({
     @required PersonalInfo info,
-    @required List<JapanesePrefecture> prefectures,
-    @required List<JapaneseCity> cities,
+    @required List<String> prefectures,
+    @required List<String> provinces,
     @required String lang,
   }) = _SetInitialState;
   const factory UpdateAddressInfoActorEvent.save() = _Save;

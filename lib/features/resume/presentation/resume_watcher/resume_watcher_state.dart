@@ -9,6 +9,9 @@ abstract class ResumeWatcherState with _$ResumeWatcherState {
     @required List<WorkHistory> works,
     @required List<QualificationHistory> qualifications,
     @required ResumeOptions options,
+    @required List<String> prefectures,
+    @required List<String> provinces,
+    @required bool hasResume,
     @required bool isLoading,
     @required Option<ApiFailure> failureOrSuccessOption,
   }) = _ResumeWatcherState;
@@ -20,6 +23,9 @@ abstract class ResumeWatcherState with _$ResumeWatcherState {
         works: [],
         qualifications: [],
         options: const ResumeOptions(),
+        prefectures: [],
+        provinces: [],
+        hasResume: false,
         isLoading: true,
         failureOrSuccessOption: none(),
       );

@@ -6,17 +6,20 @@ import 'package:wallet_app/features/resume/domain/entities/resume_model.dart';
 
 import 'resume_with_language.dart';
 
-List<ResumeModel> resumeModelFromJson(String str) =>
-    List<ResumeModel>.from((json.decode(str) as Iterable)
-        .map((x) => ResumeModel.fromJson(x as Map<String, dynamic>)));
+ResumeModel resumeFromJson(String str) =>
+    ResumeModel.fromJson(json.decode(str) as Map<String, dynamic>);
 
 class ResumeModel extends Resume {
   const ResumeModel({
     @required UserDetailModel userDetail,
     @required ResumeStatusDataModel resumeData,
+    @required AddressesJpModel addressesJp,
+    @required AddressesNpModel addressesNp,
   }) : super(
           userDetail: userDetail,
           resumeData: resumeData,
+          addressesJp: addressesJp,
+          addressesNp: addressesNp,
         );
 
   factory ResumeModel.fromJson(Map<String, dynamic> json) => ResumeModel(
@@ -28,6 +31,10 @@ class ResumeModel extends Resume {
             ? null
             : ResumeStatusDataModel.fromJson(
                 json["resume_data"] as Map<String, dynamic>),
+        addressesJp: AddressesJpModel.fromJson(
+            json["addresses_jp"] as Map<String, dynamic>),
+        addressesNp: AddressesNpModel.fromJson(
+            json["addresses_np"] as Map<String, dynamic>),
       );
 }
 
@@ -50,5 +57,85 @@ class ResumeStatusDataModel extends ResumeStatusData {
             : ResumeWithLanguageModel.fromJson(
                 json["data"] as Map<String, dynamic>),
         hasResume: json["has_resume"] as bool,
+      );
+}
+
+class AddressesJpModel extends AddressesJp {
+  const AddressesJpModel({
+    @required this.en,
+    @required this.jp,
+  }) : super(
+          en: en,
+          jp: jp,
+        );
+
+  final AddressesJpWithLanguageModel en;
+  final AddressesJpWithLanguageModel jp;
+
+  factory AddressesJpModel.fromJson(Map<String, dynamic> json) =>
+      AddressesJpModel(
+        en: AddressesJpWithLanguageModel.fromJson(
+            json["en"] as Map<String, dynamic>),
+        jp: AddressesJpWithLanguageModel.fromJson(
+            json["jp"] as Map<String, dynamic>),
+      );
+}
+
+class AddressesJpWithLanguageModel extends AddressesJpWithLanguage {
+  const AddressesJpWithLanguageModel({
+    @required List<String> prefectures,
+  }) : super(prefectures: prefectures);
+
+  factory AddressesJpWithLanguageModel.fromJson(Map<String, dynamic> json) =>
+      AddressesJpWithLanguageModel(
+        prefectures:
+            List<String>.from((json["prefectures"] as Iterable).map((x) => x)),
+      );
+}
+
+class AddressesNpModel extends AddressesNp {
+  const AddressesNpModel({
+    @required AddressesNpWithLanguageModel en,
+    @required AddressesNpWithLanguageModel jp,
+  }) : super(
+          en: en,
+          jp: jp,
+        );
+
+  factory AddressesNpModel.fromJson(Map<String, dynamic> json) =>
+      AddressesNpModel(
+        en: AddressesNpWithLanguageModel.fromJson(
+            json["en"] as Map<String, dynamic>),
+        jp: AddressesNpWithLanguageModel.fromJson(
+            json["jp"] as Map<String, dynamic>),
+      );
+}
+
+class AddressesNpWithLanguageModel extends AddressesNpWithLanguage {
+  const AddressesNpWithLanguageModel({
+    @required List<NepalProvinceModel> province,
+  }) : super(province: province);
+
+  factory AddressesNpWithLanguageModel.fromJson(Map<String, dynamic> json) =>
+      AddressesNpWithLanguageModel(
+        province: List<NepalProvinceModel>.from((json["province"] as Iterable)
+            .map(
+                (x) => NepalProvinceModel.fromJson(x as Map<String, dynamic>))),
+      );
+}
+
+class NepalProvinceModel extends NepalProvince {
+  NepalProvinceModel({
+    @required int provinceId,
+    @required String provinceName,
+  }) : super(
+          provinceId: provinceId,
+          provinceName: provinceName,
+        );
+
+  factory NepalProvinceModel.fromJson(Map<String, dynamic> json) =>
+      NepalProvinceModel(
+        provinceId: json["province_id"] as int,
+        provinceName: json["province_name"] as String,
       );
 }

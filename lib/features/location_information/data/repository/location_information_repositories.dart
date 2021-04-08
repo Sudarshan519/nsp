@@ -11,16 +11,16 @@ import 'package:wallet_app/features/location_information/domain/repository/locat
 @LazySingleton(as: LocationInformationRepositoryProtocol)
 class LocationInformationRepository
     implements LocationInformationRepositoryProtocol {
-  final LocationInformationLocalDataSourceProtocol localDataSource;
+  final LocationInformationLocalDataSourceProtocol dataSource;
 
   LocationInformationRepository({
-    @required this.localDataSource,
+    @required this.dataSource,
   });
 
   @override
   Future<Either<ApiFailure, List<Country>>> getCountry() async {
     try {
-      return Right(await localDataSource.getCounties());
+      return Right(await dataSource.getCounties());
     } catch (ex) {
       return const Left(ApiFailure.serverError(message: ''));
     }
@@ -31,7 +31,26 @@ class LocationInformationRepository
       getPrefectureAndCityFromPostalCode(String postalCode) async {
     try {
       return Right(
-          await localDataSource.getPreferenceAndCityFromPostalCode(postalCode));
+          await dataSource.getPreferenceAndCityFromPostalCode(postalCode));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, List<String>>> getListOfCities({
+    @required String country,
+    @required String nameOfPrefecture,
+    @required String lang,
+  }) async {
+    try {
+      return Right(
+        await dataSource.getListOfCities(
+          country: country,
+          nameOfPrefecture: nameOfPrefecture,
+          lang: lang,
+        ),
+      );
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }

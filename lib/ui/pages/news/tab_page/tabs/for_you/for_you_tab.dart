@@ -32,12 +32,8 @@ class ForYouNewsTab extends StatelessWidget {
       buildWhen: (previous, current) => previous.hashCode != current.hashCode,
       builder: (context, state) {
         return state.map(
-          // initial and loading state will not be refrected here,
-          // this two states are for very first state of app
-          // which are handeled in the tab screen page [at root of this widget]
           initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
-
           loadingWith: (data) {
             final news = data.offlinedata;
             return _buildBodyWithData(

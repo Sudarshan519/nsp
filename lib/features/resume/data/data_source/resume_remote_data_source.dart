@@ -69,12 +69,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
 
     if (response.statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      final resumeDataArray = resumeModelFromJson(responseBody);
-
-      return Resume(
-        userDetail: resumeDataArray.first.userDetail,
-        resumeData: resumeDataArray.last.resumeData,
-      );
+      return resumeFromJson(responseBody);
     } else {
       throw ServerException(
           message: errorMessageFromServerWithMessage(response.body) ??

@@ -5,9 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart';
 import 'package:wallet_app/features/location_information/presentation/bloc/location_via_postal_code_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
-import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_address_info/actor/update_address_info_actor_bloc.dart';
@@ -23,8 +23,8 @@ import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 
 class EditCurrentAddressInfoForm extends StatelessWidget {
   final PersonalInfo info;
-  final List<JapanesePrefecture> prefecture;
-  final List<JapaneseCity> cities;
+  final List<String> prefecture;
+  final List<String> provinces;
   final String lang;
 
   const EditCurrentAddressInfoForm({
@@ -32,7 +32,7 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
     @required this.info,
     @required this.lang,
     @required this.prefecture,
-    @required this.cities,
+    @required this.provinces,
   })  : assert(info != null),
         super(key: key);
 
@@ -41,13 +41,14 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
       getCountries: getIt<GetCountries>(),
+      getListOfCityFromPrefectures: getIt<GetListOfCityFromPrefectures>(),
     );
     return BlocProvider(
       create: (context) => addressInfoActorBloc
         ..add(UpdateAddressInfoActorEvent.setInitialState(
           info: info,
           prefectures: prefecture,
-          cities: cities,
+          provinces: provinces,
           lang: lang,
         )),
       child: Scaffold(
@@ -308,7 +309,7 @@ class _SearchAddressViaPostalCode extends StatelessWidget {
               city = "${city[0].toUpperCase()}${city.substring(1)}";
 
               parentContext.read<UpdateAddressInfoActorBloc>().add(
-                  UpdateAddressInfoActorEvent.changedCurrPrefecture(
+                  UpdateAddressInfoActorEvent.changedCurrJapanesePrefecture(
                       prefecture));
               parentContext
                   .read<UpdateAddressInfoActorBloc>()
@@ -399,20 +400,35 @@ class _PrefectureInputField extends StatelessWidget {
             ? CustomSearchableDropDownWidget(
                 hintText: "Prefecture",
                 value: state.currPrefecture,
-                options: state.listOfPrefectures,
+                options: state.listOfJapanesePrefectures,
                 onChanged: (value) {
                   context.read<UpdateAddressInfoActorBloc>().add(
-                      UpdateAddressInfoActorEvent.changedCurrPrefecture(value));
+                        UpdateAddressInfoActorEvent
+                            .changedCurrJapanesePrefecture(value),
+                      );
                 },
               )
-            : InputTextWidget(
-                hintText: "Prefecture",
-                controller: _controller,
-                onChanged: (value) {
-                  context.read<UpdateAddressInfoActorBloc>().add(
-                      UpdateAddressInfoActorEvent.changedCurrPrefecture(value));
-                },
-              ),
+            : state.currCountry.toLowerCase() == "nepal"
+                ? CustomSearchableDropDownWidget(
+                    hintText: "Prefecture",
+                    value: state.currPrefecture,
+                    options: state.listOfNepaliProvinces,
+                    onChanged: (value) {
+                      context.read<UpdateAddressInfoActorBloc>().add(
+                            UpdateAddressInfoActorEvent
+                                .changedCurrNepaliProvince(value),
+                          );
+                    },
+                  )
+                : InputTextWidget(
+                    hintText: "Prefecture",
+                    controller: _controller,
+                    onChanged: (value) {
+                      context.read<UpdateAddressInfoActorBloc>().add(
+                          UpdateAddressInfoActorEvent
+                              .changedCurrJapanesePrefecture(value));
+                    },
+                  ),
       ),
     );
   }
@@ -431,7 +447,8 @@ class _CityInputField extends StatelessWidget {
       listenWhen: (previous, current) =>
           previous.currCity != current.currCity ||
           previous.currPrefecture != current.currPrefecture ||
-          previous.currCountry != current.currCountry,
+          previous.currCountry != current.currCountry ||
+          previous.listOfCurrCities != current.listOfCurrCities,
       listener: (context, state) {
         final TextSelection previousSelection = _controller.selection;
 

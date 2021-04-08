@@ -15,7 +15,6 @@ import '../../features/news/domain/entity/news_item.dart';
 import '../../features/resume/domain/entities/academic_history.dart';
 import '../../features/resume/domain/entities/personal_info.dart';
 import '../../features/resume/domain/entities/qualification_history.dart';
-import '../../features/resume/domain/entities/resume_options.dart';
 import '../../features/resume/domain/entities/work_history.dart';
 import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
@@ -166,7 +165,7 @@ class Router extends RouterBase {
           info: args.info,
           lang: args.lang,
           prefecture: args.prefecture,
-          cities: args.cities,
+          provinces: args.provinces,
         ),
         settings: data,
       );
@@ -180,7 +179,7 @@ class Router extends RouterBase {
           info: args.info,
           lang: args.lang,
           prefecture: args.prefecture,
-          cities: args.cities,
+          provinces: args.provinces,
         ),
         settings: data,
       );
@@ -326,8 +325,8 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
     Key key,
     @required PersonalInfo info,
     @required String lang,
-    @required List<JapanesePrefecture> prefecture,
-    @required List<JapaneseCity> cities,
+    @required List<String> prefecture,
+    @required List<String> provinces,
   }) =>
       push<dynamic>(
         Routes.editCurrentAddressInfoForm,
@@ -336,15 +335,15 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
             info: info,
             lang: lang,
             prefecture: prefecture,
-            cities: cities),
+            provinces: provinces),
       );
 
   Future<dynamic> pushEditContactAddressInfoForm({
     Key key,
     @required PersonalInfo info,
     @required String lang,
-    @required List<JapanesePrefecture> prefecture,
-    @required List<JapaneseCity> cities,
+    @required List<String> prefecture,
+    @required List<String> provinces,
   }) =>
       push<dynamic>(
         Routes.editContactAddressInfoForm,
@@ -353,7 +352,7 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
             info: info,
             lang: lang,
             prefecture: prefecture,
-            cities: cities),
+            provinces: provinces),
       );
 
   Future<dynamic> pushEditWorkInfoForm({
@@ -483,14 +482,14 @@ class EditCurrentAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
   final String lang;
-  final List<JapanesePrefecture> prefecture;
-  final List<JapaneseCity> cities;
+  final List<String> prefecture;
+  final List<String> provinces;
   EditCurrentAddressInfoFormArguments(
       {this.key,
       @required this.info,
       @required this.lang,
       @required this.prefecture,
-      @required this.cities});
+      @required this.provinces});
 }
 
 /// EditContactAddressInfoForm arguments holder class
@@ -498,14 +497,14 @@ class EditContactAddressInfoFormArguments {
   final Key key;
   final PersonalInfo info;
   final String lang;
-  final List<JapanesePrefecture> prefecture;
-  final List<JapaneseCity> cities;
+  final List<String> prefecture;
+  final List<String> provinces;
   EditContactAddressInfoFormArguments(
       {this.key,
       @required this.info,
       @required this.lang,
       @required this.prefecture,
-      @required this.cities});
+      @required this.provinces});
 }
 
 /// EditWorkInfoForm arguments holder class

@@ -85,16 +85,16 @@ class HomeServiceWidget extends StatelessWidget {
         right: 8,
         left: 8,
       ),
-      child: InkWell(
-        onTap: () => ExtendedNavigator.of(context)
-            .pushServicesDetail(services: services),
-        child: ShadowBoxWidget(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  ClipRRect(
+      child: ShadowBoxWidget(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                InkWell(
+                  onTap: () => ExtendedNavigator.of(context)
+                      .pushServicesDetail(services: services),
+                  child: ClipRRect(
                     borderRadius: BorderRadius.circular(16),
                     child: Image.network(
                       "$baseURL${services.companyLogo}",
@@ -103,70 +103,74 @@ class HomeServiceWidget extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          services?.serviceProductName ?? "",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                          // textAlign: TextAlign.justify,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const SizedBox(height: 5),
-                        // CustomButton(
-                        //   title: services?.category ?? "",
-                        //   onTap: () {},
-                        // ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 4,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Palette.black.withOpacity(0.3),
-                            ),
-                          ),
-                          child: Text(
-                            services?.category ?? "",
-                            style: TextStyle(
-                              color: Palette.black.withOpacity(0.7),
-                              fontSize: 10,
-                            ),
-                            overflow: TextOverflow.clip,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Text(
-                services?.description ?? "",
-                style: const TextStyle(
-                  fontWeight: FontWeight.w400,
                 ),
-                // textAlign: TextAlign.justify,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        services?.serviceProductName ?? "",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        // textAlign: TextAlign.justify,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 5),
+                      // CustomButton(
+                      //   title: services?.category ?? "",
+                      //   onTap: () {},
+                      // ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 4,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: Palette.black.withOpacity(0.3),
+                          ),
+                        ),
+                        child: Text(
+                          services?.category ?? "",
+                          style: TextStyle(
+                            color: Palette.black.withOpacity(0.7),
+                            fontSize: 10,
+                          ),
+                          overflow: TextOverflow.clip,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Text(
+              services?.description ?? "",
+              style: const TextStyle(
+                fontWeight: FontWeight.w400,
               ),
-              const SizedBox(height: 10),
-              Text(
+              // textAlign: TextAlign.justify,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 10),
+            InkWell(
+              onTap: () => ExtendedNavigator.of(context)
+                  .pushServicesDetail(services: services),
+              child: Text(
                 "Know More",
                 style: TextStyle(
                   color: Palette.primary,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

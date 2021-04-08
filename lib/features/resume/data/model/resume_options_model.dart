@@ -12,8 +12,6 @@ class ResumeOptionsModel extends ResumeOptions {
     @required List<String> hobbies,
     @required List<String> skills,
     @required List<String> professions,
-    @required List<JapanesePrefectureModel> prefectures,
-    @required List<JapaneseCityModel> cities,
   }) : super(
           nationalities: nationalities,
           knownLanguages: knownLanguages,
@@ -22,8 +20,6 @@ class ResumeOptionsModel extends ResumeOptions {
           preferences: preferences,
           hobbies: hobbies,
           skills: skills,
-          prefectures: prefectures,
-          cities: cities,
           professions: professions,
         );
 
@@ -61,16 +57,6 @@ class ResumeOptionsModel extends ResumeOptions {
             ? null
             : List<String>.from(
                 (json["professions"] as Iterable).map((x) => x)),
-        prefectures: json["prefectures"] == null
-            ? null
-            : List<JapanesePrefectureModel>.from(
-                (json["prefectures"] as Iterable).map((x) =>
-                    JapanesePrefectureModel.fromJson(
-                        x as Map<String, dynamic>))),
-        cities: json["cities"] == null
-            ? null
-            : List<JapaneseCityModel>.from((json["cities"] as Iterable).map(
-                (x) => JapaneseCityModel.fromJson(x as Map<String, dynamic>))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -135,68 +121,6 @@ class ResumePreferenceModel extends ResumePreference {
       };
 }
 
-class JapaneseCityModel extends JapaneseCity {
-  const JapaneseCityModel({
-    @required int id,
-    @required int prefectureId,
-    @required String name,
-  }) : super(
-          id: id,
-          name: name,
-          prefectureId: prefectureId,
-        );
-
-  factory JapaneseCityModel.fromJson(Map<String, dynamic> json) =>
-      JapaneseCityModel(
-        id: json["id"] as int,
-        prefectureId: json["prefecture_id"] as int,
-        name: json["name"] as String,
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "prefecture_id": prefectureId,
-        "name": name,
-      };
-}
-
-extension JapaneseCityExt on JapaneseCity {
-  JapaneseCityModel toJapaneseCityModel() => JapaneseCityModel(
-        id: id,
-        name: name,
-        prefectureId: prefectureId,
-      );
-}
-
-class JapanesePrefectureModel extends JapanesePrefecture {
-  const JapanesePrefectureModel({
-    @required int id,
-    @required String name,
-  }) : super(
-          id: id,
-          name: name,
-        );
-
-  factory JapanesePrefectureModel.fromJson(Map<String, dynamic> json) =>
-      JapanesePrefectureModel(
-        id: json["id"] as int,
-        name: json["name"] as String,
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-extension JapanesePrefectureExt on JapanesePrefecture {
-  JapanesePrefectureModel toJapanesePrefectureModel() =>
-      JapanesePrefectureModel(
-        id: id,
-        name: name,
-      );
-}
-
 extension ResumePreferenceExt on ResumePreference {
   ResumePreferenceModel toResumePreferenceModel() => ResumePreferenceModel(
         id: id,
@@ -219,9 +143,5 @@ extension ResumeOptionsExt on ResumeOptions {
         hobbies: hobbies,
         skills: skills,
         professions: professions,
-        prefectures: prefectures
-            .map((prefecture) => prefecture.toJapanesePrefectureModel())
-            .toList(),
-        cities: cities.map((city) => city.toJapaneseCityModel()).toList(),
       );
 }
