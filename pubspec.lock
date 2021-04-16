@@ -507,6 +507,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.2"
+  kana_kit:
+    dependency: "direct main"
+    description:
+      name: kana_kit
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
   lint:
     dependency: "direct dev"
     description:

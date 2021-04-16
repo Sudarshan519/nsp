@@ -9,9 +9,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/home/domain/entities/japanese_manner.dart';
-import '../../features/home/domain/entities/services.dart';
+import '../../features/japanese_manners/domain/entities/japanese_manner.dart';
 import '../../features/news/domain/entity/news_item.dart';
+import '../../features/partner_services/domain/entities/services.dart';
 import '../../features/resume/domain/entities/academic_history.dart';
 import '../../features/resume/domain/entities/personal_info.dart';
 import '../../features/resume/domain/entities/qualification_history.dart';
@@ -22,7 +22,10 @@ import '../pages/auth/register_screen.dart';
 import '../pages/auth/validate_user_screen.dart';
 import '../pages/home/detail_pages/japanese_manner_detail.dart';
 import '../pages/home/detail_pages/service_detail.dart';
+import '../pages/japanese_manner/japanese_manner_page.dart';
 import '../pages/news/detail_page/news_detail.dart';
+import '../pages/partner_services/partner_services.dart';
+import '../pages/profile_page/profile_page.dart';
 import '../pages/resume/resume_tab_pages/about/edit_basic_info.dart';
 import '../pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
 import '../pages/resume/resume_tab_pages/address/contact_address/edit_contact_address_info.dart';
@@ -55,6 +58,9 @@ class Routes {
   static const String japaneseMannerDetailPage = '/japanese-manner-detail-page';
   static const String newsDetail = '/news-detail';
   static const String appWebView = '/app-web-view';
+  static const String profilePage = '/profile-page';
+  static const String partnerServicesPage = '/partner-services-page';
+  static const String japaneseMannerPage = '/japanese-manner-page';
   static const all = <String>{
     splashScreen,
     loginPage,
@@ -73,6 +79,9 @@ class Routes {
     japaneseMannerDetailPage,
     newsDetail,
     appWebView,
+    profilePage,
+    partnerServicesPage,
+    japaneseMannerPage,
   };
 }
 
@@ -99,6 +108,9 @@ class Router extends RouterBase {
     RouteDef(Routes.japaneseMannerDetailPage, page: JapaneseMannerDetailPage),
     RouteDef(Routes.newsDetail, page: NewsDetail),
     RouteDef(Routes.appWebView, page: AppWebView),
+    RouteDef(Routes.profilePage, page: ProfilePage),
+    RouteDef(Routes.partnerServicesPage, page: PartnerServicesPage),
+    RouteDef(Routes.japaneseMannerPage, page: JapaneseMannerPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -276,6 +288,24 @@ class Router extends RouterBase {
         settings: data,
       );
     },
+    ProfilePage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ProfilePage(),
+        settings: data,
+      );
+    },
+    PartnerServicesPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => PartnerServicesPage(),
+        settings: data,
+      );
+    },
+    JapaneseMannerPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => JapaneseMannerPage(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -449,6 +479,14 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         Routes.appWebView,
         arguments: AppWebViewArguments(key: key, url: url, title: title),
       );
+
+  Future<dynamic> pushProfilePage() => push<dynamic>(Routes.profilePage);
+
+  Future<dynamic> pushPartnerServicesPage() =>
+      push<dynamic>(Routes.partnerServicesPage);
+
+  Future<dynamic> pushJapaneseMannerPage() =>
+      push<dynamic>(Routes.japaneseMannerPage);
 }
 
 /// ************************************************************************

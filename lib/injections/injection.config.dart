@@ -26,9 +26,13 @@ import '../features/location_information/domain/usecases/get_countries.dart';
 import '../features/resume/domain/usecases/get_downloadable_pdf_link.dart';
 import '../features/news/domain/usecase/get_favourite_news.dart';
 import '../features/home/domain/usecases/get_home_page_data.dart';
+import '../features/japanese_manners/domain/usecase/get_japanese_manner.dart';
 import '../features/news/domain/usecase/get_latest_news.dart';
 import '../features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart';
 import '../features/news/domain/usecase/get_news_for_you.dart';
+import '../features/news/domain/usecase/get_news_genre.dart';
+import '../features/news/domain/usecase/get_news_preferences.dart';
+import '../features/partner_services/domain/usecase/get_partner_services.dart';
 import '../features/location_information/domain/usecases/get_prefecture_city_from_postalcode.dart';
 import '../features/resume/domain/usecases/get_resume.dart';
 import '../features/auth/domain/usecase/get_wallet_user.dart';
@@ -37,6 +41,10 @@ import '../features/home/data/datasource/home_remote_data_source.dart';
 import '../features/home/domain/repositories/home_repository.dart';
 import '../features/home/data/repositories/home_repository.dart';
 import 'injectable/http_client_injectable_module.dart';
+import '../features/japanese_manners/presentation/bloc/japanese_manner_bloc.dart';
+import '../features/japanese_manners/domain/repositories/japanese_manner_repository.dart';
+import '../features/japanese_manners/data/repositories/japanese_manner_repository.dart';
+import '../features/japanese_manners/data/datasource/japanese_manners_remote_data_source.dart';
 import '../features/news/presentation/latest_news/latest_news_bloc.dart';
 import '../features/location_information/data/datasource/location_information_local_datasource.dart';
 import '../features/location_information/data/repository/location_information_repositories.dart';
@@ -45,11 +53,17 @@ import '../features/location_information/presentation/bloc/location_via_postal_c
 import '../features/auth/domain/usecase/logout_user.dart';
 import '../core/network/newtork_info.dart';
 import '../features/news/presentation/news_for_you/news_bloc.dart';
+import '../features/news/presentation/news_genre/news_genre_bloc.dart';
 import '../features/news/data/datasource/news_local_data_source.dart';
 import '../core/database/news_provider.dart';
+import '../features/news/presentation/news_preference/news_preference_bloc.dart';
 import '../features/news/data/datasource/news_remote_data_source.dart';
 import '../features/news/data/repository/news_repository.dart';
 import '../features/news/domain/repository/news_repository.dart';
+import '../features/partner_services/presentation/bloc/parnter_services_bloc.dart';
+import '../features/partner_services/data/datasource/partner_services_remote_data_source.dart';
+import '../features/partner_services/domain/repositories/partner_services_repository.dart';
+import '../features/partner_services/data/repositories/partner_service_repository.dart';
 import '../features/resume/data/data_source/resume_remote_data_source.dart';
 import '../features/resume/domain/repository/resume_repository.dart';
 import '../features/resume/data/repository/resume_repository.dart';
@@ -89,6 +103,9 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<FileProvider>(() => FileProvider());
   gh.lazySingleton<FlutterSecureStorage>(
       () => flutterStorageModule.secureStorate);
+  gh.lazySingleton<JapaneseMannersRemoteDataSource>(() =>
+      JapaneseMannersRemoteDataSourceImpl(
+          client: get<Client>(), config: get<ConfigReader>()));
   gh.lazySingleton<LocationInformationLocalDataSourceProtocol>(() =>
       LocationInformationLocalDataSource(
           client: get<Client>(), config: get<ConfigReader>()));
@@ -99,6 +116,12 @@ Future<GetIt> $initGetIt(
       NetworkInfoImpl(dataConnectionChecker: get<DataConnectionChecker>()));
   gh.lazySingleton<NewsRemoteDataSourceProtocol>(() =>
       NewsRemoteDataSource(client: get<Client>(), config: get<ConfigReader>()));
+  gh.lazySingleton<PartnerServicesRemoteDataSource>(() =>
+      PartnerServicesRemoteDataSourceImpl(
+          client: get<Client>(), config: get<ConfigReader>()));
+  gh.lazySingleton<PartnerServicesRepository>(() =>
+      PartnerServicesRepositoryImpl(
+          remoteDataSource: get<PartnerServicesRemoteDataSource>()));
   final resolvedSharedPreferences = await sharedPreferenceModule.prefs;
   gh.factory<SharedPreferences>(() => resolvedSharedPreferences);
   gh.lazySingleton<AuthLocalDataSource>(() => AuthLocalDataSourceImpl(
@@ -126,6 +149,8 @@ Future<GetIt> $initGetIt(
       ));
   gh.lazySingleton<HomeReporisitory>(() =>
       HomeRepositoryImpl(remoteDataSource: get<HomePageRemoteDataSource>()));
+  gh.lazySingleton<JapaneseMannerRepository>(() => JapaneseMannerRepositoryImpl(
+      remoteDataSource: get<JapaneseMannersRemoteDataSource>()));
   gh.factory<LocationViaPostalCodeBloc>(() => LocationViaPostalCodeBloc(
       getPrefectureCityFromPostalCode: get<GetPrefectureCityFromPostalCode>()));
   gh.lazySingleton<LogoutUser>(
@@ -135,6 +160,8 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<NewsRepositoryProtocol>(() => NewsRepository(
       remoteDataSource: get<NewsRemoteDataSourceProtocol>(),
       localDataSource: get<NewsLocalDataSourceProtocol>()));
+  gh.factory<ParnterServicesBloc>(
+      () => ParnterServicesBloc(getPartnerServices: get<GetPartnerServices>()));
   gh.lazySingleton<ResumeRemoteDataSource>(() => ResumeRemoteDataSourceImpl(
         client: get<Client>(),
         config: get<ConfigReader>(),
@@ -178,13 +205,23 @@ Future<GetIt> $initGetIt(
   gh.lazySingleton<GetNewsForYou>(() => GetNewsForYou(
       repository: get<NewsRepositoryProtocol>(),
       networkInfo: get<NetworkInfo>()));
+  gh.lazySingleton<GetNewsGenre>(
+      () => GetNewsGenre(repository: get<NewsRepositoryProtocol>()));
+  gh.lazySingleton<GetNewsPreferences>(
+      () => GetNewsPreferences(repository: get<NewsRepositoryProtocol>()));
   gh.factory<GetResume>(() => GetResume(
       repository: get<ResumeRepository>(), networkInfo: get<NetworkInfo>()));
   gh.lazySingleton<HomePageDataBloc>(
       () => HomePageDataBloc(getHomePageData: get<GetHomePageData>()));
+  gh.factory<JapaneseMannerBloc>(
+      () => JapaneseMannerBloc(getJapaneseManner: get<GetJapaneseManner>()));
   gh.factory<LatestNewsBloc>(
       () => LatestNewsBloc(getNews: get<GetLatestNews>()));
   gh.factory<NewsBloc>(() => NewsBloc(getNews: get<GetNewsForYou>()));
+  gh.factory<NewsGenreBloc>(
+      () => NewsGenreBloc(getNewsGenre: get<GetNewsGenre>()));
+  gh.factory<NewsPreferenceBloc>(
+      () => NewsPreferenceBloc(getNewsPreferences: get<GetNewsPreferences>()));
   gh.lazySingleton<ResumeWatcherBloc>(
       () => ResumeWatcherBloc(getResume: get<GetResume>()));
   gh.factory<SignInFormBloc>(
@@ -201,6 +238,12 @@ Future<GetIt> $initGetIt(
   gh.singleton<DBProvider>(DBProviderImpl());
   gh.singleton<NewsLocalProvider>(
       NewsLocalProviderImpl(provider: get<DBProvider>()));
+  gh.singleton<GetPartnerServices>(GetPartnerServices(
+      repository: get<PartnerServicesRepository>(),
+      networkInfo: get<NetworkInfo>()));
+  gh.singleton<GetJapaneseManner>(GetJapaneseManner(
+      repository: get<JapaneseMannerRepository>(),
+      networkInfo: get<NetworkInfo>()));
   return get;
 }
 

@@ -6,6 +6,7 @@ import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/repository/resume_repository.dart';
+import 'package:wallet_app/utils/validator.dart';
 
 @injectable
 class UpdatePersonalInfo
@@ -26,9 +27,19 @@ class UpdatePersonalInfo
       return const Left(ApiFailure.noInternetConnection());
     }
 
+    if (params.furigana.isNotEmpty) {
+      final error = Validator.isNotKatakana(params.furigana,
+          placeholder: "Furigana field");
+
+      if (error != null) {
+        return Left(ApiFailure.serverError(message: error));
+      }
+    }
+
     final userData = PersonalInfo(
       firstName: params.firstName,
       lastName: params.lastName,
+      furigana: params.furigana,
       profession: params.profession,
       dob: params.dob,
       age: params.age,
@@ -50,6 +61,7 @@ class UpdatePersonalInfoParams {
     @required this.lang,
     @required this.firstName,
     @required this.lastName,
+    @required this.furigana,
     @required this.profession,
     @required this.dob,
     @required this.age,
@@ -63,6 +75,7 @@ class UpdatePersonalInfoParams {
 
   final String firstName;
   final String lastName;
+  final String furigana;
   final String profession;
   final String dob;
   final String age;

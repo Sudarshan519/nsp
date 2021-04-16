@@ -259,9 +259,9 @@ class _MotivationSpecialSkillsInputField extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.motivationsSpecialSkills != current.motivationsSpecialSkills,
       builder: (context, state) => FormFieldDecoration(
-        title: "Motivations",
+        title: "Motivations \nand Appeal Points",
         child: InputTextWidget(
-          hintText: "Motivations",
+          hintText: "Motivations and Appeal Points",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           controller: _controller,
@@ -292,13 +292,14 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
           children: [
             const SizedBox(height: 10),
             Row(
-              children: const [
-                Expanded(
+              children: [
+                const Expanded(
                   child: Center(child: Text("Hours")),
                 ),
-                Expanded(
-                  child: Center(child: Text("Minutes")),
-                ),
+                if (state.workinHours.toLowerCase() != "full-time")
+                  const Expanded(
+                    child: Center(child: Text("Minutes")),
+                  ),
               ],
             ),
             Row(
@@ -324,18 +325,19 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Flexible(
-                  child: CustomSearchableDropDownWidget(
-                    hintText: "Select minutes",
-                    value: state.workingMinutes,
-                    alignment: Alignment.centerRight,
-                    isEnable: false,
-                    options: const [
-                      "00",
-                      "30",
-                    ],
+                if (state.workinHours.toLowerCase() != "full-time")
+                  Flexible(
+                    child: CustomSearchableDropDownWidget(
+                      hintText: "Select minutes",
+                      value: state.workingMinutes,
+                      alignment: Alignment.centerRight,
+                      isEnable: false,
+                      options: const [
+                        "00",
+                        "30",
+                      ],
+                    ),
                   ),
-                ),
               ],
             ),
           ],

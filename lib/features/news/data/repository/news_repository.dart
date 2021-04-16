@@ -8,7 +8,9 @@ import 'package:wallet_app/features/news/data/datasource/news_local_data_source.
 import 'package:wallet_app/features/news/data/datasource/news_remote_data_source.dart';
 import 'package:wallet_app/features/news/data/model/news_item_model.dart';
 import 'package:wallet_app/features/news/domain/entity/news.dart';
+import 'package:wallet_app/features/news/domain/entity/news_genre.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
+import 'package:wallet_app/features/news/domain/entity/news_preference.dart';
 import 'package:wallet_app/features/news/domain/repository/news_repository.dart';
 
 @LazySingleton(as: NewsRepositoryProtocol)
@@ -70,6 +72,38 @@ class NewsRepository implements NewsRepositoryProtocol {
 
   @override
   Future saveFavouriteNews({@required NewsItem item}) async {
-    await localDataSource.saveFavouriteNews(news: NewsItemModel.fromNewsItem(item));
+    await localDataSource.saveFavouriteNews(
+        news: NewsItemModel.fromNewsItem(item));
   }
+
+  @override
+  Future<Either<ApiFailure, List<Genre>>> getGenreList() async {
+    try {
+      final list = await remoteDataSource.getGenreList();
+      return Right(list);
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    } catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.toString()));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, List<NewsPreference>>> getPreferenceList() async {
+    try {
+      final list = await remoteDataSource.getPreferenceList();
+      return Right(list);
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    } catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.toString()));
+    }
+  }
+
+  @override
+  Future saveGenreList({@required List<Genre> genre}) async {}
+
+  @override
+  Future saveNewsPreferences(
+      {@required List<NewsPreference> preference}) async {}
 }

@@ -40,6 +40,20 @@ class Services extends Equatable {
   final String companyAddressHeadStreet;
   final String description;
 
+  String get descriptionWithOutHtmlTags {
+    if (description != null) {
+      return removeAllHtmlTags(description);
+    }
+
+    return "";
+  }
+
+  String removeAllHtmlTags(String htmlText) {
+    final RegExp exp = RegExp("<[^>]*>", multiLine: true);
+
+    return htmlText.replaceAll(exp, '');
+  }
+
   @override
   List<Object> get props => [
         id,

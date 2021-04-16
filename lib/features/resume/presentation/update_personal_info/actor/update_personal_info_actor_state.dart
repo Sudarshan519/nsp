@@ -6,6 +6,7 @@ abstract class UpdatePersonalInfoActorState
   const factory UpdatePersonalInfoActorState({
     @required String firstName,
     @required String lastName,
+    @required String furigana,
     @required String profession,
     @required String dob,
     @required String age,
@@ -23,6 +24,7 @@ abstract class UpdatePersonalInfoActorState
       UpdatePersonalInfoActorState(
         firstName: '',
         lastName: '',
+        furigana: '',
         profession: '',
         dob: '',
         age: '',

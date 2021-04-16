@@ -247,6 +247,7 @@ class _JLPTLevelField extends StatelessWidget {
             "N3",
             "N4",
             "N5",
+            "NOT AVAILABLE",
           ],
           onChanged: (value) => context
               .read<UpdateOtherInfoActorBloc>()
@@ -373,9 +374,9 @@ class _MotivationInputField extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.motivationsSpecialSkills != current.motivationsSpecialSkills,
       builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Motivations",
+        title: "Motivations and Appeal Points",
         child: InputTextWidget(
-          hintText: "Motivations",
+          hintText: "Motivations and Appeal Points",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           controller: _controller,
@@ -408,15 +409,16 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
           children: [
             const SizedBox(height: 10),
             Row(
-              children: const [
-                SizedBox(
+              children: [
+                const SizedBox(
                   width: 120,
                   child: Center(child: Text("Hours")),
                 ),
-                SizedBox(
-                  width: 120,
-                  child: Center(child: Text("Minutes")),
-                ),
+                if (state.workinHours.toLowerCase() != "full-time")
+                  const SizedBox(
+                    width: 120,
+                    child: Center(child: Text("Minutes")),
+                  ),
               ],
             ),
             Row(
@@ -446,22 +448,23 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-                SizedBox(
-                  width: 125,
-                  child: CustomDropDownWidget(
-                    hintText: "Select minutes",
-                    value: state.workingMinutes,
-                    alignment: Alignment.topCenter,
-                    options: const [
-                      "00",
-                      "30",
-                    ],
-                    onChanged: (value) => context
-                        .read<UpdateOtherInfoActorBloc>()
-                        .add(UpdateOtherInfoActorEvent.changeWorkingMinutes(
-                            value)),
+                if (state.workinHours.toLowerCase() != "full-time")
+                  SizedBox(
+                    width: 125,
+                    child: CustomDropDownWidget(
+                      hintText: "Select minutes",
+                      value: state.workingMinutes,
+                      alignment: Alignment.topCenter,
+                      options: const [
+                        "00",
+                        "30",
+                      ],
+                      onChanged: (value) => context
+                          .read<UpdateOtherInfoActorBloc>()
+                          .add(UpdateOtherInfoActorEvent.changeWorkingMinutes(
+                              value)),
+                    ),
                   ),
-                ),
               ],
             ),
           ],
@@ -599,7 +602,7 @@ class _SpecialConditionInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Special Conditions or Request if any",
         child: InputTextWidget(
-          hintText: "Special Conditions or Request if any",
+          hintText: "Follow as per company rules and regulations.",
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           controller: _controller,
           onEditingCompleted: callBack,

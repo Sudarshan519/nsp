@@ -145,7 +145,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       return WalletUserModel.fromUnVerifiedUser();
     } else {
       throw ServerException(
-          message: errorMessageFromServer(response.body) ??
+          message: errorMessageFromServerWithError(response.body) ??
               AppConstants.someThingWentWrong);
     }
   }

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:wallet_app/features/home/domain/entities/japanese_manner.dart';
+import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/category_title_text.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';

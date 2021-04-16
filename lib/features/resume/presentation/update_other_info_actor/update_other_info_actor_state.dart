@@ -34,7 +34,7 @@ abstract class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
         numberOfDependent: '',
         isSpouse: '',
         isSpouseSupportObligation: '',
-        specialConditions: '',
+        specialConditions: 'Follow as per company rules and regulations.',
         knownLanguages: [],
         listOfHobbies: [],
         listOfSkills: [],

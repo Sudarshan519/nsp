@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="icon-logout" transform="translate(-28 -535)">
+    <g id="Ellipse_32" data-name="Ellipse 32" transform="translate(28 535)" fill="none" stroke="#dda601" stroke-width="1">
+      <circle cx="16" cy="16" r="16" stroke="none"/>
+      <circle cx="16" cy="16" r="15.5" fill="none"/>
+    </g>
+    <g id="logout_1_" data-name="logout(1)" transform="translate(37 542)">
+      <path id="Path_1017" data-name="Path 1017" d="M8.25,11.25a2.25,2.25,0,1,1,0-4.5H12V2.062A2.064,2.064,0,0,0,9.937,0H2.062A2.064,2.064,0,0,0,0,2.062V15.937A2.064,2.064,0,0,0,2.062,18H9.937A2.064,2.064,0,0,0,12,15.937V11.25Z" fill="#dda601"/>
+      <path id="Path_1018" data-name="Path 1018" d="M16.463,14.443A.751.751,0,0,1,16,13.75V11.5H10.75a.75.75,0,1,1,0-1.5H16V7.75a.75.75,0,0,1,1.28-.53l3,3a.749.749,0,0,1,0,1.06l-3,3A.75.75,0,0,1,16.463,14.443Z" transform="translate(-2.5 -1.75)" fill="#dda601"/>
+    </g>
+  </g>
+</svg>

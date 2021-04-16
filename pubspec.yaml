@@ -101,6 +101,9 @@ dependencies:
   #share
   share: ^0.6.5+4
 
+  #katakana
+  kana_kit: ^1.0.4
+
 dev_dependencies:
   integration_test: ^1.0.2+2
   flutter_test:
@@ -137,6 +140,7 @@ flutter:
     - assets/images/placeholders/
     - assets/images/resume/
     - assets/images/pop_up/
+    - assets/images/more/
     - config/
     - lib/features/location_information/data/datasource/json/
 

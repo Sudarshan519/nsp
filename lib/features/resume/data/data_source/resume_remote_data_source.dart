@@ -124,15 +124,19 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
   }) async {
     http.Response response;
 
-    final url =
-        "${config.resumeBaseUrl}${ResumeApiEndpoints.updateProfile}$lang";
-    final uuid = (await auth.getUserDetail())?.uuid ?? "";
+    // final url =
+    //     "${config.resumeBaseUrl}${ResumeApiEndpoints.updateProfile}$lang";
 
-    if (uuid.isEmpty) {
+    final url =
+        "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.updateProfile}$lang";
+    // final uuid = (await auth.getUserDetail())?.uuid ?? "";
+    final accessToken = (await auth.getWalletUser()).accessToken;
+
+    if (accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have uuid
     }
 
-    _headers["Authorization"] = "Bearer $uuid";
+    _headers["Authorization"] = "Bearer $accessToken";
 
     try {
       response = await client.post(

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:wallet_app/features/home/domain/entities/services.dart';
+import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 
 class ServicesModel extends Services {
   const ServicesModel({

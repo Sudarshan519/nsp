@@ -35,6 +35,9 @@ class UpdatePersonalInfoActorBloc
       changeLastName: (e) async* {
         yield _mapChangeLastNameToState(e);
       },
+      changeFuriganaName: (e) async* {
+        yield _mapChangeFuriganaNameToState(e);
+      },
       changeProfession: (e) async* {
         yield _mapChangeProfessionToState(e);
       },
@@ -71,6 +74,7 @@ class UpdatePersonalInfoActorBloc
       yield state.copyWith(
         firstName: userInfo.firstName ?? "",
         lastName: userInfo.lastName ?? "",
+        furigana: userInfo.furigana ?? "",
         profession: userInfo.profession ?? "",
         dob: userInfo.dob ?? "",
         age: userInfo.age ?? "",
@@ -98,6 +102,14 @@ class UpdatePersonalInfoActorBloc
       _ChangeLastName _changeLastName) {
     return state.copyWith(
       lastName: _changeLastName.name,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
+  UpdatePersonalInfoActorState _mapChangeFuriganaNameToState(
+      _ChangeFuriganaName _changeFuriganaName) {
+    return state.copyWith(
+      furigana: _changeFuriganaName.name,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -166,6 +178,7 @@ class UpdatePersonalInfoActorBloc
         lang: _lang,
         firstName: state.firstName,
         lastName: state.lastName,
+        furigana: state.furigana,
         profession: state.profession,
         dob: state.dob,
         age: state.age,

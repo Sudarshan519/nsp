@@ -28,6 +28,13 @@ class _$UpdatePersonalInfoActorEventTearOff {
   }
 
 // ignore: unused_element
+  _ChangeFuriganaName changeFuriganaName(String name) {
+    return _ChangeFuriganaName(
+      name,
+    );
+  }
+
+// ignore: unused_element
   _ChangeProfession changeProfession(String profession) {
     return _ChangeProfession(
       profession,
@@ -106,6 +113,7 @@ mixin _$UpdatePersonalInfoActorEvent {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -125,6 +133,7 @@ mixin _$UpdatePersonalInfoActorEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -141,6 +150,7 @@ mixin _$UpdatePersonalInfoActorEvent {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -155,6 +165,7 @@ mixin _$UpdatePersonalInfoActorEvent {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -249,6 +260,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -266,6 +278,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -283,6 +296,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -307,6 +321,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -319,6 +334,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -336,6 +352,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -426,6 +443,7 @@ class _$_ChangeLastName implements _ChangeLastName {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -443,6 +461,7 @@ class _$_ChangeLastName implements _ChangeLastName {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -460,6 +479,7 @@ class _$_ChangeLastName implements _ChangeLastName {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -484,6 +504,7 @@ class _$_ChangeLastName implements _ChangeLastName {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -496,6 +517,7 @@ class _$_ChangeLastName implements _ChangeLastName {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -513,6 +535,7 @@ class _$_ChangeLastName implements _ChangeLastName {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -538,6 +561,189 @@ abstract class _ChangeLastName implements UpdatePersonalInfoActorEvent {
   String get name;
   @JsonKey(ignore: true)
   _$ChangeLastNameCopyWith<_ChangeLastName> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ChangeFuriganaNameCopyWith<$Res> {
+  factory _$ChangeFuriganaNameCopyWith(
+          _ChangeFuriganaName value, $Res Function(_ChangeFuriganaName) then) =
+      __$ChangeFuriganaNameCopyWithImpl<$Res>;
+  $Res call({String name});
+}
+
+/// @nodoc
+class __$ChangeFuriganaNameCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
+    implements _$ChangeFuriganaNameCopyWith<$Res> {
+  __$ChangeFuriganaNameCopyWithImpl(
+      _ChangeFuriganaName _value, $Res Function(_ChangeFuriganaName) _then)
+      : super(_value, (v) => _then(v as _ChangeFuriganaName));
+
+  @override
+  _ChangeFuriganaName get _value => super._value as _ChangeFuriganaName;
+
+  @override
+  $Res call({
+    Object name = freezed,
+  }) {
+    return _then(_ChangeFuriganaName(
+      name == freezed ? _value.name : name as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ChangeFuriganaName implements _ChangeFuriganaName {
+  const _$_ChangeFuriganaName(this.name) : assert(name != null);
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'UpdatePersonalInfoActorEvent.changeFuriganaName(name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeFuriganaName &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeFuriganaNameCopyWith<_ChangeFuriganaName> get copyWith =>
+      __$ChangeFuriganaNameCopyWithImpl<_ChangeFuriganaName>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult changeFirstName(String name),
+    @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
+    @required TResult changeProfession(String profession),
+    @required TResult changeDob(String dob),
+    @required TResult changeAge(String age),
+    @required TResult changeGender(String gender),
+    @required TResult changeNationality(String nationality),
+    @required TResult changeEmail(String email),
+    @required TResult changePhone(String phone),
+    @required
+        TResult setInitialState(
+            PersonalInfo info,
+            List<String> listOfNationality,
+            List<String> listOfProfession,
+            String lang),
+    @required TResult save(),
+  }) {
+    assert(changeFirstName != null);
+    assert(changeLastName != null);
+    assert(changeFuriganaName != null);
+    assert(changeProfession != null);
+    assert(changeDob != null);
+    assert(changeAge != null);
+    assert(changeGender != null);
+    assert(changeNationality != null);
+    assert(changeEmail != null);
+    assert(changePhone != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeFuriganaName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult changeFirstName(String name),
+    TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
+    TResult changeProfession(String profession),
+    TResult changeDob(String dob),
+    TResult changeAge(String age),
+    TResult changeGender(String gender),
+    TResult changeNationality(String nationality),
+    TResult changeEmail(String email),
+    TResult changePhone(String phone),
+    TResult setInitialState(PersonalInfo info, List<String> listOfNationality,
+        List<String> listOfProfession, String lang),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeFuriganaName != null) {
+      return changeFuriganaName(name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult changeFirstName(_ChangeFirstName value),
+    @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
+    @required TResult changeProfession(_ChangeProfession value),
+    @required TResult changeDob(_ChangeDob value),
+    @required TResult changeAge(_ChangeAge value),
+    @required TResult changeGender(_ChangeGender value),
+    @required TResult changeNationality(_ChangeNationality value),
+    @required TResult changeEmail(_ChangeEmail value),
+    @required TResult changePhone(_ChangePhone value),
+    @required TResult setInitialState(_SetInitialState value),
+    @required TResult save(_Save value),
+  }) {
+    assert(changeFirstName != null);
+    assert(changeLastName != null);
+    assert(changeFuriganaName != null);
+    assert(changeProfession != null);
+    assert(changeDob != null);
+    assert(changeAge != null);
+    assert(changeGender != null);
+    assert(changeNationality != null);
+    assert(changeEmail != null);
+    assert(changePhone != null);
+    assert(setInitialState != null);
+    assert(save != null);
+    return changeFuriganaName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult changeFirstName(_ChangeFirstName value),
+    TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
+    TResult changeProfession(_ChangeProfession value),
+    TResult changeDob(_ChangeDob value),
+    TResult changeAge(_ChangeAge value),
+    TResult changeGender(_ChangeGender value),
+    TResult changeNationality(_ChangeNationality value),
+    TResult changeEmail(_ChangeEmail value),
+    TResult changePhone(_ChangePhone value),
+    TResult setInitialState(_SetInitialState value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeFuriganaName != null) {
+      return changeFuriganaName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeFuriganaName implements UpdatePersonalInfoActorEvent {
+  const factory _ChangeFuriganaName(String name) = _$_ChangeFuriganaName;
+
+  String get name;
+  @JsonKey(ignore: true)
+  _$ChangeFuriganaNameCopyWith<_ChangeFuriganaName> get copyWith;
 }
 
 /// @nodoc
@@ -604,6 +810,7 @@ class _$_ChangeProfession implements _ChangeProfession {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -621,6 +828,7 @@ class _$_ChangeProfession implements _ChangeProfession {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -638,6 +846,7 @@ class _$_ChangeProfession implements _ChangeProfession {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -662,6 +871,7 @@ class _$_ChangeProfession implements _ChangeProfession {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -674,6 +884,7 @@ class _$_ChangeProfession implements _ChangeProfession {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -691,6 +902,7 @@ class _$_ChangeProfession implements _ChangeProfession {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -780,6 +992,7 @@ class _$_ChangeDob implements _ChangeDob {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -797,6 +1010,7 @@ class _$_ChangeDob implements _ChangeDob {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -814,6 +1028,7 @@ class _$_ChangeDob implements _ChangeDob {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -838,6 +1053,7 @@ class _$_ChangeDob implements _ChangeDob {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -850,6 +1066,7 @@ class _$_ChangeDob implements _ChangeDob {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -867,6 +1084,7 @@ class _$_ChangeDob implements _ChangeDob {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -956,6 +1174,7 @@ class _$_ChangeAge implements _ChangeAge {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -973,6 +1192,7 @@ class _$_ChangeAge implements _ChangeAge {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -990,6 +1210,7 @@ class _$_ChangeAge implements _ChangeAge {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -1014,6 +1235,7 @@ class _$_ChangeAge implements _ChangeAge {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -1026,6 +1248,7 @@ class _$_ChangeAge implements _ChangeAge {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1043,6 +1266,7 @@ class _$_ChangeAge implements _ChangeAge {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -1133,6 +1357,7 @@ class _$_ChangeGender implements _ChangeGender {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -1150,6 +1375,7 @@ class _$_ChangeGender implements _ChangeGender {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1167,6 +1393,7 @@ class _$_ChangeGender implements _ChangeGender {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -1191,6 +1418,7 @@ class _$_ChangeGender implements _ChangeGender {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -1203,6 +1431,7 @@ class _$_ChangeGender implements _ChangeGender {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1220,6 +1449,7 @@ class _$_ChangeGender implements _ChangeGender {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -1311,6 +1541,7 @@ class _$_ChangeNationality implements _ChangeNationality {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -1328,6 +1559,7 @@ class _$_ChangeNationality implements _ChangeNationality {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1345,6 +1577,7 @@ class _$_ChangeNationality implements _ChangeNationality {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -1369,6 +1602,7 @@ class _$_ChangeNationality implements _ChangeNationality {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -1381,6 +1615,7 @@ class _$_ChangeNationality implements _ChangeNationality {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1398,6 +1633,7 @@ class _$_ChangeNationality implements _ChangeNationality {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -1488,6 +1724,7 @@ class _$_ChangeEmail implements _ChangeEmail {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -1505,6 +1742,7 @@ class _$_ChangeEmail implements _ChangeEmail {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1522,6 +1760,7 @@ class _$_ChangeEmail implements _ChangeEmail {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -1546,6 +1785,7 @@ class _$_ChangeEmail implements _ChangeEmail {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -1558,6 +1798,7 @@ class _$_ChangeEmail implements _ChangeEmail {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1575,6 +1816,7 @@ class _$_ChangeEmail implements _ChangeEmail {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -1665,6 +1907,7 @@ class _$_ChangePhone implements _ChangePhone {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -1682,6 +1925,7 @@ class _$_ChangePhone implements _ChangePhone {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1699,6 +1943,7 @@ class _$_ChangePhone implements _ChangePhone {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -1723,6 +1968,7 @@ class _$_ChangePhone implements _ChangePhone {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -1735,6 +1981,7 @@ class _$_ChangePhone implements _ChangePhone {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1752,6 +1999,7 @@ class _$_ChangePhone implements _ChangePhone {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -1882,6 +2130,7 @@ class _$_SetInitialState implements _SetInitialState {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -1899,6 +2148,7 @@ class _$_SetInitialState implements _SetInitialState {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1916,6 +2166,7 @@ class _$_SetInitialState implements _SetInitialState {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -1940,6 +2191,7 @@ class _$_SetInitialState implements _SetInitialState {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -1952,6 +2204,7 @@ class _$_SetInitialState implements _SetInitialState {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -1969,6 +2222,7 @@ class _$_SetInitialState implements _SetInitialState {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -2042,6 +2296,7 @@ class _$_Save implements _Save {
   TResult when<TResult extends Object>({
     @required TResult changeFirstName(String name),
     @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
     @required TResult changeProfession(String profession),
     @required TResult changeDob(String dob),
     @required TResult changeAge(String age),
@@ -2059,6 +2314,7 @@ class _$_Save implements _Save {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -2076,6 +2332,7 @@ class _$_Save implements _Save {
   TResult maybeWhen<TResult extends Object>({
     TResult changeFirstName(String name),
     TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
     TResult changeProfession(String profession),
     TResult changeDob(String dob),
     TResult changeAge(String age),
@@ -2100,6 +2357,7 @@ class _$_Save implements _Save {
   TResult map<TResult extends Object>({
     @required TResult changeFirstName(_ChangeFirstName value),
     @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
     @required TResult changeProfession(_ChangeProfession value),
     @required TResult changeDob(_ChangeDob value),
     @required TResult changeAge(_ChangeAge value),
@@ -2112,6 +2370,7 @@ class _$_Save implements _Save {
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
+    assert(changeFuriganaName != null);
     assert(changeProfession != null);
     assert(changeDob != null);
     assert(changeAge != null);
@@ -2129,6 +2388,7 @@ class _$_Save implements _Save {
   TResult maybeMap<TResult extends Object>({
     TResult changeFirstName(_ChangeFirstName value),
     TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
     TResult changeProfession(_ChangeProfession value),
     TResult changeDob(_ChangeDob value),
     TResult changeAge(_ChangeAge value),
@@ -2160,6 +2420,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
   _UpdatePersonalInfoActorState call(
       {@required String firstName,
       @required String lastName,
+      @required String furigana,
       @required String profession,
       @required String dob,
       @required String age,
@@ -2174,6 +2435,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
     return _UpdatePersonalInfoActorState(
       firstName: firstName,
       lastName: lastName,
+      furigana: furigana,
       profession: profession,
       dob: dob,
       age: age,
@@ -2197,6 +2459,7 @@ const $UpdatePersonalInfoActorState = _$UpdatePersonalInfoActorStateTearOff();
 mixin _$UpdatePersonalInfoActorState {
   String get firstName;
   String get lastName;
+  String get furigana;
   String get profession;
   String get dob;
   String get age;
@@ -2223,6 +2486,7 @@ abstract class $UpdatePersonalInfoActorStateCopyWith<$Res> {
   $Res call(
       {String firstName,
       String lastName,
+      String furigana,
       String profession,
       String dob,
       String age,
@@ -2249,6 +2513,7 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
   $Res call({
     Object firstName = freezed,
     Object lastName = freezed,
+    Object furigana = freezed,
     Object profession = freezed,
     Object dob = freezed,
     Object age = freezed,
@@ -2264,6 +2529,7 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     return _then(_value.copyWith(
       firstName: firstName == freezed ? _value.firstName : firstName as String,
       lastName: lastName == freezed ? _value.lastName : lastName as String,
+      furigana: furigana == freezed ? _value.furigana : furigana as String,
       profession:
           profession == freezed ? _value.profession : profession as String,
       dob: dob == freezed ? _value.dob : dob as String,
@@ -2299,6 +2565,7 @@ abstract class _$UpdatePersonalInfoActorStateCopyWith<$Res>
   $Res call(
       {String firstName,
       String lastName,
+      String furigana,
       String profession,
       String dob,
       String age,
@@ -2329,6 +2596,7 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
   $Res call({
     Object firstName = freezed,
     Object lastName = freezed,
+    Object furigana = freezed,
     Object profession = freezed,
     Object dob = freezed,
     Object age = freezed,
@@ -2344,6 +2612,7 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     return _then(_UpdatePersonalInfoActorState(
       firstName: firstName == freezed ? _value.firstName : firstName as String,
       lastName: lastName == freezed ? _value.lastName : lastName as String,
+      furigana: furigana == freezed ? _value.furigana : furigana as String,
       profession:
           profession == freezed ? _value.profession : profession as String,
       dob: dob == freezed ? _value.dob : dob as String,
@@ -2373,6 +2642,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
   const _$_UpdatePersonalInfoActorState(
       {@required this.firstName,
       @required this.lastName,
+      @required this.furigana,
       @required this.profession,
       @required this.dob,
       @required this.age,
@@ -2386,6 +2656,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       @required this.authFailureOrSuccessOption})
       : assert(firstName != null),
         assert(lastName != null),
+        assert(furigana != null),
         assert(profession != null),
         assert(dob != null),
         assert(age != null),
@@ -2402,6 +2673,8 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
   final String firstName;
   @override
   final String lastName;
+  @override
+  final String furigana;
   @override
   final String profession;
   @override
@@ -2427,7 +2700,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoActorState(firstName: $firstName, lastName: $lastName, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdatePersonalInfoActorState(firstName: $firstName, lastName: $lastName, furigana: $furigana, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -2440,6 +2713,9 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
             (identical(other.lastName, lastName) ||
                 const DeepCollectionEquality()
                     .equals(other.lastName, lastName)) &&
+            (identical(other.furigana, furigana) ||
+                const DeepCollectionEquality()
+                    .equals(other.furigana, furigana)) &&
             (identical(other.profession, profession) ||
                 const DeepCollectionEquality()
                     .equals(other.profession, profession)) &&
@@ -2477,6 +2753,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(firstName) ^
       const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(furigana) ^
       const DeepCollectionEquality().hash(profession) ^
       const DeepCollectionEquality().hash(dob) ^
       const DeepCollectionEquality().hash(age) ^
@@ -2503,6 +2780,8 @@ abstract class _UpdatePersonalInfoActorState
               String firstName,
           @required
               String lastName,
+          @required
+              String furigana,
           @required
               String profession,
           @required
@@ -2531,6 +2810,8 @@ abstract class _UpdatePersonalInfoActorState
   String get firstName;
   @override
   String get lastName;
+  @override
+  String get furigana;
   @override
   String get profession;
   @override

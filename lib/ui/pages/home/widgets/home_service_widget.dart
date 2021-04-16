@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:wallet_app/features/home/domain/entities/services.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/category_title_text.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -150,11 +151,10 @@ class HomeServiceWidget extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              services?.description ?? "",
+              services?.descriptionWithOutHtmlTags ?? "",
               style: const TextStyle(
                 fontWeight: FontWeight.w400,
               ),
-              // textAlign: TextAlign.justify,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),

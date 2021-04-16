@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="icon-terms" transform="translate(-28 -483)">
+    <g id="Ellipse_31" data-name="Ellipse 31" transform="translate(28 483)" fill="none" stroke="#dda601" stroke-width="1">
+      <circle cx="16" cy="16" r="16" stroke="none"/>
+      <circle cx="16" cy="16" r="15.5" fill="none"/>
+    </g>
+    <g id="google-docs" transform="translate(-24 490)">
+      <path id="Path_1015" data-name="Path 1015" d="M62.577,18H73.093a1.581,1.581,0,0,0,1.577-1.582V5.273H70.99a1.581,1.581,0,0,1-1.577-1.582V0H62.577A1.581,1.581,0,0,0,61,1.582V16.418A1.581,1.581,0,0,0,62.577,18Zm2.1-10.582h6.31a.527.527,0,0,1,0,1.055h-6.31a.527.527,0,0,1,0-1.055Zm0,2.109h6.31a.527.527,0,0,1,0,1.055h-6.31a.527.527,0,0,1,0-1.055Zm0,2.109h6.31a.527.527,0,0,1,0,1.055h-6.31a.527.527,0,0,1,0-1.055Zm0,2.109h4.206a.527.527,0,0,1,0,1.055H64.681a.527.527,0,0,1,0-1.055Z" fill="#dda601"/>
+      <path id="Path_1016" data-name="Path 1016" d="M331.526,12.687H334.9l-3.9-3.9v3.373A.526.526,0,0,0,331.526,12.687Z" transform="translate(-260.536 -8.481)" fill="#dda601"/>
+    </g>
+  </g>
+</svg>

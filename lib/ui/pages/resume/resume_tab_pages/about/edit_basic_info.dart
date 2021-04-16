@@ -136,6 +136,8 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             const SizedBox(height: 20),
             _FamilyNameInputField(callBack: () {}),
             const SizedBox(height: 20),
+            const _FuriganaInputField(),
+            const SizedBox(height: 20),
             _ProfessionInputField(callBack: () {}),
             const SizedBox(height: 20),
             _DateofBirthInputField(callBack: () {}),
@@ -261,6 +263,39 @@ class _FamilyNameInputField extends StatelessWidget {
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeLastName(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _FuriganaInputField extends StatelessWidget {
+  const _FuriganaInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final TextEditingController _controller = TextEditingController();
+    return BlocConsumer<UpdatePersonalInfoActorBloc,
+        UpdatePersonalInfoActorState>(
+      listenWhen: (previous, current) => previous.furigana != current.furigana,
+      listener: (context, state) {
+        final TextSelection previousSelection = _controller.selection;
+        _controller.text = state.furigana;
+        _controller.selection = previousSelection;
+      },
+      buildWhen: (previous, current) => previous.furigana != current.furigana,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Furigana",
+        child: InputTextWidget(
+          hintText: "Furigana (Japanese Katakana)",
+          textInputType: TextInputType.name,
+          validator: Validator.isNotKatakana,
+          controller: _controller,
+          onChanged: (value) => context
+              .read<UpdatePersonalInfoActorBloc>()
+              .add(UpdatePersonalInfoActorEvent.changeFuriganaName(value)),
         ),
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:wallet_app/features/home/domain/entities/japanese_manner.dart';
+import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner.dart';
 
 class JapaneseMannerModel extends JapaneseManner {
   const JapaneseMannerModel({

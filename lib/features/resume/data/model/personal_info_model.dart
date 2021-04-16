@@ -206,6 +206,10 @@ class PersonalInfoModel extends PersonalInfo {
       params["last_name"] = lastName;
     }
 
+    if (furigana != null) {
+      params["furigana"] = furigana;
+    }
+
     if (profession != null) {
       params["profession"] = profession;
     }

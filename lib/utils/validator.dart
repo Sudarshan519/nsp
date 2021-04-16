@@ -1,4 +1,5 @@
 import 'package:form_validator/form_validator.dart';
+import 'package:kana_kit/kana_kit.dart';
 
 class Validator {
   static String isValidEmail(String email) {
@@ -19,5 +20,16 @@ class Validator {
         .minLength(3,
             "${placeholder ?? "This field"} should be atleast 3 character long.")
         .build())(name);
+  }
+
+  static String isNotKatakana(String name, {String placeholder}) {
+    if (name.isEmpty) {
+      return null;
+    }
+    if (!(const KanaKit()
+        .isKatakana(name.replaceAll(' ', '').replaceAll('　', '')))) {
+      return "${placeholder ?? "This field"} should be in Katakana";
+    }
+    return null;
   }
 }

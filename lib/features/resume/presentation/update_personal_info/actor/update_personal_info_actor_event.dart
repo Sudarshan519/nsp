@@ -7,6 +7,8 @@ abstract class UpdatePersonalInfoActorEvent
       _ChangeFirstName;
   const factory UpdatePersonalInfoActorEvent.changeLastName(String name) =
       _ChangeLastName;
+  const factory UpdatePersonalInfoActorEvent.changeFuriganaName(String name) =
+      _ChangeFuriganaName;
   const factory UpdatePersonalInfoActorEvent.changeProfession(
       String profession) = _ChangeProfession;
   const factory UpdatePersonalInfoActorEvent.changeDob(String dob) = _ChangeDob;

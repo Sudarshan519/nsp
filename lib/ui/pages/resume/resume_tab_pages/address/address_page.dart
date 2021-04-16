@@ -145,7 +145,7 @@ class AddressPage extends StatelessWidget {
                 Row(
                   children: [
                     const Text(
-                      "Permanent Address",
+                      "Contact Address",
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
