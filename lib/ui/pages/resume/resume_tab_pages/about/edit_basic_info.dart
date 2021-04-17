@@ -41,12 +41,14 @@ class EditBasicInfoForm extends StatelessWidget {
     );
     return BlocProvider(
       create: (context) => aboutPageActor
-        ..add(UpdatePersonalInfoActorEvent.setInitialState(
-          info: info,
-          listOfNationality: listOfNationality,
-          listOfProfession: listOfProfession,
-          lang: lang,
-        )),
+        ..add(
+          UpdatePersonalInfoActorEvent.setInitialState(
+            info: info,
+            listOfNationality: listOfNationality,
+            listOfProfession: listOfProfession,
+            lang: lang,
+          ),
+        ),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -108,6 +110,9 @@ class EditBasicInfoForm extends StatelessWidget {
       builder: (context, state) {
         if (state.isSubmitting) {
           return loadingPage();
+        }
+        if (state.hasSetInitialData) {
+          return _EditBasicInfoFormBody(key: UniqueKey());
         }
         return const _EditBasicInfoFormBody();
       },
@@ -205,15 +210,8 @@ class _NameInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.firstName != current.firstName,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.firstName;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.firstName != current.firstName,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Name",
@@ -221,7 +219,7 @@ class _NameInputField extends StatelessWidget {
           hintText: "Name",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.firstName,
           onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
@@ -243,14 +241,8 @@ class _FamilyNameInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) => previous.lastName != current.lastName,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.lastName;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.lastName != current.lastName,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Family Name",
@@ -258,7 +250,7 @@ class _FamilyNameInputField extends StatelessWidget {
           hintText: "Family Name",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.lastName,
           onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
@@ -276,15 +268,8 @@ class _FuriganaInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) => previous.furigana != current.furigana,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.furigana;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.furigana != current.furigana,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Furigana",
@@ -292,7 +277,7 @@ class _FuriganaInputField extends StatelessWidget {
           hintText: "Furigana (Japanese Katakana)",
           textInputType: TextInputType.name,
           validator: Validator.isNotKatakana,
-          controller: _controller,
+          value: state.furigana,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeFuriganaName(value)),
@@ -378,21 +363,15 @@ class _AgeInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) => previous.age != current.age,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.age;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.age != current.age,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Age",
         child: InputTextWidget(
           hintText: "Age",
           textInputType: TextInputType.number,
-          controller: _controller,
+          value: state.age,
           onEditingCompleted: callBack,
           isEnable: false,
           onChanged: (_) {},
@@ -470,15 +449,8 @@ class _EmailInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) => previous.email != current.email,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.email;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Email",
@@ -486,7 +458,7 @@ class _EmailInputField extends StatelessWidget {
           hintText: "Email",
           textInputType: TextInputType.emailAddress,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.email,
           isEnable: false,
           onEditingCompleted: callBack,
           onChanged: (value) => context

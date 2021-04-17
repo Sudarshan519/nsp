@@ -100,6 +100,9 @@ class EditQualificationInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
+        if (state.hasSetInitialData) {
+          return _EditBasicInfoFormBody(key: UniqueKey());
+        }
         return const _EditBasicInfoFormBody();
       },
     );
@@ -179,24 +182,16 @@ class _NameOfQualificationField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateQualificationInfoActorBloc,
+    return BlocBuilder<UpdateQualificationInfoActorBloc,
         UpdateQualificationInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.qualificationName != current.qualificationName,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.qualificationName;
-        _controller.selection = previousSelection;
-      },
-      buildWhen: (previous, current) =>
-          previous.qualificationName != current.qualificationName,
+      // buildWhen: (previous, current) =>
+      //     previous.qualificationName != current.qualificationName,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Name of the qualification",
         child: InputTextWidget(
           hintText: "AWS Certification",
           textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.qualificationName,
           onChanged: (value) => context
               .read<UpdateQualificationInfoActorBloc>()
               .add(UpdateQualificationInfoActorEvent.changedQualificationName(

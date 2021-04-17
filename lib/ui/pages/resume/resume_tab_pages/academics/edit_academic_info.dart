@@ -104,6 +104,9 @@ class EditAcademicInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
+        if (state.hasSetInitialData) {
+          return _EditBasicInfoFormBody(key: UniqueKey());
+        }
         return const _EditBasicInfoFormBody();
       },
     );
@@ -187,15 +190,8 @@ class _NameOfInstituteField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateAcademicInfoActorBloc,
+    return BlocBuilder<UpdateAcademicInfoActorBloc,
         UpdateAcademicInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.nameOfInstitute != current.nameOfInstitute,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.nameOfInstitute;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) =>
           previous.nameOfInstitute != current.nameOfInstitute,
       builder: (context, state) => TextWidetWithLabelAndChild(
@@ -204,7 +200,7 @@ class _NameOfInstituteField extends StatelessWidget {
           hintText: "Name of Institute",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.nameOfInstitute,
           onChanged: (value) => context
               .read<UpdateAcademicInfoActorBloc>()
               .add(UpdateAcademicInfoActorEvent.changedNameOfInstitute(value)),

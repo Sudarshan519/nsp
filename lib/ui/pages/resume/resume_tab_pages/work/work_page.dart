@@ -28,6 +28,7 @@ class WorkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      key: UniqueKey(),
       children: [
         SingleChildScrollView(
           child: Column(
@@ -102,8 +103,19 @@ class _CreateWorkInfoBox extends StatelessWidget {
             lang,
           ),
         ),
-      child: _createBody(context, actor, work),
+      child: _bodyBlocBuilder(context, actor, work),
     );
+  }
+
+  Widget _bodyBlocBuilder(
+      BuildContext context, UpdateWorkInfoActorBloc actor, WorkHistory work) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+        builder: (context, state) {
+      if (state.isSubmitting) {
+        return loadingPage();
+      }
+      return _createBody(context, actor, work);
+    });
   }
 
   Widget _createBody(BuildContext context, UpdateWorkInfoActorBloc actorBloc,
@@ -111,6 +123,7 @@ class _CreateWorkInfoBox extends StatelessWidget {
     return ShadowBoxWidget(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
       child: Column(
+        key: UniqueKey(),
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
@@ -167,24 +180,16 @@ class _NameOfCompanyField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.nameOfComapny != current.nameOfComapny,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.nameOfComapny;
-        _controller.selection = previousSelection;
-      },
-      buildWhen: (previous, current) =>
-          previous.nameOfComapny != current.nameOfComapny,
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      // buildWhen: (previous, current) =>
+      //     previous.nameOfComapny != current.nameOfComapny,
       builder: (context, state) => FormFieldDecoration(
         title: "Name of the company",
         child: InputTextWidget(
           hintText: "XYZ Company",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.nameOfComapny,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context
@@ -435,24 +440,14 @@ class _PurposeOfResignField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      // listenWhen: (previous, current) =>
-      //     previous.firstName != current.firstName,
-      listener: (context, state) {
-        // final TextSelection previousSelection = _controller.selection;
-        // _controller.text = state.firstName;
-        // _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       // buildWhen: (previous, current) =>
-      //     previous.nameOfComapny != current.nameOfComapny,
-      buildWhen: (previous, current) =>
-          previous.startedYear != current.startedYear,
+      //     previous.startedYear != current.startedYear,
       builder: (context, state) => FormFieldDecoration(
         title: "Purpose of Resign",
         child: InputTextWidget(
           hintText: "Purpose of Resign",
-          controller: _controller,
+          value: state.purposeOfResign,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) {},

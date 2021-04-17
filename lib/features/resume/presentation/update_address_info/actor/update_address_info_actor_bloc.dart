@@ -89,6 +89,10 @@ class UpdateAddressInfoActorBloc
 
   Stream<UpdateAddressInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
     final userInfo = _setInitialState.info;
     final listOfCountry = await getCountries();
 
@@ -124,6 +128,7 @@ class UpdateAddressInfoActorBloc
         listOfCurrCities: _currCityArray,
         listOfContCities: _contCityArray,
         isSubmitting: false,
+        hasSetInitialData: true,
         authFailureOrSuccessOption: none(),
       );
     }
@@ -135,6 +140,7 @@ class UpdateAddressInfoActorBloc
       currCountry: _changedCountry.country,
       currPrefecture: '',
       currCity: '',
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -143,6 +149,7 @@ class UpdateAddressInfoActorBloc
       _ChangedCurrPostalCode _changedPostalCode) {
     return state.copyWith(
       currPostalCode: _changedPostalCode.code,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -181,6 +188,7 @@ class UpdateAddressInfoActorBloc
       listOfNepaliProvinces: listOfPrefectures,
       listOfCurrCities: listOfCurrCities,
       currCity: '',
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -196,6 +204,7 @@ class UpdateAddressInfoActorBloc
     return state.copyWith(
       currCity: _changedCity.city,
       listOfCurrCities: listOfCities,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -212,6 +221,7 @@ class UpdateAddressInfoActorBloc
       _ChangedCurrPhone _changedPhone) {
     return state.copyWith(
       currPhone: _changedPhone.phone,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -229,6 +239,7 @@ class UpdateAddressInfoActorBloc
       contAddress: sameAsCurrAddressInfo ? state.currAddress : "",
       contPhone: sameAsCurrAddressInfo ? state.currPhone : "",
       isSubmitting: false,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -239,6 +250,7 @@ class UpdateAddressInfoActorBloc
       contCountry: _changedCountry.country,
       currPrefecture: '',
       currCity: '',
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -247,6 +259,7 @@ class UpdateAddressInfoActorBloc
       _ChangedContPostalCode _changedPostalCode) {
     return state.copyWith(
       contPostalCode: _changedPostalCode.code,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -265,8 +278,8 @@ class UpdateAddressInfoActorBloc
     yield state.copyWith(
       contPrefecture: _changedPrefecture.prefecture,
       listOfContCities: listOfContCities,
-      // listOfPrefectures: listOfPrefectures,
       contCity: '',
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -285,6 +298,7 @@ class UpdateAddressInfoActorBloc
       listOfContCities: listOfContCities,
       // listOfPrefectures: listOfPrefectures,
       contCity: '',
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -298,6 +312,7 @@ class UpdateAddressInfoActorBloc
     return state.copyWith(
       contCity: _changedCity.city,
       listOfContCities: listOfCities,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -306,6 +321,7 @@ class UpdateAddressInfoActorBloc
       _ChangedContAddress _changedAddress) {
     return state.copyWith(
       contAddress: _changedAddress.address,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -314,6 +330,7 @@ class UpdateAddressInfoActorBloc
       _ChangedContPhone _changedPhone) {
     return state.copyWith(
       contPhone: _changedPhone.phone,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -343,6 +360,7 @@ class UpdateAddressInfoActorBloc
 
     yield state.copyWith(
       isSubmitting: false,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
@@ -351,11 +369,9 @@ class UpdateAddressInfoActorBloc
     @required String country,
     @required String prefectureName,
   }) async {
-    // if (country.toLowerCase() != "japan" || country.toLowerCase() != "nepal") {
-    //   return [];
-    // }
-
-    // debugPrint("Japan or Nepal");
+    if (prefectureName == null) {
+      return [];
+    }
 
     if (prefectureName.isNotEmpty) {
       final result =

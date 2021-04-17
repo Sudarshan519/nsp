@@ -12,6 +12,7 @@ abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
     @required String purposeOfResign,
     @required List<String> typeOfCompanyList,
     @required bool isSubmitting,
+    @required bool hasSetInitialData,
     @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
   }) = _UpdateWorkInfoActorState;
 
@@ -25,6 +26,7 @@ abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
         purposeOfResign: '',
         typeOfCompanyList: [],
         isSubmitting: false,
+        hasSetInitialData: false,
         authFailureOrSuccessOption: none(),
       );
 }

@@ -1632,6 +1632,7 @@ class _$UpdateWorkInfoActorStateTearOff {
       @required String purposeOfResign,
       @required List<String> typeOfCompanyList,
       @required bool isSubmitting,
+      @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateWorkInfoActorState(
       nameOfComapny: nameOfComapny,
@@ -1643,6 +1644,7 @@ class _$UpdateWorkInfoActorStateTearOff {
       purposeOfResign: purposeOfResign,
       typeOfCompanyList: typeOfCompanyList,
       isSubmitting: isSubmitting,
+      hasSetInitialData: hasSetInitialData,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
@@ -1663,6 +1665,7 @@ mixin _$UpdateWorkInfoActorState {
   String get purposeOfResign;
   List<String> get typeOfCompanyList;
   bool get isSubmitting;
+  bool get hasSetInitialData;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -1684,6 +1687,7 @@ abstract class $UpdateWorkInfoActorStateCopyWith<$Res> {
       String purposeOfResign,
       List<String> typeOfCompanyList,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -1707,6 +1711,7 @@ class _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
     Object purposeOfResign = freezed,
     Object typeOfCompanyList = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1730,6 +1735,9 @@ class _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
           : typeOfCompanyList as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -1754,6 +1762,7 @@ abstract class _$UpdateWorkInfoActorStateCopyWith<$Res>
       String purposeOfResign,
       List<String> typeOfCompanyList,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -1780,6 +1789,7 @@ class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
     Object purposeOfResign = freezed,
     Object typeOfCompanyList = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateWorkInfoActorState(
@@ -1803,6 +1813,9 @@ class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
           : typeOfCompanyList as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -1822,6 +1835,7 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
       @required this.purposeOfResign,
       @required this.typeOfCompanyList,
       @required this.isSubmitting,
+      @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
       : assert(nameOfComapny != null),
         assert(companyType != null),
@@ -1832,6 +1846,7 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
         assert(purposeOfResign != null),
         assert(typeOfCompanyList != null),
         assert(isSubmitting != null),
+        assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
   @override
@@ -1853,11 +1868,13 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
   @override
   final bool isSubmitting;
   @override
+  final bool hasSetInitialData;
+  @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdateWorkInfoActorState(nameOfComapny: $nameOfComapny, companyType: $companyType, startedYear: $startedYear, startedMonth: $startedMonth, endYear: $endYear, endMonth: $endMonth, purposeOfResign: $purposeOfResign, typeOfCompanyList: $typeOfCompanyList, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateWorkInfoActorState(nameOfComapny: $nameOfComapny, companyType: $companyType, startedYear: $startedYear, startedMonth: $startedMonth, endYear: $endYear, endMonth: $endMonth, purposeOfResign: $purposeOfResign, typeOfCompanyList: $typeOfCompanyList, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -1891,6 +1908,9 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.hasSetInitialData, hasSetInitialData) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
             (identical(other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -1910,6 +1930,7 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
       const DeepCollectionEquality().hash(purposeOfResign) ^
       const DeepCollectionEquality().hash(typeOfCompanyList) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -1940,6 +1961,8 @@ abstract class _UpdateWorkInfoActorState implements UpdateWorkInfoActorState {
           @required
               bool isSubmitting,
           @required
+              bool hasSetInitialData,
+          @required
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateWorkInfoActorState;
 
@@ -1961,6 +1984,8 @@ abstract class _UpdateWorkInfoActorState implements UpdateWorkInfoActorState {
   List<String> get typeOfCompanyList;
   @override
   bool get isSubmitting;
+  @override
+  bool get hasSetInitialData;
   @override
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
   @override

@@ -3269,6 +3269,7 @@ class _$UpdateOtherInfoActorStateTearOff {
       @required List<String> listOfHobbies,
       @required List<String> listOfSkills,
       @required bool isSubmitting,
+      @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateOtherInfoActorState(
       languages: languages,
@@ -3287,6 +3288,7 @@ class _$UpdateOtherInfoActorStateTearOff {
       listOfHobbies: listOfHobbies,
       listOfSkills: listOfSkills,
       isSubmitting: isSubmitting,
+      hasSetInitialData: hasSetInitialData,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
@@ -3314,6 +3316,7 @@ mixin _$UpdateOtherInfoActorState {
   List<String> get listOfHobbies;
   List<String> get listOfSkills;
   bool get isSubmitting;
+  bool get hasSetInitialData;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -3342,6 +3345,7 @@ abstract class $UpdateOtherInfoActorStateCopyWith<$Res> {
       List<String> listOfHobbies,
       List<String> listOfSkills,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -3372,6 +3376,7 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
     Object listOfHobbies = freezed,
     Object listOfSkills = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -3410,6 +3415,9 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
           : listOfSkills as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -3441,6 +3449,7 @@ abstract class _$UpdateOtherInfoActorStateCopyWith<$Res>
       List<String> listOfHobbies,
       List<String> listOfSkills,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -3474,6 +3483,7 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
     Object listOfHobbies = freezed,
     Object listOfSkills = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateOtherInfoActorState(
@@ -3512,6 +3522,9 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
           : listOfSkills as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -3538,6 +3551,7 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
       @required this.listOfHobbies,
       @required this.listOfSkills,
       @required this.isSubmitting,
+      @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
       : assert(languages != null),
         assert(JLPTLevel != null),
@@ -3555,6 +3569,7 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
         assert(listOfHobbies != null),
         assert(listOfSkills != null),
         assert(isSubmitting != null),
+        assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
   @override
@@ -3590,11 +3605,13 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   @override
   final bool isSubmitting;
   @override
+  final bool hasSetInitialData;
+  @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdateOtherInfoActorState(languages: $languages, JLPTLevel: $JLPTLevel, selfPR: $selfPR, motivationsSpecialSkills: $motivationsSpecialSkills, hobbies: $hobbies, skills: $skills, workinHours: $workinHours, workingMinutes: $workingMinutes, numberOfDependent: $numberOfDependent, isSpouse: $isSpouse, isSpouseSupportObligation: $isSpouseSupportObligation, specialConditions: $specialConditions, knownLanguages: $knownLanguages, listOfHobbies: $listOfHobbies, listOfSkills: $listOfSkills, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateOtherInfoActorState(languages: $languages, JLPTLevel: $JLPTLevel, selfPR: $selfPR, motivationsSpecialSkills: $motivationsSpecialSkills, hobbies: $hobbies, skills: $skills, workinHours: $workinHours, workingMinutes: $workingMinutes, numberOfDependent: $numberOfDependent, isSpouse: $isSpouse, isSpouseSupportObligation: $isSpouseSupportObligation, specialConditions: $specialConditions, knownLanguages: $knownLanguages, listOfHobbies: $listOfHobbies, listOfSkills: $listOfSkills, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -3649,6 +3666,7 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.hasSetInitialData, hasSetInitialData) || const DeepCollectionEquality().equals(other.hasSetInitialData, hasSetInitialData)) &&
             (identical(other.authFailureOrSuccessOption, authFailureOrSuccessOption) || const DeepCollectionEquality().equals(other.authFailureOrSuccessOption, authFailureOrSuccessOption)));
   }
 
@@ -3671,6 +3689,7 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
       const DeepCollectionEquality().hash(listOfHobbies) ^
       const DeepCollectionEquality().hash(listOfSkills) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -3716,6 +3735,8 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
           @required
               bool isSubmitting,
           @required
+              bool hasSetInitialData,
+          @required
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateOtherInfoActorState;
 
@@ -3751,6 +3772,8 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
   List<String> get listOfSkills;
   @override
   bool get isSubmitting;
+  @override
+  bool get hasSetInitialData;
   @override
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
   @override

@@ -104,6 +104,9 @@ class EditWorkInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
+        if (state.hasSetInitialData) {
+          return _EditBasicInfoFormBody(key: UniqueKey());
+        }
         return const _EditBasicInfoFormBody();
       },
     );
@@ -188,23 +191,15 @@ class _NameOfCompanyField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.nameOfComapny != current.nameOfComapny,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.nameOfComapny;
-        _controller.selection = previousSelection;
-      },
-      buildWhen: (previous, current) =>
-          previous.nameOfComapny != current.nameOfComapny,
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      // buildWhen: (previous, current) =>
+      //     previous.nameOfComapny != current.nameOfComapny,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Name of the company",
         child: InputTextWidget(
           hintText: "XYZ Company",
           textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.nameOfComapny,
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
               .add(UpdateWorkInfoActorEvent.changedNameOfCompany(value)),
@@ -455,24 +450,15 @@ class _PurposeOfResignField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.purposeOfResign != current.purposeOfResign,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.purposeOfResign;
-        _controller.selection = previousSelection;
-      },
-      buildWhen: (previous, current) =>
-          previous.purposeOfResign != current.purposeOfResign,
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      // buildWhen: (previous, current) =>
+      //     previous.purposeOfResign != current.purposeOfResign,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Purpose of Resign",
         child: InputTextWidget(
           hintText: "purpose of resign",
           textInputType: TextInputType.name,
-
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.purposeOfResign,
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
               .add(UpdateWorkInfoActorEvent.changedPurposeOfResign(value)),

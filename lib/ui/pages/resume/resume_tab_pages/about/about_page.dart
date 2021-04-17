@@ -85,6 +85,7 @@ class AboutPage extends StatelessWidget {
   Widget _aboutPageBody(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        key: UniqueKey(),
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ShadowBoxWidget(
@@ -156,15 +157,8 @@ class _NameInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.firstName != current.firstName,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.firstName;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.firstName != current.firstName,
       builder: (context, state) => FormFieldDecoration(
         title: "Name",
@@ -172,7 +166,7 @@ class _NameInputField extends StatelessWidget {
           hintText: "Name",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.firstName,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context
@@ -192,14 +186,8 @@ class _FamilyNameInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) => previous.lastName != current.lastName,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.lastName;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.lastName != current.lastName,
       builder: (context, state) => FormFieldDecoration(
         title: "Family Name",
@@ -207,7 +195,7 @@ class _FamilyNameInputField extends StatelessWidget {
           hintText: "Family Name",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.lastName,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context
@@ -227,14 +215,8 @@ class _FuriganaInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) => previous.furigana != current.furigana,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.furigana;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.furigana != current.furigana,
       builder: (context, state) => FormFieldDecoration(
         title: "Furigana",
@@ -242,7 +224,7 @@ class _FuriganaInputField extends StatelessWidget {
           hintText: "Furigana(Japanese Katakana)",
           textInputType: TextInputType.name,
           validator: Validator.isNotKatakana,
-          controller: _controller,
+          value: state.furigana,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context
@@ -328,21 +310,15 @@ class _AgeInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) => previous.age != current.age,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.age;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.age != current.age,
       builder: (context, state) => FormFieldDecoration(
         title: "Age",
         child: InputTextWidget(
           hintText: "Age",
           textInputType: TextInputType.number,
-          controller: _controller,
+          value: state.age,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context
@@ -410,15 +386,8 @@ class _EmailInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdatePersonalInfoActorBloc,
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      listenWhen: (previous, current) => previous.email != current.email,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.email;
-        _controller.selection = previousSelection;
-      },
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) => FormFieldDecoration(
         title: "Email",
@@ -427,7 +396,7 @@ class _EmailInputField extends StatelessWidget {
           textInputType: TextInputType.emailAddress,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           textAlign: TextAlign.end,
-          controller: _controller,
+          value: state.email,
           isEnable: false,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()

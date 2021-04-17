@@ -113,6 +113,9 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
+        if (state.hasSetInitialData) {
+          return _EditBasicInfoFormBody(key: UniqueKey());
+        }
         return const _EditBasicInfoFormBody();
       },
     );
@@ -221,15 +224,7 @@ class _PostalCodeInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
 
-    return BlocConsumer<UpdateAddressInfoActorBloc,
-        UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.currPostalCode != current.currPostalCode,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.currPostalCode;
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) =>
           previous.currPostalCode != current.currPostalCode ||
           previous.currCountry != current.currCountry,
@@ -241,7 +236,7 @@ class _PostalCodeInputField extends StatelessWidget {
               child: InputTextWidget(
                 hintText: "Postal Code",
                 textInputType: TextInputType.number,
-                controller: _controller,
+                value: state.currCountry,
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(8),
                   MaskedTextInputFormatter(
@@ -378,19 +373,7 @@ class _PrefectureInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateAddressInfoActorBloc,
-        UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.currPrefecture != current.currPrefecture ||
-          previous.currCountry != current.currCountry,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-
-        _controller.text = state.currPrefecture;
-
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) =>
           previous.currPrefecture != current.currPrefecture ||
           previous.currCountry != current.currCountry,
@@ -422,7 +405,7 @@ class _PrefectureInputField extends StatelessWidget {
                   )
                 : InputTextWidget(
                     hintText: "Prefecture",
-                    controller: _controller,
+                    value: state.currPrefecture,
                     onChanged: (value) {
                       context.read<UpdateAddressInfoActorBloc>().add(
                           UpdateAddressInfoActorEvent
@@ -441,21 +424,7 @@ class _CityInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateAddressInfoActorBloc,
-        UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.currCity != current.currCity ||
-          previous.currPrefecture != current.currPrefecture ||
-          previous.currCountry != current.currCountry ||
-          previous.listOfCurrCities != current.listOfCurrCities,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-
-        _controller.text = state.currCity;
-
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) =>
           previous.currCity != current.currCity ||
           previous.currPrefecture != current.currPrefecture ||
@@ -475,7 +444,7 @@ class _CityInputField extends StatelessWidget {
               )
             : InputTextWidget(
                 hintText: "City",
-                controller: _controller,
+                value: state.currCity,
                 onChanged: (value) {
                   context
                       .read<UpdateAddressInfoActorBloc>()
@@ -494,26 +463,14 @@ class _AddressInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateAddressInfoActorBloc,
-        UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.currAddress != current.currAddress,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-
-        _controller.text = state.currAddress;
-
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) =>
           previous.currAddress != current.currAddress,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Address",
         child: InputTextWidget(
           hintText: "Address",
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.currAddress,
           onChanged: (value) {
             context
                 .read<UpdateAddressInfoActorBloc>()
@@ -532,18 +489,7 @@ class _PhoneInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateAddressInfoActorBloc,
-        UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.currPhone != current.currPhone,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-
-        _controller.text = state.currPhone;
-
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) {
         return previous.currPhone != current.currPhone;
       },
@@ -553,7 +499,7 @@ class _PhoneInputField extends StatelessWidget {
           hintText: "XXX-XXXX-XXXX",
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           textInputType: TextInputType.phone,
-          controller: _controller,
+          value: state.currPhone,
           inputFormatters: [
             MaskedTextInputFormatter(
               mask: "090-xxxx-xxxx",

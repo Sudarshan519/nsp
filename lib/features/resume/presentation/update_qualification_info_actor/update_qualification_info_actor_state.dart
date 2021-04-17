@@ -8,6 +8,7 @@ abstract class UpdateQualificationInfoActorState
     @required String certifiedYear,
     @required String certifiedMonth,
     @required bool isSubmitting,
+    @required bool hasSetInitialData,
     @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
   }) = _UpdateQualificationInfoActorState;
 
@@ -17,6 +18,7 @@ abstract class UpdateQualificationInfoActorState
         certifiedYear: '',
         certifiedMonth: '',
         isSubmitting: false,
+        hasSetInitialData: false,
         authFailureOrSuccessOption: none(),
       );
 }

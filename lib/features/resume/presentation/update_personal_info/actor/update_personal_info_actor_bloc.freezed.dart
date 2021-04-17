@@ -2430,6 +2430,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
       @required String phone,
       @required List<String> listOfNationality,
       @required List<String> listOfProfession,
+      @required bool hasSetInitialData,
       @required bool isSubmitting,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdatePersonalInfoActorState(
@@ -2445,6 +2446,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
       phone: phone,
       listOfNationality: listOfNationality,
       listOfProfession: listOfProfession,
+      hasSetInitialData: hasSetInitialData,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
@@ -2469,6 +2471,7 @@ mixin _$UpdatePersonalInfoActorState {
   String get phone;
   List<String> get listOfNationality;
   List<String> get listOfProfession;
+  bool get hasSetInitialData;
   bool get isSubmitting;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
@@ -2496,6 +2499,7 @@ abstract class $UpdatePersonalInfoActorStateCopyWith<$Res> {
       String phone,
       List<String> listOfNationality,
       List<String> listOfProfession,
+      bool hasSetInitialData,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -2523,6 +2527,7 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     Object phone = freezed,
     Object listOfNationality = freezed,
     Object listOfProfession = freezed,
+    Object hasSetInitialData = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -2545,6 +2550,9 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
       listOfProfession: listOfProfession == freezed
           ? _value.listOfProfession
           : listOfProfession as List<String>,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -2575,6 +2583,7 @@ abstract class _$UpdatePersonalInfoActorStateCopyWith<$Res>
       String phone,
       List<String> listOfNationality,
       List<String> listOfProfession,
+      bool hasSetInitialData,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -2606,6 +2615,7 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     Object phone = freezed,
     Object listOfNationality = freezed,
     Object listOfProfession = freezed,
+    Object hasSetInitialData = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
@@ -2628,6 +2638,9 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
       listOfProfession: listOfProfession == freezed
           ? _value.listOfProfession
           : listOfProfession as List<String>,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
@@ -2652,6 +2665,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       @required this.phone,
       @required this.listOfNationality,
       @required this.listOfProfession,
+      @required this.hasSetInitialData,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
       : assert(firstName != null),
@@ -2666,6 +2680,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
         assert(phone != null),
         assert(listOfNationality != null),
         assert(listOfProfession != null),
+        assert(hasSetInitialData != null),
         assert(isSubmitting != null),
         assert(authFailureOrSuccessOption != null);
 
@@ -2694,13 +2709,15 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
   @override
   final List<String> listOfProfession;
   @override
+  final bool hasSetInitialData;
+  @override
   final bool isSubmitting;
   @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoActorState(firstName: $firstName, lastName: $lastName, furigana: $furigana, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdatePersonalInfoActorState(firstName: $firstName, lastName: $lastName, furigana: $furigana, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, hasSetInitialData: $hasSetInitialData, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -2738,6 +2755,9 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
             (identical(other.listOfProfession, listOfProfession) ||
                 const DeepCollectionEquality()
                     .equals(other.listOfProfession, listOfProfession)) &&
+            (identical(other.hasSetInitialData, hasSetInitialData) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
@@ -2763,6 +2783,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(listOfNationality) ^
       const DeepCollectionEquality().hash(listOfProfession) ^
+      const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
@@ -2801,6 +2822,8 @@ abstract class _UpdatePersonalInfoActorState
           @required
               List<String> listOfProfession,
           @required
+              bool hasSetInitialData,
+          @required
               bool isSubmitting,
           @required
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
@@ -2830,6 +2853,8 @@ abstract class _UpdatePersonalInfoActorState
   List<String> get listOfNationality;
   @override
   List<String> get listOfProfession;
+  @override
+  bool get hasSetInitialData;
   @override
   bool get isSubmitting;
   @override

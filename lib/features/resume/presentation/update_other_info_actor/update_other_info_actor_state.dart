@@ -19,6 +19,7 @@ abstract class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
     @required List<String> listOfHobbies,
     @required List<String> listOfSkills,
     @required bool isSubmitting,
+    @required bool hasSetInitialData,
     @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
   }) = _UpdateOtherInfoActorState;
 
@@ -39,6 +40,7 @@ abstract class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
         listOfHobbies: [],
         listOfSkills: [],
         isSubmitting: false,
+        hasSetInitialData:false,
         authFailureOrSuccessOption: none(),
       );
 }

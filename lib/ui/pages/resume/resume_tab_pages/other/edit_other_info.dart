@@ -110,6 +110,9 @@ class EditOtherInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
+        if (state.hasSetInitialData) {
+          return _EditBasicInfoFormBody(key: UniqueKey());
+        }
         return const _EditBasicInfoFormBody();
       },
     );
@@ -269,13 +272,7 @@ class _SelfPrInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
-      listenWhen: (previous, current) => previous.selfPR != current.selfPR,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.selfPR;
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) => previous.selfPR != current.selfPR,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Self PR",
@@ -283,7 +280,7 @@ class _SelfPrInputField extends StatelessWidget {
           hintText: "Self PR",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.selfPR,
           onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<UpdateOtherInfoActorBloc>()
@@ -362,15 +359,7 @@ class _MotivationInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.motivationsSpecialSkills != current.motivationsSpecialSkills,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.motivationsSpecialSkills;
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) =>
           previous.motivationsSpecialSkills != current.motivationsSpecialSkills,
       builder: (context, state) => TextWidetWithLabelAndChild(
@@ -379,7 +368,7 @@ class _MotivationInputField extends StatelessWidget {
           hintText: "Motivations and Appeal Points",
           textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.motivationsSpecialSkills,
           onEditingCompleted: callBack,
           onChanged: (value) => context.read<UpdateOtherInfoActorBloc>().add(
               UpdateOtherInfoActorEvent.changeMotivationsSpecialSkills(value)),
@@ -589,14 +578,7 @@ class _SpecialConditionInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.specialConditions != current.specialConditions,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.specialConditions;
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) =>
           previous.workinHours != current.workinHours,
       builder: (context, state) => TextWidetWithLabelAndChild(
@@ -604,7 +586,7 @@ class _SpecialConditionInputField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Follow as per company rules and regulations.",
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.specialConditions,
           onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<UpdateOtherInfoActorBloc>()

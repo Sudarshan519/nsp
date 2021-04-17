@@ -1,14 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-// ignore: must_be_immutable
 class InputTextWidget extends StatelessWidget {
   final String hintText;
   final bool obscureText;
-  final TextEditingController controller;
+  final String value;
   final TextInputType textInputType;
   final TextInputAction textInputAction;
   final bool isEnable;
@@ -18,13 +15,11 @@ class InputTextWidget extends StatelessWidget {
   final TextAlign textAlign;
   final List<TextInputFormatter> inputFormatters;
 
-  Timer _debounce;
-
-  InputTextWidget({
+  const InputTextWidget({
     Key key,
     @required this.hintText,
     @required this.onChanged,
-    @required this.controller,
+    @required this.value,
     this.obscureText = false,
     this.isEnable = true,
     this.textInputType = TextInputType.streetAddress,
@@ -41,7 +36,7 @@ class InputTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
-      controller: controller,
+      initialValue: value,
       enabled: isEnable,
       decoration: InputDecoration(
         isDense: true,
@@ -63,16 +58,9 @@ class InputTextWidget extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       keyboardType: textInputType,
       textInputAction: textInputAction,
-      onChanged: _onSearchChanged,
+      onChanged: onChanged,
       onEditingComplete: onEditingCompleted,
       textAlign: textAlign ?? TextAlign.start,
     );
-  }
-
-  void _onSearchChanged(String value) {
-    if (_debounce?.isActive ?? false) _debounce.cancel();
-    _debounce = Timer(const Duration(milliseconds: 500), () {
-      onChanged(value);
-    });
   }
 }

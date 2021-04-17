@@ -48,6 +48,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
       _ChangedQualificationName _changedQualificationName) {
     return state.copyWith(
       qualificationName: _changedQualificationName.name,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -56,6 +57,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
       _ChangedCertifiedYear _changedCertifiedYear) {
     return state.copyWith(
       certifiedYear: _changedCertifiedYear.year,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -64,12 +66,17 @@ class UpdateQualificationInfoActorBloc extends Bloc<
       _ChangedCertifiedMonth _changedCertifiedMonth) {
     return state.copyWith(
       certifiedMonth: _changedCertifiedMonth.month,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
 
   Stream<UpdateQualificationInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
     final qualificationHistory = _setInitialState.qualificationHistory;
     _lang = _setInitialState.lang;
     if (qualificationHistory != null &&
@@ -80,6 +87,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
         certifiedYear: qualificationHistory.certifiedYear ?? "",
         certifiedMonth: qualificationHistory.certifiedMonth ?? "",
         isSubmitting: false,
+        hasSetInitialData: true,
         authFailureOrSuccessOption: none(),
       );
     }
@@ -103,6 +111,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
 
     yield state.copyWith(
       isSubmitting: false,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }

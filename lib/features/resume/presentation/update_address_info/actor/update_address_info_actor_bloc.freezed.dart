@@ -4049,6 +4049,7 @@ class _$UpdateAddressInfoActorStateTearOff {
       @required List<String> listOfCurrCities,
       @required List<String> listOfContCities,
       @required bool isSubmitting,
+      @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateAddressInfoActorState(
       currCountry: currCountry,
@@ -4070,6 +4071,7 @@ class _$UpdateAddressInfoActorStateTearOff {
       listOfCurrCities: listOfCurrCities,
       listOfContCities: listOfContCities,
       isSubmitting: isSubmitting,
+      hasSetInitialData: hasSetInitialData,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
@@ -4100,6 +4102,7 @@ mixin _$UpdateAddressInfoActorState {
   List<String> get listOfCurrCities;
   List<String> get listOfContCities;
   bool get isSubmitting;
+  bool get hasSetInitialData;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -4133,6 +4136,7 @@ abstract class $UpdateAddressInfoActorStateCopyWith<$Res> {
       List<String> listOfCurrCities,
       List<String> listOfContCities,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -4166,6 +4170,7 @@ class _$UpdateAddressInfoActorStateCopyWithImpl<$Res>
     Object listOfCurrCities = freezed,
     Object listOfContCities = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -4213,6 +4218,9 @@ class _$UpdateAddressInfoActorStateCopyWithImpl<$Res>
           : listOfContCities as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -4248,6 +4256,7 @@ abstract class _$UpdateAddressInfoActorStateCopyWith<$Res>
       List<String> listOfCurrCities,
       List<String> listOfContCities,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -4285,6 +4294,7 @@ class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
     Object listOfCurrCities = freezed,
     Object listOfContCities = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateAddressInfoActorState(
@@ -4332,6 +4342,9 @@ class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
           : listOfContCities as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -4361,6 +4374,7 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
       @required this.listOfCurrCities,
       @required this.listOfContCities,
       @required this.isSubmitting,
+      @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
       : assert(currCountry != null),
         assert(currPostalCode != null),
@@ -4381,6 +4395,7 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
         assert(listOfCurrCities != null),
         assert(listOfContCities != null),
         assert(isSubmitting != null),
+        assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
   @override
@@ -4422,11 +4437,13 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
   @override
   final bool isSubmitting;
   @override
+  final bool hasSetInitialData;
+  @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdateAddressInfoActorState(currCountry: $currCountry, currPostalCode: $currPostalCode, currPrefecture: $currPrefecture, currCity: $currCity, currAddress: $currAddress, currPhone: $currPhone, sameAsCurrAddressInfo: $sameAsCurrAddressInfo, contCountry: $contCountry, contPostalCode: $contPostalCode, contPrefecture: $contPrefecture, contCity: $contCity, contAddress: $contAddress, contPhone: $contPhone, listOfCountries: $listOfCountries, listOfJapanesePrefectures: $listOfJapanesePrefectures, listOfNepaliProvinces: $listOfNepaliProvinces, listOfCurrCities: $listOfCurrCities, listOfContCities: $listOfContCities, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateAddressInfoActorState(currCountry: $currCountry, currPostalCode: $currPostalCode, currPrefecture: $currPrefecture, currCity: $currCity, currAddress: $currAddress, currPhone: $currPhone, sameAsCurrAddressInfo: $sameAsCurrAddressInfo, contCountry: $contCountry, contPostalCode: $contPostalCode, contPrefecture: $contPrefecture, contCity: $contCity, contAddress: $contAddress, contPhone: $contPhone, listOfCountries: $listOfCountries, listOfJapanesePrefectures: $listOfJapanesePrefectures, listOfNepaliProvinces: $listOfNepaliProvinces, listOfCurrCities: $listOfCurrCities, listOfContCities: $listOfContCities, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -4491,9 +4508,10 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.authFailureOrSuccessOption, authFailureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.authFailureOrSuccessOption, authFailureOrSuccessOption)));
+            (identical(other.hasSetInitialData, hasSetInitialData) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
+            (identical(other.authFailureOrSuccessOption, authFailureOrSuccessOption) || const DeepCollectionEquality().equals(other.authFailureOrSuccessOption, authFailureOrSuccessOption)));
   }
 
   @override
@@ -4518,6 +4536,7 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
       const DeepCollectionEquality().hash(listOfCurrCities) ^
       const DeepCollectionEquality().hash(listOfContCities) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -4569,6 +4588,8 @@ abstract class _UpdateAddressInfoActorState
           @required
               bool isSubmitting,
           @required
+              bool hasSetInitialData,
+          @required
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateAddressInfoActorState;
 
@@ -4610,6 +4631,8 @@ abstract class _UpdateAddressInfoActorState
   List<String> get listOfContCities;
   @override
   bool get isSubmitting;
+  @override
+  bool get hasSetInitialData;
   @override
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
   @override

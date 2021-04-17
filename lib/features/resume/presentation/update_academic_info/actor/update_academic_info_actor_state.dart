@@ -12,6 +12,7 @@ abstract class UpdateAcademicInfoActorState
     @required String monthOfCompletion,
     @required List<String> majorSubjectList,
     @required bool isSubmitting,
+    @required bool hasSetInitialData,
     @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
   }) = _UpdateAcademicInfoActorState;
 
@@ -25,6 +26,7 @@ abstract class UpdateAcademicInfoActorState
         monthOfCompletion: '',
         majorSubjectList: [],
         isSubmitting: false,
+        hasSetInitialData: false,
         authFailureOrSuccessOption: none(),
       );
 }

@@ -71,11 +71,11 @@ class OtherInfo extends StatelessWidget {
           ),
         );
       },
+      // buildWhen: (previous, current) => previous.hashCode != current.hashCode,
       builder: (context, state) {
         if (state.isSubmitting) {
           loadingPage();
         }
-
         return _aboutPageBody(context, info);
       },
     );
@@ -84,6 +84,7 @@ class OtherInfo extends StatelessWidget {
   Widget _aboutPageBody(BuildContext context, PersonalInfo info) {
     return SingleChildScrollView(
       child: Column(
+        key: UniqueKey(),
         children: [
           ShadowBoxWidget(
             margin: const EdgeInsets.all(16.0),
@@ -92,7 +93,7 @@ class OtherInfo extends StatelessWidget {
                 Row(
                   children: [
                     const Text(
-                      "Basic Info",
+                      "Other Info",
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
@@ -151,20 +152,18 @@ class _LanguageInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) => previous.languages != current.languages,
       builder: (context, state) {
         final selectedValues = state.languages;
         final values = selectedValues.join(", ");
-        _controller.text = values;
         return FormFieldDecoration(
           title: "Languages",
           child: InputTextWidget(
             hintText: "Languages",
             textInputType: TextInputType.name,
             // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-            controller: _controller,
+            value: values,
             onEditingCompleted: () {},
             textAlign: TextAlign.end,
             isEnable: false,
@@ -212,14 +211,7 @@ class _SelfPrInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
-      listenWhen: (previous, current) => previous.selfPR != current.selfPR,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.selfPR;
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) => previous.selfPR != current.selfPR,
       builder: (context, state) => FormFieldDecoration(
         title: "Self PR",
@@ -227,7 +219,7 @@ class _SelfPrInputField extends StatelessWidget {
           hintText: "Self PR",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.selfPR,
           textAlign: TextAlign.end,
           isEnable: false,
           onEditingCompleted: () {},
@@ -247,15 +239,7 @@ class _MotivationSpecialSkillsInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.motivationsSpecialSkills != current.motivationsSpecialSkills,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.motivationsSpecialSkills;
-        _controller.selection = previousSelection;
-      },
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) =>
           previous.motivationsSpecialSkills != current.motivationsSpecialSkills,
       builder: (context, state) => FormFieldDecoration(
@@ -264,7 +248,7 @@ class _MotivationSpecialSkillsInputField extends StatelessWidget {
           hintText: "Motivations and Appeal Points",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.motivationsSpecialSkills,
           onEditingCompleted: () {},
           textAlign: TextAlign.end,
           isEnable: false,
@@ -454,23 +438,15 @@ class _SpecialConditionInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.specialConditions != current.specialConditions,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.specialConditions;
-        _controller.selection = previousSelection;
-      },
-      buildWhen: (previous, current) =>
-          previous.workinHours != current.workinHours,
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      // buildWhen: (previous, current) =>
+      //     previous.specialConditions != current.specialConditions,
       builder: (context, state) => FormFieldDecoration(
         title: "Special Conditions\nor Request if any",
         child: InputTextWidget(
           hintText: "Special Conditions or Request if any",
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.specialConditions,
           onEditingCompleted: () {},
           textAlign: TextAlign.end,
           isEnable: false,

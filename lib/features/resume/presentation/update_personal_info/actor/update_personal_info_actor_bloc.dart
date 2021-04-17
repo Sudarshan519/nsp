@@ -67,6 +67,11 @@ class UpdatePersonalInfoActorBloc
 
   Stream<UpdatePersonalInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
+
     final userInfo = _setInitialState.info;
     _lang = _setInitialState.lang;
     if (userInfo != null && userInfo != _personalInfo) {
@@ -85,6 +90,7 @@ class UpdatePersonalInfoActorBloc
         listOfNationality: _setInitialState.listOfNationality ?? [],
         listOfProfession: _setInitialState.listOfProfession ?? [],
         isSubmitting: false,
+        hasSetInitialData: true,
         authFailureOrSuccessOption: none(),
       );
     }
@@ -94,6 +100,7 @@ class UpdatePersonalInfoActorBloc
       _ChangeFirstName _changeFirstName) {
     return state.copyWith(
       firstName: _changeFirstName.name,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -102,6 +109,7 @@ class UpdatePersonalInfoActorBloc
       _ChangeLastName _changeLastName) {
     return state.copyWith(
       lastName: _changeLastName.name,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -110,6 +118,7 @@ class UpdatePersonalInfoActorBloc
       _ChangeFuriganaName _changeFuriganaName) {
     return state.copyWith(
       furigana: _changeFuriganaName.name,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -118,6 +127,7 @@ class UpdatePersonalInfoActorBloc
       _ChangeProfession _changeProfession) {
     return state.copyWith(
       profession: _changeProfession.profession,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -125,6 +135,7 @@ class UpdatePersonalInfoActorBloc
   UpdatePersonalInfoActorState _mapChangeDobToState(_ChangeDob _changeDob) {
     return state.copyWith(
       dob: _changeDob.dob,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -132,6 +143,7 @@ class UpdatePersonalInfoActorBloc
   UpdatePersonalInfoActorState _mapChangeAgeToState(_ChangeAge _changeAge) {
     return state.copyWith(
       age: _changeAge.age,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -140,6 +152,7 @@ class UpdatePersonalInfoActorBloc
       _ChangeGender _changeGender) {
     return state.copyWith(
       gender: _changeGender.gender,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -148,6 +161,7 @@ class UpdatePersonalInfoActorBloc
       _ChangeNationality _changeNationality) {
     return state.copyWith(
       nationality: _changeNationality.nationality,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -156,6 +170,7 @@ class UpdatePersonalInfoActorBloc
       _ChangeEmail _changeEmail) {
     return state.copyWith(
       email: _changeEmail.email,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -164,6 +179,7 @@ class UpdatePersonalInfoActorBloc
       _ChangePhone _changePhone) {
     return state.copyWith(
       phone: _changePhone.phone,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -191,6 +207,7 @@ class UpdatePersonalInfoActorBloc
 
     yield state.copyWith(
       isSubmitting: false,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }

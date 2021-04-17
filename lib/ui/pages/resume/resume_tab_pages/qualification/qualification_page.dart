@@ -26,6 +26,7 @@ class QualificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      key: UniqueKey(),
       children: [
         SingleChildScrollView(
           child: Column(
@@ -97,8 +98,21 @@ class _CreateQualificationInfoBox extends StatelessWidget {
             lang,
           ),
         ),
-      child: _createdBody(context, actorBloc, qualification),
+      child: _bodyBlocBuilder(context, actorBloc, qualification),
     );
+  }
+
+  Widget _bodyBlocBuilder(
+      BuildContext context,
+      UpdateQualificationInfoActorBloc actor,
+      QualificationHistory qualification) {
+    return BlocBuilder<UpdateQualificationInfoActorBloc,
+        UpdateQualificationInfoActorState>(builder: (context, state) {
+      if (state.isSubmitting) {
+        return loadingPage();
+      }
+      return _createdBody(context, actor, qualification);
+    });
   }
 
   Widget _createdBody(
@@ -108,6 +122,7 @@ class _CreateQualificationInfoBox extends StatelessWidget {
     return ShadowBoxWidget(
       margin: const EdgeInsets.all(16.0),
       child: Column(
+        key: UniqueKey(),
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
@@ -156,24 +171,17 @@ class _NameOfQualificationField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateQualificationInfoActorBloc,
+    return BlocBuilder<UpdateQualificationInfoActorBloc,
         UpdateQualificationInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.qualificationName != current.qualificationName,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.qualificationName;
-        _controller.selection = previousSelection;
-      },
-      buildWhen: (previous, current) =>
-          previous.qualificationName != current.qualificationName,
+      // buildWhen: (previous, current) =>
+      //     previous.qualificationName != current.qualificationName,
       builder: (context, state) => FormFieldDecoration(
         title: "Name of the qualification",
         child: InputTextWidget(
           hintText: "AWS Certification",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          controller: _controller,
+          value: state.qualificationName,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context

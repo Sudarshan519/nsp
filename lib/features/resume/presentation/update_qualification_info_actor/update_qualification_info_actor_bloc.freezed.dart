@@ -809,12 +809,14 @@ class _$UpdateQualificationInfoActorStateTearOff {
       @required String certifiedYear,
       @required String certifiedMonth,
       @required bool isSubmitting,
+      @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateQualificationInfoActorState(
       qualificationName: qualificationName,
       certifiedYear: certifiedYear,
       certifiedMonth: certifiedMonth,
       isSubmitting: isSubmitting,
+      hasSetInitialData: hasSetInitialData,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
@@ -831,6 +833,7 @@ mixin _$UpdateQualificationInfoActorState {
   String get certifiedYear;
   String get certifiedMonth;
   bool get isSubmitting;
+  bool get hasSetInitialData;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -849,6 +852,7 @@ abstract class $UpdateQualificationInfoActorStateCopyWith<$Res> {
       String certifiedYear,
       String certifiedMonth,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -867,6 +871,7 @@ class _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
     Object certifiedYear = freezed,
     Object certifiedMonth = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -881,6 +886,9 @@ class _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
           : certifiedMonth as String,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -901,6 +909,7 @@ abstract class _$UpdateQualificationInfoActorStateCopyWith<$Res>
       String certifiedYear,
       String certifiedMonth,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -923,6 +932,7 @@ class __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
     Object certifiedYear = freezed,
     Object certifiedMonth = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateQualificationInfoActorState(
@@ -937,6 +947,9 @@ class __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
           : certifiedMonth as String,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -952,11 +965,13 @@ class _$_UpdateQualificationInfoActorState
       @required this.certifiedYear,
       @required this.certifiedMonth,
       @required this.isSubmitting,
+      @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
       : assert(qualificationName != null),
         assert(certifiedYear != null),
         assert(certifiedMonth != null),
         assert(isSubmitting != null),
+        assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
   @override
@@ -968,11 +983,13 @@ class _$_UpdateQualificationInfoActorState
   @override
   final bool isSubmitting;
   @override
+  final bool hasSetInitialData;
+  @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdateQualificationInfoActorState(qualificationName: $qualificationName, certifiedYear: $certifiedYear, certifiedMonth: $certifiedMonth, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateQualificationInfoActorState(qualificationName: $qualificationName, certifiedYear: $certifiedYear, certifiedMonth: $certifiedMonth, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -991,6 +1008,9 @@ class _$_UpdateQualificationInfoActorState
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.hasSetInitialData, hasSetInitialData) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
             (identical(other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -1005,6 +1025,7 @@ class _$_UpdateQualificationInfoActorState
       const DeepCollectionEquality().hash(certifiedYear) ^
       const DeepCollectionEquality().hash(certifiedMonth) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -1027,6 +1048,8 @@ abstract class _UpdateQualificationInfoActorState
           @required
               bool isSubmitting,
           @required
+              bool hasSetInitialData,
+          @required
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateQualificationInfoActorState;
 
@@ -1038,6 +1061,8 @@ abstract class _UpdateQualificationInfoActorState
   String get certifiedMonth;
   @override
   bool get isSubmitting;
+  @override
+  bool get hasSetInitialData;
   @override
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
   @override

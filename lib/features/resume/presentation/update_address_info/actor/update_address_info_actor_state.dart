@@ -22,6 +22,7 @@ abstract class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
     @required List<String> listOfCurrCities,
     @required List<String> listOfContCities,
     @required bool isSubmitting,
+    @required bool hasSetInitialData,
     @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
   }) = _UpdateAddressInfoActorState;
 
@@ -45,6 +46,7 @@ abstract class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
         listOfCurrCities: [],
         listOfContCities: [],
         isSubmitting: false,
+        hasSetInitialData: false,
         authFailureOrSuccessOption: none(),
       );
 }

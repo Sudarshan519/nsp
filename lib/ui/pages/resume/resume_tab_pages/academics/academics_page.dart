@@ -12,6 +12,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class AcademicsPage extends StatelessWidget {
   final List<AcademicHistory> academics;
@@ -102,8 +103,19 @@ class _CreateAcademicInfoBox extends StatelessWidget {
             lang,
           ),
         ),
-      child: _createBody(context, actor, history),
+      child: _bodyBlocBuilder(context, actor, history),
     );
+  }
+
+  Widget _bodyBlocBuilder(BuildContext context,
+      UpdateAcademicInfoActorBloc actor, AcademicHistory academicHistory) {
+    return BlocBuilder<UpdateAcademicInfoActorBloc,
+        UpdateAcademicInfoActorState>(builder: (context, state) {
+      if (state.isSubmitting) {
+        return loadingPage();
+      }
+      return _createBody(context, actor, history);
+    });
   }
 
   Widget _createBody(BuildContext context,
@@ -111,6 +123,7 @@ class _CreateAcademicInfoBox extends StatelessWidget {
     return ShadowBoxWidget(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
       child: Column(
+        key: UniqueKey(),
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
@@ -165,16 +178,9 @@ class _NameOfInstituteField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateAcademicInfoActorBloc,
+    return BlocBuilder<UpdateAcademicInfoActorBloc,
         UpdateAcademicInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.nameOfInstitute != current.nameOfInstitute,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-        _controller.text = state.nameOfInstitute;
-        _controller.selection = previousSelection;
-      },
+      key: UniqueKey(),
       buildWhen: (previous, current) =>
           previous.nameOfInstitute != current.nameOfInstitute,
       builder: (context, state) => FormFieldDecoration(
@@ -183,8 +189,7 @@ class _NameOfInstituteField extends StatelessWidget {
           hintText: "Name of Institute",
           textInputType: TextInputType.name,
           // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          // value: state.nameOfInstitute,
-          controller: _controller,
+          value: state.nameOfInstitute,
           textAlign: TextAlign.end,
           isEnable: false,
           onChanged: (value) => context

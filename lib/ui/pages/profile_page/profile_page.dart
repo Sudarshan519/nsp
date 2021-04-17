@@ -113,7 +113,7 @@ class _UserInfoUpdate extends StatelessWidget {
               child: InputTextWidget(
                 hintText: "First Name",
                 textInputType: TextInputType.name,
-                controller: TextEditingController(text: ""),
+                value: "",
                 isEnable: false,
                 onChanged: (value) {},
               ),
@@ -132,7 +132,7 @@ class _UserInfoUpdate extends StatelessWidget {
               child: InputTextWidget(
                 hintText: "Last Name",
                 textInputType: TextInputType.name,
-                controller: TextEditingController(text: ""),
+                value: "",
                 isEnable: false,
                 onChanged: (value) {},
               ),
@@ -151,7 +151,7 @@ class _UserInfoUpdate extends StatelessWidget {
               child: InputTextWidget(
                 hintText: "Profession",
                 textInputType: TextInputType.name,
-                controller: TextEditingController(text: ""),
+                value: "",
                 isEnable: false,
                 onChanged: (value) {},
               ),
@@ -170,7 +170,7 @@ class _UserInfoUpdate extends StatelessWidget {
               child: InputTextWidget(
                 hintText: "Occupation",
                 textInputType: TextInputType.name,
-                controller: TextEditingController(text: ""),
+                value: "",
                 isEnable: false,
                 onChanged: (value) {},
               ),

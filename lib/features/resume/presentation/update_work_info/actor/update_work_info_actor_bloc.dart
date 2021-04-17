@@ -60,6 +60,7 @@ class UpdateWorkInfoActorBloc
       _ChangedNameOfCompany _changedNameOfCompany) {
     return state.copyWith(
       nameOfComapny: _changedNameOfCompany.company,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -68,6 +69,7 @@ class UpdateWorkInfoActorBloc
       _ChangedTypeOfCompany _changedTypeOfCompany) {
     return state.copyWith(
       companyType: _changedTypeOfCompany.type,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -76,6 +78,7 @@ class UpdateWorkInfoActorBloc
       _ChangedStartedYear _changedStartedYear) {
     return state.copyWith(
       startedYear: _changedStartedYear.year,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -84,6 +87,7 @@ class UpdateWorkInfoActorBloc
       _ChangedStartedMonth _changedStartedMonth) {
     return state.copyWith(
       startedMonth: _changedStartedMonth.month,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -92,6 +96,7 @@ class UpdateWorkInfoActorBloc
       _ChangedEndYear _changedEndYear) {
     return state.copyWith(
       endYear: _changedEndYear.year,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -100,6 +105,7 @@ class UpdateWorkInfoActorBloc
       _ChangedEndMonth _changedEndMonth) {
     return state.copyWith(
       endMonth: _changedEndMonth.month,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -108,12 +114,17 @@ class UpdateWorkInfoActorBloc
       _ChangedPurposeOfResign _changedPurposeOfResign) {
     return state.copyWith(
       purposeOfResign: _changedPurposeOfResign.puropse,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
 
   Stream<UpdateWorkInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
     final workHistory = _setInitialState.workHistory;
     _lang = _setInitialState.lang;
     if (workHistory != null && workHistory != _workHistory) {
@@ -127,6 +138,7 @@ class UpdateWorkInfoActorBloc
         endMonth: workHistory.endMonth ?? "",
         typeOfCompanyList: _setInitialState.typeOfCompanyList ?? [],
         isSubmitting: false,
+        hasSetInitialData: true,
         authFailureOrSuccessOption: none(),
       );
     }
@@ -153,6 +165,7 @@ class UpdateWorkInfoActorBloc
 
     yield state.copyWith(
       isSubmitting: false,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }

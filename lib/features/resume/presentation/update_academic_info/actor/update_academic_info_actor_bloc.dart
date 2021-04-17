@@ -58,6 +58,7 @@ class UpdateAcademicInfoActorBloc
       _ChangedNameOfInstitute _changedNameOfInstitute) {
     return state.copyWith(
       nameOfInstitute: _changedNameOfInstitute.institute,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -66,6 +67,7 @@ class UpdateAcademicInfoActorBloc
       _ChangedMajorSubject _changedMajorSubject) {
     return state.copyWith(
       majorSubject: _changedMajorSubject.subject,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -74,6 +76,7 @@ class UpdateAcademicInfoActorBloc
       _ChangedYearOfEnroll _changedYearOfEnroll) {
     return state.copyWith(
       yearOFEnroll: _changedYearOfEnroll.year,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -82,6 +85,7 @@ class UpdateAcademicInfoActorBloc
       _ChangedMonthOfEnroll _changedMonthOfEnroll) {
     return state.copyWith(
       monthOfEnroll: _changedMonthOfEnroll.month,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -90,6 +94,7 @@ class UpdateAcademicInfoActorBloc
       _ChangedYearOfCompletion _changedYearOfCompletion) {
     return state.copyWith(
       yearOfCpmpletion: _changedYearOfCompletion.year,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
@@ -98,12 +103,17 @@ class UpdateAcademicInfoActorBloc
       _ChangedMonthOfCompletion _changedMonthOfCompletion) {
     return state.copyWith(
       monthOfCompletion: _changedMonthOfCompletion.month,
+      hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );
   }
 
   Stream<UpdateAcademicInfoActorState> _mapsetInitialState(
       _SetInitialState _setInitialState) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
     final acadimicInfo = _setInitialState.academicHistory;
     // if (acadimicInfo != null && acadimicInfo != _academicHistory) {
     _academicHistory = acadimicInfo;
@@ -117,6 +127,7 @@ class UpdateAcademicInfoActorBloc
       monthOfCompletion: acadimicInfo.completionMonth ?? "",
       majorSubjectList: _setInitialState.listOfMajorSubject ?? [],
       isSubmitting: false,
+      hasSetInitialData: true,
       authFailureOrSuccessOption: none(),
     );
     // }

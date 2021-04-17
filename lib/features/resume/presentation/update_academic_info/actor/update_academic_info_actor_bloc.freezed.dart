@@ -1425,6 +1425,7 @@ class _$UpdateAcademicInfoActorStateTearOff {
       @required String monthOfCompletion,
       @required List<String> majorSubjectList,
       @required bool isSubmitting,
+      @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateAcademicInfoActorState(
       nameOfInstitute: nameOfInstitute,
@@ -1435,6 +1436,7 @@ class _$UpdateAcademicInfoActorStateTearOff {
       monthOfCompletion: monthOfCompletion,
       majorSubjectList: majorSubjectList,
       isSubmitting: isSubmitting,
+      hasSetInitialData: hasSetInitialData,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
@@ -1454,6 +1456,7 @@ mixin _$UpdateAcademicInfoActorState {
   String get monthOfCompletion;
   List<String> get majorSubjectList;
   bool get isSubmitting;
+  bool get hasSetInitialData;
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -1476,6 +1479,7 @@ abstract class $UpdateAcademicInfoActorStateCopyWith<$Res> {
       String monthOfCompletion,
       List<String> majorSubjectList,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -1498,6 +1502,7 @@ class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
     Object monthOfCompletion = freezed,
     Object majorSubjectList = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1524,6 +1529,9 @@ class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
           : majorSubjectList as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -1548,6 +1556,7 @@ abstract class _$UpdateAcademicInfoActorStateCopyWith<$Res>
       String monthOfCompletion,
       List<String> majorSubjectList,
       bool isSubmitting,
+      bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -1574,6 +1583,7 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
     Object monthOfCompletion = freezed,
     Object majorSubjectList = freezed,
     Object isSubmitting = freezed,
+    Object hasSetInitialData = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateAcademicInfoActorState(
@@ -1600,6 +1610,9 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
           : majorSubjectList as List<String>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
+      hasSetInitialData: hasSetInitialData == freezed
+          ? _value.hasSetInitialData
+          : hasSetInitialData as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<ApiFailure, Unit>>,
@@ -1618,6 +1631,7 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
       @required this.monthOfCompletion,
       @required this.majorSubjectList,
       @required this.isSubmitting,
+      @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
       : assert(nameOfInstitute != null),
         assert(majorSubject != null),
@@ -1627,6 +1641,7 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
         assert(monthOfCompletion != null),
         assert(majorSubjectList != null),
         assert(isSubmitting != null),
+        assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
   @override
@@ -1646,11 +1661,13 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
   @override
   final bool isSubmitting;
   @override
+  final bool hasSetInitialData;
+  @override
   final Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdateAcademicInfoActorState(nameOfInstitute: $nameOfInstitute, majorSubject: $majorSubject, yearOFEnroll: $yearOFEnroll, yearOfCpmpletion: $yearOfCpmpletion, monthOfEnroll: $monthOfEnroll, monthOfCompletion: $monthOfCompletion, majorSubjectList: $majorSubjectList, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateAcademicInfoActorState(nameOfInstitute: $nameOfInstitute, majorSubject: $majorSubject, yearOFEnroll: $yearOFEnroll, yearOfCpmpletion: $yearOfCpmpletion, monthOfEnroll: $monthOfEnroll, monthOfCompletion: $monthOfCompletion, majorSubjectList: $majorSubjectList, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -1681,6 +1698,9 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.hasSetInitialData, hasSetInitialData) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
             (identical(other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -1699,6 +1719,7 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
       const DeepCollectionEquality().hash(monthOfCompletion) ^
       const DeepCollectionEquality().hash(majorSubjectList) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -1728,6 +1749,8 @@ abstract class _UpdateAcademicInfoActorState
           @required
               bool isSubmitting,
           @required
+              bool hasSetInitialData,
+          @required
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateAcademicInfoActorState;
 
@@ -1747,6 +1770,8 @@ abstract class _UpdateAcademicInfoActorState
   List<String> get majorSubjectList;
   @override
   bool get isSubmitting;
+  @override
+  bool get hasSetInitialData;
   @override
   Option<Either<ApiFailure, Unit>> get authFailureOrSuccessOption;
   @override
