@@ -11,7 +11,7 @@ Future main() async {
   configureInjection(Environment.prod);
 
   /// for registering the factory.
-  await Future.delayed(const Duration(seconds: 2));
+  await Future.delayed(const Duration(seconds: 4));
   await getIt<ConfigReader>().initialize();
   await FlutterDownloader.initialize(
     debug: getIt<ConfigReader>()

@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wallet_app/core/usecase/usecase.dart';
+import 'package:wallet_app/features/auth/domain/usecase/logout_user.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_page_header.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -62,14 +65,12 @@ class MorePage extends StatelessWidget {
       _ProfileData(
         image: "icon-jap-manner",
         title: "Japanese Manners",
-        onTap: () =>
-            ExtendedNavigator.of(context).push(Routes.japaneseMannerPage),
+        onTap: () => ExtendedNavigator.of(context).pushJapaneseMannerPage(),
       ),
       _ProfileData(
         image: "icon-partner",
         title: "Partner Services",
-        onTap: () =>
-            ExtendedNavigator.of(context).push(Routes.partnerServicesPage),
+        onTap: () => ExtendedNavigator.of(context).pushPartnerServicesPage(),
       ),
       _ProfileData(
         image: "icon-alerts",
@@ -89,17 +90,28 @@ class MorePage extends StatelessWidget {
       _ProfileData(
         image: "icon-privacy-policy",
         title: "Privacy Policy",
-        onTap: () {},
+        onTap: () {
+          ExtendedNavigator.of(context).pushAppWebView(
+            url: "https://nspweb.truestreamz.com/privacy-policy",
+            title: "Privacy Policy",
+          );
+        },
       ),
       _ProfileData(
         image: "icon-terms",
         title: "Terms and Conditions",
-        onTap: () {},
+        onTap: () {
+          ExtendedNavigator.of(context).pushAppWebView(
+            url: "https://nspweb.truestreamz.com/terms-conditions",
+            title: "Terms and Conditions",
+          );
+        },
       ),
       _ProfileData(
         image: "icon-logout",
         title: "Logout",
         onTap: () {
+          getIt<LogoutUser>().call(NoParams());
           ExtendedNavigator.of(context).replace(Routes.loginPage);
         },
       ),

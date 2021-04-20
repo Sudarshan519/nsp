@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Nippon Secure Payment</string>
+  <string name="facebook_app_id">160947809212135</string>
+  <string name="fb_login_protocol_scheme">fb160947809212135</string>
+</resources>

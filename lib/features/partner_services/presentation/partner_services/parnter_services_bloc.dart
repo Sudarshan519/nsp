@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
+import 'package:wallet_app/features/partner_services/domain/entities/services_categories.dart';
 import 'package:wallet_app/features/partner_services/domain/usecase/get_partner_services.dart';
 
 part 'parnter_services_event.dart';
@@ -30,7 +31,8 @@ class ParnterServicesBloc
         if (data.isEmpty) {
           yield const _Loading();
         }
-        final result = await getPartnerServices(NoParams());
+        final result = await getPartnerServices(
+            GetPartnerServicesParam(category: e.category));
         yield result.fold(
           (failure) => _Failure(failure),
           (list) {

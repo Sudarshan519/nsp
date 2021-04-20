@@ -104,6 +104,11 @@ dependencies:
   #katakana
   kana_kit: ^1.0.4
 
+  # All social auth logins
+  google_sign_in: ^4.5.9
+  flutter_facebook_auth: ^3.3.2-no-nullsafety
+  sign_in_with_apple: ^2.5.4
+
 dev_dependencies:
   integration_test: ^1.0.2+2
   flutter_test:

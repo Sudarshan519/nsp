@@ -21,9 +21,9 @@ abstract class AuthRepository {
     @required String confirmPassword,
   });
 
-  // Future<Either<ApiFailure, WalletUser>> loginWithApple();
-  // Future<Either<ApiFailure, WalletUser>> loginWithFacebook();
-  // Future<Either<ApiFailure, WalletUser>> loginWithGoogle();
+  Future<Either<ApiFailure, WalletUser>> loginWithApple();
+  Future<Either<ApiFailure, WalletUser>> loginWithFacebook();
+  Future<Either<ApiFailure, WalletUser>> loginWithGoogle();
 
   // For fetching the user information
   Future<Either<ApiFailure, WalletUser>> getWalletUser();

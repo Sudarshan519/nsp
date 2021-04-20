@@ -1,5 +1,8 @@
 class AuthApiEndpoints {
   static const postLogin = "/login/";
+  static const appleLogin = "/login/apple/";
+  static const facebookLogin = "/login/facebook/";
+  static const googleLogin = "/login/google/";
   static const postRegister = "/register/";
   static const verifyEmail = "/email/verify/";
   static const getNewVerificationCode = "/email/password/reset/code/";

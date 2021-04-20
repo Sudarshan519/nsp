@@ -4,11 +4,19 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
-@singleton
-class ConfigReader {
+abstract class ConfigReader {
+  Future<void> initialize();
+  String get baseURL;
+  String get resumeBaseUrl;
+  String get apiPath;
+  bool get isDebugApp;
+}
+
+@Singleton(as: ConfigReader)
+class ConfigReaderImpl implements ConfigReader {
   Map<String, dynamic> _config;
 
-  // @override
+  @override
   String get baseURL {
     if (_config == null) {
       return "";
@@ -16,6 +24,7 @@ class ConfigReader {
     return _config['base_url'] as String ?? "";
   }
 
+  @override
   String get resumeBaseUrl {
     if (_config == null) {
       return "";
@@ -23,7 +32,7 @@ class ConfigReader {
     return _config['resume_base_url'] as String ?? "";
   }
 
-  // @override
+  @override
   String get apiPath {
     if (_config == null) {
       return "";
@@ -31,7 +40,7 @@ class ConfigReader {
     return _config['api_path'] as String ?? "";
   }
 
-  // @override
+  @override
   bool get isDebugApp {
     if (_config == null) {
       return true;
@@ -39,7 +48,7 @@ class ConfigReader {
     return _config['is_debug'] as bool ?? true;
   }
 
-  // @override
+  @override
   Future<void> initialize() async {
     var configString = "";
     var dir = Directory.current.path;

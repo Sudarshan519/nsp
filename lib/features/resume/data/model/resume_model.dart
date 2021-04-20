@@ -62,15 +62,12 @@ class ResumeStatusDataModel extends ResumeStatusData {
 
 class AddressesJpModel extends AddressesJp {
   const AddressesJpModel({
-    @required this.en,
-    @required this.jp,
+    @required AddressesJpWithLanguageModel en,
+    @required AddressesJpWithLanguageModel jp,
   }) : super(
           en: en,
           jp: jp,
         );
-
-  final AddressesJpWithLanguageModel en;
-  final AddressesJpWithLanguageModel jp;
 
   factory AddressesJpModel.fromJson(Map<String, dynamic> json) =>
       AddressesJpModel(
@@ -125,7 +122,7 @@ class AddressesNpWithLanguageModel extends AddressesNpWithLanguage {
 }
 
 class NepalProvinceModel extends NepalProvince {
-  NepalProvinceModel({
+  const NepalProvinceModel({
     @required int provinceId,
     @required String provinceName,
   }) : super(

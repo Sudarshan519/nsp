@@ -14,8 +14,10 @@ class _$JapaneseMannerEventTearOff {
   const _$JapaneseMannerEventTearOff();
 
 // ignore: unused_element
-  _Fetch fetch() {
-    return const _Fetch();
+  _Fetch fetch(JapaneseMannerCategory category) {
+    return _Fetch(
+      category,
+    );
   }
 
 // ignore: unused_element
@@ -32,12 +34,12 @@ const $JapaneseMannerEvent = _$JapaneseMannerEventTearOff();
 mixin _$JapaneseMannerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fetch(),
+    @required TResult fetch(JapaneseMannerCategory category),
     @required TResult pullToRefresh(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fetch(),
+    TResult fetch(JapaneseMannerCategory category),
     TResult pullToRefresh(),
     @required TResult orElse(),
   });
@@ -75,6 +77,7 @@ class _$JapaneseMannerEventCopyWithImpl<$Res>
 abstract class _$FetchCopyWith<$Res> {
   factory _$FetchCopyWith(_Fetch value, $Res Function(_Fetch) then) =
       __$FetchCopyWithImpl<$Res>;
+  $Res call({JapaneseMannerCategory category});
 }
 
 /// @nodoc
@@ -85,46 +88,70 @@ class __$FetchCopyWithImpl<$Res> extends _$JapaneseMannerEventCopyWithImpl<$Res>
 
   @override
   _Fetch get _value => super._value as _Fetch;
+
+  @override
+  $Res call({
+    Object category = freezed,
+  }) {
+    return _then(_Fetch(
+      category == freezed
+          ? _value.category
+          : category as JapaneseMannerCategory,
+    ));
+  }
 }
 
 /// @nodoc
 class _$_Fetch implements _Fetch {
-  const _$_Fetch();
+  const _$_Fetch(this.category) : assert(category != null);
+
+  @override
+  final JapaneseMannerCategory category;
 
   @override
   String toString() {
-    return 'JapaneseMannerEvent.fetch()';
+    return 'JapaneseMannerEvent.fetch(category: $category)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Fetch);
+    return identical(this, other) ||
+        (other is _Fetch &&
+            (identical(other.category, category) ||
+                const DeepCollectionEquality()
+                    .equals(other.category, category)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(category);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FetchCopyWith<_Fetch> get copyWith =>
+      __$FetchCopyWithImpl<_Fetch>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fetch(),
+    @required TResult fetch(JapaneseMannerCategory category),
     @required TResult pullToRefresh(),
   }) {
     assert(fetch != null);
     assert(pullToRefresh != null);
-    return fetch();
+    return fetch(category);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fetch(),
+    TResult fetch(JapaneseMannerCategory category),
     TResult pullToRefresh(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fetch != null) {
-      return fetch();
+      return fetch(category);
     }
     return orElse();
   }
@@ -156,7 +183,11 @@ class _$_Fetch implements _Fetch {
 }
 
 abstract class _Fetch implements JapaneseMannerEvent {
-  const factory _Fetch() = _$_Fetch;
+  const factory _Fetch(JapaneseMannerCategory category) = _$_Fetch;
+
+  JapaneseMannerCategory get category;
+  @JsonKey(ignore: true)
+  _$FetchCopyWith<_Fetch> get copyWith;
 }
 
 /// @nodoc
@@ -198,7 +229,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fetch(),
+    @required TResult fetch(JapaneseMannerCategory category),
     @required TResult pullToRefresh(),
   }) {
     assert(fetch != null);
@@ -209,7 +240,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fetch(),
+    TResult fetch(JapaneseMannerCategory category),
     TResult pullToRefresh(),
     @required TResult orElse(),
   }) {

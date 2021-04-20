@@ -32,6 +32,19 @@ abstract class AuthRemoteDataSource {
     @required String confirmPassword,
   });
 
+  /// Calls the https://base_url/social/ endpoint
+  ///
+  /// Throws [ServerException] for all error codes.
+  Future<WalletUserModel> postSocialLogin({
+    @required String url,
+    @required Map<String, dynamic> params,
+  });
+
+  // Future<WalletUserModel> postFacebookLogin({
+  //   @required String token,
+  //   @required String userId,
+  // });
+
   /// Calls the https://base_url/email/verify/endpoint
   ///
   /// Throws [ServerException] for all error codes.
@@ -116,6 +129,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);
     }
+  }
+
+  @override
+  Future<WalletUserModel> postSocialLogin({
+    @required String url,
+    @required Map<String, dynamic> params,
+  }) {
+    return _postLoginRegister(url, _header, params);
   }
 
   Future<WalletUserModel> _postLoginRegister(

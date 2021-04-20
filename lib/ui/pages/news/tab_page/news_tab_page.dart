@@ -46,6 +46,7 @@ class TabBarScreenState extends State<TabBarScreen> {
                 _selectedIndex = selected;
               });
             },
+            isScrollable: false,
             tabs: _tabBarData,
             selectedIndex: _selectedIndex,
           ),

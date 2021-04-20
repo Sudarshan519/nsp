@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/category_title_text.dart';
@@ -115,33 +114,32 @@ class HomeServiceWidget extends StatelessWidget {
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
-                        // textAlign: TextAlign.justify,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 5),
-                      // CustomButton(
-                      //   title: services?.category ?? "",
-                      //   onTap: () {},
-                      // ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 4,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: Palette.black.withOpacity(0.3),
+                      InkWell(
+                        onTap: () => ExtendedNavigator.of(context)
+                            .pushPartnerServicesPage(categoryName: services?.category, ),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 4,
+                            vertical: 2,
                           ),
-                        ),
-                        child: Text(
-                          services?.category ?? "",
-                          style: TextStyle(
-                            color: Palette.black.withOpacity(0.7),
-                            fontSize: 10,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: Palette.black.withOpacity(0.3),
+                            ),
                           ),
-                          overflow: TextOverflow.clip,
+                          child: Text(
+                            services?.category ?? "",
+                            style: TextStyle(
+                              color: Palette.black.withOpacity(0.7),
+                              fontSize: 10,
+                            ),
+                            overflow: TextOverflow.clip,
+                          ),
                         ),
                       ),
                     ],

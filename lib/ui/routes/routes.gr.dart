@@ -295,14 +295,26 @@ class Router extends RouterBase {
       );
     },
     PartnerServicesPage: (data) {
+      final args = data.getArgs<PartnerServicesPageArguments>(
+        orElse: () => PartnerServicesPageArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => PartnerServicesPage(),
+        builder: (context) => PartnerServicesPage(
+          key: args.key,
+          categoryName: args.categoryName,
+        ),
         settings: data,
       );
     },
     JapaneseMannerPage: (data) {
+      final args = data.getArgs<JapaneseMannerPageArguments>(
+        orElse: () => JapaneseMannerPageArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => JapaneseMannerPage(),
+        builder: (context) => JapaneseMannerPage(
+          key: args.key,
+          categoryName: args.categoryName,
+        ),
         settings: data,
       );
     },
@@ -482,11 +494,25 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushProfilePage() => push<dynamic>(Routes.profilePage);
 
-  Future<dynamic> pushPartnerServicesPage() =>
-      push<dynamic>(Routes.partnerServicesPage);
+  Future<dynamic> pushPartnerServicesPage({
+    Key key,
+    String categoryName,
+  }) =>
+      push<dynamic>(
+        Routes.partnerServicesPage,
+        arguments:
+            PartnerServicesPageArguments(key: key, categoryName: categoryName),
+      );
 
-  Future<dynamic> pushJapaneseMannerPage() =>
-      push<dynamic>(Routes.japaneseMannerPage);
+  Future<dynamic> pushJapaneseMannerPage({
+    Key key,
+    String categoryName,
+  }) =>
+      push<dynamic>(
+        Routes.japaneseMannerPage,
+        arguments:
+            JapaneseMannerPageArguments(key: key, categoryName: categoryName),
+      );
 }
 
 /// ************************************************************************
@@ -624,4 +650,18 @@ class AppWebViewArguments {
   final String url;
   final String title;
   AppWebViewArguments({this.key, @required this.url, @required this.title});
+}
+
+/// PartnerServicesPage arguments holder class
+class PartnerServicesPageArguments {
+  final Key key;
+  final String categoryName;
+  PartnerServicesPageArguments({this.key, this.categoryName});
+}
+
+/// JapaneseMannerPage arguments holder class
+class JapaneseMannerPageArguments {
+  final Key key;
+  final String categoryName;
+  JapaneseMannerPageArguments({this.key, this.categoryName});
 }

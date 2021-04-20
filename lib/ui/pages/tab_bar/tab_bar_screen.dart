@@ -16,7 +16,6 @@ class TabBarScreen extends StatefulWidget {
 
 class TabBarScreenState extends State<TabBarScreen> {
   int _selectedIndex = 0;
-  List<Widget> _children = [];
 
   final List<CustomTabBarData> _tabBarData = [
     CustomTabBarData(
@@ -39,7 +38,7 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _children = getTabs();
+    final _children = getTabs();
     return DefaultTabController(
       length: _children.length,
       child: Scaffold(

@@ -1,4 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
@@ -42,6 +43,8 @@ class MockAuthRemoteDataSourceProtocol extends Mock
 
 class MockAuthLocalDataSourceProtocol extends Mock
     implements AuthLocalDataSource {}
+
+class MockGoogleSignIn extends Mock implements GoogleSignIn {}
 
 // Home Mock
 class MockHomePageRemoteDataSource extends Mock

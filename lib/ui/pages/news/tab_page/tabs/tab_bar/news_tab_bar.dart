@@ -13,12 +13,14 @@ class NewsTabBar extends StatefulWidget {
   final List<NewsTabBarData> tabs;
   final int selectedIndex;
   final Function(int) onTap;
+  final bool isScrollable;
 
   const NewsTabBar({
     Key key,
     @required this.tabs,
     @required this.selectedIndex,
     @required this.onTap,
+    @required this.isScrollable,
   }) : super(key: key);
 
   @override
@@ -37,6 +39,7 @@ class _NewsTabBarState extends State<NewsTabBar> {
           ),
         ),
       ),
+      isScrollable: widget.isScrollable,
       labelStyle: const TextStyle(fontSize: 12),
       unselectedLabelStyle: const TextStyle(fontSize: 12),
       labelColor: Palette.black,

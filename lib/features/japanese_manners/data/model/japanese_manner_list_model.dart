@@ -8,20 +8,14 @@ JapaneseMannerListModel japaneseMannerListFromJson(String str) =>
 
 class JapaneseMannerListModel extends JapaneseMannerList {
   const JapaneseMannerListModel({
-    // final int count,
-    // final String next,
     final List<JapaneseMannerModel> results,
   }) : super(
-          // count: count,
-          // next: next,
           results: results,
         );
 
   factory JapaneseMannerListModel.fromJson(Map<String, dynamic> json) =>
       JapaneseMannerListModel(
-        // count: json["count"] as int,
-        // next: json["next"] as String,
-        results: List<JapaneseMannerModel>.from((json["jp_manner"] as Iterable)
+        results: List<JapaneseMannerModel>.from((json["jp_manners"] as Iterable)
             .map((x) =>
                 JapaneseMannerModel.fromJson(x as Map<String, dynamic>))),
       );

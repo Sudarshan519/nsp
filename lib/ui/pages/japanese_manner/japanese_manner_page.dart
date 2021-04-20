@@ -1,33 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner.dart';
-import 'package:wallet_app/features/japanese_manners/presentation/bloc/japanese_manner_bloc.dart';
+import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner_categories.dart';
+import 'package:wallet_app/features/japanese_manners/presentation/japanese_manner/japanese_manner_bloc.dart';
+import 'package:wallet_app/features/japanese_manners/presentation/japanese_manner_categories/japanese_manner_categories_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/widgets/japanese_manner_widget.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/tabs/tab_bar/news_tab_bar.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class JapaneseMannerPage extends StatefulWidget {
-  @override
-  _JapaneseMannerPageState createState() => _JapaneseMannerPageState();
-}
+class JapaneseMannerPage extends StatelessWidget {
+  final String categoryName;
 
-class _JapaneseMannerPageState extends State<JapaneseMannerPage> {
-  int _selectedIndex = 0;
-
-  final List<Widget> _children = [
-    _JapaneseMannerPageList(),
-    _JapaneseMannerPageList(),
-    _JapaneseMannerPageList(),
-    _JapaneseMannerPageList(),
-  ];
-
-  final List<NewsTabBarData> _tabBarData = [
-    NewsTabBarData(title: "All"),
-    NewsTabBarData(title: "Education"),
-    NewsTabBarData(title: "Food"),
-    NewsTabBarData(title: "Shopping"),
-  ];
+  const JapaneseMannerPage({
+    Key key,
+    this.categoryName,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,44 +34,143 @@ class _JapaneseMannerPageState extends State<JapaneseMannerPage> {
         elevation: 0,
       ),
       body: BlocProvider(
-        create: (context) =>
-            getIt<JapaneseMannerBloc>()..add(const JapaneseMannerEvent.fetch()),
-        child: DefaultTabController(
-          length: _children.length,
-          child: Scaffold(
-            appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(kToolbarHeight),
-              child: NewsTabBar(
-                onTap: (selected) {
-                  setState(() {
-                    _selectedIndex = selected;
-                  });
-                },
-                tabs: _tabBarData,
-                selectedIndex: _selectedIndex,
-              ),
-            ),
-            body: IndexedStack(
-              index: _selectedIndex,
-              children: _children,
-            ),
+        create: (context) => getIt<JapaneseMannerCategoriesBloc>()
+          ..add(
+            const JapaneseMannerCategoriesEvent.fetch(),
           ),
-        ),
+        child: buildBody(context),
       ),
+    );
+  }
+
+  Widget buildBody(BuildContext context) {
+    return BlocBuilder<JapaneseMannerCategoriesBloc,
+        JapaneseMannerCategoriesState>(
+      builder: (context, state) {
+        return state.map(
+          initial: (_) => loadingPage(),
+          loading: (_) => loadingPage(),
+          loaded: (success) => _JapaneseMannerTabPage(
+            categories: success.categories,
+            categoryName: categoryName,
+          ),
+          failure: (failure) {
+            // TODO: Failure message display
+            return const SizedBox.shrink();
+          },
+        );
+      },
     );
   }
 }
 
-class _JapaneseMannerPageList extends StatelessWidget {
+class _JapaneseMannerTabPage extends StatefulWidget {
+  final List<JapaneseMannerCategory> categories;
+  final String categoryName;
+
+  const _JapaneseMannerTabPage({
+    Key key,
+    @required this.categories,
+    this.categoryName,
+  }) : super(key: key);
+
+  @override
+  _JapaneseMannerPageState createState() => _JapaneseMannerPageState();
+}
+
+class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
+    final _children = _getChildrenPages(widget.categories);
+    final _tabBarData = _getTabbarData(widget.categories);
+
+    setPage();
+
+    return DefaultTabController(
+      length: _children.length,
+      initialIndex: _selectedIndex,
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
+          child: NewsTabBar(
+            onTap: (selected) {
+              setState(() {
+                _selectedIndex = selected;
+              });
+            },
+            isScrollable: true,
+            tabs: _tabBarData,
+            selectedIndex: _selectedIndex,
+          ),
+        ),
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: _children,
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _getChildrenPages(List<JapaneseMannerCategory> categories) {
+    final List<Widget> widgets = [];
+    for (final category in categories) {
+      widgets.add(
+        _JapaneseMannerPageList(
+          key: ValueKey(category),
+          category: category,
+        ),
+      );
+    }
+    return widgets;
+  }
+
+  List<NewsTabBarData> _getTabbarData(List<JapaneseMannerCategory> categories) {
+    final List<NewsTabBarData> tabData = [];
+    for (final category in categories) {
+      tabData.add(NewsTabBarData(title: category.categoryName));
+    }
+    return tabData;
+  }
+
+  void setPage() {
+    if (widget.categoryName != null && widget.categoryName.isNotEmpty) {
+      final categoryFound = widget.categories.firstWhere(
+          (category) => category.categoryName == widget.categoryName);
+      if (categoryFound != null) {
+        final index = widget.categories.indexOf(categoryFound);
+        _selectedIndex = index;
+      }
+    }
+  }
+}
+
+class _JapaneseMannerPageList extends StatelessWidget {
+  final JapaneseMannerCategory category;
+
+  const _JapaneseMannerPageList({
+    Key key,
+    @required this.category,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) =>
+          getIt<JapaneseMannerBloc>()..add(JapaneseMannerEvent.fetch(category)),
+      child: buildBody(context),
+    );
+  }
+
+  Widget buildBody(BuildContext context) {
     return BlocBuilder<JapaneseMannerBloc, JapaneseMannerState>(
       builder: (context, state) {
         return state.map(
           initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
           loaded: (success) => _listOfJapaneseManner(success.list),
-          failure: (failure) => loadingPage(),
+          failure: (failure) => const SizedBox.shrink(),
           reachEnd: (_) => loadingPage(),
         );
       },

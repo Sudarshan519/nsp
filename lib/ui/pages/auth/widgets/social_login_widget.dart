@@ -1,33 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'dart:io' show Platform;
+
+import 'package:wallet_app/features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class SocialLoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        getSocialLoginBox(
-          icon: "fb",
-          onTap: () {},
-        ),
-        const SizedBox(width: 15),
-        getSocialLoginBox(
-          icon: "gmail",
-          onTap: () {},
-        ),
-        const SizedBox(width: 15),
-        getSocialLoginBox(
-          icon: "apple",
-          onTap: () {},
-        ),
-        // const SizedBox(width: 15),
-        // getSocialLoginBox(
-        //   icon: "viber",
-        //   onTap: () {},
-        // ),
-      ],
+    return BlocBuilder<SignInFormBloc, SignInFormState>(
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            getSocialLoginBox(
+              icon: "fb",
+              onTap: () => context.read<SignInFormBloc>().add(
+                    const SignInFormEvent.signInWithFacebookPressed(),
+                  ),
+            ),
+            const SizedBox(width: 15),
+            getSocialLoginBox(
+              icon: "gmail",
+              onTap: () => context.read<SignInFormBloc>().add(
+                    const SignInFormEvent.signInWithGooglePressed(),
+                  ),
+            ),
+            const SizedBox(width: 15),
+            if (Platform.isIOS)
+              getSocialLoginBox(
+                icon: "apple",
+                onTap: () => context.read<SignInFormBloc>().add(
+                      const SignInFormEvent.signInWithApplePressed(),
+                    ),
+              ),
+          ],
+        );
+      },
     );
   }
 

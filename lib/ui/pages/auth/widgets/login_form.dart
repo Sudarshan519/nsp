@@ -88,7 +88,7 @@ class _EmailInput extends StatelessWidget {
           prefixIcon: SvgPicture.asset(
             "assets/images/auth/email.svg",
           ),
-          validator: Validator.isValidEmail,
+          validator: Validator.isNotEmpty,
           onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<SignInFormBloc>()

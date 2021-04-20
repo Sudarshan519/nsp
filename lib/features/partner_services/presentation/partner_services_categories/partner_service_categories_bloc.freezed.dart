@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'parnter_services_bloc.dart';
+part of 'partner_service_categories_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,65 +10,57 @@ part of 'parnter_services_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$ParnterServicesEventTearOff {
-  const _$ParnterServicesEventTearOff();
+class _$PartnerServiceCategoriesEventTearOff {
+  const _$PartnerServiceCategoriesEventTearOff();
 
 // ignore: unused_element
   _Fetch fetch() {
     return const _Fetch();
   }
-
-// ignore: unused_element
-  _PullToRefresh pullToRefresh() {
-    return const _PullToRefresh();
-  }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $ParnterServicesEvent = _$ParnterServicesEventTearOff();
+const $PartnerServiceCategoriesEvent = _$PartnerServiceCategoriesEventTearOff();
 
 /// @nodoc
-mixin _$ParnterServicesEvent {
+mixin _$PartnerServiceCategoriesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult pullToRefresh(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult pullToRefresh(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(_Fetch value),
-    @required TResult pullToRefresh(_PullToRefresh value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(_Fetch value),
-    TResult pullToRefresh(_PullToRefresh value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $ParnterServicesEventCopyWith<$Res> {
-  factory $ParnterServicesEventCopyWith(ParnterServicesEvent value,
-          $Res Function(ParnterServicesEvent) then) =
-      _$ParnterServicesEventCopyWithImpl<$Res>;
+abstract class $PartnerServiceCategoriesEventCopyWith<$Res> {
+  factory $PartnerServiceCategoriesEventCopyWith(
+          PartnerServiceCategoriesEvent value,
+          $Res Function(PartnerServiceCategoriesEvent) then) =
+      _$PartnerServiceCategoriesEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ParnterServicesEventCopyWithImpl<$Res>
-    implements $ParnterServicesEventCopyWith<$Res> {
-  _$ParnterServicesEventCopyWithImpl(this._value, this._then);
+class _$PartnerServiceCategoriesEventCopyWithImpl<$Res>
+    implements $PartnerServiceCategoriesEventCopyWith<$Res> {
+  _$PartnerServiceCategoriesEventCopyWithImpl(this._value, this._then);
 
-  final ParnterServicesEvent _value;
+  final PartnerServiceCategoriesEvent _value;
   // ignore: unused_field
-  final $Res Function(ParnterServicesEvent) _then;
+  final $Res Function(PartnerServiceCategoriesEvent) _then;
 }
 
 /// @nodoc
@@ -79,7 +71,7 @@ abstract class _$FetchCopyWith<$Res> {
 
 /// @nodoc
 class __$FetchCopyWithImpl<$Res>
-    extends _$ParnterServicesEventCopyWithImpl<$Res>
+    extends _$PartnerServiceCategoriesEventCopyWithImpl<$Res>
     implements _$FetchCopyWith<$Res> {
   __$FetchCopyWithImpl(_Fetch _value, $Res Function(_Fetch) _then)
       : super(_value, (v) => _then(v as _Fetch));
@@ -94,7 +86,7 @@ class _$_Fetch implements _Fetch {
 
   @override
   String toString() {
-    return 'ParnterServicesEvent.fetch()';
+    return 'PartnerServiceCategoriesEvent.fetch()';
   }
 
   @override
@@ -109,10 +101,8 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult pullToRefresh(),
   }) {
     assert(fetch != null);
-    assert(pullToRefresh != null);
     return fetch();
   }
 
@@ -120,7 +110,6 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult pullToRefresh(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -134,10 +123,8 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(_Fetch value),
-    @required TResult pullToRefresh(_PullToRefresh value),
   }) {
     assert(fetch != null);
-    assert(pullToRefresh != null);
     return fetch(this);
   }
 
@@ -145,7 +132,6 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(_Fetch value),
-    TResult pullToRefresh(_PullToRefresh value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -156,104 +142,13 @@ class _$_Fetch implements _Fetch {
   }
 }
 
-abstract class _Fetch implements ParnterServicesEvent {
+abstract class _Fetch implements PartnerServiceCategoriesEvent {
   const factory _Fetch() = _$_Fetch;
 }
 
 /// @nodoc
-abstract class _$PullToRefreshCopyWith<$Res> {
-  factory _$PullToRefreshCopyWith(
-          _PullToRefresh value, $Res Function(_PullToRefresh) then) =
-      __$PullToRefreshCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$PullToRefreshCopyWithImpl<$Res>
-    extends _$ParnterServicesEventCopyWithImpl<$Res>
-    implements _$PullToRefreshCopyWith<$Res> {
-  __$PullToRefreshCopyWithImpl(
-      _PullToRefresh _value, $Res Function(_PullToRefresh) _then)
-      : super(_value, (v) => _then(v as _PullToRefresh));
-
-  @override
-  _PullToRefresh get _value => super._value as _PullToRefresh;
-}
-
-/// @nodoc
-class _$_PullToRefresh implements _PullToRefresh {
-  const _$_PullToRefresh();
-
-  @override
-  String toString() {
-    return 'ParnterServicesEvent.pullToRefresh()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PullToRefresh);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fetch(),
-    @required TResult pullToRefresh(),
-  }) {
-    assert(fetch != null);
-    assert(pullToRefresh != null);
-    return pullToRefresh();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fetch(),
-    TResult pullToRefresh(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (pullToRefresh != null) {
-      return pullToRefresh();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fetch(_Fetch value),
-    @required TResult pullToRefresh(_PullToRefresh value),
-  }) {
-    assert(fetch != null);
-    assert(pullToRefresh != null);
-    return pullToRefresh(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fetch(_Fetch value),
-    TResult pullToRefresh(_PullToRefresh value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (pullToRefresh != null) {
-      return pullToRefresh(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PullToRefresh implements ParnterServicesEvent {
-  const factory _PullToRefresh() = _$_PullToRefresh;
-}
-
-/// @nodoc
-class _$ParnterServicesStateTearOff {
-  const _$ParnterServicesStateTearOff();
+class _$PartnerServiceCategoriesStateTearOff {
+  const _$PartnerServiceCategoriesStateTearOff();
 
 // ignore: unused_element
   _Initial initial() {
@@ -266,15 +161,10 @@ class _$ParnterServicesStateTearOff {
   }
 
 // ignore: unused_element
-  _Loaded loaded(List<Services> list) {
+  _Loaded loaded(List<ServicesCategory> categories) {
     return _Loaded(
-      list,
+      categories,
     );
-  }
-
-// ignore: unused_element
-  _ReachedEnd reachEnd() {
-    return const _ReachedEnd();
   }
 
 // ignore: unused_element
@@ -287,24 +177,22 @@ class _$ParnterServicesStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $ParnterServicesState = _$ParnterServicesStateTearOff();
+const $PartnerServiceCategoriesState = _$PartnerServiceCategoriesStateTearOff();
 
 /// @nodoc
-mixin _$ParnterServicesState {
+mixin _$PartnerServiceCategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(List<Services> list),
-    @required TResult reachEnd(),
+    @required TResult loaded(List<ServicesCategory> categories),
     @required TResult failure(ApiFailure failure),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(List<Services> list),
-    TResult reachEnd(),
+    TResult loaded(List<ServicesCategory> categories),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   });
@@ -313,7 +201,6 @@ mixin _$ParnterServicesState {
     @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loaded(_Loaded value),
-    @required TResult reachEnd(_ReachedEnd value),
     @required TResult failure(_Failure value),
   });
   @optionalTypeArgs
@@ -321,27 +208,27 @@ mixin _$ParnterServicesState {
     TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loaded(_Loaded value),
-    TResult reachEnd(_ReachedEnd value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $ParnterServicesStateCopyWith<$Res> {
-  factory $ParnterServicesStateCopyWith(ParnterServicesState value,
-          $Res Function(ParnterServicesState) then) =
-      _$ParnterServicesStateCopyWithImpl<$Res>;
+abstract class $PartnerServiceCategoriesStateCopyWith<$Res> {
+  factory $PartnerServiceCategoriesStateCopyWith(
+          PartnerServiceCategoriesState value,
+          $Res Function(PartnerServiceCategoriesState) then) =
+      _$PartnerServiceCategoriesStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ParnterServicesStateCopyWithImpl<$Res>
-    implements $ParnterServicesStateCopyWith<$Res> {
-  _$ParnterServicesStateCopyWithImpl(this._value, this._then);
+class _$PartnerServiceCategoriesStateCopyWithImpl<$Res>
+    implements $PartnerServiceCategoriesStateCopyWith<$Res> {
+  _$PartnerServiceCategoriesStateCopyWithImpl(this._value, this._then);
 
-  final ParnterServicesState _value;
+  final PartnerServiceCategoriesState _value;
   // ignore: unused_field
-  final $Res Function(ParnterServicesState) _then;
+  final $Res Function(PartnerServiceCategoriesState) _then;
 }
 
 /// @nodoc
@@ -352,7 +239,7 @@ abstract class _$InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$InitialCopyWithImpl<$Res>
-    extends _$ParnterServicesStateCopyWithImpl<$Res>
+    extends _$PartnerServiceCategoriesStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -367,7 +254,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'ParnterServicesState.initial()';
+    return 'PartnerServiceCategoriesState.initial()';
   }
 
   @override
@@ -383,14 +270,12 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(List<Services> list),
-    @required TResult reachEnd(),
+    @required TResult loaded(List<ServicesCategory> categories),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loaded != null);
-    assert(reachEnd != null);
     assert(failure != null);
     return initial();
   }
@@ -400,8 +285,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(List<Services> list),
-    TResult reachEnd(),
+    TResult loaded(List<ServicesCategory> categories),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -418,13 +302,11 @@ class _$_Initial implements _Initial {
     @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loaded(_Loaded value),
-    @required TResult reachEnd(_ReachedEnd value),
     @required TResult failure(_Failure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loaded != null);
-    assert(reachEnd != null);
     assert(failure != null);
     return initial(this);
   }
@@ -435,7 +317,6 @@ class _$_Initial implements _Initial {
     TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loaded(_Loaded value),
-    TResult reachEnd(_ReachedEnd value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   }) {
@@ -447,7 +328,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements ParnterServicesState {
+abstract class _Initial implements PartnerServiceCategoriesState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -459,7 +340,7 @@ abstract class _$LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$LoadingCopyWithImpl<$Res>
-    extends _$ParnterServicesStateCopyWithImpl<$Res>
+    extends _$PartnerServiceCategoriesStateCopyWithImpl<$Res>
     implements _$LoadingCopyWith<$Res> {
   __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
       : super(_value, (v) => _then(v as _Loading));
@@ -474,7 +355,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'ParnterServicesState.loading()';
+    return 'PartnerServiceCategoriesState.loading()';
   }
 
   @override
@@ -490,14 +371,12 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(List<Services> list),
-    @required TResult reachEnd(),
+    @required TResult loaded(List<ServicesCategory> categories),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loaded != null);
-    assert(reachEnd != null);
     assert(failure != null);
     return loading();
   }
@@ -507,8 +386,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(List<Services> list),
-    TResult reachEnd(),
+    TResult loaded(List<ServicesCategory> categories),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -525,13 +403,11 @@ class _$_Loading implements _Loading {
     @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loaded(_Loaded value),
-    @required TResult reachEnd(_ReachedEnd value),
     @required TResult failure(_Failure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loaded != null);
-    assert(reachEnd != null);
     assert(failure != null);
     return loading(this);
   }
@@ -542,7 +418,6 @@ class _$_Loading implements _Loading {
     TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loaded(_Loaded value),
-    TResult reachEnd(_ReachedEnd value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   }) {
@@ -554,7 +429,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements ParnterServicesState {
+abstract class _Loading implements PartnerServiceCategoriesState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -562,12 +437,12 @@ abstract class _Loading implements ParnterServicesState {
 abstract class _$LoadedCopyWith<$Res> {
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
-  $Res call({List<Services> list});
+  $Res call({List<ServicesCategory> categories});
 }
 
 /// @nodoc
 class __$LoadedCopyWithImpl<$Res>
-    extends _$ParnterServicesStateCopyWithImpl<$Res>
+    extends _$PartnerServiceCategoriesStateCopyWithImpl<$Res>
     implements _$LoadedCopyWith<$Res> {
   __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
       : super(_value, (v) => _then(v as _Loaded));
@@ -577,37 +452,40 @@ class __$LoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object categories = freezed,
   }) {
     return _then(_Loaded(
-      list == freezed ? _value.list : list as List<Services>,
+      categories == freezed
+          ? _value.categories
+          : categories as List<ServicesCategory>,
     ));
   }
 }
 
 /// @nodoc
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.list) : assert(list != null);
+  const _$_Loaded(this.categories) : assert(categories != null);
 
   @override
-  final List<Services> list;
+  final List<ServicesCategory> categories;
 
   @override
   String toString() {
-    return 'ParnterServicesState.loaded(list: $list)';
+    return 'PartnerServiceCategoriesState.loaded(categories: $categories)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Loaded &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+            (identical(other.categories, categories) ||
+                const DeepCollectionEquality()
+                    .equals(other.categories, categories)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(categories);
 
   @JsonKey(ignore: true)
   @override
@@ -619,16 +497,14 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(List<Services> list),
-    @required TResult reachEnd(),
+    @required TResult loaded(List<ServicesCategory> categories),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loaded != null);
-    assert(reachEnd != null);
     assert(failure != null);
-    return loaded(list);
+    return loaded(categories);
   }
 
   @override
@@ -636,14 +512,13 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(List<Services> list),
-    TResult reachEnd(),
+    TResult loaded(List<ServicesCategory> categories),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loaded != null) {
-      return loaded(list);
+      return loaded(categories);
     }
     return orElse();
   }
@@ -654,13 +529,11 @@ class _$_Loaded implements _Loaded {
     @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loaded(_Loaded value),
-    @required TResult reachEnd(_ReachedEnd value),
     @required TResult failure(_Failure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loaded != null);
-    assert(reachEnd != null);
     assert(failure != null);
     return loaded(this);
   }
@@ -671,7 +544,6 @@ class _$_Loaded implements _Loaded {
     TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loaded(_Loaded value),
-    TResult reachEnd(_ReachedEnd value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   }) {
@@ -683,121 +555,12 @@ class _$_Loaded implements _Loaded {
   }
 }
 
-abstract class _Loaded implements ParnterServicesState {
-  const factory _Loaded(List<Services> list) = _$_Loaded;
+abstract class _Loaded implements PartnerServiceCategoriesState {
+  const factory _Loaded(List<ServicesCategory> categories) = _$_Loaded;
 
-  List<Services> get list;
+  List<ServicesCategory> get categories;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith;
-}
-
-/// @nodoc
-abstract class _$ReachedEndCopyWith<$Res> {
-  factory _$ReachedEndCopyWith(
-          _ReachedEnd value, $Res Function(_ReachedEnd) then) =
-      __$ReachedEndCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ReachedEndCopyWithImpl<$Res>
-    extends _$ParnterServicesStateCopyWithImpl<$Res>
-    implements _$ReachedEndCopyWith<$Res> {
-  __$ReachedEndCopyWithImpl(
-      _ReachedEnd _value, $Res Function(_ReachedEnd) _then)
-      : super(_value, (v) => _then(v as _ReachedEnd));
-
-  @override
-  _ReachedEnd get _value => super._value as _ReachedEnd;
-}
-
-/// @nodoc
-class _$_ReachedEnd implements _ReachedEnd {
-  const _$_ReachedEnd();
-
-  @override
-  String toString() {
-    return 'ParnterServicesState.reachEnd()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ReachedEnd);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(List<Services> list),
-    @required TResult reachEnd(),
-    @required TResult failure(ApiFailure failure),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(reachEnd != null);
-    assert(failure != null);
-    return reachEnd();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(List<Services> list),
-    TResult reachEnd(),
-    TResult failure(ApiFailure failure),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (reachEnd != null) {
-      return reachEnd();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loading(_Loading value),
-    @required TResult loaded(_Loaded value),
-    @required TResult reachEnd(_ReachedEnd value),
-    @required TResult failure(_Failure value),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(reachEnd != null);
-    assert(failure != null);
-    return reachEnd(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loading(_Loading value),
-    TResult loaded(_Loaded value),
-    TResult reachEnd(_ReachedEnd value),
-    TResult failure(_Failure value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (reachEnd != null) {
-      return reachEnd(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ReachedEnd implements ParnterServicesState {
-  const factory _ReachedEnd() = _$_ReachedEnd;
 }
 
 /// @nodoc
@@ -811,7 +574,7 @@ abstract class _$FailureCopyWith<$Res> {
 
 /// @nodoc
 class __$FailureCopyWithImpl<$Res>
-    extends _$ParnterServicesStateCopyWithImpl<$Res>
+    extends _$PartnerServiceCategoriesStateCopyWithImpl<$Res>
     implements _$FailureCopyWith<$Res> {
   __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
       : super(_value, (v) => _then(v as _Failure));
@@ -848,7 +611,7 @@ class _$_Failure implements _Failure {
 
   @override
   String toString() {
-    return 'ParnterServicesState.failure(failure: $failure)';
+    return 'PartnerServiceCategoriesState.failure(failure: $failure)';
   }
 
   @override
@@ -873,14 +636,12 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(List<Services> list),
-    @required TResult reachEnd(),
+    @required TResult loaded(List<ServicesCategory> categories),
     @required TResult failure(ApiFailure failure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loaded != null);
-    assert(reachEnd != null);
     assert(failure != null);
     return failure(this.failure);
   }
@@ -890,8 +651,7 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(List<Services> list),
-    TResult reachEnd(),
+    TResult loaded(List<ServicesCategory> categories),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -908,13 +668,11 @@ class _$_Failure implements _Failure {
     @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loaded(_Loaded value),
-    @required TResult reachEnd(_ReachedEnd value),
     @required TResult failure(_Failure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loaded != null);
-    assert(reachEnd != null);
     assert(failure != null);
     return failure(this);
   }
@@ -925,7 +683,6 @@ class _$_Failure implements _Failure {
     TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loaded(_Loaded value),
-    TResult reachEnd(_ReachedEnd value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   }) {
@@ -937,7 +694,7 @@ class _$_Failure implements _Failure {
   }
 }
 
-abstract class _Failure implements ParnterServicesState {
+abstract class _Failure implements PartnerServiceCategoriesState {
   const factory _Failure(ApiFailure failure) = _$_Failure;
 
   ApiFailure get failure;

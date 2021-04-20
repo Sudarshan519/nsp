@@ -9,7 +9,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Neppon Secure Payment</string>
+	<string>Nippon Secure Payment</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,7 +17,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Neppon Secure Payment</string>
+	<string>Nippon Secure Payment</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -82,5 +82,26 @@
 	<false/>
 	<key>io.flutter.embedded_views_preview</key>
 	<true/>
-</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.660540445156-g500hnmt30ug8o84jl3ijkdfvb779c05</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb160947809212135</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>160947809212135</string>
+	<key>FacebookDisplayName</key>
+	<string>Nippon Secure Payment</string>
+	</dict>
 </plist>

@@ -123,7 +123,7 @@ class AddressesNpWithLanguage extends Equatable {
 }
 
 class NepalProvince extends Equatable {
-  NepalProvince({
+  const NepalProvince({
     @required this.provinceId,
     @required this.provinceName,
   });

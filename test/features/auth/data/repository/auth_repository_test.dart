@@ -11,14 +11,20 @@ import '../../../../utils/test_constant/auth/test_constant.dart';
 void main() {
   MockAuthRemoteDataSourceProtocol remoteDataSource;
   MockAuthLocalDataSourceProtocol localDataSource;
+  MockGoogleSignIn googleSignIn;
 
   AuthRepositoryImpl sut;
 
   setUp(() {
     remoteDataSource = MockAuthRemoteDataSourceProtocol();
     localDataSource = MockAuthLocalDataSourceProtocol();
+
+    googleSignIn = MockGoogleSignIn();
     sut = AuthRepositoryImpl(
-        localDataSource: localDataSource, remoteDataSource: remoteDataSource);
+      localDataSource: localDataSource,
+      remoteDataSource: remoteDataSource,
+      googleSignIn: googleSignIn,
+    );
   });
 
   // void runTestOnline(Function body) {
@@ -47,6 +53,7 @@ void main() {
         () => AuthRepositoryImpl(
           localDataSource: null,
           remoteDataSource: remoteDataSource,
+          googleSignIn: null,
         ),
         throwsA(isA<AssertionError>()),
       );
@@ -57,6 +64,7 @@ void main() {
         () => AuthRepositoryImpl(
           localDataSource: localDataSource,
           remoteDataSource: null,
+          googleSignIn: null,
         ),
         throwsA(isA<AssertionError>()),
       );

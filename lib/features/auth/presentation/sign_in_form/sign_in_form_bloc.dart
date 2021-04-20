@@ -6,8 +6,12 @@ import 'package:meta/meta.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/auth/domain/auth_routes/auth_routes.dart';
+import 'package:wallet_app/features/auth/domain/usecase/sign_in_with_apple.dart';
 import 'package:wallet_app/features/auth/domain/usecase/sign_in_with_email.dart';
+import 'package:wallet_app/features/auth/domain/usecase/sign_in_with_facebook.dart';
+import 'package:wallet_app/features/auth/domain/usecase/sign_in_with_google.dart';
 
 part 'sign_in_form_event.dart';
 part 'sign_in_form_state.dart';
@@ -17,10 +21,16 @@ part 'sign_in_form_bloc.freezed.dart';
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final SignInWithEmailAndPassword signInWithEmailUsecase;
+  final SignInWithApple signInWithApple;
+  final SignInWithFacebook signInWithFacebook;
+  final SignInWithGoogle signInWithGoogle;
 
-  SignInFormBloc(
-    this.signInWithEmailUsecase,
-  ) : super(SignInFormState.initial());
+  SignInFormBloc({
+    @required this.signInWithEmailUsecase,
+    @required this.signInWithApple,
+    @required this.signInWithFacebook,
+    @required this.signInWithGoogle,
+  }) : super(SignInFormState.initial());
 
   @override
   Stream<SignInFormState> mapEventToState(
@@ -39,9 +49,15 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       signInWithEmailAndPasswordPressed: (e) async* {
         yield* _mapLoginSubmittedToState(e);
       },
-      signInWithGooglePressed: (e) async* {},
-      signInWithFacebookPressed: (e) async* {},
-      signInWithApplePressed: (e) async* {},
+      signInWithGooglePressed: (e) async* {
+        yield* _mapSignInWithGooglePressed(e);
+      },
+      signInWithFacebookPressed: (e) async* {
+        yield* _mapSignInWithFacebookPressed(e);
+      },
+      signInWithApplePressed: (e) async* {
+        yield* _mapSignInWithApplePressed(e);
+      },
       signUpPressed: (e) async* {
         yield _mapSignupPressedToState(e);
       },
@@ -92,6 +108,69 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           : Right(
               AuthRoutes.showEmailVerificationScreen(state.emailAddress),
             ),
+    );
+
+    yield state.copyWith(
+      isSubmitting: false,
+      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<SignInFormState> _mapSignInWithGooglePressed(
+      _SignInWithGooglePressed _signInWithGooglePressed) async* {
+    Either<ApiFailure, AuthRoutes> failureOrSuccess;
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
+
+    final result = await signInWithGoogle(NoParams());
+
+    failureOrSuccess = result.fold(
+      (l) => Left(l),
+      (r) => const Right(AuthRoutes.showHomeScreen()),
+    );
+
+    yield state.copyWith(
+      isSubmitting: false,
+      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<SignInFormState> _mapSignInWithFacebookPressed(
+      _SignInWithFacebookPressed _signInWithFacebookPressed) async* {
+    Either<ApiFailure, AuthRoutes> failureOrSuccess;
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
+
+    final result = await signInWithFacebook(NoParams());
+
+    failureOrSuccess = result.fold(
+      (l) => Left(l),
+      (r) => const Right(AuthRoutes.showHomeScreen()),
+    );
+
+    yield state.copyWith(
+      isSubmitting: false,
+      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<SignInFormState> _mapSignInWithApplePressed(
+      _SignInWithApplePressed _signInWithApplePressed) async* {
+    Either<ApiFailure, AuthRoutes> failureOrSuccess;
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
+
+    final result = await signInWithApple(NoParams());
+
+    failureOrSuccess = result.fold(
+      (l) => Left(l),
+      (r) => const Right(AuthRoutes.showHomeScreen()),
     );
 
     yield state.copyWith(

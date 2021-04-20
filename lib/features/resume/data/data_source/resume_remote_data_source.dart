@@ -123,13 +123,8 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     @required Map<String, dynamic> body,
   }) async {
     http.Response response;
-
-    // final url =
-    //     "${config.resumeBaseUrl}${ResumeApiEndpoints.updateProfile}$lang";
-
     final url =
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.updateProfile}$lang";
-    // final uuid = (await auth.getUserDetail())?.uuid ?? "";
     final accessToken = (await auth.getWalletUser()).accessToken;
 
     if (accessToken.isEmpty) {

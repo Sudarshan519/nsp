@@ -112,33 +112,32 @@ class JapaneseMannerWidget extends StatelessWidget {
             style: const TextStyle(
               fontWeight: FontWeight.w500,
             ),
-            // textAlign: TextAlign.justify,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10),
-          // CustomButton(
-          //   title: data?.category?.categoryName ?? "",
-          //   onTap: () {},
-          // ),
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 4,
-              vertical: 2,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: Palette.black.withOpacity(0.3),
+          InkWell(
+            onTap: () => ExtendedNavigator.of(context).pushJapaneseMannerPage(
+                categoryName: data?.category?.categoryName),
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 4,
+                vertical: 2,
               ),
-            ),
-            child: Text(
-              data?.category?.categoryName ?? "",
-              style: TextStyle(
-                color: Palette.black.withOpacity(0.7),
-                fontSize: 10,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: Palette.black.withOpacity(0.3),
+                ),
               ),
-              overflow: TextOverflow.clip,
+              child: Text(
+                data?.category?.categoryName ?? "",
+                style: TextStyle(
+                  color: Palette.black.withOpacity(0.7),
+                  fontSize: 10,
+                ),
+                overflow: TextOverflow.clip,
+              ),
             ),
           ),
         ],

@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "660540445156",
+    "project_id": "nsp-wallet",
+    "storage_bucket": "nsp-wallet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660540445156:android:9589c54a8d44f1fc84b7f1",
+        "android_client_info": {
+          "package_name": "nsp.platz.nitv.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660540445156-vqaqm64m8idve6jn2iicpq7tdrpmvnmj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nsp.platz.nitv.com",
+            "certificate_hash": "53eaba3c9a8206a11f1deee1dddccbad6f8e87a1"
+          }
+        },
+        {
+          "client_id": "660540445156-0kpg73vfhp1bgfscfij3pk7vatpjgmu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8wLI_zsFifm4VR9peQN8kmWbywniPbpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660540445156-0kpg73vfhp1bgfscfij3pk7vatpjgmu0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "660540445156-g500hnmt30ug8o84jl3ijkdfvb779c05.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "nsp.3platz.nitv.com"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -221,7 +221,7 @@ class _FuriganaInputField extends StatelessWidget {
       builder: (context, state) => FormFieldDecoration(
         title: "Furigana",
         child: InputTextWidget(
-          hintText: "Furigana(Japanese Katakana)",
+          hintText: "フリガナ Furigana(Japanese Katakana)",
           textInputType: TextInputType.name,
           validator: Validator.isNotKatakana,
           value: state.furigana,

@@ -22,6 +22,12 @@ class Validator {
         .build())(name);
   }
 
+  static String isNotEmpty(String name, {String placeholder}) {
+    return (ValidationBuilder()
+        .minLength(1, "${placeholder ?? "This field"} cannot be empty")
+        .build())(name);
+  }
+
   static String isNotKatakana(String name, {String placeholder}) {
     if (name.isEmpty) {
       return null;

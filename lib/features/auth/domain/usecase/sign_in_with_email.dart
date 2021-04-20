@@ -22,7 +22,7 @@ class SignInWithEmailAndPassword
 
   @override
   Future<Either<ApiFailure, WalletUser>> call(SignInParams params) async {
-    final emailValidation = Validator.isValidEmail(params.username);
+    final emailValidation = Validator.isNotEmpty(params.username);
     final passwordValidation = Validator.isValidPassword(params.password);
 
     if (emailValidation != null) {

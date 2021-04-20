@@ -1,4 +1,4 @@
-package com.nitv.wallet.wallet_app
+package nsp.platz.nitv.com
 
 import io.flutter.embedding.android.FlutterActivity
 
