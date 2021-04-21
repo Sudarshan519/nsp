@@ -282,13 +282,15 @@ class _SearchAddressViaPostalCode extends StatelessWidget {
       builder: (context, state) {
         return state.map(
           failure: (failure) {
-            FlushbarHelper.createError(
-              message: failure.failure.map(
-                serverError: (error) => error.message,
-                invalidUser: (_) => AppConstants.someThingWentWrong,
-                noInternetConnection: (_) => AppConstants.noNetwork,
-              ),
-            ).show(context);
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: failure.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
             return _buildSearchBoxWithLoading(context: context);
           },
           success: (success) {

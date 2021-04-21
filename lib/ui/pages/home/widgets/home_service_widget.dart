@@ -120,7 +120,10 @@ class HomeServiceWidget extends StatelessWidget {
                       const SizedBox(height: 5),
                       InkWell(
                         onTap: () => ExtendedNavigator.of(context)
-                            .pushPartnerServicesPage(categoryName: services?.category, ),
+                            .pushPartnerServicesPage(
+                              key: UniqueKey(),
+                          categoryName: services?.category,
+                        ),
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 4,

@@ -9,6 +9,7 @@ class Services extends Equatable {
     @required this.category,
     @required this.companyName,
     @required this.companyLogo,
+    @required this.serviceUrl,
     @required this.companyBannerImage,
     @required this.salesContactEmail,
     @required this.salesContactPhone,
@@ -28,6 +29,7 @@ class Services extends Equatable {
   final String category;
   final String companyName;
   final String companyLogo;
+  final String serviceUrl;
   final String companyBannerImage;
   final String salesContactEmail;
   final String salesContactPhone;
@@ -62,6 +64,7 @@ class Services extends Equatable {
         category,
         companyName,
         companyLogo,
+        serviceUrl,
         companyBannerImage,
         salesContactEmail,
         salesContactPhone,

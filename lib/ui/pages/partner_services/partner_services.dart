@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
@@ -10,6 +11,7 @@ import 'package:wallet_app/ui/pages/news/tab_page/tabs/tab_bar/news_tab_bar.dart
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 class PartnerServicesPage extends StatelessWidget {
   final String categoryName;
@@ -54,7 +56,15 @@ class PartnerServicesPage extends StatelessWidget {
             categoryName: categoryName,
           ),
           failure: (failure) {
-            // TODO: Failure message display
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: failure.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
             return const SizedBox.shrink();
           },
         );
@@ -78,13 +88,16 @@ class _PartnerServicesTabPage extends StatefulWidget {
 
 class _PartnerServicesState extends State<_PartnerServicesTabPage> {
   int _selectedIndex = 0;
+  bool _changedByUser = false;
 
   @override
   Widget build(BuildContext context) {
     final _children = _getChildrenPages(widget.categories);
     final _tabBarData = _getTabbarData(widget.categories);
 
-    setPage();
+    if (!_changedByUser) {
+      setPage();
+    }
 
     return DefaultTabController(
       length: _children.length,
@@ -96,6 +109,7 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
             onTap: (selected) {
               setState(() {
                 _selectedIndex = selected;
+                _changedByUser = true;
               });
             },
             isScrollable: true,
@@ -116,7 +130,6 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
     for (final category in categories) {
       widgets.add(
         _PartnerServicesPageList(
-          key: ValueKey(category),
           category: category,
         ),
       );
@@ -168,7 +181,18 @@ class _PartnerServicesPageList extends StatelessWidget {
           initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
           loaded: (success) => _listOfPartnerServices(context, success.list),
-          failure: (failure) => const SizedBox.shrink(),
+          failure: (failure) {
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: failure.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
+            return const SizedBox.shrink();
+          },
           reachEnd: (_) => loadingPage(),
         );
       },
@@ -176,6 +200,11 @@ class _PartnerServicesPageList extends StatelessWidget {
   }
 
   Widget _listOfPartnerServices(BuildContext context, List<Services> manners) {
+    if (manners.isEmpty) {
+      return const Center(
+        child: Text("No data availabe for this section"),
+      );
+    }
     return ListView.builder(
       itemCount: manners.length,
       itemBuilder: (context, index) {

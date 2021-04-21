@@ -66,23 +66,27 @@ class _ProfilePageHeader extends StatelessWidget {
               _UserInfoWidget(user: success.data.userDetail),
           loaded: (success) => _UserInfoWidget(user: success.data.userDetail),
           failure: (error) {
-            FlushbarHelper.createError(
-              message: error.failure.map(
-                noInternetConnection: (error) => AppConstants.noNetwork,
-                serverError: (error) => error.message,
-                invalidUser: (error) => AppConstants.someThingWentWrong,
-              ),
-            ).show(context);
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: error.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
             return const _UserInfoWidget(user: null);
           },
           failureWithData: (failure) {
-            FlushbarHelper.createError(
-              message: failure.failure.map(
-                noInternetConnection: (error) => AppConstants.noNetwork,
-                serverError: (error) => error.message,
-                invalidUser: (error) => AppConstants.someThingWentWrong,
-              ),
-            ).show(context);
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: failure.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
             return _UserInfoWidget(user: failure.data.userDetail);
           },
         );

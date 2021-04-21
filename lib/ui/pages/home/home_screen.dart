@@ -100,23 +100,27 @@ class HomePage extends StatelessWidget {
           loaded: (success) => _homePageBodyContent(
               context, success.data.homeData, success.data.userDetail),
           failure: (error) {
-            FlushbarHelper.createError(
-              message: error.failure.map(
-                noInternetConnection: (error) => AppConstants.noNetwork,
-                serverError: (error) => error.message,
-                invalidUser: (error) => AppConstants.someThingWentWrong,
-              ),
-            ).show(context);
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: error.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
             return const SizedBox.shrink();
           },
           failureWithData: (failure) {
-            FlushbarHelper.createError(
-              message: failure.failure.map(
-                noInternetConnection: (error) => AppConstants.noNetwork,
-                serverError: (error) => error.message,
-                invalidUser: (error) => AppConstants.someThingWentWrong,
-              ),
-            ).show(context);
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: failure.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
             return _homePageBodyContent(
                 context, failure.data.homeData, failure.data.userDetail);
           },

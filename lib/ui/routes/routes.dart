@@ -3,11 +3,11 @@ import 'package:wallet_app/ui/pages/auth/forgot_password_screen.dart';
 import 'package:wallet_app/ui/pages/auth/login_screen.dart';
 import 'package:wallet_app/ui/pages/auth/register_screen.dart';
 import 'package:wallet_app/ui/pages/auth/validate_user_screen.dart';
-import 'package:wallet_app/ui/pages/home/detail_pages/japanese_manner_detail.dart';
-import 'package:wallet_app/ui/pages/home/detail_pages/service_detail.dart';
+import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_detail.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_page.dart';
 import 'package:wallet_app/ui/pages/news/detail_page/news_detail.dart';
 import 'package:wallet_app/ui/pages/partner_services/partner_services.dart';
+import 'package:wallet_app/ui/pages/partner_services/service_detail.dart';
 import 'package:wallet_app/ui/pages/profile_page/profile_page.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/about/edit_basic_info.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
@@ -36,13 +36,13 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     MaterialRoute(page: EditAcademicInfoForm),
     MaterialRoute(page: EditQualificationInfoForm),
     MaterialRoute(page: EditOtherInfoForm),
-    MaterialRoute(page: ServicesDetail),
-    MaterialRoute(page: JapaneseMannerDetailPage),
     MaterialRoute(page: NewsDetail),
     MaterialRoute(page: AppWebView),
     MaterialRoute(page: ProfilePage),
     MaterialRoute(page: PartnerServicesPage),
+    MaterialRoute(page: ServicesDetail),
     MaterialRoute(page: JapaneseMannerPage),
+    MaterialRoute(page: JapaneseMannerDetailPage),
   ],
 )
 class $Router {

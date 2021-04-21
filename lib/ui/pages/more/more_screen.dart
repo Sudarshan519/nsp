@@ -65,12 +65,16 @@ class MorePage extends StatelessWidget {
       _ProfileData(
         image: "icon-jap-manner",
         title: "Japanese Manners",
-        onTap: () => ExtendedNavigator.of(context).pushJapaneseMannerPage(),
+        onTap: () => ExtendedNavigator.of(context).pushJapaneseMannerPage(
+          key: UniqueKey(),
+        ),
       ),
       _ProfileData(
         image: "icon-partner",
         title: "Partner Services",
-        onTap: () => ExtendedNavigator.of(context).pushPartnerServicesPage(),
+        onTap: () => ExtendedNavigator.of(context).pushPartnerServicesPage(
+          key: UniqueKey(),
+        ),
       ),
       _ProfileData(
         image: "icon-alerts",

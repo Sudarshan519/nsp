@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:flutter_html/flutter_html.dart';
 
 class JapaneseMannerDetailPage extends StatelessWidget {
@@ -58,8 +59,13 @@ class JapaneseMannerDetailPage extends StatelessWidget {
               child: Column(
                 children: [
                   Html(
-                    data: japaneseManner.description,
-                  ),
+                      data: japaneseManner.description,
+                      onLinkTap: (link) {
+                        ExtendedNavigator.of(context).pushAppWebView(
+                          url: link,
+                          title: "",
+                        );
+                      }),
                   const SizedBox(height: 10),
                 ],
               ),

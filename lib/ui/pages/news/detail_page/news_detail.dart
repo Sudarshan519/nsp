@@ -177,7 +177,15 @@ class NewsDetail extends StatelessWidget {
                 ),
 
                 // Text(newsItem.description)
-                Html(data: newsItem.description),
+                Html(
+                  data: newsItem.description,
+                  onLinkTap: (link) {
+                    ExtendedNavigator.of(context).pushAppWebView(
+                      url: link,
+                      title: "",
+                    );
+                  },
+                ),
 
                 const SizedBox(height: 20),
 

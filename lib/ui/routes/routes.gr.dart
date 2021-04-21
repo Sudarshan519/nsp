@@ -20,11 +20,11 @@ import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
 import '../pages/auth/register_screen.dart';
 import '../pages/auth/validate_user_screen.dart';
-import '../pages/home/detail_pages/japanese_manner_detail.dart';
-import '../pages/home/detail_pages/service_detail.dart';
+import '../pages/japanese_manner/japanese_manner_detail.dart';
 import '../pages/japanese_manner/japanese_manner_page.dart';
 import '../pages/news/detail_page/news_detail.dart';
 import '../pages/partner_services/partner_services.dart';
+import '../pages/partner_services/service_detail.dart';
 import '../pages/profile_page/profile_page.dart';
 import '../pages/resume/resume_tab_pages/about/edit_basic_info.dart';
 import '../pages/resume/resume_tab_pages/academics/edit_academic_info.dart';
@@ -54,13 +54,13 @@ class Routes {
   static const String editQualificationInfoForm =
       '/edit-qualification-info-form';
   static const String editOtherInfoForm = '/edit-other-info-form';
-  static const String servicesDetail = '/services-detail';
-  static const String japaneseMannerDetailPage = '/japanese-manner-detail-page';
   static const String newsDetail = '/news-detail';
   static const String appWebView = '/app-web-view';
   static const String profilePage = '/profile-page';
   static const String partnerServicesPage = '/partner-services-page';
+  static const String servicesDetail = '/services-detail';
   static const String japaneseMannerPage = '/japanese-manner-page';
+  static const String japaneseMannerDetailPage = '/japanese-manner-detail-page';
   static const all = <String>{
     splashScreen,
     loginPage,
@@ -75,13 +75,13 @@ class Routes {
     editAcademicInfoForm,
     editQualificationInfoForm,
     editOtherInfoForm,
-    servicesDetail,
-    japaneseMannerDetailPage,
     newsDetail,
     appWebView,
     profilePage,
     partnerServicesPage,
+    servicesDetail,
     japaneseMannerPage,
+    japaneseMannerDetailPage,
   };
 }
 
@@ -104,13 +104,13 @@ class Router extends RouterBase {
     RouteDef(Routes.editAcademicInfoForm, page: EditAcademicInfoForm),
     RouteDef(Routes.editQualificationInfoForm, page: EditQualificationInfoForm),
     RouteDef(Routes.editOtherInfoForm, page: EditOtherInfoForm),
-    RouteDef(Routes.servicesDetail, page: ServicesDetail),
-    RouteDef(Routes.japaneseMannerDetailPage, page: JapaneseMannerDetailPage),
     RouteDef(Routes.newsDetail, page: NewsDetail),
     RouteDef(Routes.appWebView, page: AppWebView),
     RouteDef(Routes.profilePage, page: ProfilePage),
     RouteDef(Routes.partnerServicesPage, page: PartnerServicesPage),
+    RouteDef(Routes.servicesDetail, page: ServicesDetail),
     RouteDef(Routes.japaneseMannerPage, page: JapaneseMannerPage),
+    RouteDef(Routes.japaneseMannerDetailPage, page: JapaneseMannerDetailPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -246,27 +246,6 @@ class Router extends RouterBase {
         settings: data,
       );
     },
-    ServicesDetail: (data) {
-      final args = data.getArgs<ServicesDetailArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => ServicesDetail(
-          key: args.key,
-          services: args.services,
-        ),
-        settings: data,
-      );
-    },
-    JapaneseMannerDetailPage: (data) {
-      final args =
-          data.getArgs<JapaneseMannerDetailPageArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => JapaneseMannerDetailPage(
-          key: args.key,
-          japaneseManner: args.japaneseManner,
-        ),
-        settings: data,
-      );
-    },
     NewsDetail: (data) {
       final args = data.getArgs<NewsDetailArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
@@ -306,6 +285,16 @@ class Router extends RouterBase {
         settings: data,
       );
     },
+    ServicesDetail: (data) {
+      final args = data.getArgs<ServicesDetailArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ServicesDetail(
+          key: args.key,
+          services: args.services,
+        ),
+        settings: data,
+      );
+    },
     JapaneseMannerPage: (data) {
       final args = data.getArgs<JapaneseMannerPageArguments>(
         orElse: () => JapaneseMannerPageArguments(),
@@ -314,6 +303,17 @@ class Router extends RouterBase {
         builder: (context) => JapaneseMannerPage(
           key: args.key,
           categoryName: args.categoryName,
+        ),
+        settings: data,
+      );
+    },
+    JapaneseMannerDetailPage: (data) {
+      final args =
+          data.getArgs<JapaneseMannerDetailPageArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => JapaneseMannerDetailPage(
+          key: args.key,
+          japaneseManner: args.japaneseManner,
         ),
         settings: data,
       );
@@ -454,25 +454,6 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
             lang: lang),
       );
 
-  Future<dynamic> pushServicesDetail({
-    Key key,
-    @required Services services,
-  }) =>
-      push<dynamic>(
-        Routes.servicesDetail,
-        arguments: ServicesDetailArguments(key: key, services: services),
-      );
-
-  Future<dynamic> pushJapaneseMannerDetailPage({
-    Key key,
-    @required JapaneseManner japaneseManner,
-  }) =>
-      push<dynamic>(
-        Routes.japaneseMannerDetailPage,
-        arguments: JapaneseMannerDetailPageArguments(
-            key: key, japaneseManner: japaneseManner),
-      );
-
   Future<dynamic> pushNewsDetail({
     Key key,
     @required NewsItem newsItem,
@@ -504,6 +485,15 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
             PartnerServicesPageArguments(key: key, categoryName: categoryName),
       );
 
+  Future<dynamic> pushServicesDetail({
+    Key key,
+    @required Services services,
+  }) =>
+      push<dynamic>(
+        Routes.servicesDetail,
+        arguments: ServicesDetailArguments(key: key, services: services),
+      );
+
   Future<dynamic> pushJapaneseMannerPage({
     Key key,
     String categoryName,
@@ -512,6 +502,16 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         Routes.japaneseMannerPage,
         arguments:
             JapaneseMannerPageArguments(key: key, categoryName: categoryName),
+      );
+
+  Future<dynamic> pushJapaneseMannerDetailPage({
+    Key key,
+    @required JapaneseManner japaneseManner,
+  }) =>
+      push<dynamic>(
+        Routes.japaneseMannerDetailPage,
+        arguments: JapaneseMannerDetailPageArguments(
+            key: key, japaneseManner: japaneseManner),
       );
 }
 
@@ -623,20 +623,6 @@ class EditOtherInfoFormArguments {
       @required this.lang});
 }
 
-/// ServicesDetail arguments holder class
-class ServicesDetailArguments {
-  final Key key;
-  final Services services;
-  ServicesDetailArguments({this.key, @required this.services});
-}
-
-/// JapaneseMannerDetailPage arguments holder class
-class JapaneseMannerDetailPageArguments {
-  final Key key;
-  final JapaneseManner japaneseManner;
-  JapaneseMannerDetailPageArguments({this.key, @required this.japaneseManner});
-}
-
 /// NewsDetail arguments holder class
 class NewsDetailArguments {
   final Key key;
@@ -659,9 +645,23 @@ class PartnerServicesPageArguments {
   PartnerServicesPageArguments({this.key, this.categoryName});
 }
 
+/// ServicesDetail arguments holder class
+class ServicesDetailArguments {
+  final Key key;
+  final Services services;
+  ServicesDetailArguments({this.key, @required this.services});
+}
+
 /// JapaneseMannerPage arguments holder class
 class JapaneseMannerPageArguments {
   final Key key;
   final String categoryName;
   JapaneseMannerPageArguments({this.key, this.categoryName});
+}
+
+/// JapaneseMannerDetailPage arguments holder class
+class JapaneseMannerDetailPageArguments {
+  final Key key;
+  final JapaneseManner japaneseManner;
+  JapaneseMannerDetailPageArguments({this.key, @required this.japaneseManner});
 }

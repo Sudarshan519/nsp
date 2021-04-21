@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-// import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
@@ -185,11 +184,14 @@ class AuthRepositoryImpl implements AuthRepository {
     final Map<String, String> params = {
       "email": email,
       "gmail_id": id,
-      "avatar": avatar,
       "first_name": firstName,
       "last_name": lastName,
       "phone": ""
     };
+
+    if (avatar != null) {
+      params["avatar"] = avatar;
+    }
 
     return _login(
       request: () {

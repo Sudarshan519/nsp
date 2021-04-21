@@ -17,10 +17,11 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: BlocProvider(
-      create: (_) => getIt<SignInFormBloc>(),
-      child: _LoginBody(),
-    ));
+      body: BlocProvider(
+        create: (_) => getIt<SignInFormBloc>(),
+        child: _LoginBody(),
+      ),
+    );
   }
 }
 

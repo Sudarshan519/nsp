@@ -118,7 +118,9 @@ class JapaneseMannerWidget extends StatelessWidget {
           const SizedBox(height: 10),
           InkWell(
             onTap: () => ExtendedNavigator.of(context).pushJapaneseMannerPage(
-                categoryName: data?.category?.categoryName),
+              key: UniqueKey(),
+              categoryName: data?.category?.categoryName,
+            ),
             child: Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 4,

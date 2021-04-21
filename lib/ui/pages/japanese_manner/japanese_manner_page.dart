@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner.dart';
@@ -8,6 +11,7 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/widgets/japanese_manner_widget.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/tabs/tab_bar/news_tab_bar.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 class JapaneseMannerPage extends StatelessWidget {
   final String categoryName;
@@ -55,7 +59,15 @@ class JapaneseMannerPage extends StatelessWidget {
             categoryName: categoryName,
           ),
           failure: (failure) {
-            // TODO: Failure message display
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: failure.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
             return const SizedBox.shrink();
           },
         );
@@ -80,13 +92,16 @@ class _JapaneseMannerTabPage extends StatefulWidget {
 
 class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
   int _selectedIndex = 0;
+  bool _changedByUser = false;
 
   @override
   Widget build(BuildContext context) {
     final _children = _getChildrenPages(widget.categories);
     final _tabBarData = _getTabbarData(widget.categories);
 
-    setPage();
+    if (!_changedByUser) {
+      setPage();
+    }
 
     return DefaultTabController(
       length: _children.length,
@@ -98,6 +113,7 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
             onTap: (selected) {
               setState(() {
                 _selectedIndex = selected;
+                _changedByUser = true;
               });
             },
             isScrollable: true,
@@ -118,7 +134,6 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
     for (final category in categories) {
       widgets.add(
         _JapaneseMannerPageList(
-          key: ValueKey(category),
           category: category,
         ),
       );
@@ -170,7 +185,18 @@ class _JapaneseMannerPageList extends StatelessWidget {
           initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
           loaded: (success) => _listOfJapaneseManner(success.list),
-          failure: (failure) => const SizedBox.shrink(),
+          failure: (failure) {
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: failure.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
+            return const SizedBox.shrink();
+          },
           reachEnd: (_) => loadingPage(),
         );
       },
@@ -178,6 +204,11 @@ class _JapaneseMannerPageList extends StatelessWidget {
   }
 
   Widget _listOfJapaneseManner(List<JapaneseManner> manners) {
+    if (manners.isEmpty) {
+      return const Center(
+        child: Text("No data availabe for this section"),
+      );
+    }
     return ListView.builder(
       itemCount: manners.length,
       itemBuilder: (context, index) {

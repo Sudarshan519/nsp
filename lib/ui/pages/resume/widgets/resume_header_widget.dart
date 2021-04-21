@@ -50,6 +50,7 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
             loaded: (success) =>
                 _resumeHeader(context, success.data.userDetail),
             failure: (error) {
+              Future.delayed(Duration.zero, () {
               FlushbarHelper.createError(
                 message: error.failure.map(
                   noInternetConnection: (error) => AppConstants.noNetwork,
@@ -57,9 +58,11 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                   invalidUser: (error) => AppConstants.someThingWentWrong,
                 ),
               ).show(context);
+            });
               return _resumeHeader(context, null);
             },
             failureWithData: (failure) {
+              Future.delayed(Duration.zero, () {
               FlushbarHelper.createError(
                 message: failure.failure.map(
                   noInternetConnection: (error) => AppConstants.noNetwork,
@@ -67,6 +70,7 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                   invalidUser: (error) => AppConstants.someThingWentWrong,
                 ),
               ).show(context);
+            });
               return _resumeHeader(context, failure.data.userDetail);
             },
           );
