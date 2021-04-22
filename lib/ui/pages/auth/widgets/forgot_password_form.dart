@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wallet_app/ui/pages/auth/widgets/input_text_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class ForgetPasswordFormWidget extends StatelessWidget {
@@ -23,6 +23,7 @@ class ForgetPasswordFormWidget extends StatelessWidget {
         InputTextWidget(
           hintText: "Email Address",
           textInputType: TextInputType.emailAddress,
+          value: "",
           prefixIcon: SvgPicture.asset(
             "assets/images/auth/email.svg",
           ),

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
-import 'package:wallet_app/ui/pages/auth/widgets/input_text_widget.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/validator.dart';
+
+import 'login_text_form_decoration.dart';
 
 class LoginFormWidget extends StatelessWidget {
   @override
@@ -80,19 +82,21 @@ class _EmailInput extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.emailAddress != current.emailAddress,
       builder: (context, state) {
-        return InputTextWidget(
-          key: const Key('loginForm_passwordInput_textField'),
-          hintText: "Email/Mobile Number(977XXXXXXXXXX)",
-          value: state.emailAddress,
-          textInputType: TextInputType.emailAddress,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/email.svg",
+        return LoginTextFormDecoration(
+          child: InputTextWidget(
+            key: const Key('loginForm_passwordInput_textField'),
+            hintText: "Email/Mobile Number(977XXXXXXXXXX)",
+            value: state.emailAddress,
+            textInputType: TextInputType.emailAddress,
+            prefixIcon: SvgPicture.asset(
+              "assets/images/auth/email.svg",
+            ),
+            validator: Validator.isNotEmpty,
+            onEditingCompleted: callBack,
+            onChanged: (value) => context
+                .read<SignInFormBloc>()
+                .add(SignInFormEvent.emailChanged(value)),
           ),
-          validator: Validator.isNotEmpty,
-          onEditingCompleted: callBack,
-          onChanged: (value) => context
-              .read<SignInFormBloc>()
-              .add(SignInFormEvent.emailChanged(value)),
         );
       },
     );
@@ -114,29 +118,31 @@ class _PasswordInput extends StatelessWidget {
           previous.password != current.password ||
           previous.isPasswordVisible != current.isPasswordVisible,
       builder: (context, state) {
-        return InputTextWidget(
-          hintText: "Password",
-          value: state.password,
-          obscureText: !state.isPasswordVisible,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/lock.svg",
-          ),
-          suffixIcon: IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: () => context
-                .read<SignInFormBloc>()
-                .add(const SignInFormEvent.showPassword()),
-            icon: SvgPicture.asset(
-              "assets/images/auth/password-invisible.svg",
-              color: !state.isPasswordVisible ? null : Palette.primary,
+        return LoginTextFormDecoration(
+          child: InputTextWidget(
+            hintText: "Password",
+            value: state.password,
+            obscureText: !state.isPasswordVisible,
+            prefixIcon: SvgPicture.asset(
+              "assets/images/auth/lock.svg",
             ),
+            suffixIcon: IconButton(
+              padding: EdgeInsets.zero,
+              onPressed: () => context
+                  .read<SignInFormBloc>()
+                  .add(const SignInFormEvent.showPassword()),
+              icon: SvgPicture.asset(
+                "assets/images/auth/password-invisible.svg",
+                color: !state.isPasswordVisible ? null : Palette.primary,
+              ),
+            ),
+            validator: Validator.isValidPassword,
+            textInputAction: TextInputAction.done,
+            onEditingCompleted: callBack,
+            onChanged: (value) => context
+                .read<SignInFormBloc>()
+                .add(SignInFormEvent.passwordChanged(value)),
           ),
-          validator: Validator.isValidPassword,
-          textInputAction: TextInputAction.done,
-          onEditingCompleted: callBack,
-          onChanged: (value) => context
-              .read<SignInFormBloc>()
-              .add(SignInFormEvent.passwordChanged(value)),
         );
       },
     );

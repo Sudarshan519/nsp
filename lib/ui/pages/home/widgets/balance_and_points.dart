@@ -6,9 +6,12 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class BalanceAndPointWidget extends StatelessWidget {
   final UserDetail user;
+  final bool showAddBalanceButton;
+
   const BalanceAndPointWidget({
     Key key,
     @required this.user,
+    this.showAddBalanceButton = true,
   }) : super(key: key);
 
   @override
@@ -83,10 +86,11 @@ class BalanceAndPointWidget extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  CustomButton(
-                    title: "+ Add Balance",
-                    onTap: () {},
-                  ),
+                  if (showAddBalanceButton)
+                    CustomButton(
+                      title: "+ Add Balance",
+                      onTap: () {},
+                    ),
                 ],
               )
             ],

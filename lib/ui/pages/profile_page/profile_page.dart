@@ -4,11 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/ui/pages/home/widgets/balance_and_points.dart';
-import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/input_text_widget.dart';
-import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
-import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:wallet_app/ui/widgets/image_loader_view.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
+
+import 'profile_tab_screen.dart';
+import 'tab_page/personal_detail.dart';
+import 'tab_page/personal_document_detail.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -27,21 +29,12 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Palette.primary,
         elevation: 0,
       ),
-      body: Container(
-        color: Palette.white,
+      body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const _ProfilePageHeader(),
-                    _UserInfoUpdate(),
-                  ],
-                ),
-              ),
-            ),
+            const Flexible(child: _ProfilePageHeader()),
+            ProfileTabBarScreen(),
           ],
         ),
       ),
@@ -95,110 +88,6 @@ class _ProfilePageHeader extends StatelessWidget {
   }
 }
 
-class _UserInfoUpdate extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ShadowBoxWidget(
-      child: Column(
-        children: [
-          TextWidetWithLabelAndChild(
-            title: "First Name",
-            child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 8.0),
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: Palette.dividerColor.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: InputTextWidget(
-                hintText: "First Name",
-                textInputType: TextInputType.name,
-                value: "",
-                isEnable: false,
-                onChanged: (value) {},
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          TextWidetWithLabelAndChild(
-            title: "Last Name",
-            child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 8.0),
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: Palette.dividerColor.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: InputTextWidget(
-                hintText: "Last Name",
-                textInputType: TextInputType.name,
-                value: "",
-                isEnable: false,
-                onChanged: (value) {},
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          TextWidetWithLabelAndChild(
-            title: "Profession",
-            child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 8.0),
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: Palette.dividerColor.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: InputTextWidget(
-                hintText: "Profession",
-                textInputType: TextInputType.name,
-                value: "",
-                isEnable: false,
-                onChanged: (value) {},
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          TextWidetWithLabelAndChild(
-            title: "Occupation",
-            child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 8.0),
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: Palette.dividerColor.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: InputTextWidget(
-                hintText: "Occupation",
-                textInputType: TextInputType.name,
-                value: "",
-                isEnable: false,
-                onChanged: (value) {},
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          Container(
-            width: 50,
-            height: 30,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Palette.primaryButtonColor,
-            ),
-            child: Center(
-              child: Text(
-                "Edit",
-                style: TextStyle(
-                  color: Palette.white,
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
 class _UserInfoWidget extends StatelessWidget {
   final UserDetail user;
   const _UserInfoWidget({
@@ -218,7 +107,12 @@ class _UserInfoWidget extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              _userImage(user?.avatar ?? ""),
+              ImageLoaderWidget(
+                image: user?.avatar ?? "",
+                height: 80,
+                width: 80,
+                cornerRadius: 40,
+              ),
               const SizedBox(
                 height: 5,
               ),
@@ -234,25 +128,6 @@ class _UserInfoWidget extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     SvgPicture.asset(
-              //       "assets/images/resume/email-icon.svg",
-              //       color: Palette.white,
-              //       height: 12.0,
-              //     ),
-              //     const SizedBox(width: 5),
-              //     Text(
-              //       user?.email ?? "",
-              //       style: TextStyle(
-              //         color: Palette.white,
-              //         fontSize: 12,
-              //         fontWeight: FontWeight.w500,
-              //       ),
-              //     ),
-              //   ],
-              // ),
               const SizedBox(
                 height: 10,
               ),
@@ -261,53 +136,10 @@ class _UserInfoWidget extends StatelessWidget {
         ),
         BalanceAndPointWidget(
           user: user,
+          showAddBalanceButton: false,
         ),
         const Padding(padding: EdgeInsets.only(bottom: 16)),
       ],
     );
   }
-}
-
-Widget _userImage(String image) {
-  if (image.isEmpty) {
-    return SizedBox(
-      width: 60,
-      height: 60,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(30.0),
-        child: Image.asset(
-          'assets/images/navigation_bar/u1.png',
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-
-  return SizedBox(
-    width: 60,
-    height: 60,
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(30.0),
-      child: Image.network(
-        image,
-        fit: BoxFit.cover,
-        loadingBuilder: (BuildContext context, Widget child,
-            ImageChunkEvent loadingProgress) {
-          if (loadingProgress == null) return child;
-          return Container(
-            color: Palette.primaryBackground,
-            height: 36,
-            child: Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes
-                    : null,
-              ),
-            ),
-          );
-        },
-      ),
-    ),
-  );
 }

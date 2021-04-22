@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/auth/presentation/sign_up/sign_up_form_bloc.dart';
-import 'package:wallet_app/ui/pages/auth/widgets/input_text_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/validator.dart';
+
+import 'login_text_form_decoration.dart';
 
 class SignupFormWidget extends StatelessWidget {
   @override
@@ -83,18 +85,20 @@ class _FirstNameInput extends StatelessWidget {
       BlocBuilder<SignUpFormBloc, SignUpFormState>(
         buildWhen: (previous, current) =>
             previous.firstName != current.firstName,
-        builder: (context, state) => InputTextWidget(
-          hintText: "First Name",
-          value: state.firstName,
-          textInputType: TextInputType.name,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/user.svg",
+        builder: (context, state) => LoginTextFormDecoration(
+          child: InputTextWidget(
+            hintText: "First Name",
+            value: state.firstName,
+            textInputType: TextInputType.name,
+            prefixIcon: SvgPicture.asset(
+              "assets/images/auth/user.svg",
+            ),
+            onEditingCompleted: callBack,
+            validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            onChanged: (value) => context
+                .read<SignUpFormBloc>()
+                .add(SignUpFormEvent.changeFirstName(value)),
           ),
-          onEditingCompleted: callBack,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          onChanged: (value) => context
-              .read<SignUpFormBloc>()
-              .add(SignUpFormEvent.changeFirstName(value)),
         ),
       );
 }
@@ -111,18 +115,20 @@ class _LastNameInput extends StatelessWidget {
   Widget build(BuildContext context) =>
       BlocBuilder<SignUpFormBloc, SignUpFormState>(
         buildWhen: (previous, current) => previous.lastName != current.lastName,
-        builder: (context, state) => InputTextWidget(
-          hintText: "Last Name",
-          value: state.lastName,
-          textInputType: TextInputType.name,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/user.svg",
+        builder: (context, state) => LoginTextFormDecoration(
+          child: InputTextWidget(
+            hintText: "Last Name",
+            value: state.lastName,
+            textInputType: TextInputType.name,
+            prefixIcon: SvgPicture.asset(
+              "assets/images/auth/user.svg",
+            ),
+            validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            onEditingCompleted: callBack,
+            onChanged: (value) => context
+                .read<SignUpFormBloc>()
+                .add(SignUpFormEvent.changeLastName(value)),
           ),
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
-          onEditingCompleted: callBack,
-          onChanged: (value) => context
-              .read<SignUpFormBloc>()
-              .add(SignUpFormEvent.changeLastName(value)),
         ),
       );
 }
@@ -140,18 +146,20 @@ class _EmailInput extends StatelessWidget {
       BlocBuilder<SignUpFormBloc, SignUpFormState>(
         buildWhen: (previous, current) =>
             previous.emailAddress != current.emailAddress,
-        builder: (context, state) => InputTextWidget(
-          hintText: "Email Address",
-          value: state.emailAddress,
-          textInputType: TextInputType.emailAddress,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/email.svg",
+        builder: (context, state) => LoginTextFormDecoration(
+          child: InputTextWidget(
+            hintText: "Email Address",
+            value: state.emailAddress,
+            textInputType: TextInputType.emailAddress,
+            prefixIcon: SvgPicture.asset(
+              "assets/images/auth/email.svg",
+            ),
+            validator: Validator.isValidEmail,
+            onEditingCompleted: callBack,
+            onChanged: (value) => context
+                .read<SignUpFormBloc>()
+                .add(SignUpFormEvent.changeEmail(value)),
           ),
-          validator: Validator.isValidEmail,
-          onEditingCompleted: callBack,
-          onChanged: (value) => context
-              .read<SignUpFormBloc>()
-              .add(SignUpFormEvent.changeEmail(value)),
         ),
       );
 }
@@ -170,29 +178,31 @@ class _PasswordInput extends StatelessWidget {
         buildWhen: (previous, current) =>
             previous.password != current.password ||
             previous.isPasswordVisible != current.isPasswordVisible,
-        builder: (context, state) => InputTextWidget(
-          hintText: "Password",
-          value: state.password,
-          obscureText: !state.isPasswordVisible,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/lock.svg",
-          ),
-          suffixIcon: IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: () => context
-                .read<SignUpFormBloc>()
-                .add(const SignUpFormEvent.showPassword()),
-            icon: SvgPicture.asset(
-              "assets/images/auth/password-invisible.svg",
-              color: !state.isPasswordVisible ? null : Palette.primary,
+        builder: (context, state) => LoginTextFormDecoration(
+          child: InputTextWidget(
+            hintText: "Password",
+            value: state.password,
+            obscureText: !state.isPasswordVisible,
+            prefixIcon: SvgPicture.asset(
+              "assets/images/auth/lock.svg",
             ),
+            suffixIcon: IconButton(
+              padding: EdgeInsets.zero,
+              onPressed: () => context
+                  .read<SignUpFormBloc>()
+                  .add(const SignUpFormEvent.showPassword()),
+              icon: SvgPicture.asset(
+                "assets/images/auth/password-invisible.svg",
+                color: !state.isPasswordVisible ? null : Palette.primary,
+              ),
+            ),
+            validator: Validator.isValidPassword,
+            onEditingCompleted: callBack,
+            textInputAction: TextInputAction.done,
+            onChanged: (value) => context
+                .read<SignUpFormBloc>()
+                .add(SignUpFormEvent.changePassword(value)),
           ),
-          validator: Validator.isValidPassword,
-          onEditingCompleted: callBack,
-          textInputAction: TextInputAction.done,
-          onChanged: (value) => context
-              .read<SignUpFormBloc>()
-              .add(SignUpFormEvent.changePassword(value)),
         ),
       );
 }
@@ -212,29 +222,31 @@ class _ConfirmPasswordInput extends StatelessWidget {
             previous.confirmPassword != current.confirmPassword ||
             previous.isConfirmPasswordVisible !=
                 current.isConfirmPasswordVisible,
-        builder: (context, state) => InputTextWidget(
-          hintText: "Confirm Password",
-          value: state.confirmPassword,
-          obscureText: !state.isConfirmPasswordVisible,
-          prefixIcon: SvgPicture.asset(
-            "assets/images/auth/lock.svg",
-          ),
-          suffixIcon: IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: () => context
-                .read<SignUpFormBloc>()
-                .add(const SignUpFormEvent.showConfirmPassword()),
-            icon: SvgPicture.asset(
-              "assets/images/auth/password-invisible.svg",
-              color: !state.isConfirmPasswordVisible ? null : Palette.primary,
+        builder: (context, state) => LoginTextFormDecoration(
+          child: InputTextWidget(
+            hintText: "Confirm Password",
+            value: state.confirmPassword,
+            obscureText: !state.isConfirmPasswordVisible,
+            prefixIcon: SvgPicture.asset(
+              "assets/images/auth/lock.svg",
             ),
+            suffixIcon: IconButton(
+              padding: EdgeInsets.zero,
+              onPressed: () => context
+                  .read<SignUpFormBloc>()
+                  .add(const SignUpFormEvent.showConfirmPassword()),
+              icon: SvgPicture.asset(
+                "assets/images/auth/password-invisible.svg",
+                color: !state.isConfirmPasswordVisible ? null : Palette.primary,
+              ),
+            ),
+            validator: Validator.isValidPassword,
+            onEditingCompleted: callBack,
+            textInputAction: TextInputAction.done,
+            onChanged: (value) => context
+                .read<SignUpFormBloc>()
+                .add(SignUpFormEvent.changeConfirmPassword(value)),
           ),
-          validator: Validator.isValidPassword,
-          onEditingCompleted: callBack,
-          textInputAction: TextInputAction.done,
-          onChanged: (value) => context
-              .read<SignUpFormBloc>()
-              .add(SignUpFormEvent.changeConfirmPassword(value)),
         ),
       );
 }

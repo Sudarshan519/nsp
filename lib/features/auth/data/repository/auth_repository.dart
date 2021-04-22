@@ -146,11 +146,13 @@ class AuthRepositoryImpl implements AuthRepository {
         "email": email,
         "facebook_id": id,
         "username": email,
-        "avatar": photo,
         "first_name": firstName,
         "last_name": lastName,
-        // "phone": userInfo["last_name"] as String,
       };
+
+      if(photo != null){
+        params["avatar"] = photo;
+      }
 
       return _login(
         request: () {
