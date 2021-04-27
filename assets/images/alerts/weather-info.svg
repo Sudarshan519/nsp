@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="icon-weather-info" transform="translate(-54 -486)">
+    <g id="cloudy" transform="translate(55 455.026)">
+      <path id="Path_1050" data-name="Path 1050" d="M171.091,40.383a1.348,1.348,0,0,0,1.348-1.348V36.322a1.348,1.348,0,1,0-2.7,0v2.714A1.348,1.348,0,0,0,171.091,40.383Z" transform="translate(-154.493)" fill="#dda601"/>
+      <path id="Path_1051" data-name="Path 1051" d="M4.372,134.508l-2.35-1.357a1.348,1.348,0,1,0-1.348,2.334l2.35,1.357a1.348,1.348,0,0,0,1.348-2.334Z" transform="translate(0 -89.192)" fill="#dda601"/>
+      <path id="Path_1052" data-name="Path 1052" d="M3.035,314.049l-2.35,1.357a1.349,1.349,0,0,0,.675,2.515c.611,0,.765-.3,3.023-1.538a1.348,1.348,0,0,0-1.348-2.334Z" transform="translate(-0.01 -253.837)" fill="#dda601"/>
+      <path id="Path_1053" data-name="Path 1053" d="M315.344,136.842l2.35-1.357a1.348,1.348,0,1,0-1.348-2.334L314,134.508a1.348,1.348,0,1,0,1.348,2.334Z" transform="translate(-285.172 -89.192)" fill="#dda601"/>
+      <path id="Path_1054" data-name="Path 1054" d="M72.8,140.166a12.8,12.8,0,0,1,10.926-10.4,10.776,10.776,0,1,0-16.08,14.341A10.314,10.314,0,0,1,72.8,140.166Z" transform="translate(-58.926 -82.823)" fill="#dda601"/>
+      <path id="Path_1055" data-name="Path 1055" d="M133.319,203.289a10.108,10.108,0,0,0-19.477,3.689,7.6,7.6,0,0,0,.859,15.152c21.2-.022,20.044.054,20.413-.06a9.434,9.434,0,0,0-1.8-18.78Z" transform="translate(-97.48 -147.444)" fill="#dda601"/>
+    </g>
+    <rect id="Rectangle_270" data-name="Rectangle 270" width="48" height="48" transform="translate(54 486)" fill="none"/>
+  </g>
+</svg>

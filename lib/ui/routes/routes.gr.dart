@@ -16,6 +16,9 @@ import '../../features/resume/domain/entities/academic_history.dart';
 import '../../features/resume/domain/entities/personal_info.dart';
 import '../../features/resume/domain/entities/qualification_history.dart';
 import '../../features/resume/domain/entities/work_history.dart';
+import '../pages/alerts/alerts_page.dart';
+import '../pages/alerts/alerts_tab_page.dart';
+import '../pages/alerts/detail/alert_detail_page.dart';
 import '../pages/auth/forgot_password_screen.dart';
 import '../pages/auth/login_screen.dart';
 import '../pages/auth/register_screen.dart';
@@ -61,6 +64,9 @@ class Routes {
   static const String servicesDetail = '/services-detail';
   static const String japaneseMannerPage = '/japanese-manner-page';
   static const String japaneseMannerDetailPage = '/japanese-manner-detail-page';
+  static const String alertsPage = '/alerts-page';
+  static const String alertsTabPage = '/alerts-tab-page';
+  static const String alertDetailPage = '/alert-detail-page';
   static const all = <String>{
     splashScreen,
     loginPage,
@@ -82,6 +88,9 @@ class Routes {
     servicesDetail,
     japaneseMannerPage,
     japaneseMannerDetailPage,
+    alertsPage,
+    alertsTabPage,
+    alertDetailPage,
   };
 }
 
@@ -111,6 +120,9 @@ class Router extends RouterBase {
     RouteDef(Routes.servicesDetail, page: ServicesDetail),
     RouteDef(Routes.japaneseMannerPage, page: JapaneseMannerPage),
     RouteDef(Routes.japaneseMannerDetailPage, page: JapaneseMannerDetailPage),
+    RouteDef(Routes.alertsPage, page: AlertsPage),
+    RouteDef(Routes.alertsTabPage, page: AlertsTabPage),
+    RouteDef(Routes.alertDetailPage, page: AlertDetailPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -318,6 +330,24 @@ class Router extends RouterBase {
         settings: data,
       );
     },
+    AlertsPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => AlertsPage(),
+        settings: data,
+      );
+    },
+    AlertsTabPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => AlertsTabPage(),
+        settings: data,
+      );
+    },
+    AlertDetailPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => AlertDetailPage(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -513,6 +543,13 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: JapaneseMannerDetailPageArguments(
             key: key, japaneseManner: japaneseManner),
       );
+
+  Future<dynamic> pushAlertsPage() => push<dynamic>(Routes.alertsPage);
+
+  Future<dynamic> pushAlertsTabPage() => push<dynamic>(Routes.alertsTabPage);
+
+  Future<dynamic> pushAlertDetailPage() =>
+      push<dynamic>(Routes.alertDetailPage);
 }
 
 /// ************************************************************************

@@ -121,7 +121,6 @@ class HomeServiceWidget extends StatelessWidget {
                       InkWell(
                         onTap: () => ExtendedNavigator.of(context)
                             .pushPartnerServicesPage(
-                              key: UniqueKey(),
                           categoryName: services?.category,
                         ),
                         child: Container(

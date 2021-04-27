@@ -20,22 +20,13 @@ class NewsPage extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          // IconButton(
-          //   onPressed: () {
-          //     FlushbarHelper.createInformation(
-          //             message:
-          //                 "Currently download can be started from Home screen.")
-          //         .show(context);
-          //   },
-          //   icon: const Icon(Icons.file_download),
-          //   color: Palette.white,
-          // ),
           Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: Icon(
-                Icons.search,
-                color: Palette.white,
-              )),
+            padding: const EdgeInsets.only(right: 16),
+            child: Icon(
+              Icons.search,
+              color: Palette.white,
+            ),
+          ),
         ],
         elevation: 0,
       ),

@@ -13,6 +13,9 @@ part 'download_pdf_bloc.freezed.dart';
 @injectable
 class DownloadPdfBloc extends Bloc<DownloadPdfEvent, DownloadPdfState> {
   final GetDownloadablePdfLink getDownloadablePdfLink;
+
+  bool _isLinkDownloaded;
+
   DownloadPdfBloc({
     @required this.getDownloadablePdfLink,
   }) : super(const _Initial());
@@ -25,12 +28,14 @@ class DownloadPdfBloc extends Bloc<DownloadPdfEvent, DownloadPdfState> {
       startDownloading: (e) async* {
         yield const _Preparing();
 
+        _isLinkDownloaded = e.isLinkDownloaded;
+
         final result = await getDownloadablePdfLink(
             GetDownloadablePdfLinkParams(lang: "en"));
 
         yield result.fold(
           (failure) => _DownloadFailed(failure),
-          (url) => _DownLoadableLink(url),
+          (url) => _DownLoadableLink(url, _isLinkDownloaded),
         );
       },
     );

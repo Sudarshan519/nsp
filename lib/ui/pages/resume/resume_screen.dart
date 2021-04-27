@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share/share.dart';
@@ -13,6 +14,7 @@ import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_wa
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/widgets/resume_header_widget.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_downloading_overlay.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -59,20 +61,27 @@ class _DownloadButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ResumeWatcherBloc, ResumeWatcherState>(
+      buildWhen: (previous, current) => previous.hashCode != current.hashCode,
       builder: (context, state) {
         if (state.hasResume) {
           return DownloadResumeButton(
-            child: IconButton(
-              onPressed: () {
+            child: InkWell(
+              onTap: () {
                 FlushbarHelper.createInformation(
                         message: AppConstants.resumeDownloadStarted)
                     .show(context);
-                context
-                    .read<DownloadPdfBloc>()
-                    .add(const DownloadPdfEvent.startDownloading());
+                context.read<DownloadPdfBloc>().add(
+                    const DownloadPdfEvent.startDownloading(
+                        isLinkDownloaded: true));
               },
-              icon: const Icon(Icons.file_download),
-              color: Palette.white,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: SvgPicture.asset(
+                  "assets/images/resume/download_pdf.svg",
+                  color: Palette.white,
+                  height: 25.0,
+                ),
+              ),
             ),
           );
         }
@@ -90,18 +99,18 @@ class _ShareButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ResumeWatcherBloc, ResumeWatcherState>(
+      buildWhen: (previous, current) => previous.hashCode != current.hashCode,
       builder: (context, state) {
         if (state.hasResume) {
           return DownloadResumeButton(
-            isDownload: false,
             child: InkWell(
               onTap: () {
                 FlushbarHelper.createInformation(
                         message: AppConstants.resumeShareStarted)
                     .show(context);
-                context
-                    .read<DownloadPdfBloc>()
-                    .add(const DownloadPdfEvent.startDownloading());
+                context.read<DownloadPdfBloc>().add(
+                    const DownloadPdfEvent.startDownloading(
+                        isLinkDownloaded: false));
               },
               child: Padding(
                 padding: const EdgeInsets.only(right: 16),
@@ -122,26 +131,34 @@ class _ShareButton extends StatelessWidget {
 class DownloadResumeButton extends StatelessWidget {
   final Widget child;
   final Widget loading;
-  final bool isDownload;
 
   const DownloadResumeButton({
     Key key,
     @required this.child,
     this.loading,
-    this.isDownload = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<DownloadPdfBloc, DownloadPdfState>(
+      listenWhen: (previous, current) => previous.hashCode != current.hashCode,
       listener: (context, state) {
         state.map(
           initial: (_) {},
           preparing: (_) {},
           downLoadableLink: (message) async {
             debugPrint(message.url);
-            if (isDownload) {
-              await startDownloading(message.url);
+            if (message.isLinkDownloaded) {
+              // await startDownloading(message.url);
+              if (!PopUpDownloadingOverLay.isShown) {
+                PopUpDownloadingOverLay.isShown = true;
+                showDialog(
+                  context: context,
+                  builder: (_) => PopUpDownloadingOverLay(
+                    downloadUrl: message.url,
+                  ),
+                );
+              }
             } else {
               share(message.url);
             }
@@ -159,44 +176,52 @@ class DownloadResumeButton extends StatelessWidget {
           },
         );
       },
+      buildWhen: (previous, current) => previous.hashCode != current.hashCode,
       builder: (context, state) {
-        return state.map(
-          initial: (_) => child,
-          preparing: (_) => loading ?? child,
-          downLoadableLink: (_) => child,
-          downloading: (_) => loading ?? child,
-          downloaded: (_) => child,
-          downloadFailed: (_) => child,
-        );
+        return child;
       },
     );
   }
 
-  Future startDownloading(String url) async {
-    final status = await Permission.storage.request();
+  // Future startDownloading(String url) async {
+  //   final status = await Permission.storage.request();
 
-    if (status.isGranted) {
-      Directory externalDir;
+  //   if (status.isGranted) {
+  //     Directory externalDir;
 
-      if (Platform.isAndroid) {
-        externalDir = await getExternalStorageDirectory();
-      } else if (Platform.isIOS) {
-        externalDir = await getApplicationDocumentsDirectory();
-      }
+  //     if (Platform.isAndroid) {
+  //       externalDir = await getExternalStorageDirectory();
+  //     } else if (Platform.isIOS) {
+  //       externalDir = await getApplicationDocumentsDirectory();
+  //     }
 
-      await FlutterDownloader.enqueue(
-        url: url,
-        savedDir: externalDir.path,
-        fileName: "Resume.pdf",
-      );
-    } else {
-      // print("Permission not granted");
-    }
-  }
+  //     await FlutterDownloader.enqueue(
+  //       url: url,
+  //       savedDir: externalDir.path,
+  //       fileName: "Resume.pdf",
+  //     );
+  //   } else {
+  //     // print("Permission not granted");
+  //   }
+  // }
 
   Future share(String url) async {
-    Share.share(
-        'Check out my resume auto generated resume from Nippon Secure Payment App. The link to the pdf is : $url ',
-        subject: 'Resume generated from Nippon Secure Payment');
+    final response = await http.get(url);
+    Directory externalDir;
+    if (Platform.isAndroid) {
+      externalDir = await getExternalStorageDirectory();
+    } else if (Platform.isIOS) {
+      externalDir = await getApplicationDocumentsDirectory();
+    }
+    final documentDirectory = externalDir.path;
+    final File file = File('$documentDirectory/resume.pdf');
+    file.writeAsBytesSync(response.bodyBytes);
+
+    Share.shareFiles(
+      ['$documentDirectory/resume.pdf'],
+      text:
+          'Check out my resume auto generated resume from Nippon Secure Payment App.',
+      subject: 'Resume generated from Nippon Secure Payment',
+    );
   }
 }

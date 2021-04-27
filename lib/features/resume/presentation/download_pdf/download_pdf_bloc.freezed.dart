@@ -14,8 +14,10 @@ class _$DownloadPdfEventTearOff {
   const _$DownloadPdfEventTearOff();
 
 // ignore: unused_element
-  _StartDownloading startDownloading() {
-    return const _StartDownloading();
+  _StartDownloading startDownloading({@required bool isLinkDownloaded}) {
+    return _StartDownloading(
+      isLinkDownloaded: isLinkDownloaded,
+    );
   }
 }
 
@@ -25,13 +27,15 @@ const $DownloadPdfEvent = _$DownloadPdfEventTearOff();
 
 /// @nodoc
 mixin _$DownloadPdfEvent {
+  bool get isLinkDownloaded;
+
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult startDownloading(),
+    @required TResult startDownloading(bool isLinkDownloaded),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult startDownloading(),
+    TResult startDownloading(bool isLinkDownloaded),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -43,6 +47,9 @@ mixin _$DownloadPdfEvent {
     TResult startDownloading(_StartDownloading value),
     @required TResult orElse(),
   });
+
+  @JsonKey(ignore: true)
+  $DownloadPdfEventCopyWith<DownloadPdfEvent> get copyWith;
 }
 
 /// @nodoc
@@ -50,6 +57,7 @@ abstract class $DownloadPdfEventCopyWith<$Res> {
   factory $DownloadPdfEventCopyWith(
           DownloadPdfEvent value, $Res Function(DownloadPdfEvent) then) =
       _$DownloadPdfEventCopyWithImpl<$Res>;
+  $Res call({bool isLinkDownloaded});
 }
 
 /// @nodoc
@@ -60,13 +68,27 @@ class _$DownloadPdfEventCopyWithImpl<$Res>
   final DownloadPdfEvent _value;
   // ignore: unused_field
   final $Res Function(DownloadPdfEvent) _then;
+
+  @override
+  $Res call({
+    Object isLinkDownloaded = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isLinkDownloaded: isLinkDownloaded == freezed
+          ? _value.isLinkDownloaded
+          : isLinkDownloaded as bool,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$StartDownloadingCopyWith<$Res> {
+abstract class _$StartDownloadingCopyWith<$Res>
+    implements $DownloadPdfEventCopyWith<$Res> {
   factory _$StartDownloadingCopyWith(
           _StartDownloading value, $Res Function(_StartDownloading) then) =
       __$StartDownloadingCopyWithImpl<$Res>;
+  @override
+  $Res call({bool isLinkDownloaded});
 }
 
 /// @nodoc
@@ -79,43 +101,69 @@ class __$StartDownloadingCopyWithImpl<$Res>
 
   @override
   _StartDownloading get _value => super._value as _StartDownloading;
+
+  @override
+  $Res call({
+    Object isLinkDownloaded = freezed,
+  }) {
+    return _then(_StartDownloading(
+      isLinkDownloaded: isLinkDownloaded == freezed
+          ? _value.isLinkDownloaded
+          : isLinkDownloaded as bool,
+    ));
+  }
 }
 
 /// @nodoc
 class _$_StartDownloading implements _StartDownloading {
-  const _$_StartDownloading();
+  const _$_StartDownloading({@required this.isLinkDownloaded})
+      : assert(isLinkDownloaded != null);
+
+  @override
+  final bool isLinkDownloaded;
 
   @override
   String toString() {
-    return 'DownloadPdfEvent.startDownloading()';
+    return 'DownloadPdfEvent.startDownloading(isLinkDownloaded: $isLinkDownloaded)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _StartDownloading);
+    return identical(this, other) ||
+        (other is _StartDownloading &&
+            (identical(other.isLinkDownloaded, isLinkDownloaded) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLinkDownloaded, isLinkDownloaded)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(isLinkDownloaded);
+
+  @JsonKey(ignore: true)
+  @override
+  _$StartDownloadingCopyWith<_StartDownloading> get copyWith =>
+      __$StartDownloadingCopyWithImpl<_StartDownloading>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult startDownloading(),
+    @required TResult startDownloading(bool isLinkDownloaded),
   }) {
     assert(startDownloading != null);
-    return startDownloading();
+    return startDownloading(isLinkDownloaded);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult startDownloading(),
+    TResult startDownloading(bool isLinkDownloaded),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (startDownloading != null) {
-      return startDownloading();
+      return startDownloading(isLinkDownloaded);
     }
     return orElse();
   }
@@ -144,7 +192,14 @@ class _$_StartDownloading implements _StartDownloading {
 }
 
 abstract class _StartDownloading implements DownloadPdfEvent {
-  const factory _StartDownloading() = _$_StartDownloading;
+  const factory _StartDownloading({@required bool isLinkDownloaded}) =
+      _$_StartDownloading;
+
+  @override
+  bool get isLinkDownloaded;
+  @override
+  @JsonKey(ignore: true)
+  _$StartDownloadingCopyWith<_StartDownloading> get copyWith;
 }
 
 /// @nodoc
@@ -162,9 +217,10 @@ class _$DownloadPdfStateTearOff {
   }
 
 // ignore: unused_element
-  _DownLoadableLink downLoadableLink(String url) {
+  _DownLoadableLink downLoadableLink(String url, bool isLinkDownloaded) {
     return _DownLoadableLink(
       url,
+      isLinkDownloaded,
     );
   }
 
@@ -198,7 +254,7 @@ mixin _$DownloadPdfState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult preparing(),
-    @required TResult downLoadableLink(String url),
+    @required TResult downLoadableLink(String url, bool isLinkDownloaded),
     @required TResult downloading(int percentage),
     @required TResult downloaded(),
     @required TResult downloadFailed(ApiFailure failure),
@@ -207,7 +263,7 @@ mixin _$DownloadPdfState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult preparing(),
-    TResult downLoadableLink(String url),
+    TResult downLoadableLink(String url, bool isLinkDownloaded),
     TResult downloading(int percentage),
     TResult downloaded(),
     TResult downloadFailed(ApiFailure failure),
@@ -289,7 +345,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult preparing(),
-    @required TResult downLoadableLink(String url),
+    @required TResult downLoadableLink(String url, bool isLinkDownloaded),
     @required TResult downloading(int percentage),
     @required TResult downloaded(),
     @required TResult downloadFailed(ApiFailure failure),
@@ -308,7 +364,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult preparing(),
-    TResult downLoadableLink(String url),
+    TResult downLoadableLink(String url, bool isLinkDownloaded),
     TResult downloading(int percentage),
     TResult downloaded(),
     TResult downloadFailed(ApiFailure failure),
@@ -403,7 +459,7 @@ class _$_Preparing implements _Preparing {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult preparing(),
-    @required TResult downLoadableLink(String url),
+    @required TResult downLoadableLink(String url, bool isLinkDownloaded),
     @required TResult downloading(int percentage),
     @required TResult downloaded(),
     @required TResult downloadFailed(ApiFailure failure),
@@ -422,7 +478,7 @@ class _$_Preparing implements _Preparing {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult preparing(),
-    TResult downLoadableLink(String url),
+    TResult downLoadableLink(String url, bool isLinkDownloaded),
     TResult downloading(int percentage),
     TResult downloaded(),
     TResult downloadFailed(ApiFailure failure),
@@ -482,7 +538,7 @@ abstract class _$DownLoadableLinkCopyWith<$Res> {
   factory _$DownLoadableLinkCopyWith(
           _DownLoadableLink value, $Res Function(_DownLoadableLink) then) =
       __$DownLoadableLinkCopyWithImpl<$Res>;
-  $Res call({String url});
+  $Res call({String url, bool isLinkDownloaded});
 }
 
 /// @nodoc
@@ -499,23 +555,31 @@ class __$DownLoadableLinkCopyWithImpl<$Res>
   @override
   $Res call({
     Object url = freezed,
+    Object isLinkDownloaded = freezed,
   }) {
     return _then(_DownLoadableLink(
       url == freezed ? _value.url : url as String,
+      isLinkDownloaded == freezed
+          ? _value.isLinkDownloaded
+          : isLinkDownloaded as bool,
     ));
   }
 }
 
 /// @nodoc
 class _$_DownLoadableLink implements _DownLoadableLink {
-  const _$_DownLoadableLink(this.url) : assert(url != null);
+  const _$_DownLoadableLink(this.url, this.isLinkDownloaded)
+      : assert(url != null),
+        assert(isLinkDownloaded != null);
 
   @override
   final String url;
+  @override
+  final bool isLinkDownloaded;
 
   @override
   String toString() {
-    return 'DownloadPdfState.downLoadableLink(url: $url)';
+    return 'DownloadPdfState.downLoadableLink(url: $url, isLinkDownloaded: $isLinkDownloaded)';
   }
 
   @override
@@ -523,12 +587,17 @@ class _$_DownLoadableLink implements _DownLoadableLink {
     return identical(this, other) ||
         (other is _DownLoadableLink &&
             (identical(other.url, url) ||
-                const DeepCollectionEquality().equals(other.url, url)));
+                const DeepCollectionEquality().equals(other.url, url)) &&
+            (identical(other.isLinkDownloaded, isLinkDownloaded) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLinkDownloaded, isLinkDownloaded)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(url);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(url) ^
+      const DeepCollectionEquality().hash(isLinkDownloaded);
 
   @JsonKey(ignore: true)
   @override
@@ -540,7 +609,7 @@ class _$_DownLoadableLink implements _DownLoadableLink {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult preparing(),
-    @required TResult downLoadableLink(String url),
+    @required TResult downLoadableLink(String url, bool isLinkDownloaded),
     @required TResult downloading(int percentage),
     @required TResult downloaded(),
     @required TResult downloadFailed(ApiFailure failure),
@@ -551,7 +620,7 @@ class _$_DownLoadableLink implements _DownLoadableLink {
     assert(downloading != null);
     assert(downloaded != null);
     assert(downloadFailed != null);
-    return downLoadableLink(url);
+    return downLoadableLink(url, isLinkDownloaded);
   }
 
   @override
@@ -559,7 +628,7 @@ class _$_DownLoadableLink implements _DownLoadableLink {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult preparing(),
-    TResult downLoadableLink(String url),
+    TResult downLoadableLink(String url, bool isLinkDownloaded),
     TResult downloading(int percentage),
     TResult downloaded(),
     TResult downloadFailed(ApiFailure failure),
@@ -567,7 +636,7 @@ class _$_DownLoadableLink implements _DownLoadableLink {
   }) {
     assert(orElse != null);
     if (downLoadableLink != null) {
-      return downLoadableLink(url);
+      return downLoadableLink(url, isLinkDownloaded);
     }
     return orElse();
   }
@@ -611,9 +680,11 @@ class _$_DownLoadableLink implements _DownLoadableLink {
 }
 
 abstract class _DownLoadableLink implements DownloadPdfState {
-  const factory _DownLoadableLink(String url) = _$_DownLoadableLink;
+  const factory _DownLoadableLink(String url, bool isLinkDownloaded) =
+      _$_DownLoadableLink;
 
   String get url;
+  bool get isLinkDownloaded;
   @JsonKey(ignore: true)
   _$DownLoadableLinkCopyWith<_DownLoadableLink> get copyWith;
 }
@@ -682,7 +753,7 @@ class _$_Downloading implements _Downloading {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult preparing(),
-    @required TResult downLoadableLink(String url),
+    @required TResult downLoadableLink(String url, bool isLinkDownloaded),
     @required TResult downloading(int percentage),
     @required TResult downloaded(),
     @required TResult downloadFailed(ApiFailure failure),
@@ -701,7 +772,7 @@ class _$_Downloading implements _Downloading {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult preparing(),
-    TResult downLoadableLink(String url),
+    TResult downLoadableLink(String url, bool isLinkDownloaded),
     TResult downloading(int percentage),
     TResult downloaded(),
     TResult downloadFailed(ApiFailure failure),
@@ -801,7 +872,7 @@ class _$_Downloaded implements _Downloaded {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult preparing(),
-    @required TResult downLoadableLink(String url),
+    @required TResult downLoadableLink(String url, bool isLinkDownloaded),
     @required TResult downloading(int percentage),
     @required TResult downloaded(),
     @required TResult downloadFailed(ApiFailure failure),
@@ -820,7 +891,7 @@ class _$_Downloaded implements _Downloaded {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult preparing(),
-    TResult downLoadableLink(String url),
+    TResult downLoadableLink(String url, bool isLinkDownloaded),
     TResult downloading(int percentage),
     TResult downloaded(),
     TResult downloadFailed(ApiFailure failure),
@@ -950,7 +1021,7 @@ class _$_DownloadFailed implements _DownloadFailed {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult preparing(),
-    @required TResult downLoadableLink(String url),
+    @required TResult downLoadableLink(String url, bool isLinkDownloaded),
     @required TResult downloading(int percentage),
     @required TResult downloaded(),
     @required TResult downloadFailed(ApiFailure failure),
@@ -969,7 +1040,7 @@ class _$_DownloadFailed implements _DownloadFailed {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult preparing(),
-    TResult downLoadableLink(String url),
+    TResult downLoadableLink(String url, bool isLinkDownloaded),
     TResult downloading(int percentage),
     TResult downloaded(),
     TResult downloadFailed(ApiFailure failure),

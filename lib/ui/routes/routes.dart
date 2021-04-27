@@ -1,4 +1,7 @@
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:wallet_app/ui/pages/alerts/alerts_page.dart';
+import 'package:wallet_app/ui/pages/alerts/alerts_tab_page.dart';
+import 'package:wallet_app/ui/pages/alerts/detail/alert_detail_page.dart';
 import 'package:wallet_app/ui/pages/auth/forgot_password_screen.dart';
 import 'package:wallet_app/ui/pages/auth/login_screen.dart';
 import 'package:wallet_app/ui/pages/auth/register_screen.dart';
@@ -43,6 +46,9 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     MaterialRoute(page: ServicesDetail),
     MaterialRoute(page: JapaneseMannerPage),
     MaterialRoute(page: JapaneseMannerDetailPage),
+    MaterialRoute(page: AlertsPage),
+    MaterialRoute(page: AlertsTabPage),
+    MaterialRoute(page: AlertDetailPage),
   ],
 )
 class $Router {

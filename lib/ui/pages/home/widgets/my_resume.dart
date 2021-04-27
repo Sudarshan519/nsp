@@ -665,9 +665,8 @@ class _DownloadResumeButton extends StatelessWidget {
         fontWeight: FontWeight.w600,
       ),
       onTap: () {
-        context
-            .read<DownloadPdfBloc>()
-            .add(const DownloadPdfEvent.startDownloading());
+        context.read<DownloadPdfBloc>().add(
+            const DownloadPdfEvent.startDownloading(isLinkDownloaded: true));
       },
     );
   }
