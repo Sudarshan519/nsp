@@ -1,15 +1,11 @@
-import 'dart:io' show Directory, Platform;
-
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_data.dart';
 import 'package:wallet_app/features/resume/presentation/download_pdf/download_pdf_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/resume/widgets/download_resume_button.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -28,65 +24,60 @@ class MyResumeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const CategoryTitleWidget(title: "My Resume"),
-          const SizedBox(height: 10),
-          ShadowBoxWidget(
-            // padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Container(
-                  color: Palette.white,
-                  height: 190,
-                  child: ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return index == 0
-                          ? _userImage(data.personalInfo.image)
-                          : _resumeInformationBuilderWidget(index - 1, data);
-                    },
+    return BlocProvider(
+      create: (context) => getIt<DownloadPdfBloc>(),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const CategoryTitleWidget(title: "My Resume"),
+            const SizedBox(height: 10),
+            ShadowBoxWidget(
+              // padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Container(
+                    color: Palette.white,
+                    height: 190,
+                    child: ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 5,
+                      itemBuilder: (context, index) {
+                        return index == 0
+                            ? _userImage(data.personalInfo.image)
+                            : _resumeInformationBuilderWidget(index - 1, data);
+                      },
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    CustomButton(
-                      title: "Update Profile",
-                      svgAsset: "assets/images/resume/email.svg",
-                      textStyle: TextStyle(
-                        color: Palette.white,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      CustomButton(
+                        title: "Update Profile",
+                        svgAsset: "assets/images/resume/email.svg",
+                        textStyle: TextStyle(
+                          color: Palette.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        onTap: () {},
                       ),
-                      onTap: () {},
-                    ),
-                    _DownloadResumeButton(),
-                    CustomButton(
-                      title: "Share Link",
-                      svgAsset: "assets/images/resume/share.svg",
-                      textStyle: TextStyle(
-                        color: Palette.white,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-              ],
+                      // _DownloadResumeButton(),
+                      const _DownloadButton(),
+                      const _ShareButton(),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -610,98 +601,154 @@ class _ResumeDescriptionItem extends StatelessWidget {
   }
 }
 
-class _DownloadResumeButton extends StatelessWidget {
+class _DownloadButton extends StatelessWidget {
+  const _DownloadButton({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<DownloadPdfBloc>(),
-      child: __downloadButtonConsumer(context),
-    );
-  }
-
-  Widget __downloadButtonConsumer(BuildContext context) {
-    return BlocConsumer<DownloadPdfBloc, DownloadPdfState>(
-      listener: (context, state) {
-        state.map(
-          initial: (_) {},
-          preparing: (_) {},
-          downLoadableLink: (message) async {
-            debugPrint(message.url);
-            await startDownloading(message.url);
-          },
-          downloading: (_) {},
-          downloaded: (_) {},
-          downloadFailed: (error) {
-            FlushbarHelper.createError(
-              message: error.failure.map(
-                noInternetConnection: (error) => AppConstants.noNetwork,
-                serverError: (error) => error.message,
-                invalidUser: (error) => AppConstants.someThingWentWrong,
-              ),
-            ).show(context);
-          },
-        );
-      },
-      builder: (context, state) {
-        return state.map(
-          initial: (_) => _downloadButton(context),
-          preparing: (_) => _loadingStateWithInfo(context, "  Preparing...  "),
-          downLoadableLink: (_) => _downloadButton(context),
-          downloading: (_) => _downloadButton(context),
-          downloaded: (_) => _downloadButton(context),
-          downloadFailed: (_) => _downloadButton(context),
-        );
-      },
-    );
-  }
-
-  Widget _downloadButton(BuildContext context) {
-    return CustomButton(
-      title: "Download",
-      svgAsset: "assets/images/resume/download_pdf.svg",
-      textStyle: TextStyle(
-        color: Palette.white,
-        fontSize: 10,
-        fontWeight: FontWeight.w600,
+    return DownloadResumeButton(
+      child: CustomButton(
+        title: "Download",
+        svgAsset: "assets/images/resume/download_pdf.svg",
+        textStyle: TextStyle(
+          color: Palette.white,
+          fontSize: 10,
+          fontWeight: FontWeight.w600,
+        ),
+        onTap: () {
+          FlushbarHelper.createInformation(
+                  message: AppConstants.resumeDownloadStarted)
+              .show(context);
+          context.read<DownloadPdfBloc>().add(
+              const DownloadPdfEvent.startDownloading(isLinkDownloaded: true));
+        },
       ),
-      onTap: () {
-        context.read<DownloadPdfBloc>().add(
-            const DownloadPdfEvent.startDownloading(isLinkDownloaded: true));
-      },
     );
-  }
-
-  Widget _loadingStateWithInfo(BuildContext context, String title) {
-    return CustomButton(
-      title: title,
-      textStyle: TextStyle(
-        color: Palette.white,
-        fontSize: 10,
-        fontWeight: FontWeight.w600,
-      ),
-      onTap: () {},
-    );
-  }
-
-  Future startDownloading(String url) async {
-    final status = await Permission.storage.request();
-
-    if (status.isGranted) {
-      Directory externalDir;
-
-      if (Platform.isAndroid) {
-        externalDir = await getExternalStorageDirectory();
-      } else if (Platform.isIOS) {
-        externalDir = await getApplicationDocumentsDirectory();
-      }
-
-      await FlutterDownloader.enqueue(
-        url: url,
-        savedDir: externalDir.path,
-        fileName: "Resume.pdf",
-      );
-    } else {
-      // print("Permission not granted");
-    }
   }
 }
+
+class _ShareButton extends StatelessWidget {
+  const _ShareButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DownloadResumeButton(
+      child: CustomButton(
+        title: "Share Link",
+        svgAsset: "ssets/images/resume/share.svg",
+        textStyle: TextStyle(
+          color: Palette.white,
+          fontSize: 10,
+          fontWeight: FontWeight.w600,
+        ),
+        onTap: () {
+          FlushbarHelper.createInformation(
+                  message: AppConstants.resumeShareStarted)
+              .show(context);
+          context.read<DownloadPdfBloc>().add(
+              const DownloadPdfEvent.startDownloading(isLinkDownloaded: false));
+        },
+      ),
+    );
+  }
+}
+
+// class _DownloadResumeButton extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocProvider(
+//       create: (context) => getIt<DownloadPdfBloc>(),
+//       child: __downloadButtonConsumer(context),
+//     );
+//   }
+
+//   Widget __downloadButtonConsumer(BuildContext context) {
+//     return BlocConsumer<DownloadPdfBloc, DownloadPdfState>(
+//       listener: (context, state) {
+//         state.map(
+//           initial: (_) {},
+//           preparing: (_) {},
+//           downLoadableLink: (message) async {
+//             debugPrint(message.url);
+//             await startDownloading(message.url);
+//           },
+//           downloading: (_) {},
+//           downloaded: (_) {},
+//           downloadFailed: (error) {
+//             FlushbarHelper.createError(
+//               message: error.failure.map(
+//                 noInternetConnection: (error) => AppConstants.noNetwork,
+//                 serverError: (error) => error.message,
+//                 invalidUser: (error) => AppConstants.someThingWentWrong,
+//               ),
+//             ).show(context);
+//           },
+//         );
+//       },
+//       builder: (context, state) {
+//         return state.map(
+//           initial: (_) => _downloadButton(context),
+//           preparing: (_) => _loadingStateWithInfo(context, "  Preparing...  "),
+//           downLoadableLink: (_) => _downloadButton(context),
+//           downloading: (_) => _downloadButton(context),
+//           downloaded: (_) => _downloadButton(context),
+//           downloadFailed: (_) => _downloadButton(context),
+//         );
+//       },
+//     );
+//   }
+
+//   Widget _downloadButton(BuildContext context) {
+//     return CustomButton(
+//       title: "Download",
+//       svgAsset: "assets/images/resume/download_pdf.svg",
+//       textStyle: TextStyle(
+//         color: Palette.white,
+//         fontSize: 10,
+//         fontWeight: FontWeight.w600,
+//       ),
+//       onTap: () {
+//         context.read<DownloadPdfBloc>().add(
+//             const DownloadPdfEvent.startDownloading(isLinkDownloaded: true));
+//       },
+//     );
+//   }
+
+//   Widget _loadingStateWithInfo(BuildContext context, String title) {
+//     return CustomButton(
+//       title: title,
+//       textStyle: TextStyle(
+//         color: Palette.white,
+//         fontSize: 10,
+//         fontWeight: FontWeight.w600,
+//       ),
+//       onTap: () {},
+//     );
+//   }
+
+//   Future startDownloading(String url) async {
+//     final status = await Permission.storage.request();
+
+//     if (status.isGranted) {
+//       Directory externalDir;
+
+//       if (Platform.isAndroid) {
+//         externalDir = await getExternalStorageDirectory();
+//       } else if (Platform.isIOS) {
+//         externalDir = await getApplicationDocumentsDirectory();
+//       }
+
+//       await FlutterDownloader.enqueue(
+//         url: url,
+//         savedDir: externalDir.path,
+//         fileName: "Resume.pdf",
+//       );
+//     } else {
+//       // print("Permission not granted");
+//     }
+//   }
+// }

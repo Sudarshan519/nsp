@@ -14,11 +14,11 @@ class _AlertsTabPageState extends State<AlertsTabPage>
   int _selectedIndex = 0;
   TabController _tabController;
 
-  List<Widget> _children = [
+  final List<Widget> _children = [
     AlertListPage(),
-    AlertListPage(),
-    AlertListPage(),
-    AlertListPage(),
+    Container(),
+    Container(),
+    Container(),
   ];
 
   final List<Tab> _tabBarData = [

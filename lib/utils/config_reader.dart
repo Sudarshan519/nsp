@@ -8,6 +8,7 @@ abstract class ConfigReader {
   Future<void> initialize();
   String get baseURL;
   String get resumeBaseUrl;
+  String get alertBaseUrl;
   String get apiPath;
   bool get isDebugApp;
 }
@@ -30,6 +31,14 @@ class ConfigReaderImpl implements ConfigReader {
       return "";
     }
     return _config['resume_base_url'] as String ?? "";
+  }
+
+  @override
+  String get alertBaseUrl {
+    if (_config == null) {
+      return "";
+    }
+    return _config['alert_base_url'] as String ?? "";
   }
 
   @override

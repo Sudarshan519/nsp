@@ -35,6 +35,9 @@ class MockConfigReader implements ConfigReader {
 
   @override
   bool get isDebugApp => true;
+
+  @override
+  String get alertBaseUrl => "";
 }
 
 // AUTH MOCK
