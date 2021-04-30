@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'get_alerts_bloc.dart';
+part of 'get_earthquakes_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'get_alerts_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$GetAlertsEventTearOff {
-  const _$GetAlertsEventTearOff();
+class _$GetEarthquakesEventTearOff {
+  const _$GetEarthquakesEventTearOff();
 
 // ignore: unused_element
   _Fetch fetch() {
@@ -26,10 +26,10 @@ class _$GetAlertsEventTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $GetAlertsEvent = _$GetAlertsEventTearOff();
+const $GetEarthquakesEvent = _$GetEarthquakesEventTearOff();
 
 /// @nodoc
-mixin _$GetAlertsEvent {
+mixin _$GetEarthquakesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
@@ -55,20 +55,20 @@ mixin _$GetAlertsEvent {
 }
 
 /// @nodoc
-abstract class $GetAlertsEventCopyWith<$Res> {
-  factory $GetAlertsEventCopyWith(
-          GetAlertsEvent value, $Res Function(GetAlertsEvent) then) =
-      _$GetAlertsEventCopyWithImpl<$Res>;
+abstract class $GetEarthquakesEventCopyWith<$Res> {
+  factory $GetEarthquakesEventCopyWith(
+          GetEarthquakesEvent value, $Res Function(GetEarthquakesEvent) then) =
+      _$GetEarthquakesEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$GetAlertsEventCopyWithImpl<$Res>
-    implements $GetAlertsEventCopyWith<$Res> {
-  _$GetAlertsEventCopyWithImpl(this._value, this._then);
+class _$GetEarthquakesEventCopyWithImpl<$Res>
+    implements $GetEarthquakesEventCopyWith<$Res> {
+  _$GetEarthquakesEventCopyWithImpl(this._value, this._then);
 
-  final GetAlertsEvent _value;
+  final GetEarthquakesEvent _value;
   // ignore: unused_field
-  final $Res Function(GetAlertsEvent) _then;
+  final $Res Function(GetEarthquakesEvent) _then;
 }
 
 /// @nodoc
@@ -78,7 +78,7 @@ abstract class _$FetchCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$FetchCopyWithImpl<$Res> extends _$GetAlertsEventCopyWithImpl<$Res>
+class __$FetchCopyWithImpl<$Res> extends _$GetEarthquakesEventCopyWithImpl<$Res>
     implements _$FetchCopyWith<$Res> {
   __$FetchCopyWithImpl(_Fetch _value, $Res Function(_Fetch) _then)
       : super(_value, (v) => _then(v as _Fetch));
@@ -93,7 +93,7 @@ class _$_Fetch implements _Fetch {
 
   @override
   String toString() {
-    return 'GetAlertsEvent.fetch()';
+    return 'GetEarthquakesEvent.fetch()';
   }
 
   @override
@@ -155,7 +155,7 @@ class _$_Fetch implements _Fetch {
   }
 }
 
-abstract class _Fetch implements GetAlertsEvent {
+abstract class _Fetch implements GetEarthquakesEvent {
   const factory _Fetch() = _$_Fetch;
 }
 
@@ -166,7 +166,8 @@ abstract class _$PaginateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PaginateCopyWithImpl<$Res> extends _$GetAlertsEventCopyWithImpl<$Res>
+class __$PaginateCopyWithImpl<$Res>
+    extends _$GetEarthquakesEventCopyWithImpl<$Res>
     implements _$PaginateCopyWith<$Res> {
   __$PaginateCopyWithImpl(_Paginate _value, $Res Function(_Paginate) _then)
       : super(_value, (v) => _then(v as _Paginate));
@@ -181,7 +182,7 @@ class _$_Paginate implements _Paginate {
 
   @override
   String toString() {
-    return 'GetAlertsEvent.paginate()';
+    return 'GetEarthquakesEvent.paginate()';
   }
 
   @override
@@ -243,13 +244,13 @@ class _$_Paginate implements _Paginate {
   }
 }
 
-abstract class _Paginate implements GetAlertsEvent {
+abstract class _Paginate implements GetEarthquakesEvent {
   const factory _Paginate() = _$_Paginate;
 }
 
 /// @nodoc
-class _$GetAlertsStateTearOff {
-  const _$GetAlertsStateTearOff();
+class _$GetEarthquakesStateTearOff {
+  const _$GetEarthquakesStateTearOff();
 
 // ignore: unused_element
   _Initial initial() {
@@ -285,10 +286,10 @@ class _$GetAlertsStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $GetAlertsState = _$GetAlertsStateTearOff();
+const $GetEarthquakesState = _$GetEarthquakesStateTearOff();
 
 /// @nodoc
-mixin _$GetAlertsState {
+mixin _$GetEarthquakesState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
@@ -326,20 +327,20 @@ mixin _$GetAlertsState {
 }
 
 /// @nodoc
-abstract class $GetAlertsStateCopyWith<$Res> {
-  factory $GetAlertsStateCopyWith(
-          GetAlertsState value, $Res Function(GetAlertsState) then) =
-      _$GetAlertsStateCopyWithImpl<$Res>;
+abstract class $GetEarthquakesStateCopyWith<$Res> {
+  factory $GetEarthquakesStateCopyWith(
+          GetEarthquakesState value, $Res Function(GetEarthquakesState) then) =
+      _$GetEarthquakesStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$GetAlertsStateCopyWithImpl<$Res>
-    implements $GetAlertsStateCopyWith<$Res> {
-  _$GetAlertsStateCopyWithImpl(this._value, this._then);
+class _$GetEarthquakesStateCopyWithImpl<$Res>
+    implements $GetEarthquakesStateCopyWith<$Res> {
+  _$GetEarthquakesStateCopyWithImpl(this._value, this._then);
 
-  final GetAlertsState _value;
+  final GetEarthquakesState _value;
   // ignore: unused_field
-  final $Res Function(GetAlertsState) _then;
+  final $Res Function(GetEarthquakesState) _then;
 }
 
 /// @nodoc
@@ -349,7 +350,8 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$GetAlertsStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res>
+    extends _$GetEarthquakesStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -364,7 +366,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'GetAlertsState.initial()';
+    return 'GetEarthquakesState.initial()';
   }
 
   @override
@@ -444,7 +446,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements GetAlertsState {
+abstract class _Initial implements GetEarthquakesState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -455,7 +457,8 @@ abstract class _$LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$GetAlertsStateCopyWithImpl<$Res>
+class __$LoadingCopyWithImpl<$Res>
+    extends _$GetEarthquakesStateCopyWithImpl<$Res>
     implements _$LoadingCopyWith<$Res> {
   __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
       : super(_value, (v) => _then(v as _Loading));
@@ -470,7 +473,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'GetAlertsState.loading()';
+    return 'GetEarthquakesState.loading()';
   }
 
   @override
@@ -550,7 +553,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements GetAlertsState {
+abstract class _Loading implements GetEarthquakesState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -564,7 +567,7 @@ abstract class _$LoadingWithDataCopyWith<$Res> {
 
 /// @nodoc
 class __$LoadingWithDataCopyWithImpl<$Res>
-    extends _$GetAlertsStateCopyWithImpl<$Res>
+    extends _$GetEarthquakesStateCopyWithImpl<$Res>
     implements _$LoadingWithDataCopyWith<$Res> {
   __$LoadingWithDataCopyWithImpl(
       _LoadingWithData _value, $Res Function(_LoadingWithData) _then)
@@ -592,7 +595,7 @@ class _$_LoadingWithData implements _LoadingWithData {
 
   @override
   String toString() {
-    return 'GetAlertsState.loadingWithData(alerts: $alerts)';
+    return 'GetEarthquakesState.loadingWithData(alerts: $alerts)';
   }
 
   @override
@@ -681,7 +684,7 @@ class _$_LoadingWithData implements _LoadingWithData {
   }
 }
 
-abstract class _LoadingWithData implements GetAlertsState {
+abstract class _LoadingWithData implements GetEarthquakesState {
   const factory _LoadingWithData(List<Alert> alerts) = _$_LoadingWithData;
 
   List<Alert> get alerts;
@@ -697,7 +700,8 @@ abstract class _$SuccessCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$GetAlertsStateCopyWithImpl<$Res>
+class __$SuccessCopyWithImpl<$Res>
+    extends _$GetEarthquakesStateCopyWithImpl<$Res>
     implements _$SuccessCopyWith<$Res> {
   __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
       : super(_value, (v) => _then(v as _Success));
@@ -724,7 +728,7 @@ class _$_Success implements _Success {
 
   @override
   String toString() {
-    return 'GetAlertsState.success(alerts: $alerts)';
+    return 'GetEarthquakesState.success(alerts: $alerts)';
   }
 
   @override
@@ -813,7 +817,7 @@ class _$_Success implements _Success {
   }
 }
 
-abstract class _Success implements GetAlertsState {
+abstract class _Success implements GetEarthquakesState {
   const factory _Success(List<Alert> alerts) = _$_Success;
 
   List<Alert> get alerts;
@@ -831,7 +835,8 @@ abstract class _$FailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res> extends _$GetAlertsStateCopyWithImpl<$Res>
+class __$FailureCopyWithImpl<$Res>
+    extends _$GetEarthquakesStateCopyWithImpl<$Res>
     implements _$FailureCopyWith<$Res> {
   __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
       : super(_value, (v) => _then(v as _Failure));
@@ -868,7 +873,7 @@ class _$_Failure implements _Failure {
 
   @override
   String toString() {
-    return 'GetAlertsState.failure(failure: $failure)';
+    return 'GetEarthquakesState.failure(failure: $failure)';
   }
 
   @override
@@ -957,7 +962,7 @@ class _$_Failure implements _Failure {
   }
 }
 
-abstract class _Failure implements GetAlertsState {
+abstract class _Failure implements GetEarthquakesState {
   const factory _Failure(ApiFailure failure) = _$_Failure;
 
   ApiFailure get failure;

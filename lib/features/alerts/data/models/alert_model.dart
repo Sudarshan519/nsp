@@ -92,7 +92,9 @@ class AlertModel extends Alert {
             : json["magnitude_title"] as String,
         magnitudeValue: json["magnitude_value"] == null
             ? null
-            : json["magnitude_value"] as double,
+            : json["magnitude_value"] is int
+                ? (json["magnitude_value"] as int).toDouble()
+                : json["magnitude_value"] as double,
         majorWarningTitle: json["major_warning_title"] == null
             ? null
             : json["major_warning_title"] as String,
@@ -108,8 +110,16 @@ class AlertModel extends Alert {
         warningTitle: json["warning_title"] == null
             ? null
             : json["warning_title"] as String,
-        lat: json["lat"] == null ? null : json["lat"] as double,
-        lon: json["lon"] == null ? null : json["lon"] as double,
+        lat: json["lat"] == null
+            ? null
+            : json["lat"] is int
+                ? (json["lat"] as int).toDouble()
+                : json["lat"] as double,
+        lon: json["lon"] == null
+            ? null
+            : json["lon"] is int
+                ? (json["lon"] as int).toDouble()
+                : json["lon"] as double,
         levelText:
             json["level_text"] == null ? null : json["level_text"] as String,
         levelTitle:
@@ -125,10 +135,14 @@ class AlertModel extends Alert {
             : json["volcano_code"] as String,
         volcanoLatitude: json["volcano_latitude"] == null
             ? null
-            : json["volcano_latitude"] as double,
+            : json["volcano_latitude"] is int
+                ? (json["volcano_latitude"] as int).toDouble()
+                : json["volcano_latitude"] as double,
         volcanoLongtitude: json["volcano_longtitude"] == null
             ? null
-            : json["volcano_longtitude"] as double,
+            : json["volcano_longtitude"] is int
+                ? (json["volcano_longtitude"] as int).toDouble()
+                : json["volcano_longtitude"] as double,
         volcanoNameTitle: json["volcano_name_title"] == null
             ? null
             : json["volcano_name_title"] as String,

@@ -75,7 +75,7 @@ class MorePage extends StatelessWidget {
       _ProfileData(
         image: "icon-alerts",
         title: "Alerts",
-        onTap: () => ExtendedNavigator.of(context).pushAlertsPage(),
+        onTap: () => ExtendedNavigator.of(context).pushAlertsTabPage(),
       ),
       _ProfileData(
         image: "icon-about",

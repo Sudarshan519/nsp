@@ -8,7 +8,8 @@ import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
 import 'package:wallet_app/features/alerts/domain/repositories/alert_repository.dart';
 
 @lazySingleton
-class GetVolcanoes implements Usecase<ApiFailure, List<Alert>, NoParams> {
+class GetVolcanoes
+    implements Usecase<ApiFailure, List<Alert>, GetVolcanoesParams> {
   final AlertRepository repository;
   final NetworkInfo networkInfo;
 
@@ -18,11 +19,20 @@ class GetVolcanoes implements Usecase<ApiFailure, List<Alert>, NoParams> {
   });
 
   @override
-  Future<Either<ApiFailure, List<Alert>>> call(NoParams params) async {
+  Future<Either<ApiFailure, List<Alert>>> call(
+      GetVolcanoesParams params) async {
     if (await networkInfo.isConnected) {
-      return repository.getVolcanoes();
+      return repository.getVolcanoes(limit: params.limit);
     } else {
       return const Left(ApiFailure.noInternetConnection());
     }
   }
+}
+
+class GetVolcanoesParams {
+  final int limit;
+
+  GetVolcanoesParams({
+    @required this.limit,
+  });
 }

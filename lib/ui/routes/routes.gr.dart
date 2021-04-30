@@ -9,6 +9,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/alerts/domain/entity/alert_model.dart';
 import '../../features/japanese_manners/domain/entities/japanese_manner.dart';
 import '../../features/news/domain/entity/news_item.dart';
 import '../../features/partner_services/domain/entities/services.dart';
@@ -343,8 +344,12 @@ class Router extends RouterBase {
       );
     },
     AlertDetailPage: (data) {
+      final args = data.getArgs<AlertDetailPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => AlertDetailPage(),
+        builder: (context) => AlertDetailPage(
+          key: args.key,
+          alert: args.alert,
+        ),
         settings: data,
       );
     },
@@ -548,8 +553,14 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushAlertsTabPage() => push<dynamic>(Routes.alertsTabPage);
 
-  Future<dynamic> pushAlertDetailPage() =>
-      push<dynamic>(Routes.alertDetailPage);
+  Future<dynamic> pushAlertDetailPage({
+    Key key,
+    @required Alert alert,
+  }) =>
+      push<dynamic>(
+        Routes.alertDetailPage,
+        arguments: AlertDetailPageArguments(key: key, alert: alert),
+      );
 }
 
 /// ************************************************************************
@@ -701,4 +712,11 @@ class JapaneseMannerDetailPageArguments {
   final Key key;
   final JapaneseManner japaneseManner;
   JapaneseMannerDetailPageArguments({this.key, @required this.japaneseManner});
+}
+
+/// AlertDetailPage arguments holder class
+class AlertDetailPageArguments {
+  final Key key;
+  final Alert alert;
+  AlertDetailPageArguments({this.key, @required this.alert});
 }

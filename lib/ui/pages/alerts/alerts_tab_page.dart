@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/alerts/presentation/get_volcanoes/get_volcanoes_bloc.dart';
+import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bloc.dart';
+import 'package:wallet_app/features/alerts/presentation/get_earthquakes/get_earthquakes_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 import 'tabs/alert_list_page.dart';
+import 'tabs/earthquake_list_page.dart';
+import 'tabs/volcano_list_page.dart';
 
 class AlertsTabPage extends StatefulWidget {
   @override
@@ -11,13 +18,12 @@ class AlertsTabPage extends StatefulWidget {
 
 class _AlertsTabPageState extends State<AlertsTabPage>
     with SingleTickerProviderStateMixin {
-  int _selectedIndex = 0;
   TabController _tabController;
 
   final List<Widget> _children = [
     AlertListPage(),
-    Container(),
-    Container(),
+    EarthquakeListPage(),
+    VolcanoListPage(),
     Container(),
   ];
 
@@ -72,7 +78,6 @@ class _AlertsTabPageState extends State<AlertsTabPage>
 
   @override
   void initState() {
-    _selectedIndex = 0;
     _tabController = TabController(length: _children.length, vsync: this);
     super.initState();
   }
@@ -93,24 +98,46 @@ class _AlertsTabPageState extends State<AlertsTabPage>
         backgroundColor: Palette.primary,
         elevation: 0,
       ),
-      body: Column(
-        children: [
-          TabBar(
-            unselectedLabelColor: Palette.black,
-            labelColor: Palette.primary,
-            tabs: _tabBarData,
-            controller: _tabController,
-            indicatorSize: TabBarIndicatorSize.tab,
-            indicatorColor: Palette.primary,
-            // isScrollable: true,
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => getIt<GetAlertsBloc>()
+              ..add(
+                const GetAlertsEvent.fetch(),
+              ),
           ),
-          Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              children: _children.map((child) => child).toList(),
-            ),
+          BlocProvider(
+            create: (_) => getIt<GetEarthquakesBloc>()
+              ..add(
+                const GetEarthquakesEvent.fetch(),
+              ),
+          ),
+          BlocProvider(
+            create: (_) => getIt<GetVolcanoesBloc>()
+              ..add(
+                const GetVolcanoesEvent.fetch(),
+              ),
           ),
         ],
+        child: Column(
+          children: [
+            TabBar(
+              unselectedLabelColor: Palette.black,
+              labelColor: Palette.primary,
+              tabs: _tabBarData,
+              controller: _tabController,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorColor: Palette.primary,
+              // isScrollable: true,
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: _children.map((child) => child).toList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

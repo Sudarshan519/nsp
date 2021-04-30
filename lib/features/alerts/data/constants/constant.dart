@@ -8,7 +8,6 @@ class AlertApiEndpoints {
 
 class AlertAppConstant {
   static const lang = "en";
-  static const limit = "10";
   static const from = "0";
   static const to = "9";
   static const clientName = "PortableNews";

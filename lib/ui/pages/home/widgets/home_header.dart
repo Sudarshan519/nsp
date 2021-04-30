@@ -51,20 +51,20 @@ class HomeHeaderWidget extends StatelessWidget {
           },
         ),
         const Spacer(),
-        SvgPicture.asset(
-          "assets/images/navigation_bar/search.svg",
-          height: 25.0,
-        ),
-        const SizedBox(
-          width: 10,
-        ),
-        SvgPicture.asset(
-          "assets/images/navigation_bar/globe.svg",
-          height: 25.0,
-        ),
-        const SizedBox(
-          width: 10,
-        ),
+        // SvgPicture.asset(
+        //   "assets/images/navigation_bar/search.svg",
+        //   height: 25.0,
+        // ),
+        // const SizedBox(
+        //   width: 10,
+        // ),
+        // SvgPicture.asset(
+        //   "assets/images/navigation_bar/globe.svg",
+        //   height: 25.0,
+        // ),
+        // const SizedBox(
+        //   width: 10,
+        // ),
         SvgPicture.asset(
           "assets/images/navigation_bar/notification.svg",
           height: 25.0,

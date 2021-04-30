@@ -56,7 +56,9 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
         final int progress = data[2] as int;
 
         setState(() {
-          _progress = progress;
+          if (progress > 0) {
+            _progress = progress;
+          }
 
           if (status == DownloadTaskStatus.complete) {
             _status = status;

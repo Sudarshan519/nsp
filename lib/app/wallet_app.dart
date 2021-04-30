@@ -66,12 +66,7 @@ class WalletApp extends StatelessWidget {
               const NewsPreferenceEvent.fetch(),
             ),
         ),
-        BlocProvider(
-          create: (_) => getIt<GetAlertsBloc>()
-            ..add(
-              const GetAlertsEvent.fetch(),
-            ),
-        ),
+        
       ],
       child: MaterialApp(
         title: 'Wallet',

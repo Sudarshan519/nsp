@@ -17,30 +17,38 @@ class AlertRepositoryImpl implements AlertRepository {
   });
 
   @override
-  Future<Either<ApiFailure, List<Alert>>> getAlerts() {
+  Future<Either<ApiFailure, List<Alert>>> getAlerts({
+    @required int limit,
+  }) {
     return _getAlerts(request: () {
-      return dataSource.getAlerts(params: _getParams());
+      return dataSource.getAlerts(params: _getParams(limit: limit));
     });
   }
 
   @override
-  Future<Either<ApiFailure, List<Alert>>> getEarthquaked() {
+  Future<Either<ApiFailure, List<Alert>>> getEarthquaked({
+    @required int limit,
+  }) {
     return _getAlerts(request: () {
-      return dataSource.getEarthquakes(params: _getParams());
+      return dataSource.getEarthquakes(params: _getParams(limit: limit));
     });
   }
 
   @override
-  Future<Either<ApiFailure, List<Alert>>> getVolcanoes() {
+  Future<Either<ApiFailure, List<Alert>>> getVolcanoes({
+    @required int limit,
+  }) {
     return _getAlerts(request: () {
-      return dataSource.getVolcanoes(params: _getParams());
+      return dataSource.getVolcanoes(params: _getParams(limit: limit));
     });
   }
 
-  Map<String, String> _getParams() {
+  Map<String, String> _getParams({
+    @required int limit,
+  }) {
     return {
       "lang": AlertAppConstant.lang,
-      "limit": AlertAppConstant.limit,
+      "limit": "$limit",
       "from": AlertAppConstant.from,
       "to": AlertAppConstant.to,
       "client-name": AlertAppConstant.clientName,

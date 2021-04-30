@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class AlertDetailPage extends StatelessWidget {
+  final Alert alert;
+
+  const AlertDetailPage({
+    Key key,
+    @required this.alert,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,15 +33,16 @@ class AlertDetailPage extends StatelessWidget {
   }
 
   Widget _detailBody(BuildContext context) {
+    final isEarthQuake = alert.label.toLowerCase() == "earthquake";
     return Column(
       children: [
         Container(
           color: Palette.white,
           alignment: Alignment.center,
           padding: const EdgeInsets.all(16.0),
-          child: const Text(
-            "Northern WakayamaPref",
-            style: TextStyle(
+          child: Text(
+            isEarthQuake ? alert.epicenterValue : alert.volcanoNameValue,
+            style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
             ),
@@ -43,7 +52,13 @@ class AlertDetailPage extends StatelessWidget {
         Expanded(
           child: Stack(
             children: [
-              _DetailMapView(),
+              if (isEarthQuake)
+                _DetailMapView(lat: alert.lat, lng: alert.lon)
+              else
+                _DetailMapView(
+                  lat: alert.volcanoLatitude,
+                  lng: alert.volcanoLongtitude,
+                ),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
@@ -71,59 +86,66 @@ class AlertDetailPage extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(8.0),
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Palette.primary,
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "4.2",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Palette.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              if (isEarthQuake)
+                Column(
+                  children: [
+                    Row(
                       children: [
-                        Text(
-                          "Richer Scale",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Palette.black,
+                        Container(
+                          padding: const EdgeInsets.all(8.0),
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: Palette.primary,
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "${alert.magnitudeValue}",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Palette.white,
+                              ),
+                            ),
                           ),
                         ),
-                        Text(
-                          "No tsunami warnings from this earthquake",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: Palette.black.withOpacity(0.5),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Richer Scale",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Palette.black,
+                                ),
+                              ),
+                              Text(
+                                alert.tsunamiMessage ?? "",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: Palette.black.withOpacity(0.5),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Container(
-                height: 1,
-                color: Palette.dividerColor,
-              ),
-              const SizedBox(height: 10),
+                    const SizedBox(height: 10),
+                    Container(
+                      height: 1,
+                      color: Palette.dividerColor,
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                )
+              else
+                const SizedBox(height: 20),
               Row(
                 children: [
                   _getDetailInformation(
@@ -133,42 +155,51 @@ class AlertDetailPage extends StatelessWidget {
                     textColor: Palette.black.withOpacity(0.5),
                   ),
                   const Spacer(),
-                  _getDetailInformation(
-                    svgIcon: "assets/images/alerts/max-intensity.svg",
-                    title: "Max Intensity",
-                    value: "1",
-                    textColor: Palette.black.withOpacity(0.5),
-                  ),
-                  const Spacer(),
+                  if (isEarthQuake)
+                    _getDetailInformation(
+                      svgIcon: "assets/images/alerts/max-intensity.svg",
+                      title: "Max Intensity",
+                      value: "1",
+                      textColor: Palette.black.withOpacity(0.5),
+                    )
+                  else
+                    _getDetailInformation(
+                      svgIcon: "assets/images/alerts/max-intensity.svg",
+                      title: "Warnings",
+                      value: alert.typeValue,
+                      textColor: Palette.black.withOpacity(0.5),
+                    ),
+                  const SizedBox(width: 60),
                 ],
               ),
               const SizedBox(height: 20),
-              Row(
-                children: [
-                  _getDetailInformation(
-                    svgIcon: "assets/images/alerts/magnitude.svg",
-                    title: "Magnitude",
-                    value: "4.2",
-                    textColor: Palette.black.withOpacity(0.5),
-                  ),
-                  const Spacer(),
-                  _getDetailInformation(
-                    svgIcon: "assets/images/alerts/depth.svg",
-                    title: "Epicenter Depth",
-                    value: "50km",
-                    textColor: Palette.black.withOpacity(0.5),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-              const SizedBox(height: 20),
-              _getDetailInformation(
-                svgIcon: "assets/images/alerts/levels.svg",
-                title: "Levels",
-                value:
-                    "Level 2 (Donot approach the volcano) \n\n Eruption or possibility of eruption that may affect areas near \n the creater (threat to life is possible in this areas).",
-                textColor: Palette.black.withOpacity(0.5),
-              ),
+              if (isEarthQuake)
+                Row(
+                  children: [
+                    _getDetailInformation(
+                      svgIcon: "assets/images/alerts/magnitude.svg",
+                      title: "Magnitude",
+                      value: "${alert.magnitudeValue}",
+                      textColor: Palette.black.withOpacity(0.5),
+                    ),
+                    const Spacer(),
+                    _getDetailInformation(
+                      svgIcon: "assets/images/alerts/depth.svg",
+                      title: "Epicenter Depth",
+                      value: alert.depthValue,
+                      textColor: Palette.black.withOpacity(0.5),
+                    ),
+                    const SizedBox(width: 40),
+                  ],
+                )
+              else
+                _getSingleLineDetailInformation(
+                  svgIcon: "assets/images/alerts/levels.svg",
+                  title: "Levels",
+                  value:
+                      "${alert.levelTitle} ${alert.levelValue} (Do not approach the volcano)\n\n${alert.levelText}",
+                  textColor: Palette.black.withOpacity(0.5),
+                ),
             ],
           ),
         ),
@@ -182,8 +213,6 @@ class AlertDetailPage extends StatelessWidget {
     @required String value,
     @required Color textColor,
   }) {
-    // return Expanded(
-    //   child:
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -214,21 +243,83 @@ class AlertDetailPage extends StatelessWidget {
           ],
         ),
       ],
-      // ),
+    );
+  }
+
+  Widget _getSingleLineDetailInformation({
+    @required String svgIcon,
+    @required String title,
+    @required String value,
+    @required Color textColor,
+  }) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SvgPicture.asset(
+          svgIcon,
+          height: 20,
+        ),
+        const SizedBox(width: 5),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Palette.black,
+                ),
+              ),
+              Text(
+                value,
+                style: TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w400,
+                  color: textColor,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
 
 class _DetailMapView extends StatelessWidget {
+  final double lat;
+  final double lng;
+
+  const _DetailMapView({
+    Key key,
+    @required this.lat,
+    @required this.lng,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return const GoogleMap(
+    if (lat == null || lng == null) {
+      return GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: LatLng(lat ?? 0.0, lng ?? 0.0),
+          zoom: 12,
+        ),
+        myLocationButtonEnabled: false,
+        zoomControlsEnabled: false,
+      );
+    }
+    final _marker =
+        Marker(position: LatLng(lat, lng), markerId: MarkerId("${lat + lng}"));
+
+    return GoogleMap(
       initialCameraPosition: CameraPosition(
-        target: LatLng(37.785834, -122.506417),
-        zoom: 15,
+        target: LatLng(lat, lng),
+        zoom: 12,
       ),
       // onMapCreated: _onMapCreated,
-      // markers: _markers,
+      markers: {_marker},
       myLocationEnabled: false,
       myLocationButtonEnabled: false,
       zoomControlsEnabled: false,

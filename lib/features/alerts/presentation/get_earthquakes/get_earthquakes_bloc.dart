@@ -5,35 +5,35 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
-import 'package:wallet_app/features/alerts/domain/usecase/get_alerts.dart';
+import 'package:wallet_app/features/alerts/domain/usecase/get_earthquakes.dart';
 
-part 'get_alerts_event.dart';
-part 'get_alerts_state.dart';
-part 'get_alerts_bloc.freezed.dart';
+part 'get_earthquakes_event.dart';
+part 'get_earthquakes_state.dart';
+part 'get_earthquakes_bloc.freezed.dart';
 
 @injectable
-class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
-  final GetAlerts getAlerts;
+class GetEarthquakesBloc
+    extends Bloc<GetEarthquakesEvent, GetEarthquakesState> {
+  final GetEarthquakes getEarthquakes;
 
   List<Alert> alerts = [];
   int limit = 10;
   bool hasReachedEnd = false;
   bool isFetching = false;
 
-  GetAlertsBloc({
-    @required this.getAlerts,
+  GetEarthquakesBloc({
+    @required this.getEarthquakes,
   }) : super(const _Initial());
 
   @override
-  Stream<GetAlertsState> mapEventToState(
-    GetAlertsEvent event,
+  Stream<GetEarthquakesState> mapEventToState(
+    GetEarthquakesEvent event,
   ) async* {
     yield* event.map(
       fetch: (e) async* {
-        hasReachedEnd = false;
-        isFetching = true;
-        limit = 10;
-        yield const _Loading();
+        if (alerts.isEmpty) {
+          yield const _Loading();
+        }
         yield* _changeFetchEventToMap();
       },
       paginate: (e) async* {
@@ -48,12 +48,12 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
     );
   }
 
-  Stream<GetAlertsState> _changeFetchEventToMap() async* {
+  Stream<GetEarthquakesState> _changeFetchEventToMap() async* {
     if (alerts.isNotEmpty) {
       yield _LoadingWithData(alerts);
     }
 
-    final result = await getAlerts(GetAlertsParams(limit: limit));
+    final result = await getEarthquakes(GetEarthquakesParams(limit: limit));
 
     yield result.fold(
       (failure) => _Failure(failure),
@@ -67,5 +67,6 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
         return _Success(alerts);
       },
     );
+    isFetching = false;
   }
 }

@@ -639,7 +639,7 @@ class _ShareButton extends StatelessWidget {
     return DownloadResumeButton(
       child: CustomButton(
         title: "Share Link",
-        svgAsset: "ssets/images/resume/share.svg",
+        svgAsset: "assets/images/resume/share.svg",
         textStyle: TextStyle(
           color: Palette.white,
           fontSize: 10,
