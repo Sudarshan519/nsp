@@ -37,6 +37,9 @@ void main() {
       when(remoteDataSource.getNewsForYou(
         page: anyNamed('page'),
         limit: anyNamed('limit'),
+        sources: anyNamed('sources'),
+        genre: anyNamed('genre'),
+        lang: anyNamed('lang'),
       )).thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
       // act
@@ -51,6 +54,9 @@ void main() {
       when(remoteDataSource.getNewsForYou(
         page: anyNamed('page'),
         limit: anyNamed('limit'),
+        sources: anyNamed('sources'),
+        genre: anyNamed('genre'),
+        lang: anyNamed('lang'),
       )).thenAnswer((_) async => NewsTestConstant.tNewsModel);
 
       // act
@@ -68,6 +74,9 @@ void main() {
       when(remoteDataSource.getNewsForYou(
         page: anyNamed('page'),
         limit: anyNamed('limit'),
+        sources: anyNamed('sources'),
+        genre: anyNamed('genre'),
+        lang: anyNamed('lang'),
       )).thenThrow(
           const ServerException(message: AppConstants.someThingWentWrong));
 
@@ -91,6 +100,9 @@ void main() {
       when(remoteDataSource.getNewsForYou(
         page: anyNamed('page'),
         limit: anyNamed('limit'),
+        sources: anyNamed('sources'),
+        genre: anyNamed('genre'),
+        lang: anyNamed('lang'),
       )).thenThrow(Exception("Something Bad Happen"));
 
       // act

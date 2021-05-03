@@ -6,6 +6,13 @@ import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class NewsPreferenceTab extends StatelessWidget {
+  final Function(int) changePage;
+
+  const NewsPreferenceTab({
+    Key key,
+    @required this.changePage,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewsPreferenceBloc, NewsPreferenceState>(
@@ -18,6 +25,7 @@ class NewsPreferenceTab extends StatelessWidget {
           loading: (_) => loadingPage(),
           loaded: (success) => _NewsPreferenceTab(
             preferences: success?.genre ?? [],
+            changePage: changePage,
           ),
         );
       },
@@ -27,10 +35,12 @@ class NewsPreferenceTab extends StatelessWidget {
 
 class _NewsPreferenceTab extends StatefulWidget {
   final List<NewsPreference> preferences;
+  final Function(int) changePage;
 
   const _NewsPreferenceTab({
     Key key,
     @required this.preferences,
+    @required this.changePage,
   }) : super(key: key);
 
   @override
@@ -38,13 +48,6 @@ class _NewsPreferenceTab extends StatefulWidget {
 }
 
 class __NewsPreferenceTabState extends State<_NewsPreferenceTab> {
-  void onTapPreference(int parentIndex, int index) {
-    setState(() {
-      widget.preferences[parentIndex].sources[index].isSelected =
-          !widget.preferences[parentIndex].sources[index].isSelected;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -64,7 +67,13 @@ class __NewsPreferenceTabState extends State<_NewsPreferenceTab> {
               const Spacer(),
               CustomButton(
                 title: "Save",
-                onTap: () {},
+                onTap: () {
+                  context
+                      .read<NewsPreferenceBloc>()
+                      .add(const NewsPreferenceEvent.save());
+                  DefaultTabController.of(context).animateTo(1);
+                  widget.changePage(1);
+                },
               )
             ],
           ),
@@ -82,10 +91,10 @@ class __NewsPreferenceTabState extends State<_NewsPreferenceTab> {
             itemBuilder: (context, index) {
               return _LanguageWithSource(
                 title: widget.preferences[index].name,
+                isSelected: widget.preferences[index].isSelected,
                 isExpanded: true,
                 sources: widget.preferences[index].sources,
                 parentIndex: index,
-                callback: onTapPreference,
               );
             },
           ),
@@ -97,18 +106,18 @@ class __NewsPreferenceTabState extends State<_NewsPreferenceTab> {
 
 class _LanguageWithSource extends StatelessWidget {
   final String title;
+  final bool isSelected;
   final bool isExpanded;
   final List<NewsSource> sources;
-  final Function(int, int) callback;
   final int parentIndex;
 
   const _LanguageWithSource({
     Key key,
     @required this.title,
+    @required this.isSelected,
     @required this.isExpanded,
     @required this.sources,
     @required this.parentIndex,
-    @required this.callback,
   }) : super(key: key);
 
   @override
@@ -119,28 +128,36 @@ class _LanguageWithSource extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            children: [
-              SizedBox(
-                height: 24.0,
-                width: 24.0,
-                child: Checkbox(
-                  value: false,
-                  activeColor: Palette.primary,
-                  onChanged: (bool value) {},
+          InkWell(
+            onTap: () => context
+                .read<NewsPreferenceBloc>()
+                .add(NewsPreferenceEvent.changeTitleStatus(parentIndex)),
+            child: Row(
+              children: [
+                SizedBox(
+                  height: 24.0,
+                  width: 24.0,
+                  child: Checkbox(
+                    value: isSelected,
+                    activeColor: Palette.primary,
+                    onChanged: (bool value) {
+                      context.read<NewsPreferenceBloc>().add(
+                          NewsPreferenceEvent.changeTitleStatus(parentIndex));
+                    },
+                  ),
                 ),
-              ),
-              Text(
-                "$title (${sources.length})",
-              ),
-              const Spacer(),
-              const Text(
-                "-",
-                style: TextStyle(
-                  fontSize: 20,
+                Text(
+                  "$title (${sources.length})",
                 ),
-              ),
-            ],
+                const Spacer(),
+                const Text(
+                  "-",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ],
+            ),
           ),
           Flexible(
             child: GridView.count(
@@ -153,7 +170,12 @@ class _LanguageWithSource extends StatelessWidget {
                 sources.length,
                 (index) {
                   return InkWell(
-                    onTap: () => callback(parentIndex, index),
+                    onTap: () => context.read<NewsPreferenceBloc>().add(
+                          NewsPreferenceEvent.changePreferenceStatus(
+                            parentIndex,
+                            index,
+                          ),
+                        ),
                     child: Container(
                       height: 20,
                       margin: const EdgeInsets.only(

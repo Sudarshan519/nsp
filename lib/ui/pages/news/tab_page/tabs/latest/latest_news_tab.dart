@@ -36,7 +36,7 @@ class LatestNewsTab extends StatelessWidget {
             return _buildBodyWithData(
               context: context,
               newsList: news,
-              // isLoading: true,
+              isLoading: false,
               isPagination: true,
             );
           },

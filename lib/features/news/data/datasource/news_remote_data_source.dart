@@ -19,11 +19,16 @@ abstract class NewsRemoteDataSourceProtocol {
   Future<NewsModel> getLatestNews({
     @required String page,
     @required String limit,
+    @required List<String> sources,
+    @required List<String> lang,
   });
 
   Future<NewsModel> getNewsForYou({
     @required String page,
     @required String limit,
+    @required List<String> sources,
+    @required List<String> lang,
+    @required List<String> genre,
   });
 
   Future<List<GenreModel>> getGenreList();
@@ -52,9 +57,20 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
   Future<NewsModel> getLatestNews({
     @required String page,
     @required String limit,
+    @required List<String> sources,
+    @required List<String> lang,
   }) {
+    final params = {
+      "page": page,
+      "limit": limit,
+      "sources": sources,
+      "lang": lang,
+    };
+
+    final String queryString = Uri(queryParameters: params).query;
+
     final url =
-        "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNewsLatest}?page=$page&limit=$limit";
+        "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNewsLatest}?$queryString";
     return _getNews(url: url);
   }
 
@@ -62,9 +78,22 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
   Future<NewsModel> getNewsForYou({
     @required String page,
     @required String limit,
+    @required List<String> sources,
+    @required List<String> lang,
+    @required List<String> genre,
   }) {
+    final params = {
+      "page": page,
+      "limit": limit,
+      "sources": sources,
+      "lang": lang,
+      "genres": genre,
+    };
+
+    final String queryString = Uri(queryParameters: params).query;
+
     final url =
-        "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNewsForYou}?page=$page&limit=$limit";
+        "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNewsForYou}?$queryString";
     return _getNews(url: url);
   }
 

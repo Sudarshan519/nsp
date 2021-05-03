@@ -236,7 +236,7 @@ class _PostalCodeInputField extends StatelessWidget {
               child: InputTextWidget(
                 hintText: "Postal Code",
                 textInputType: TextInputType.number,
-                value: state.currCountry,
+                value: state.currPostalCode,
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(8),
                   MaskedTextInputFormatter(

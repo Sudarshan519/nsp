@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
+import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/resume/data/data_source/resume_remote_data_source.dart';
 import 'package:wallet_app/features/resume/data/model/academic_history_model.dart';
 import 'package:wallet_app/features/resume/data/model/personal_info_model.dart';
@@ -133,6 +135,37 @@ class ResumeRepositoryImpl implements ResumeRepository {
       return Right(await dataSource.downloadPdf(
         lang: lang,
       ));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  // KYC PART
+  @override
+  Future<Either<ApiFailure, Unit>> updateKycInfo({
+    @required UserDetail data,
+  }) async {
+    try {
+      return Right(
+        await dataSource.updateKyc(
+          body: data.toUserDetailModel().toPersonalDetailJson(),
+        ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> updateKycDoc({
+    @required UserDetail data,
+  }) async {
+    try {
+      return Right(
+        await dataSource.updateKyc(
+          body: data.toUserDetailModel().toDocumentDetailJson(),
+        ),
+      );
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }

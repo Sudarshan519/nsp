@@ -8,6 +8,8 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/news/domain/entity/news_genre.dart';
 import 'package:wallet_app/features/news/domain/usecase/get_news_genre.dart';
+import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 
 part 'news_genre_event.dart';
 part 'news_genre_state.dart';
@@ -16,6 +18,7 @@ part 'news_genre_bloc.freezed.dart';
 @injectable
 class NewsGenreBloc extends Bloc<NewsGenreEvent, NewsGenreState> {
   final GetNewsGenre getNewsGenre;
+  List<Genre> _list;
 
   NewsGenreBloc({
     @required this.getNewsGenre,
@@ -32,10 +35,21 @@ class NewsGenreBloc extends Bloc<NewsGenreEvent, NewsGenreState> {
 
         yield result.fold(
           (failure) => _Failure(failure),
-          (list) => _Loaded(list),
+          (list) {
+            _list = list;
+            return _Loaded(_list);
+          },
         );
       },
-      save: (e) async* {},
+      changeGenre: (e) async* {
+        _list[e.index].isSelected = !_list[e.index].isSelected;
+        yield const _Loading();
+        yield _Loaded(_list);
+      },
+      save: (e) async* {
+        await getNewsGenre.saveGenre(genre: _list);
+        getIt<NewsBloc>().add(const NewsEvent.pullToRefresh());
+      },
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:wallet_app/features/news/data/model/news_item_model.dart';
 import 'package:wallet_app/features/news/data/model/news_model.dart';
 
 class NewsTestConstant {
-  static const tNewsModel = NewsModel(
+  static final tNewsModel = NewsModel(
     page: "1",
     source: [
       "bbc",
@@ -15,7 +15,7 @@ class NewsTestConstant {
     error: null,
   );
 
-  static const tNewsModel2 = NewsModel(
+  static var tNewsModel2 = NewsModel(
     page: "2",
     source: [
       "abc",
@@ -28,7 +28,7 @@ class NewsTestConstant {
     error: null,
   );
 
-  static const tNewsModelWithNull = NewsModel(
+  static var tNewsModelWithNull = NewsModel(
     page: null,
     source: null,
     total: null,
@@ -36,7 +36,7 @@ class NewsTestConstant {
     error: null,
   );
 
-  static const tNewsItemModel = NewsItemModel(
+  static var tNewsItemModel = NewsItemModel(
     title: "title",
     link: 'link',
     category: "category",
@@ -48,7 +48,7 @@ class NewsTestConstant {
     sourceImage: "source_logo",
   );
 
-  static const _tNewsItemModel2 = NewsItemModel(
+  static var _tNewsItemModel2 = NewsItemModel(
     title: "title2",
     link: "link2",
     category: "category2",
@@ -60,7 +60,7 @@ class NewsTestConstant {
     sourceImage: "source_logo",
   );
 
-  static const tNewsItemModelWithNull = NewsItemModel(
+  static var tNewsItemModelWithNull = NewsItemModel(
     title: null,
     link: null,
     category: null,

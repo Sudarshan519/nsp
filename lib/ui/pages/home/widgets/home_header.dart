@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class HomeHeaderWidget extends StatelessWidget {
@@ -40,13 +43,13 @@ class HomeHeaderWidget extends StatelessWidget {
         BlocBuilder<HomePageDataBloc, HomePageDataState>(
           builder: (context, state) {
             return state.map(
-              initial: (_) => _userImage(""),
-              failure: (_) => _userImage(""),
-              failureWithData: (_) => _userImage(""),
-              loading: (_) => _userImage(""),
+              initial: (_) => _userImage(context, null),
+              failure: (_) => _userImage(context, null),
+              failureWithData: (_) => _userImage(context, null),
+              loading: (_) => _userImage(context, null),
               loaded: (success) =>
-                  _userImage(success?.data?.userDetail?.avatar ?? ""),
-              loadingWithData: (_) => _userImage(""),
+                  _userImage(context, success?.data?.userDetail),
+              loadingWithData: (_) => _userImage(context, null),
             );
           },
         ),
@@ -73,45 +76,61 @@ class HomeHeaderWidget extends StatelessWidget {
     );
   }
 
-  Widget _userImage(String image) {
+  Widget _userImage(BuildContext context, UserDetail userDetail) {
+    final image = userDetail?.avatar ?? "";
+
     if (image.isEmpty) {
-      return SizedBox(
-        width: 36,
-        height: 36,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(18.0),
-          child: Image.asset(
-            'assets/images/navigation_bar/u1.png',
-            fit: BoxFit.cover,
+      return InkWell(
+        onTap: () {
+          if (userDetail != null) {
+            ExtendedNavigator.of(context).pushProfilePage();
+          }
+        },
+        child: SizedBox(
+          width: 36,
+          height: 36,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(18.0),
+            child: Image.asset(
+              'assets/images/navigation_bar/u1.png',
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       );
     }
 
-    return SizedBox(
-      width: 36,
-      height: 36,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(18.0),
-        child: Image.network(
-          image,
-          fit: BoxFit.cover,
-          loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent loadingProgress) {
-            if (loadingProgress == null) return child;
-            return Container(
-              color: Palette.primaryBackground,
-              height: 36,
-              child: Center(
-                child: CircularProgressIndicator(
-                  value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded /
-                          loadingProgress.expectedTotalBytes
-                      : null,
+    return InkWell(
+      onTap: () {
+        if (userDetail != null) {
+          ExtendedNavigator.of(context).pushProfilePage();
+        }
+      },
+      child: SizedBox(
+        width: 36,
+        height: 36,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(18.0),
+          child: Image.network(
+            image,
+            fit: BoxFit.cover,
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent loadingProgress) {
+              if (loadingProgress == null) return child;
+              return Container(
+                color: Palette.primaryBackground,
+                height: 36,
+                child: Center(
+                  child: CircularProgressIndicator(
+                    value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded /
+                            loadingProgress.expectedTotalBytes
+                        : null,
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

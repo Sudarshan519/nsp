@@ -141,6 +141,7 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
         if (newsItemModel.title != null &&
             newsItemModel.image != null &&
             newsItemModel.description != null) {
+          newsItemModel.isLocallySaved = true;
           newsList.add(newsItemModel);
         }
       }

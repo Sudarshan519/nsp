@@ -19,10 +19,23 @@ class _$NewsPreferenceEventTearOff {
   }
 
 // ignore: unused_element
-  _Save save(List<NewsPreference> list) {
-    return _Save(
-      list,
+  _ChangeTitleStatus changeTitleStatus(int index) {
+    return _ChangeTitleStatus(
+      index,
     );
+  }
+
+// ignore: unused_element
+  _ChangePreferenceStatus changePreferenceStatus(int parentIndex, int index) {
+    return _ChangePreferenceStatus(
+      parentIndex,
+      index,
+    );
+  }
+
+// ignore: unused_element
+  _Save save() {
+    return const _Save();
   }
 }
 
@@ -35,22 +48,30 @@ mixin _$NewsPreferenceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult save(List<NewsPreference> list),
+    @required TResult changeTitleStatus(int index),
+    @required TResult changePreferenceStatus(int parentIndex, int index),
+    @required TResult save(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult save(List<NewsPreference> list),
+    TResult changeTitleStatus(int index),
+    TResult changePreferenceStatus(int parentIndex, int index),
+    TResult save(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(_Fetch value),
+    @required TResult changeTitleStatus(_ChangeTitleStatus value),
+    @required TResult changePreferenceStatus(_ChangePreferenceStatus value),
     @required TResult save(_Save value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(_Fetch value),
+    TResult changeTitleStatus(_ChangeTitleStatus value),
+    TResult changePreferenceStatus(_ChangePreferenceStatus value),
     TResult save(_Save value),
     @required TResult orElse(),
   });
@@ -110,9 +131,13 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult save(List<NewsPreference> list),
+    @required TResult changeTitleStatus(int index),
+    @required TResult changePreferenceStatus(int parentIndex, int index),
+    @required TResult save(),
   }) {
     assert(fetch != null);
+    assert(changeTitleStatus != null);
+    assert(changePreferenceStatus != null);
     assert(save != null);
     return fetch();
   }
@@ -121,7 +146,9 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult save(List<NewsPreference> list),
+    TResult changeTitleStatus(int index),
+    TResult changePreferenceStatus(int parentIndex, int index),
+    TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -135,9 +162,13 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(_Fetch value),
+    @required TResult changeTitleStatus(_ChangeTitleStatus value),
+    @required TResult changePreferenceStatus(_ChangePreferenceStatus value),
     @required TResult save(_Save value),
   }) {
     assert(fetch != null);
+    assert(changeTitleStatus != null);
+    assert(changePreferenceStatus != null);
     assert(save != null);
     return fetch(this);
   }
@@ -146,6 +177,8 @@ class _$_Fetch implements _Fetch {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(_Fetch value),
+    TResult changeTitleStatus(_ChangeTitleStatus value),
+    TResult changePreferenceStatus(_ChangePreferenceStatus value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -162,10 +195,281 @@ abstract class _Fetch implements NewsPreferenceEvent {
 }
 
 /// @nodoc
+abstract class _$ChangeTitleStatusCopyWith<$Res> {
+  factory _$ChangeTitleStatusCopyWith(
+          _ChangeTitleStatus value, $Res Function(_ChangeTitleStatus) then) =
+      __$ChangeTitleStatusCopyWithImpl<$Res>;
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$ChangeTitleStatusCopyWithImpl<$Res>
+    extends _$NewsPreferenceEventCopyWithImpl<$Res>
+    implements _$ChangeTitleStatusCopyWith<$Res> {
+  __$ChangeTitleStatusCopyWithImpl(
+      _ChangeTitleStatus _value, $Res Function(_ChangeTitleStatus) _then)
+      : super(_value, (v) => _then(v as _ChangeTitleStatus));
+
+  @override
+  _ChangeTitleStatus get _value => super._value as _ChangeTitleStatus;
+
+  @override
+  $Res call({
+    Object index = freezed,
+  }) {
+    return _then(_ChangeTitleStatus(
+      index == freezed ? _value.index : index as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ChangeTitleStatus implements _ChangeTitleStatus {
+  const _$_ChangeTitleStatus(this.index) : assert(index != null);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'NewsPreferenceEvent.changeTitleStatus(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeTitleStatus &&
+            (identical(other.index, index) ||
+                const DeepCollectionEquality().equals(other.index, index)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(index);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeTitleStatusCopyWith<_ChangeTitleStatus> get copyWith =>
+      __$ChangeTitleStatusCopyWithImpl<_ChangeTitleStatus>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult fetch(),
+    @required TResult changeTitleStatus(int index),
+    @required TResult changePreferenceStatus(int parentIndex, int index),
+    @required TResult save(),
+  }) {
+    assert(fetch != null);
+    assert(changeTitleStatus != null);
+    assert(changePreferenceStatus != null);
+    assert(save != null);
+    return changeTitleStatus(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult fetch(),
+    TResult changeTitleStatus(int index),
+    TResult changePreferenceStatus(int parentIndex, int index),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeTitleStatus != null) {
+      return changeTitleStatus(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult fetch(_Fetch value),
+    @required TResult changeTitleStatus(_ChangeTitleStatus value),
+    @required TResult changePreferenceStatus(_ChangePreferenceStatus value),
+    @required TResult save(_Save value),
+  }) {
+    assert(fetch != null);
+    assert(changeTitleStatus != null);
+    assert(changePreferenceStatus != null);
+    assert(save != null);
+    return changeTitleStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult fetch(_Fetch value),
+    TResult changeTitleStatus(_ChangeTitleStatus value),
+    TResult changePreferenceStatus(_ChangePreferenceStatus value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeTitleStatus != null) {
+      return changeTitleStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeTitleStatus implements NewsPreferenceEvent {
+  const factory _ChangeTitleStatus(int index) = _$_ChangeTitleStatus;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$ChangeTitleStatusCopyWith<_ChangeTitleStatus> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ChangePreferenceStatusCopyWith<$Res> {
+  factory _$ChangePreferenceStatusCopyWith(_ChangePreferenceStatus value,
+          $Res Function(_ChangePreferenceStatus) then) =
+      __$ChangePreferenceStatusCopyWithImpl<$Res>;
+  $Res call({int parentIndex, int index});
+}
+
+/// @nodoc
+class __$ChangePreferenceStatusCopyWithImpl<$Res>
+    extends _$NewsPreferenceEventCopyWithImpl<$Res>
+    implements _$ChangePreferenceStatusCopyWith<$Res> {
+  __$ChangePreferenceStatusCopyWithImpl(_ChangePreferenceStatus _value,
+      $Res Function(_ChangePreferenceStatus) _then)
+      : super(_value, (v) => _then(v as _ChangePreferenceStatus));
+
+  @override
+  _ChangePreferenceStatus get _value => super._value as _ChangePreferenceStatus;
+
+  @override
+  $Res call({
+    Object parentIndex = freezed,
+    Object index = freezed,
+  }) {
+    return _then(_ChangePreferenceStatus(
+      parentIndex == freezed ? _value.parentIndex : parentIndex as int,
+      index == freezed ? _value.index : index as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ChangePreferenceStatus implements _ChangePreferenceStatus {
+  const _$_ChangePreferenceStatus(this.parentIndex, this.index)
+      : assert(parentIndex != null),
+        assert(index != null);
+
+  @override
+  final int parentIndex;
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'NewsPreferenceEvent.changePreferenceStatus(parentIndex: $parentIndex, index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangePreferenceStatus &&
+            (identical(other.parentIndex, parentIndex) ||
+                const DeepCollectionEquality()
+                    .equals(other.parentIndex, parentIndex)) &&
+            (identical(other.index, index) ||
+                const DeepCollectionEquality().equals(other.index, index)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(parentIndex) ^
+      const DeepCollectionEquality().hash(index);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangePreferenceStatusCopyWith<_ChangePreferenceStatus> get copyWith =>
+      __$ChangePreferenceStatusCopyWithImpl<_ChangePreferenceStatus>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult fetch(),
+    @required TResult changeTitleStatus(int index),
+    @required TResult changePreferenceStatus(int parentIndex, int index),
+    @required TResult save(),
+  }) {
+    assert(fetch != null);
+    assert(changeTitleStatus != null);
+    assert(changePreferenceStatus != null);
+    assert(save != null);
+    return changePreferenceStatus(parentIndex, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult fetch(),
+    TResult changeTitleStatus(int index),
+    TResult changePreferenceStatus(int parentIndex, int index),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changePreferenceStatus != null) {
+      return changePreferenceStatus(parentIndex, index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult fetch(_Fetch value),
+    @required TResult changeTitleStatus(_ChangeTitleStatus value),
+    @required TResult changePreferenceStatus(_ChangePreferenceStatus value),
+    @required TResult save(_Save value),
+  }) {
+    assert(fetch != null);
+    assert(changeTitleStatus != null);
+    assert(changePreferenceStatus != null);
+    assert(save != null);
+    return changePreferenceStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult fetch(_Fetch value),
+    TResult changeTitleStatus(_ChangeTitleStatus value),
+    TResult changePreferenceStatus(_ChangePreferenceStatus value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changePreferenceStatus != null) {
+      return changePreferenceStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePreferenceStatus implements NewsPreferenceEvent {
+  const factory _ChangePreferenceStatus(int parentIndex, int index) =
+      _$_ChangePreferenceStatus;
+
+  int get parentIndex;
+  int get index;
+  @JsonKey(ignore: true)
+  _$ChangePreferenceStatusCopyWith<_ChangePreferenceStatus> get copyWith;
+}
+
+/// @nodoc
 abstract class _$SaveCopyWith<$Res> {
   factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
       __$SaveCopyWithImpl<$Res>;
-  $Res call({List<NewsPreference> list});
 }
 
 /// @nodoc
@@ -176,67 +480,52 @@ class __$SaveCopyWithImpl<$Res> extends _$NewsPreferenceEventCopyWithImpl<$Res>
 
   @override
   _Save get _value => super._value as _Save;
-
-  @override
-  $Res call({
-    Object list = freezed,
-  }) {
-    return _then(_Save(
-      list == freezed ? _value.list : list as List<NewsPreference>,
-    ));
-  }
 }
 
 /// @nodoc
 class _$_Save implements _Save {
-  const _$_Save(this.list) : assert(list != null);
-
-  @override
-  final List<NewsPreference> list;
+  const _$_Save();
 
   @override
   String toString() {
-    return 'NewsPreferenceEvent.save(list: $list)';
+    return 'NewsPreferenceEvent.save()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Save &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+    return identical(this, other) || (other is _Save);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
-
-  @JsonKey(ignore: true)
-  @override
-  _$SaveCopyWith<_Save> get copyWith =>
-      __$SaveCopyWithImpl<_Save>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult save(List<NewsPreference> list),
+    @required TResult changeTitleStatus(int index),
+    @required TResult changePreferenceStatus(int parentIndex, int index),
+    @required TResult save(),
   }) {
     assert(fetch != null);
+    assert(changeTitleStatus != null);
+    assert(changePreferenceStatus != null);
     assert(save != null);
-    return save(list);
+    return save();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult save(List<NewsPreference> list),
+    TResult changeTitleStatus(int index),
+    TResult changePreferenceStatus(int parentIndex, int index),
+    TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (save != null) {
-      return save(list);
+      return save();
     }
     return orElse();
   }
@@ -245,9 +534,13 @@ class _$_Save implements _Save {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(_Fetch value),
+    @required TResult changeTitleStatus(_ChangeTitleStatus value),
+    @required TResult changePreferenceStatus(_ChangePreferenceStatus value),
     @required TResult save(_Save value),
   }) {
     assert(fetch != null);
+    assert(changeTitleStatus != null);
+    assert(changePreferenceStatus != null);
     assert(save != null);
     return save(this);
   }
@@ -256,6 +549,8 @@ class _$_Save implements _Save {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(_Fetch value),
+    TResult changeTitleStatus(_ChangeTitleStatus value),
+    TResult changePreferenceStatus(_ChangePreferenceStatus value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -268,11 +563,7 @@ class _$_Save implements _Save {
 }
 
 abstract class _Save implements NewsPreferenceEvent {
-  const factory _Save(List<NewsPreference> list) = _$_Save;
-
-  List<NewsPreference> get list;
-  @JsonKey(ignore: true)
-  _$SaveCopyWith<_Save> get copyWith;
+  const factory _Save() = _$_Save;
 }
 
 /// @nodoc

@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallet_app/core/database/news_provider.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/features/news/data/datasource/news_local_data_source.dart';
@@ -8,13 +9,20 @@ import '../../../../utils/test_constant/news/test_constant.dart';
 
 class MockNewsLocalProvider extends Mock implements NewsLocalProvider {}
 
+class MockPreferences extends Mock implements SharedPreferences {}
+
 void main() {
   MockNewsLocalProvider localProvider;
   NewsLocalDataSource localDataSource;
+  MockPreferences preferences;
 
   setUp(() {
     localProvider = MockNewsLocalProvider();
-    localDataSource = NewsLocalDataSource(localProvider: localProvider);
+    preferences = MockPreferences();
+    localDataSource = NewsLocalDataSource(
+      localProvider: localProvider,
+      preferences: preferences,
+    );
   });
 
   test('should return News Model from local data source', () async {

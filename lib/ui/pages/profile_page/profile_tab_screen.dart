@@ -20,22 +20,24 @@ class _ProfileTabBarScreenState extends State<ProfileTabBarScreen>
     PersonalDocumentDetailPage(),
   ];
 
-  final List<Tab> _tabBar = [
-    Tab(
-      text: "Personal Details",
-      icon: SvgPicture.asset(
-        "assets/images/resume/about.svg",
-        height: 25.0,
-      ),
-    ),
-    Tab(
-      text: "Documents Details",
-      icon: SvgPicture.asset(
-        "assets/images/resume/about.svg",
-        height: 25.0,
-      ),
-    ),
-  ];
+  List<Tab> _tabBar() => [
+        Tab(
+          text: "Personal Details",
+          icon: SvgPicture.asset(
+            "assets/images/profile/detail.svg",
+            color: _selectedIndex == 0 ? Palette.primary : Palette.black,
+            height: 25.0,
+          ),
+        ),
+        Tab(
+          text: "Documents Details",
+          icon: SvgPicture.asset(
+            "assets/images/profile/doc.svg",
+            color: _selectedIndex == 1 ? Palette.primary : Palette.black,
+            height: 25.0,
+          ),
+        ),
+      ];
 
   @override
   void initState() {
@@ -58,7 +60,7 @@ class _ProfileTabBarScreenState extends State<ProfileTabBarScreen>
         TabBar(
           unselectedLabelColor: Palette.black,
           labelColor: Palette.primary,
-          tabs: _tabBar,
+          tabs: _tabBar(),
           controller: _tabController,
           indicatorSize: TabBarIndicatorSize.tab,
           indicatorColor: Palette.primary,

@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 
-class News extends Equatable {
-  const News({
+class News {
+  News({
     this.page,
     this.source,
     this.total,
@@ -13,7 +13,7 @@ class News extends Equatable {
   final String page;
   final List<String> source;
   final int total;
-  final List<NewsItem> data;
+  List<NewsItem> data;
   final String error;
 
   @override

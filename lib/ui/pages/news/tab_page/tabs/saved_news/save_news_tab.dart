@@ -50,7 +50,6 @@ class SaveNewsTab extends StatelessWidget {
         itemBuilder: (context, index) {
           return NewsItemWidget(
             newsItem: newsList[index],
-            isSaved: true,
           );
         },
       ),

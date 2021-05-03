@@ -13,7 +13,7 @@ part 'latest_news_event.dart';
 part 'latest_news_state.dart';
 part 'latest_news_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class LatestNewsBloc extends Bloc<LatestNewsEvent, LatestNewsState> {
   final GetLatestNews getNews;
   bool isFetching = false;

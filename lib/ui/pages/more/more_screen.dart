@@ -60,7 +60,7 @@ class MorePage extends StatelessWidget {
       _ProfileData(
         image: "icon-profile",
         title: "Profile",
-        onTap: () => ExtendedNavigator.of(context).push(Routes.profilePage),
+        onTap: () => ExtendedNavigator.of(context).pushProfilePage(),
       ),
       _ProfileData(
         image: "icon-jap-manner",

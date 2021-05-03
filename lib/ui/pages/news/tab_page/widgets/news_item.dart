@@ -9,12 +9,10 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class NewsItemWidget extends StatelessWidget {
   final NewsItem newsItem;
-  final bool isSaved;
 
   const NewsItemWidget({
     Key key,
     @required this.newsItem,
-    this.isSaved = false,
   }) : super(key: key);
 
   @override
@@ -68,7 +66,7 @@ class NewsItemWidget extends StatelessWidget {
                           const SizedBox(width: 2),
                           _FavouriteButton(
                             item: newsItem,
-                            isSaved: isSaved,
+                            isSaved: newsItem?.isLocallySaved ?? false,
                           ),
                         ],
                       ),
@@ -193,7 +191,7 @@ class NewsItemWidget extends StatelessWidget {
   }
 }
 
-class _FavouriteButton extends StatelessWidget {
+class _FavouriteButton extends StatefulWidget {
   final NewsItem item;
   final bool isSaved;
 
@@ -204,20 +202,42 @@ class _FavouriteButton extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  __FavouriteButtonState createState() => __FavouriteButtonState();
+}
+
+class __FavouriteButtonState extends State<_FavouriteButton> {
+  bool isSaved;
+
+  @override
+  void initState() {
+    isSaved = widget.isSaved;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<FavouriteNewsBloc, FavouriteNewsState>(
       builder: (context, state) {
         return InkWell(
           onTap: () {
+            setState(() {
+              isSaved = !isSaved;
+            });
             context
                 .read<FavouriteNewsBloc>()
-                .add(FavouriteNewsEvent.save(item));
+                .add(FavouriteNewsEvent.save(widget.item));
           },
-          child: SvgPicture.asset(
-            isSaved
-                ? "assets/images/news/bookmark-selected.svg"
-                : "assets/images/news/bookmark.svg",
-            height: 15.0,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 8.0,
+              bottom: 8.0,
+            ),
+            child: SvgPicture.asset(
+              isSaved
+                  ? "assets/images/news/bookmark-selected.svg"
+                  : "assets/images/news/bookmark.svg",
+              height: 15.0,
+            ),
           ),
         );
       },

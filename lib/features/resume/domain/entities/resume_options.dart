@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
+import 'resume_model.dart';
+
 class ResumeOptions extends Equatable {
   const ResumeOptions({
     this.nationalities,
@@ -11,6 +13,8 @@ class ResumeOptions extends Equatable {
     this.hobbies,
     this.skills,
     this.professions,
+    this.prefectures,
+    this.provinces,
   });
 
   final List<String> nationalities;
@@ -21,6 +25,8 @@ class ResumeOptions extends Equatable {
   final List<String> hobbies;
   final List<String> skills;
   final List<String> professions;
+  final List<String> prefectures;
+  final List<NepalProvince> provinces;
 
   @override
   List<Object> get props => [

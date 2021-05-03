@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 
 class NewsItemModel extends NewsItem {
-  const NewsItemModel({
+  NewsItemModel({
     @required String title,
     @required String link,
     @required String category,

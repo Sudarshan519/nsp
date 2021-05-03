@@ -24,6 +24,10 @@ abstract class ResumeRemoteDataSource {
     @required String lang,
     @required Map<String, dynamic> body,
   });
+
+  Future<Unit> updateKyc({
+    @required Map<String, dynamic> body,
+  });
 }
 
 @LazySingleton(as: ResumeRemoteDataSource)
@@ -156,5 +160,13 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
           message: errorMessageFromServerWithMessage(response.body) ??
               AppConstants.someThingWentWrong);
     }
+  }
+
+  @override
+  Future<Unit> updateKyc({
+    @required Map<String, dynamic> body,
+  }) async {
+    body["is_kyc"] = true;
+    return updateResume(lang: "en", body: body);
   }
 }

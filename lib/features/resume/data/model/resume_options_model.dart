@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:wallet_app/features/resume/data/model/resume_model.dart';
 
 import '../../domain/entities/resume_options.dart';
 
@@ -12,6 +13,8 @@ class ResumeOptionsModel extends ResumeOptions {
     @required List<String> hobbies,
     @required List<String> skills,
     @required List<String> professions,
+    @required List<String> prefectures,
+    @required List<NepalProvinceModel> provinces,
   }) : super(
           nationalities: nationalities,
           knownLanguages: knownLanguages,
@@ -21,6 +24,8 @@ class ResumeOptionsModel extends ResumeOptions {
           hobbies: hobbies,
           skills: skills,
           professions: professions,
+          prefectures: prefectures,
+          provinces: provinces,
         );
 
   factory ResumeOptionsModel.fromJson(Map<String, dynamic> json) =>
@@ -57,6 +62,14 @@ class ResumeOptionsModel extends ResumeOptions {
             ? null
             : List<String>.from(
                 (json["professions"] as Iterable).map((x) => x)),
+        prefectures: json["prefectures"] == null
+            ? null
+            : List<String>.from(
+                (json["prefectures"] as Iterable).map((x) => x)),
+        provinces: json["provinces"] == null
+            ? null
+            : List<NepalProvinceModel>.from((json["provinces"] as Iterable).map(
+                (x) => NepalProvinceModel.fromJson(x as Map<String, dynamic>))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -143,5 +156,7 @@ extension ResumeOptionsExt on ResumeOptions {
         hobbies: hobbies,
         skills: skills,
         professions: professions,
+        prefectures: prefectures,
+        provinces: null,
       );
 }

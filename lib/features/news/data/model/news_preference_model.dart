@@ -18,6 +18,7 @@ class NewsPreferenceModel extends NewsPreference {
           code: code,
           image: image,
           sources: sources,
+          isSelected: false,
         );
 
   factory NewsPreferenceModel.fromJson(Map<String, dynamic> json) =>

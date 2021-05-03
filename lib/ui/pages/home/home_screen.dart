@@ -205,6 +205,7 @@ class HomePage extends StatelessWidget {
     final resumeModel = ResumeDataModel.fromJson(map);
 
     return MyResumeWidget(
+      userDetail: userDetail,
       data: resumeModel,
       changeTabPage: changeTabPage,
     );

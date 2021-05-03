@@ -50,14 +50,6 @@ class _ForYouCategorySelectionPage extends StatefulWidget {
 
 class __ForYouCategorySelectionPageState
     extends State<_ForYouCategorySelectionPage> {
-  void onTapGenre(int index) {
-    setState(
-      () {
-        widget.genres[index].isSelected = !widget.genres[index].isSelected;
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -73,12 +65,17 @@ class __ForYouCategorySelectionPageState
             runSpacing: 16.0,
             spacing: 16.0,
             alignment: WrapAlignment.center,
-            children: getGeneres(widget.genres, onTapGenre),
+            children: getGeneres(
+              widget.genres,
+            ),
           ),
           const Spacer(),
           const SizedBox(height: 10),
           InkWell(
-            onTap: widget.editGenre,
+            onTap: () {
+              context.read<NewsGenreBloc>().add(const NewsGenreEvent.save());
+              widget.editGenre();
+            },
             child: Container(
               height: 40,
               margin: const EdgeInsets.all(5.0),
@@ -103,13 +100,14 @@ class __ForYouCategorySelectionPageState
     );
   }
 
-  List<Widget> getGeneres(List<Genre> genres, Function(int) callback) {
+  List<Widget> getGeneres(List<Genre> genres) {
     final List<Widget> widgets = [];
-    int index = 0;
-    for (final genre in genres) {
+    for (int index = 0; index < genres.length; index++) {
       widgets.add(
         InkWell(
-          onTap: () => callback(index),
+          onTap: () => context
+              .read<NewsGenreBloc>()
+              .add(NewsGenreEvent.changeGenre(index)),
           child: Container(
             height: 40,
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -119,19 +117,19 @@ class __ForYouCategorySelectionPageState
                 color: Palette.black.withOpacity(0.2),
               ),
               borderRadius: BorderRadius.circular(20),
-              color: genre.isSelected
+              color: genres[index].isSelected
                   ? Palette.primary
                   : Palette.black.withOpacity(0.1),
             ),
             child: Text(
-              genre.name,
+              genres[index].name,
               style: TextStyle(
-                  color: genre.isSelected ? Palette.white : Palette.black),
+                color: genres[index].isSelected ? Palette.white : Palette.black,
+              ),
             ),
           ),
         ),
       );
-      index = index + 1;
     }
     return widgets;
   }

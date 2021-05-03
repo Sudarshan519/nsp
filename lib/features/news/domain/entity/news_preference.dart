@@ -6,12 +6,14 @@ class NewsPreference {
     @required this.code,
     @required this.image,
     @required this.sources,
+    this.isSelected,
   });
 
   final String name;
   final String code;
   final String image;
-  final List<NewsSource> sources;
+  List<NewsSource> sources;
+  bool isSelected;
 }
 
 class NewsSource {

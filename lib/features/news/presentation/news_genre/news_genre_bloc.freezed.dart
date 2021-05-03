@@ -19,10 +19,15 @@ class _$NewsGenreEventTearOff {
   }
 
 // ignore: unused_element
-  _Save save(List<Genre> genre) {
-    return _Save(
-      genre,
+  _ChangeGenre changeGenre(int index) {
+    return _ChangeGenre(
+      index,
     );
+  }
+
+// ignore: unused_element
+  _Save save() {
+    return const _Save();
   }
 }
 
@@ -35,22 +40,26 @@ mixin _$NewsGenreEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult save(List<Genre> genre),
+    @required TResult changeGenre(int index),
+    @required TResult save(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult save(List<Genre> genre),
+    TResult changeGenre(int index),
+    TResult save(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(_Fetch value),
+    @required TResult changeGenre(_ChangeGenre value),
     @required TResult save(_Save value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(_Fetch value),
+    TResult changeGenre(_ChangeGenre value),
     TResult save(_Save value),
     @required TResult orElse(),
   });
@@ -116,9 +125,11 @@ class _$_Fetch with DiagnosticableTreeMixin implements _Fetch {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult save(List<Genre> genre),
+    @required TResult changeGenre(int index),
+    @required TResult save(),
   }) {
     assert(fetch != null);
+    assert(changeGenre != null);
     assert(save != null);
     return fetch();
   }
@@ -127,7 +138,8 @@ class _$_Fetch with DiagnosticableTreeMixin implements _Fetch {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult save(List<Genre> genre),
+    TResult changeGenre(int index),
+    TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -141,9 +153,11 @@ class _$_Fetch with DiagnosticableTreeMixin implements _Fetch {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(_Fetch value),
+    @required TResult changeGenre(_ChangeGenre value),
     @required TResult save(_Save value),
   }) {
     assert(fetch != null);
+    assert(changeGenre != null);
     assert(save != null);
     return fetch(this);
   }
@@ -152,6 +166,7 @@ class _$_Fetch with DiagnosticableTreeMixin implements _Fetch {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(_Fetch value),
+    TResult changeGenre(_ChangeGenre value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -168,10 +183,140 @@ abstract class _Fetch implements NewsGenreEvent {
 }
 
 /// @nodoc
+abstract class _$ChangeGenreCopyWith<$Res> {
+  factory _$ChangeGenreCopyWith(
+          _ChangeGenre value, $Res Function(_ChangeGenre) then) =
+      __$ChangeGenreCopyWithImpl<$Res>;
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$ChangeGenreCopyWithImpl<$Res>
+    extends _$NewsGenreEventCopyWithImpl<$Res>
+    implements _$ChangeGenreCopyWith<$Res> {
+  __$ChangeGenreCopyWithImpl(
+      _ChangeGenre _value, $Res Function(_ChangeGenre) _then)
+      : super(_value, (v) => _then(v as _ChangeGenre));
+
+  @override
+  _ChangeGenre get _value => super._value as _ChangeGenre;
+
+  @override
+  $Res call({
+    Object index = freezed,
+  }) {
+    return _then(_ChangeGenre(
+      index == freezed ? _value.index : index as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ChangeGenre with DiagnosticableTreeMixin implements _ChangeGenre {
+  const _$_ChangeGenre(this.index) : assert(index != null);
+
+  @override
+  final int index;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'NewsGenreEvent.changeGenre(index: $index)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'NewsGenreEvent.changeGenre'))
+      ..add(DiagnosticsProperty('index', index));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeGenre &&
+            (identical(other.index, index) ||
+                const DeepCollectionEquality().equals(other.index, index)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(index);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeGenreCopyWith<_ChangeGenre> get copyWith =>
+      __$ChangeGenreCopyWithImpl<_ChangeGenre>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult fetch(),
+    @required TResult changeGenre(int index),
+    @required TResult save(),
+  }) {
+    assert(fetch != null);
+    assert(changeGenre != null);
+    assert(save != null);
+    return changeGenre(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult fetch(),
+    TResult changeGenre(int index),
+    TResult save(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeGenre != null) {
+      return changeGenre(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult fetch(_Fetch value),
+    @required TResult changeGenre(_ChangeGenre value),
+    @required TResult save(_Save value),
+  }) {
+    assert(fetch != null);
+    assert(changeGenre != null);
+    assert(save != null);
+    return changeGenre(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult fetch(_Fetch value),
+    TResult changeGenre(_ChangeGenre value),
+    TResult save(_Save value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (changeGenre != null) {
+      return changeGenre(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeGenre implements NewsGenreEvent {
+  const factory _ChangeGenre(int index) = _$_ChangeGenre;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$ChangeGenreCopyWith<_ChangeGenre> get copyWith;
+}
+
+/// @nodoc
 abstract class _$SaveCopyWith<$Res> {
   factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
       __$SaveCopyWithImpl<$Res>;
-  $Res call({List<Genre> genre});
 }
 
 /// @nodoc
@@ -182,75 +327,55 @@ class __$SaveCopyWithImpl<$Res> extends _$NewsGenreEventCopyWithImpl<$Res>
 
   @override
   _Save get _value => super._value as _Save;
-
-  @override
-  $Res call({
-    Object genre = freezed,
-  }) {
-    return _then(_Save(
-      genre == freezed ? _value.genre : genre as List<Genre>,
-    ));
-  }
 }
 
 /// @nodoc
 class _$_Save with DiagnosticableTreeMixin implements _Save {
-  const _$_Save(this.genre) : assert(genre != null);
-
-  @override
-  final List<Genre> genre;
+  const _$_Save();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'NewsGenreEvent.save(genre: $genre)';
+    return 'NewsGenreEvent.save()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NewsGenreEvent.save'))
-      ..add(DiagnosticsProperty('genre', genre));
+    properties..add(DiagnosticsProperty('type', 'NewsGenreEvent.save'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Save &&
-            (identical(other.genre, genre) ||
-                const DeepCollectionEquality().equals(other.genre, genre)));
+    return identical(this, other) || (other is _Save);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(genre);
-
-  @JsonKey(ignore: true)
-  @override
-  _$SaveCopyWith<_Save> get copyWith =>
-      __$SaveCopyWithImpl<_Save>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
-    @required TResult save(List<Genre> genre),
+    @required TResult changeGenre(int index),
+    @required TResult save(),
   }) {
     assert(fetch != null);
+    assert(changeGenre != null);
     assert(save != null);
-    return save(genre);
+    return save();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
-    TResult save(List<Genre> genre),
+    TResult changeGenre(int index),
+    TResult save(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (save != null) {
-      return save(genre);
+      return save();
     }
     return orElse();
   }
@@ -259,9 +384,11 @@ class _$_Save with DiagnosticableTreeMixin implements _Save {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(_Fetch value),
+    @required TResult changeGenre(_ChangeGenre value),
     @required TResult save(_Save value),
   }) {
     assert(fetch != null);
+    assert(changeGenre != null);
     assert(save != null);
     return save(this);
   }
@@ -270,6 +397,7 @@ class _$_Save with DiagnosticableTreeMixin implements _Save {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(_Fetch value),
+    TResult changeGenre(_ChangeGenre value),
     TResult save(_Save value),
     @required TResult orElse(),
   }) {
@@ -282,11 +410,7 @@ class _$_Save with DiagnosticableTreeMixin implements _Save {
 }
 
 abstract class _Save implements NewsGenreEvent {
-  const factory _Save(List<Genre> genre) = _$_Save;
-
-  List<Genre> get genre;
-  @JsonKey(ignore: true)
-  _$SaveCopyWith<_Save> get copyWith;
+  const factory _Save() = _$_Save;
 }
 
 /// @nodoc

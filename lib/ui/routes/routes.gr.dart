@@ -282,7 +282,7 @@ class Router extends RouterBase {
     },
     ProfilePage: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => ProfilePage(),
+        builder: (context) => const ProfilePage(),
         settings: data,
       );
     },

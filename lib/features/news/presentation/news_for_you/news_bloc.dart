@@ -13,7 +13,7 @@ part 'news_event.dart';
 part 'news_state.dart';
 part 'news_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   final GetNewsForYou getNews;
   bool isFetching = false;

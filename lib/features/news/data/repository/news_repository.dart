@@ -28,10 +28,13 @@ class NewsRepository implements NewsRepositoryProtocol {
   Future<Either<ApiFailure, News>> getNewsForYou({
     @required String page,
   }) async {
-    return _getNews(request: () {
+    return _getNews(request: () async {
       return remoteDataSource.getNewsForYou(
         page: page,
         limit: NewsConstant.limit,
+        sources: await localDataSource.getNewsPreferencesSources(),
+        lang: await localDataSource.getNewsPreferencesLanguages(),
+        genre: await localDataSource.getNewsPreferencesGenre(),
       );
     });
   }
@@ -40,10 +43,12 @@ class NewsRepository implements NewsRepositoryProtocol {
   Future<Either<ApiFailure, News>> getLatestNews({
     @required String page,
   }) async {
-    return _getNews(request: () {
+    return _getNews(request: () async {
       return remoteDataSource.getLatestNews(
         page: page,
         limit: NewsConstant.limit,
+        sources: await localDataSource.getNewsPreferencesSources(),
+        lang: await localDataSource.getNewsPreferencesLanguages(),
       );
     });
   }
@@ -52,7 +57,17 @@ class NewsRepository implements NewsRepositoryProtocol {
       {@required Future<News> Function() request}) async {
     try {
       final news = await request();
-      // localDataSource.saveNews(news: news);
+
+      final localNews = await localDataSource.getFavouriteNews();
+      final localNewsGuid = localNews.map((news) => news.guid).toList();
+      final updatedNewsList = news.data.map((news) {
+        final isAvailable = localNewsGuid.contains(news.guid);
+        news.isLocallySaved = isAvailable;
+        return news;
+      }).toList();
+
+      news.data = updatedNewsList;
+
       return Right(news);
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
@@ -80,7 +95,16 @@ class NewsRepository implements NewsRepositoryProtocol {
   Future<Either<ApiFailure, List<Genre>>> getGenreList() async {
     try {
       final list = await remoteDataSource.getGenreList();
-      return Right(list);
+      final listOfSelectedGenre =
+          await localDataSource.getNewsPreferencesGenre();
+
+      final newList = list.map((genre) {
+        final isAvailable = listOfSelectedGenre.contains(genre.name);
+        genre.isSelected = isAvailable;
+        return genre;
+      }).toList();
+
+      return Right(newList);
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     } catch (ex) {
@@ -92,7 +116,33 @@ class NewsRepository implements NewsRepositoryProtocol {
   Future<Either<ApiFailure, List<NewsPreference>>> getPreferenceList() async {
     try {
       final list = await remoteDataSource.getPreferenceList();
-      return Right(list);
+      final listOfLanguage =
+          await localDataSource.getNewsPreferencesLanguages();
+      final listOfSource = await localDataSource.getNewsPreferencesSources();
+
+      final newList = list.map((preference) {
+        final isAvailable = listOfLanguage.contains(preference.code);
+        if (isAvailable) {
+          final newSources = preference.sources.map((source) {
+            source.isSelected = true;
+            return source;
+          }).toList();
+          preference.isSelected = true;
+          preference.sources = newSources;
+          return preference;
+        } else {
+          final newSources = preference.sources.map((source) {
+            final isAvailable = listOfSource.contains(source.slug);
+            if (isAvailable) {
+              source.isSelected = isAvailable;
+            }
+            return source;
+          }).toList();
+          preference.sources = newSources;
+          return preference;
+        }
+      }).toList();
+      return Right(newList);
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     } catch (ex) {
@@ -101,9 +151,13 @@ class NewsRepository implements NewsRepositoryProtocol {
   }
 
   @override
-  Future saveGenreList({@required List<Genre> genre}) async {}
+  Future saveGenreList({@required List<Genre> genre}) async {
+    localDataSource.saveNewsGenre(genres: genre);
+  }
 
   @override
   Future saveNewsPreferences(
-      {@required List<NewsPreference> preference}) async {}
+      {@required List<NewsPreference> preference}) async {
+    localDataSource.saveNewsSourceAndLanguage(preferences: preference);
+  }
 }

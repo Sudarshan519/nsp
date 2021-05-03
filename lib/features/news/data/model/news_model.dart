@@ -19,7 +19,7 @@ NewsModel newsModelFromJson(String str) {
 String newsModelToJson(NewsModel data) => json.encode(data.toJson());
 
 class NewsModel extends News {
-  const NewsModel({
+   NewsModel({
     @required String page,
     @required List<String> source,
     @required int total,

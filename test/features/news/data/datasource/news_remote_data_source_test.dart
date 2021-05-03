@@ -80,6 +80,9 @@ void main() {
     await dataSource.getNewsForYou(
       page: _page,
       limit: _limit,
+      sources: [],
+      genre: [],
+      lang: [],
     );
 
     //assert
@@ -94,6 +97,9 @@ void main() {
     final result = await dataSource.getNewsForYou(
       page: _page,
       limit: _limit,
+      sources: [],
+      genre: [],
+      lang: [],
     );
 
     //assert
@@ -112,6 +118,9 @@ void main() {
         () => call(
               page: _page,
               limit: _limit,
+              sources: [],
+              genre: [],
+              lang: [],
             ),
         throwsA(isA<ServerException>()));
   });
@@ -132,6 +141,9 @@ void main() {
       () => call(
         page: _page,
         limit: _limit,
+        sources: [],
+        genre: [],
+        lang: [],
       ),
       throwsA(
         predicate(
@@ -157,6 +169,9 @@ void main() {
       () => call(
         page: _page,
         limit: _limit,
+        sources: [],
+        genre: [],
+        lang: [],
       ),
       throwsA(
         predicate(
@@ -188,6 +203,9 @@ void main() {
       () => call(
         page: _page,
         limit: _limit,
+        sources: [],
+        genre: [],
+        lang: [],
       ),
       throwsA(
         predicate(

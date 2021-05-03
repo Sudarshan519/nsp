@@ -19,15 +19,15 @@ class NewsPage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Icon(
-              Icons.search,
-              color: Palette.white,
-            ),
-          ),
-        ],
+        // actions: [
+        //   Padding(
+        //     padding: const EdgeInsets.only(right: 16),
+        //     child: Icon(
+        //       Icons.search,
+        //       color: Palette.white,
+        //     ),
+        //   ),
+        // ],
         elevation: 0,
       ),
       body: _NewsPageBody(),

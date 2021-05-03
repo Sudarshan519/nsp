@@ -18,13 +18,6 @@ class TabBarScreenState extends State<TabBarScreen> {
   int _selectedIndex = 0;
   bool _showForYouPreferencePage = false;
 
-  List<Widget> _children = [
-    const SizedBox.shrink(),
-    LatestNewsTab(),
-    NewsPreferenceTab(),
-    SaveNewsTab(),
-  ];
-
   final List<NewsTabBarData> _tabBarData = [
     NewsTabBarData(title: "For you"),
     NewsTabBarData(title: "Latest"),
@@ -34,18 +27,14 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _children = _getChildren();
+    final _children = _getChildren();
     return DefaultTabController(
       length: _children.length,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: NewsTabBar(
-            onTap: (selected) {
-              setState(() {
-                _selectedIndex = selected;
-              });
-            },
+            onTap: _changeSelectedIndex,
             isScrollable: false,
             tabs: _tabBarData,
             selectedIndex: _selectedIndex,
@@ -67,9 +56,15 @@ class TabBarScreenState extends State<TabBarScreen> {
     return [
       forYouPage,
       LatestNewsTab(),
-      NewsPreferenceTab(),
+      NewsPreferenceTab(changePage: _changeSelectedIndex),
       SaveNewsTab(),
     ];
+  }
+
+  void _changeSelectedIndex(int page) {
+    setState(() {
+      _selectedIndex = page;
+    });
   }
 
   void _selectedForYouPreferencePage() {
