@@ -15,14 +15,22 @@ class UserDetail extends Equatable {
     this.dob,
     this.gender,
     this.nationality,
+    this.passportCitizenshipNumber,
     this.postalCode,
     this.city,
     this.streetAddress,
+    this.originProvince,
     this.originPostalCode,
     this.originCityDistrict,
     this.originStreetAddress,
     this.profession,
     this.occupation,
+    this.originKycDocType,
+    this.originKycDocNumber,
+    this.originKycDocFront,
+    this.originKycDocBack,
+    this.originDocIssuedFrom,
+    this.originDocIssuedDate,
     this.kycDocType,
     this.kycDocNo,
     this.kycDocFront,
@@ -56,9 +64,11 @@ class UserDetail extends Equatable {
   final String dob;
   final String gender;
   final String nationality;
+  final String passportCitizenshipNumber;
   final String postalCode;
   final String city;
   final String streetAddress;
+  final String originProvince;
   final String originPostalCode;
   final String originCityDistrict;
   final String originStreetAddress;
@@ -70,6 +80,12 @@ class UserDetail extends Equatable {
   final String kycDocBack;
   final String kycDocIssuedFrom;
   final String kycIssuedDate;
+  final String originKycDocType;
+  final String originKycDocNumber;
+  final String originKycDocFront;
+  final String originKycDocBack;
+  final String originDocIssuedFrom;
+  final String originDocIssuedDate;
   final String grandfatherName;
   final String fatherName;
   final String motherName;

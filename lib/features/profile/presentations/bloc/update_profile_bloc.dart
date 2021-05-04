@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -38,7 +40,8 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
           company: e.userDetail.company ?? "",
           profession: e.userDetail.profession ?? "",
           nationality: e.userDetail.nationality ?? "",
-          // documentIdentificationNumber: e.userDetail.firstName ?? "",
+          documentIdentificationNumber:
+              e.userDetail.passportCitizenshipNumber ?? "",
           gender: e.userDetail.gender ?? "",
           maritalStatus: e.userDetail.maritalStatus ?? "",
           dob: e.userDetail.dob ?? "",
@@ -48,7 +51,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
           email: e.userDetail.email ?? "",
           originCountry: e.userDetail.countryOfOrigin ?? "",
           originPostalCode: e.userDetail.originPostalCode ?? "",
-          // originProvince: e.userDetail.countryOfOrigin ?? "",
+          originProvince: e.userDetail.originProvince ?? "",
           originCity: e.userDetail.originCityDistrict ?? "",
           originStreetAddress: e.userDetail.originStreetAddress ?? "",
           residenceCountry: e.userDetail.countryOfResidence ?? "",
@@ -57,17 +60,18 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
           residenceCity: e.userDetail.city ?? "",
           residenceStreetAddress: e.userDetail.streetAddress ?? "",
           profilePicture: e.userDetail.avatar ?? "",
-          // originKycDocType: e.userDetail.kycDocType ?? "",
-          // originKycDocNumber: e.userDetail.firstName ?? "",
-          // originKycDocFront: e.userDetail.firstName ?? "",
-          // originKycDocBack: e.userDetail.firstName ?? "",
-          // originDocIssuedFrom: e.userDetail.firstName ?? "",
-          // originDocIssuedDate: e.userDetail.firstName ?? "",
+
+          originKycDocType: e.userDetail.originKycDocType ?? "",
+          originKycDocNumber: e.userDetail.originKycDocNumber ?? "",
+          originKycDocFront: e.userDetail.originKycDocFront ?? "",
+          originKycDocBack: e.userDetail.originKycDocBack ?? "",
+          originDocIssuedFrom: e.userDetail.originDocIssuedFrom ?? "",
+          originDocIssuedDate: e.userDetail.originDocIssuedDate ?? "",
           residenceKycDocType: e.userDetail.kycDocType ?? "",
           residenceKycDocNumber: e.userDetail.kycDocNo ?? "",
           residenceKycDocFront: e.userDetail.kycDocFront ?? "",
           residenceKycDocBack: e.userDetail.kycDocBack ?? "",
-          listOfProfession: [],
+          listOfProfession: e.userDetail.options.professions ?? [],
           listOfCountry: e.userDetail.options.nationalities ?? [],
           listOfJapaneseProvince: e.userDetail.options.prefectures ?? [],
           listOfJapaneseOriginCities: [],
@@ -423,7 +427,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
   UpdateProfileState _mapChangeProfilePictureToState(
       _ChangeProfilePicture _changeProfilePicture) {
     return state.copyWith(
-      profilePicture: _changeProfilePicture.profilePicture,
+      profilePictureFile: _changeProfilePicture.profilePicture,
       failureOrSuccessOption: none(),
     );
   }
@@ -447,7 +451,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
   UpdateProfileState _mapChangeOriginKycDocFrontToState(
       _ChangeOriginKycDocFront _changeOriginKycDocFront) {
     return state.copyWith(
-      originKycDocFront: _changeOriginKycDocFront.docFront,
+      originKycDocFrontFile: _changeOriginKycDocFront.docFront,
       failureOrSuccessOption: none(),
     );
   }
@@ -455,7 +459,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
   UpdateProfileState _mapChangeOriginKycDocBackToState(
       _ChangeOriginKycDocBack _changeOriginKycDocBack) {
     return state.copyWith(
-      originKycDocBack: _changeOriginKycDocBack.docback,
+      originKycDocBackFile: _changeOriginKycDocBack.docback,
       failureOrSuccessOption: none(),
     );
   }
@@ -495,7 +499,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
   UpdateProfileState _mapChangeResidenceKycDocFrontToState(
       _ChangeResidenceKycDocFront _changeResidenceKycDocFront) {
     return state.copyWith(
-      residenceKycDocFront: _changeResidenceKycDocFront.docFront,
+      residenceKycDocFrontFile: _changeResidenceKycDocFront.docFront,
       failureOrSuccessOption: none(),
     );
   }
@@ -503,7 +507,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
   UpdateProfileState _mapChangeResidenceKycDocBackToState(
       _ChangeResidenceKycDocBack _changeResidenceKycDocBack) {
     return state.copyWith(
-      residenceKycDocBack: _changeResidenceKycDocBack.docBack,
+      residenceKycDocBackFile: _changeResidenceKycDocBack.docBack,
       failureOrSuccessOption: none(),
     );
   }
@@ -562,9 +566,67 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
 
   Stream<UpdateProfileState> _mapSaveDocumentInfoToState(
       _SaveDocumentInfo _save) async* {
+    Either<ApiFailure, Unit> failureOrSuccess;
     yield state.copyWith(
       isSubmitting: true,
       failureOrSuccessOption: none(),
+    );
+
+    final originKycDocFront = state.originKycDocFrontFile;
+    String originKycDocFrontString;
+
+    if (originKycDocFront != null) {
+      final encodedString =
+          base64.encode(await originKycDocFront.readAsBytes());
+      originKycDocFrontString = "data:image/png;base64,$encodedString";
+    }
+
+    final originKycDocBack = state.originKycDocBackFile;
+    String originKycDocBackString;
+
+    if (originKycDocBack != null) {
+      final encodedString = base64.encode(await originKycDocBack.readAsBytes());
+      originKycDocBackString = "data:image/png;base64,$encodedString";
+    }
+
+    final residenceKycDocFront = state.residenceKycDocFrontFile;
+    String residenceKycDocFrontString;
+
+    if (residenceKycDocFront != null) {
+      final encodedString =
+          base64.encode(await residenceKycDocFront.readAsBytes());
+      residenceKycDocFrontString = "data:image/png;base64,$encodedString";
+    }
+
+    final residenceKycDoBack = state.residenceKycDocBackFile;
+    String residenceKKycDocBackString;
+
+    if (residenceKycDoBack != null) {
+      final encodedString =
+          base64.encode(await residenceKycDoBack.readAsBytes());
+      residenceKKycDocBackString = "data:image/png;base64,$encodedString";
+    }
+
+    failureOrSuccess = await updateKycInfo.updateKycDoc(
+      UpdateKycInfoParams(
+        user: UserDetail(
+          originKycDocFront: originKycDocFrontString,
+          originKycDocBack: originKycDocBackString,
+          originKycDocType: state.originKycDocType,
+          originKycDocNumber: state.originKycDocNumber,
+          originDocIssuedFrom: state.originDocIssuedFrom,
+          originDocIssuedDate: state.originDocIssuedDate,
+          kycDocFront: residenceKycDocFrontString,
+          kycDocBack: residenceKKycDocBackString,
+          kycDocType: state.residenceKycDocType,
+          kycDocNo: state.residenceKycDocNumber,
+        ),
+      ),
+    );
+
+    yield state.copyWith(
+      isSubmitting: false,
+      failureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
 }

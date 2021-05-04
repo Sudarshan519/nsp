@@ -36,17 +36,18 @@ class PersonalDetailPage extends StatelessWidget {
               )).show(context);
             },
             (success) {
-              getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
-              getIt<ResumeWatcherBloc>()
-                  .add(const ResumeWatcherEvent.getResumeData());
-
               showDialog(
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: "Kyc Info",
                   message: "Successfully updated.",
                   onPressed: () {
-                    // ExtendedNavigator.of(context).pop();
+                    ExtendedNavigator.of(context)
+                        .popUntilPath(Routes.tabBarScreen);
+                    getIt<HomePageDataBloc>()
+                        .add(const HomePageDataEvent.fetch());
+                    getIt<ResumeWatcherBloc>()
+                        .add(const ResumeWatcherEvent.getResumeData());
                   },
                 ),
               );

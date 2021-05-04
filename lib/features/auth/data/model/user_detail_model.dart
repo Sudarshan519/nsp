@@ -16,9 +16,11 @@ class UserDetailModel extends UserDetail {
     @required String dob,
     @required String gender,
     @required String nationality,
+    @required String passportCitizenshipNumber,
     @required String postalCode,
     @required String city,
     @required String streetAddress,
+    @required String originProvince,
     @required String originPostalCode,
     @required String originCityDistrict,
     @required String originStreetAddress,
@@ -30,6 +32,12 @@ class UserDetailModel extends UserDetail {
     @required String kycDocBack,
     @required String kycDocIssuedFrom,
     @required String kycIssuedDate,
+    @required String originKycDocType,
+    @required String originKycDocNumber,
+    @required String originKycDocFront,
+    @required String originKycDocBack,
+    @required String originDocIssuedFrom,
+    @required String originDocIssuedDate,
     @required String grandfatherName,
     @required String fatherName,
     @required String motherName,
@@ -56,9 +64,11 @@ class UserDetailModel extends UserDetail {
           dob: dob,
           gender: gender,
           nationality: nationality,
+          passportCitizenshipNumber: passportCitizenshipNumber,
           postalCode: postalCode,
           city: city,
           streetAddress: streetAddress,
+          originProvince: originProvince,
           originPostalCode: originPostalCode,
           originCityDistrict: originCityDistrict,
           originStreetAddress: originStreetAddress,
@@ -70,6 +80,12 @@ class UserDetailModel extends UserDetail {
           kycDocBack: kycDocBack,
           kycDocIssuedFrom: kycDocIssuedFrom,
           kycIssuedDate: kycIssuedDate,
+          originKycDocType: originKycDocType,
+          originKycDocNumber: originKycDocNumber,
+          originKycDocFront: originKycDocFront,
+          originKycDocBack: originKycDocBack,
+          originDocIssuedFrom: originDocIssuedFrom,
+          originDocIssuedDate: originDocIssuedDate,
           grandfatherName: grandfatherName,
           fatherName: fatherName,
           motherName: motherName,
@@ -99,14 +115,23 @@ class UserDetailModel extends UserDetail {
         dob: json["dob"] as String,
         gender: json["gender"] as String,
         nationality: json["nationality"] as String,
+        passportCitizenshipNumber:
+            json["passport_citizenship_number"] as String,
         postalCode: json["postal_code"] as String,
         city: json["city"] as String,
         streetAddress: json["street_address"] as String,
+        originProvince: json["origin_province"] as String,
         originPostalCode: json["origin_postal_code"] as String,
         originCityDistrict: json["origin_city_district"] as String,
         originStreetAddress: json["origin_street_address"] as String,
         profession: json["profession"] as String,
         occupation: json["occupation"] as String,
+        originKycDocType: json["origin_kyc_doc_type"] as String,
+        originKycDocNumber: json["origin_kyc_doc_number"] as String,
+        originKycDocFront: json["origin_kyc_doc_front"] as String,
+        originKycDocBack: json["origin_kyc_doc_back"] as String,
+        originDocIssuedFrom: json["origin_doc_issued_from"] as String,
+        originDocIssuedDate: json["origin_doc_issued_date"] as String,
         kycDocType: json["kyc_doc_type"] as String,
         kycDocNo: json["kyc_doc_no"] as String,
         kycDocFront: json["kyc_doc_front"] as String,
@@ -246,6 +271,46 @@ class UserDetailModel extends UserDetail {
   Map<String, dynamic> toDocumentDetailJson() {
     final Map<String, dynamic> params = {};
 
+    if (originKycDocFront != null) {
+      params["origin_kyc_doc_front"] = originKycDocFront;
+    }
+
+    if (originKycDocBack != null) {
+      params["origin_kyc_doc_back"] = originKycDocBack;
+    }
+
+    if (originKycDocType != null) {
+      params["origin_kyc_doc_type"] = originKycDocType;
+    }
+
+    if (originKycDocNumber != null) {
+      params["origin_kyc_doc_number"] = originKycDocNumber;
+    }
+
+    if (originDocIssuedFrom != null) {
+      params["origin_doc_issued_from"] = originDocIssuedFrom;
+    }
+
+    if (originDocIssuedDate != null) {
+      params["origin_doc_issued_date"] = originDocIssuedDate;
+    }
+
+    if (kycDocFront != null) {
+      params["kyc_doc_front"] = kycDocFront;
+    }
+
+    if (kycDocBack != null) {
+      params["kyc_doc_back"] = kycDocBack;
+    }
+
+    if (kycDocType != null) {
+      params["kyc_doc_type"] = kycDocType;
+    }
+
+    if (kycDocNo != null) {
+      params["kyc_doc_no"] = kycDocNo;
+    }
+
     return params;
   }
 }
@@ -264,14 +329,22 @@ extension UserDetailExt on UserDetail {
         dob: dob,
         gender: gender,
         nationality: nationality,
+        passportCitizenshipNumber: passportCitizenshipNumber,
         postalCode: postalCode,
         city: city,
         streetAddress: streetAddress,
+        originProvince: originProvince,
         originPostalCode: originPostalCode,
         originCityDistrict: originCityDistrict,
         originStreetAddress: originStreetAddress,
         profession: profession,
         occupation: occupation,
+        originKycDocType: originKycDocType,
+        originKycDocNumber: originKycDocNumber,
+        originKycDocFront: originKycDocFront,
+        originKycDocBack: originKycDocBack,
+        originDocIssuedFrom: originDocIssuedFrom,
+        originDocIssuedDate: originDocIssuedDate,
         kycDocType: kycDocType,
         kycDocNo: kycDocNo,
         kycDocFront: kycDocFront,

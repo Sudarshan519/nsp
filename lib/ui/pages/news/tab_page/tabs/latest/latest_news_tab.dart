@@ -105,20 +105,26 @@ class LatestNewsTab extends StatelessWidget {
               }),
             child: Column(
               children: [
-                NewsCarousel(
-                  newsList: bannerList,
-                ),
-                ListView.builder(
-                  primary: false,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: newsList.length,
-                  itemBuilder: (context, index) {
-                    return NewsItemWidget(
-                      newsItem: newsList[index],
-                    );
-                  },
-                ),
+                if (newsList.isNotEmpty)
+                  NewsCarousel(
+                    newsList: bannerList,
+                  ),
+                if (newsList.isNotEmpty)
+                  ListView.builder(
+                    primary: false,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: newsList.length,
+                    itemBuilder: (context, index) {
+                      return NewsItemWidget(
+                        newsItem: newsList[index],
+                      );
+                    },
+                  )
+                else
+                  const Center(
+                    child: Text("No data availabe for this section"),
+                  ),
                 if (isPagination)
                   SizedBox(
                     height: 70,

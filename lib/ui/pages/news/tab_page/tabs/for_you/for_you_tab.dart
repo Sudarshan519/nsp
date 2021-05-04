@@ -110,9 +110,10 @@ class ForYouNewsTab extends StatelessWidget {
               ),
             child: Column(
               children: [
-                NewsCarousel(
-                  newsList: bannerList,
-                ),
+                if (newsList.isNotEmpty)
+                  NewsCarousel(
+                    newsList: bannerList,
+                  ),
                 Align(
                   alignment: Alignment.centerRight,
                   child: InkWell(
@@ -149,18 +150,23 @@ class ForYouNewsTab extends StatelessWidget {
                   height: 0.5,
                   color: Palette.black.withOpacity(0.1),
                 ),
-                ListView.builder(
-                  padding: EdgeInsets.zero,
-                  primary: false,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: newsList.length,
-                  itemBuilder: (context, index) {
-                    return NewsItemWidget(
-                      newsItem: newsList[index],
-                    );
-                  },
-                ),
+                if (newsList.isNotEmpty)
+                  ListView.builder(
+                    padding: EdgeInsets.zero,
+                    primary: false,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: newsList.length,
+                    itemBuilder: (context, index) {
+                      return NewsItemWidget(
+                        newsItem: newsList[index],
+                      );
+                    },
+                  )
+                else
+                  const Center(
+                    child: Text("No data availabe for this section"),
+                  ),
                 if (isPagination)
                   SizedBox(
                     height: 70,

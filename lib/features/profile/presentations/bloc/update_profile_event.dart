@@ -53,15 +53,15 @@ abstract class UpdateProfileEvent with _$UpdateProfileEvent {
       _ChangeResidenceCity;
   const factory UpdateProfileEvent.changeResidenceStreetAddress(
       String address) = _ChangeResidenceStreetAddress;
-  const factory UpdateProfileEvent.changeProfilePicture(String profilePicture) =
+  const factory UpdateProfileEvent.changeProfilePicture(File profilePicture) =
       _ChangeProfilePicture;
   const factory UpdateProfileEvent.changeOriginKycDocType(String docType) =
       _ChangeOriginKycDocType;
   const factory UpdateProfileEvent.changeOriginKycDocNumber(String docNumber) =
       _ChangeOriginKycDocNumber;
-  const factory UpdateProfileEvent.changeOriginKycDocFront(String docFront) =
+  const factory UpdateProfileEvent.changeOriginKycDocFront(File docFront) =
       _ChangeOriginKycDocFront;
-  const factory UpdateProfileEvent.changeOriginKycDocBack(String docback) =
+  const factory UpdateProfileEvent.changeOriginKycDocBack(File docback) =
       _ChangeOriginKycDocBack;
   const factory UpdateProfileEvent.changeOriginDocIssuedFrom(
       String inssuedFrom) = _ChangeOriginDocIssuedFrom;
@@ -71,9 +71,9 @@ abstract class UpdateProfileEvent with _$UpdateProfileEvent {
       _ChangeResidenceKycDocType;
   const factory UpdateProfileEvent.changeResidenceKycDocNumber(
       String docNumber) = _ChangeResidenceKycDocNumber;
-  const factory UpdateProfileEvent.changeResidenceKycDocFront(String docFront) =
+  const factory UpdateProfileEvent.changeResidenceKycDocFront(File docFront) =
       _ChangeResidenceKycDocFront;
-  const factory UpdateProfileEvent.changeResidenceKycDocBack(String docBack) =
+  const factory UpdateProfileEvent.changeResidenceKycDocBack(File docBack) =
       _ChangeResidenceKycDocBack;
   const factory UpdateProfileEvent.setInitialState(UserDetail userDetail) =
       _SetInitialState;
