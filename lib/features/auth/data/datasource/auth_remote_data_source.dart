@@ -40,11 +40,6 @@ abstract class AuthRemoteDataSource {
     @required Map<String, dynamic> params,
   });
 
-  // Future<WalletUserModel> postFacebookLogin({
-  //   @required String token,
-  //   @required String userId,
-  // });
-
   /// Calls the https://base_url/email/verify/endpoint
   ///
   /// Throws [ServerException] for all error codes.
@@ -58,6 +53,15 @@ abstract class AuthRemoteDataSource {
   /// Throws [ServerException] for all error codes.
   Future<Unit> resetCode({
     @required String email,
+  });
+
+  Future<Unit> getPasswordChangeVerificationCode(String email);
+
+  Future<Unit> passwordReset({
+    @required String email,
+    @required String code,
+    @required String password,
+    @required String verificationPassword,
   });
 }
 
@@ -222,5 +226,37 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);
     }
+  }
+
+  @override
+  Future<Unit> getPasswordChangeVerificationCode(String email) async {
+    final body = {"email": email};
+
+    return _postRequestForAuth(
+      AuthApiEndpoints.getNewVerificationCode,
+      _header,
+      body,
+    );
+  }
+
+  @override
+  Future<Unit> passwordReset({
+    @required String email,
+    @required String code,
+    @required String password,
+    @required String verificationPassword,
+  }) async {
+    final body = {
+      "email": email,
+      "code": code,
+      "password": password,
+      "password_confirmation": verificationPassword,
+    };
+
+    return _postRequestForAuth(
+      AuthApiEndpoints.resetPassword,
+      _header,
+      body,
+    );
   }
 }

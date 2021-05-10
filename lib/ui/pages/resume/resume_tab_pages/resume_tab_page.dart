@@ -12,6 +12,11 @@ import 'address/address_page.dart';
 import 'other/other_info.dart';
 
 class ResumeTabBarScreen extends StatefulWidget {
+  static final GlobalKey<ResumeTabBarScreenState> globalKey = GlobalKey();
+  ResumeTabBarScreen({
+    Key key,
+  }) : super(key: globalKey);
+
   @override
   State<StatefulWidget> createState() {
     return ResumeTabBarScreenState();
@@ -24,8 +29,12 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
 
   @override
   void initState() {
-    _tabController = TabController(length: _children.length, vsync: this);
+    _tabController = TabController(length: 6, vsync: this);
     super.initState();
+  }
+
+  void changeResumeTab(int index) {
+    _tabController.animateTo(index);
   }
 
   @override

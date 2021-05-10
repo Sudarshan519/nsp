@@ -93,8 +93,8 @@ class PersonalDetailPage extends StatelessWidget {
           _MaritalStatusWidget(),
           const SizedBox(height: 10),
           _DobWidget(),
-          const SizedBox(height: 10),
-          _CommunityWidget(),
+          // const SizedBox(height: 10),
+          // _CommunityWidget(),
           const SizedBox(height: 10),
           _MobileNumberWidget(),
           const SizedBox(height: 10),
@@ -105,7 +105,7 @@ class PersonalDetailPage extends StatelessWidget {
           const Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Origin Address",
+              "Origin/Permanent Address",
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
@@ -133,7 +133,7 @@ class PersonalDetailPage extends StatelessWidget {
           const Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Residence Address",
+              "Residence/Current Address",
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
@@ -143,57 +143,17 @@ class PersonalDetailPage extends StatelessWidget {
           const SizedBox(height: 10),
           ShadowBoxWidget(
             child: Column(
-              children: [
-                TextWidetWithLabelAndChild(
-                  title: "Country",
-                  child: InputTextWidget(
-                    hintText: "Gender",
-                    textInputType: TextInputType.name,
-                    value: "",
-                    onChanged: (value) {},
-                  ),
-                ),
-                const SizedBox(height: 10),
-                TextWidetWithLabelAndChild(
-                  title: "Postal Code",
-                  child: InputTextWidget(
-                    hintText: "Gender",
-                    textInputType: TextInputType.name,
-                    value: "",
-                    onChanged: (value) {},
-                  ),
-                ),
-                const SizedBox(height: 10),
-                TextWidetWithLabelAndChild(
-                  title: "Province",
-                  child: InputTextWidget(
-                    hintText: "Gender",
-                    textInputType: TextInputType.name,
-                    value: "",
-                    onChanged: (value) {},
-                  ),
-                ),
-                const SizedBox(height: 10),
-                TextWidetWithLabelAndChild(
-                  title: "City/District",
-                  child: InputTextWidget(
-                    hintText: "Gender",
-                    textInputType: TextInputType.name,
-                    value: "",
-                    onChanged: (value) {},
-                  ),
-                ),
-                const SizedBox(height: 10),
-                TextWidetWithLabelAndChild(
-                  title: "Street Address",
-                  child: InputTextWidget(
-                    hintText: "Gender",
-                    textInputType: TextInputType.name,
-                    value: "",
-                    onChanged: (value) {},
-                  ),
-                ),
-                const SizedBox(height: 10),
+              children: const [
+                _ResidenceCountryInputField(),
+                SizedBox(height: 10),
+                _ResidencePostalCodeInputField(),
+                SizedBox(height: 10),
+                _ResidencePrefectureInputField(),
+                SizedBox(height: 10),
+                _ResidenceCityInputField(),
+                SizedBox(height: 10),
+                _ResidenceAddressInputField(),
+                SizedBox(height: 10),
               ],
             ),
           ),
@@ -801,13 +761,18 @@ class _OriginCityInputField extends StatelessWidget {
           previous.originCity != current.originCity ||
           previous.originProvince != current.originProvince ||
           previous.originCountry != current.originCountry ||
-          previous.originPostalCode != current.originPostalCode,
+          previous.originPostalCode != current.originPostalCode ||
+          previous.listOfJapaneseOriginCities !=
+              current.listOfJapaneseOriginCities ||
+          previous.listOfJapaneseOriginCities !=
+              current.listOfJapaneseOriginCities,
       builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "City",
+        title: "City/District",
         child: state.originCountry.toLowerCase() == "japan"
             ? CustomSearchableDropDownWidget(
+                key: UniqueKey(),
                 hintText: "City",
-                value: state.originCity,
+                value: state.originCity ?? "",
                 options: state.listOfJapaneseResidenceCities,
                 onChanged: (value) {
                   context
@@ -815,15 +780,27 @@ class _OriginCityInputField extends StatelessWidget {
                       .add(UpdateProfileEvent.changeOriginCity(value));
                 },
               )
-            : InputTextWidget(
-                hintText: "City",
-                value: state.originCity,
-                onChanged: (value) {
-                  context
-                      .read<UpdateProfileBloc>()
-                      .add(UpdateProfileEvent.changeOriginCity(value));
-                },
-              ),
+            : state.originCountry.toLowerCase() == "nepal"
+                ? CustomSearchableDropDownWidget(
+                    key: UniqueKey(),
+                    hintText: "City",
+                    value: state.originCity ?? "",
+                    options: state.listOfJapaneseOriginCities,
+                    onChanged: (value) {
+                      context
+                          .read<UpdateProfileBloc>()
+                          .add(UpdateProfileEvent.changeOriginCity(value));
+                    },
+                  )
+                : InputTextWidget(
+                    hintText: "City",
+                    value: state.originCity,
+                    onChanged: (value) {
+                      context
+                          .read<UpdateProfileBloc>()
+                          .add(UpdateProfileEvent.changeOriginCity(value));
+                    },
+                  ),
       ),
     );
   }
@@ -848,6 +825,302 @@ class _OriginAddressInputField extends StatelessWidget {
             context
                 .read<UpdateProfileBloc>()
                 .add(UpdateProfileEvent.changeOriginStreetAddress(value));
+          },
+        ),
+      ),
+    );
+  }
+}
+
+// RESIDENCE ADDRESS
+
+class _ResidenceCountryInputField extends StatelessWidget {
+  const _ResidenceCountryInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
+      buildWhen: (previous, current) =>
+          previous.residenceCountry != current.residenceCountry ||
+          previous.listOfCountry != current.listOfCountry,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Country",
+        child: CustomSearchableDropDownWidget(
+          hintText: "Country",
+          value: state.residenceCountry,
+          options: state.listOfCountry,
+          onChanged: (value) => context
+              .read<UpdateProfileBloc>()
+              .add(UpdateProfileEvent.changeResidenceCountry(value)),
+        ),
+      ),
+    );
+  }
+}
+
+class _ResidencePostalCodeInputField extends StatelessWidget {
+  const _ResidencePostalCodeInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
+      buildWhen: (previous, current) =>
+          previous.residencePostalCode != current.residencePostalCode ||
+          previous.residenceCountry != current.residenceCountry,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Postal Code",
+        child: Row(
+          children: [
+            Expanded(
+              child: InputTextWidget(
+                hintText: "Postal Code",
+                textInputType: TextInputType.number,
+                value: state.residencePostalCode,
+                inputFormatters: [
+                  LengthLimitingTextInputFormatter(8),
+                  MaskedTextInputFormatter(
+                    mask: "xxx-xxxx",
+                    separator: "-",
+                  ),
+                ],
+                onChanged: (value) {
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeResidencePostalCode(value));
+                },
+              ),
+            ),
+            if (state.originCountry.toLowerCase() == "japan")
+              BlocProvider(
+                create: (context) => getIt<LocationViaPostalCodeBloc>(),
+                child: _SearchResidenceAddressViaPostalCode(
+                  parentContext: context,
+                  parentState: state,
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
+  final BuildContext parentContext;
+  final UpdateProfileState parentState;
+
+  const _SearchResidenceAddressViaPostalCode({
+    Key key,
+    @required this.parentContext,
+    @required this.parentState,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LocationViaPostalCodeBloc, LocationViaPostalCodeState>(
+      buildWhen: (previous, current) => previous.hashCode != current.hashCode,
+      builder: (context, state) {
+        return state.map(
+          failure: (failure) {
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: failure.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
+            return _buildSearchBoxWithLoading(context: context);
+          },
+          success: (success) {
+            final data = success.data;
+
+            if (data.isNotEmpty) {
+              final addressData = data.first;
+              String prefecture = addressData.prefecture.toLowerCase();
+              prefecture =
+                  "${prefecture[0].toUpperCase()}${prefecture.substring(1)}";
+
+              String city = addressData.city.toLowerCase();
+              city = "${city[0].toUpperCase()}${city.substring(1)}";
+
+              parentContext
+                  .read<UpdateProfileBloc>()
+                  .add(UpdateProfileEvent.changeResidenceProvince(prefecture));
+              parentContext
+                  .read<UpdateProfileBloc>()
+                  .add(UpdateProfileEvent.changeResidenceCity(city));
+              parentContext.read<UpdateProfileBloc>().add(
+                  UpdateProfileEvent.changeResidenceStreetAddress(
+                      addressData.street));
+            }
+
+            return _buildSearchBoxWithLoading(context: context);
+          },
+          initial: (_) => _buildSearchBoxWithLoading(context: context),
+          loading: (_) =>
+              _buildSearchBoxWithLoading(context: context, isLoading: true),
+        );
+      },
+    );
+  }
+
+  Widget _buildSearchBoxWithLoading(
+      {@required BuildContext context, bool isLoading = false}) {
+    return Row(
+      children: [
+        const SizedBox(width: 5),
+        InkWell(
+          onTap: () {
+            if (isLoading) {
+              return;
+            }
+            context.read<LocationViaPostalCodeBloc>().add(
+                LocationViaPostalCodeEvent.fetch(parentState.originPostalCode));
+          },
+          child: Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Palette.primaryButtonColor,
+            ),
+            child: Center(
+              child: isLoading
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircularProgressIndicator(
+                        strokeWidth: 1,
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(Palette.white),
+                      ),
+                    )
+                  : Icon(
+                      Icons.search,
+                      color: Palette.white,
+                    ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ResidencePrefectureInputField extends StatelessWidget {
+  const _ResidencePrefectureInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
+      buildWhen: (previous, current) =>
+          previous.residenceProvince != current.residenceProvince ||
+          previous.residenceCountry != current.residenceCountry ||
+          previous.residencePostalCode != current.residencePostalCode,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Prefecture",
+        child: state.residenceCountry.toLowerCase() == "japan"
+            ? CustomSearchableDropDownWidget(
+                hintText: "Prefecture",
+                value: state.residenceProvince,
+                options: state.listOfJapaneseProvince,
+                onChanged: (value) {
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeResidenceProvince(value));
+                },
+              )
+            : state.residenceCountry.toLowerCase() == "nepal"
+                ? CustomSearchableDropDownWidget(
+                    hintText: "Provinces",
+                    value: state.residenceProvince,
+                    options: state.listOfNepaliProvince,
+                    onChanged: (value) {
+                      context.read<UpdateProfileBloc>().add(
+                            UpdateProfileEvent.changeResidenceProvince(value),
+                          );
+                    },
+                  )
+                : InputTextWidget(
+                    hintText: "Prefecture",
+                    value: state.residenceProvince,
+                    onChanged: (value) {
+                      context.read<UpdateProfileBloc>().add(
+                          UpdateProfileEvent.changeResidenceProvince(value));
+                    },
+                  ),
+      ),
+    );
+  }
+}
+
+class _ResidenceCityInputField extends StatelessWidget {
+  const _ResidenceCityInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
+      buildWhen: (previous, current) =>
+          previous.residenceCity != current.residenceCity ||
+          previous.residenceProvince != current.residenceProvince ||
+          previous.residenceCountry != current.residenceCountry ||
+          previous.residencePostalCode != current.residencePostalCode,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "City",
+        child: state.residenceCountry.toLowerCase() == "japan"
+            ? CustomSearchableDropDownWidget(
+                key: UniqueKey(),
+                hintText: "City",
+                value: state.residenceCity,
+                options: state.listOfJapaneseResidenceCities,
+                onChanged: (value) {
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeResidenceCity(value));
+                },
+              )
+            : InputTextWidget(
+                hintText: "City",
+                value: state.residenceCity,
+                onChanged: (value) {
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeResidenceCity(value));
+                },
+              ),
+      ),
+    );
+  }
+}
+
+class _ResidenceAddressInputField extends StatelessWidget {
+  const _ResidenceAddressInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
+      buildWhen: (previous, current) =>
+          previous.residenceStreetAddress != current.residenceStreetAddress,
+      builder: (context, state) => TextWidetWithLabelAndChild(
+        title: "Address",
+        child: InputTextWidget(
+          hintText: "Address",
+          value: state.residenceStreetAddress,
+          onChanged: (value) {
+            context
+                .read<UpdateProfileBloc>()
+                .add(UpdateProfileEvent.changeResidenceStreetAddress(value));
           },
         ),
       ),

@@ -20,11 +20,13 @@ class MyResumeWidget extends StatelessWidget {
   final UserDetail userDetail;
   final ResumeData data;
   final Function(int) changeTabPage;
+  final Function(int) changeResumeTabPage;
   const MyResumeWidget({
     Key key,
     @required this.userDetail,
     @required this.data,
     @required this.changeTabPage,
+    @required this.changeResumeTabPage,
   }) : super(key: key);
 
   @override
@@ -174,8 +176,11 @@ class MyResumeWidget extends StatelessWidget {
 
       if (academicHistoryArray.isNotEmpty) {
         return _ResumeInformationWidgetWithArrayChild(
+          index: 2, // Map Index According to the Resume Tab Section Page
           percentage: percentage,
           title: title,
+          changeTabPage: changeTabPage,
+          changeResumeTabPage: changeResumeTabPage,
           child: ListView.separated(
             primary: false,
             padding: EdgeInsets.zero,
@@ -214,8 +219,11 @@ class MyResumeWidget extends StatelessWidget {
 
       if (workHistoryArray.isNotEmpty) {
         return _ResumeInformationWidgetWithArrayChild(
+          index: 3, // Map Index According to the Resume Tab Section Page
           percentage: percentage,
           title: title,
+          changeTabPage: changeTabPage,
+          changeResumeTabPage: changeResumeTabPage,
           child: ListView.separated(
             primary: false,
             padding: EdgeInsets.zero,
@@ -254,8 +262,11 @@ class MyResumeWidget extends StatelessWidget {
 
       if (qualificationHistoryArray.isNotEmpty) {
         return _ResumeInformationWidgetWithArrayChild(
+          index: 4, // Map Index According to the Resume Tab Section Page
           percentage: percentage,
           title: title,
+          changeTabPage: changeTabPage,
+          changeResumeTabPage: changeResumeTabPage,
           child: ListView.separated(
             primary: false,
             padding: EdgeInsets.zero,
@@ -288,18 +299,22 @@ class MyResumeWidget extends StatelessWidget {
 }
 
 class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
+  final int index;
   final String title;
   final int percentage;
   final Widget child;
 
   final Function(int) changeTabPage;
+  final Function(int) changeResumeTabPage;
 
   const _ResumeInformationWidgetWithArrayChild({
     Key key,
+    @required this.index,
     @required this.title,
     @required this.percentage,
     @required this.child,
-    this.changeTabPage,
+    @required this.changeTabPage,
+    this.changeResumeTabPage,
   }) : super(key: key);
 
   @override
@@ -368,6 +383,8 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
                     if (changeTabPage != null) {
                       DefaultTabController.of(context).animateTo(1);
                       changeTabPage(1);
+
+                      changeResumeTabPage(index);
                     }
                   },
                   child: Text(

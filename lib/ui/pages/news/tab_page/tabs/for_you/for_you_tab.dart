@@ -167,11 +167,11 @@ class ForYouNewsTab extends StatelessWidget {
                   const Center(
                     child: Text("No data availabe for this section"),
                   ),
-                if (isPagination)
-                  SizedBox(
-                    height: 70,
-                    child: loadingPage(),
-                  ),
+                // if (isPagination)
+                //   SizedBox(
+                //     height: 70,
+                //     child: loadingPage(),
+                //   ),
               ],
             ),
           ),

@@ -9,7 +9,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
+import 'package:wallet_app/features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_kyc_info.dart';
+import 'package:wallet_app/features/resume/domain/usecases/update_resume_image.dart';
 
 part 'update_profile_event.dart';
 part 'update_profile_state.dart';
@@ -18,9 +20,13 @@ part 'update_profile_bloc.freezed.dart';
 @injectable
 class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
   final UpdateKycInfo updateKycInfo;
+  final UpdateResumeImage updateResumeImage;
+  final GetListOfCityFromPrefectures getListOfCityFromPrefectures;
 
   UpdateProfileBloc({
     @required this.updateKycInfo,
+    @required this.updateResumeImage,
+    @required this.getListOfCityFromPrefectures,
   }) : super(UpdateProfileState.initial());
 
   @override
@@ -29,6 +35,24 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
   ) async* {
     yield* event.map(
       setInitialState: (e) async* {
+        yield state.copyWith(
+          isSubmitting: true,
+          failureOrSuccessOption: none(),
+        );
+
+        final kycIssuedDate = e.userDetail.originDocIssuedDate;
+        final kycIssuedDateArray = kycIssuedDate.split("-");
+
+        final List<String> originCityList = await _getListOfCities(
+          country: e.userDetail.countryOfOrigin,
+          prefectureName: e.userDetail.originProvince,
+        );
+
+        final List<String> residenceCityList = await _getListOfCities(
+          country: e.userDetail.countryOfResidence,
+          prefectureName: e.userDetail.province,
+        );
+
         yield state.copyWith(
           key: UniqueKey(),
           firstName: e.userDetail.firstName ?? "",
@@ -56,17 +80,22 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
           originStreetAddress: e.userDetail.originStreetAddress ?? "",
           residenceCountry: e.userDetail.countryOfResidence ?? "",
           residencePostalCode: e.userDetail.postalCode ?? "",
-          // residenceProvince: e.userDetail.province ?? "",
+          residenceProvince: e.userDetail.province ?? "",
           residenceCity: e.userDetail.city ?? "",
           residenceStreetAddress: e.userDetail.streetAddress ?? "",
           profilePicture: e.userDetail.avatar ?? "",
-
           originKycDocType: e.userDetail.originKycDocType ?? "",
           originKycDocNumber: e.userDetail.originKycDocNumber ?? "",
           originKycDocFront: e.userDetail.originKycDocFront ?? "",
           originKycDocBack: e.userDetail.originKycDocBack ?? "",
           originDocIssuedFrom: e.userDetail.originDocIssuedFrom ?? "",
           originDocIssuedDate: e.userDetail.originDocIssuedDate ?? "",
+          originDocIssuedYear:
+              kycIssuedDateArray.isNotEmpty ? kycIssuedDateArray[0] : "",
+          originDocIssuedMonth:
+              kycIssuedDateArray.length > 1 ? kycIssuedDateArray[1] : "",
+          originDocIssuedDay:
+              kycIssuedDateArray.length > 2 ? kycIssuedDateArray[2] : "",
           residenceKycDocType: e.userDetail.kycDocType ?? "",
           residenceKycDocNumber: e.userDetail.kycDocNo ?? "",
           residenceKycDocFront: e.userDetail.kycDocFront ?? "",
@@ -74,16 +103,16 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
           listOfProfession: e.userDetail.options.professions ?? [],
           listOfCountry: e.userDetail.options.nationalities ?? [],
           listOfJapaneseProvince: e.userDetail.options.prefectures ?? [],
-          listOfJapaneseOriginCities: [],
-          listOfJapaneseResidenceCities: [],
+          listOfJapaneseOriginCities: originCityList ?? [],
+          listOfJapaneseResidenceCities: residenceCityList ?? [],
           listOfNepaliProvince: e.userDetail.options.provinces == null
               ? []
               : e.userDetail.options.provinces
                       .map((province) => province.provinceName)
                       .toList() ??
                   [],
-          listOfNepaliOriginDistrict: [],
-          listOfNepaliResidenceDistrict: [],
+          listOfNepaliOriginDistrict: originCityList,
+          listOfNepaliResidenceDistrict: residenceCityList ?? [],
           listOfKycDocType: ["Citizenship", "Passport", "Driving Liscence"],
           isSubmitting: false,
           failureOrSuccessOption: none(),
@@ -147,7 +176,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
         yield _mapChangeOriginPostalCodeToState(e);
       },
       changeOriginProvince: (e) async* {
-        yield _mapChangeOriginProvinceToState(e);
+        yield* _mapChangeOriginProvinceToState(e);
       },
       changeOriginCity: (e) async* {
         yield _mapChangeOriginCityToState(e);
@@ -162,7 +191,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
         yield _mapChangeResidencePostalCodeToState(e);
       },
       changeResidenceProvince: (e) async* {
-        yield _mapChangeResidenceProvinceToState(e);
+        yield* _mapChangeResidenceProvinceToState(e);
       },
       changeResidenceCity: (e) async* {
         yield _mapChangeResidenceCityToState(e);
@@ -208,6 +237,26 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
       },
       saveDocumentInfo: (e) async* {
         yield* _mapSaveDocumentInfoToState(e);
+      },
+      saveUserImage: (e) async* {
+        Either<ApiFailure, Unit> failureOrSuccess;
+        yield state.copyWith(
+          isSubmitting: true,
+          failureOrSuccessOption: none(),
+        );
+
+        final imageFile = e.image;
+        final encodedString = base64.encode(await imageFile.readAsBytes());
+
+        failureOrSuccess = await updateResumeImage(UpdateResumeImageParams(
+          image: "data:image/png;base64,$encodedString",
+          lang: "en",
+        ));
+
+        yield state.copyWith(
+          isSubmitting: false,
+          failureOrSuccessOption: optionOf(failureOrSuccess),
+        );
       },
     );
   }
@@ -360,10 +409,16 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
     );
   }
 
-  UpdateProfileState _mapChangeOriginProvinceToState(
-      _ChangeProvince _changeOriginProvince) {
-    return state.copyWith(
+  Stream<UpdateProfileState> _mapChangeOriginProvinceToState(
+      _ChangeProvince _changeOriginProvince) async* {
+    final listOfCities = await _getListOfCities(
+        country: state.originCountry, prefectureName: state.originProvince);
+
+    yield state.copyWith(
       originProvince: _changeOriginProvince.province,
+      originCity: '',
+      listOfJapaneseOriginCities: listOfCities ?? [],
+      listOfNepaliOriginDistrict: listOfCities ?? [],
       failureOrSuccessOption: none(),
     );
   }
@@ -400,10 +455,16 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
     );
   }
 
-  UpdateProfileState _mapChangeResidenceProvinceToState(
-      _ChangeResidenceProvince _changeResidenceProvince) {
-    return state.copyWith(
+  Stream<UpdateProfileState> _mapChangeResidenceProvinceToState(
+      _ChangeResidenceProvince _changeResidenceProvince) async* {
+    final listOfCities = await _getListOfCities(
+        country: state.residenceCountry,
+        prefectureName: state.residenceProvince);
+
+    yield state.copyWith(
       residenceProvince: _changeResidenceProvince.province,
+      listOfJapaneseResidenceCities: listOfCities ?? [],
+      listOfNepaliResidenceDistrict: listOfCities ?? [],
       failureOrSuccessOption: none(),
     );
   }
@@ -474,8 +535,15 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
 
   UpdateProfileState _mapChangeOriginDocIssuedDateToState(
       _ChangeOriginDocIssuedDate _changeOriginDocIssuedDate) {
+    final kycIssuedDateArray = _changeOriginDocIssuedDate.issuedDate.split("-");
     return state.copyWith(
       originDocIssuedDate: _changeOriginDocIssuedDate.issuedDate,
+      originDocIssuedYear:
+          kycIssuedDateArray.isNotEmpty ? kycIssuedDateArray[0] : "",
+      originDocIssuedMonth:
+          kycIssuedDateArray.length > 1 ? kycIssuedDateArray[1] : "",
+      originDocIssuedDay:
+          kycIssuedDateArray.length > 2 ? kycIssuedDateArray[2] : "",
       failureOrSuccessOption: none(),
     );
   }
@@ -545,15 +613,19 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
           email: state.email,
 
           // Address remaining
-          postalCode: "",
-          city: "",
-          streetAddress: "",
-          originPostalCode: "",
-          originCityDistrict: "",
-          originStreetAddress: "",
+          // Origin Address
+          countryOfOrigin: state.originCountry,
+          originPostalCode: state.originPostalCode,
+          originProvince: state.originProvince,
+          originCityDistrict: state.originCity,
+          originStreetAddress: state.originStreetAddress,
 
-          countryOfResidence: "",
-          countryOfOrigin: "",
+          //Residence Address
+          countryOfResidence: state.residenceCountry,
+          postalCode: state.residencePostalCode,
+          province: state.residenceProvince,
+          city: state.residenceCity,
+          streetAddress: state.residenceStreetAddress,
         ),
       ),
     );
@@ -628,5 +700,28 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
       isSubmitting: false,
       failureOrSuccessOption: optionOf(failureOrSuccess),
     );
+  }
+
+  Future<List<String>> _getListOfCities({
+    @required String country,
+    @required String prefectureName,
+  }) async {
+    if (prefectureName == null) {
+      return [];
+    }
+
+    if (prefectureName.isNotEmpty) {
+      final result =
+          await getListOfCityFromPrefectures(GetListOfCityFromPrefecturesParams(
+        country: country,
+        prefecture: prefectureName,
+        lang: "en",
+      ));
+      return result.fold(
+        (failure) => [],
+        (cities) => cities,
+      );
+    }
+    return [];
   }
 }

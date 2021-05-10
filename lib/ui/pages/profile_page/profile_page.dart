@@ -1,6 +1,7 @@
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/presentations/bloc/update_profile_bloc.dart';
@@ -106,6 +107,8 @@ class _UserInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isKycVerified = user.isKycVerified ?? false;
+
     return Column(
       children: [
         Container(
@@ -116,14 +119,55 @@ class _UserInfoWidget extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              ImageLoaderWidget(
-                image: user?.avatar ?? "",
-                height: 80,
-                width: 80,
-                cornerRadius: 40,
+              Stack(
+                alignment: Alignment.center,
+                clipBehavior: Clip.none,
+                children: [
+                  ImageLoaderWidget(
+                    image: user?.avatar ?? "",
+                    height: 80,
+                    width: 80,
+                    cornerRadius: 40,
+                  ),
+                  Positioned(
+                    bottom: -10,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 7.0, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: Palette.white,
+                        borderRadius: BorderRadius.circular(13),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              isKycVerified
+                                  ? "assets/images/profile/verified.svg"
+                                  : "assets/images/profile/un-verified.svg",
+                              height: 10,
+                            ),
+                            const SizedBox(width: 2),
+                            Text(
+                              isKycVerified ? "Verified" : "Unverified",
+                              style: TextStyle(
+                                color:
+                                    isKycVerified ? Colors.green : Colors.red,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(
-                height: 5,
+                height: 15,
               ),
               Text(
                 "${user?.firstName ?? ""} ${user?.lastName ?? ""}",

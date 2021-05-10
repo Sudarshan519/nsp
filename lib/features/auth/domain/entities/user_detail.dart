@@ -18,6 +18,7 @@ class UserDetail extends Equatable {
     this.passportCitizenshipNumber,
     this.postalCode,
     this.city,
+    this.province,
     this.streetAddress,
     this.originProvince,
     this.originPostalCode,
@@ -50,6 +51,7 @@ class UserDetail extends Equatable {
     this.otherPhone,
     this.smartPitNo,
     this.options,
+    this.isKycVerified,
   });
 
   final String firstName;
@@ -66,6 +68,7 @@ class UserDetail extends Equatable {
   final String nationality;
   final String passportCitizenshipNumber;
   final String postalCode;
+  final String province;
   final String city;
   final String streetAddress;
   final String originProvince;
@@ -98,6 +101,7 @@ class UserDetail extends Equatable {
   final String remarks;
   final String otherPhone;
   final int smartPitNo;
+  final bool isKycVerified;
   final ResumeOptions options;
 
   @override

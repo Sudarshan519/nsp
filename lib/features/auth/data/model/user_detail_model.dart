@@ -18,6 +18,7 @@ class UserDetailModel extends UserDetail {
     @required String nationality,
     @required String passportCitizenshipNumber,
     @required String postalCode,
+    @required String province,
     @required String city,
     @required String streetAddress,
     @required String originProvince,
@@ -50,6 +51,7 @@ class UserDetailModel extends UserDetail {
     @required String remarks,
     @required String otherPhone,
     @required int smartPitNo,
+    @required bool isKycVerified,
     ResumeOptionsModel options,
   }) : super(
           firstName: firstName,
@@ -67,6 +69,7 @@ class UserDetailModel extends UserDetail {
           passportCitizenshipNumber: passportCitizenshipNumber,
           postalCode: postalCode,
           city: city,
+          province: province,
           streetAddress: streetAddress,
           originProvince: originProvince,
           originPostalCode: originPostalCode,
@@ -99,6 +102,7 @@ class UserDetailModel extends UserDetail {
           otherPhone: otherPhone,
           smartPitNo: smartPitNo,
           options: options,
+          isKycVerified: isKycVerified,
         );
 
   factory UserDetailModel.fromJson(Map<String, dynamic> json) =>
@@ -118,6 +122,7 @@ class UserDetailModel extends UserDetail {
         passportCitizenshipNumber:
             json["passport_citizenship_number"] as String,
         postalCode: json["postal_code"] as String,
+        province: json["province"] as String,
         city: json["city"] as String,
         streetAddress: json["street_address"] as String,
         originProvince: json["origin_province"] as String,
@@ -127,11 +132,11 @@ class UserDetailModel extends UserDetail {
         profession: json["profession"] as String,
         occupation: json["occupation"] as String,
         originKycDocType: json["origin_kyc_doc_type"] as String,
-        originKycDocNumber: json["origin_kyc_doc_number"] as String,
+        originKycDocNumber: json["origin_kyc_doc_no"] as String,
         originKycDocFront: json["origin_kyc_doc_front"] as String,
         originKycDocBack: json["origin_kyc_doc_back"] as String,
-        originDocIssuedFrom: json["origin_doc_issued_from"] as String,
-        originDocIssuedDate: json["origin_doc_issued_date"] as String,
+        originDocIssuedFrom: json["origin_kyc_doc_issued_from"] as String,
+        originDocIssuedDate: json["origin_kyc_issued_date"] as String,
         kycDocType: json["kyc_doc_type"] as String,
         kycDocNo: json["kyc_doc_no"] as String,
         kycDocFront: json["kyc_doc_front"] as String,
@@ -150,6 +155,7 @@ class UserDetailModel extends UserDetail {
         remarks: json["remarks"] as String,
         otherPhone: json["other_phone"] as String,
         smartPitNo: json["smart_pit_no"] as int,
+        isKycVerified: json["is_kyc_verified"] as bool,
         options: json["options"] == null
             ? null
             : ResumeOptionsModel.fromJson(
@@ -263,7 +269,47 @@ class UserDetailModel extends UserDetail {
       params["email"] = email;
     }
 
-    // address
+    // Orign address
+    if (countryOfOrigin != null) {
+      params["country_of_origin"] = countryOfOrigin;
+    }
+
+    if (originProvince != null) {
+      params["origin_province"] = originProvince;
+    }
+
+    if (originPostalCode != null) {
+      params["origin_postal_code"] = originPostalCode;
+    }
+
+    if (originCityDistrict != null) {
+      params["origin_city_district"] = originCityDistrict;
+    }
+
+    if (originStreetAddress != null) {
+      params["origin_street_address"] = originStreetAddress;
+    }
+
+    // Residence address
+    if (countryOfResidence != null) {
+      params["country_of_residence"] = countryOfResidence;
+    }
+
+    if (province != null) {
+      params["province"] = province;
+    }
+
+    if (postalCode != null) {
+      params["postal_code"] = postalCode;
+    }
+
+    if (city != null) {
+      params["city"] = city;
+    }
+
+    if (streetAddress != null) {
+      params["street_address"] = streetAddress;
+    }
 
     return params;
   }
@@ -284,15 +330,15 @@ class UserDetailModel extends UserDetail {
     }
 
     if (originKycDocNumber != null) {
-      params["origin_kyc_doc_number"] = originKycDocNumber;
+      params["origin_kyc_doc_no"] = originKycDocNumber;
     }
 
     if (originDocIssuedFrom != null) {
-      params["origin_doc_issued_from"] = originDocIssuedFrom;
+      params["origin_kyc_doc_issued_from"] = originDocIssuedFrom;
     }
 
     if (originDocIssuedDate != null) {
-      params["origin_doc_issued_date"] = originDocIssuedDate;
+      params["origin_kyc_issued_date"] = originDocIssuedDate;
     }
 
     if (kycDocFront != null) {
@@ -331,6 +377,7 @@ extension UserDetailExt on UserDetail {
         nationality: nationality,
         passportCitizenshipNumber: passportCitizenshipNumber,
         postalCode: postalCode,
+        province: province,
         city: city,
         streetAddress: streetAddress,
         originProvince: originProvince,
@@ -363,6 +410,7 @@ extension UserDetailExt on UserDetail {
         remarks: remarks,
         otherPhone: otherPhone,
         smartPitNo: smartPitNo,
+        isKycVerified: isKycVerified,
         // options: options.toResumeOptionsModel(),
       );
 }

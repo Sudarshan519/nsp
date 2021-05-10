@@ -4,21 +4,22 @@ import 'package:wallet_app/ui/widgets/colors.dart';
 
 import 'searchable_dropdown.dart';
 
+// ignore: must_be_immutable
 class CustomSearchableDropDownWidget extends StatelessWidget {
   final String hintText;
   final List<String> options;
   final bool isRequired;
   final Function(String) onChanged;
-  final String value;
+  String value;
   final bool isExpanded;
   final Alignment alignment;
   final bool isEnable;
 
-  const CustomSearchableDropDownWidget({
+  CustomSearchableDropDownWidget({
     Key key,
     @required this.hintText,
     @required this.options,
-    @required this.value,
+    this.value = "",
     this.onChanged,
     this.isRequired = false,
     this.isExpanded = true,
@@ -28,6 +29,14 @@ class CustomSearchableDropDownWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> optionsWithPlaceholder = [];
+    optionsWithPlaceholder.add("Select your option");
+    optionsWithPlaceholder.addAll(options);
+
+    if (value?.toLowerCase() == "select your option") {
+      value = "";
+    }
+
     return SearchableDropdown.single(
       key: UniqueKey(),
       isExpanded: isExpanded,
@@ -50,7 +59,7 @@ class CustomSearchableDropDownWidget extends StatelessWidget {
         ),
       ),
       underline: const SizedBox.shrink(),
-      items: options.map((String value) {
+      items: optionsWithPlaceholder.map((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Align(
@@ -63,7 +72,11 @@ class CustomSearchableDropDownWidget extends StatelessWidget {
       }).toList(),
       displayClearIcon: false,
       onChanged: (changed) {
-        onChanged(changed as String);
+        if (value.toLowerCase() == "select your option") {
+          onChanged("");
+        } else {
+          onChanged(changed as String);
+        }
         FocusScope.of(context).unfocus();
       },
     );

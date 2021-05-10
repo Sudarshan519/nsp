@@ -385,6 +385,7 @@ class _YearOfCompletionField extends StatelessWidget {
                   "2019",
                   "2020",
                   "2021",
+                  "Running"
                 ],
                 alignment: Alignment.topCenter,
                 onChanged: (value) => context
@@ -394,32 +395,34 @@ class _YearOfCompletionField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            SizedBox(
-              width: 120,
-              child: CustomDropDownWidget(
-                hintText: "Select Month",
-                value: state.monthOfCompletion,
-                alignment: Alignment.topCenter,
-                options: const [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ],
-                onChanged: (value) => context
-                    .read<UpdateAcademicInfoActorBloc>()
-                    .add(UpdateAcademicInfoActorEvent.changedMonthOfCompletion(
-                        value)),
+            if (state.yearOfCpmpletion?.toLowerCase() != "running")
+              SizedBox(
+                width: 120,
+                child: CustomDropDownWidget(
+                  hintText: "Select Month",
+                  value: state.monthOfCompletion,
+                  alignment: Alignment.topCenter,
+                  options: const [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "July",
+                    "Aug",
+                    "Sep",
+                    "Oct",
+                    "Nov",
+                    "Dec",
+                  ],
+                  onChanged: (value) => context
+                      .read<UpdateAcademicInfoActorBloc>()
+                      .add(
+                          UpdateAcademicInfoActorEvent.changedMonthOfCompletion(
+                              value)),
+                ),
               ),
-            ),
           ],
         ),
       ),

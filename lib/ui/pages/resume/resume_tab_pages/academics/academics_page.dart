@@ -334,6 +334,7 @@ class _YearOfCompletionField extends StatelessWidget {
             "2019",
             "2020",
             "2021",
+            "Running",
           ],
           alignment: Alignment.centerRight,
         ),

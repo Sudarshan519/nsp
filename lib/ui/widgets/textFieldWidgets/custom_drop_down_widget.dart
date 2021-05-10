@@ -27,6 +27,13 @@ class CustomDropDownWidget extends StatelessWidget {
     if (!options.contains(value)) {
       value = null;
     }
+    if (value?.toLowerCase() == "select your option") {
+      value = null;
+    }
+    final List<String> optionsWithPlaceholder = [];
+    optionsWithPlaceholder.add("Select your option");
+    optionsWithPlaceholder.addAll(options);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -36,7 +43,6 @@ class CustomDropDownWidget extends StatelessWidget {
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: hintText,
-            // hintTextDirection: TextDirection.rtl,
             hintStyle: TextStyle(
               fontSize: 14.0,
               fontWeight: FontWeight.w300,
@@ -48,7 +54,7 @@ class CustomDropDownWidget extends StatelessWidget {
             fontWeight: FontWeight.w400,
             fontSize: 14.0,
           ),
-          items: options.map((String value) {
+          items: optionsWithPlaceholder.map((String value) {
             return DropdownMenuItem<String>(
               value: value,
               child: Align(
@@ -62,7 +68,13 @@ class CustomDropDownWidget extends StatelessWidget {
           onTap: () {
             FocusScope.of(context).unfocus();
           },
-          onChanged: onChanged,
+          onChanged: (value) {
+            if (value == "Select your option") {
+              onChanged("");
+            } else {
+              onChanged(value);
+            }
+          },
         ),
       ],
     );

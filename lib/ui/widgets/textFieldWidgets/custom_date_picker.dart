@@ -56,7 +56,15 @@ class CustomDatePicker extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () => isEnable ? _selectDate(context) : () {},
+                onPressed: () => isEnable
+                    ? selectDate(
+                        context: context,
+                        futureDataAvailable: futureDataAvailable,
+                        showAge: showAge,
+                        controller: controller,
+                        onChanged: onChanged,
+                      )
+                    : () {},
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.white.withOpacity(0),
                 ),
@@ -68,30 +76,36 @@ class CustomDatePicker extends StatelessWidget {
       ],
     );
   }
+}
 
-  Future _selectDate(BuildContext context) async {
-    final today = DateTime.now();
-    final DateTime picked = await showDatePicker(
-      context: context,
-      initialDate: today, // Refer step 1
-      firstDate: futureDataAvailable ? today : DateTime(1900),
-      lastDate: futureDataAvailable ? DateTime(2100) : today,
-    );
-    if (picked != null) {
-      final duration = today.difference(picked);
-      final age = (duration.inDays / 365).floor().toString();
-      final DateFormat formatter = DateFormat('yyyy-MM-dd');
-      // final DateFormat formatter = DateFormat('yyyy-MM-dd', "en");
-      // formatter.locale = "en";
-      final String formattedDate = formatter.format(picked);
-      final String dob = "Age $age - $formattedDate";
-      if (showAge) {
-        controller.text = dob;
-      } else {
-        controller.text = formattedDate;
-      }
-      onChanged(formattedDate, age);
-      FocusScope.of(context).unfocus();
+Future selectDate({
+  @required BuildContext context,
+  @required bool futureDataAvailable,
+  @required bool showAge,
+  @required TextEditingController controller,
+  @required Function(String dob, String age) onChanged,
+}) async {
+  final today = DateTime.now();
+  final DateTime picked = await showDatePicker(
+    context: context,
+    initialDate: today, // Refer step 1
+    firstDate: futureDataAvailable ? today : DateTime(1900),
+    lastDate: futureDataAvailable ? DateTime(2100) : today,
+  );
+  if (picked != null) {
+    final duration = today.difference(picked);
+    final age = (duration.inDays / 365).floor().toString();
+    final DateFormat formatter = DateFormat('yyyy-MM-dd');
+    // final DateFormat formatter = DateFormat('yyyy-MM-dd', "en");
+    // formatter.locale = "en";
+    final String formattedDate = formatter.format(picked);
+    final String dob = "Age $age - $formattedDate";
+    if (showAge) {
+      controller.text = dob;
+    } else {
+      controller.text = formattedDate;
     }
+    onChanged(formattedDate, age);
+    FocusScope.of(context).unfocus();
   }
 }

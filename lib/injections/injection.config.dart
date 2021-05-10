@@ -12,7 +12,7 @@ import 'package:http/http.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i19;
 
-import '../core/database/local_database_provider.dart' as _i94;
+import '../core/database/local_database_provider.dart' as _i96;
 import '../core/database/news_provider.dart' as _i45;
 import '../core/file_picker/file_provider.dart' as _i5;
 import '../core/network/newtork_info.dart' as _i13;
@@ -35,15 +35,18 @@ import '../features/auth/data/repository/auth_repository.dart' as _i26;
 import '../features/auth/domain/repositories/auth_repository.dart' as _i25;
 import '../features/auth/domain/usecase/get_wallet_user.dart' as _i36;
 import '../features/auth/domain/usecase/logout_user.dart' as _i43;
-import '../features/auth/domain/usecase/sign_in_with_apple.dart' as _i55;
-import '../features/auth/domain/usecase/sign_in_with_email.dart' as _i56;
-import '../features/auth/domain/usecase/sign_in_with_facebook.dart' as _i57;
-import '../features/auth/domain/usecase/sign_in_with_google.dart' as _i58;
-import '../features/auth/domain/usecase/sign_up_user.dart' as _i59;
+import '../features/auth/domain/usecase/reset_password.dart' as _i52;
+import '../features/auth/domain/usecase/sign_in_with_apple.dart' as _i56;
+import '../features/auth/domain/usecase/sign_in_with_email.dart' as _i57;
+import '../features/auth/domain/usecase/sign_in_with_facebook.dart' as _i58;
+import '../features/auth/domain/usecase/sign_in_with_google.dart' as _i59;
+import '../features/auth/domain/usecase/sign_up_user.dart' as _i60;
 import '../features/auth/domain/usecase/verify_email.dart' as _i70;
+import '../features/auth/presentation/password_reset/password_reset_bloc.dart'
+    as _i89;
 import '../features/auth/presentation/sign_in_form/sign_in_form_bloc.dart'
-    as _i90;
-import '../features/auth/presentation/sign_up/sign_up_form_bloc.dart' as _i91;
+    as _i91;
+import '../features/auth/presentation/sign_up/sign_up_form_bloc.dart' as _i92;
 import '../features/auth/presentation/verify_email/verify_email_bloc.dart'
     as _i71;
 import '../features/home/data/datasource/home_remote_data_source.dart' as _i37;
@@ -90,7 +93,7 @@ import '../features/news/domain/usecase/get_news_for_you.dart' as _i76;
 import '../features/news/domain/usecase/get_news_genre.dart' as _i77;
 import '../features/news/domain/usecase/get_news_preferences.dart' as _i78;
 import '../features/news/presentation/favourite_news/favourite_news_bloc.dart'
-    as _i93;
+    as _i95;
 import '../features/news/presentation/latest_news/latest_news_bloc.dart'
     as _i85;
 import '../features/news/presentation/news_for_you/news_bloc.dart' as _i86;
@@ -114,35 +117,35 @@ import '../features/partner_services/presentation/partner_services_categories/pa
 import '../features/profile/data/datasource/profile_remote_data_source.dart'
     as _i18;
 import '../features/profile/presentations/bloc/update_profile_bloc.dart'
-    as _i66;
+    as _i93;
 import '../features/resume/data/data_source/resume_remote_data_source.dart'
-    as _i52;
-import '../features/resume/data/repository/resume_repository.dart' as _i54;
-import '../features/resume/domain/repository/resume_repository.dart' as _i53;
+    as _i53;
+import '../features/resume/data/repository/resume_repository.dart' as _i55;
+import '../features/resume/domain/repository/resume_repository.dart' as _i54;
 import '../features/resume/domain/usecases/get_downloadable_pdf_link.dart'
     as _i72;
 import '../features/resume/domain/usecases/get_resume.dart' as _i79;
-import '../features/resume/domain/usecases/update_academics_info.dart' as _i61;
-import '../features/resume/domain/usecases/update_address_info.dart' as _i62;
-import '../features/resume/domain/usecases/update_kyc_info.dart' as _i63;
-import '../features/resume/domain/usecases/update_other_info.dart' as _i64;
-import '../features/resume/domain/usecases/update_personal_info.dart' as _i65;
+import '../features/resume/domain/usecases/update_academics_info.dart' as _i62;
+import '../features/resume/domain/usecases/update_address_info.dart' as _i63;
+import '../features/resume/domain/usecases/update_kyc_info.dart' as _i64;
+import '../features/resume/domain/usecases/update_other_info.dart' as _i65;
+import '../features/resume/domain/usecases/update_personal_info.dart' as _i66;
 import '../features/resume/domain/usecases/update_qualification_info.dart'
     as _i67;
 import '../features/resume/domain/usecases/update_resume_image.dart' as _i68;
 import '../features/resume/domain/usecases/update_work_info.dart' as _i69;
 import '../features/resume/presentation/download_pdf/download_pdf_bloc.dart'
-    as _i92;
+    as _i94;
 import '../features/resume/presentation/resume_watcher/resume_watcher_bloc.dart'
-    as _i89;
-import '../features/splash/presentation/splash_bloc.dart' as _i60;
+    as _i90;
+import '../features/splash/presentation/splash_bloc.dart' as _i61;
 import '../utils/config_reader.dart' as _i9;
-import 'injectable/data_connection_checker_injectable_module.dart' as _i96;
-import 'injectable/flutter_secure_storage_module.dart' as _i97;
-import 'injectable/google_login_injectable_module.dart' as _i98;
-import 'injectable/http_client_injectable_module.dart' as _i95;
+import 'injectable/data_connection_checker_injectable_module.dart' as _i98;
+import 'injectable/flutter_secure_storage_module.dart' as _i99;
+import 'injectable/google_login_injectable_module.dart' as _i100;
+import 'injectable/http_client_injectable_module.dart' as _i97;
 import 'injectable/shared_preference_module.dart'
-    as _i99; // ignore_for_file: unnecessary_lambdas
+    as _i101; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -257,57 +260,58 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i50.PartnerServiceCategoriesBloc(
           getPartnerServicesCategories:
               get<_i51.GetPartnerServicesCategories>()));
-  gh.lazySingleton<_i52.ResumeRemoteDataSource>(() =>
-      _i52.ResumeRemoteDataSourceImpl(
+  gh.lazySingleton<_i52.ResetPasswordUseCase>(() => _i52.ResetPasswordUseCase(
+      repository: get<_i25.AuthRepository>(),
+      networkInfo: get<_i13.NetworkInfo>()));
+  gh.lazySingleton<_i53.ResumeRemoteDataSource>(() =>
+      _i53.ResumeRemoteDataSourceImpl(
           client: get<_i3.Client>(),
           config: get<_i9.ConfigReader>(),
           auth: get<_i23.AuthLocalDataSource>()));
-  gh.lazySingleton<_i53.ResumeRepository>(() => _i54.ResumeRepositoryImpl(
-      dataSource: get<_i52.ResumeRemoteDataSource>()));
-  gh.lazySingleton<_i55.SignInWithApple>(() => _i55.SignInWithApple(
+  gh.lazySingleton<_i54.ResumeRepository>(() => _i55.ResumeRepositoryImpl(
+      dataSource: get<_i53.ResumeRemoteDataSource>()));
+  gh.lazySingleton<_i56.SignInWithApple>(() => _i56.SignInWithApple(
       repository: get<_i25.AuthRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
-  gh.lazySingleton<_i56.SignInWithEmailAndPassword>(() =>
-      _i56.SignInWithEmailAndPassword(
+  gh.lazySingleton<_i57.SignInWithEmailAndPassword>(() =>
+      _i57.SignInWithEmailAndPassword(
           repository: get<_i25.AuthRepository>(),
           networkInfo: get<_i13.NetworkInfo>()));
-  gh.lazySingleton<_i57.SignInWithFacebook>(() => _i57.SignInWithFacebook(
+  gh.lazySingleton<_i58.SignInWithFacebook>(() => _i58.SignInWithFacebook(
       repository: get<_i25.AuthRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
-  gh.lazySingleton<_i58.SignInWithGoogle>(() => _i58.SignInWithGoogle(
+  gh.lazySingleton<_i59.SignInWithGoogle>(() => _i59.SignInWithGoogle(
       repository: get<_i25.AuthRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
-  gh.lazySingleton<_i59.SignUpWithEmailPasswordAndUserDetail>(() =>
-      _i59.SignUpWithEmailPasswordAndUserDetail(
+  gh.lazySingleton<_i60.SignUpWithEmailPasswordAndUserDetail>(() =>
+      _i60.SignUpWithEmailPasswordAndUserDetail(
           repository: get<_i25.AuthRepository>(),
           networkInfo: get<_i13.NetworkInfo>()));
-  gh.factory<_i60.SplashBloc>(
-      () => _i60.SplashBloc(getWalletUser: get<_i36.GetWalletUser>()));
-  gh.factory<_i61.UpdateAcadamicInfo>(() => _i61.UpdateAcadamicInfo(
-      repository: get<_i53.ResumeRepository>(),
+  gh.factory<_i61.SplashBloc>(
+      () => _i61.SplashBloc(getWalletUser: get<_i36.GetWalletUser>()));
+  gh.factory<_i62.UpdateAcadamicInfo>(() => _i62.UpdateAcadamicInfo(
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
-  gh.factory<_i62.UpdateAddressInfo>(() => _i62.UpdateAddressInfo(
-      repository: get<_i53.ResumeRepository>(),
+  gh.factory<_i63.UpdateAddressInfo>(() => _i63.UpdateAddressInfo(
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
-  gh.factory<_i63.UpdateKycInfo>(() => _i63.UpdateKycInfo(
-      repository: get<_i53.ResumeRepository>(),
+  gh.factory<_i64.UpdateKycInfo>(() => _i64.UpdateKycInfo(
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
-  gh.factory<_i64.UpdateOtherInfo>(() => _i64.UpdateOtherInfo(
-      repository: get<_i53.ResumeRepository>(),
+  gh.factory<_i65.UpdateOtherInfo>(() => _i65.UpdateOtherInfo(
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
-  gh.factory<_i65.UpdatePersonalInfo>(() => _i65.UpdatePersonalInfo(
-      repository: get<_i53.ResumeRepository>(),
+  gh.factory<_i66.UpdatePersonalInfo>(() => _i66.UpdatePersonalInfo(
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
-  gh.factory<_i66.UpdateProfileBloc>(
-      () => _i66.UpdateProfileBloc(updateKycInfo: get<_i63.UpdateKycInfo>()));
   gh.factory<_i67.UpdateQualificationInfo>(() => _i67.UpdateQualificationInfo(
-      repository: get<_i53.ResumeRepository>(),
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
   gh.factory<_i68.UpdateResumeImage>(() => _i68.UpdateResumeImage(
-      repository: get<_i53.ResumeRepository>(),
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
   gh.factory<_i69.UpdateWorkInfo>(() => _i69.UpdateWorkInfo(
-      repository: get<_i53.ResumeRepository>(),
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
   gh.lazySingleton<_i70.VerifyEmail>(() => _i70.VerifyEmail(
       repository: get<_i25.AuthRepository>(),
@@ -315,12 +319,13 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.factory<_i71.VerifyEmailBloc>(
       () => _i71.VerifyEmailBloc(verifyEmail: get<_i70.VerifyEmail>()));
   gh.factory<_i72.GetDownloadablePdfLink>(() => _i72.GetDownloadablePdfLink(
-      repository: get<_i53.ResumeRepository>(),
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
   gh.lazySingleton<_i73.GetFavouriteNews>(() =>
       _i73.GetFavouriteNews(repository: get<_i46.NewsRepositoryProtocol>()));
-  gh.lazySingleton<_i74.GetHomePageData>(
-      () => _i74.GetHomePageData(repository: get<_i38.HomeReporisitory>()));
+  gh.lazySingleton<_i74.GetHomePageData>(() => _i74.GetHomePageData(
+      repository: get<_i38.HomeReporisitory>(),
+      networkInfo: get<_i13.NetworkInfo>()));
   gh.lazySingleton<_i75.GetLatestNews>(() => _i75.GetLatestNews(
       repository: get<_i46.NewsRepositoryProtocol>(),
       networkInfo: get<_i13.NetworkInfo>()));
@@ -332,7 +337,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i78.GetNewsPreferences>(() =>
       _i78.GetNewsPreferences(repository: get<_i46.NewsRepositoryProtocol>()));
   gh.factory<_i79.GetResume>(() => _i79.GetResume(
-      repository: get<_i53.ResumeRepository>(),
+      repository: get<_i54.ResumeRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
   gh.lazySingleton<_i80.HomePageDataBloc>(() =>
       _i80.HomePageDataBloc(getHomePageData: get<_i74.GetHomePageData>()));
@@ -350,24 +355,30 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i87.NewsGenreBloc(getNewsGenre: get<_i77.GetNewsGenre>()));
   gh.factory<_i88.NewsPreferenceBloc>(() => _i88.NewsPreferenceBloc(
       getNewsPreferences: get<_i78.GetNewsPreferences>()));
-  gh.lazySingleton<_i89.ResumeWatcherBloc>(
-      () => _i89.ResumeWatcherBloc(getResume: get<_i79.GetResume>()));
-  gh.factory<_i90.SignInFormBloc>(() => _i90.SignInFormBloc(
-      signInWithEmailUsecase: get<_i56.SignInWithEmailAndPassword>(),
-      signInWithApple: get<_i55.SignInWithApple>(),
-      signInWithFacebook: get<_i57.SignInWithFacebook>(),
-      signInWithGoogle: get<_i58.SignInWithGoogle>()));
-  gh.factory<_i91.SignUpFormBloc>(() => _i91.SignUpFormBloc(
+  gh.factory<_i89.PasswordResetBloc>(() => _i89.PasswordResetBloc(
+      resetPasswordUseCase: get<_i52.ResetPasswordUseCase>()));
+  gh.lazySingleton<_i90.ResumeWatcherBloc>(
+      () => _i90.ResumeWatcherBloc(getResume: get<_i79.GetResume>()));
+  gh.factory<_i91.SignInFormBloc>(() => _i91.SignInFormBloc(
+      signInWithEmailUsecase: get<_i57.SignInWithEmailAndPassword>(),
+      signInWithApple: get<_i56.SignInWithApple>(),
+      signInWithFacebook: get<_i58.SignInWithFacebook>(),
+      signInWithGoogle: get<_i59.SignInWithGoogle>()));
+  gh.factory<_i92.SignUpFormBloc>(() => _i92.SignUpFormBloc(
       signUpWithEmailUsecase:
-          get<_i59.SignUpWithEmailPasswordAndUserDetail>()));
-  gh.factory<_i92.DownloadPdfBloc>(() => _i92.DownloadPdfBloc(
+          get<_i60.SignUpWithEmailPasswordAndUserDetail>()));
+  gh.factory<_i93.UpdateProfileBloc>(() => _i93.UpdateProfileBloc(
+      updateKycInfo: get<_i64.UpdateKycInfo>(),
+      updateResumeImage: get<_i68.UpdateResumeImage>(),
+      getListOfCityFromPrefectures: get<_i32.GetListOfCityFromPrefectures>()));
+  gh.factory<_i94.DownloadPdfBloc>(() => _i94.DownloadPdfBloc(
       getDownloadablePdfLink: get<_i72.GetDownloadablePdfLink>()));
-  gh.factory<_i93.FavouriteNewsBloc>(() =>
-      _i93.FavouriteNewsBloc(getFavouriteNews: get<_i73.GetFavouriteNews>()));
+  gh.factory<_i95.FavouriteNewsBloc>(() =>
+      _i95.FavouriteNewsBloc(getFavouriteNews: get<_i73.GetFavouriteNews>()));
   gh.singleton<_i9.ConfigReader>(_i9.ConfigReaderImpl());
-  gh.singleton<_i94.DBProvider>(_i94.DBProviderImpl());
+  gh.singleton<_i96.DBProvider>(_i96.DBProviderImpl());
   gh.singleton<_i45.NewsLocalProvider>(
-      _i45.NewsLocalProviderImpl(provider: get<_i94.DBProvider>()));
+      _i45.NewsLocalProviderImpl(provider: get<_i96.DBProvider>()));
   gh.singleton<_i49.GetPartnerServices>(_i49.GetPartnerServices(
       repository: get<_i16.PartnerServicesRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));
@@ -385,12 +396,12 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   return get;
 }
 
-class _$HttpClientInjectableModule extends _i95.HttpClientInjectableModule {}
+class _$HttpClientInjectableModule extends _i97.HttpClientInjectableModule {}
 
-class _$DataConnectionCheckerModule extends _i96.DataConnectionCheckerModule {}
+class _$DataConnectionCheckerModule extends _i98.DataConnectionCheckerModule {}
 
-class _$FlutterStorageModule extends _i97.FlutterStorageModule {}
+class _$FlutterStorageModule extends _i99.FlutterStorageModule {}
 
-class _$GoogleLoginInjectableModule extends _i98.GoogleLoginInjectableModule {}
+class _$GoogleLoginInjectableModule extends _i100.GoogleLoginInjectableModule {}
 
-class _$SharedPreferenceModule extends _i99.SharedPreferenceModule {}
+class _$SharedPreferenceModule extends _i101.SharedPreferenceModule {}

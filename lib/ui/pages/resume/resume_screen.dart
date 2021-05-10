@@ -15,6 +15,10 @@ import 'resume_tab_pages/resume_tab_page.dart';
 import 'widgets/download_resume_button.dart';
 
 class ResumePage extends StatelessWidget {
+  const ResumePage({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -39,7 +43,9 @@ class ResumePage extends StatelessWidget {
         body: Column(
           children: [
             ResumeHeaderWidget(),
-            Expanded(child: ResumeTabBarScreen()),
+            Expanded(
+              child: ResumeTabBarScreen(),
+            ),
           ],
         ),
       ),

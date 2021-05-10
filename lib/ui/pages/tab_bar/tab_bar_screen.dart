@@ -3,6 +3,7 @@ import 'package:wallet_app/ui/pages/home/home_screen.dart';
 import 'package:wallet_app/ui/pages/more/more_screen.dart';
 import 'package:wallet_app/ui/pages/news/news_screen.dart';
 import 'package:wallet_app/ui/pages/resume/resume_screen.dart';
+import 'package:wallet_app/ui/pages/resume/resume_tab_pages/resume_tab_page.dart';
 
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'widgets/custom_tab_bar_widget.dart';
@@ -63,11 +64,14 @@ class TabBarScreenState extends State<TabBarScreen> {
   }
 
   List<Widget> getTabs() {
+    final homePage = HomePage(
+      changeTabPage: _changeTo,
+      changeResumeTabPage: _changeResumeTabPage,
+    );
+
     return [
-      HomePage(
-        changeTabPage: _changeTo,
-      ),
-      ResumePage(),
+      homePage,
+      const ResumePage(),
       NewsPage(),
       const MorePage(),
     ];
@@ -77,5 +81,9 @@ class TabBarScreenState extends State<TabBarScreen> {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  void _changeResumeTabPage(int index) {
+    ResumeTabBarScreen.globalKey.currentState.changeResumeTab(index);
   }
 }

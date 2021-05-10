@@ -37,13 +37,13 @@ abstract class AuthRepository {
     @required String email,
   });
 
-  // Future<Either<ApiFailure, Unit>> getPasswordResetCode(String email);
-  // Future<Either<ApiFailure, Unit>> changePassword({
-  //   @required String email,
-  //   @required String code,
-  //   @required String password,
-  //   @required String verificationPassword,
-  // });
+  Future<Either<ApiFailure, Unit>> getPasswordResetCode(String email);
+  Future<Either<ApiFailure, Unit>> changePassword({
+    @required String email,
+    @required String code,
+    @required String password,
+    @required String verificationPassword,
+  });
 
   Future<Unit> logoutUser();
 }

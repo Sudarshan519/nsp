@@ -296,6 +296,13 @@ class _$UpdateProfileEventTearOff {
   _SaveDocumentInfo saveDocumentInfo() {
     return const _SaveDocumentInfo();
   }
+
+// ignore: unused_element
+  _SaveUserImage saveUserImage(File image) {
+    return _SaveUserImage(
+      image,
+    );
+  }
 }
 
 /// @nodoc
@@ -347,6 +354,7 @@ mixin _$UpdateProfileEvent {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -391,6 +399,7 @@ mixin _$UpdateProfileEvent {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -448,6 +457,7 @@ mixin _$UpdateProfileEvent {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -493,6 +503,7 @@ mixin _$UpdateProfileEvent {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   });
 }
@@ -616,6 +627,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -658,6 +670,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeFirstName(name);
   }
 
@@ -705,6 +718,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -770,6 +784,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -812,6 +827,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeFirstName(this);
   }
 
@@ -860,6 +876,7 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -980,6 +997,7 @@ class _$_ChangeLastName implements _ChangeLastName {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -1022,6 +1040,7 @@ class _$_ChangeLastName implements _ChangeLastName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeLastName(name);
   }
 
@@ -1069,6 +1088,7 @@ class _$_ChangeLastName implements _ChangeLastName {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1134,6 +1154,7 @@ class _$_ChangeLastName implements _ChangeLastName {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -1176,6 +1197,7 @@ class _$_ChangeLastName implements _ChangeLastName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeLastName(this);
   }
 
@@ -1224,6 +1246,7 @@ class _$_ChangeLastName implements _ChangeLastName {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1344,6 +1367,7 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -1386,6 +1410,7 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeFuriganaName(name);
   }
 
@@ -1433,6 +1458,7 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1498,6 +1524,7 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -1540,6 +1567,7 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeFuriganaName(this);
   }
 
@@ -1588,6 +1616,7 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1708,6 +1737,7 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -1750,6 +1780,7 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeFatherName(name);
   }
 
@@ -1797,6 +1828,7 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1862,6 +1894,7 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -1904,6 +1937,7 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeFatherName(this);
   }
 
@@ -1952,6 +1986,7 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2072,6 +2107,7 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -2114,6 +2150,7 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeMotherName(name);
   }
 
@@ -2161,6 +2198,7 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2226,6 +2264,7 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -2268,6 +2307,7 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeMotherName(this);
   }
 
@@ -2316,6 +2356,7 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2437,6 +2478,7 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -2479,6 +2521,7 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeGrandFatherName(name);
   }
 
@@ -2526,6 +2569,7 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2591,6 +2635,7 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -2633,6 +2678,7 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeGrandFatherName(this);
   }
 
@@ -2681,6 +2727,7 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2801,6 +2848,7 @@ class _$_ChangeCompany implements _ChangeCompany {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -2843,6 +2891,7 @@ class _$_ChangeCompany implements _ChangeCompany {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeCompany(company);
   }
 
@@ -2890,6 +2939,7 @@ class _$_ChangeCompany implements _ChangeCompany {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2955,6 +3005,7 @@ class _$_ChangeCompany implements _ChangeCompany {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -2997,6 +3048,7 @@ class _$_ChangeCompany implements _ChangeCompany {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeCompany(this);
   }
 
@@ -3045,6 +3097,7 @@ class _$_ChangeCompany implements _ChangeCompany {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3166,6 +3219,7 @@ class _$_ChangeProfession implements _ChangeProfession {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -3208,6 +3262,7 @@ class _$_ChangeProfession implements _ChangeProfession {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeProfession(profession);
   }
 
@@ -3255,6 +3310,7 @@ class _$_ChangeProfession implements _ChangeProfession {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3320,6 +3376,7 @@ class _$_ChangeProfession implements _ChangeProfession {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -3362,6 +3419,7 @@ class _$_ChangeProfession implements _ChangeProfession {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeProfession(this);
   }
 
@@ -3410,6 +3468,7 @@ class _$_ChangeProfession implements _ChangeProfession {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3531,6 +3590,7 @@ class _$_ChangeNationality implements _ChangeNationality {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -3573,6 +3633,7 @@ class _$_ChangeNationality implements _ChangeNationality {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeNationality(nationality);
   }
 
@@ -3620,6 +3681,7 @@ class _$_ChangeNationality implements _ChangeNationality {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3685,6 +3747,7 @@ class _$_ChangeNationality implements _ChangeNationality {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -3727,6 +3790,7 @@ class _$_ChangeNationality implements _ChangeNationality {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeNationality(this);
   }
 
@@ -3775,6 +3839,7 @@ class _$_ChangeNationality implements _ChangeNationality {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3902,6 +3967,7 @@ class _$_ChangeDocumentIdentificationNumber
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -3944,6 +4010,7 @@ class _$_ChangeDocumentIdentificationNumber
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeDocumentIdentificationNumber(number);
   }
 
@@ -3991,6 +4058,7 @@ class _$_ChangeDocumentIdentificationNumber
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -4056,6 +4124,7 @@ class _$_ChangeDocumentIdentificationNumber
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -4098,6 +4167,7 @@ class _$_ChangeDocumentIdentificationNumber
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeDocumentIdentificationNumber(this);
   }
 
@@ -4146,6 +4216,7 @@ class _$_ChangeDocumentIdentificationNumber
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -4269,6 +4340,7 @@ class _$_ChangeGender implements _ChangeGender {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -4311,6 +4383,7 @@ class _$_ChangeGender implements _ChangeGender {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeGender(gender);
   }
 
@@ -4358,6 +4431,7 @@ class _$_ChangeGender implements _ChangeGender {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -4423,6 +4497,7 @@ class _$_ChangeGender implements _ChangeGender {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -4465,6 +4540,7 @@ class _$_ChangeGender implements _ChangeGender {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeGender(this);
   }
 
@@ -4513,6 +4589,7 @@ class _$_ChangeGender implements _ChangeGender {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -4634,6 +4711,7 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -4676,6 +4754,7 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeMaritalStatus(status);
   }
 
@@ -4723,6 +4802,7 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -4788,6 +4868,7 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -4830,6 +4911,7 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeMaritalStatus(this);
   }
 
@@ -4878,6 +4960,7 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -4997,6 +5080,7 @@ class _$_ChangeDob implements _ChangeDob {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -5039,6 +5123,7 @@ class _$_ChangeDob implements _ChangeDob {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeDob(dob);
   }
 
@@ -5086,6 +5171,7 @@ class _$_ChangeDob implements _ChangeDob {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -5151,6 +5237,7 @@ class _$_ChangeDob implements _ChangeDob {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -5193,6 +5280,7 @@ class _$_ChangeDob implements _ChangeDob {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeDob(this);
   }
 
@@ -5241,6 +5329,7 @@ class _$_ChangeDob implements _ChangeDob {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -5362,6 +5451,7 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -5404,6 +5494,7 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeCommunity(community);
   }
 
@@ -5451,6 +5542,7 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -5516,6 +5608,7 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -5558,6 +5651,7 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeCommunity(this);
   }
 
@@ -5606,6 +5700,7 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -5726,6 +5821,7 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -5768,6 +5864,7 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeMobileNumber(number);
   }
 
@@ -5815,6 +5912,7 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -5880,6 +5978,7 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -5922,6 +6021,7 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeMobileNumber(this);
   }
 
@@ -5970,6 +6070,7 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -6090,6 +6191,7 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -6132,6 +6234,7 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOtherPhone(phone);
   }
 
@@ -6179,6 +6282,7 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -6244,6 +6348,7 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -6286,6 +6391,7 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOtherPhone(this);
   }
 
@@ -6334,6 +6440,7 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -6454,6 +6561,7 @@ class _$_ChangeEmail implements _ChangeEmail {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -6496,6 +6604,7 @@ class _$_ChangeEmail implements _ChangeEmail {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeEmail(email);
   }
 
@@ -6543,6 +6652,7 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -6608,6 +6718,7 @@ class _$_ChangeEmail implements _ChangeEmail {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -6650,6 +6761,7 @@ class _$_ChangeEmail implements _ChangeEmail {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeEmail(this);
   }
 
@@ -6698,6 +6810,7 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -6819,6 +6932,7 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -6861,6 +6975,7 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginCountry(country);
   }
 
@@ -6908,6 +7023,7 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -6973,6 +7089,7 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -7015,6 +7132,7 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginCountry(this);
   }
 
@@ -7063,6 +7181,7 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -7185,6 +7304,7 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -7227,6 +7347,7 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginPostalCode(postalCode);
   }
 
@@ -7274,6 +7395,7 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -7339,6 +7461,7 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -7381,6 +7504,7 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginPostalCode(this);
   }
 
@@ -7429,6 +7553,7 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -7551,6 +7676,7 @@ class _$_ChangeProvince implements _ChangeProvince {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -7593,6 +7719,7 @@ class _$_ChangeProvince implements _ChangeProvince {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginProvince(province);
   }
 
@@ -7640,6 +7767,7 @@ class _$_ChangeProvince implements _ChangeProvince {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -7705,6 +7833,7 @@ class _$_ChangeProvince implements _ChangeProvince {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -7747,6 +7876,7 @@ class _$_ChangeProvince implements _ChangeProvince {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginProvince(this);
   }
 
@@ -7795,6 +7925,7 @@ class _$_ChangeProvince implements _ChangeProvince {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -7915,6 +8046,7 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -7957,6 +8089,7 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginCity(city);
   }
 
@@ -8004,6 +8137,7 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -8069,6 +8203,7 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -8111,6 +8246,7 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginCity(this);
   }
 
@@ -8159,6 +8295,7 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -8284,6 +8421,7 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -8326,6 +8464,7 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginStreetAddress(streetAddress);
   }
 
@@ -8373,6 +8512,7 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -8438,6 +8578,7 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -8480,6 +8621,7 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginStreetAddress(this);
   }
 
@@ -8528,6 +8670,7 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -8650,6 +8793,7 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -8692,6 +8836,7 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceCountry(country);
   }
 
@@ -8739,6 +8884,7 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -8804,6 +8950,7 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -8846,6 +8993,7 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceCountry(this);
   }
 
@@ -8894,6 +9042,7 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -9020,6 +9169,7 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -9062,6 +9212,7 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidencePostalCode(postalCode);
   }
 
@@ -9109,6 +9260,7 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -9174,6 +9326,7 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -9216,6 +9369,7 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidencePostalCode(this);
   }
 
@@ -9264,6 +9418,7 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -9388,6 +9543,7 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -9430,6 +9586,7 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceProvince(province);
   }
 
@@ -9477,6 +9634,7 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -9542,6 +9700,7 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -9584,6 +9743,7 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceProvince(this);
   }
 
@@ -9632,6 +9792,7 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -9754,6 +9915,7 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -9796,6 +9958,7 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceCity(city);
   }
 
@@ -9843,6 +10006,7 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -9908,6 +10072,7 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -9950,6 +10115,7 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceCity(this);
   }
 
@@ -9998,6 +10164,7 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -10122,6 +10289,7 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -10164,6 +10332,7 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceStreetAddress(address);
   }
 
@@ -10211,6 +10380,7 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -10276,6 +10446,7 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -10318,6 +10489,7 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceStreetAddress(this);
   }
 
@@ -10366,6 +10538,7 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -10494,6 +10667,7 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -10536,6 +10710,7 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeProfilePicture(profilePicture);
   }
 
@@ -10583,6 +10758,7 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -10648,6 +10824,7 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -10690,6 +10867,7 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeProfilePicture(this);
   }
 
@@ -10738,6 +10916,7 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -10860,6 +11039,7 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -10902,6 +11082,7 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginKycDocType(docType);
   }
 
@@ -10949,6 +11130,7 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -11014,6 +11196,7 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -11056,6 +11239,7 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginKycDocType(this);
   }
 
@@ -11104,6 +11288,7 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -11228,6 +11413,7 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -11270,6 +11456,7 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginKycDocNumber(docNumber);
   }
 
@@ -11317,6 +11504,7 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -11382,6 +11570,7 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -11424,6 +11613,7 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginKycDocNumber(this);
   }
 
@@ -11472,6 +11662,7 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -11596,6 +11787,7 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -11638,6 +11830,7 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginKycDocFront(docFront);
   }
 
@@ -11685,6 +11878,7 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -11750,6 +11944,7 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -11792,6 +11987,7 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginKycDocFront(this);
   }
 
@@ -11840,6 +12036,7 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -11962,6 +12159,7 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -12004,6 +12202,7 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginKycDocBack(docback);
   }
 
@@ -12051,6 +12250,7 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -12116,6 +12316,7 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -12158,6 +12359,7 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginKycDocBack(this);
   }
 
@@ -12206,6 +12408,7 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -12332,6 +12535,7 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -12374,6 +12578,7 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginDocIssuedFrom(inssuedFrom);
   }
 
@@ -12421,6 +12626,7 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -12486,6 +12692,7 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -12528,6 +12735,7 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginDocIssuedFrom(this);
   }
 
@@ -12576,6 +12784,7 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -12702,6 +12911,7 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -12744,6 +12954,7 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginDocIssuedDate(issuedDate);
   }
 
@@ -12791,6 +13002,7 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -12856,6 +13068,7 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -12898,6 +13111,7 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeOriginDocIssuedDate(this);
   }
 
@@ -12946,6 +13160,7 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -13070,6 +13285,7 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -13112,6 +13328,7 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceKycDocType(docType);
   }
 
@@ -13159,6 +13376,7 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -13224,6 +13442,7 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -13266,6 +13485,7 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceKycDocType(this);
   }
 
@@ -13314,6 +13534,7 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -13441,6 +13662,7 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -13483,6 +13705,7 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceKycDocNumber(docNumber);
   }
 
@@ -13530,6 +13753,7 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -13595,6 +13819,7 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -13637,6 +13862,7 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceKycDocNumber(this);
   }
 
@@ -13685,6 +13911,7 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -13811,6 +14038,7 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -13853,6 +14081,7 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceKycDocFront(docFront);
   }
 
@@ -13900,6 +14129,7 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -13965,6 +14195,7 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -14007,6 +14238,7 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceKycDocFront(this);
   }
 
@@ -14055,6 +14287,7 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -14180,6 +14413,7 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -14222,6 +14456,7 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceKycDocBack(docBack);
   }
 
@@ -14269,6 +14504,7 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -14334,6 +14570,7 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -14376,6 +14613,7 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return changeResidenceKycDocBack(this);
   }
 
@@ -14424,6 +14662,7 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -14546,6 +14785,7 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -14588,6 +14828,7 @@ class _$_SetInitialState implements _SetInitialState {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return setInitialState(userDetail);
   }
 
@@ -14635,6 +14876,7 @@ class _$_SetInitialState implements _SetInitialState {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -14700,6 +14942,7 @@ class _$_SetInitialState implements _SetInitialState {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -14742,6 +14985,7 @@ class _$_SetInitialState implements _SetInitialState {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return setInitialState(this);
   }
 
@@ -14790,6 +15034,7 @@ class _$_SetInitialState implements _SetInitialState {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -14888,6 +15133,7 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -14930,6 +15176,7 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return saveUserInfo();
   }
 
@@ -14977,6 +15224,7 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -15042,6 +15290,7 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -15084,6 +15333,7 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return saveUserInfo(this);
   }
 
@@ -15132,6 +15382,7 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -15226,6 +15477,7 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     @required TResult setInitialState(UserDetail userDetail),
     @required TResult saveUserInfo(),
     @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -15268,6 +15520,7 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return saveDocumentInfo();
   }
 
@@ -15315,6 +15568,7 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     TResult setInitialState(UserDetail userDetail),
     TResult saveUserInfo(),
     TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -15380,6 +15634,7 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     @required TResult setInitialState(_SetInitialState value),
     @required TResult saveUserInfo(_SaveUserInfo value),
     @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
   }) {
     assert(changeFirstName != null);
     assert(changeLastName != null);
@@ -15422,6 +15677,7 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     assert(setInitialState != null);
     assert(saveUserInfo != null);
     assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
     return saveDocumentInfo(this);
   }
 
@@ -15470,6 +15726,7 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     TResult setInitialState(_SetInitialState value),
     TResult saveUserInfo(_SaveUserInfo value),
     TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -15482,6 +15739,376 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
 
 abstract class _SaveDocumentInfo implements UpdateProfileEvent {
   const factory _SaveDocumentInfo() = _$_SaveDocumentInfo;
+}
+
+/// @nodoc
+abstract class _$SaveUserImageCopyWith<$Res> {
+  factory _$SaveUserImageCopyWith(
+          _SaveUserImage value, $Res Function(_SaveUserImage) then) =
+      __$SaveUserImageCopyWithImpl<$Res>;
+  $Res call({File image});
+}
+
+/// @nodoc
+class __$SaveUserImageCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res>
+    implements _$SaveUserImageCopyWith<$Res> {
+  __$SaveUserImageCopyWithImpl(
+      _SaveUserImage _value, $Res Function(_SaveUserImage) _then)
+      : super(_value, (v) => _then(v as _SaveUserImage));
+
+  @override
+  _SaveUserImage get _value => super._value as _SaveUserImage;
+
+  @override
+  $Res call({
+    Object image = freezed,
+  }) {
+    return _then(_SaveUserImage(
+      image == freezed ? _value.image : image as File,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SaveUserImage implements _SaveUserImage {
+  const _$_SaveUserImage(this.image) : assert(image != null);
+
+  @override
+  final File image;
+
+  @override
+  String toString() {
+    return 'UpdateProfileEvent.saveUserImage(image: $image)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SaveUserImage &&
+            (identical(other.image, image) ||
+                const DeepCollectionEquality().equals(other.image, image)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(image);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SaveUserImageCopyWith<_SaveUserImage> get copyWith =>
+      __$SaveUserImageCopyWithImpl<_SaveUserImage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult changeFirstName(String name),
+    @required TResult changeLastName(String name),
+    @required TResult changeFuriganaName(String name),
+    @required TResult changeFatherName(String name),
+    @required TResult changeMotherName(String name),
+    @required TResult changeGrandFatherName(String name),
+    @required TResult changeCompany(String company),
+    @required TResult changeProfession(String profession),
+    @required TResult changeNationality(String nationality),
+    @required TResult changeDocumentIdentificationNumber(String number),
+    @required TResult changeGender(String gender),
+    @required TResult changeMaritalStatus(String status),
+    @required TResult changeDob(String dob),
+    @required TResult changeCommunity(String community),
+    @required TResult changeMobileNumber(String number),
+    @required TResult changeOtherPhone(String phone),
+    @required TResult changeEmail(String email),
+    @required TResult changeOriginCountry(String country),
+    @required TResult changeOriginPostalCode(String postalCode),
+    @required TResult changeOriginProvince(String province),
+    @required TResult changeOriginCity(String city),
+    @required TResult changeOriginStreetAddress(String streetAddress),
+    @required TResult changeResidenceCountry(String country),
+    @required TResult changeResidencePostalCode(String postalCode),
+    @required TResult changeResidenceProvince(String province),
+    @required TResult changeResidenceCity(String city),
+    @required TResult changeResidenceStreetAddress(String address),
+    @required TResult changeProfilePicture(File profilePicture),
+    @required TResult changeOriginKycDocType(String docType),
+    @required TResult changeOriginKycDocNumber(String docNumber),
+    @required TResult changeOriginKycDocFront(File docFront),
+    @required TResult changeOriginKycDocBack(File docback),
+    @required TResult changeOriginDocIssuedFrom(String inssuedFrom),
+    @required TResult changeOriginDocIssuedDate(String issuedDate),
+    @required TResult changeResidenceKycDocType(String docType),
+    @required TResult changeResidenceKycDocNumber(String docNumber),
+    @required TResult changeResidenceKycDocFront(File docFront),
+    @required TResult changeResidenceKycDocBack(File docBack),
+    @required TResult setInitialState(UserDetail userDetail),
+    @required TResult saveUserInfo(),
+    @required TResult saveDocumentInfo(),
+    @required TResult saveUserImage(File image),
+  }) {
+    assert(changeFirstName != null);
+    assert(changeLastName != null);
+    assert(changeFuriganaName != null);
+    assert(changeFatherName != null);
+    assert(changeMotherName != null);
+    assert(changeGrandFatherName != null);
+    assert(changeCompany != null);
+    assert(changeProfession != null);
+    assert(changeNationality != null);
+    assert(changeDocumentIdentificationNumber != null);
+    assert(changeGender != null);
+    assert(changeMaritalStatus != null);
+    assert(changeDob != null);
+    assert(changeCommunity != null);
+    assert(changeMobileNumber != null);
+    assert(changeOtherPhone != null);
+    assert(changeEmail != null);
+    assert(changeOriginCountry != null);
+    assert(changeOriginPostalCode != null);
+    assert(changeOriginProvince != null);
+    assert(changeOriginCity != null);
+    assert(changeOriginStreetAddress != null);
+    assert(changeResidenceCountry != null);
+    assert(changeResidencePostalCode != null);
+    assert(changeResidenceProvince != null);
+    assert(changeResidenceCity != null);
+    assert(changeResidenceStreetAddress != null);
+    assert(changeProfilePicture != null);
+    assert(changeOriginKycDocType != null);
+    assert(changeOriginKycDocNumber != null);
+    assert(changeOriginKycDocFront != null);
+    assert(changeOriginKycDocBack != null);
+    assert(changeOriginDocIssuedFrom != null);
+    assert(changeOriginDocIssuedDate != null);
+    assert(changeResidenceKycDocType != null);
+    assert(changeResidenceKycDocNumber != null);
+    assert(changeResidenceKycDocFront != null);
+    assert(changeResidenceKycDocBack != null);
+    assert(setInitialState != null);
+    assert(saveUserInfo != null);
+    assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
+    return saveUserImage(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult changeFirstName(String name),
+    TResult changeLastName(String name),
+    TResult changeFuriganaName(String name),
+    TResult changeFatherName(String name),
+    TResult changeMotherName(String name),
+    TResult changeGrandFatherName(String name),
+    TResult changeCompany(String company),
+    TResult changeProfession(String profession),
+    TResult changeNationality(String nationality),
+    TResult changeDocumentIdentificationNumber(String number),
+    TResult changeGender(String gender),
+    TResult changeMaritalStatus(String status),
+    TResult changeDob(String dob),
+    TResult changeCommunity(String community),
+    TResult changeMobileNumber(String number),
+    TResult changeOtherPhone(String phone),
+    TResult changeEmail(String email),
+    TResult changeOriginCountry(String country),
+    TResult changeOriginPostalCode(String postalCode),
+    TResult changeOriginProvince(String province),
+    TResult changeOriginCity(String city),
+    TResult changeOriginStreetAddress(String streetAddress),
+    TResult changeResidenceCountry(String country),
+    TResult changeResidencePostalCode(String postalCode),
+    TResult changeResidenceProvince(String province),
+    TResult changeResidenceCity(String city),
+    TResult changeResidenceStreetAddress(String address),
+    TResult changeProfilePicture(File profilePicture),
+    TResult changeOriginKycDocType(String docType),
+    TResult changeOriginKycDocNumber(String docNumber),
+    TResult changeOriginKycDocFront(File docFront),
+    TResult changeOriginKycDocBack(File docback),
+    TResult changeOriginDocIssuedFrom(String inssuedFrom),
+    TResult changeOriginDocIssuedDate(String issuedDate),
+    TResult changeResidenceKycDocType(String docType),
+    TResult changeResidenceKycDocNumber(String docNumber),
+    TResult changeResidenceKycDocFront(File docFront),
+    TResult changeResidenceKycDocBack(File docBack),
+    TResult setInitialState(UserDetail userDetail),
+    TResult saveUserInfo(),
+    TResult saveDocumentInfo(),
+    TResult saveUserImage(File image),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (saveUserImage != null) {
+      return saveUserImage(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult changeFirstName(_ChangeFirstName value),
+    @required TResult changeLastName(_ChangeLastName value),
+    @required TResult changeFuriganaName(_ChangeFuriganaName value),
+    @required TResult changeFatherName(_ChangeFatherName value),
+    @required TResult changeMotherName(_ChangeMotherName value),
+    @required TResult changeGrandFatherName(_ChangeGrandFatherName value),
+    @required TResult changeCompany(_ChangeCompany value),
+    @required TResult changeProfession(_ChangeProfession value),
+    @required TResult changeNationality(_ChangeNationality value),
+    @required
+        TResult changeDocumentIdentificationNumber(
+            _ChangeDocumentIdentificationNumber value),
+    @required TResult changeGender(_ChangeGender value),
+    @required TResult changeMaritalStatus(_ChangeMaritalStatus value),
+    @required TResult changeDob(_ChangeDob value),
+    @required TResult changeCommunity(_ChangeCommunity value),
+    @required TResult changeMobileNumber(_ChangeMobileNumber value),
+    @required TResult changeOtherPhone(_ChangeOtherPhone value),
+    @required TResult changeEmail(_ChangeEmail value),
+    @required TResult changeOriginCountry(_ChangeOriginCountry value),
+    @required TResult changeOriginPostalCode(_ChangeOriginPostalCode value),
+    @required TResult changeOriginProvince(_ChangeProvince value),
+    @required TResult changeOriginCity(_ChangeOriginCity value),
+    @required
+        TResult changeOriginStreetAddress(_ChangeOriginStreetAddress value),
+    @required TResult changeResidenceCountry(_ChangeResidenceCountry value),
+    @required
+        TResult changeResidencePostalCode(_ChangeResidencePostalCode value),
+    @required TResult changeResidenceProvince(_ChangeResidenceProvince value),
+    @required TResult changeResidenceCity(_ChangeResidenceCity value),
+    @required
+        TResult changeResidenceStreetAddress(
+            _ChangeResidenceStreetAddress value),
+    @required TResult changeProfilePicture(_ChangeProfilePicture value),
+    @required TResult changeOriginKycDocType(_ChangeOriginKycDocType value),
+    @required TResult changeOriginKycDocNumber(_ChangeOriginKycDocNumber value),
+    @required TResult changeOriginKycDocFront(_ChangeOriginKycDocFront value),
+    @required TResult changeOriginKycDocBack(_ChangeOriginKycDocBack value),
+    @required
+        TResult changeOriginDocIssuedFrom(_ChangeOriginDocIssuedFrom value),
+    @required
+        TResult changeOriginDocIssuedDate(_ChangeOriginDocIssuedDate value),
+    @required
+        TResult changeResidenceKycDocType(_ChangeResidenceKycDocType value),
+    @required
+        TResult changeResidenceKycDocNumber(_ChangeResidenceKycDocNumber value),
+    @required
+        TResult changeResidenceKycDocFront(_ChangeResidenceKycDocFront value),
+    @required
+        TResult changeResidenceKycDocBack(_ChangeResidenceKycDocBack value),
+    @required TResult setInitialState(_SetInitialState value),
+    @required TResult saveUserInfo(_SaveUserInfo value),
+    @required TResult saveDocumentInfo(_SaveDocumentInfo value),
+    @required TResult saveUserImage(_SaveUserImage value),
+  }) {
+    assert(changeFirstName != null);
+    assert(changeLastName != null);
+    assert(changeFuriganaName != null);
+    assert(changeFatherName != null);
+    assert(changeMotherName != null);
+    assert(changeGrandFatherName != null);
+    assert(changeCompany != null);
+    assert(changeProfession != null);
+    assert(changeNationality != null);
+    assert(changeDocumentIdentificationNumber != null);
+    assert(changeGender != null);
+    assert(changeMaritalStatus != null);
+    assert(changeDob != null);
+    assert(changeCommunity != null);
+    assert(changeMobileNumber != null);
+    assert(changeOtherPhone != null);
+    assert(changeEmail != null);
+    assert(changeOriginCountry != null);
+    assert(changeOriginPostalCode != null);
+    assert(changeOriginProvince != null);
+    assert(changeOriginCity != null);
+    assert(changeOriginStreetAddress != null);
+    assert(changeResidenceCountry != null);
+    assert(changeResidencePostalCode != null);
+    assert(changeResidenceProvince != null);
+    assert(changeResidenceCity != null);
+    assert(changeResidenceStreetAddress != null);
+    assert(changeProfilePicture != null);
+    assert(changeOriginKycDocType != null);
+    assert(changeOriginKycDocNumber != null);
+    assert(changeOriginKycDocFront != null);
+    assert(changeOriginKycDocBack != null);
+    assert(changeOriginDocIssuedFrom != null);
+    assert(changeOriginDocIssuedDate != null);
+    assert(changeResidenceKycDocType != null);
+    assert(changeResidenceKycDocNumber != null);
+    assert(changeResidenceKycDocFront != null);
+    assert(changeResidenceKycDocBack != null);
+    assert(setInitialState != null);
+    assert(saveUserInfo != null);
+    assert(saveDocumentInfo != null);
+    assert(saveUserImage != null);
+    return saveUserImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult changeFirstName(_ChangeFirstName value),
+    TResult changeLastName(_ChangeLastName value),
+    TResult changeFuriganaName(_ChangeFuriganaName value),
+    TResult changeFatherName(_ChangeFatherName value),
+    TResult changeMotherName(_ChangeMotherName value),
+    TResult changeGrandFatherName(_ChangeGrandFatherName value),
+    TResult changeCompany(_ChangeCompany value),
+    TResult changeProfession(_ChangeProfession value),
+    TResult changeNationality(_ChangeNationality value),
+    TResult changeDocumentIdentificationNumber(
+        _ChangeDocumentIdentificationNumber value),
+    TResult changeGender(_ChangeGender value),
+    TResult changeMaritalStatus(_ChangeMaritalStatus value),
+    TResult changeDob(_ChangeDob value),
+    TResult changeCommunity(_ChangeCommunity value),
+    TResult changeMobileNumber(_ChangeMobileNumber value),
+    TResult changeOtherPhone(_ChangeOtherPhone value),
+    TResult changeEmail(_ChangeEmail value),
+    TResult changeOriginCountry(_ChangeOriginCountry value),
+    TResult changeOriginPostalCode(_ChangeOriginPostalCode value),
+    TResult changeOriginProvince(_ChangeProvince value),
+    TResult changeOriginCity(_ChangeOriginCity value),
+    TResult changeOriginStreetAddress(_ChangeOriginStreetAddress value),
+    TResult changeResidenceCountry(_ChangeResidenceCountry value),
+    TResult changeResidencePostalCode(_ChangeResidencePostalCode value),
+    TResult changeResidenceProvince(_ChangeResidenceProvince value),
+    TResult changeResidenceCity(_ChangeResidenceCity value),
+    TResult changeResidenceStreetAddress(_ChangeResidenceStreetAddress value),
+    TResult changeProfilePicture(_ChangeProfilePicture value),
+    TResult changeOriginKycDocType(_ChangeOriginKycDocType value),
+    TResult changeOriginKycDocNumber(_ChangeOriginKycDocNumber value),
+    TResult changeOriginKycDocFront(_ChangeOriginKycDocFront value),
+    TResult changeOriginKycDocBack(_ChangeOriginKycDocBack value),
+    TResult changeOriginDocIssuedFrom(_ChangeOriginDocIssuedFrom value),
+    TResult changeOriginDocIssuedDate(_ChangeOriginDocIssuedDate value),
+    TResult changeResidenceKycDocType(_ChangeResidenceKycDocType value),
+    TResult changeResidenceKycDocNumber(_ChangeResidenceKycDocNumber value),
+    TResult changeResidenceKycDocFront(_ChangeResidenceKycDocFront value),
+    TResult changeResidenceKycDocBack(_ChangeResidenceKycDocBack value),
+    TResult setInitialState(_SetInitialState value),
+    TResult saveUserInfo(_SaveUserInfo value),
+    TResult saveDocumentInfo(_SaveDocumentInfo value),
+    TResult saveUserImage(_SaveUserImage value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (saveUserImage != null) {
+      return saveUserImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveUserImage implements UpdateProfileEvent {
+  const factory _SaveUserImage(File image) = _$_SaveUserImage;
+
+  File get image;
+  @JsonKey(ignore: true)
+  _$SaveUserImageCopyWith<_SaveUserImage> get copyWith;
 }
 
 /// @nodoc
@@ -15525,6 +16152,9 @@ class _$UpdateProfileStateTearOff {
       @required String originKycDocBack,
       @required String originDocIssuedFrom,
       @required String originDocIssuedDate,
+      @required String originDocIssuedYear,
+      @required String originDocIssuedMonth,
+      @required String originDocIssuedDay,
       @required String residenceKycDocType,
       @required String residenceKycDocNumber,
       @required String residenceKycDocFront,
@@ -15581,6 +16211,9 @@ class _$UpdateProfileStateTearOff {
       originKycDocBack: originKycDocBack,
       originDocIssuedFrom: originDocIssuedFrom,
       originDocIssuedDate: originDocIssuedDate,
+      originDocIssuedYear: originDocIssuedYear,
+      originDocIssuedMonth: originDocIssuedMonth,
+      originDocIssuedDay: originDocIssuedDay,
       residenceKycDocType: residenceKycDocType,
       residenceKycDocNumber: residenceKycDocNumber,
       residenceKycDocFront: residenceKycDocFront,
@@ -15646,6 +16279,9 @@ mixin _$UpdateProfileState {
   String get originKycDocBack;
   String get originDocIssuedFrom;
   String get originDocIssuedDate;
+  String get originDocIssuedYear;
+  String get originDocIssuedMonth;
+  String get originDocIssuedDay;
   String get residenceKycDocType;
   String get residenceKycDocNumber;
   String get residenceKycDocFront;
@@ -15712,6 +16348,9 @@ abstract class $UpdateProfileStateCopyWith<$Res> {
       String originKycDocBack,
       String originDocIssuedFrom,
       String originDocIssuedDate,
+      String originDocIssuedYear,
+      String originDocIssuedMonth,
+      String originDocIssuedDay,
       String residenceKycDocType,
       String residenceKycDocNumber,
       String residenceKycDocFront,
@@ -15780,6 +16419,9 @@ class _$UpdateProfileStateCopyWithImpl<$Res>
     Object originKycDocBack = freezed,
     Object originDocIssuedFrom = freezed,
     Object originDocIssuedDate = freezed,
+    Object originDocIssuedYear = freezed,
+    Object originDocIssuedMonth = freezed,
+    Object originDocIssuedDay = freezed,
     Object residenceKycDocType = freezed,
     Object residenceKycDocNumber = freezed,
     Object residenceKycDocFront = freezed,
@@ -15883,6 +16525,15 @@ class _$UpdateProfileStateCopyWithImpl<$Res>
       originDocIssuedDate: originDocIssuedDate == freezed
           ? _value.originDocIssuedDate
           : originDocIssuedDate as String,
+      originDocIssuedYear: originDocIssuedYear == freezed
+          ? _value.originDocIssuedYear
+          : originDocIssuedYear as String,
+      originDocIssuedMonth: originDocIssuedMonth == freezed
+          ? _value.originDocIssuedMonth
+          : originDocIssuedMonth as String,
+      originDocIssuedDay: originDocIssuedDay == freezed
+          ? _value.originDocIssuedDay
+          : originDocIssuedDay as String,
       residenceKycDocType: residenceKycDocType == freezed
           ? _value.residenceKycDocType
           : residenceKycDocType as String,
@@ -15989,6 +16640,9 @@ abstract class _$UpdateProfileStateCopyWith<$Res>
       String originKycDocBack,
       String originDocIssuedFrom,
       String originDocIssuedDate,
+      String originDocIssuedYear,
+      String originDocIssuedMonth,
+      String originDocIssuedDay,
       String residenceKycDocType,
       String residenceKycDocNumber,
       String residenceKycDocFront,
@@ -16059,6 +16713,9 @@ class __$UpdateProfileStateCopyWithImpl<$Res>
     Object originKycDocBack = freezed,
     Object originDocIssuedFrom = freezed,
     Object originDocIssuedDate = freezed,
+    Object originDocIssuedYear = freezed,
+    Object originDocIssuedMonth = freezed,
+    Object originDocIssuedDay = freezed,
     Object residenceKycDocType = freezed,
     Object residenceKycDocNumber = freezed,
     Object residenceKycDocFront = freezed,
@@ -16162,6 +16819,15 @@ class __$UpdateProfileStateCopyWithImpl<$Res>
       originDocIssuedDate: originDocIssuedDate == freezed
           ? _value.originDocIssuedDate
           : originDocIssuedDate as String,
+      originDocIssuedYear: originDocIssuedYear == freezed
+          ? _value.originDocIssuedYear
+          : originDocIssuedYear as String,
+      originDocIssuedMonth: originDocIssuedMonth == freezed
+          ? _value.originDocIssuedMonth
+          : originDocIssuedMonth as String,
+      originDocIssuedDay: originDocIssuedDay == freezed
+          ? _value.originDocIssuedDay
+          : originDocIssuedDay as String,
       residenceKycDocType: residenceKycDocType == freezed
           ? _value.residenceKycDocType
           : residenceKycDocType as String,
@@ -16263,6 +16929,9 @@ class _$_UpdateProfileState implements _UpdateProfileState {
       @required this.originKycDocBack,
       @required this.originDocIssuedFrom,
       @required this.originDocIssuedDate,
+      @required this.originDocIssuedYear,
+      @required this.originDocIssuedMonth,
+      @required this.originDocIssuedDay,
       @required this.residenceKycDocType,
       @required this.residenceKycDocNumber,
       @required this.residenceKycDocFront,
@@ -16318,6 +16987,9 @@ class _$_UpdateProfileState implements _UpdateProfileState {
         assert(originKycDocBack != null),
         assert(originDocIssuedFrom != null),
         assert(originDocIssuedDate != null),
+        assert(originDocIssuedYear != null),
+        assert(originDocIssuedMonth != null),
+        assert(originDocIssuedDay != null),
         assert(residenceKycDocType != null),
         assert(residenceKycDocNumber != null),
         assert(residenceKycDocFront != null),
@@ -16405,6 +17077,12 @@ class _$_UpdateProfileState implements _UpdateProfileState {
   @override
   final String originDocIssuedDate;
   @override
+  final String originDocIssuedYear;
+  @override
+  final String originDocIssuedMonth;
+  @override
+  final String originDocIssuedDay;
+  @override
   final String residenceKycDocType;
   @override
   final String residenceKycDocNumber;
@@ -16447,7 +17125,7 @@ class _$_UpdateProfileState implements _UpdateProfileState {
 
   @override
   String toString() {
-    return 'UpdateProfileState(key: $key, firstName: $firstName, lastName: $lastName, furigana: $furigana, fatherName: $fatherName, motherName: $motherName, grandFatherName: $grandFatherName, company: $company, profession: $profession, nationality: $nationality, documentIdentificationNumber: $documentIdentificationNumber, gender: $gender, maritalStatus: $maritalStatus, dob: $dob, community: $community, mobileNumber: $mobileNumber, otherPhone: $otherPhone, email: $email, originCountry: $originCountry, originPostalCode: $originPostalCode, originProvince: $originProvince, originCity: $originCity, originStreetAddress: $originStreetAddress, residenceCountry: $residenceCountry, residencePostalCode: $residencePostalCode, residenceProvince: $residenceProvince, residenceCity: $residenceCity, residenceStreetAddress: $residenceStreetAddress, profilePicture: $profilePicture, originKycDocType: $originKycDocType, originKycDocNumber: $originKycDocNumber, originKycDocFront: $originKycDocFront, originKycDocBack: $originKycDocBack, originDocIssuedFrom: $originDocIssuedFrom, originDocIssuedDate: $originDocIssuedDate, residenceKycDocType: $residenceKycDocType, residenceKycDocNumber: $residenceKycDocNumber, residenceKycDocFront: $residenceKycDocFront, residenceKycDocBack: $residenceKycDocBack, profilePictureFile: $profilePictureFile, originKycDocFrontFile: $originKycDocFrontFile, originKycDocBackFile: $originKycDocBackFile, residenceKycDocFrontFile: $residenceKycDocFrontFile, residenceKycDocBackFile: $residenceKycDocBackFile, listOfProfession: $listOfProfession, listOfCountry: $listOfCountry, listOfJapaneseProvince: $listOfJapaneseProvince, listOfJapaneseOriginCities: $listOfJapaneseOriginCities, listOfJapaneseResidenceCities: $listOfJapaneseResidenceCities, listOfNepaliProvince: $listOfNepaliProvince, listOfNepaliOriginDistrict: $listOfNepaliOriginDistrict, listOfNepaliResidenceDistrict: $listOfNepaliResidenceDistrict, listOfKycDocType: $listOfKycDocType, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'UpdateProfileState(key: $key, firstName: $firstName, lastName: $lastName, furigana: $furigana, fatherName: $fatherName, motherName: $motherName, grandFatherName: $grandFatherName, company: $company, profession: $profession, nationality: $nationality, documentIdentificationNumber: $documentIdentificationNumber, gender: $gender, maritalStatus: $maritalStatus, dob: $dob, community: $community, mobileNumber: $mobileNumber, otherPhone: $otherPhone, email: $email, originCountry: $originCountry, originPostalCode: $originPostalCode, originProvince: $originProvince, originCity: $originCity, originStreetAddress: $originStreetAddress, residenceCountry: $residenceCountry, residencePostalCode: $residencePostalCode, residenceProvince: $residenceProvince, residenceCity: $residenceCity, residenceStreetAddress: $residenceStreetAddress, profilePicture: $profilePicture, originKycDocType: $originKycDocType, originKycDocNumber: $originKycDocNumber, originKycDocFront: $originKycDocFront, originKycDocBack: $originKycDocBack, originDocIssuedFrom: $originDocIssuedFrom, originDocIssuedDate: $originDocIssuedDate, originDocIssuedYear: $originDocIssuedYear, originDocIssuedMonth: $originDocIssuedMonth, originDocIssuedDay: $originDocIssuedDay, residenceKycDocType: $residenceKycDocType, residenceKycDocNumber: $residenceKycDocNumber, residenceKycDocFront: $residenceKycDocFront, residenceKycDocBack: $residenceKycDocBack, profilePictureFile: $profilePictureFile, originKycDocFrontFile: $originKycDocFrontFile, originKycDocBackFile: $originKycDocBackFile, residenceKycDocFrontFile: $residenceKycDocFrontFile, residenceKycDocBackFile: $residenceKycDocBackFile, listOfProfession: $listOfProfession, listOfCountry: $listOfCountry, listOfJapaneseProvince: $listOfJapaneseProvince, listOfJapaneseOriginCities: $listOfJapaneseOriginCities, listOfJapaneseResidenceCities: $listOfJapaneseResidenceCities, listOfNepaliProvince: $listOfNepaliProvince, listOfNepaliOriginDistrict: $listOfNepaliOriginDistrict, listOfNepaliResidenceDistrict: $listOfNepaliResidenceDistrict, listOfKycDocType: $listOfKycDocType, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -16528,6 +17206,9 @@ class _$_UpdateProfileState implements _UpdateProfileState {
             (identical(other.originKycDocBack, originKycDocBack) || const DeepCollectionEquality().equals(other.originKycDocBack, originKycDocBack)) &&
             (identical(other.originDocIssuedFrom, originDocIssuedFrom) || const DeepCollectionEquality().equals(other.originDocIssuedFrom, originDocIssuedFrom)) &&
             (identical(other.originDocIssuedDate, originDocIssuedDate) || const DeepCollectionEquality().equals(other.originDocIssuedDate, originDocIssuedDate)) &&
+            (identical(other.originDocIssuedYear, originDocIssuedYear) || const DeepCollectionEquality().equals(other.originDocIssuedYear, originDocIssuedYear)) &&
+            (identical(other.originDocIssuedMonth, originDocIssuedMonth) || const DeepCollectionEquality().equals(other.originDocIssuedMonth, originDocIssuedMonth)) &&
+            (identical(other.originDocIssuedDay, originDocIssuedDay) || const DeepCollectionEquality().equals(other.originDocIssuedDay, originDocIssuedDay)) &&
             (identical(other.residenceKycDocType, residenceKycDocType) || const DeepCollectionEquality().equals(other.residenceKycDocType, residenceKycDocType)) &&
             (identical(other.residenceKycDocNumber, residenceKycDocNumber) || const DeepCollectionEquality().equals(other.residenceKycDocNumber, residenceKycDocNumber)) &&
             (identical(other.residenceKycDocFront, residenceKycDocFront) || const DeepCollectionEquality().equals(other.residenceKycDocFront, residenceKycDocFront)) &&
@@ -16588,6 +17269,9 @@ class _$_UpdateProfileState implements _UpdateProfileState {
       const DeepCollectionEquality().hash(originKycDocBack) ^
       const DeepCollectionEquality().hash(originDocIssuedFrom) ^
       const DeepCollectionEquality().hash(originDocIssuedDate) ^
+      const DeepCollectionEquality().hash(originDocIssuedYear) ^
+      const DeepCollectionEquality().hash(originDocIssuedMonth) ^
+      const DeepCollectionEquality().hash(originDocIssuedDay) ^
       const DeepCollectionEquality().hash(residenceKycDocType) ^
       const DeepCollectionEquality().hash(residenceKycDocNumber) ^
       const DeepCollectionEquality().hash(residenceKycDocFront) ^
@@ -16652,6 +17336,9 @@ abstract class _UpdateProfileState implements UpdateProfileState {
           @required String originKycDocBack,
           @required String originDocIssuedFrom,
           @required String originDocIssuedDate,
+          @required String originDocIssuedYear,
+          @required String originDocIssuedMonth,
+          @required String originDocIssuedDay,
           @required String residenceKycDocType,
           @required String residenceKycDocNumber,
           @required String residenceKycDocFront,
@@ -16744,6 +17431,12 @@ abstract class _UpdateProfileState implements UpdateProfileState {
   String get originDocIssuedFrom;
   @override
   String get originDocIssuedDate;
+  @override
+  String get originDocIssuedYear;
+  @override
+  String get originDocIssuedMonth;
+  @override
+  String get originDocIssuedDay;
   @override
   String get residenceKycDocType;
   @override

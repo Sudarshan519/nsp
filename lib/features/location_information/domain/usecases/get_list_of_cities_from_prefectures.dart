@@ -26,7 +26,10 @@ class GetListOfCityFromPrefectures
 
     return result.fold(
       (failure) => Left(failure),
-      (data) => Right(data),
+      (data) {
+        data.removeWhere((value) => value == null);
+        return Right(data);
+      },
     );
   }
 }

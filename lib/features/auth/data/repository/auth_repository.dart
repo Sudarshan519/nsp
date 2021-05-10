@@ -150,7 +150,7 @@ class AuthRepositoryImpl implements AuthRepository {
         "last_name": lastName,
       };
 
-      if(photo != null){
+      if (photo != null) {
         params["avatar"] = photo;
       }
 
@@ -243,6 +243,29 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either<ApiFailure, WalletUser>> verifyUserForToken(WalletUser user) {
     // TODO: implement verifyUserForToken
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> getPasswordResetCode(String email) async {
+    return _postMethod(request: () {
+      return remoteDataSource.getPasswordChangeVerificationCode(email);
+    });
+  }
+
+  Future<Either<ApiFailure, Unit>> changePassword({
+    @required String email,
+    @required String code,
+    @required String password,
+    @required String verificationPassword,
+  }) async {
+    return _postMethod(request: () {
+      return remoteDataSource.passwordReset(
+        email: email,
+        code: code,
+        password: password,
+        verificationPassword: verificationPassword,
+      );
+    });
   }
 
   // MARK:- Private functions

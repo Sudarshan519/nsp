@@ -365,7 +365,8 @@ class _AgeInputField extends StatelessWidget {
     final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
-      buildWhen: (previous, current) => previous.age != current.age,
+      buildWhen: (previous, current) =>
+          previous.age != current.age || previous.dob != current.dob,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Age",
         child: InputTextWidget(

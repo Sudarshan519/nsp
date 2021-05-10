@@ -79,4 +79,5 @@ abstract class UpdateProfileEvent with _$UpdateProfileEvent {
       _SetInitialState;
   const factory UpdateProfileEvent.saveUserInfo() = _SaveUserInfo;
   const factory UpdateProfileEvent.saveDocumentInfo() = _SaveDocumentInfo;
+  const factory UpdateProfileEvent.saveUserImage(File image) = _SaveUserImage;
 }

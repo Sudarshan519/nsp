@@ -402,6 +402,7 @@ class _EndYearField extends StatelessWidget {
                   "2019",
                   "2020",
                   "2021",
+                  "Running",
                 ],
                 alignment: Alignment.topCenter,
                 onChanged: (value) => context
@@ -410,31 +411,32 @@ class _EndYearField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            SizedBox(
-              width: 120,
-              child: CustomDropDownWidget(
-                hintText: "Select Month",
-                value: state.endMonth,
-                alignment: Alignment.topCenter,
-                options: const [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ],
-                onChanged: (value) => context
-                    .read<UpdateWorkInfoActorBloc>()
-                    .add(UpdateWorkInfoActorEvent.changedEndMonth(value)),
+            if (state.endYear?.toLowerCase() != "running")
+              SizedBox(
+                width: 120,
+                child: CustomDropDownWidget(
+                  hintText: "Select Month",
+                  value: state.endMonth,
+                  alignment: Alignment.topCenter,
+                  options: const [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "July",
+                    "Aug",
+                    "Sep",
+                    "Oct",
+                    "Nov",
+                    "Dec",
+                  ],
+                  onChanged: (value) => context
+                      .read<UpdateWorkInfoActorBloc>()
+                      .add(UpdateWorkInfoActorEvent.changedEndMonth(value)),
+                ),
               ),
-            ),
           ],
         ),
       ),

@@ -23,11 +23,13 @@ import 'widgets/news/segmented_news_widget.dart';
 
 class HomePage extends StatelessWidget {
   final Function(int) changeTabPage;
+  final Function(int) changeResumeTabPage;
   final ScrollController _scrollController = ScrollController();
 
   HomePage({
     Key key,
     @required this.changeTabPage,
+    @required this.changeResumeTabPage,
   })  : assert(changeTabPage != null),
         super(key: key);
 
@@ -208,6 +210,7 @@ class HomePage extends StatelessWidget {
       userDetail: userDetail,
       data: resumeModel,
       changeTabPage: changeTabPage,
+      changeResumeTabPage: changeResumeTabPage,
     );
   }
 }
