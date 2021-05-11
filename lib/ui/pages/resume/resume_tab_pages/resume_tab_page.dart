@@ -52,6 +52,7 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
   Widget _resumeTabBody(BuildContext context, ResumeWatcherState state) {
     _children = getPages(state);
     return Column(
+      key:UniqueKey(),
       children: [
         TabBar(
           unselectedLabelColor: Palette.black,
@@ -143,7 +144,7 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
           "College/University Student",
           "Skilled Professional",
           "Cook",
-          "Dependement",
+          "Dependent",
           "Others"
         ],
         lang: state.language,

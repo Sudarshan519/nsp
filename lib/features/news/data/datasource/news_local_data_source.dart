@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -173,7 +172,7 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
     final listOfSelectedGenre = genres.where((genre) => genre.isSelected);
 
     final listOfSelectedGenreArray =
-        listOfSelectedGenre.map((genre) => genre.name).toList();
+        listOfSelectedGenre.map((genre) => genre.slug).toList();
 
     String selectedGenreString = "";
 

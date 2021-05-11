@@ -13,20 +13,24 @@ String genreModelToJson(List<GenreModel> data) =>
 class GenreModel extends Genre {
   GenreModel({
     @required String name,
+    @required String slug,
     @required String image,
   }) : super(
           name: name,
+          slug: slug,
           image: image,
           isSelected: false,
         );
 
   factory GenreModel.fromJson(Map<String, dynamic> json) => GenreModel(
         name: json["name"] as String,
+        slug: json["slug"] as String,
         image: json["image"] as String,
       );
 
   Map<String, dynamic> toJson() => {
         "name": name,
+        "slug": slug,
         "image": image,
       };
 }

@@ -70,7 +70,7 @@ class MyResumeWidget extends StatelessWidget {
                         svgAsset: "assets/images/resume/email.svg",
                         textStyle: TextStyle(
                           color: Palette.white,
-                          fontSize: 10,
+                          fontSize: 8,
                           fontWeight: FontWeight.w600,
                         ),
                         onTap: () {
@@ -640,7 +640,7 @@ class _DownloadButton extends StatelessWidget {
         svgAsset: "assets/images/resume/download_pdf.svg",
         textStyle: TextStyle(
           color: Palette.white,
-          fontSize: 10,
+          fontSize: 8,
           fontWeight: FontWeight.w600,
         ),
         onTap: () {
@@ -648,7 +648,11 @@ class _DownloadButton extends StatelessWidget {
                   message: AppConstants.resumeDownloadStarted)
               .show(context);
           context.read<DownloadPdfBloc>().add(
-              const DownloadPdfEvent.startDownloading(isLinkDownloaded: true));
+                const DownloadPdfEvent.startDownloading(
+                  isLinkDownloaded: true,
+                  lang: "en",
+                ),
+              );
         },
       ),
     );
@@ -668,7 +672,7 @@ class _ShareButton extends StatelessWidget {
         svgAsset: "assets/images/resume/share.svg",
         textStyle: TextStyle(
           color: Palette.white,
-          fontSize: 10,
+          fontSize: 8,
           fontWeight: FontWeight.w600,
         ),
         onTap: () {
@@ -676,7 +680,11 @@ class _ShareButton extends StatelessWidget {
                   message: AppConstants.resumeShareStarted)
               .show(context);
           context.read<DownloadPdfBloc>().add(
-              const DownloadPdfEvent.startDownloading(isLinkDownloaded: false));
+                const DownloadPdfEvent.startDownloading(
+                  isLinkDownloaded: false,
+                  lang: "en",
+                ),
+              );
         },
       ),
     );

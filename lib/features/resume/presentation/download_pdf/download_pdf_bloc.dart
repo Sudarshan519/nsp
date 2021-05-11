@@ -31,7 +31,7 @@ class DownloadPdfBloc extends Bloc<DownloadPdfEvent, DownloadPdfState> {
         _isLinkDownloaded = e.isLinkDownloaded;
 
         final result = await getDownloadablePdfLink(
-            GetDownloadablePdfLinkParams(lang: "en"));
+            GetDownloadablePdfLinkParams(lang: e.lang));
 
         yield result.fold(
           (failure) => _DownloadFailed(failure),

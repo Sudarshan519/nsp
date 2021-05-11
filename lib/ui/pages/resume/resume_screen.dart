@@ -71,8 +71,11 @@ class _DownloadButton extends StatelessWidget {
                         message: AppConstants.resumeDownloadStarted)
                     .show(context);
                 context.read<DownloadPdfBloc>().add(
-                    const DownloadPdfEvent.startDownloading(
-                        isLinkDownloaded: true));
+                      DownloadPdfEvent.startDownloading(
+                        isLinkDownloaded: true,
+                        lang: state.language,
+                      ),
+                    );
               },
               child: Padding(
                 padding: const EdgeInsets.only(right: 16),
@@ -109,8 +112,11 @@ class _ShareButton extends StatelessWidget {
                         message: AppConstants.resumeShareStarted)
                     .show(context);
                 context.read<DownloadPdfBloc>().add(
-                    const DownloadPdfEvent.startDownloading(
-                        isLinkDownloaded: false));
+                      DownloadPdfEvent.startDownloading(
+                        isLinkDownloaded: false,
+                        lang: state.language,
+                      ),
+                    );
               },
               child: Padding(
                 padding: const EdgeInsets.only(right: 16),

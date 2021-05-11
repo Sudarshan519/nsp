@@ -9,12 +9,9 @@ import 'package:wallet_app/features/news/domain/repository/news_repository.dart'
 
 @lazySingleton
 class GetNewsForYou
-    implements UsecaseStream<ApiFailure, List<NewsItem>, NoParams> {
+    implements Usecase<ApiFailure, List<NewsItem>, GetNewsForYouParams> {
   final NewsRepositoryProtocol repository;
   final NetworkInfo networkInfo;
-
-  int _page = 1;
-  List<NewsItem> _news;
 
   GetNewsForYou({
     @required this.repository,
@@ -22,29 +19,28 @@ class GetNewsForYou
   });
 
   @override
-  Stream<Either<ApiFailure, List<NewsItem>>> call(NoParams params) async* {
+  Future<Either<ApiFailure, List<NewsItem>>> call(
+      GetNewsForYouParams params) async {
     if (await networkInfo.isConnected) {
-      final remoteData = await repository.getNewsForYou(page: "$_page");
-      yield* remoteData.fold(
-        (failure) async* {
-          yield Left(failure);
+      final remoteData = await repository.getNewsForYou(page: params.page);
+      return remoteData.fold(
+        (failure) {
+          return Left(failure);
         },
-        (news) async* {
-          _page = int.parse(news.page) + 1;
-          if (_news == null) {
-            _news = news.data;
-          } else {
-            _news.addAll(news.data);
-          }
-          yield Right(_news);
+        (news) async {
+          return Right(news.data);
         },
       );
     } else {
-      yield const Left(ApiFailure.noInternetConnection());
+      return const Left(ApiFailure.noInternetConnection());
     }
   }
+}
 
-  void resetPage() {
-    _page = 1;
-  }
+class GetNewsForYouParams {
+  final String page;
+
+  GetNewsForYouParams({
+    @required this.page,
+  });
 }

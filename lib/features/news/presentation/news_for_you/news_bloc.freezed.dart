@@ -19,27 +19,8 @@ class _$NewsEventTearOff {
   }
 
 // ignore: unused_element
-  _OnSpanShotEvent onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event) {
-    return _OnSpanShotEvent(
-      event,
-    );
-  }
-
-// ignore: unused_element
-  _OnCompletedEvent onCompletedEvent(Either<ApiFailure, List<NewsItem>> event) {
-    return _OnCompletedEvent(
-      event,
-    );
-  }
-
-// ignore: unused_element
   _PullToRefresh pullToRefresh() {
     return const _PullToRefresh();
-  }
-
-// ignore: unused_element
-  _PaginateIfAvailable paginateIfAvailable() {
-    return const _PaginateIfAvailable();
   }
 }
 
@@ -52,36 +33,23 @@ mixin _$NewsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetchNewsData(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    @required
-        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     @required TResult pullToRefresh(),
-    @required TResult paginateIfAvailable(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetchNewsData(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     TResult pullToRefresh(),
-    TResult paginateIfAvailable(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetchNewsData(_FetchNewsData value),
-    @required TResult onSpanShotEvent(_OnSpanShotEvent value),
-    @required TResult onCompletedEvent(_OnCompletedEvent value),
     @required TResult pullToRefresh(_PullToRefresh value),
-    @required TResult paginateIfAvailable(_PaginateIfAvailable value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetchNewsData(_FetchNewsData value),
-    TResult onSpanShotEvent(_OnSpanShotEvent value),
-    TResult onCompletedEvent(_OnCompletedEvent value),
     TResult pullToRefresh(_PullToRefresh value),
-    TResult paginateIfAvailable(_PaginateIfAvailable value),
     @required TResult orElse(),
   });
 }
@@ -140,17 +108,10 @@ class _$_FetchNewsData implements _FetchNewsData {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetchNewsData(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    @required
-        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     @required TResult pullToRefresh(),
-    @required TResult paginateIfAvailable(),
   }) {
     assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
     return fetchNewsData();
   }
 
@@ -158,10 +119,7 @@ class _$_FetchNewsData implements _FetchNewsData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetchNewsData(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     TResult pullToRefresh(),
-    TResult paginateIfAvailable(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -175,16 +133,10 @@ class _$_FetchNewsData implements _FetchNewsData {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetchNewsData(_FetchNewsData value),
-    @required TResult onSpanShotEvent(_OnSpanShotEvent value),
-    @required TResult onCompletedEvent(_OnCompletedEvent value),
     @required TResult pullToRefresh(_PullToRefresh value),
-    @required TResult paginateIfAvailable(_PaginateIfAvailable value),
   }) {
     assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
     return fetchNewsData(this);
   }
 
@@ -192,10 +144,7 @@ class _$_FetchNewsData implements _FetchNewsData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetchNewsData(_FetchNewsData value),
-    TResult onSpanShotEvent(_OnSpanShotEvent value),
-    TResult onCompletedEvent(_OnCompletedEvent value),
     TResult pullToRefresh(_PullToRefresh value),
-    TResult paginateIfAvailable(_PaginateIfAvailable value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -208,283 +157,6 @@ class _$_FetchNewsData implements _FetchNewsData {
 
 abstract class _FetchNewsData implements NewsEvent {
   const factory _FetchNewsData() = _$_FetchNewsData;
-}
-
-/// @nodoc
-abstract class _$OnSpanShotEventCopyWith<$Res> {
-  factory _$OnSpanShotEventCopyWith(
-          _OnSpanShotEvent value, $Res Function(_OnSpanShotEvent) then) =
-      __$OnSpanShotEventCopyWithImpl<$Res>;
-  $Res call({Either<ApiFailure, List<NewsItem>> event});
-}
-
-/// @nodoc
-class __$OnSpanShotEventCopyWithImpl<$Res> extends _$NewsEventCopyWithImpl<$Res>
-    implements _$OnSpanShotEventCopyWith<$Res> {
-  __$OnSpanShotEventCopyWithImpl(
-      _OnSpanShotEvent _value, $Res Function(_OnSpanShotEvent) _then)
-      : super(_value, (v) => _then(v as _OnSpanShotEvent));
-
-  @override
-  _OnSpanShotEvent get _value => super._value as _OnSpanShotEvent;
-
-  @override
-  $Res call({
-    Object event = freezed,
-  }) {
-    return _then(_OnSpanShotEvent(
-      event == freezed
-          ? _value.event
-          : event as Either<ApiFailure, List<NewsItem>>,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_OnSpanShotEvent implements _OnSpanShotEvent {
-  const _$_OnSpanShotEvent(this.event) : assert(event != null);
-
-  @override
-  final Either<ApiFailure, List<NewsItem>> event;
-
-  @override
-  String toString() {
-    return 'NewsEvent.onSpanShotEvent(event: $event)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _OnSpanShotEvent &&
-            (identical(other.event, event) ||
-                const DeepCollectionEquality().equals(other.event, event)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(event);
-
-  @JsonKey(ignore: true)
-  @override
-  _$OnSpanShotEventCopyWith<_OnSpanShotEvent> get copyWith =>
-      __$OnSpanShotEventCopyWithImpl<_OnSpanShotEvent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fetchNewsData(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    @required
-        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
-    @required TResult pullToRefresh(),
-    @required TResult paginateIfAvailable(),
-  }) {
-    assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
-    assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
-    return onSpanShotEvent(event);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fetchNewsData(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
-    TResult pullToRefresh(),
-    TResult paginateIfAvailable(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (onSpanShotEvent != null) {
-      return onSpanShotEvent(event);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fetchNewsData(_FetchNewsData value),
-    @required TResult onSpanShotEvent(_OnSpanShotEvent value),
-    @required TResult onCompletedEvent(_OnCompletedEvent value),
-    @required TResult pullToRefresh(_PullToRefresh value),
-    @required TResult paginateIfAvailable(_PaginateIfAvailable value),
-  }) {
-    assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
-    assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
-    return onSpanShotEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fetchNewsData(_FetchNewsData value),
-    TResult onSpanShotEvent(_OnSpanShotEvent value),
-    TResult onCompletedEvent(_OnCompletedEvent value),
-    TResult pullToRefresh(_PullToRefresh value),
-    TResult paginateIfAvailable(_PaginateIfAvailable value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (onSpanShotEvent != null) {
-      return onSpanShotEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _OnSpanShotEvent implements NewsEvent {
-  const factory _OnSpanShotEvent(Either<ApiFailure, List<NewsItem>> event) =
-      _$_OnSpanShotEvent;
-
-  Either<ApiFailure, List<NewsItem>> get event;
-  @JsonKey(ignore: true)
-  _$OnSpanShotEventCopyWith<_OnSpanShotEvent> get copyWith;
-}
-
-/// @nodoc
-abstract class _$OnCompletedEventCopyWith<$Res> {
-  factory _$OnCompletedEventCopyWith(
-          _OnCompletedEvent value, $Res Function(_OnCompletedEvent) then) =
-      __$OnCompletedEventCopyWithImpl<$Res>;
-  $Res call({Either<ApiFailure, List<NewsItem>> event});
-}
-
-/// @nodoc
-class __$OnCompletedEventCopyWithImpl<$Res>
-    extends _$NewsEventCopyWithImpl<$Res>
-    implements _$OnCompletedEventCopyWith<$Res> {
-  __$OnCompletedEventCopyWithImpl(
-      _OnCompletedEvent _value, $Res Function(_OnCompletedEvent) _then)
-      : super(_value, (v) => _then(v as _OnCompletedEvent));
-
-  @override
-  _OnCompletedEvent get _value => super._value as _OnCompletedEvent;
-
-  @override
-  $Res call({
-    Object event = freezed,
-  }) {
-    return _then(_OnCompletedEvent(
-      event == freezed
-          ? _value.event
-          : event as Either<ApiFailure, List<NewsItem>>,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_OnCompletedEvent implements _OnCompletedEvent {
-  const _$_OnCompletedEvent(this.event) : assert(event != null);
-
-  @override
-  final Either<ApiFailure, List<NewsItem>> event;
-
-  @override
-  String toString() {
-    return 'NewsEvent.onCompletedEvent(event: $event)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _OnCompletedEvent &&
-            (identical(other.event, event) ||
-                const DeepCollectionEquality().equals(other.event, event)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(event);
-
-  @JsonKey(ignore: true)
-  @override
-  _$OnCompletedEventCopyWith<_OnCompletedEvent> get copyWith =>
-      __$OnCompletedEventCopyWithImpl<_OnCompletedEvent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fetchNewsData(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    @required
-        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
-    @required TResult pullToRefresh(),
-    @required TResult paginateIfAvailable(),
-  }) {
-    assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
-    assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
-    return onCompletedEvent(event);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fetchNewsData(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
-    TResult pullToRefresh(),
-    TResult paginateIfAvailable(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (onCompletedEvent != null) {
-      return onCompletedEvent(event);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fetchNewsData(_FetchNewsData value),
-    @required TResult onSpanShotEvent(_OnSpanShotEvent value),
-    @required TResult onCompletedEvent(_OnCompletedEvent value),
-    @required TResult pullToRefresh(_PullToRefresh value),
-    @required TResult paginateIfAvailable(_PaginateIfAvailable value),
-  }) {
-    assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
-    assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
-    return onCompletedEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fetchNewsData(_FetchNewsData value),
-    TResult onSpanShotEvent(_OnSpanShotEvent value),
-    TResult onCompletedEvent(_OnCompletedEvent value),
-    TResult pullToRefresh(_PullToRefresh value),
-    TResult paginateIfAvailable(_PaginateIfAvailable value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (onCompletedEvent != null) {
-      return onCompletedEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _OnCompletedEvent implements NewsEvent {
-  const factory _OnCompletedEvent(Either<ApiFailure, List<NewsItem>> event) =
-      _$_OnCompletedEvent;
-
-  Either<ApiFailure, List<NewsItem>> get event;
-  @JsonKey(ignore: true)
-  _$OnCompletedEventCopyWith<_OnCompletedEvent> get copyWith;
 }
 
 /// @nodoc
@@ -526,17 +198,10 @@ class _$_PullToRefresh implements _PullToRefresh {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetchNewsData(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    @required
-        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     @required TResult pullToRefresh(),
-    @required TResult paginateIfAvailable(),
   }) {
     assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
     return pullToRefresh();
   }
 
@@ -544,10 +209,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetchNewsData(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
     TResult pullToRefresh(),
-    TResult paginateIfAvailable(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -561,16 +223,10 @@ class _$_PullToRefresh implements _PullToRefresh {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetchNewsData(_FetchNewsData value),
-    @required TResult onSpanShotEvent(_OnSpanShotEvent value),
-    @required TResult onCompletedEvent(_OnCompletedEvent value),
     @required TResult pullToRefresh(_PullToRefresh value),
-    @required TResult paginateIfAvailable(_PaginateIfAvailable value),
   }) {
     assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
     assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
     return pullToRefresh(this);
   }
 
@@ -578,10 +234,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetchNewsData(_FetchNewsData value),
-    TResult onSpanShotEvent(_OnSpanShotEvent value),
-    TResult onCompletedEvent(_OnCompletedEvent value),
     TResult pullToRefresh(_PullToRefresh value),
-    TResult paginateIfAvailable(_PaginateIfAvailable value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -597,123 +250,8 @@ abstract class _PullToRefresh implements NewsEvent {
 }
 
 /// @nodoc
-abstract class _$PaginateIfAvailableCopyWith<$Res> {
-  factory _$PaginateIfAvailableCopyWith(_PaginateIfAvailable value,
-          $Res Function(_PaginateIfAvailable) then) =
-      __$PaginateIfAvailableCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$PaginateIfAvailableCopyWithImpl<$Res>
-    extends _$NewsEventCopyWithImpl<$Res>
-    implements _$PaginateIfAvailableCopyWith<$Res> {
-  __$PaginateIfAvailableCopyWithImpl(
-      _PaginateIfAvailable _value, $Res Function(_PaginateIfAvailable) _then)
-      : super(_value, (v) => _then(v as _PaginateIfAvailable));
-
-  @override
-  _PaginateIfAvailable get _value => super._value as _PaginateIfAvailable;
-}
-
-/// @nodoc
-class _$_PaginateIfAvailable implements _PaginateIfAvailable {
-  const _$_PaginateIfAvailable();
-
-  @override
-  String toString() {
-    return 'NewsEvent.paginateIfAvailable()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PaginateIfAvailable);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fetchNewsData(),
-    @required TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    @required
-        TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
-    @required TResult pullToRefresh(),
-    @required TResult paginateIfAvailable(),
-  }) {
-    assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
-    assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
-    return paginateIfAvailable();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fetchNewsData(),
-    TResult onSpanShotEvent(Either<ApiFailure, List<NewsItem>> event),
-    TResult onCompletedEvent(Either<ApiFailure, List<NewsItem>> event),
-    TResult pullToRefresh(),
-    TResult paginateIfAvailable(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (paginateIfAvailable != null) {
-      return paginateIfAvailable();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fetchNewsData(_FetchNewsData value),
-    @required TResult onSpanShotEvent(_OnSpanShotEvent value),
-    @required TResult onCompletedEvent(_OnCompletedEvent value),
-    @required TResult pullToRefresh(_PullToRefresh value),
-    @required TResult paginateIfAvailable(_PaginateIfAvailable value),
-  }) {
-    assert(fetchNewsData != null);
-    assert(onSpanShotEvent != null);
-    assert(onCompletedEvent != null);
-    assert(pullToRefresh != null);
-    assert(paginateIfAvailable != null);
-    return paginateIfAvailable(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fetchNewsData(_FetchNewsData value),
-    TResult onSpanShotEvent(_OnSpanShotEvent value),
-    TResult onCompletedEvent(_OnCompletedEvent value),
-    TResult pullToRefresh(_PullToRefresh value),
-    TResult paginateIfAvailable(_PaginateIfAvailable value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (paginateIfAvailable != null) {
-      return paginateIfAvailable(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PaginateIfAvailable implements NewsEvent {
-  const factory _PaginateIfAvailable() = _$_PaginateIfAvailable;
-}
-
-/// @nodoc
 class _$NewsStateTearOff {
   const _$NewsStateTearOff();
-
-// ignore: unused_element
-  _Initial initial() {
-    return const _Initial();
-  }
 
 // ignore: unused_element
   _Loading loading() {
@@ -735,15 +273,10 @@ class _$NewsStateTearOff {
   }
 
 // ignore: unused_element
-  _ShowPullToRefresh showPullToRefresh(List<NewsItem> newsData) {
-    return _ShowPullToRefresh(
-      newsData,
-    );
-  }
-
-// ignore: unused_element
-  _Pagination pagination(List<NewsItem> newsData) {
-    return _Pagination(
+  _FailureWithData failureWithData(
+      ApiFailure failure, List<NewsItem> newsData) {
+    return _FailureWithData(
+      failure,
       newsData,
     );
   }
@@ -764,43 +297,36 @@ const $NewsState = _$NewsStateTearOff();
 mixin _$NewsState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
     @required TResult loading(),
     @required TResult loadingWith(List<NewsItem> offlinedata),
     @required TResult loaded(List<NewsItem> newsData),
-    @required TResult showPullToRefresh(List<NewsItem> newsData),
-    @required TResult pagination(List<NewsItem> newsData),
+    @required
+        TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     @required TResult failure(ApiFailure failure),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
     TResult loading(),
     TResult loadingWith(List<NewsItem> offlinedata),
     TResult loaded(List<NewsItem> newsData),
-    TResult showPullToRefresh(List<NewsItem> newsData),
-    TResult pagination(List<NewsItem> newsData),
+    TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loadingWith(_LoadingWith value),
     @required TResult loaded(_Loaded value),
-    @required TResult showPullToRefresh(_ShowPullToRefresh value),
-    @required TResult pagination(_Pagination value),
+    @required TResult failureWithData(_FailureWithData value),
     @required TResult failure(_Failure value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loadingWith(_LoadingWith value),
     TResult loaded(_Loaded value),
-    TResult showPullToRefresh(_ShowPullToRefresh value),
-    TResult pagination(_Pagination value),
+    TResult failureWithData(_FailureWithData value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   });
@@ -819,124 +345,6 @@ class _$NewsStateCopyWithImpl<$Res> implements $NewsStateCopyWith<$Res> {
   final NewsState _value;
   // ignore: unused_field
   final $Res Function(NewsState) _then;
-}
-
-/// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
-}
-
-/// @nodoc
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'NewsState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loadingWith(List<NewsItem> offlinedata),
-    @required TResult loaded(List<NewsItem> newsData),
-    @required TResult showPullToRefresh(List<NewsItem> newsData),
-    @required TResult pagination(List<NewsItem> newsData),
-    @required TResult failure(ApiFailure failure),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loadingWith != null);
-    assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
-    assert(failure != null);
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loadingWith(List<NewsItem> offlinedata),
-    TResult loaded(List<NewsItem> newsData),
-    TResult showPullToRefresh(List<NewsItem> newsData),
-    TResult pagination(List<NewsItem> newsData),
-    TResult failure(ApiFailure failure),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loading(_Loading value),
-    @required TResult loadingWith(_LoadingWith value),
-    @required TResult loaded(_Loaded value),
-    @required TResult showPullToRefresh(_ShowPullToRefresh value),
-    @required TResult pagination(_Pagination value),
-    @required TResult failure(_Failure value),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loadingWith != null);
-    assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
-    assert(failure != null);
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loading(_Loading value),
-    TResult loadingWith(_LoadingWith value),
-    TResult loaded(_Loaded value),
-    TResult showPullToRefresh(_ShowPullToRefresh value),
-    TResult pagination(_Pagination value),
-    TResult failure(_Failure value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements NewsState {
-  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -975,20 +383,17 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
     @required TResult loading(),
     @required TResult loadingWith(List<NewsItem> offlinedata),
     @required TResult loaded(List<NewsItem> newsData),
-    @required TResult showPullToRefresh(List<NewsItem> newsData),
-    @required TResult pagination(List<NewsItem> newsData),
+    @required
+        TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     @required TResult failure(ApiFailure failure),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
     return loading();
   }
@@ -996,12 +401,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
     TResult loading(),
     TResult loadingWith(List<NewsItem> offlinedata),
     TResult loaded(List<NewsItem> newsData),
-    TResult showPullToRefresh(List<NewsItem> newsData),
-    TResult pagination(List<NewsItem> newsData),
+    TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -1015,20 +418,16 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loadingWith(_LoadingWith value),
     @required TResult loaded(_Loaded value),
-    @required TResult showPullToRefresh(_ShowPullToRefresh value),
-    @required TResult pagination(_Pagination value),
+    @required TResult failureWithData(_FailureWithData value),
     @required TResult failure(_Failure value),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
     return loading(this);
   }
@@ -1036,12 +435,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loadingWith(_LoadingWith value),
     TResult loaded(_Loaded value),
-    TResult showPullToRefresh(_ShowPullToRefresh value),
-    TResult pagination(_Pagination value),
+    TResult failureWithData(_FailureWithData value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   }) {
@@ -1120,20 +517,17 @@ class _$_LoadingWith implements _LoadingWith {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
     @required TResult loading(),
     @required TResult loadingWith(List<NewsItem> offlinedata),
     @required TResult loaded(List<NewsItem> newsData),
-    @required TResult showPullToRefresh(List<NewsItem> newsData),
-    @required TResult pagination(List<NewsItem> newsData),
+    @required
+        TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     @required TResult failure(ApiFailure failure),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
     return loadingWith(offlinedata);
   }
@@ -1141,12 +535,10 @@ class _$_LoadingWith implements _LoadingWith {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
     TResult loading(),
     TResult loadingWith(List<NewsItem> offlinedata),
     TResult loaded(List<NewsItem> newsData),
-    TResult showPullToRefresh(List<NewsItem> newsData),
-    TResult pagination(List<NewsItem> newsData),
+    TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -1160,20 +552,16 @@ class _$_LoadingWith implements _LoadingWith {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loadingWith(_LoadingWith value),
     @required TResult loaded(_Loaded value),
-    @required TResult showPullToRefresh(_ShowPullToRefresh value),
-    @required TResult pagination(_Pagination value),
+    @required TResult failureWithData(_FailureWithData value),
     @required TResult failure(_Failure value),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
     return loadingWith(this);
   }
@@ -1181,12 +569,10 @@ class _$_LoadingWith implements _LoadingWith {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loadingWith(_LoadingWith value),
     TResult loaded(_Loaded value),
-    TResult showPullToRefresh(_ShowPullToRefresh value),
-    TResult pagination(_Pagination value),
+    TResult failureWithData(_FailureWithData value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   }) {
@@ -1265,20 +651,17 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
     @required TResult loading(),
     @required TResult loadingWith(List<NewsItem> offlinedata),
     @required TResult loaded(List<NewsItem> newsData),
-    @required TResult showPullToRefresh(List<NewsItem> newsData),
-    @required TResult pagination(List<NewsItem> newsData),
+    @required
+        TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     @required TResult failure(ApiFailure failure),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
     return loaded(newsData);
   }
@@ -1286,12 +669,10 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
     TResult loading(),
     TResult loadingWith(List<NewsItem> offlinedata),
     TResult loaded(List<NewsItem> newsData),
-    TResult showPullToRefresh(List<NewsItem> newsData),
-    TResult pagination(List<NewsItem> newsData),
+    TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -1305,20 +686,16 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loadingWith(_LoadingWith value),
     @required TResult loaded(_Loaded value),
-    @required TResult showPullToRefresh(_ShowPullToRefresh value),
-    @required TResult pagination(_Pagination value),
+    @required TResult failureWithData(_FailureWithData value),
     @required TResult failure(_Failure value),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
     return loaded(this);
   }
@@ -1326,12 +703,10 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loadingWith(_LoadingWith value),
     TResult loaded(_Loaded value),
-    TResult showPullToRefresh(_ShowPullToRefresh value),
-    TResult pagination(_Pagination value),
+    TResult failureWithData(_FailureWithData value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   }) {
@@ -1352,50 +727,70 @@ abstract class _Loaded implements NewsState {
 }
 
 /// @nodoc
-abstract class _$ShowPullToRefreshCopyWith<$Res> {
-  factory _$ShowPullToRefreshCopyWith(
-          _ShowPullToRefresh value, $Res Function(_ShowPullToRefresh) then) =
-      __$ShowPullToRefreshCopyWithImpl<$Res>;
-  $Res call({List<NewsItem> newsData});
+abstract class _$FailureWithDataCopyWith<$Res> {
+  factory _$FailureWithDataCopyWith(
+          _FailureWithData value, $Res Function(_FailureWithData) then) =
+      __$FailureWithDataCopyWithImpl<$Res>;
+  $Res call({ApiFailure failure, List<NewsItem> newsData});
+
+  $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$ShowPullToRefreshCopyWithImpl<$Res>
-    extends _$NewsStateCopyWithImpl<$Res>
-    implements _$ShowPullToRefreshCopyWith<$Res> {
-  __$ShowPullToRefreshCopyWithImpl(
-      _ShowPullToRefresh _value, $Res Function(_ShowPullToRefresh) _then)
-      : super(_value, (v) => _then(v as _ShowPullToRefresh));
+class __$FailureWithDataCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
+    implements _$FailureWithDataCopyWith<$Res> {
+  __$FailureWithDataCopyWithImpl(
+      _FailureWithData _value, $Res Function(_FailureWithData) _then)
+      : super(_value, (v) => _then(v as _FailureWithData));
 
   @override
-  _ShowPullToRefresh get _value => super._value as _ShowPullToRefresh;
+  _FailureWithData get _value => super._value as _FailureWithData;
 
   @override
   $Res call({
+    Object failure = freezed,
     Object newsData = freezed,
   }) {
-    return _then(_ShowPullToRefresh(
+    return _then(_FailureWithData(
+      failure == freezed ? _value.failure : failure as ApiFailure,
       newsData == freezed ? _value.newsData : newsData as List<NewsItem>,
     ));
+  }
+
+  @override
+  $ApiFailureCopyWith<$Res> get failure {
+    if (_value.failure == null) {
+      return null;
+    }
+    return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
   }
 }
 
 /// @nodoc
-class _$_ShowPullToRefresh implements _ShowPullToRefresh {
-  const _$_ShowPullToRefresh(this.newsData) : assert(newsData != null);
+class _$_FailureWithData implements _FailureWithData {
+  const _$_FailureWithData(this.failure, this.newsData)
+      : assert(failure != null),
+        assert(newsData != null);
 
+  @override
+  final ApiFailure failure;
   @override
   final List<NewsItem> newsData;
 
   @override
   String toString() {
-    return 'NewsState.showPullToRefresh(newsData: $newsData)';
+    return 'NewsState.failureWithData(failure: $failure, newsData: $newsData)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ShowPullToRefresh &&
+        (other is _FailureWithData &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality()
+                    .equals(other.failure, failure)) &&
             (identical(other.newsData, newsData) ||
                 const DeepCollectionEquality()
                     .equals(other.newsData, newsData)));
@@ -1403,49 +798,46 @@ class _$_ShowPullToRefresh implements _ShowPullToRefresh {
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(newsData);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failure) ^
+      const DeepCollectionEquality().hash(newsData);
 
   @JsonKey(ignore: true)
   @override
-  _$ShowPullToRefreshCopyWith<_ShowPullToRefresh> get copyWith =>
-      __$ShowPullToRefreshCopyWithImpl<_ShowPullToRefresh>(this, _$identity);
+  _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
+      __$FailureWithDataCopyWithImpl<_FailureWithData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
     @required TResult loading(),
     @required TResult loadingWith(List<NewsItem> offlinedata),
     @required TResult loaded(List<NewsItem> newsData),
-    @required TResult showPullToRefresh(List<NewsItem> newsData),
-    @required TResult pagination(List<NewsItem> newsData),
+    @required
+        TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     @required TResult failure(ApiFailure failure),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
-    return showPullToRefresh(newsData);
+    return failureWithData(this.failure, newsData);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
     TResult loading(),
     TResult loadingWith(List<NewsItem> offlinedata),
     TResult loaded(List<NewsItem> newsData),
-    TResult showPullToRefresh(List<NewsItem> newsData),
-    TResult pagination(List<NewsItem> newsData),
+    TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (showPullToRefresh != null) {
-      return showPullToRefresh(newsData);
+    if (failureWithData != null) {
+      return failureWithData(this.failure, newsData);
     }
     return orElse();
   }
@@ -1453,198 +845,46 @@ class _$_ShowPullToRefresh implements _ShowPullToRefresh {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loadingWith(_LoadingWith value),
     @required TResult loaded(_Loaded value),
-    @required TResult showPullToRefresh(_ShowPullToRefresh value),
-    @required TResult pagination(_Pagination value),
+    @required TResult failureWithData(_FailureWithData value),
     @required TResult failure(_Failure value),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
-    return showPullToRefresh(this);
+    return failureWithData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loadingWith(_LoadingWith value),
     TResult loaded(_Loaded value),
-    TResult showPullToRefresh(_ShowPullToRefresh value),
-    TResult pagination(_Pagination value),
+    TResult failureWithData(_FailureWithData value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (showPullToRefresh != null) {
-      return showPullToRefresh(this);
+    if (failureWithData != null) {
+      return failureWithData(this);
     }
     return orElse();
   }
 }
 
-abstract class _ShowPullToRefresh implements NewsState {
-  const factory _ShowPullToRefresh(List<NewsItem> newsData) =
-      _$_ShowPullToRefresh;
+abstract class _FailureWithData implements NewsState {
+  const factory _FailureWithData(ApiFailure failure, List<NewsItem> newsData) =
+      _$_FailureWithData;
 
+  ApiFailure get failure;
   List<NewsItem> get newsData;
   @JsonKey(ignore: true)
-  _$ShowPullToRefreshCopyWith<_ShowPullToRefresh> get copyWith;
-}
-
-/// @nodoc
-abstract class _$PaginationCopyWith<$Res> {
-  factory _$PaginationCopyWith(
-          _Pagination value, $Res Function(_Pagination) then) =
-      __$PaginationCopyWithImpl<$Res>;
-  $Res call({List<NewsItem> newsData});
-}
-
-/// @nodoc
-class __$PaginationCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
-    implements _$PaginationCopyWith<$Res> {
-  __$PaginationCopyWithImpl(
-      _Pagination _value, $Res Function(_Pagination) _then)
-      : super(_value, (v) => _then(v as _Pagination));
-
-  @override
-  _Pagination get _value => super._value as _Pagination;
-
-  @override
-  $Res call({
-    Object newsData = freezed,
-  }) {
-    return _then(_Pagination(
-      newsData == freezed ? _value.newsData : newsData as List<NewsItem>,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_Pagination implements _Pagination {
-  const _$_Pagination(this.newsData) : assert(newsData != null);
-
-  @override
-  final List<NewsItem> newsData;
-
-  @override
-  String toString() {
-    return 'NewsState.pagination(newsData: $newsData)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Pagination &&
-            (identical(other.newsData, newsData) ||
-                const DeepCollectionEquality()
-                    .equals(other.newsData, newsData)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(newsData);
-
-  @JsonKey(ignore: true)
-  @override
-  _$PaginationCopyWith<_Pagination> get copyWith =>
-      __$PaginationCopyWithImpl<_Pagination>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loadingWith(List<NewsItem> offlinedata),
-    @required TResult loaded(List<NewsItem> newsData),
-    @required TResult showPullToRefresh(List<NewsItem> newsData),
-    @required TResult pagination(List<NewsItem> newsData),
-    @required TResult failure(ApiFailure failure),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loadingWith != null);
-    assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
-    assert(failure != null);
-    return pagination(newsData);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loadingWith(List<NewsItem> offlinedata),
-    TResult loaded(List<NewsItem> newsData),
-    TResult showPullToRefresh(List<NewsItem> newsData),
-    TResult pagination(List<NewsItem> newsData),
-    TResult failure(ApiFailure failure),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (pagination != null) {
-      return pagination(newsData);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loading(_Loading value),
-    @required TResult loadingWith(_LoadingWith value),
-    @required TResult loaded(_Loaded value),
-    @required TResult showPullToRefresh(_ShowPullToRefresh value),
-    @required TResult pagination(_Pagination value),
-    @required TResult failure(_Failure value),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loadingWith != null);
-    assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
-    assert(failure != null);
-    return pagination(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loading(_Loading value),
-    TResult loadingWith(_LoadingWith value),
-    TResult loaded(_Loaded value),
-    TResult showPullToRefresh(_ShowPullToRefresh value),
-    TResult pagination(_Pagination value),
-    TResult failure(_Failure value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (pagination != null) {
-      return pagination(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Pagination implements NewsState {
-  const factory _Pagination(List<NewsItem> newsData) = _$_Pagination;
-
-  List<NewsItem> get newsData;
-  @JsonKey(ignore: true)
-  _$PaginationCopyWith<_Pagination> get copyWith;
+  _$FailureWithDataCopyWith<_FailureWithData> get copyWith;
 }
 
 /// @nodoc
@@ -1717,20 +957,17 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
     @required TResult loading(),
     @required TResult loadingWith(List<NewsItem> offlinedata),
     @required TResult loaded(List<NewsItem> newsData),
-    @required TResult showPullToRefresh(List<NewsItem> newsData),
-    @required TResult pagination(List<NewsItem> newsData),
+    @required
+        TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     @required TResult failure(ApiFailure failure),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
     return failure(this.failure);
   }
@@ -1738,12 +975,10 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
     TResult loading(),
     TResult loadingWith(List<NewsItem> offlinedata),
     TResult loaded(List<NewsItem> newsData),
-    TResult showPullToRefresh(List<NewsItem> newsData),
-    TResult pagination(List<NewsItem> newsData),
+    TResult failureWithData(ApiFailure failure, List<NewsItem> newsData),
     TResult failure(ApiFailure failure),
     @required TResult orElse(),
   }) {
@@ -1757,20 +992,16 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
     @required TResult loading(_Loading value),
     @required TResult loadingWith(_LoadingWith value),
     @required TResult loaded(_Loaded value),
-    @required TResult showPullToRefresh(_ShowPullToRefresh value),
-    @required TResult pagination(_Pagination value),
+    @required TResult failureWithData(_FailureWithData value),
     @required TResult failure(_Failure value),
   }) {
-    assert(initial != null);
     assert(loading != null);
     assert(loadingWith != null);
     assert(loaded != null);
-    assert(showPullToRefresh != null);
-    assert(pagination != null);
+    assert(failureWithData != null);
     assert(failure != null);
     return failure(this);
   }
@@ -1778,12 +1009,10 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
     TResult loading(_Loading value),
     TResult loadingWith(_LoadingWith value),
     TResult loaded(_Loaded value),
-    TResult showPullToRefresh(_ShowPullToRefresh value),
-    TResult pagination(_Pagination value),
+    TResult failureWithData(_FailureWithData value),
     TResult failure(_Failure value),
     @required TResult orElse(),
   }) {

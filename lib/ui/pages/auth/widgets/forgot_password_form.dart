@@ -176,6 +176,7 @@ class ForgetPasswordFormWidget extends StatelessWidget {
           LoginTextFormDecoration(
             child: InputTextWidget(
               hintText: "Password",
+              obscureText: true,
               value: _password,
               prefixIcon: SvgPicture.asset(
                 "assets/images/auth/email.svg",
@@ -191,6 +192,7 @@ class ForgetPasswordFormWidget extends StatelessWidget {
             child: InputTextWidget(
               hintText: "confirm password",
               value: _verifyPassword,
+              obscureText: true,
               prefixIcon: SvgPicture.asset(
                 "assets/images/auth/lock.svg",
               ),

@@ -75,11 +75,12 @@ class DownloadResumeButton extends StatelessWidget {
       externalDir = await getApplicationDocumentsDirectory();
     }
     final documentDirectory = externalDir.path;
-    final File file = File('$documentDirectory/resume.pdf');
+    final String fileName = url.split('/').last ?? "resume.pdf";
+    final File file = File('$documentDirectory/$fileName');
     file.writeAsBytesSync(response.bodyBytes);
 
     Share.shareFiles(
-      ['$documentDirectory/resume.pdf'],
+      ['$documentDirectory/$fileName'],
       text:
           'Check out my resume auto generated resume from Nippon Secure Payment App.',
       subject: 'Resume generated from Nippon Secure Payment',

@@ -14,9 +14,11 @@ class _$DownloadPdfEventTearOff {
   const _$DownloadPdfEventTearOff();
 
 // ignore: unused_element
-  _StartDownloading startDownloading({@required bool isLinkDownloaded}) {
+  _StartDownloading startDownloading(
+      {@required bool isLinkDownloaded, @required String lang}) {
     return _StartDownloading(
       isLinkDownloaded: isLinkDownloaded,
+      lang: lang,
     );
   }
 }
@@ -28,14 +30,15 @@ const $DownloadPdfEvent = _$DownloadPdfEventTearOff();
 /// @nodoc
 mixin _$DownloadPdfEvent {
   bool get isLinkDownloaded;
+  String get lang;
 
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult startDownloading(bool isLinkDownloaded),
+    @required TResult startDownloading(bool isLinkDownloaded, String lang),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult startDownloading(bool isLinkDownloaded),
+    TResult startDownloading(bool isLinkDownloaded, String lang),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -57,7 +60,7 @@ abstract class $DownloadPdfEventCopyWith<$Res> {
   factory $DownloadPdfEventCopyWith(
           DownloadPdfEvent value, $Res Function(DownloadPdfEvent) then) =
       _$DownloadPdfEventCopyWithImpl<$Res>;
-  $Res call({bool isLinkDownloaded});
+  $Res call({bool isLinkDownloaded, String lang});
 }
 
 /// @nodoc
@@ -72,11 +75,13 @@ class _$DownloadPdfEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object isLinkDownloaded = freezed,
+    Object lang = freezed,
   }) {
     return _then(_value.copyWith(
       isLinkDownloaded: isLinkDownloaded == freezed
           ? _value.isLinkDownloaded
           : isLinkDownloaded as bool,
+      lang: lang == freezed ? _value.lang : lang as String,
     ));
   }
 }
@@ -88,7 +93,7 @@ abstract class _$StartDownloadingCopyWith<$Res>
           _StartDownloading value, $Res Function(_StartDownloading) then) =
       __$StartDownloadingCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLinkDownloaded});
+  $Res call({bool isLinkDownloaded, String lang});
 }
 
 /// @nodoc
@@ -105,26 +110,32 @@ class __$StartDownloadingCopyWithImpl<$Res>
   @override
   $Res call({
     Object isLinkDownloaded = freezed,
+    Object lang = freezed,
   }) {
     return _then(_StartDownloading(
       isLinkDownloaded: isLinkDownloaded == freezed
           ? _value.isLinkDownloaded
           : isLinkDownloaded as bool,
+      lang: lang == freezed ? _value.lang : lang as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_StartDownloading implements _StartDownloading {
-  const _$_StartDownloading({@required this.isLinkDownloaded})
-      : assert(isLinkDownloaded != null);
+  const _$_StartDownloading(
+      {@required this.isLinkDownloaded, @required this.lang})
+      : assert(isLinkDownloaded != null),
+        assert(lang != null);
 
   @override
   final bool isLinkDownloaded;
+  @override
+  final String lang;
 
   @override
   String toString() {
-    return 'DownloadPdfEvent.startDownloading(isLinkDownloaded: $isLinkDownloaded)';
+    return 'DownloadPdfEvent.startDownloading(isLinkDownloaded: $isLinkDownloaded, lang: $lang)';
   }
 
   @override
@@ -133,13 +144,16 @@ class _$_StartDownloading implements _StartDownloading {
         (other is _StartDownloading &&
             (identical(other.isLinkDownloaded, isLinkDownloaded) ||
                 const DeepCollectionEquality()
-                    .equals(other.isLinkDownloaded, isLinkDownloaded)));
+                    .equals(other.isLinkDownloaded, isLinkDownloaded)) &&
+            (identical(other.lang, lang) ||
+                const DeepCollectionEquality().equals(other.lang, lang)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(isLinkDownloaded);
+      const DeepCollectionEquality().hash(isLinkDownloaded) ^
+      const DeepCollectionEquality().hash(lang);
 
   @JsonKey(ignore: true)
   @override
@@ -149,21 +163,21 @@ class _$_StartDownloading implements _StartDownloading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult startDownloading(bool isLinkDownloaded),
+    @required TResult startDownloading(bool isLinkDownloaded, String lang),
   }) {
     assert(startDownloading != null);
-    return startDownloading(isLinkDownloaded);
+    return startDownloading(isLinkDownloaded, lang);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult startDownloading(bool isLinkDownloaded),
+    TResult startDownloading(bool isLinkDownloaded, String lang),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (startDownloading != null) {
-      return startDownloading(isLinkDownloaded);
+      return startDownloading(isLinkDownloaded, lang);
     }
     return orElse();
   }
@@ -192,11 +206,14 @@ class _$_StartDownloading implements _StartDownloading {
 }
 
 abstract class _StartDownloading implements DownloadPdfEvent {
-  const factory _StartDownloading({@required bool isLinkDownloaded}) =
-      _$_StartDownloading;
+  const factory _StartDownloading(
+      {@required bool isLinkDownloaded,
+      @required String lang}) = _$_StartDownloading;
 
   @override
   bool get isLinkDownloaded;
+  @override
+  String get lang;
   @override
   @JsonKey(ignore: true)
   _$StartDownloadingCopyWith<_StartDownloading> get copyWith;

@@ -51,26 +51,26 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                 _resumeHeader(context, success.data.userDetail),
             failure: (error) {
               Future.delayed(Duration.zero, () {
-              FlushbarHelper.createError(
-                message: error.failure.map(
-                  noInternetConnection: (error) => AppConstants.noNetwork,
-                  serverError: (error) => error.message,
-                  invalidUser: (error) => AppConstants.someThingWentWrong,
-                ),
-              ).show(context);
-            });
+                FlushbarHelper.createError(
+                  message: error.failure.map(
+                    noInternetConnection: (error) => AppConstants.noNetwork,
+                    serverError: (error) => error.message,
+                    invalidUser: (error) => AppConstants.someThingWentWrong,
+                  ),
+                ).show(context);
+              });
               return _resumeHeader(context, null);
             },
             failureWithData: (failure) {
               Future.delayed(Duration.zero, () {
-              FlushbarHelper.createError(
-                message: failure.failure.map(
-                  noInternetConnection: (error) => AppConstants.noNetwork,
-                  serverError: (error) => error.message,
-                  invalidUser: (error) => AppConstants.someThingWentWrong,
-                ),
-              ).show(context);
-            });
+                FlushbarHelper.createError(
+                  message: failure.failure.map(
+                    noInternetConnection: (error) => AppConstants.noNetwork,
+                    serverError: (error) => error.message,
+                    invalidUser: (error) => AppConstants.someThingWentWrong,
+                  ),
+                ).show(context);
+              });
               return _resumeHeader(context, failure.data.userDetail);
             },
           );
@@ -194,6 +194,7 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                     else
                       SizedBox(
                         height: 82,
+                        width: 82,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(41.0),
                           child: Image.file(

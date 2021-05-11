@@ -431,6 +431,7 @@ class _PersonalDocumentDetailPageState
                 // else
                 SizedBox(
                   height: 80,
+                  width: 80,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(40.0),
                     child: Image.file(

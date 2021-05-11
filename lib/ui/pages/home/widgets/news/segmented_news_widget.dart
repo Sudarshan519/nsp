@@ -57,7 +57,8 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
   Widget _header(BuildContext context) {
     return Container(
       height: 40,
-      margin: const EdgeInsets.symmetric(horizontal: 80),
+      width: 250,
+      // margin: const EdgeInsets.symmetric(horizontal: 80),
       decoration: BoxDecoration(
         color: Palette.primaryBackground,
         borderRadius: BorderRadius.circular(20),
@@ -163,7 +164,6 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
   Widget _forYouBody(BuildContext context) {
     return BlocBuilder<NewsBloc, NewsState>(builder: (context, state) {
       return state.map(
-        initial: (_) => const SizedBox.shrink(),
         loading: (_) => SizedBox(
           height: 70,
           child: loadingPage(),
@@ -176,9 +176,11 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
           final newsList = data.newsData;
           return _newsData(newsList);
         },
-        showPullToRefresh: (_) => const SizedBox.shrink(),
-        pagination: (_) => const SizedBox.shrink(),
         failure: (_) => const SizedBox.shrink(),
+        failureWithData: (data) {
+          final newsList = data.newsData;
+          return _newsData(newsList);
+        },
       );
     });
   }
@@ -187,7 +189,6 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
     return BlocBuilder<LatestNewsBloc, LatestNewsState>(
         builder: (context, state) {
       return state.map(
-        initial: (_) => const SizedBox.shrink(),
         loading: (_) => const SizedBox.shrink(),
         loadingWith: (data) {
           final newsList = data.offlinedata;
@@ -197,9 +198,11 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
           final newsList = data.newsData;
           return _newsData(newsList);
         },
-        showPullToRefresh: (_) => const SizedBox.shrink(),
-        pagination: (_) => const SizedBox.shrink(),
         failure: (_) => const SizedBox.shrink(),
+        failureWithData: (data) {
+          final newsList = data.newsData;
+          return _newsData(newsList);
+        },
       );
     });
   }

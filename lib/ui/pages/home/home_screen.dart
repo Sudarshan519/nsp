@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
                             !context.read<NewsBloc>().isFetching) {
                           debugPrint("home screen reached end");
                           context.read<NewsBloc>().add(
-                                const NewsEvent.paginateIfAvailable(),
+                                const NewsEvent.fetchNewsData(),
                               );
                         }
                       },

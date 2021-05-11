@@ -92,7 +92,7 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
             right: 16.0,
             bottom: 16.0,
           ),
-          height: 320.0,
+          height: 330.0,
           decoration: ShapeDecoration(
               color: Palette.white,
               shape: RoundedRectangleBorder(
@@ -235,10 +235,12 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
         externalDir = await getApplicationDocumentsDirectory();
       }
 
+      final String fileName = url.split('/').last;
+
       _taskId = await FlutterDownloader.enqueue(
         url: url,
         savedDir: externalDir.path,
-        fileName: "Resume.pdf",
+        fileName: fileName ?? "Resume.pdf",
       );
 
       FlutterDownloader.registerCallback(downloadCallback);

@@ -38,6 +38,7 @@ class TabBarScreenState extends State<TabBarScreen> {
             isScrollable: false,
             tabs: _tabBarData,
             selectedIndex: _selectedIndex,
+            labelPadding: EdgeInsets.zero,
           ),
         ),
         body: IndexedStack(

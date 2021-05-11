@@ -14,6 +14,7 @@ class NewsTabBar extends StatefulWidget {
   final int selectedIndex;
   final Function(int) onTap;
   final bool isScrollable;
+  final EdgeInsetsGeometry labelPadding;
 
   const NewsTabBar({
     Key key,
@@ -21,6 +22,7 @@ class NewsTabBar extends StatefulWidget {
     @required this.selectedIndex,
     @required this.onTap,
     @required this.isScrollable,
+    this.labelPadding,
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class _NewsTabBarState extends State<NewsTabBar> {
   @override
   Widget build(BuildContext context) {
     return TabBar(
+      labelPadding: widget.labelPadding ?? kTabLabelPadding,
       indicator: BoxDecoration(
         border: Border(
           bottom: BorderSide(

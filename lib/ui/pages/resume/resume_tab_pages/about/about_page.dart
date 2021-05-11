@@ -259,7 +259,7 @@ class _ProfessionInputField extends StatelessWidget {
             "College/University Student",
             "Skilled Professional",
             "Cook",
-            "Dependement",
+            "Dependent",
             "Others"
           ],
         ),
