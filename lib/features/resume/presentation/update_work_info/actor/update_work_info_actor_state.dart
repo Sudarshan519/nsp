@@ -3,6 +3,7 @@ part of 'update_work_info_actor_bloc.dart';
 @freezed
 abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
   const factory UpdateWorkInfoActorState({
+    @required Key key,
     @required String nameOfComapny,
     @required String companyType,
     @required String startedYear,
@@ -17,6 +18,7 @@ abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
   }) = _UpdateWorkInfoActorState;
 
   factory UpdateWorkInfoActorState.initial() => UpdateWorkInfoActorState(
+        key: UniqueKey(),
         nameOfComapny: '',
         companyType: '',
         startedYear: '',

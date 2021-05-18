@@ -41,7 +41,7 @@ class VerifyEmail implements Usecase<ApiFailure, Unit, VerifyEmailParams> {
   }
 
   Future<Either<ApiFailure, Unit>> getNewVerificationCode(String email) async {
-    return repository.getNewVerificationCode(email: email);
+    return repository.getNewEmailActivationCode(email: email);
   }
 }
 

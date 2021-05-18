@@ -254,14 +254,7 @@ class _ProfessionInputField extends StatelessWidget {
           value: state.profession,
           isEnable: false,
           alignment: Alignment.centerRight,
-          options: const [
-            "Language Student",
-            "College/University Student",
-            "Skilled Professional",
-            "Cook",
-            "Dependent",
-            "Others"
-          ],
+          options: state.listOfProfession,
         ),
       ),
     );

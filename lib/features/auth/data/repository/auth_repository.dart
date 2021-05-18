@@ -221,6 +221,15 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Either<ApiFailure, Unit>> getNewEmailActivationCode({
+    @required String email,
+  }) {
+    return _postMethod(request: () {
+      return remoteDataSource.emailActivationCode(email: email);
+    });
+  }
+
+  @override
   Future<Either<ApiFailure, Unit>> getNewVerificationCode({
     @required String email,
   }) {

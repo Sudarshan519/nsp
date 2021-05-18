@@ -100,10 +100,9 @@ class EditQualificationInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        if (state.hasSetInitialData) {
-          return _EditBasicInfoFormBody(key: UniqueKey());
-        }
-        return const _EditBasicInfoFormBody();
+        return _EditBasicInfoFormBody(
+          key: state.key,
+        );
       },
     );
   }

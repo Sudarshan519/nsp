@@ -13,9 +13,7 @@ import 'other/other_info.dart';
 
 class ResumeTabBarScreen extends StatefulWidget {
   static final GlobalKey<ResumeTabBarScreenState> globalKey = GlobalKey();
-  ResumeTabBarScreen({
-    Key key,
-  }) : super(key: globalKey);
+  ResumeTabBarScreen() : super(key: globalKey);
 
   @override
   State<StatefulWidget> createState() {
@@ -52,7 +50,7 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
   Widget _resumeTabBody(BuildContext context, ResumeWatcherState state) {
     _children = getPages(state);
     return Column(
-      key:UniqueKey(),
+      key: UniqueKey(),
       children: [
         TabBar(
           unselectedLabelColor: Palette.black,
@@ -139,14 +137,7 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
       AboutPage(
         info: state.info,
         listOfNationality: state?.options?.nationalities ?? [],
-        listOfProfession: const [
-          "Language Student",
-          "College/University Student",
-          "Skilled Professional",
-          "Cook",
-          "Dependent",
-          "Others"
-        ],
+        listOfProfession: state?.options?.professions ?? [],
         lang: state.language,
       ),
       AddressPage(

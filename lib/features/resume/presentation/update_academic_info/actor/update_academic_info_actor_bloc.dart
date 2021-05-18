@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
@@ -119,6 +120,7 @@ class UpdateAcademicInfoActorBloc
     _academicHistory = acadimicInfo;
     _lang = _setInitialState.lang;
     yield state.copyWith(
+      key: UniqueKey(),
       nameOfInstitute: acadimicInfo.institute ?? "",
       yearOFEnroll: acadimicInfo.startYear ?? "",
       monthOfEnroll: acadimicInfo.startMonth ?? "",

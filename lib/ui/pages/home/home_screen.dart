@@ -24,12 +24,14 @@ import 'widgets/news/segmented_news_widget.dart';
 class HomePage extends StatelessWidget {
   final Function(int) changeTabPage;
   final Function(int) changeResumeTabPage;
-  final ScrollController _scrollController = ScrollController();
+  final Function(int) changeNewsTabPage;
+  final ScrollController scrollController = ScrollController();
 
   HomePage({
     Key key,
     @required this.changeTabPage,
     @required this.changeResumeTabPage,
+    @required this.changeNewsTabPage,
   })  : assert(changeTabPage != null),
         super(key: key);
 
@@ -51,19 +53,7 @@ class HomePage extends StatelessWidget {
                   await Future.delayed(const Duration(seconds: 2), () {});
                 },
                 child: SingleChildScrollView(
-                  controller: _scrollController
-                    ..addListener(
-                      () {
-                        if (_scrollController.offset ==
-                                _scrollController.position.maxScrollExtent &&
-                            !context.read<NewsBloc>().isFetching) {
-                          debugPrint("home screen reached end");
-                          context.read<NewsBloc>().add(
-                                const NewsEvent.fetchNewsData(),
-                              );
-                        }
-                      },
-                    ),
+                  controller: scrollController,
                   child: Column(
                     children: [
                       const HomePageHeader(),
@@ -183,7 +173,11 @@ class HomePage extends StatelessWidget {
         return const BannerWidget();
 
       case HomeItemType.news:
-        return const SegmentedNewViewWidget();
+        return SegmentedNewViewWidget(
+          key: UniqueKey(),
+          changeTabPage: changeTabPage,
+          changeNewsTabPage: changeNewsTabPage,
+        );
 
       case HomeItemType.disaster_alert:
         return const SizedBox.shrink();

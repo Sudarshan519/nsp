@@ -36,6 +36,6 @@ class NewsPage extends StatelessWidget {
 class _NewsPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return TabBarScreen();
+    return NewsTabBarScreen();
   }
 }

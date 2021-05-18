@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
@@ -83,6 +84,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
         qualificationHistory != _qualificationHistory) {
       _qualificationHistory = qualificationHistory;
       yield state.copyWith(
+        key: UniqueKey(),
         qualificationName: qualificationHistory.qualificationName ?? "",
         certifiedYear: qualificationHistory.certifiedYear ?? "",
         certifiedMonth: qualificationHistory.certifiedMonth ?? "",

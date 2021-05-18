@@ -4,6 +4,7 @@ part of 'update_personal_info_actor_bloc.dart';
 abstract class UpdatePersonalInfoActorState
     with _$UpdatePersonalInfoActorState {
   const factory UpdatePersonalInfoActorState({
+    @required Key key,
     @required String firstName,
     @required String lastName,
     @required String furigana,
@@ -23,6 +24,7 @@ abstract class UpdatePersonalInfoActorState
 
   factory UpdatePersonalInfoActorState.initial() =>
       UpdatePersonalInfoActorState(
+        key: UniqueKey(),
         firstName: '',
         lastName: '',
         furigana: '',

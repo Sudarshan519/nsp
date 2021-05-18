@@ -210,7 +210,8 @@ class _TypeOfCompanyField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.companyType != current.companyType,
+          previous.companyType != current.companyType ||
+          previous.typeOfCompanyList != current.typeOfCompanyList,
       builder: (context, state) => FormFieldDecoration(
         title: "Company Type",
         child: CustomSearchableDropDownWidget(
@@ -218,29 +219,7 @@ class _TypeOfCompanyField extends StatelessWidget {
           value: state.companyType,
           alignment: Alignment.centerRight,
           isEnable: false,
-          options: const [
-            "Agriculture, Food and Natural Resources",
-            "Architecture and Construction",
-            "Arts, Audio/Video Technology and Communications",
-            "Business Management and Administration",
-            "Education and Training",
-            "Finance",
-            "Government and Public Administration",
-            "Health Science",
-            "Hospitality and Tourism",
-            "Human Services",
-            "Information Technology",
-            "Law, Public Safety, Corrections and Security",
-            "Manufacturing",
-            "Marketing, Sales and Service",
-            "Science, Technology, Engineering and Mathematics",
-            "Gaming",
-            "F&B",
-            "Advertisement and Marketing",
-            "Patrol and Curfews",
-            "Government Level",
-            "Others",
-          ],
+          options: state.typeOfCompanyList,
         ),
       ),
     );
@@ -406,30 +385,31 @@ class _EndMonthField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      buildWhen: (previous, current) => previous.endMonth != current.endMonth,
-      builder: (context, state) => FormFieldDecoration(
-        title: "End Month",
-        child: CustomSearchableDropDownWidget(
-          hintText: "Select Month",
-          value: state.endMonth,
-          isEnable: false,
-          alignment: Alignment.centerRight,
-          options: const [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "July",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
-        ),
-      ),
+      builder: (context, state) => state.endYear.toLowerCase() != "running"
+          ? FormFieldDecoration(
+              title: "End Month",
+              child: CustomSearchableDropDownWidget(
+                hintText: "Select Month",
+                value: state.endMonth,
+                isEnable: false,
+                alignment: Alignment.centerRight,
+                options: const [
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "July",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                ],
+              ),
+            )
+          : const SizedBox.shrink(),
     );
   }
 }
@@ -442,18 +422,18 @@ class _PurposeOfResignField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      // buildWhen: (previous, current) =>
-      //     previous.startedYear != current.startedYear,
-      builder: (context, state) => FormFieldDecoration(
-        title: "Purpose of Resign",
-        child: InputTextWidget(
-          hintText: "Purpose of Resign",
-          value: state.purposeOfResign,
-          textAlign: TextAlign.end,
-          isEnable: false,
-          onChanged: (value) {},
-        ),
-      ),
+      builder: (context, state) => state.endYear.toLowerCase() != "running"
+          ? FormFieldDecoration(
+              title: "Purpose of Resign",
+              child: InputTextWidget(
+                hintText: "Purpose of Resign",
+                value: state.purposeOfResign,
+                textAlign: TextAlign.end,
+                isEnable: false,
+                onChanged: (value) {},
+              ),
+            )
+          : const SizedBox.shrink(),
     );
   }
 }

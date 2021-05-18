@@ -61,6 +61,7 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
                   lastName: userDetails.lastName,
                   email: userDetails.email,
                 ),
+                options: resume.resumeData.data.en.options,
               );
               _japanese = ResumeData(
                 personalInfo: PersonalInfo(
@@ -68,6 +69,7 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
                   lastName: userDetails.lastName,
                   email: userDetails.email,
                 ),
+                options: resume.resumeData.data.jp.options,
               );
             } else {
               _english = resume.resumeData.data.en;

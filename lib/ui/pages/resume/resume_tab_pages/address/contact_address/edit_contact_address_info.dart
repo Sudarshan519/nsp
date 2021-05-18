@@ -115,10 +115,9 @@ class EditContactAddressInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        if (state.hasSetInitialData) {
-          return _EditBasicInfoFormBody(key: UniqueKey());
-        }
-        return const _EditBasicInfoFormBody();
+        return _EditBasicInfoFormBody(
+          key: state.key,
+        );
       },
     );
   }
@@ -413,9 +412,6 @@ class _PrefectureInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.contPrefecture != current.contPrefecture ||
-          previous.contCountry != current.contCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
         child: state.contCountry.toLowerCase() == "japan"
@@ -429,7 +425,7 @@ class _PrefectureInputField extends StatelessWidget {
                           value));
                 },
               )
-            : state.currCountry.toLowerCase() == "nepal"
+            : state.contCountry.toLowerCase() == "nepal"
                 ? CustomSearchableDropDownWidget(
                     hintText: "Prefecture",
                     value: state.contPrefecture,
@@ -462,25 +458,7 @@ class _CityInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
-    return BlocConsumer<UpdateAddressInfoActorBloc,
-        UpdateAddressInfoActorState>(
-      listenWhen: (previous, current) =>
-          previous.contCity != current.contCity ||
-          previous.contPrefecture != current.contPrefecture ||
-          previous.contCountry != current.contCountry,
-      listener: (context, state) {
-        final TextSelection previousSelection = _controller.selection;
-
-        _controller.text = state.contCity;
-
-        _controller.selection = previousSelection;
-      },
-      buildWhen: (previous, current) =>
-          previous.contCity != current.contCity ||
-          previous.contPrefecture != current.contPrefecture ||
-          previous.contCountry != current.contCountry ||
-          previous.listOfContCities != current.listOfContCities,
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
         child: state.contCountry.toLowerCase() == "japan"
@@ -494,15 +472,24 @@ class _CityInputField extends StatelessWidget {
                       .add(UpdateAddressInfoActorEvent.changedContCity(value));
                 },
               )
-            : InputTextWidget(
-                hintText: "City",
-                value: state.contCity,
-                onChanged: (value) {
-                  context
-                      .read<UpdateAddressInfoActorBloc>()
-                      .add(UpdateAddressInfoActorEvent.changedContCity(value));
-                },
-              ),
+            : state.contCountry.toLowerCase() == "nepal"
+                ? CustomSearchableDropDownWidget(
+                    hintText: "City",
+                    value: state.contCity,
+                    options: state.listOfContCities,
+                    onChanged: (value) {
+                      context.read<UpdateAddressInfoActorBloc>().add(
+                          UpdateAddressInfoActorEvent.changedContCity(value));
+                    },
+                  )
+                : InputTextWidget(
+                    hintText: "City",
+                    value: state.contCity,
+                    onChanged: (value) {
+                      context.read<UpdateAddressInfoActorBloc>().add(
+                          UpdateAddressInfoActorEvent.changedContCity(value));
+                    },
+                  ),
       ),
     );
   }
@@ -541,7 +528,6 @@ class _PhoneInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) {
         return previous.contPhone != current.contPhone;

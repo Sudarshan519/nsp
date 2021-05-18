@@ -130,7 +130,7 @@ class _VerifyUserPageBody extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "Did not receove the code?",
+          "Did not receive the code?",
           style: TextStyle(
             fontWeight: FontWeight.w500,
             color: Palette.blackTextColor,

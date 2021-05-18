@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
@@ -8,13 +9,20 @@ import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dar
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/alerts/tabs/alert_list_widget.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/widgets/news_item.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class SegmentedNewViewWidget extends StatefulWidget {
   const SegmentedNewViewWidget({
     Key key,
+    @required this.changeTabPage,
+    @required this.changeNewsTabPage,
   }) : super(key: key);
+
+  final Function(int) changeTabPage;
+  final Function(int) changeNewsTabPage;
 
   @override
   _SegmentedNewViewWidgetState createState() => _SegmentedNewViewWidgetState();
@@ -189,7 +197,10 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
     return BlocBuilder<LatestNewsBloc, LatestNewsState>(
         builder: (context, state) {
       return state.map(
-        loading: (_) => const SizedBox.shrink(),
+        loading: (_) => SizedBox(
+          height: 70,
+          child: loadingPage(),
+        ),
         loadingWith: (data) {
           final newsList = data.offlinedata;
           return _newsData(newsList);
@@ -226,9 +237,26 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
             },
           ),
           SizedBox(
-            height: 70,
+            height: 10,
             child: loadingPage(),
-          )
+          ),
+          Center(
+            child: CustomButton(
+              title: "View All",
+              textStyle: TextStyle(
+                color: Palette.white,
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
+              ),
+              onTap: () {
+                DefaultTabController.of(context).animateTo(2);
+                if (_selectedIndex == 1) {
+                  widget.changeNewsTabPage(1);
+                }
+                widget.changeTabPage(2);
+              },
+            ),
+          ),
         ],
       ),
     );
@@ -239,7 +267,10 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
         builder: (context, state) {
       return state.map(
         initial: (_) => const SizedBox.shrink(),
-        loading: (_) => const SizedBox.shrink(),
+        loading: (_) => SizedBox(
+          height: 70,
+          child: loadingPage(),
+        ),
         loadingWithData: (data) => _showAlertList(data.alerts),
         success: (success) => _showAlertList(success.alerts),
         failure: (failure) => const SizedBox.shrink(),
@@ -265,9 +296,22 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
             },
           ),
           SizedBox(
-            height: 70,
+            height: 10,
             child: loadingPage(),
-          )
+          ),
+          Center(
+            child: CustomButton(
+              title: "View All",
+              textStyle: TextStyle(
+                color: Palette.white,
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
+              ),
+              onTap: () {
+                ExtendedNavigator.of(context).push(Routes.alertsTabPage);
+              },
+            ),
+          ),
         ],
       ),
     );

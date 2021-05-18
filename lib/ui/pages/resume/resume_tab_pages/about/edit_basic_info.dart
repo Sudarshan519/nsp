@@ -111,10 +111,12 @@ class EditBasicInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        if (state.hasSetInitialData) {
-          return _EditBasicInfoFormBody(key: UniqueKey());
-        }
-        return const _EditBasicInfoFormBody();
+        // if (state.hasSetInitialData) {
+        //   return _EditBasicInfoFormBody(key: UniqueKey());
+        // }
+        return _EditBasicInfoFormBody(
+          key: state.key,
+        );
       },
     );
   }

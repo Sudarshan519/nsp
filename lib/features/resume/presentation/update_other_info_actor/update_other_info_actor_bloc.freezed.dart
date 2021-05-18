@@ -3253,7 +3253,8 @@ class _$UpdateOtherInfoActorStateTearOff {
 
 // ignore: unused_element
   _UpdateOtherInfoActorState call(
-      {@required List<String> languages,
+      {@required Key key,
+      @required List<String> languages,
       @required String JLPTLevel,
       @required String selfPR,
       @required String motivationsSpecialSkills,
@@ -3272,6 +3273,7 @@ class _$UpdateOtherInfoActorStateTearOff {
       @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateOtherInfoActorState(
+      key: key,
       languages: languages,
       JLPTLevel: JLPTLevel,
       selfPR: selfPR,
@@ -3300,6 +3302,7 @@ const $UpdateOtherInfoActorState = _$UpdateOtherInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdateOtherInfoActorState {
+  Key get key;
   List<String> get languages;
   String get JLPTLevel;
   String get selfPR;
@@ -3329,7 +3332,8 @@ abstract class $UpdateOtherInfoActorStateCopyWith<$Res> {
           $Res Function(UpdateOtherInfoActorState) then) =
       _$UpdateOtherInfoActorStateCopyWithImpl<$Res>;
   $Res call(
-      {List<String> languages,
+      {Key key,
+      List<String> languages,
       String JLPTLevel,
       String selfPR,
       String motivationsSpecialSkills,
@@ -3360,6 +3364,7 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object languages = freezed,
     Object JLPTLevel = freezed,
     Object selfPR = freezed,
@@ -3380,6 +3385,7 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      key: key == freezed ? _value.key : key as Key,
       languages:
           languages == freezed ? _value.languages : languages as List<String>,
       JLPTLevel: JLPTLevel == freezed ? _value.JLPTLevel : JLPTLevel as String,
@@ -3433,7 +3439,8 @@ abstract class _$UpdateOtherInfoActorStateCopyWith<$Res>
       __$UpdateOtherInfoActorStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<String> languages,
+      {Key key,
+      List<String> languages,
       String JLPTLevel,
       String selfPR,
       String motivationsSpecialSkills,
@@ -3467,6 +3474,7 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object languages = freezed,
     Object JLPTLevel = freezed,
     Object selfPR = freezed,
@@ -3487,6 +3495,7 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateOtherInfoActorState(
+      key: key == freezed ? _value.key : key as Key,
       languages:
           languages == freezed ? _value.languages : languages as List<String>,
       JLPTLevel: JLPTLevel == freezed ? _value.JLPTLevel : JLPTLevel as String,
@@ -3535,7 +3544,8 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   const _$_UpdateOtherInfoActorState(
-      {@required this.languages,
+      {@required this.key,
+      @required this.languages,
       @required this.JLPTLevel,
       @required this.selfPR,
       @required this.motivationsSpecialSkills,
@@ -3553,7 +3563,8 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
       @required this.isSubmitting,
       @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
-      : assert(languages != null),
+      : assert(key != null),
+        assert(languages != null),
         assert(JLPTLevel != null),
         assert(selfPR != null),
         assert(motivationsSpecialSkills != null),
@@ -3572,6 +3583,8 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
         assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
+  @override
+  final Key key;
   @override
   final List<String> languages;
   @override
@@ -3611,13 +3624,15 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
 
   @override
   String toString() {
-    return 'UpdateOtherInfoActorState(languages: $languages, JLPTLevel: $JLPTLevel, selfPR: $selfPR, motivationsSpecialSkills: $motivationsSpecialSkills, hobbies: $hobbies, skills: $skills, workinHours: $workinHours, workingMinutes: $workingMinutes, numberOfDependent: $numberOfDependent, isSpouse: $isSpouse, isSpouseSupportObligation: $isSpouseSupportObligation, specialConditions: $specialConditions, knownLanguages: $knownLanguages, listOfHobbies: $listOfHobbies, listOfSkills: $listOfSkills, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateOtherInfoActorState(key: $key, languages: $languages, JLPTLevel: $JLPTLevel, selfPR: $selfPR, motivationsSpecialSkills: $motivationsSpecialSkills, hobbies: $hobbies, skills: $skills, workinHours: $workinHours, workingMinutes: $workingMinutes, numberOfDependent: $numberOfDependent, isSpouse: $isSpouse, isSpouseSupportObligation: $isSpouseSupportObligation, specialConditions: $specialConditions, knownLanguages: $knownLanguages, listOfHobbies: $listOfHobbies, listOfSkills: $listOfSkills, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateOtherInfoActorState &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.languages, languages) ||
                 const DeepCollectionEquality()
                     .equals(other.languages, languages)) &&
@@ -3664,8 +3679,7 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
                 const DeepCollectionEquality()
                     .equals(other.listOfSkills, listOfSkills)) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
+                const DeepCollectionEquality().equals(other.isSubmitting, isSubmitting)) &&
             (identical(other.hasSetInitialData, hasSetInitialData) || const DeepCollectionEquality().equals(other.hasSetInitialData, hasSetInitialData)) &&
             (identical(other.authFailureOrSuccessOption, authFailureOrSuccessOption) || const DeepCollectionEquality().equals(other.authFailureOrSuccessOption, authFailureOrSuccessOption)));
   }
@@ -3673,6 +3687,7 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(key) ^
       const DeepCollectionEquality().hash(languages) ^
       const DeepCollectionEquality().hash(JLPTLevel) ^
       const DeepCollectionEquality().hash(selfPR) ^
@@ -3703,6 +3718,8 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
 abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
   const factory _UpdateOtherInfoActorState(
           {@required
+              Key key,
+          @required
               List<String> languages,
           @required
               String JLPTLevel,
@@ -3740,6 +3757,8 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateOtherInfoActorState;
 
+  @override
+  Key get key;
   @override
   List<String> get languages;
   @override

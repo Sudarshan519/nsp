@@ -33,6 +33,11 @@ abstract class AuthRepository {
     @required String email,
     @required String code,
   });
+
+  Future<Either<ApiFailure, Unit>> getNewEmailActivationCode({
+    @required String email,
+  });
+
   Future<Either<ApiFailure, Unit>> getNewVerificationCode({
     @required String email,
   });

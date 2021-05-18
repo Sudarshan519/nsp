@@ -52,7 +52,7 @@ class HomeServiceWidget extends StatelessWidget {
           const SizedBox(height: 10),
           Container(
             color: Palette.white,
-            height: 210,
+            height: 215,
             child: NotificationListener<ScrollUpdateNotification>(
               onNotification: (notification) {
                 final pixel = notification.metrics.pixels / 260;

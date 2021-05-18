@@ -83,6 +83,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
           residenceProvince: e.userDetail.province ?? "",
           residenceCity: e.userDetail.city ?? "",
           residenceStreetAddress: e.userDetail.streetAddress ?? "",
+          isKycVerified: e.userDetail.isKycVerified ?? false,
           profilePicture: e.userDetail.avatar ?? "",
           originKycDocType: e.userDetail.originKycDocType ?? "",
           originKycDocNumber: e.userDetail.originKycDocNumber ?? "",

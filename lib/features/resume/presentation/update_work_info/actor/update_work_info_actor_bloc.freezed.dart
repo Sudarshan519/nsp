@@ -1623,7 +1623,8 @@ class _$UpdateWorkInfoActorStateTearOff {
 
 // ignore: unused_element
   _UpdateWorkInfoActorState call(
-      {@required String nameOfComapny,
+      {@required Key key,
+      @required String nameOfComapny,
       @required String companyType,
       @required String startedYear,
       @required String startedMonth,
@@ -1635,6 +1636,7 @@ class _$UpdateWorkInfoActorStateTearOff {
       @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateWorkInfoActorState(
+      key: key,
       nameOfComapny: nameOfComapny,
       companyType: companyType,
       startedYear: startedYear,
@@ -1656,6 +1658,7 @@ const $UpdateWorkInfoActorState = _$UpdateWorkInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdateWorkInfoActorState {
+  Key get key;
   String get nameOfComapny;
   String get companyType;
   String get startedYear;
@@ -1678,7 +1681,8 @@ abstract class $UpdateWorkInfoActorStateCopyWith<$Res> {
           $Res Function(UpdateWorkInfoActorState) then) =
       _$UpdateWorkInfoActorStateCopyWithImpl<$Res>;
   $Res call(
-      {String nameOfComapny,
+      {Key key,
+      String nameOfComapny,
       String companyType,
       String startedYear,
       String startedMonth,
@@ -1702,6 +1706,7 @@ class _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object nameOfComapny = freezed,
     Object companyType = freezed,
     Object startedYear = freezed,
@@ -1715,6 +1720,7 @@ class _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      key: key == freezed ? _value.key : key as Key,
       nameOfComapny: nameOfComapny == freezed
           ? _value.nameOfComapny
           : nameOfComapny as String,
@@ -1753,7 +1759,8 @@ abstract class _$UpdateWorkInfoActorStateCopyWith<$Res>
       __$UpdateWorkInfoActorStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String nameOfComapny,
+      {Key key,
+      String nameOfComapny,
       String companyType,
       String startedYear,
       String startedMonth,
@@ -1780,6 +1787,7 @@ class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object nameOfComapny = freezed,
     Object companyType = freezed,
     Object startedYear = freezed,
@@ -1793,6 +1801,7 @@ class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateWorkInfoActorState(
+      key: key == freezed ? _value.key : key as Key,
       nameOfComapny: nameOfComapny == freezed
           ? _value.nameOfComapny
           : nameOfComapny as String,
@@ -1826,7 +1835,8 @@ class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
   const _$_UpdateWorkInfoActorState(
-      {@required this.nameOfComapny,
+      {@required this.key,
+      @required this.nameOfComapny,
       @required this.companyType,
       @required this.startedYear,
       @required this.startedMonth,
@@ -1837,7 +1847,8 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
       @required this.isSubmitting,
       @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
-      : assert(nameOfComapny != null),
+      : assert(key != null),
+        assert(nameOfComapny != null),
         assert(companyType != null),
         assert(startedYear != null),
         assert(startedMonth != null),
@@ -1849,6 +1860,8 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
         assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
+  @override
+  final Key key;
   @override
   final String nameOfComapny;
   @override
@@ -1874,13 +1887,15 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
 
   @override
   String toString() {
-    return 'UpdateWorkInfoActorState(nameOfComapny: $nameOfComapny, companyType: $companyType, startedYear: $startedYear, startedMonth: $startedMonth, endYear: $endYear, endMonth: $endMonth, purposeOfResign: $purposeOfResign, typeOfCompanyList: $typeOfCompanyList, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateWorkInfoActorState(key: $key, nameOfComapny: $nameOfComapny, companyType: $companyType, startedYear: $startedYear, startedMonth: $startedMonth, endYear: $endYear, endMonth: $endMonth, purposeOfResign: $purposeOfResign, typeOfCompanyList: $typeOfCompanyList, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateWorkInfoActorState &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.nameOfComapny, nameOfComapny) ||
                 const DeepCollectionEquality()
                     .equals(other.nameOfComapny, nameOfComapny)) &&
@@ -1921,6 +1936,7 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(key) ^
       const DeepCollectionEquality().hash(nameOfComapny) ^
       const DeepCollectionEquality().hash(companyType) ^
       const DeepCollectionEquality().hash(startedYear) ^
@@ -1943,6 +1959,8 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
 abstract class _UpdateWorkInfoActorState implements UpdateWorkInfoActorState {
   const factory _UpdateWorkInfoActorState(
           {@required
+              Key key,
+          @required
               String nameOfComapny,
           @required
               String companyType,
@@ -1966,6 +1984,8 @@ abstract class _UpdateWorkInfoActorState implements UpdateWorkInfoActorState {
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateWorkInfoActorState;
 
+  @override
+  Key get key;
   @override
   String get nameOfComapny;
   @override

@@ -60,18 +60,22 @@ class NewsRepository implements NewsRepositoryProtocol {
 
       final localNews = await localDataSource.getFavouriteNews();
       final localNewsGuid = localNews.map((news) => news.guid).toList();
-      final updatedNewsList = news.data.map((news) {
-        final isAvailable = localNewsGuid.contains(news.guid);
-        news.isLocallySaved = isAvailable;
-        return news;
-      }).toList();
+      final updatedNewsList = news.data.map(
+        (news) {
+          final isAvailable = localNewsGuid.contains(news.guid);
+          news.isLocallySaved = isAvailable;
+          return news;
+        },
+      ).toList();
 
       news.data = updatedNewsList;
 
       return Right(news);
     } on ServerException catch (ex) {
+      debugPrint(ex.toString());
       return Left(ApiFailure.serverError(message: ex.message));
     } catch (ex) {
+      debugPrint(ex.toString());
       return Left(ApiFailure.serverError(message: ex.toString()));
     }
   }

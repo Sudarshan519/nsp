@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/pages/home/home_screen.dart';
 import 'package:wallet_app/ui/pages/more/more_screen.dart';
 import 'package:wallet_app/ui/pages/news/news_screen.dart';
+import 'package:wallet_app/ui/pages/news/tab_page/news_tab_page.dart';
 import 'package:wallet_app/ui/pages/resume/resume_screen.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/resume_tab_page.dart';
 
@@ -17,6 +18,7 @@ class TabBarScreen extends StatefulWidget {
 
 class TabBarScreenState extends State<TabBarScreen> {
   int _selectedIndex = 0;
+  HomePage homePage;
 
   final List<CustomTabBarData> _tabBarData = [
     CustomTabBarData(
@@ -53,7 +55,7 @@ class TabBarScreenState extends State<TabBarScreen> {
                 child: SafeArea(
                   child: CustomTabBar(
                     selectedIndex: _selectedIndex,
-                    onTap: (index) => setState(() => _selectedIndex = index),
+                    onTap: _onTab,
                     tabs: _tabBarData,
                   ),
                 ),
@@ -63,10 +65,25 @@ class TabBarScreenState extends State<TabBarScreen> {
     );
   }
 
+  void _onTab(int page) {
+    if (page == 0) {
+      homePage.scrollController.animateTo(
+        0.0,
+        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 300),
+      );
+    }
+
+    setState(() {
+      _selectedIndex = page;
+    });
+  }
+
   List<Widget> getTabs() {
-    final homePage = HomePage(
+    homePage = HomePage(
       changeTabPage: _changeTo,
       changeResumeTabPage: _changeResumeTabPage,
+      changeNewsTabPage: _changeNewsTabPage,
     );
 
     return [
@@ -85,5 +102,9 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   void _changeResumeTabPage(int index) {
     ResumeTabBarScreen.globalKey.currentState.changeResumeTab(index);
+  }
+
+  void _changeNewsTabPage(int index) {
+    NewsTabBarScreen.globalKey.currentState.changeSelectedIndex(index);
   }
 }

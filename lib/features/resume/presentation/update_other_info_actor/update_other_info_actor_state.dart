@@ -3,6 +3,7 @@ part of 'update_other_info_actor_bloc.dart';
 @freezed
 abstract class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
   const factory UpdateOtherInfoActorState({
+    @required Key key,
     @required List<String> languages,
     @required String JLPTLevel,
     @required String selfPR,
@@ -24,6 +25,7 @@ abstract class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
   }) = _UpdateOtherInfoActorState;
 
   factory UpdateOtherInfoActorState.initial() => UpdateOtherInfoActorState(
+        key: UniqueKey(),
         languages: [],
         JLPTLevel: '',
         selfPR: '',
@@ -40,7 +42,7 @@ abstract class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
         listOfHobbies: [],
         listOfSkills: [],
         isSubmitting: false,
-        hasSetInitialData:false,
+        hasSetInitialData: false,
         authFailureOrSuccessOption: none(),
       );
 }

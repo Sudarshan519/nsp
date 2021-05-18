@@ -113,10 +113,9 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        if (state.hasSetInitialData) {
-          return _EditBasicInfoFormBody(key: UniqueKey());
-        }
-        return const _EditBasicInfoFormBody();
+        return _EditBasicInfoFormBody(
+          key: state.key,
+        );
       },
     );
   }
@@ -376,9 +375,6 @@ class _PrefectureInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.currPrefecture != current.currPrefecture ||
-          previous.currCountry != current.currCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
         child: state.currCountry.toLowerCase() == "japan"
@@ -427,10 +423,6 @@ class _CityInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.currCity != current.currCity ||
-          previous.currPrefecture != current.currPrefecture ||
-          previous.currCountry != current.currCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
         child: state.currCountry.toLowerCase() == "japan"
@@ -444,15 +436,24 @@ class _CityInputField extends StatelessWidget {
                       .add(UpdateAddressInfoActorEvent.changedCurrCity(value));
                 },
               )
-            : InputTextWidget(
-                hintText: "City",
-                value: state.currCity,
-                onChanged: (value) {
-                  context
-                      .read<UpdateAddressInfoActorBloc>()
-                      .add(UpdateAddressInfoActorEvent.changedCurrCity(value));
-                },
-              ),
+            : state.currCountry.toLowerCase() == "nepal"
+                ? CustomSearchableDropDownWidget(
+                    hintText: "City",
+                    value: state.currCity,
+                    options: state.listOfCurrCities,
+                    onChanged: (value) {
+                      context.read<UpdateAddressInfoActorBloc>().add(
+                          UpdateAddressInfoActorEvent.changedCurrCity(value));
+                    },
+                  )
+                : InputTextWidget(
+                    hintText: "City",
+                    value: state.currCity,
+                    onChanged: (value) {
+                      context.read<UpdateAddressInfoActorBloc>().add(
+                          UpdateAddressInfoActorEvent.changedCurrCity(value));
+                    },
+                  ),
       ),
     );
   }

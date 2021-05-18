@@ -103,13 +103,14 @@ class UpdateAddressInfoActorBloc
       prefectureName: userInfo.currPrefecture,
     );
     final List<String> _contCityArray = await _getListOfCities(
-      country: userInfo.currCountry,
+      country: userInfo.contCountry,
       prefectureName: userInfo.contPrefecture,
     );
 
     if (userInfo != null && userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
+        key: UniqueKey(),
         currCountry: userInfo.currCountry ?? "",
         currPostalCode: userInfo.currPostalCode ?? "",
         currPrefecture: userInfo.currPrefecture ?? "",
@@ -231,6 +232,7 @@ class UpdateAddressInfoActorBloc
     final sameAsCurrAddressInfo = !state.sameAsCurrAddressInfo;
 
     return state.copyWith(
+      key: UniqueKey(),
       sameAsCurrAddressInfo: sameAsCurrAddressInfo,
       contCountry: sameAsCurrAddressInfo ? state.currCountry : "",
       contPostalCode: sameAsCurrAddressInfo ? state.currPostalCode : "",
@@ -238,6 +240,7 @@ class UpdateAddressInfoActorBloc
       contCity: sameAsCurrAddressInfo ? state.currCity : "",
       contAddress: sameAsCurrAddressInfo ? state.currAddress : "",
       contPhone: sameAsCurrAddressInfo ? state.currPhone : "",
+      listOfContCities: state.listOfCurrCities,
       isSubmitting: false,
       hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
@@ -248,8 +251,8 @@ class UpdateAddressInfoActorBloc
       _ChangedContCountry _changedCountry) {
     return state.copyWith(
       contCountry: _changedCountry.country,
-      currPrefecture: '',
-      currCity: '',
+      contPrefecture: '',
+      contCity: '',
       hasSetInitialData: false,
       authFailureOrSuccessOption: none(),
     );

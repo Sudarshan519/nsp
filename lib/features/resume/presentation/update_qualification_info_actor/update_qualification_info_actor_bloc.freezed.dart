@@ -805,13 +805,15 @@ class _$UpdateQualificationInfoActorStateTearOff {
 
 // ignore: unused_element
   _UpdateQualificationInfoActorState call(
-      {@required String qualificationName,
+      {@required Key key,
+      @required String qualificationName,
       @required String certifiedYear,
       @required String certifiedMonth,
       @required bool isSubmitting,
       @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateQualificationInfoActorState(
+      key: key,
       qualificationName: qualificationName,
       certifiedYear: certifiedYear,
       certifiedMonth: certifiedMonth,
@@ -829,6 +831,7 @@ const $UpdateQualificationInfoActorState =
 
 /// @nodoc
 mixin _$UpdateQualificationInfoActorState {
+  Key get key;
   String get qualificationName;
   String get certifiedYear;
   String get certifiedMonth;
@@ -848,7 +851,8 @@ abstract class $UpdateQualificationInfoActorStateCopyWith<$Res> {
           $Res Function(UpdateQualificationInfoActorState) then) =
       _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>;
   $Res call(
-      {String qualificationName,
+      {Key key,
+      String qualificationName,
       String certifiedYear,
       String certifiedMonth,
       bool isSubmitting,
@@ -867,6 +871,7 @@ class _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object qualificationName = freezed,
     Object certifiedYear = freezed,
     Object certifiedMonth = freezed,
@@ -875,6 +880,7 @@ class _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      key: key == freezed ? _value.key : key as Key,
       qualificationName: qualificationName == freezed
           ? _value.qualificationName
           : qualificationName as String,
@@ -905,7 +911,8 @@ abstract class _$UpdateQualificationInfoActorStateCopyWith<$Res>
       __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String qualificationName,
+      {Key key,
+      String qualificationName,
       String certifiedYear,
       String certifiedMonth,
       bool isSubmitting,
@@ -928,6 +935,7 @@ class __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object qualificationName = freezed,
     Object certifiedYear = freezed,
     Object certifiedMonth = freezed,
@@ -936,6 +944,7 @@ class __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateQualificationInfoActorState(
+      key: key == freezed ? _value.key : key as Key,
       qualificationName: qualificationName == freezed
           ? _value.qualificationName
           : qualificationName as String,
@@ -961,19 +970,23 @@ class __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
 class _$_UpdateQualificationInfoActorState
     implements _UpdateQualificationInfoActorState {
   const _$_UpdateQualificationInfoActorState(
-      {@required this.qualificationName,
+      {@required this.key,
+      @required this.qualificationName,
       @required this.certifiedYear,
       @required this.certifiedMonth,
       @required this.isSubmitting,
       @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
-      : assert(qualificationName != null),
+      : assert(key != null),
+        assert(qualificationName != null),
         assert(certifiedYear != null),
         assert(certifiedMonth != null),
         assert(isSubmitting != null),
         assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
+  @override
+  final Key key;
   @override
   final String qualificationName;
   @override
@@ -989,13 +1002,15 @@ class _$_UpdateQualificationInfoActorState
 
   @override
   String toString() {
-    return 'UpdateQualificationInfoActorState(qualificationName: $qualificationName, certifiedYear: $certifiedYear, certifiedMonth: $certifiedMonth, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateQualificationInfoActorState(key: $key, qualificationName: $qualificationName, certifiedYear: $certifiedYear, certifiedMonth: $certifiedMonth, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateQualificationInfoActorState &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.qualificationName, qualificationName) ||
                 const DeepCollectionEquality()
                     .equals(other.qualificationName, qualificationName)) &&
@@ -1021,6 +1036,7 @@ class _$_UpdateQualificationInfoActorState
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(key) ^
       const DeepCollectionEquality().hash(qualificationName) ^
       const DeepCollectionEquality().hash(certifiedYear) ^
       const DeepCollectionEquality().hash(certifiedMonth) ^
@@ -1040,6 +1056,8 @@ abstract class _UpdateQualificationInfoActorState
     implements UpdateQualificationInfoActorState {
   const factory _UpdateQualificationInfoActorState(
           {@required
+              Key key,
+          @required
               String qualificationName,
           @required
               String certifiedYear,
@@ -1053,6 +1071,8 @@ abstract class _UpdateQualificationInfoActorState
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateQualificationInfoActorState;
 
+  @override
+  Key get key;
   @override
   String get qualificationName;
   @override

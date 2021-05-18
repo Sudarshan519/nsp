@@ -69,6 +69,12 @@ class ServicesDetail extends StatelessWidget {
                 ),
               );
             },
+            errorBuilder: (_, __, ___) {
+              return Image.asset(
+                'assets/images/navigation_bar/u1.png',
+                fit: BoxFit.cover,
+              );
+            },
           ),
           ShadowBoxWidget(
             margin: const EdgeInsets.all(16),
@@ -108,7 +114,6 @@ class ServicesDetail extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
                             ),
-                            textAlign: TextAlign.justify,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),

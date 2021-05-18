@@ -3,6 +3,7 @@ part of 'update_address_info_actor_bloc.dart';
 @freezed
 abstract class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
   const factory UpdateAddressInfoActorState({
+    @required Key key,
     @required String currCountry,
     @required String currPostalCode,
     @required String currPrefecture,
@@ -27,6 +28,7 @@ abstract class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
   }) = _UpdateAddressInfoActorState;
 
   factory UpdateAddressInfoActorState.initial() => UpdateAddressInfoActorState(
+        key: UniqueKey(),
         currCountry: '',
         currPostalCode: '',
         currPrefecture: '',

@@ -136,6 +136,12 @@ class MyResumeWidget extends StatelessWidget {
               ),
             );
           },
+          errorBuilder: (_, __, ___) {
+              return Image.asset(
+                'assets/images/navigation_bar/u1.png',
+                fit: BoxFit.cover,
+              );
+            },
         ),
       ),
     );

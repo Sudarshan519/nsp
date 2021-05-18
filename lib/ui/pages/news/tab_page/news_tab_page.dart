@@ -7,14 +7,18 @@ import 'tabs/preferences/news_preferences_tab.dart';
 import 'tabs/saved_news/save_news_tab.dart';
 import 'tabs/tab_bar/news_tab_bar.dart';
 
-class TabBarScreen extends StatefulWidget {
+class NewsTabBarScreen extends StatefulWidget {
+  static final GlobalKey<TabBarScreenState> globalKey = GlobalKey();
+
+  NewsTabBarScreen() : super(key: globalKey);
+
   @override
   State<StatefulWidget> createState() {
     return TabBarScreenState();
   }
 }
 
-class TabBarScreenState extends State<TabBarScreen> {
+class TabBarScreenState extends State<NewsTabBarScreen> {
   int _selectedIndex = 0;
   bool _showForYouPreferencePage = false;
 
@@ -34,7 +38,7 @@ class TabBarScreenState extends State<TabBarScreen> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: NewsTabBar(
-            onTap: _changeSelectedIndex,
+            onTap: changeSelectedIndex,
             isScrollable: false,
             tabs: _tabBarData,
             selectedIndex: _selectedIndex,
@@ -57,12 +61,12 @@ class TabBarScreenState extends State<TabBarScreen> {
     return [
       forYouPage,
       LatestNewsTab(),
-      NewsPreferenceTab(changePage: _changeSelectedIndex),
+      NewsPreferenceTab(changePage: changeSelectedIndex),
       SaveNewsTab(),
     ];
   }
 
-  void _changeSelectedIndex(int page) {
+  void changeSelectedIndex(int page) {
     setState(() {
       _selectedIndex = page;
     });

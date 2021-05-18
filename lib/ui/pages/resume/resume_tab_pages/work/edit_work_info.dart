@@ -104,10 +104,9 @@ class EditWorkInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        if (state.hasSetInitialData) {
-          return _EditBasicInfoFormBody(key: UniqueKey());
-        }
-        return const _EditBasicInfoFormBody();
+        return _EditBasicInfoFormBody(
+          key: state.key,
+        );
       },
     );
   }
@@ -224,29 +223,7 @@ class _MajorSubjectField extends StatelessWidget {
         child: CustomSearchableDropDownWidget(
           hintText: "Select a type of company.",
           value: state.companyType,
-          options: const [
-            "Agriculture, Food and Natural Resources",
-            "Architecture and Construction",
-            "Arts, Audio/Video Technology and Communications",
-            "Business Management and Administration",
-            "Education and Training",
-            "Finance",
-            "Government and Public Administration",
-            "Health Science",
-            "Hospitality and Tourism",
-            "Human Services",
-            "Information Technology",
-            "Law, Public Safety, Corrections and Security",
-            "Manufacturing",
-            "Marketing, Sales and Service",
-            "Science, Technology, Engineering and Mathematics",
-            "Gaming",
-            "F&B",
-            "Advertisement and Marketing",
-            "Patrol and Curfews",
-            "Government Level",
-            "Others",
-          ],
+          options: state.typeOfCompanyList,
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
               .add(UpdateWorkInfoActorEvent.changedTypeOfCompany(value)),
@@ -451,21 +428,21 @@ class _PurposeOfResignField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      // buildWhen: (previous, current) =>
-      //     previous.purposeOfResign != current.purposeOfResign,
-      builder: (context, state) => TextWidetWithLabelAndChild(
-        title: "Purpose of Resign",
-        child: InputTextWidget(
-          hintText: "purpose of resign",
-          textInputType: TextInputType.name,
-          value: state.purposeOfResign,
-          onChanged: (value) => context
-              .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedPurposeOfResign(value)),
-        ),
-      ),
+      builder: (context, state) => state.endYear?.toLowerCase() != "running"
+          ? TextWidetWithLabelAndChild(
+              title: "Purpose of Resign",
+              child: InputTextWidget(
+                hintText: "purpose of resign",
+                textInputType: TextInputType.name,
+                value: state.purposeOfResign,
+                onChanged: (value) => context
+                    .read<UpdateWorkInfoActorBloc>()
+                    .add(
+                        UpdateWorkInfoActorEvent.changedPurposeOfResign(value)),
+              ),
+            )
+          : const SizedBox.shrink(),
     );
   }
 }

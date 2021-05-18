@@ -4,6 +4,7 @@ part of 'update_academic_info_actor_bloc.dart';
 abstract class UpdateAcademicInfoActorState
     with _$UpdateAcademicInfoActorState {
   const factory UpdateAcademicInfoActorState({
+    @required Key key,
     @required String nameOfInstitute,
     @required String majorSubject,
     @required String yearOFEnroll,
@@ -18,6 +19,7 @@ abstract class UpdateAcademicInfoActorState
 
   factory UpdateAcademicInfoActorState.initial() =>
       UpdateAcademicInfoActorState(
+        key: UniqueKey(),
         nameOfInstitute: '',
         majorSubject: '',
         yearOFEnroll: '',

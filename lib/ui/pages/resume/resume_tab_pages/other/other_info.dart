@@ -126,6 +126,10 @@ class OtherInfo extends StatelessWidget {
                 const SizedBox(height: 10),
                 const _SelfPrInputField(),
                 const SizedBox(height: 10),
+                const _HobbiesInputField(),
+                const SizedBox(height: 10),
+                const _SkillsInputField(),
+                const SizedBox(height: 10),
                 const _MotivationSpecialSkillsInputField(),
                 const SizedBox(height: 10),
                 const _AvailableWorkingHoursInputField(),
@@ -232,6 +236,66 @@ class _SelfPrInputField extends StatelessWidget {
   }
 }
 
+class _HobbiesInputField extends StatelessWidget {
+  const _HobbiesInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) => previous.hobbies != current.hobbies,
+      builder: (context, state) {
+        final selectedValues = state.hobbies;
+        final values = selectedValues.join(", ");
+        return FormFieldDecoration(
+          title: "Hobbies",
+          child: InputTextWidget(
+            hintText: "Hobbies",
+            textInputType: TextInputType.name,
+            // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            value: values,
+            onEditingCompleted: () {},
+            textAlign: TextAlign.end,
+            isEnable: false,
+            onChanged: (value) {},
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _SkillsInputField extends StatelessWidget {
+  const _SkillsInputField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      buildWhen: (previous, current) => previous.skills != current.skills,
+      builder: (context, state) {
+        final selectedValues = state.skills;
+        final values = selectedValues.join(", ");
+        return FormFieldDecoration(
+          title: "Skills",
+          child: InputTextWidget(
+            hintText: "Skills",
+            textInputType: TextInputType.name,
+            // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            value: values,
+            onEditingCompleted: () {},
+            textAlign: TextAlign.end,
+            isEnable: false,
+            onChanged: (value) {},
+          ),
+        );
+      },
+    );
+  }
+}
+
 class _MotivationSpecialSkillsInputField extends StatelessWidget {
   const _MotivationSpecialSkillsInputField({
     Key key,
@@ -274,18 +338,18 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
         title: "Available Working hours",
         child: Column(
           children: [
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                const Expanded(
-                  child: Center(child: Text("Hours")),
-                ),
-                if (state.workinHours.toLowerCase() != "full-time")
-                  const Expanded(
-                    child: Center(child: Text("Minutes")),
-                  ),
-              ],
-            ),
+            // const SizedBox(height: 10),
+            // Row(
+            //   children: [
+            //     const Expanded(
+            //       child: Center(child: Text("Hours")),
+            //     ),
+            //     if (state.workinHours.toLowerCase() != "full-time")
+            //       const Expanded(
+            //         child: Center(child: Text("Minutes")),
+            //       ),
+            //   ],
+            // ),
             Row(
               children: [
                 Flexible(

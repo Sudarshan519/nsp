@@ -4030,7 +4030,8 @@ class _$UpdateAddressInfoActorStateTearOff {
 
 // ignore: unused_element
   _UpdateAddressInfoActorState call(
-      {@required String currCountry,
+      {@required Key key,
+      @required String currCountry,
       @required String currPostalCode,
       @required String currPrefecture,
       @required String currCity,
@@ -4052,6 +4053,7 @@ class _$UpdateAddressInfoActorStateTearOff {
       @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateAddressInfoActorState(
+      key: key,
       currCountry: currCountry,
       currPostalCode: currPostalCode,
       currPrefecture: currPrefecture,
@@ -4083,6 +4085,7 @@ const $UpdateAddressInfoActorState = _$UpdateAddressInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdateAddressInfoActorState {
+  Key get key;
   String get currCountry;
   String get currPostalCode;
   String get currPrefecture;
@@ -4117,7 +4120,8 @@ abstract class $UpdateAddressInfoActorStateCopyWith<$Res> {
           $Res Function(UpdateAddressInfoActorState) then) =
       _$UpdateAddressInfoActorStateCopyWithImpl<$Res>;
   $Res call(
-      {String currCountry,
+      {Key key,
+      String currCountry,
       String currPostalCode,
       String currPrefecture,
       String currCity,
@@ -4151,6 +4155,7 @@ class _$UpdateAddressInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object currCountry = freezed,
     Object currPostalCode = freezed,
     Object currPrefecture = freezed,
@@ -4174,6 +4179,7 @@ class _$UpdateAddressInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      key: key == freezed ? _value.key : key as Key,
       currCountry:
           currCountry == freezed ? _value.currCountry : currCountry as String,
       currPostalCode: currPostalCode == freezed
@@ -4237,7 +4243,8 @@ abstract class _$UpdateAddressInfoActorStateCopyWith<$Res>
       __$UpdateAddressInfoActorStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String currCountry,
+      {Key key,
+      String currCountry,
       String currPostalCode,
       String currPrefecture,
       String currCity,
@@ -4275,6 +4282,7 @@ class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object currCountry = freezed,
     Object currPostalCode = freezed,
     Object currPrefecture = freezed,
@@ -4298,6 +4306,7 @@ class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateAddressInfoActorState(
+      key: key == freezed ? _value.key : key as Key,
       currCountry:
           currCountry == freezed ? _value.currCountry : currCountry as String,
       currPostalCode: currPostalCode == freezed
@@ -4355,7 +4364,8 @@ class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
   const _$_UpdateAddressInfoActorState(
-      {@required this.currCountry,
+      {@required this.key,
+      @required this.currCountry,
       @required this.currPostalCode,
       @required this.currPrefecture,
       @required this.currCity,
@@ -4376,7 +4386,8 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
       @required this.isSubmitting,
       @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
-      : assert(currCountry != null),
+      : assert(key != null),
+        assert(currCountry != null),
         assert(currPostalCode != null),
         assert(currPrefecture != null),
         assert(currCity != null),
@@ -4398,6 +4409,8 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
         assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
+  @override
+  final Key key;
   @override
   final String currCountry;
   @override
@@ -4443,13 +4456,15 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
 
   @override
   String toString() {
-    return 'UpdateAddressInfoActorState(currCountry: $currCountry, currPostalCode: $currPostalCode, currPrefecture: $currPrefecture, currCity: $currCity, currAddress: $currAddress, currPhone: $currPhone, sameAsCurrAddressInfo: $sameAsCurrAddressInfo, contCountry: $contCountry, contPostalCode: $contPostalCode, contPrefecture: $contPrefecture, contCity: $contCity, contAddress: $contAddress, contPhone: $contPhone, listOfCountries: $listOfCountries, listOfJapanesePrefectures: $listOfJapanesePrefectures, listOfNepaliProvinces: $listOfNepaliProvinces, listOfCurrCities: $listOfCurrCities, listOfContCities: $listOfContCities, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateAddressInfoActorState(key: $key, currCountry: $currCountry, currPostalCode: $currPostalCode, currPrefecture: $currPrefecture, currCity: $currCity, currAddress: $currAddress, currPhone: $currPhone, sameAsCurrAddressInfo: $sameAsCurrAddressInfo, contCountry: $contCountry, contPostalCode: $contPostalCode, contPrefecture: $contPrefecture, contCity: $contCity, contAddress: $contAddress, contPhone: $contPhone, listOfCountries: $listOfCountries, listOfJapanesePrefectures: $listOfJapanesePrefectures, listOfNepaliProvinces: $listOfNepaliProvinces, listOfCurrCities: $listOfCurrCities, listOfContCities: $listOfContCities, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateAddressInfoActorState &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.currCountry, currCountry) ||
                 const DeepCollectionEquality()
                     .equals(other.currCountry, currCountry)) &&
@@ -4509,14 +4524,14 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
             (identical(other.hasSetInitialData, hasSetInitialData) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
+                const DeepCollectionEquality().equals(other.hasSetInitialData, hasSetInitialData)) &&
             (identical(other.authFailureOrSuccessOption, authFailureOrSuccessOption) || const DeepCollectionEquality().equals(other.authFailureOrSuccessOption, authFailureOrSuccessOption)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(key) ^
       const DeepCollectionEquality().hash(currCountry) ^
       const DeepCollectionEquality().hash(currPostalCode) ^
       const DeepCollectionEquality().hash(currPrefecture) ^
@@ -4550,6 +4565,8 @@ abstract class _UpdateAddressInfoActorState
     implements UpdateAddressInfoActorState {
   const factory _UpdateAddressInfoActorState(
           {@required
+              Key key,
+          @required
               String currCountry,
           @required
               String currPostalCode,
@@ -4593,6 +4610,8 @@ abstract class _UpdateAddressInfoActorState
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateAddressInfoActorState;
 
+  @override
+  Key get key;
   @override
   String get currCountry;
   @override

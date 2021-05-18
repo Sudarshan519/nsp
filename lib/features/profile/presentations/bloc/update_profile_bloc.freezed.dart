@@ -16139,6 +16139,7 @@ class _$UpdateProfileStateTearOff {
       @required String originPostalCode,
       @required String originProvince,
       @required String originCity,
+      @required bool isKycVerified,
       @required String originStreetAddress,
       @required String residenceCountry,
       @required String residencePostalCode,
@@ -16198,6 +16199,7 @@ class _$UpdateProfileStateTearOff {
       originPostalCode: originPostalCode,
       originProvince: originProvince,
       originCity: originCity,
+      isKycVerified: isKycVerified,
       originStreetAddress: originStreetAddress,
       residenceCountry: residenceCountry,
       residencePostalCode: residencePostalCode,
@@ -16266,6 +16268,7 @@ mixin _$UpdateProfileState {
   String get originPostalCode;
   String get originProvince;
   String get originCity;
+  bool get isKycVerified;
   String get originStreetAddress;
   String get residenceCountry;
   String get residencePostalCode;
@@ -16335,6 +16338,7 @@ abstract class $UpdateProfileStateCopyWith<$Res> {
       String originPostalCode,
       String originProvince,
       String originCity,
+      bool isKycVerified,
       String originStreetAddress,
       String residenceCountry,
       String residencePostalCode,
@@ -16406,6 +16410,7 @@ class _$UpdateProfileStateCopyWithImpl<$Res>
     Object originPostalCode = freezed,
     Object originProvince = freezed,
     Object originCity = freezed,
+    Object isKycVerified = freezed,
     Object originStreetAddress = freezed,
     Object residenceCountry = freezed,
     Object residencePostalCode = freezed,
@@ -16486,6 +16491,9 @@ class _$UpdateProfileStateCopyWithImpl<$Res>
           : originProvince as String,
       originCity:
           originCity == freezed ? _value.originCity : originCity as String,
+      isKycVerified: isKycVerified == freezed
+          ? _value.isKycVerified
+          : isKycVerified as bool,
       originStreetAddress: originStreetAddress == freezed
           ? _value.originStreetAddress
           : originStreetAddress as String,
@@ -16627,6 +16635,7 @@ abstract class _$UpdateProfileStateCopyWith<$Res>
       String originPostalCode,
       String originProvince,
       String originCity,
+      bool isKycVerified,
       String originStreetAddress,
       String residenceCountry,
       String residencePostalCode,
@@ -16700,6 +16709,7 @@ class __$UpdateProfileStateCopyWithImpl<$Res>
     Object originPostalCode = freezed,
     Object originProvince = freezed,
     Object originCity = freezed,
+    Object isKycVerified = freezed,
     Object originStreetAddress = freezed,
     Object residenceCountry = freezed,
     Object residencePostalCode = freezed,
@@ -16780,6 +16790,9 @@ class __$UpdateProfileStateCopyWithImpl<$Res>
           : originProvince as String,
       originCity:
           originCity == freezed ? _value.originCity : originCity as String,
+      isKycVerified: isKycVerified == freezed
+          ? _value.isKycVerified
+          : isKycVerified as bool,
       originStreetAddress: originStreetAddress == freezed
           ? _value.originStreetAddress
           : originStreetAddress as String,
@@ -16916,6 +16929,7 @@ class _$_UpdateProfileState implements _UpdateProfileState {
       @required this.originPostalCode,
       @required this.originProvince,
       @required this.originCity,
+      @required this.isKycVerified,
       @required this.originStreetAddress,
       @required this.residenceCountry,
       @required this.residencePostalCode,
@@ -16974,6 +16988,7 @@ class _$_UpdateProfileState implements _UpdateProfileState {
         assert(originPostalCode != null),
         assert(originProvince != null),
         assert(originCity != null),
+        assert(isKycVerified != null),
         assert(originStreetAddress != null),
         assert(residenceCountry != null),
         assert(residencePostalCode != null),
@@ -17051,6 +17066,8 @@ class _$_UpdateProfileState implements _UpdateProfileState {
   @override
   final String originCity;
   @override
+  final bool isKycVerified;
+  @override
   final String originStreetAddress;
   @override
   final String residenceCountry;
@@ -17125,7 +17142,7 @@ class _$_UpdateProfileState implements _UpdateProfileState {
 
   @override
   String toString() {
-    return 'UpdateProfileState(key: $key, firstName: $firstName, lastName: $lastName, furigana: $furigana, fatherName: $fatherName, motherName: $motherName, grandFatherName: $grandFatherName, company: $company, profession: $profession, nationality: $nationality, documentIdentificationNumber: $documentIdentificationNumber, gender: $gender, maritalStatus: $maritalStatus, dob: $dob, community: $community, mobileNumber: $mobileNumber, otherPhone: $otherPhone, email: $email, originCountry: $originCountry, originPostalCode: $originPostalCode, originProvince: $originProvince, originCity: $originCity, originStreetAddress: $originStreetAddress, residenceCountry: $residenceCountry, residencePostalCode: $residencePostalCode, residenceProvince: $residenceProvince, residenceCity: $residenceCity, residenceStreetAddress: $residenceStreetAddress, profilePicture: $profilePicture, originKycDocType: $originKycDocType, originKycDocNumber: $originKycDocNumber, originKycDocFront: $originKycDocFront, originKycDocBack: $originKycDocBack, originDocIssuedFrom: $originDocIssuedFrom, originDocIssuedDate: $originDocIssuedDate, originDocIssuedYear: $originDocIssuedYear, originDocIssuedMonth: $originDocIssuedMonth, originDocIssuedDay: $originDocIssuedDay, residenceKycDocType: $residenceKycDocType, residenceKycDocNumber: $residenceKycDocNumber, residenceKycDocFront: $residenceKycDocFront, residenceKycDocBack: $residenceKycDocBack, profilePictureFile: $profilePictureFile, originKycDocFrontFile: $originKycDocFrontFile, originKycDocBackFile: $originKycDocBackFile, residenceKycDocFrontFile: $residenceKycDocFrontFile, residenceKycDocBackFile: $residenceKycDocBackFile, listOfProfession: $listOfProfession, listOfCountry: $listOfCountry, listOfJapaneseProvince: $listOfJapaneseProvince, listOfJapaneseOriginCities: $listOfJapaneseOriginCities, listOfJapaneseResidenceCities: $listOfJapaneseResidenceCities, listOfNepaliProvince: $listOfNepaliProvince, listOfNepaliOriginDistrict: $listOfNepaliOriginDistrict, listOfNepaliResidenceDistrict: $listOfNepaliResidenceDistrict, listOfKycDocType: $listOfKycDocType, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'UpdateProfileState(key: $key, firstName: $firstName, lastName: $lastName, furigana: $furigana, fatherName: $fatherName, motherName: $motherName, grandFatherName: $grandFatherName, company: $company, profession: $profession, nationality: $nationality, documentIdentificationNumber: $documentIdentificationNumber, gender: $gender, maritalStatus: $maritalStatus, dob: $dob, community: $community, mobileNumber: $mobileNumber, otherPhone: $otherPhone, email: $email, originCountry: $originCountry, originPostalCode: $originPostalCode, originProvince: $originProvince, originCity: $originCity, isKycVerified: $isKycVerified, originStreetAddress: $originStreetAddress, residenceCountry: $residenceCountry, residencePostalCode: $residencePostalCode, residenceProvince: $residenceProvince, residenceCity: $residenceCity, residenceStreetAddress: $residenceStreetAddress, profilePicture: $profilePicture, originKycDocType: $originKycDocType, originKycDocNumber: $originKycDocNumber, originKycDocFront: $originKycDocFront, originKycDocBack: $originKycDocBack, originDocIssuedFrom: $originDocIssuedFrom, originDocIssuedDate: $originDocIssuedDate, originDocIssuedYear: $originDocIssuedYear, originDocIssuedMonth: $originDocIssuedMonth, originDocIssuedDay: $originDocIssuedDay, residenceKycDocType: $residenceKycDocType, residenceKycDocNumber: $residenceKycDocNumber, residenceKycDocFront: $residenceKycDocFront, residenceKycDocBack: $residenceKycDocBack, profilePictureFile: $profilePictureFile, originKycDocFrontFile: $originKycDocFrontFile, originKycDocBackFile: $originKycDocBackFile, residenceKycDocFrontFile: $residenceKycDocFrontFile, residenceKycDocBackFile: $residenceKycDocBackFile, listOfProfession: $listOfProfession, listOfCountry: $listOfCountry, listOfJapaneseProvince: $listOfJapaneseProvince, listOfJapaneseOriginCities: $listOfJapaneseOriginCities, listOfJapaneseResidenceCities: $listOfJapaneseResidenceCities, listOfNepaliProvince: $listOfNepaliProvince, listOfNepaliOriginDistrict: $listOfNepaliOriginDistrict, listOfNepaliResidenceDistrict: $listOfNepaliResidenceDistrict, listOfKycDocType: $listOfKycDocType, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -17193,6 +17210,7 @@ class _$_UpdateProfileState implements _UpdateProfileState {
                 const DeepCollectionEquality()
                     .equals(other.originProvince, originProvince)) &&
             (identical(other.originCity, originCity) || const DeepCollectionEquality().equals(other.originCity, originCity)) &&
+            (identical(other.isKycVerified, isKycVerified) || const DeepCollectionEquality().equals(other.isKycVerified, isKycVerified)) &&
             (identical(other.originStreetAddress, originStreetAddress) || const DeepCollectionEquality().equals(other.originStreetAddress, originStreetAddress)) &&
             (identical(other.residenceCountry, residenceCountry) || const DeepCollectionEquality().equals(other.residenceCountry, residenceCountry)) &&
             (identical(other.residencePostalCode, residencePostalCode) || const DeepCollectionEquality().equals(other.residencePostalCode, residencePostalCode)) &&
@@ -17256,6 +17274,7 @@ class _$_UpdateProfileState implements _UpdateProfileState {
       const DeepCollectionEquality().hash(originPostalCode) ^
       const DeepCollectionEquality().hash(originProvince) ^
       const DeepCollectionEquality().hash(originCity) ^
+      const DeepCollectionEquality().hash(isKycVerified) ^
       const DeepCollectionEquality().hash(originStreetAddress) ^
       const DeepCollectionEquality().hash(residenceCountry) ^
       const DeepCollectionEquality().hash(residencePostalCode) ^
@@ -17323,6 +17342,7 @@ abstract class _UpdateProfileState implements UpdateProfileState {
           @required String originPostalCode,
           @required String originProvince,
           @required String originCity,
+          @required bool isKycVerified,
           @required String originStreetAddress,
           @required String residenceCountry,
           @required String residencePostalCode,
@@ -17405,6 +17425,8 @@ abstract class _UpdateProfileState implements UpdateProfileState {
   String get originProvince;
   @override
   String get originCity;
+  @override
+  bool get isKycVerified;
   @override
   String get originStreetAddress;
   @override

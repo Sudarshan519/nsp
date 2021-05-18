@@ -178,7 +178,7 @@ class _PersonalDocumentDetailPageState
                     ),
                     const SizedBox(height: 10),
                     TextWidetWithLabelAndChild(
-                      title: "Document Number",
+                      title: "${state.originKycDocType} Number",
                       child: InputTextWidget(
                         hintText: "Number",
                         textInputType: TextInputType.name,
@@ -360,7 +360,7 @@ class _PersonalDocumentDetailPageState
                     ),
                     const SizedBox(height: 10),
                     TextWidetWithLabelAndChild(
-                      title: "Document Number",
+                      title: "${state.residenceKycDocType} Number",
                       child: InputTextWidget(
                         hintText: "Number",
                         textInputType: TextInputType.name,
@@ -636,104 +636,124 @@ class _OriginKycDocumentWidget extends StatelessWidget {
     final baseURL = getIt<ConfigReader>().baseURL;
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       builder: (context, state) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        return Column(
           children: [
-            Expanded(
-              child: InkWell(
-                onTap: () async {
-                  final fileProviderResult = await fileProvider.getImage();
-                  fileProviderResult.fold(
-                    (message) {
-                      if (message.isNotEmpty) {
-                        FlushbarHelper.createError(message: message)
-                            .show(context);
-                      }
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: InkWell(
+                    onTap: () async {
+                      final fileProviderResult = await fileProvider.getImage();
+                      fileProviderResult.fold(
+                        (message) {
+                          if (message.isNotEmpty) {
+                            FlushbarHelper.createError(message: message)
+                                .show(context);
+                          }
+                        },
+                        (file) {
+                          kycCallFront(file);
+                        },
+                      );
                     },
-                    (file) {
-                      kycCallFront(file);
-                    },
-                  );
-                },
-                child: Container(
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Palette.primaryBackground.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: kycFront == null
-                      ? ImageLoaderWidget(
-                          image: state.originKycDocFront.isEmpty
-                              ? ""
-                              : "$baseURL${state.originKycDocFront}",
-                          height: 100,
-                          width: 80,
-                          cornerRadius: 10,
-                          isPlaceHolderSvg: true,
-                          placeholderImage: "assets/images/profile/doc.svg",
-                        )
-                      : SizedBox(
-                          height: 100,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.file(
-                              kycFront,
-                              fit: BoxFit.cover,
+                    child: Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Palette.primaryBackground.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: kycFront == null
+                          ? ImageLoaderWidget(
+                              image: state.originKycDocFront.isEmpty
+                                  ? ""
+                                  : "$baseURL${state.originKycDocFront}",
+                              height: 100,
+                              width: 80,
+                              cornerRadius: 10,
+                              isPlaceHolderSvg: true,
+                              placeholderImage: "assets/images/profile/doc.svg",
+                            )
+                          : SizedBox(
+                              height: 100,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: Image.file(
+                                  kycFront,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
+                    ),
+                  ),
                 ),
-              ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: InkWell(
+                    onTap: () async {
+                      final fileProviderResult = await fileProvider.getImage();
+                      // setState(() {
+                      //   _isLoading = false;
+                      // });
+                      fileProviderResult.fold(
+                        (message) {
+                          if (message.isNotEmpty) {
+                            FlushbarHelper.createError(message: message)
+                                .show(context);
+                          }
+                        },
+                        (file) {
+                          kycCallBack(file);
+                        },
+                      );
+                    },
+                    child: Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Palette.primaryBackground.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: kycBack == null
+                          ? ImageLoaderWidget(
+                              image: state.originKycDocBack.isEmpty
+                                  ? ""
+                                  : "$baseURL${state.originKycDocBack}",
+                              height: 100,
+                              width: 80,
+                              cornerRadius: 10,
+                              isPlaceHolderSvg: true,
+                              placeholderImage: "assets/images/profile/doc.svg",
+                            )
+                          : SizedBox(
+                              height: 100,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: Image.file(
+                                  kycBack,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: InkWell(
-                onTap: () async {
-                  final fileProviderResult = await fileProvider.getImage();
-                  // setState(() {
-                  //   _isLoading = false;
-                  // });
-                  fileProviderResult.fold(
-                    (message) {
-                      if (message.isNotEmpty) {
-                        FlushbarHelper.createError(message: message)
-                            .show(context);
-                      }
-                    },
-                    (file) {
-                      kycCallBack(file);
-                    },
-                  );
-                },
-                child: Container(
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Palette.primaryBackground.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: kycBack == null
-                      ? ImageLoaderWidget(
-                          image: state.originKycDocBack.isEmpty
-                              ? ""
-                              : "$baseURL${state.originKycDocBack}",
-                          height: 100,
-                          width: 80,
-                          cornerRadius: 10,
-                          isPlaceHolderSvg: true,
-                          placeholderImage: "assets/images/profile/doc.svg",
-                        )
-                      : SizedBox(
-                          height: 100,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.file(
-                              kycBack,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                ),
-              ),
+            const SizedBox(height: 10),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const [
+                Expanded(
+                    child: Text(
+                  "Front",
+                  textAlign: TextAlign.center,
+                )),
+                Expanded(
+                    child: Text(
+                  "Back",
+                  textAlign: TextAlign.center,
+                )),
+              ],
             ),
           ],
         );
@@ -763,104 +783,124 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
     final baseURL = getIt<ConfigReader>().baseURL;
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       builder: (context, state) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        return Column(
           children: [
-            Expanded(
-              child: InkWell(
-                onTap: () async {
-                  final fileProviderResult = await fileProvider.getImage();
-                  fileProviderResult.fold(
-                    (message) {
-                      if (message.isNotEmpty) {
-                        FlushbarHelper.createError(message: message)
-                            .show(context);
-                      }
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: InkWell(
+                    onTap: () async {
+                      final fileProviderResult = await fileProvider.getImage();
+                      fileProviderResult.fold(
+                        (message) {
+                          if (message.isNotEmpty) {
+                            FlushbarHelper.createError(message: message)
+                                .show(context);
+                          }
+                        },
+                        (file) {
+                          kycCallFront(file);
+                        },
+                      );
                     },
-                    (file) {
-                      kycCallFront(file);
-                    },
-                  );
-                },
-                child: Container(
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Palette.primaryBackground.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: kycFront == null
-                      ? ImageLoaderWidget(
-                          image: state.residenceKycDocFront.isEmpty
-                              ? ""
-                              : "$baseURL${state.residenceKycDocFront}",
-                          height: 100,
-                          width: 80,
-                          cornerRadius: 10,
-                          isPlaceHolderSvg: true,
-                          placeholderImage: "assets/images/profile/doc.svg",
-                        )
-                      : SizedBox(
-                          height: 100,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.file(
-                              kycFront,
-                              fit: BoxFit.cover,
+                    child: Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Palette.primaryBackground.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: kycFront == null
+                          ? ImageLoaderWidget(
+                              image: state.residenceKycDocFront.isEmpty
+                                  ? ""
+                                  : "$baseURL${state.residenceKycDocFront}",
+                              height: 100,
+                              width: 80,
+                              cornerRadius: 10,
+                              isPlaceHolderSvg: true,
+                              placeholderImage: "assets/images/profile/doc.svg",
+                            )
+                          : SizedBox(
+                              height: 100,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: Image.file(
+                                  kycFront,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
+                    ),
+                  ),
                 ),
-              ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: InkWell(
+                    onTap: () async {
+                      final fileProviderResult = await fileProvider.getImage();
+                      // setState(() {
+                      //   _isLoading = false;
+                      // });
+                      fileProviderResult.fold(
+                        (message) {
+                          if (message.isNotEmpty) {
+                            FlushbarHelper.createError(message: message)
+                                .show(context);
+                          }
+                        },
+                        (file) {
+                          kycCallBack(file);
+                        },
+                      );
+                    },
+                    child: Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Palette.primaryBackground.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: kycBack == null
+                          ? ImageLoaderWidget(
+                              image: state.residenceKycDocBack.isEmpty
+                                  ? ""
+                                  : "$baseURL${state.residenceKycDocBack}",
+                              height: 100,
+                              width: 80,
+                              cornerRadius: 10,
+                              isPlaceHolderSvg: true,
+                              placeholderImage: "assets/images/profile/doc.svg",
+                            )
+                          : SizedBox(
+                              height: 100,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: Image.file(
+                                  kycBack,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: InkWell(
-                onTap: () async {
-                  final fileProviderResult = await fileProvider.getImage();
-                  // setState(() {
-                  //   _isLoading = false;
-                  // });
-                  fileProviderResult.fold(
-                    (message) {
-                      if (message.isNotEmpty) {
-                        FlushbarHelper.createError(message: message)
-                            .show(context);
-                      }
-                    },
-                    (file) {
-                      kycCallBack(file);
-                    },
-                  );
-                },
-                child: Container(
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Palette.primaryBackground.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: kycBack == null
-                      ? ImageLoaderWidget(
-                          image: state.residenceKycDocBack.isEmpty
-                              ? ""
-                              : "$baseURL${state.residenceKycDocBack}",
-                          height: 100,
-                          width: 80,
-                          cornerRadius: 10,
-                          isPlaceHolderSvg: true,
-                          placeholderImage: "assets/images/profile/doc.svg",
-                        )
-                      : SizedBox(
-                          height: 100,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.file(
-                              kycBack,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                ),
-              ),
+            const SizedBox(height: 10),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const [
+                Expanded(
+                    child: Text(
+                  "Front",
+                  textAlign: TextAlign.center,
+                )),
+                Expanded(
+                    child: Text(
+                  "Back",
+                  textAlign: TextAlign.center,
+                )),
+              ],
             ),
           ],
         );

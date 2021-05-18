@@ -1417,7 +1417,8 @@ class _$UpdateAcademicInfoActorStateTearOff {
 
 // ignore: unused_element
   _UpdateAcademicInfoActorState call(
-      {@required String nameOfInstitute,
+      {@required Key key,
+      @required String nameOfInstitute,
       @required String majorSubject,
       @required String yearOFEnroll,
       @required String yearOfCpmpletion,
@@ -1428,6 +1429,7 @@ class _$UpdateAcademicInfoActorStateTearOff {
       @required bool hasSetInitialData,
       @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) {
     return _UpdateAcademicInfoActorState(
+      key: key,
       nameOfInstitute: nameOfInstitute,
       majorSubject: majorSubject,
       yearOFEnroll: yearOFEnroll,
@@ -1448,6 +1450,7 @@ const $UpdateAcademicInfoActorState = _$UpdateAcademicInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdateAcademicInfoActorState {
+  Key get key;
   String get nameOfInstitute;
   String get majorSubject;
   String get yearOFEnroll;
@@ -1471,7 +1474,8 @@ abstract class $UpdateAcademicInfoActorStateCopyWith<$Res> {
           $Res Function(UpdateAcademicInfoActorState) then) =
       _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>;
   $Res call(
-      {String nameOfInstitute,
+      {Key key,
+      String nameOfInstitute,
       String majorSubject,
       String yearOFEnroll,
       String yearOfCpmpletion,
@@ -1494,6 +1498,7 @@ class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object nameOfInstitute = freezed,
     Object majorSubject = freezed,
     Object yearOFEnroll = freezed,
@@ -1506,6 +1511,7 @@ class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      key: key == freezed ? _value.key : key as Key,
       nameOfInstitute: nameOfInstitute == freezed
           ? _value.nameOfInstitute
           : nameOfInstitute as String,
@@ -1548,7 +1554,8 @@ abstract class _$UpdateAcademicInfoActorStateCopyWith<$Res>
       __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String nameOfInstitute,
+      {Key key,
+      String nameOfInstitute,
       String majorSubject,
       String yearOFEnroll,
       String yearOfCpmpletion,
@@ -1575,6 +1582,7 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object key = freezed,
     Object nameOfInstitute = freezed,
     Object majorSubject = freezed,
     Object yearOFEnroll = freezed,
@@ -1587,6 +1595,7 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_UpdateAcademicInfoActorState(
+      key: key == freezed ? _value.key : key as Key,
       nameOfInstitute: nameOfInstitute == freezed
           ? _value.nameOfInstitute
           : nameOfInstitute as String,
@@ -1623,7 +1632,8 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
   const _$_UpdateAcademicInfoActorState(
-      {@required this.nameOfInstitute,
+      {@required this.key,
+      @required this.nameOfInstitute,
       @required this.majorSubject,
       @required this.yearOFEnroll,
       @required this.yearOfCpmpletion,
@@ -1633,7 +1643,8 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
       @required this.isSubmitting,
       @required this.hasSetInitialData,
       @required this.authFailureOrSuccessOption})
-      : assert(nameOfInstitute != null),
+      : assert(key != null),
+        assert(nameOfInstitute != null),
         assert(majorSubject != null),
         assert(yearOFEnroll != null),
         assert(yearOfCpmpletion != null),
@@ -1644,6 +1655,8 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
         assert(hasSetInitialData != null),
         assert(authFailureOrSuccessOption != null);
 
+  @override
+  final Key key;
   @override
   final String nameOfInstitute;
   @override
@@ -1667,13 +1680,15 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
 
   @override
   String toString() {
-    return 'UpdateAcademicInfoActorState(nameOfInstitute: $nameOfInstitute, majorSubject: $majorSubject, yearOFEnroll: $yearOFEnroll, yearOfCpmpletion: $yearOfCpmpletion, monthOfEnroll: $monthOfEnroll, monthOfCompletion: $monthOfCompletion, majorSubjectList: $majorSubjectList, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'UpdateAcademicInfoActorState(key: $key, nameOfInstitute: $nameOfInstitute, majorSubject: $majorSubject, yearOFEnroll: $yearOFEnroll, yearOfCpmpletion: $yearOfCpmpletion, monthOfEnroll: $monthOfEnroll, monthOfCompletion: $monthOfCompletion, majorSubjectList: $majorSubjectList, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateAcademicInfoActorState &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.nameOfInstitute, nameOfInstitute) ||
                 const DeepCollectionEquality()
                     .equals(other.nameOfInstitute, nameOfInstitute)) &&
@@ -1711,6 +1726,7 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(key) ^
       const DeepCollectionEquality().hash(nameOfInstitute) ^
       const DeepCollectionEquality().hash(majorSubject) ^
       const DeepCollectionEquality().hash(yearOFEnroll) ^
@@ -1733,6 +1749,8 @@ abstract class _UpdateAcademicInfoActorState
     implements UpdateAcademicInfoActorState {
   const factory _UpdateAcademicInfoActorState(
           {@required
+              Key key,
+          @required
               String nameOfInstitute,
           @required
               String majorSubject,
@@ -1754,6 +1772,8 @@ abstract class _UpdateAcademicInfoActorState
               Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption}) =
       _$_UpdateAcademicInfoActorState;
 
+  @override
+  Key get key;
   @override
   String get nameOfInstitute;
   @override

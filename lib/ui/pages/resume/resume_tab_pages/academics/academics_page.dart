@@ -390,31 +390,32 @@ class _MonthOfCompletionField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAcademicInfoActorBloc,
         UpdateAcademicInfoActorState>(
-      buildWhen: (previous, current) =>
-          previous.monthOfCompletion != current.monthOfCompletion,
-      builder: (context, state) => FormFieldDecoration(
-        title: "Month of Completion",
-        child: CustomSearchableDropDownWidget(
-          hintText: "Select Month",
-          value: state.monthOfCompletion,
-          alignment: Alignment.centerRight,
-          isEnable: false,
-          options: const [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "July",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
-        ),
-      ),
+      builder: (context, state) =>
+          state.yearOfCpmpletion.toLowerCase() != "running"
+              ? FormFieldDecoration(
+                  title: "Month of Completion",
+                  child: CustomSearchableDropDownWidget(
+                    hintText: "Select Month",
+                    value: state.monthOfCompletion,
+                    alignment: Alignment.centerRight,
+                    isEnable: false,
+                    options: const [
+                      "Jan",
+                      "Feb",
+                      "Mar",
+                      "Apr",
+                      "May",
+                      "Jun",
+                      "July",
+                      "Aug",
+                      "Sep",
+                      "Oct",
+                      "Nov",
+                      "Dec",
+                    ],
+                  ),
+                )
+              : const SizedBox.shrink(),
     );
   }
 }

@@ -51,6 +51,13 @@ abstract class AuthRemoteDataSource {
   /// Calls the https://base_url/email/password/reset/code/
   ///
   /// Throws [ServerException] for all error codes.
+  Future<Unit> emailActivationCode({
+    @required String email,
+  });
+
+  /// Calls the https://base_url/email/password/reset/code/
+  ///
+  /// Throws [ServerException] for all error codes.
   Future<Unit> resetCode({
     @required String email,
   });
@@ -183,6 +190,18 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     final body = {"email": email, "code": code};
     return _postRequestForAuth(
       AuthApiEndpoints.verifyEmail,
+      _header,
+      body,
+    );
+  }
+
+  @override
+  Future<Unit> emailActivationCode({
+    @required String email,
+  }) {
+    final body = {"email": email};
+    return _postRequestForAuth(
+      AuthApiEndpoints.emailActivationCode,
       _header,
       body,
     );

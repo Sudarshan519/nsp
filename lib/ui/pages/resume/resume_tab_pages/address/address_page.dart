@@ -222,7 +222,6 @@ class _CurrentPostalCodeInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) =>
           previous.currPostalCode != current.currPostalCode,
@@ -251,7 +250,6 @@ class _CurrentPrefectureInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       buildWhen: (previous, current) =>
           previous.currPrefecture != current.currPrefecture,

@@ -110,10 +110,9 @@ class EditOtherInfoForm extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        if (state.hasSetInitialData) {
-          return _EditBasicInfoFormBody(key: UniqueKey());
-        }
-        return const _EditBasicInfoFormBody();
+        return _EditBasicInfoFormBody(
+          key: state.key,
+        );
       },
     );
   }
@@ -303,7 +302,7 @@ class _HobbiesInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.languages != current.languages ||
+          previous.hobbies != current.hobbies ||
           previous.listOfHobbies != current.listOfHobbies,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Hobbies",
