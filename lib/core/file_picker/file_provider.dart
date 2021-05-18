@@ -8,7 +8,7 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 class FileProvider {
   Future<Either<String, File>> getImage({
-    bool allowCompression,
+    bool? allowCompression,
   }) async {
     final result = await ImagePicker()
         .getImage(source: ImageSource.gallery, imageQuality: 2);

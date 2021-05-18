@@ -23,10 +23,10 @@ class MyResumeWidget extends StatelessWidget {
   final Function(int) changeResumeTabPage;
   const MyResumeWidget({
     Key key,
-    @required this.userDetail,
-    @required this.data,
-    @required this.changeTabPage,
-    @required this.changeResumeTabPage,
+    required this.userDetail,
+    required this.data,
+    required this.changeTabPage,
+    required this.changeResumeTabPage,
   }) : super(key: key);
 
   @override
@@ -315,11 +315,11 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
 
   const _ResumeInformationWidgetWithArrayChild({
     Key key,
-    @required this.index,
-    @required this.title,
-    @required this.percentage,
-    @required this.child,
-    @required this.changeTabPage,
+    required this.index,
+    required this.title,
+    required this.percentage,
+    required this.child,
+    required this.changeTabPage,
     this.changeResumeTabPage,
   }) : super(key: key);
 
@@ -429,17 +429,17 @@ class _ResumeInformationWidget extends StatelessWidget {
 
   const _ResumeInformationWidget({
     Key key,
-    @required this.title,
-    @required this.percentage,
-    @required this.containerTitle,
-    @required this.infoText1,
-    @required this.infoText1Icon,
-    @required this.infoText2,
-    @required this.infoText2Icon,
-    @required this.infoText3,
-    @required this.infoText3Icon,
-    @required this.infoText4,
-    @required this.infoText4Icon,
+    required this.title,
+    required this.percentage,
+    required this.containerTitle,
+    required this.infoText1,
+    required this.infoText1Icon,
+    required this.infoText2,
+    required this.infoText2Icon,
+    required this.infoText3,
+    required this.infoText3Icon,
+    required this.infoText4,
+    required this.infoText4Icon,
     this.changeTabPage,
   }) : super(key: key);
 
@@ -549,15 +549,15 @@ class _ResumeDescriptionItem extends StatelessWidget {
 
   const _ResumeDescriptionItem({
     Key key,
-    @required this.containerTitle,
-    @required this.infoText1Icon,
-    @required this.infoText1,
-    @required this.infoText2Icon,
-    @required this.infoText2,
-    @required this.infoText3Icon,
-    @required this.infoText3,
-    @required this.infoText4Icon,
-    @required this.infoText4,
+    required this.containerTitle,
+    required this.infoText1Icon,
+    required this.infoText1,
+    required this.infoText2Icon,
+    required this.infoText2,
+    required this.infoText3Icon,
+    required this.infoText3,
+    required this.infoText4Icon,
+    required this.infoText4,
   }) : super(key: key);
 
   @override

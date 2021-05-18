@@ -25,7 +25,7 @@ import 'dart:convert';
 //   }
 // }
 
-String errorMessageFromServer(String message) {
+String? errorMessageFromServer(String message) {
   try {
 // convert the response body to a json map
     final data = json.decode(message) as Map<String, dynamic>;
@@ -45,7 +45,7 @@ String errorMessageFromServer(String message) {
   }
 }
 
-String errorMessageFromServerWithError(String message) {
+String? errorMessageFromServerWithError(String message) {
   try {
 // convert the response body to a json map
     final data = json.decode(message) as Map<String, dynamic>;
@@ -56,7 +56,7 @@ String errorMessageFromServerWithError(String message) {
   }
 }
 
-String errorMessageFromServerWithMessage(String message) {
+String? errorMessageFromServerWithMessage(String message) {
   try {
 // convert the response body to a json map
     final data = json.decode(message) as Map<String, dynamic>;

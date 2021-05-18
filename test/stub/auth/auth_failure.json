@@ -1,8 +1,0 @@
-{
-    "status": false,	
-    "error":{
-        "email":[
-            "Invalid Email Address"
-        ]
-    }
-}

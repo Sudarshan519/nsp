@@ -19,7 +19,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
   String _lang;
 
   UpdateQualificationInfoActorBloc({
-    @required this.updateQualificationInfo,
+    required this.updateQualificationInfo,
   }) : super(UpdateQualificationInfoActorState.initial());
 
   @override

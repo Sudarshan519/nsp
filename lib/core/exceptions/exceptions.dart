@@ -1,11 +1,9 @@
-import 'package:flutter/foundation.dart';
-
 class ServerException implements Exception {
   final String message;
 
   const ServerException({
-    @required this.message,
-  }) : assert(message != null);
+    required this.message,
+  });
 }
 
 class CacheException implements Exception {}

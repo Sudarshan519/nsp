@@ -7,18 +7,18 @@ import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';
 abstract class AuthRepository {
   // For sign in purpose
   Future<Either<ApiFailure, WalletUser>> postUserSignInWithUsernameAndPassword({
-    @required String username,
-    @required String password,
+    required String username,
+    required String password,
   });
 
   Future<Either<ApiFailure, Unit>>
       postUserSignUpWithUsernamePasswordAndOtherInformation({
-    @required String firstName,
-    @required String lastName,
-    @required String email,
-    @required String phoneNumber,
-    @required String password,
-    @required String confirmPassword,
+    required String firstName,
+    required String lastName,
+    required String email,
+    required String phoneNumber,
+    required String password,
+    required String confirmPassword,
   });
 
   Future<Either<ApiFailure, WalletUser>> loginWithApple();
@@ -30,12 +30,12 @@ abstract class AuthRepository {
   Future<Either<ApiFailure, WalletUser>> verifyUserForToken(WalletUser user);
 
   Future<Either<ApiFailure, Unit>> verifyEmail({
-    @required String email,
-    @required String code,
+    required String email,
+    required String code,
   });
 
   Future<Either<ApiFailure, Unit>> getNewEmailActivationCode({
-    @required String email,
+    required String email,
   });
 
   Future<Either<ApiFailure, Unit>> getNewVerificationCode({
@@ -44,10 +44,10 @@ abstract class AuthRepository {
 
   Future<Either<ApiFailure, Unit>> getPasswordResetCode(String email);
   Future<Either<ApiFailure, Unit>> changePassword({
-    @required String email,
-    @required String code,
-    @required String password,
-    @required String verificationPassword,
+    required String email,
+    required String code,
+    required String password,
+    required String verificationPassword,
   });
 
   Future<Unit> logoutUser();

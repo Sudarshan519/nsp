@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
@@ -13,12 +12,12 @@ class AlertRepositoryImpl implements AlertRepository {
   final AlertRemoteDataSource dataSource;
 
   AlertRepositoryImpl({
-    @required this.dataSource,
+    required this.dataSource,
   });
 
   @override
   Future<Either<ApiFailure, List<Alert>>> getAlerts({
-    @required int limit,
+    required int limit,
   }) {
     return _getAlerts(request: () {
       return dataSource.getAlerts(params: _getParams(limit: limit));
@@ -27,7 +26,7 @@ class AlertRepositoryImpl implements AlertRepository {
 
   @override
   Future<Either<ApiFailure, List<Alert>>> getEarthquaked({
-    @required int limit,
+    required int limit,
   }) {
     return _getAlerts(request: () {
       return dataSource.getEarthquakes(params: _getParams(limit: limit));
@@ -36,7 +35,7 @@ class AlertRepositoryImpl implements AlertRepository {
 
   @override
   Future<Either<ApiFailure, List<Alert>>> getVolcanoes({
-    @required int limit,
+    required int limit,
   }) {
     return _getAlerts(request: () {
       return dataSource.getVolcanoes(params: _getParams(limit: limit));
@@ -44,7 +43,7 @@ class AlertRepositoryImpl implements AlertRepository {
   }
 
   Map<String, String> _getParams({
-    @required int limit,
+    required int limit,
   }) {
     return {
       "lang": AlertAppConstant.lang,
@@ -56,8 +55,9 @@ class AlertRepositoryImpl implements AlertRepository {
     };
   }
 
-  Future<Either<ApiFailure, List<Alert>>> _getAlerts(
-      {@required Future<List<Alert>> Function() request}) async {
+  Future<Either<ApiFailure, List<Alert>>> _getAlerts({
+    required Future<List<Alert>> Function() request,
+  }) async {
     try {
       return Right(await request());
     } on ServerException catch (ex) {

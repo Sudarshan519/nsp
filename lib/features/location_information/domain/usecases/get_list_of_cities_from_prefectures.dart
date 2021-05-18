@@ -12,7 +12,7 @@ class GetListOfCityFromPrefectures
   final LocationInformationRepositoryProtocol repository;
 
   GetListOfCityFromPrefectures({
-    @required this.repository,
+    required this.repository,
   });
 
   @override
@@ -23,7 +23,7 @@ class GetListOfCityFromPrefectures
       nameOfPrefecture: params.prefecture,
       lang: params.lang,
     );
-
+    
     return result.fold(
       (failure) => Left(failure),
       (data) {
@@ -36,9 +36,9 @@ class GetListOfCityFromPrefectures
 
 class GetListOfCityFromPrefecturesParams {
   GetListOfCityFromPrefecturesParams({
-    @required this.country,
-    @required this.prefecture,
-    @required this.lang,
+    required this.country,
+    required this.prefecture,
+    required this.lang,
   });
 
   final String country;

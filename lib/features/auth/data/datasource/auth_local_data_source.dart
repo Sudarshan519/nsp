@@ -31,10 +31,9 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   final SharedPreferences preferences;
 
   AuthLocalDataSourceImpl({
-    @required this.secureStorage,
-    @required this.preferences,
-  })  : assert(secureStorage != null),
-        assert(preferences != null);
+    required this.secureStorage,
+    required this.preferences,
+  });
 
   @override
   Future<WalletUserModel> getWalletUser() async {

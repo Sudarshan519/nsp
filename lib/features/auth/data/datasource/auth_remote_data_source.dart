@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
@@ -16,59 +15,59 @@ abstract class AuthRemoteDataSource {
   ///
   /// Throws [ServerException] for all error codes.
   Future<WalletUserModel> postNormalLogin({
-    @required String username,
-    @required String password,
+    required String username,
+    required String password,
   });
 
   /// Calls the https://base_url/register/ endpoint
   ///
   /// Throws [ServerException] for all error codes.
   Future<Unit> postNormalSignUp({
-    @required String firstName,
-    @required String lastName,
-    @required String email,
-    @required String phoneNumber,
-    @required String password,
-    @required String confirmPassword,
+    required String firstName,
+    required String lastName,
+    required String email,
+    required String phoneNumber,
+    required String password,
+    required String confirmPassword,
   });
 
   /// Calls the https://base_url/social/ endpoint
   ///
   /// Throws [ServerException] for all error codes.
   Future<WalletUserModel> postSocialLogin({
-    @required String url,
-    @required Map<String, dynamic> params,
+    required String url,
+    required Map<String, dynamic> params,
   });
 
   /// Calls the https://base_url/email/verify/endpoint
   ///
   /// Throws [ServerException] for all error codes.
   Future<Unit> verifyEmail({
-    @required String email,
-    @required String code,
+    required String email,
+    required String code,
   });
 
   /// Calls the https://base_url/email/password/reset/code/
   ///
   /// Throws [ServerException] for all error codes.
   Future<Unit> emailActivationCode({
-    @required String email,
+    required String email,
   });
 
   /// Calls the https://base_url/email/password/reset/code/
   ///
   /// Throws [ServerException] for all error codes.
   Future<Unit> resetCode({
-    @required String email,
+    required String email,
   });
 
   Future<Unit> getPasswordChangeVerificationCode(String email);
 
   Future<Unit> passwordReset({
-    @required String email,
-    @required String code,
-    @required String password,
-    @required String verificationPassword,
+    required String email,
+    required String code,
+    required String password,
+    required String verificationPassword,
   });
 }
 
@@ -83,15 +82,15 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   };
 
   AuthRemoteDataSourceImpl({
-    @required this.client,
-    @required this.config,
-  })  : assert(client != null),
+    required this.client,
+    required this.config,
+  })   : assert(client != null),
         assert(config != null);
 
   @override
   Future<WalletUserModel> postNormalLogin({
-    @required String username,
-    @required String password,
+    required String username,
+    required String password,
   }) async {
     final body = {
       'email': username,
@@ -102,12 +101,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<Unit> postNormalSignUp({
-    @required String firstName,
-    @required String lastName,
-    @required String email,
-    @required String phoneNumber,
-    @required String password,
-    @required String confirmPassword,
+    required String firstName,
+    required String lastName,
+    required String email,
+    required String phoneNumber,
+    required String password,
+    required String confirmPassword,
   }) async {
     final url =
         "${config.baseURL}${config.apiPath}${AuthApiEndpoints.postRegister}";
@@ -125,7 +124,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     try {
       response = await client.post(
-        url,
+        Uri.parse(url),
         headers: _header,
         body: json.encode(params),
       );
@@ -144,8 +143,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<WalletUserModel> postSocialLogin({
-    @required String url,
-    @required Map<String, dynamic> params,
+    required String url,
+    required Map<String, dynamic> params,
   }) {
     return _postLoginRegister(url, _header, params);
   }
@@ -161,7 +160,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     try {
       response = await client.post(
-        url,
+        Uri.parse(url),
         headers: header,
         body: json.encode(body),
       );
@@ -184,8 +183,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<Unit> verifyEmail({
-    @required String email,
-    @required String code,
+    required String email,
+    required String code,
   }) async {
     final body = {"email": email, "code": code};
     return _postRequestForAuth(
@@ -197,7 +196,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<Unit> emailActivationCode({
-    @required String email,
+    required String email,
   }) {
     final body = {"email": email};
     return _postRequestForAuth(
@@ -209,7 +208,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<Unit> resetCode({
-    @required String email,
+    required String email,
   }) {
     final body = {"email": email};
     return _postRequestForAuth(
@@ -229,7 +228,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     http.Response response;
     try {
       response = await client.post(
-        url,
+        Uri.parse(url),
         headers: header,
         body: json.encode(body),
       );
@@ -260,10 +259,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<Unit> passwordReset({
-    @required String email,
-    @required String code,
-    @required String password,
-    @required String verificationPassword,
+    required String email,
+    required String code,
+    required String password,
+    required String verificationPassword,
   }) async {
     final body = {
       "email": email,

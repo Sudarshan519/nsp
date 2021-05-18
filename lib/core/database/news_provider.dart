@@ -8,17 +8,17 @@ import 'local_database_provider.dart';
 
 abstract class NewsLocalProvider {
   Future insertNewsForYou(NewsModel newsModel);
-  Future<NewsModel> getNewsForYou();
+  Future<NewsModel?> getNewsForYou();
 
   Future insertFavouriteNews(NewsItemModel newsModel);
-  Future<List<NewsItemModel>> getFavouriteNews();
+  Future<List<NewsItemModel>?> getFavouriteNews();
 }
 
 @Singleton(as: NewsLocalProvider)
 class NewsLocalProviderImpl implements NewsLocalProvider {
   final DBProvider provider;
 
-  NewsLocalProviderImpl({@required this.provider});
+  NewsLocalProviderImpl({required this.provider});
 
   @override
   Future insertNewsForYou(NewsModel newsModel) async {
@@ -41,7 +41,7 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
   }
 
   @override
-  Future<NewsModel> getNewsForYou() async {
+  Future<NewsModel?> getNewsForYou() async {
     await provider.open();
 
     final newsJson =

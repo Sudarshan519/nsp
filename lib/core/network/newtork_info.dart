@@ -1,6 +1,5 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 abstract class NetworkInfo {
   Future<bool> get isConnected;
@@ -8,9 +7,9 @@ abstract class NetworkInfo {
 
 @LazySingleton(as: NetworkInfo)
 class NetworkInfoImpl implements NetworkInfo {
-  final DataConnectionChecker dataConnectionChecker;
+  final InternetConnectionChecker dataConnectionChecker;
 
-  NetworkInfoImpl({@required this.dataConnectionChecker});
+  NetworkInfoImpl({required this.dataConnectionChecker});
 
   @override
   Future<bool> get isConnected => dataConnectionChecker.hasConnection;

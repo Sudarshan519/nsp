@@ -21,7 +21,7 @@ class NewsGenreBloc extends Bloc<NewsGenreEvent, NewsGenreState> {
   List<Genre> _list;
 
   NewsGenreBloc({
-    @required this.getNewsGenre,
+    required this.getNewsGenre,
   }) : super(const _Initial());
 
   @override

@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/favourite_news/favourite_news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
@@ -66,7 +65,6 @@ class WalletApp extends StatelessWidget {
               const NewsPreferenceEvent.fetch(),
             ),
         ),
-        
       ],
       child: MaterialApp(
         title: 'Wallet',

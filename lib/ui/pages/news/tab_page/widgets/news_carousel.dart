@@ -10,7 +10,7 @@ class NewsCarousel extends StatefulWidget {
 
   const NewsCarousel({
     Key key,
-    @required this.newsList,
+    required this.newsList,
   }) : super(key: key);
 
   @override

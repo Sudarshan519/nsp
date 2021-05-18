@@ -12,8 +12,8 @@ class VerifyEmail implements Usecase<ApiFailure, Unit, VerifyEmailParams> {
   final NetworkInfo networkInfo;
 
   VerifyEmail({
-    @required this.repository,
-    @required this.networkInfo,
+    required this.repository,
+    required this.networkInfo,
   })  : assert(repository != null),
         assert(networkInfo != null);
 
@@ -50,7 +50,7 @@ class VerifyEmailParams {
   final String code;
 
   VerifyEmailParams({
-    @required this.email,
-    @required this.code,
+    required this.email,
+    required this.code,
   });
 }

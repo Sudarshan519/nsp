@@ -14,8 +14,8 @@ class GetEarthquakes
   final NetworkInfo networkInfo;
 
   GetEarthquakes({
-    @required this.repository,
-    @required this.networkInfo,
+    required this.repository,
+    required this.networkInfo,
   });
 
   @override
@@ -33,6 +33,6 @@ class GetEarthquakesParams {
   final int limit;
 
   GetEarthquakesParams({
-    @required this.limit,
+    required this.limit,
   });
 }

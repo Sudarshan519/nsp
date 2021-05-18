@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
@@ -12,13 +10,13 @@ import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class AlertRemoteDataSource {
   Future<List<AlertModel>> getAlerts({
-    @required Map<String, String> params,
+    required Map<String, String> params,
   });
   Future<List<AlertModel>> getEarthquakes({
-    @required Map<String, String> params,
+    required Map<String, String> params,
   });
   Future<List<AlertModel>> getVolcanoes({
-    @required Map<String, String> params,
+    required Map<String, String> params,
   });
 }
 
@@ -33,13 +31,13 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   };
 
   AlertRemoteDataSourceImpl({
-    @required this.client,
-    @required this.config,
+    required this.client,
+    required this.config,
   });
 
   @override
   Future<List<AlertModel>> getAlerts({
-    @required Map<String, String> params,
+    required Map<String, String> params,
   }) {
     return _getAlertList(
       uri: AlertApiEndpoints.getEarthquakesAndVolcanoes,
@@ -49,7 +47,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
 
   @override
   Future<List<AlertModel>> getEarthquakes({
-    @required Map<String, String> params,
+    required Map<String, String> params,
   }) {
     return _getAlertList(
       uri: AlertApiEndpoints.getEarthquakes,
@@ -59,7 +57,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
 
   @override
   Future<List<AlertModel>> getVolcanoes({
-    @required Map<String, String> params,
+    required Map<String, String> params,
   }) {
     return _getAlertList(
       uri: AlertApiEndpoints.getVolcanoes,
@@ -68,8 +66,8 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   }
 
   Future<List<AlertModel>> _getAlertList({
-    @required String uri,
-    Map<String, String> params,
+    required String uri,
+    required Map<String, String> params,
   }) async {
     http.Response response;
 
@@ -78,7 +76,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
 
     try {
       response = await client.get(
-        url,
+        Uri.parse(url),
         headers: _header,
       );
     } catch (ex) {

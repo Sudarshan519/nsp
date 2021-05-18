@@ -1,23 +1,21 @@
-import 'package:flutter/foundation.dart';
 import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';
 
 class WalletUserModel extends WalletUser {
   const WalletUserModel({
-    @required bool status,
-    @required String accessToken,
-    @required String refreshToken,
+    required bool? status,
+    required String? accessToken,
+    required String? refreshToken,
   }) : super(
           status: status,
-          // applicantId: applicantId,
           accessToken: accessToken,
           refreshToken: refreshToken,
         );
 
   factory WalletUserModel.fromJSON(Map<String, dynamic> json) {
     return WalletUserModel(
-      status: json['status'] as bool,
-      accessToken: json['token']['access'] as String,
-      refreshToken: json['token']['refresh'] as String,
+      status: json['status'] as bool?,
+      accessToken: json['token']['access'] as String?,
+      refreshToken: json['token']['refresh'] as String?,
     );
   }
 
@@ -31,9 +29,9 @@ class WalletUserModel extends WalletUser {
 
   factory WalletUserModel.fromRefreshTokenApi(Map<String, dynamic> json) {
     return WalletUserModel(
-      status: json['status'] as bool,
-      accessToken: json['access'] as String,
-      refreshToken: json['refresh'] as String,
+      status: json['status'] as bool?,
+      accessToken: json['access'] as String?,
+      refreshToken: json['refresh'] as String?,
     );
   }
 
@@ -55,9 +53,9 @@ class WalletUserModel extends WalletUser {
 
   factory WalletUserModel.fromLocalStorage(Map<String, dynamic> json) {
     return WalletUserModel(
-      status: json['status'] as bool,
-      accessToken: json['access_token'] as String,
-      refreshToken: json['refresh_token'] as String,
+      status: json['status'] as bool?,
+      accessToken: json['access_token'] as String?,
+      refreshToken: json['refresh_token'] as String?,
     );
   }
 }

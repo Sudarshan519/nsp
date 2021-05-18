@@ -1,7 +1,0 @@
-{
-    "status": true,	
-    "token":{
-        "access":"access",
-        "refresh":"refresh"
-    }
-}

@@ -54,65 +54,56 @@ class UserDetail extends Equatable {
     this.isKycVerified,
   });
 
-  final String firstName;
-  final String lastName;
-  final String furigana;
-  final String email;
-  final String mobile;
-  final String uuid;
-  final String avatar;
-  final int balance;
-  final int point;
-  final String dob;
-  final String gender;
-  final String nationality;
-  final String passportCitizenshipNumber;
-  final String postalCode;
-  final String province;
-  final String city;
-  final String streetAddress;
-  final String originProvince;
-  final String originPostalCode;
-  final String originCityDistrict;
-  final String originStreetAddress;
-  final String profession;
-  final String occupation;
-  final String kycDocType;
-  final String kycDocNo;
-  final String kycDocFront;
-  final String kycDocBack;
-  final String kycDocIssuedFrom;
-  final String kycIssuedDate;
-  final String originKycDocType;
-  final String originKycDocNumber;
-  final String originKycDocFront;
-  final String originKycDocBack;
-  final String originDocIssuedFrom;
-  final String originDocIssuedDate;
-  final String grandfatherName;
-  final String fatherName;
-  final String motherName;
-  final String company;
-  final String maritalStatus;
-  final String community;
-  final String countryOfResidence;
-  final String countryOfOrigin;
-  final String buildingName;
-  final String remarks;
-  final String otherPhone;
-  final int smartPitNo;
-  final bool isKycVerified;
-  final ResumeOptions options;
+  final String? firstName;
+  final String? lastName;
+  final String? furigana;
+  final String? email;
+  final String? mobile;
+  final String? uuid;
+  final String? avatar;
+  final int? balance;
+  final int? point;
+  final String? dob;
+  final String? gender;
+  final String? nationality;
+  final String? passportCitizenshipNumber;
+  final String? postalCode;
+  final String? province;
+  final String? city;
+  final String? streetAddress;
+  final String? originProvince;
+  final String? originPostalCode;
+  final String? originCityDistrict;
+  final String? originStreetAddress;
+  final String? profession;
+  final String? occupation;
+  final String? kycDocType;
+  final String? kycDocNo;
+  final String? kycDocFront;
+  final String? kycDocBack;
+  final String? kycDocIssuedFrom;
+  final String? kycIssuedDate;
+  final String? originKycDocType;
+  final String? originKycDocNumber;
+  final String? originKycDocFront;
+  final String? originKycDocBack;
+  final String? originDocIssuedFrom;
+  final String? originDocIssuedDate;
+  final String? grandfatherName;
+  final String? fatherName;
+  final String? motherName;
+  final String? company;
+  final String? maritalStatus;
+  final String? community;
+  final String? countryOfResidence;
+  final String? countryOfOrigin;
+  final String? buildingName;
+  final String? remarks;
+  final String? otherPhone;
+  final int? smartPitNo;
+  final bool? isKycVerified;
+  final ResumeOptions? options;
 
   @override
-  List<Object> get props => [
-        firstName,
-        lastName,
-        email,
-        mobile,
-        uuid,
-        avatar,
-        balance,
-        point,
-      ];
+  List<Object> get props => [];
 }
