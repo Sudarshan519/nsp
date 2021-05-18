@@ -36,6 +36,7 @@ class PrefectureAndCityFromPostalCodeModel
     @required String city,
     @required String cityJp,
     @required String street,
+    @required String streetJp,
   }) : super(
           id: id,
           postalCode: postalCode,
@@ -44,6 +45,7 @@ class PrefectureAndCityFromPostalCodeModel
           city: city,
           cityJp: cityJp,
           street: street,
+          streetJp: streetJp,
         );
 
   factory PrefectureAndCityFromPostalCodeModel.fromJson(
@@ -56,5 +58,6 @@ class PrefectureAndCityFromPostalCodeModel
         city: json["city"] as String,
         cityJp: json["city_jp"] as String,
         street: json["street"] as String,
+        streetJp: json["street_jp"] as String,
       );
 }

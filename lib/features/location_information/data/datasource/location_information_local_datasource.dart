@@ -58,7 +58,8 @@ class LocationInformationLocalDataSource
       throw ServerException(message: ex.toString());
     }
     if (response.statusCode == 200) {
-      final model = locationFromPostalCodeModelFromJson(response.body);
+      final responseBody = utf8.decode(response.bodyBytes);
+      final model = locationFromPostalCodeModelFromJson(responseBody);
       if (model.postalCode != null) {
         return model.postalCode;
       } else {

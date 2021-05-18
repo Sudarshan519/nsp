@@ -10,6 +10,7 @@ class PrefectureAndCityFromPostalCode extends Equatable {
     @required this.cityJp,
     @required this.city,
     @required this.street,
+    @required this.streetJp,
   });
 
   final int id;
@@ -19,6 +20,7 @@ class PrefectureAndCityFromPostalCode extends Equatable {
   final String prefecture;
   final String city;
   final String street;
+  final String streetJp;
 
   @override
   List<Object> get props => [
