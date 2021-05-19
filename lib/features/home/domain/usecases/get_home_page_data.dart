@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -14,9 +13,9 @@ class GetHomePageData
   final NetworkInfo networkInfo;
 
   GetHomePageData({
-    @required this.repository,
-    @required this.networkInfo,
-  }) : assert(repository != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Stream<Either<ApiFailure, HomeResponse>> call(NoParams params) async* {

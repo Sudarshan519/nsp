@@ -19,7 +19,7 @@ class JapaneseMannerBloc
   List<JapaneseManner> data = [];
 
   JapaneseMannerBloc({
-    @required this.getJapaneseManner,
+    required this.getJapaneseManner,
   }) : super(const _Initial());
 
   @override
@@ -36,8 +36,8 @@ class JapaneseMannerBloc
         yield result.fold(
           (failure) => _Failure(failure),
           (list) {
-            data = list.results;
-            return _Loaded(list.results);
+            data = list.results ?? [];
+            return _Loaded(list.results ?? []);
           },
         );
       },

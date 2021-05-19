@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
@@ -17,18 +16,18 @@ abstract class NewsRemoteDataSourceProtocol {
   /// Throws [ServerException] for all error codes.
   ///
   Future<NewsModel> getLatestNews({
-    @required String page,
-    @required String limit,
-    @required List<String> sources,
-    @required List<String> lang,
+    required String page,
+    required String limit,
+    required List<String> sources,
+    required List<String> lang,
   });
 
   Future<NewsModel> getNewsForYou({
-    @required String page,
-    @required String limit,
-    @required List<String> sources,
-    @required List<String> lang,
-    @required List<String> genre,
+    required String page,
+    required String limit,
+    required List<String> sources,
+    required List<String> lang,
+    required List<String> genre,
   });
 
   Future<List<GenreModel>> getGenreList();
@@ -46,19 +45,16 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
   };
 
   NewsRemoteDataSource({
-    @required this.client,
-    @required this.config,
-  }) : assert(
-          client != null,
-          config != null,
-        );
+    required this.client,
+    required this.config,
+  });
 
   @override
   Future<NewsModel> getLatestNews({
-    @required String page,
-    @required String limit,
-    @required List<String> sources,
-    @required List<String> lang,
+    required String page,
+    required String limit,
+    required List<String> sources,
+    required List<String> lang,
   }) {
     final params = {
       "page": page,
@@ -76,11 +72,11 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
 
   @override
   Future<NewsModel> getNewsForYou({
-    @required String page,
-    @required String limit,
-    @required List<String> sources,
-    @required List<String> lang,
-    @required List<String> genre,
+    required String page,
+    required String limit,
+    required List<String> sources,
+    required List<String> lang,
+    required List<String> genre,
   }) {
     final params = {
       "page": page,
@@ -104,7 +100,7 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNewsGenre}";
     try {
       response = await client.get(
-        url,
+        Uri.parse(url),
         headers: _headers,
       );
     } catch (ex) {
@@ -128,7 +124,7 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         "${config.baseURL}${config.apiPath}${NewsApiEndpoints.getNewsPreferences}";
     try {
       response = await client.get(
-        url,
+        Uri.parse(url),
         headers: _headers,
       );
     } catch (ex) {
@@ -146,13 +142,13 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
   }
 
   Future<NewsModel> _getNews({
-    @required String url,
+    required String url,
   }) async {
     http.Response response;
 
     try {
       response = await client.get(
-        url,
+        Uri.parse(url),
         headers: _headers,
       );
     } catch (ex) {
@@ -161,7 +157,11 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
 
     if (response.statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      return newsModelFromJson(responseBody);
+      final newsModel = newsModelFromJson(responseBody);
+      if (newsModel != null) {
+        return newsModel;
+      }
+      throw const ServerException(message: AppConstants.someThingWentWrong);
     } else {
       final errorModel = newsModelFromJson(response.body);
       throw ServerException(

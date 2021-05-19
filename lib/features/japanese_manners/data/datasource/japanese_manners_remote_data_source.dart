@@ -12,7 +12,9 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class JapaneseMannersRemoteDataSource {
-  Future<JapaneseMannerListModel> getJapaneseManners({@required int id});
+  Future<JapaneseMannerListModel> getJapaneseManners({
+    required int id,
+  });
   Future<List<JapaneseMannerCategoryModel>> getJapaneseMannerCategories();
 }
 
@@ -28,18 +30,23 @@ class JapaneseMannersRemoteDataSourceImpl
   };
 
   JapaneseMannersRemoteDataSourceImpl({
-    @required this.client,
-    @required this.config,
+    required this.client,
+    required this.config,
   });
 
   @override
-  Future<JapaneseMannerListModel> getJapaneseManners({@required int id}) async {
+  Future<JapaneseMannerListModel> getJapaneseManners({
+    required int id,
+  }) async {
     final url =
         "${config.baseURL}${config.apiPath}${JapaneseMannerApiEndpoints.getJapaneseMannersById}$id";
     http.Response response;
 
     try {
-      response = await client.get(url, headers: _headers);
+      response = await client.get(
+        Uri.parse(url),
+        headers: _headers,
+      );
     } catch (ex) {
       throw ServerException(message: ex.toString());
     }
@@ -64,7 +71,10 @@ class JapaneseMannersRemoteDataSourceImpl
     http.Response response;
 
     try {
-      response = await client.get(url, headers: _headers);
+      response = await client.get(
+        Uri.parse(url),
+        headers: _headers,
+      );
     } catch (ex) {
       throw ServerException(message: ex.toString());
     }

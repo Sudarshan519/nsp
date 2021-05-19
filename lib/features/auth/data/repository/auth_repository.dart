@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
@@ -19,22 +18,18 @@ class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
   final AuthLocalDataSource localDataSource;
   final GoogleSignIn googleSignIn;
-  // final FacebookLogin facebookLogin;
 
   AuthRepositoryImpl({
-    @required this.remoteDataSource,
-    @required this.localDataSource,
+    required this.remoteDataSource,
+    required this.localDataSource,
     // @required this.facebookLogin,
-    @required this.googleSignIn,
-  })  : assert(remoteDataSource != null),
-        assert(localDataSource != null),
-        // assert(facebookLogin != null),
-        assert(googleSignIn != null);
+    required this.googleSignIn,
+  });
 
   @override
   Future<Either<ApiFailure, WalletUser>> postUserSignInWithUsernameAndPassword({
-    @required String username,
-    @required String password,
+    required String username,
+    required String password,
   }) async {
     return _login(
       request: () {
@@ -48,13 +43,14 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<ApiFailure, Unit>>
-      postUserSignUpWithUsernamePasswordAndOtherInformation(
-          {String firstName,
-          String lastName,
-          String email,
-          String phoneNumber,
-          String password,
-          String confirmPassword}) async {
+      postUserSignUpWithUsernamePasswordAndOtherInformation({
+    required String firstName,
+    required String lastName,
+    required String email,
+    required String phoneNumber,
+    required String password,
+    required String confirmPassword,
+  }) async {
     try {
       final _ = await remoteDataSource.postNormalSignUp(
         firstName: firstName,
@@ -97,10 +93,6 @@ class AuthRepositoryImpl implements AuthRepository {
         "phone": ""
       };
       localDataSource.saveAppleUser(appleUser);
-    }
-    if (appleUser == null) {
-      return const Left(
-          ApiFailure.serverError(message: AppConstants.someThingWentWrong));
     }
 
     return _login(
@@ -170,14 +162,19 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<ApiFailure, WalletUser>> loginWithGoogle() async {
-    GoogleSignInAccount userAccount;
+    GoogleSignInAccount? userAccount;
     try {
       userAccount = await googleSignIn.signIn();
     } catch (ex) {
       return Left(ApiFailure.serverError(message: ex.toString()));
     }
-    final names = userAccount.displayName.split(' ');
-    final firstName = names[0];
+    if (userAccount == null) {
+      return const Left(
+          ApiFailure.serverError(message: AppConstants.someThingWentWrong));
+    }
+
+    final names = userAccount.displayName?.split(' ') ?? [];
+    final firstName = names.first;
     final lastName = names.length > 1 ? names[1] : '';
     final email = userAccount.email;
     final avatar = userAccount.photoUrl;
@@ -222,7 +219,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> getNewEmailActivationCode({
-    @required String email,
+    required String email,
   }) {
     return _postMethod(request: () {
       return remoteDataSource.emailActivationCode(email: email);
@@ -231,7 +228,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> getNewVerificationCode({
-    @required String email,
+    required String email,
   }) {
     return _postMethod(request: () {
       return remoteDataSource.resetCode(email: email);
@@ -240,8 +237,8 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> verifyEmail({
-    @required String email,
-    @required String code,
+    required String email,
+    required String code,
   }) async {
     return _postMethod(request: () {
       return remoteDataSource.verifyEmail(email: email, code: code);
@@ -261,11 +258,12 @@ class AuthRepositoryImpl implements AuthRepository {
     });
   }
 
+  @override
   Future<Either<ApiFailure, Unit>> changePassword({
-    @required String email,
-    @required String code,
-    @required String password,
-    @required String verificationPassword,
+    required String email,
+    required String code,
+    required String password,
+    required String verificationPassword,
   }) async {
     return _postMethod(request: () {
       return remoteDataSource.passwordReset(
@@ -278,8 +276,9 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   // MARK:- Private functions
-  Future<Either<ApiFailure, WalletUserModel>> _login(
-      {@required Future<WalletUserModel> Function() request}) async {
+  Future<Either<ApiFailure, WalletUserModel>> _login({
+    required Future<WalletUserModel> Function() request,
+  }) async {
     try {
       final userData = await request();
       localDataSource.save(userData);
@@ -289,8 +288,9 @@ class AuthRepositoryImpl implements AuthRepository {
     }
   }
 
-  Future<Either<ApiFailure, Unit>> _postMethod(
-      {@required Future<Unit> Function() request}) async {
+  Future<Either<ApiFailure, Unit>> _postMethod({
+    required Future<Unit> Function() request,
+  }) async {
     try {
       return Right(await request());
     } on ServerException catch (ex) {

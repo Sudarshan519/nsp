@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
@@ -10,7 +9,7 @@ class LogoutUser implements Usecase<ApiFailure, Unit, NoParams> {
   final AuthRepository repository;
 
   LogoutUser({
-    @required this.repository,
+    required this.repository,
   });
 
   @override

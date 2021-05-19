@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:wallet_app/features/news/domain/entity/news_genre.dart';
 
 List<GenreModel> genreModelFromJson(String str) =>
@@ -12,9 +11,9 @@ String genreModelToJson(List<GenreModel> data) =>
 
 class GenreModel extends Genre {
   GenreModel({
-    @required String name,
-    @required String slug,
-    @required String image,
+    required String? name,
+    required String? slug,
+    required String? image,
   }) : super(
           name: name,
           slug: slug,
@@ -23,9 +22,9 @@ class GenreModel extends Genre {
         );
 
   factory GenreModel.fromJson(Map<String, dynamic> json) => GenreModel(
-        name: json["name"] as String,
-        slug: json["slug"] as String,
-        image: json["image"] as String,
+        name: json["name"] as String?,
+        slug: json["slug"] as String?,
+        image: json["image"] as String?,
       );
 
   Map<String, dynamic> toJson() => {

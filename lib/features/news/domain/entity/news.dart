@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 
 class News {
@@ -10,12 +9,9 @@ class News {
     this.error,
   });
 
-  final String page;
-  final List<String> source;
-  final int total;
-  List<NewsItem> data;
-  final String error;
-
-  @override
-  List<Object> get props => [source, data];
+  final String? page;
+  final List<String>? source;
+  final int? total;
+  List<NewsItem>? data;
+  final String? error;
 }

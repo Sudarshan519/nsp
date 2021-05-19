@@ -153,7 +153,6 @@ class HomePage extends StatelessWidget {
             changeTabPage: changeTabPage,
           );
         }
-        break;
       case HomeItemType.services:
         final data = List<ServicesModel>.from((model.data as Iterable)
             .map((x) => ServicesModel.fromJson(x as Map<String, dynamic>)));

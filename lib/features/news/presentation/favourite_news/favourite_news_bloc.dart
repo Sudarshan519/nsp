@@ -16,7 +16,7 @@ class FavouriteNewsBloc extends Bloc<FavouriteNewsEvent, FavouriteNewsState> {
   final GetFavouriteNews getFavouriteNews;
 
   FavouriteNewsBloc({
-    @required this.getFavouriteNews,
+    required this.getFavouriteNews,
   }) : super(const _Initial());
 
   @override

@@ -17,10 +17,10 @@ part 'home_page_data_bloc.freezed.dart';
 class HomePageDataBloc extends Bloc<HomePageDataEvent, HomePageDataState> {
   final GetHomePageData getHomePageData;
   HomeResponse _data;
+
   HomePageDataBloc({
-    @required this.getHomePageData,
-  })  : assert(getHomePageData != null),
-        super(const _Initial());
+    required this.getHomePageData,
+  }) : super(const _Initial());
 
   @override
   Stream<HomePageDataState> mapEventToState(

@@ -1,7 +1,7 @@
 part of 'verify_email_bloc.dart';
 
 @freezed
-abstract class VerifyEmailState with _$VerifyEmailState {
+class VerifyEmailState with _$VerifyEmailState {
   const factory VerifyEmailState.initial() = _Initial;
   const factory VerifyEmailState.verified() = _Verified;
   const factory VerifyEmailState.codeSent({String email}) = _CodeSent;

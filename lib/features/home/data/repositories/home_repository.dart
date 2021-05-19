@@ -12,8 +12,8 @@ class HomeRepositoryImpl implements HomeReporisitory {
   final HomePageRemoteDataSource remoteDataSource;
 
   HomeRepositoryImpl({
-    @required this.remoteDataSource,
-  }) : assert(remoteDataSource != null);
+    required this.remoteDataSource,
+  });
 
   @override
   Stream<Either<ApiFailure, HomeResponseModel>> getHomePageData() async* {

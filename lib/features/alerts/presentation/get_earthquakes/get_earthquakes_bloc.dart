@@ -22,7 +22,7 @@ class GetEarthquakesBloc
   bool isFetching = false;
 
   GetEarthquakesBloc({
-    @required this.getEarthquakes,
+    required this.getEarthquakes,
   }) : super(const _Initial());
 
   @override

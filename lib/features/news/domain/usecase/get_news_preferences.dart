@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
@@ -12,7 +11,7 @@ class GetNewsPreferences
   final NewsRepositoryProtocol repository;
 
   GetNewsPreferences({
-    @required this.repository,
+    required this.repository,
   });
 
   @override
@@ -20,7 +19,9 @@ class GetNewsPreferences
     return repository.getPreferenceList();
   }
 
-  Future savePreferences({@required List<NewsPreference> preference}) {
+  Future savePreferences({
+    required List<NewsPreference> preference,
+  }) {
     return repository.saveNewsPreferences(preference: preference);
   }
 }

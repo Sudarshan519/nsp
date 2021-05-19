@@ -39,7 +39,7 @@ abstract class AuthRepository {
   });
 
   Future<Either<ApiFailure, Unit>> getNewVerificationCode({
-    @required String email,
+    required String email,
   });
 
   Future<Either<ApiFailure, Unit>> getPasswordResetCode(String email);

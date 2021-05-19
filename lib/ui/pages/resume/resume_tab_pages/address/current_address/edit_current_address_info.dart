@@ -22,6 +22,7 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 
 class EditCurrentAddressInfoForm extends StatelessWidget {
+  static String language = "";
   final PersonalInfo info;
   final List<String> prefecture;
   final List<String> provinces;
@@ -38,6 +39,7 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EditCurrentAddressInfoForm.language = lang;
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
       getCountries: getIt<GetCountries>(),
@@ -115,6 +117,7 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
         }
         return _EditBasicInfoFormBody(
           key: state.key,
+          lang: lang,
         );
       },
     );
@@ -122,8 +125,11 @@ class EditCurrentAddressInfoForm extends StatelessWidget {
 }
 
 class _EditBasicInfoFormBody extends StatelessWidget {
+  final String lang;
+
   const _EditBasicInfoFormBody({
     Key key,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -132,18 +138,20 @@ class _EditBasicInfoFormBody extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
         child: Column(
-          children: const [
-            _CountryInputField(),
-            SizedBox(height: 20),
-            _PostalCodeInputField(),
-            SizedBox(height: 20),
-            _PrefectureInputField(),
-            SizedBox(height: 20),
-            _CityInputField(),
-            SizedBox(height: 20),
-            _AddressInputField(),
-            SizedBox(height: 20),
-            _PhoneInputField(),
+          children: [
+            const _CountryInputField(),
+            const SizedBox(height: 20),
+            _PostalCodeInputField(
+              lang: lang,
+            ),
+            const SizedBox(height: 20),
+            const _PrefectureInputField(),
+            const SizedBox(height: 20),
+            const _CityInputField(),
+            const SizedBox(height: 20),
+            const _AddressInputField(),
+            const SizedBox(height: 20),
+            const _PhoneInputField(),
           ],
         ),
       ),
@@ -215,8 +223,10 @@ class _CountryInputField extends StatelessWidget {
 }
 
 class _PostalCodeInputField extends StatelessWidget {
+  final String lang;
   const _PostalCodeInputField({
     Key key,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -255,6 +265,7 @@ class _PostalCodeInputField extends StatelessWidget {
                 child: _SearchAddressViaPostalCode(
                   parentContext: context,
                   parentState: state,
+                  lang: lang,
                 ),
               ),
           ],
@@ -267,11 +278,13 @@ class _PostalCodeInputField extends StatelessWidget {
 class _SearchAddressViaPostalCode extends StatelessWidget {
   final BuildContext parentContext;
   final UpdateAddressInfoActorState parentState;
+  final String lang;
 
   const _SearchAddressViaPostalCode({
     Key key,
     @required this.parentContext,
     @required this.parentState,
+    @required this.lang,
   }) : super(key: key);
 
   @override
@@ -297,22 +310,37 @@ class _SearchAddressViaPostalCode extends StatelessWidget {
 
             if (data.isNotEmpty) {
               final addressData = data.first;
-              String prefecture = addressData.prefecture.toLowerCase();
-              prefecture =
-                  "${prefecture[0].toUpperCase()}${prefecture.substring(1)}";
+              final String prefectureEn = addressData.prefecture;
+              final String prefectureJp = addressData.prefectureJp;
+              // prefectureEn =
+              //     "${prefectureEn[0].toUpperCase()}${prefectureEn.substring(1)}";
 
-              String city = addressData.city.toLowerCase();
-              city = "${city[0].toUpperCase()}${city.substring(1)}";
+              final String cityEn = addressData.city;
+              final String cityJp = addressData.cityJp;
+              // cityEn = "${cityEn[0].toUpperCase()}${cityEn.substring(1)}";
 
-              parentContext.read<UpdateAddressInfoActorBloc>().add(
-                  UpdateAddressInfoActorEvent.changedCurrJapanesePrefecture(
-                      prefecture));
-              parentContext
-                  .read<UpdateAddressInfoActorBloc>()
-                  .add(UpdateAddressInfoActorEvent.changedCurrCity(city));
-              parentContext.read<UpdateAddressInfoActorBloc>().add(
-                  UpdateAddressInfoActorEvent.changedCurrAddress(
-                      addressData.street));
+              final String addressEn = addressData.street;
+              final String addressJp = addressData.streetJp;
+
+              if (EditCurrentAddressInfoForm.language == "en") {
+                parentContext.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedCurrJapanesePrefecture(
+                        prefectureEn));
+                parentContext
+                    .read<UpdateAddressInfoActorBloc>()
+                    .add(UpdateAddressInfoActorEvent.changedCurrCity(cityEn));
+                parentContext.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedCurrAddress(addressEn));
+              } else {
+                parentContext.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedCurrJapanesePrefecture(
+                        prefectureJp));
+                parentContext
+                    .read<UpdateAddressInfoActorBloc>()
+                    .add(UpdateAddressInfoActorEvent.changedCurrCity(cityJp));
+                parentContext.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedCurrAddress(addressJp));
+              }
             }
 
             return _buildSearchBoxWithLoading(context: context);

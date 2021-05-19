@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
@@ -11,7 +10,7 @@ class GetNewsGenre implements Usecase<ApiFailure, List<Genre>, NoParams> {
   final NewsRepositoryProtocol repository;
 
   GetNewsGenre({
-    @required this.repository,
+    required this.repository,
   });
 
   @override
@@ -19,7 +18,9 @@ class GetNewsGenre implements Usecase<ApiFailure, List<Genre>, NoParams> {
     return repository.getGenreList();
   }
 
-  Future saveGenre({@required List<Genre> genre}) {
+  Future saveGenre({
+    required List<Genre> genre,
+  }) {
     return repository.saveGenreList(genre: genre);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -14,8 +13,8 @@ class GetJapaneseMannerCategories
   final NetworkInfo networkInfo;
 
   GetJapaneseMannerCategories({
-    @required this.repository,
-    @required this.networkInfo,
+    required this.repository,
+    required this.networkInfo,
   });
 
   @override

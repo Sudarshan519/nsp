@@ -20,7 +20,7 @@ class GetVolcanoesBloc extends Bloc<GetVolcanoesEvent, GetVolcanoesState> {
   bool isFetching = false;
 
   GetVolcanoesBloc({
-    @required this.getVolcanoes,
+    required this.getVolcanoes,
   }) : super(const _Initial());
 
   @override

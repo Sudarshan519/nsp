@@ -14,7 +14,7 @@ part 'password_reset_bloc.freezed.dart';
 class PasswordResetBloc extends Bloc<PasswordResetEvent, PasswordResetState> {
   final ResetPasswordUseCase resetPasswordUseCase;
   PasswordResetBloc({
-    @required this.resetPasswordUseCase,
+    required this.resetPasswordUseCase,
   }) : super(const PasswordResetState.showFetchCodePage());
 
   @override

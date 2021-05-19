@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -15,8 +14,8 @@ class GetJapaneseManner
   final NetworkInfo networkInfo;
 
   GetJapaneseManner({
-    @required this.repository,
-    @required this.networkInfo,
+    required this.repository,
+    required this.networkInfo,
   });
 
   @override
@@ -33,5 +32,7 @@ class GetJapaneseManner
 class GetJapaneseMannerParams {
   final JapaneseMannerCategory category;
 
-  GetJapaneseMannerParams({@required this.category}) : assert(category != null);
+  GetJapaneseMannerParams({
+    required this.category,
+  });
 }

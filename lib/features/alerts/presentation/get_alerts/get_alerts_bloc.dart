@@ -21,7 +21,7 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
   bool isFetching = false;
 
   GetAlertsBloc({
-    @required this.getAlerts,
+    required this.getAlerts,
   }) : super(const _Initial());
 
   @override

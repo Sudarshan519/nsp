@@ -16,7 +16,7 @@ class LocationViaPostalCodeBloc
     extends Bloc<LocationViaPostalCodeEvent, LocationViaPostalCodeState> {
   final GetPrefectureCityFromPostalCode getPrefectureCityFromPostalCode;
   LocationViaPostalCodeBloc({
-    @required this.getPrefectureCityFromPostalCode,
+    required this.getPrefectureCityFromPostalCode,
   }) : super(const _Initial());
 
   @override

@@ -18,10 +18,10 @@ part 'news_preference_bloc.freezed.dart';
 class NewsPreferenceBloc
     extends Bloc<NewsPreferenceEvent, NewsPreferenceState> {
   final GetNewsPreferences getNewsPreferences;
-  List<NewsPreference> _list;
+  List<NewsPreference>? _list;
 
   NewsPreferenceBloc({
-    @required this.getNewsPreferences,
+    required this.getNewsPreferences,
   }) : super(const _Initial());
 
   @override
@@ -37,27 +37,28 @@ class NewsPreferenceBloc
           (failure) => _Failure(failure),
           (list) {
             _list = list;
-            return _Loaded(_list);
+            return _Loaded(_list ?? []);
           },
         );
       },
       changeTitleStatus: (e) async* {
-        final isSelected = _list[e.index].isSelected;
-        _list[e.index].isSelected = !isSelected;
-        for (int index = 0; index < _list[e.index].sources.length; index++) {
-          _list[e.index].sources[index].isSelected = !isSelected;
+        final isSelected = _list?[e.index].isSelected ?? true;
+        _list?[e.index].isSelected = !isSelected;
+        final _count = _list?[e.index].sources?.length ?? 0;
+        for (int index = 0; index < _count; index++) {
+          _list?[e.index].sources?[index].isSelected = !isSelected;
         }
         yield const _Loading();
-        yield _Loaded(_list);
+        yield _Loaded(_list ?? []);
       },
       changePreferenceStatus: (e) async* {
-        _list[e.parentIndex].sources[e.index].isSelected =
-            !_list[e.parentIndex].sources[e.index].isSelected;
+        _list?[e.parentIndex].sources?[e.index].isSelected =
+            !(_list?[e.parentIndex].sources?[e.index].isSelected ?? true);
         yield const _Loading();
-        yield _Loaded(_list);
+        yield _Loaded(_list ?? []);
       },
       save: (e) async* {
-        await getNewsPreferences.savePreferences(preference: _list);
+        await getNewsPreferences.savePreferences(preference: _list ?? []);
         getIt<LatestNewsBloc>().add(const LatestNewsEvent.pullToRefresh());
       },
     );

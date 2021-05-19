@@ -1,7 +1,7 @@
 part of 'password_reset_bloc.dart';
 
 @freezed
-abstract class PasswordResetState with _$PasswordResetState {
+class PasswordResetState with _$PasswordResetState {
   const factory PasswordResetState.showFetchCodePage() = ShowFetchCodePage;
   const factory PasswordResetState.showPasswordResetPage() =
       ShowPasswordResetPage;

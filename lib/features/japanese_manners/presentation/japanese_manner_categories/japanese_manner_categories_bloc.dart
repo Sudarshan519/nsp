@@ -18,7 +18,7 @@ class JapaneseMannerCategoriesBloc
   final GetJapaneseMannerCategories getJapaneseMannerCategories;
 
   JapaneseMannerCategoriesBloc({
-    @required this.getJapaneseMannerCategories,
+    required this.getJapaneseMannerCategories,
   }) : super(const _Initial());
 
   @override

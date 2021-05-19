@@ -19,7 +19,7 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
   final SignUpWithEmailPasswordAndUserDetail signUpWithEmailUsecase;
 
   SignUpFormBloc({
-    @required this.signUpWithEmailUsecase,
+    required this.signUpWithEmailUsecase,
   }) : super(SignUpFormState.initial());
 
   @override

@@ -1,7 +1,7 @@
 part of 'home_page_data_bloc.dart';
 
 @freezed
-abstract class HomePageDataState with _$HomePageDataState {
+class HomePageDataState with _$HomePageDataState {
   const factory HomePageDataState.initial() = _Initial;
   const factory HomePageDataState.loading() = _Loading;
   const factory HomePageDataState.loadingWithData(HomeResponse data) =

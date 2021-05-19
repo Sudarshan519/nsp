@@ -18,7 +18,7 @@ part 'news_genre_bloc.freezed.dart';
 @injectable
 class NewsGenreBloc extends Bloc<NewsGenreEvent, NewsGenreState> {
   final GetNewsGenre getNewsGenre;
-  List<Genre> _list;
+  List<Genre>? _list;
 
   NewsGenreBloc({
     required this.getNewsGenre,
@@ -37,17 +37,17 @@ class NewsGenreBloc extends Bloc<NewsGenreEvent, NewsGenreState> {
           (failure) => _Failure(failure),
           (list) {
             _list = list;
-            return _Loaded(_list);
+            return _Loaded(_list ?? []);
           },
         );
       },
       changeGenre: (e) async* {
-        _list[e.index].isSelected = !_list[e.index].isSelected;
+        _list?[e.index].isSelected = !(_list?[e.index].isSelected ?? true);
         yield const _Loading();
-        yield _Loaded(_list);
+        yield _Loaded(_list ?? []);
       },
       save: (e) async* {
-        await getNewsGenre.saveGenre(genre: _list);
+        await getNewsGenre.saveGenre(genre: _list ?? []);
         getIt<NewsBloc>().add(const NewsEvent.pullToRefresh());
       },
     );

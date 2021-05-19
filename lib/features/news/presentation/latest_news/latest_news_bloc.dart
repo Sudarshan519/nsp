@@ -20,7 +20,7 @@ class LatestNewsBloc extends Bloc<LatestNewsEvent, LatestNewsState> {
   List<NewsItem> _newsData = [];
 
   LatestNewsBloc({
-    @required this.getNews,
+    required this.getNews,
   }) : super(const _Loading());
 
   @override

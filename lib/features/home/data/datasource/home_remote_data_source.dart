@@ -32,19 +32,17 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
   };
 
   HomePageRemoteDataSourceImpl({
-    @required this.client,
-    @required this.config,
-    @required this.auth,
-  })  : assert(client != null),
-        assert(config != null),
-        assert(auth != null);
+    required this.client,
+    required this.config,
+    required this.auth,
+  });
 
   @override
   Future<HomeResponseModel> getHomePageData() async {
     final url = "${config.baseURL}${config.apiPath}${HomeApiEndpoints.getHome}";
     final accessToken = (await auth.getWalletUser()).accessToken;
 
-    if (accessToken.isEmpty) {
+    if (accessToken?.isEmpty ?? true) {
       //TODO: user access token is empty we have to redirect to login page.
     }
 
@@ -53,7 +51,10 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
     http.Response response;
 
     try {
-      response = await client.get(url, headers: _headers);
+      response = await client.get(
+        Uri.parse(url),
+        headers: _headers,
+      );
     } catch (ex) {
       throw ServerException(message: ex.toString());
     }

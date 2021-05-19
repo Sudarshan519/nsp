@@ -17,9 +17,9 @@ abstract class LocationInformationLocalDataSourceProtocol {
   Future<List<PrefectureAndCityFromPostalCodeModel>>
       getPreferenceAndCityFromPostalCode(String postalCode);
   Future<List<String>> getListOfCities({
-    @required String country,
-    @required String nameOfPrefecture,
-    @required String lang,
+    required String country,
+    required String nameOfPrefecture,
+    required String lang,
   });
 }
 
@@ -30,8 +30,8 @@ class LocationInformationLocalDataSource
   final ConfigReader config;
 
   LocationInformationLocalDataSource({
-    @required this.client,
-    @required this.config,
+    required this.client,
+    required this.config,
   });
 
   @override
@@ -53,14 +53,18 @@ class LocationInformationLocalDataSource
       final code = postalCode.replaceAll("-", "");
       final url =
           "${config.baseURL}${config.apiPath}/postal_codes/$code/details/";
-      response = await client.get(url);
+      response = await client.get(
+        Uri.parse(url),
+      );
     } catch (ex) {
       throw ServerException(message: ex.toString());
     }
     if (response.statusCode == 200) {
-      final model = locationFromPostalCodeModelFromJson(response.body);
-      if (model.postalCode != null) {
-        return model.postalCode;
+      final responseBody = utf8.decode(response.bodyBytes);
+      final model = locationFromPostalCodeModelFromJson(responseBody);
+      final postalCode = model.postalCode;
+      if (postalCode != null) {
+        return postalCode;
       } else {
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
@@ -72,9 +76,9 @@ class LocationInformationLocalDataSource
 
   @override
   Future<List<String>> getListOfCities({
-    @required String country,
-    @required String nameOfPrefecture,
-    @required String lang,
+    required String country,
+    required String nameOfPrefecture,
+    required String lang,
   }) async {
     http.Response response;
     final url =
@@ -82,7 +86,7 @@ class LocationInformationLocalDataSource
 
     try {
       response = await client.get(
-        url,
+        Uri.parse(url),
       );
     } catch (ex) {
       throw ServerException(message: ex.toString());

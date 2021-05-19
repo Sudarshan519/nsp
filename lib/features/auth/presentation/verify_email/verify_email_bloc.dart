@@ -16,7 +16,7 @@ class VerifyEmailBloc extends Bloc<VerifyEmailEvent, VerifyEmailState> {
   String _pin = "";
 
   VerifyEmailBloc({
-    @required this.verifyEmail,
+    required this.verifyEmail,
   }) : super(const _Initial());
 
   @override

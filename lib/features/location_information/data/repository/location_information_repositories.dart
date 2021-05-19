@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
@@ -14,7 +13,7 @@ class LocationInformationRepository
   final LocationInformationLocalDataSourceProtocol dataSource;
 
   LocationInformationRepository({
-    @required this.dataSource,
+    required this.dataSource,
   });
 
   @override
@@ -39,9 +38,9 @@ class LocationInformationRepository
 
   @override
   Future<Either<ApiFailure, List<String>>> getListOfCities({
-    @required String country,
-    @required String nameOfPrefecture,
-    @required String lang,
+    required String country,
+    required String nameOfPrefecture,
+    required String lang,
   }) async {
     try {
       return Right(

@@ -24,12 +24,19 @@ abstract class NewsLocalDataSourceProtocol {
   ///
   Future<List<NewsItemModel>> getFavouriteNews();
 
-  Future saveNews({@required NewsModel news});
-  Future saveFavouriteNews({@required NewsItemModel news});
+  Future saveNews({
+    required NewsModel news,
+  });
+  Future saveFavouriteNews({
+    required NewsItemModel news,
+  });
 
-  Future saveNewsSourceAndLanguage(
-      {@required List<NewsPreference> preferences});
-  Future saveNewsGenre({@required List<Genre> genres});
+  Future saveNewsSourceAndLanguage({
+    required List<NewsPreference> preferences,
+  });
+  Future saveNewsGenre({
+    required List<Genre> genres,
+  });
   Future<List<String>> getNewsPreferencesSources();
   Future<List<String>> getNewsPreferencesLanguages();
   Future<List<String>> getNewsPreferencesGenre();
@@ -41,8 +48,8 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
   final SharedPreferences preferences;
 
   NewsLocalDataSource({
-    @required this.localProvider,
-    @required this.preferences,
+    required this.localProvider,
+    required this.preferences,
   });
 
   @override
@@ -64,37 +71,43 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
   }
 
   @override
-  Future saveNews({NewsModel news}) async {
-    if (news != null && news.data != null && news.source != null) {
+  Future saveNews({
+    required NewsModel news,
+  }) async {
+    if (news.data != null && news.source != null) {
       await localProvider.insertNewsForYou(news);
     }
   }
 
   @override
-  Future saveFavouriteNews({@required NewsItemModel news}) async {
-    if (news != null) {
-      await localProvider.insertFavouriteNews(news);
-    }
+  Future saveFavouriteNews({
+    required NewsItemModel news,
+  }) async {
+    await localProvider.insertFavouriteNews(news);
   }
 
   @override
   Future saveNewsSourceAndLanguage(
-      {@required List<NewsPreference> preferences}) async {
-    final selectedLanguageList = preferences.where((news) => news.isSelected);
+      {required List<NewsPreference> preferences}) async {
+    final selectedLanguageList =
+        preferences.where((news) => news.isSelected ?? false);
     final List<NewsSource> selectedSourceList = [];
 
     for (final NewsPreference preference in preferences) {
-      for (final source in preference.sources) {
-        if (source.isSelected) {
-          selectedSourceList.add(source);
+      final sources = preference.sources;
+      if (sources != null) {
+        for (final source in sources) {
+          if (source.isSelected ?? false) {
+            selectedSourceList.add(source);
+          }
         }
       }
     }
 
     final List<String> selectedLanguageCodeArray =
-        selectedLanguageList.map((language) => language.code).toList();
+        selectedLanguageList.map((language) => language.code ?? '').toList();
     final List<String> selectedSourceSlugArray =
-        selectedSourceList.map((preference) => preference.slug).toList();
+        selectedSourceList.map((preference) => preference.slug ?? '').toList();
 
     String selectedLanguageCodeString = "";
     String selectedSourceSlugString = "";
@@ -124,7 +137,7 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
 
   @override
   Future<List<String>> getNewsPreferencesSources() async {
-    String value = "";
+    String? value = "";
 
     try {
       value = preferences.getString(NewsConstant.sources);
@@ -147,7 +160,7 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
 
   @override
   Future<List<String>> getNewsPreferencesLanguages() async {
-    String value = "";
+    String? value = "";
 
     try {
       value = preferences.getString(NewsConstant.lang);
@@ -168,8 +181,11 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
   }
 
   @override
-  Future saveNewsGenre({@required List<Genre> genres}) async {
-    final listOfSelectedGenre = genres.where((genre) => genre.isSelected);
+  Future saveNewsGenre({
+    required List<Genre> genres,
+  }) async {
+    final listOfSelectedGenre =
+        genres.where((genre) => genre.isSelected ?? false);
 
     final listOfSelectedGenreArray =
         listOfSelectedGenre.map((genre) => genre.slug).toList();
@@ -191,7 +207,7 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
 
   @override
   Future<List<String>> getNewsPreferencesGenre() async {
-    String value = "";
+    String? value = "";
 
     try {
       value = preferences.getString(NewsConstant.genre);

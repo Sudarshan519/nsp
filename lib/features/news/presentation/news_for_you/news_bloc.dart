@@ -20,7 +20,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   List<NewsItem> _newsData = [];
 
   NewsBloc({
-    @required this.getNews,
+    required this.getNews,
   }) : super(const _Loading());
 
   @override

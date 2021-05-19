@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -14,10 +13,9 @@ class SignUpWithEmailPasswordAndUserDetail
   final NetworkInfo networkInfo;
 
   SignUpWithEmailPasswordAndUserDetail({
-    @required this.repository,
-    @required this.networkInfo,
-  })  : assert(repository != null),
-        assert(networkInfo != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, Unit>> call(SignUpParams params) async {
@@ -72,11 +70,11 @@ class SignUpParams {
   final String confirmPassword;
 
   SignUpParams({
-    @required this.firstName,
-    @required this.lastName,
-    @required this.email,
-    @required this.phoneNumber,
-    @required this.password,
-    @required this.confirmPassword,
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.phoneNumber,
+    required this.password,
+    required this.confirmPassword,
   });
 }

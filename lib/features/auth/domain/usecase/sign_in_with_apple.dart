@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -13,10 +12,9 @@ class SignInWithApple implements Usecase<ApiFailure, WalletUser, NoParams> {
   final NetworkInfo networkInfo;
 
   SignInWithApple({
-    @required this.repository,
-    @required this.networkInfo,
-  })  : assert(repository != null),
-        assert(networkInfo != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, WalletUser>> call(NoParams params) async {

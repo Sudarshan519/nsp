@@ -26,10 +26,10 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final SignInWithGoogle signInWithGoogle;
 
   SignInFormBloc({
-    @required this.signInWithEmailUsecase,
-    @required this.signInWithApple,
-    @required this.signInWithFacebook,
-    @required this.signInWithGoogle,
+    required this.signInWithEmailUsecase,
+    required this.signInWithApple,
+    required this.signInWithFacebook,
+    required this.signInWithGoogle,
   }) : super(SignInFormState.initial());
 
   @override

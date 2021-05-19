@@ -22,6 +22,7 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 
 class EditContactAddressInfoForm extends StatelessWidget {
+  static String language = "";
   final PersonalInfo info;
   final List<String> prefecture;
   final List<String> provinces;
@@ -38,6 +39,7 @@ class EditContactAddressInfoForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EditContactAddressInfoForm.language = lang;
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
       getCountries: getIt<GetCountries>(),
@@ -274,7 +276,7 @@ class _PostalCodeInputField extends StatelessWidget {
               child: InputTextWidget(
                 hintText: "Postal Code",
                 textInputType: TextInputType.number,
-                value: state.contCountry,
+                value: state.contPostalCode,
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(8),
                   MaskedTextInputFormatter(
@@ -334,22 +336,38 @@ class _SearchAddressViaPostalCode extends StatelessWidget {
 
             if (data.isNotEmpty) {
               final addressData = data.first;
-              String prefecture = addressData.prefecture.toLowerCase();
-              prefecture =
-                  "${prefecture[0].toUpperCase()}${prefecture.substring(1)}";
 
-              String city = addressData.city.toLowerCase();
-              city = "${city[0].toUpperCase()}${city.substring(1)}";
+              final String prefectureEn = addressData.prefecture;
+              final String prefectureJp = addressData.prefectureJp;
+              // prefectureEn =
+              //     "${prefectureEn[0].toUpperCase()}${prefectureEn.substring(1)}";
 
-              parentContext.read<UpdateAddressInfoActorBloc>().add(
-                  UpdateAddressInfoActorEvent.changedContJapanesePrefecture(
-                      prefecture));
-              parentContext
-                  .read<UpdateAddressInfoActorBloc>()
-                  .add(UpdateAddressInfoActorEvent.changedContCity(city));
-              parentContext.read<UpdateAddressInfoActorBloc>().add(
-                  UpdateAddressInfoActorEvent.changedContAddress(
-                      addressData.street));
+              final String cityEn = addressData.city;
+              final String cityJp = addressData.cityJp;
+              // cityEn = "${cityEn[0].toUpperCase()}${cityEn.substring(1)}";
+
+              final String addressEn = addressData.street;
+              final String addressJp = addressData.streetJp;
+
+              if (EditContactAddressInfoForm.language == "en") {
+                parentContext.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedContJapanesePrefecture(
+                        prefectureEn));
+                parentContext
+                    .read<UpdateAddressInfoActorBloc>()
+                    .add(UpdateAddressInfoActorEvent.changedContCity(cityEn));
+                parentContext.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedContAddress(addressEn));
+              } else {
+                parentContext.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedContJapanesePrefecture(
+                        prefectureJp));
+                parentContext
+                    .read<UpdateAddressInfoActorBloc>()
+                    .add(UpdateAddressInfoActorEvent.changedContCity(cityJp));
+                parentContext.read<UpdateAddressInfoActorBloc>().add(
+                    UpdateAddressInfoActorEvent.changedContAddress(addressJp));
+              }
             }
 
             return _buildSearchBoxWithLoading(context: context);
