@@ -19,13 +19,13 @@ class UpdateAddressInfoActorBloc
   final UpdateAddressInfo updateAddressInfo;
   final GetCountries getCountries;
   final GetListOfCityFromPrefectures getListOfCityFromPrefectures;
-  PersonalInfo _personalInfo;
-  String _lang;
+  PersonalInfo? _personalInfo;
+  String? _lang;
 
   UpdateAddressInfoActorBloc({
-    @required this.updateAddressInfo,
-    @required this.getCountries,
-    @required this.getListOfCityFromPrefectures,
+    required this.updateAddressInfo,
+    required this.getCountries,
+    required this.getListOfCityFromPrefectures,
   }) : super(UpdateAddressInfoActorState.initial());
 
   @override
@@ -91,7 +91,7 @@ class UpdateAddressInfoActorBloc
       _SetInitialState _setInitialState) async* {
     yield state.copyWith(
       isSubmitting: true,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
     final userInfo = _setInitialState.info;
     final listOfCountry = await getCountries();
@@ -99,15 +99,15 @@ class UpdateAddressInfoActorBloc
     _lang = _setInitialState.lang;
 
     final List<String> _currCityArray = await _getListOfCities(
-      country: userInfo.currCountry,
-      prefectureName: userInfo.currPrefecture,
+      country: userInfo.currCountry ?? '',
+      prefectureName: userInfo.currPrefecture ?? '',
     );
     final List<String> _contCityArray = await _getListOfCities(
-      country: userInfo.contCountry,
-      prefectureName: userInfo.contPrefecture,
+      country: userInfo.contCountry ?? '',
+      prefectureName: userInfo.contPrefecture ?? '',
     );
 
-    if (userInfo != null && userInfo != _personalInfo) {
+    if (userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
         key: UniqueKey(),
@@ -123,14 +123,14 @@ class UpdateAddressInfoActorBloc
         contCity: userInfo.contCity ?? "",
         contAddress: userInfo.contAddress ?? "",
         contPhone: userInfo.contPhone ?? "",
-        listOfCountries: listOfCountry ?? [],
+        listOfCountries: listOfCountry,
         listOfJapanesePrefectures: _setInitialState.prefectures,
         listOfNepaliProvinces: _setInitialState.provinces,
         listOfCurrCities: _currCityArray,
         listOfContCities: _contCityArray,
         isSubmitting: false,
         hasSetInitialData: true,
-        authFailureOrSuccessOption: none(),
+        failureOrSuccessOption: none(),
       );
     }
   }
@@ -142,7 +142,7 @@ class UpdateAddressInfoActorBloc
       currPrefecture: '',
       currCity: '',
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -151,7 +151,7 @@ class UpdateAddressInfoActorBloc
     return state.copyWith(
       currPostalCode: _changedPostalCode.code,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -171,7 +171,7 @@ class UpdateAddressInfoActorBloc
       listOfJapanesePrefectures: listOfPrefectures,
       listOfCurrCities: listOfCurrCities,
       currCity: '',
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -190,7 +190,7 @@ class UpdateAddressInfoActorBloc
       listOfCurrCities: listOfCurrCities,
       currCity: '',
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -206,7 +206,7 @@ class UpdateAddressInfoActorBloc
       currCity: _changedCity.city,
       listOfCurrCities: listOfCities,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -214,7 +214,7 @@ class UpdateAddressInfoActorBloc
       _ChangedCurrAddress _changedAddress) {
     return state.copyWith(
       currAddress: _changedAddress.address,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -223,7 +223,7 @@ class UpdateAddressInfoActorBloc
     return state.copyWith(
       currPhone: _changedPhone.phone,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -243,7 +243,7 @@ class UpdateAddressInfoActorBloc
       listOfContCities: state.listOfCurrCities,
       isSubmitting: false,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -254,7 +254,7 @@ class UpdateAddressInfoActorBloc
       contPrefecture: '',
       contCity: '',
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -263,7 +263,7 @@ class UpdateAddressInfoActorBloc
     return state.copyWith(
       contPostalCode: _changedPostalCode.code,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -283,7 +283,7 @@ class UpdateAddressInfoActorBloc
       listOfContCities: listOfContCities,
       contCity: '',
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -302,7 +302,7 @@ class UpdateAddressInfoActorBloc
       // listOfPrefectures: listOfPrefectures,
       contCity: '',
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -316,7 +316,7 @@ class UpdateAddressInfoActorBloc
       contCity: _changedCity.city,
       listOfContCities: listOfCities,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -325,7 +325,7 @@ class UpdateAddressInfoActorBloc
     return state.copyWith(
       contAddress: _changedAddress.address,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -334,7 +334,7 @@ class UpdateAddressInfoActorBloc
     return state.copyWith(
       contPhone: _changedPhone.phone,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -345,7 +345,7 @@ class UpdateAddressInfoActorBloc
     );
     failureOrSuccess = await updateAddressInfo(
       UpdateAddressParams(
-        lang: _lang,
+        lang: _lang ?? 'en',
         currCountry: state.currCountry,
         currPostalCode: state.currPostalCode,
         currPrefecture: state.currPrefecture,
@@ -364,24 +364,20 @@ class UpdateAddressInfoActorBloc
     yield state.copyWith(
       isSubmitting: false,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      failureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
 
   Future<List<String>> _getListOfCities({
-    @required String country,
-    @required String prefectureName,
+    required String country,
+    required String prefectureName,
   }) async {
-    if (prefectureName == null) {
-      return [];
-    }
-
     if (prefectureName.isNotEmpty) {
       final result =
           await getListOfCityFromPrefectures(GetListOfCityFromPrefecturesParams(
         country: country,
         prefecture: prefectureName,
-        lang: _lang,
+        lang: _lang ?? 'en',
       ));
       return result.fold(
         (failure) => [],

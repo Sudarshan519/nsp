@@ -9,7 +9,7 @@ class NewsCarousel extends StatefulWidget {
   final List<NewsItem> newsList;
 
   const NewsCarousel({
-    Key key,
+    Key? key,
     required this.newsList,
   }) : super(key: key);
 

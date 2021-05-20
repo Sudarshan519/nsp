@@ -15,14 +15,14 @@ abstract class ConfigReader {
 
 @Singleton(as: ConfigReader)
 class ConfigReaderImpl implements ConfigReader {
-  Map<String, dynamic> _config;
+  Map<String, dynamic>? _config;
 
   @override
   String get baseURL {
     if (_config == null) {
       return "";
     }
-    return _config['base_url'] as String ?? "";
+    return _config?['base_url'] as String? ?? "";
   }
 
   @override
@@ -30,7 +30,7 @@ class ConfigReaderImpl implements ConfigReader {
     if (_config == null) {
       return "";
     }
-    return _config['resume_base_url'] as String ?? "";
+    return _config?['resume_base_url'] as String? ?? "";
   }
 
   @override
@@ -38,7 +38,7 @@ class ConfigReaderImpl implements ConfigReader {
     if (_config == null) {
       return "";
     }
-    return _config['alert_base_url'] as String ?? "";
+    return _config?['alert_base_url'] as String? ?? "";
   }
 
   @override
@@ -46,7 +46,7 @@ class ConfigReaderImpl implements ConfigReader {
     if (_config == null) {
       return "";
     }
-    return _config['api_path'] as String ?? "";
+    return _config?['api_path'] as String? ?? "";
   }
 
   @override
@@ -54,7 +54,7 @@ class ConfigReaderImpl implements ConfigReader {
     if (_config == null) {
       return true;
     }
-    return _config['is_debug'] as bool ?? true;
+    return _config?['is_debug'] as bool? ?? true;
   }
 
   @override

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
@@ -16,7 +16,7 @@ import 'package:wallet_app/utils/constant.dart';
 class PartnerServicesPage extends StatelessWidget {
   final String categoryName;
 
-  const PartnerServicesPage({Key key, this.categoryName}) : super(key: key);
+  const PartnerServicesPage({Key? key, this.categoryName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,8 +78,8 @@ class _PartnerServicesTabPage extends StatefulWidget {
   final String categoryName;
 
   const _PartnerServicesTabPage({
-    Key key,
-    @required this.categories,
+    Key? key,
+    required this.categories,
     this.categoryName,
   }) : super(key: key);
   @override
@@ -161,8 +161,8 @@ class _PartnerServicesPageList extends StatelessWidget {
   final ServicesCategory category;
 
   const _PartnerServicesPageList({
-    Key key,
-    @required this.category,
+    Key? key,
+    required this.category,
   }) : super(key: key);
 
   @override

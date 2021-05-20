@@ -11,9 +11,9 @@ class JapaneseMannerWidget extends StatelessWidget {
   final JapaneseManner data;
 
   const JapaneseMannerWidget({
-    Key key,
-    @required this.data,
-  })  : assert(data != null),
+    Key? key,
+    required this.data,
+  })   : assert(data != null),
         super(key: key);
 
   @override

@@ -27,7 +27,7 @@ class ForgotPasswordPage extends StatelessWidget {
                         height: 60,
                       ),
                       InkWell(
-                        onTap: () => ExtendedNavigator.of(context).pop(),
+                        onTap: () => context.popRoute(),
                         child: SvgPicture.asset(
                           "assets/images/navigation_bar/back-black.svg",
                         ),
@@ -64,7 +64,7 @@ class ForgotPasswordPage extends StatelessWidget {
         const SizedBox(width: 5),
         InkWell(
           onTap: () {
-            ExtendedNavigator.of(context).pop();
+            context.popRoute();
           },
           child: Text(
             "Login",

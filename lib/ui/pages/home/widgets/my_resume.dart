@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -22,7 +22,7 @@ class MyResumeWidget extends StatelessWidget {
   final Function(int) changeTabPage;
   final Function(int) changeResumeTabPage;
   const MyResumeWidget({
-    Key key,
+    Key? key,
     required this.userDetail,
     required this.data,
     required this.changeTabPage,
@@ -137,11 +137,11 @@ class MyResumeWidget extends StatelessWidget {
             );
           },
           errorBuilder: (_, __, ___) {
-              return Image.asset(
-                'assets/images/navigation_bar/u1.png',
-                fit: BoxFit.cover,
-              );
-            },
+            return Image.asset(
+              'assets/images/navigation_bar/u1.png',
+              fit: BoxFit.cover,
+            );
+          },
         ),
       ),
     );
@@ -314,7 +314,7 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
   final Function(int) changeResumeTabPage;
 
   const _ResumeInformationWidgetWithArrayChild({
-    Key key,
+    Key? key,
     required this.index,
     required this.title,
     required this.percentage,
@@ -428,7 +428,7 @@ class _ResumeInformationWidget extends StatelessWidget {
   final Function(int) changeTabPage;
 
   const _ResumeInformationWidget({
-    Key key,
+    Key? key,
     required this.title,
     required this.percentage,
     required this.containerTitle,
@@ -548,7 +548,7 @@ class _ResumeDescriptionItem extends StatelessWidget {
   final String infoText4;
 
   const _ResumeDescriptionItem({
-    Key key,
+    Key? key,
     required this.containerTitle,
     required this.infoText1Icon,
     required this.infoText1,
@@ -635,7 +635,7 @@ class _ResumeDescriptionItem extends StatelessWidget {
 
 class _DownloadButton extends StatelessWidget {
   const _DownloadButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -667,7 +667,7 @@ class _DownloadButton extends StatelessWidget {
 
 class _ShareButton extends StatelessWidget {
   const _ShareButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

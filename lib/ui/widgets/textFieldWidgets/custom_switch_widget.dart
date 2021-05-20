@@ -8,10 +8,10 @@ class CustomSwitch extends StatefulWidget {
   final bool isUserChangeAble;
 
   const CustomSwitch({
-    Key key,
+    Key? key,
+    required this.onChanged,
     this.value = false,
     this.isUserChangeAble = true,
-    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -19,7 +19,7 @@ class CustomSwitch extends StatefulWidget {
 }
 
 class _CustomSwitchState extends State<CustomSwitch> {
-  bool _isYes;
+  late bool _isYes;
 
   @override
   void initState() {
@@ -78,9 +78,9 @@ class _SwitchButton extends StatelessWidget {
   final String title;
   final bool isSelected;
   const _SwitchButton({
-    Key key,
-    @required this.title,
-    @required this.isSelected,
+    Key? key,
+    required this.title,
+    required this.isSelected,
   }) : super(key: key);
 
   @override

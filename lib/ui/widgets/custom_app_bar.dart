@@ -4,8 +4,8 @@ class CustomAppBar extends StatelessWidget {
   final int selectedIndex;
 
   const CustomAppBar({
-    Key key,
-    @required this.selectedIndex,
+    Key? key,
+    required this.selectedIndex,
   }) : super(key: key);
 
   @override

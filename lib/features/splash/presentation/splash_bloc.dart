@@ -14,7 +14,7 @@ part 'splash_bloc.freezed.dart';
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   final GetWalletUser getWalletUser;
   SplashBloc({
-    @required this.getWalletUser,
+    required this.getWalletUser,
   }) : super(const SplashState.initial());
 
   @override

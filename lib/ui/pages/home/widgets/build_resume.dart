@@ -8,8 +8,8 @@ import 'category_title_text.dart';
 class BuildResume extends StatelessWidget {
   final Function(int) changeTabPage;
   const BuildResume({
-    Key key,
-    @required this.changeTabPage,
+    Key? key,
+    required this.changeTabPage,
   }) : super(key: key);
 
   @override

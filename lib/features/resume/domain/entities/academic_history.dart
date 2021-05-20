@@ -15,30 +15,18 @@ class AcademicHistory extends Equatable {
     this.updatedAt,
   });
 
-  final int id;
-  final int jobSeekerId;
-  final String institute;
-  final String majorSubject;
-  final String startYear;
-  final String startMonth;
-  final String completionYear;
-  final String completionMonth;
-  final String language;
-  final String createdAt;
-  final String updatedAt;
+  final int? id;
+  final int? jobSeekerId;
+  final String? institute;
+  final String? majorSubject;
+  final String? startYear;
+  final String? startMonth;
+  final String? completionYear;
+  final String? completionMonth;
+  final String? language;
+  final String? createdAt;
+  final String? updatedAt;
 
   @override
-  List<Object> get props => [
-        id,
-        jobSeekerId,
-        institute,
-        majorSubject,
-        startYear,
-        startMonth,
-        completionYear,
-        completionMonth,
-        language,
-        createdAt,
-        updatedAt,
-      ];
+  List<Object> get props => [];
 }

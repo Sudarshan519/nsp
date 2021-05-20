@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -14,9 +13,9 @@ class UpdateResumeImage
   final NetworkInfo networkInfo;
 
   UpdateResumeImage({
-    @required this.repository,
-    @required this.networkInfo,
-  }) : assert(repository != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, Unit>> call(UpdateResumeImageParams params) async {
@@ -37,8 +36,8 @@ class UpdateResumeImage
 
 class UpdateResumeImageParams {
   UpdateResumeImageParams({
-    @required this.lang,
-    @required this.image,
+    required this.lang,
+    required this.image,
   });
 
   final String lang;

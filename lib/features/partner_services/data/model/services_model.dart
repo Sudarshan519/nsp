@@ -1,26 +1,25 @@
-import 'package:flutter/foundation.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 
 class ServicesModel extends Services {
   const ServicesModel({
-    @required int id,
-    // @required List branches,
-    @required String serviceProductName,
-    @required String category,
-    @required String companyName,
-    @required String companyLogo,
-    @required String serviceUrl,
-    @required String companyBannerImage,
-    @required String salesContactEmail,
-    @required String salesContactPhone,
-    @required String supportContactEmail,
-    @required String supportContactPhone,
-    @required String companyAddressHeadCountry,
-    @required String companyAddressHeadPostCode,
-    @required String companyAddressHeadProvince,
-    @required String companyAddressHeadCity,
-    @required String companyAddressHeadStreet,
-    @required String description,
+    required int? id,
+    // required List branches,
+    required String? serviceProductName,
+    required String? category,
+    required String? companyName,
+    required String? companyLogo,
+    required String? serviceUrl,
+    required String? companyBannerImage,
+    required String? salesContactEmail,
+    required String? salesContactPhone,
+    required String? supportContactEmail,
+    required String? supportContactPhone,
+    required String? companyAddressHeadCountry,
+    required String? companyAddressHeadPostCode,
+    required String? companyAddressHeadProvince,
+    required String? companyAddressHeadCity,
+    required String? companyAddressHeadStreet,
+    required String? description,
   }) : super(
           id: id,
           // branches: branches,
@@ -43,28 +42,29 @@ class ServicesModel extends Services {
         );
 
   factory ServicesModel.fromJson(Map<String, dynamic> json) => ServicesModel(
-        id: json["id"] as int,
+        id: json["id"] as int?,
         // branches:
         //     List<dynamic>.from((json["branches"] as Iterable).map((x) => x)),
-        serviceProductName: json["service_product_name"] as String,
-        category: json["category"] as String,
-        companyName: json["company_name"] as String,
-        companyLogo: json["company_logo"] as String,
-        serviceUrl: json["service_url"] as String,
-        companyBannerImage: json["company_banner_image"] as String,
-        salesContactEmail: json["sales_contact_email"] as String,
-        salesContactPhone: json["sales_contact_phone"] as String,
-        supportContactEmail: json["support_contact_email"] as String,
-        supportContactPhone: json["support_contact_phone"] as String,
+        serviceProductName: json["service_product_name"] as String?,
+        category: json["category"] as String?,
+        companyName: json["company_name"] as String?,
+        companyLogo: json["company_logo"] as String?,
+        serviceUrl: json["service_url"] as String?,
+        companyBannerImage: json["company_banner_image"] as String?,
+        salesContactEmail: json["sales_contact_email"] as String?,
+        salesContactPhone: json["sales_contact_phone"] as String?,
+        supportContactEmail: json["support_contact_email"] as String?,
+        supportContactPhone: json["support_contact_phone"] as String?,
         companyAddressHeadCountry:
-            json["company_address_head_country"] as String,
+            json["company_address_head_country"] as String?,
         companyAddressHeadPostCode:
-            json["company_address_head_post_code"] as String,
+            json["company_address_head_post_code"] as String?,
         companyAddressHeadProvince:
-            json["company_address_head_province"] as String,
-        companyAddressHeadCity: json["company_address_head_city"] as String,
-        companyAddressHeadStreet: json["company_address_head_street"] as String,
-        description: json["description"] as String,
+            json["company_address_head_province"] as String?,
+        companyAddressHeadCity: json["company_address_head_city"] as String?,
+        companyAddressHeadStreet:
+            json["company_address_head_street"] as String?,
+        description: json["description"] as String?,
       );
 
   Map<String, dynamic> toJson() => {

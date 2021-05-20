@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class AppWebView extends StatefulWidget {
+class AppWebViewPage extends StatefulWidget {
   final String url;
   final String title;
 
-  const AppWebView({
-    Key key,
-    @required this.url,
-    @required this.title,
+  const AppWebViewPage({
+    Key? key,
+    required this.url,
+    required this.title,
   }) : super(key: key);
 
   @override
   _AppWebViewState createState() => _AppWebViewState();
 }
 
-class _AppWebViewState extends State<AppWebView> {
+class _AppWebViewState extends State<AppWebViewPage> {
   bool isLoading = true;
 
   @override

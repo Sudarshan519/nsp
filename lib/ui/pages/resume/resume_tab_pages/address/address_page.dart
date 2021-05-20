@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,11 +25,11 @@ class AddressPage extends StatelessWidget {
   final String lang;
 
   const AddressPage({
-    Key key,
-    @required this.info,
-    @required this.prefecture,
-    @required this.provinces,
-    @required this.lang,
+    Key? key,
+    required this.info,
+    required this.prefecture,
+    required this.provinces,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -195,7 +195,7 @@ class AddressPage extends StatelessWidget {
 
 class _CurrentCountryInputField extends StatelessWidget {
   const _CurrentCountryInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -217,7 +217,7 @@ class _CurrentCountryInputField extends StatelessWidget {
 
 class _CurrentPostalCodeInputField extends StatelessWidget {
   const _CurrentPostalCodeInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -245,7 +245,7 @@ class _CurrentPostalCodeInputField extends StatelessWidget {
 
 class _CurrentPrefectureInputField extends StatelessWidget {
   const _CurrentPrefectureInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -272,7 +272,7 @@ class _CurrentPrefectureInputField extends StatelessWidget {
 
 class _CurrentCityInputField extends StatelessWidget {
   const _CurrentCityInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -298,7 +298,7 @@ class _CurrentCityInputField extends StatelessWidget {
 
 class _CurrentAddressInputField extends StatelessWidget {
   const _CurrentAddressInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -325,7 +325,7 @@ class _CurrentAddressInputField extends StatelessWidget {
 
 class _CurrentPhoneInputField extends StatelessWidget {
   const _CurrentPhoneInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -351,7 +351,7 @@ class _CurrentPhoneInputField extends StatelessWidget {
 
 class _ContactCountryInputField extends StatelessWidget {
   const _ContactCountryInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -373,7 +373,7 @@ class _ContactCountryInputField extends StatelessWidget {
 
 class _ContactPostalCodeInputField extends StatelessWidget {
   const _ContactPostalCodeInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -401,7 +401,7 @@ class _ContactPostalCodeInputField extends StatelessWidget {
 
 class _ContactPrefectureInputField extends StatelessWidget {
   const _ContactPrefectureInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -426,7 +426,7 @@ class _ContactPrefectureInputField extends StatelessWidget {
 
 class _ContactCityInputField extends StatelessWidget {
   const _ContactCityInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -451,7 +451,7 @@ class _ContactCityInputField extends StatelessWidget {
 
 class _ContactAddressInputField extends StatelessWidget {
   const _ContactAddressInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -477,7 +477,7 @@ class _ContactAddressInputField extends StatelessWidget {
 
 class _ContactPhoneInputField extends StatelessWidget {
   const _ContactPhoneInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

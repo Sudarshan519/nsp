@@ -6,10 +6,10 @@ class FormFieldDecoration extends StatelessWidget {
   final Widget child;
 
   const FormFieldDecoration({
-    Key key,
-    @required this.title,
-    @required this.child,
-  })  : assert(title != null),
+    Key? key,
+    required this.title,
+    required this.child,
+  })   : assert(title != null),
         assert(child != null),
         super(key: key);
 

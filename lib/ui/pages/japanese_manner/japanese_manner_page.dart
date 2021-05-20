@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner.dart';
@@ -17,7 +17,7 @@ class JapaneseMannerPage extends StatelessWidget {
   final String categoryName;
 
   const JapaneseMannerPage({
-    Key key,
+    Key? key,
     this.categoryName,
   }) : super(key: key);
 
@@ -81,8 +81,8 @@ class _JapaneseMannerTabPage extends StatefulWidget {
   final String categoryName;
 
   const _JapaneseMannerTabPage({
-    Key key,
-    @required this.categories,
+    Key? key,
+    required this.categories,
     this.categoryName,
   }) : super(key: key);
 
@@ -165,8 +165,8 @@ class _JapaneseMannerPageList extends StatelessWidget {
   final JapaneseMannerCategory category;
 
   const _JapaneseMannerPageList({
-    Key key,
-    @required this.category,
+    Key? key,
+    required this.category,
   }) : super(key: key);
 
   @override

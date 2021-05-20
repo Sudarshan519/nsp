@@ -6,22 +6,22 @@ class InputTextWidget extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final String value;
-  final Widget prefixIcon;
-  final Widget suffixIcon;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final TextInputType textInputType;
   final TextInputAction textInputAction;
   final bool isEnable;
-  final String Function(String) validator;
+  final String? Function(String?)? validator;
   final Function(String) onChanged;
-  final Function() onEditingCompleted;
-  final TextAlign textAlign;
-  final List<TextInputFormatter> inputFormatters;
+  final Function()? onEditingCompleted;
+  final TextAlign? textAlign;
+  final List<TextInputFormatter>? inputFormatters;
 
   const InputTextWidget({
-    Key key,
-    @required this.hintText,
-    @required this.onChanged,
-    @required this.value,
+    Key? key,
+    required this.hintText,
+    required this.onChanged,
+    required this.value,
     this.prefixIcon,
     this.suffixIcon,
     this.obscureText = false,
@@ -32,9 +32,7 @@ class InputTextWidget extends StatelessWidget {
     this.validator,
     this.textAlign,
     this.inputFormatters,
-  })  : assert(hintText != null),
-        assert(onChanged != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +41,7 @@ class InputTextWidget extends StatelessWidget {
         if (prefixIcon != null)
           Column(
             children: [
-              prefixIcon,
+              prefixIcon!,
               const SizedBox(width: 10),
             ],
           ),
@@ -81,7 +79,7 @@ class InputTextWidget extends StatelessWidget {
           Column(
             children: [
               const SizedBox(width: 2),
-              suffixIcon,
+              suffixIcon!,
             ],
           ),
       ],

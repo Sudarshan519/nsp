@@ -8,10 +8,10 @@ class CustomMultiSelectDropDownWidget extends StatelessWidget {
   final List<String> options;
 
   const CustomMultiSelectDropDownWidget({
-    Key key,
-    @required this.values,
-    @required this.options,
-    @required this.onConfirm,
+    Key? key,
+    required this.values,
+    required this.options,
+    required this.onConfirm,
   }) : super(key: key);
 
   @override
@@ -24,12 +24,12 @@ class CustomMultiSelectDropDownWidget extends StatelessWidget {
       listType: MultiSelectListType.LIST,
       searchable: true,
       onConfirm: onConfirm,
-      validator: (languages) {
-        if (languages.isEmpty) {
-          return "The languages cannot be empty";
-        }
-        return null;
-      },
+      // validator: (languages) {
+      //   if (languages?.isEmpty) {
+      //     return "The languages cannot be empty";
+      //   }
+      //   return null;
+      // },
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -13,9 +12,9 @@ class UpdateOtherInfo extends Usecase<ApiFailure, Unit, UpdateOtherInfoParams> {
   final NetworkInfo networkInfo;
 
   UpdateOtherInfo({
-    @required this.repository,
-    @required this.networkInfo,
-  }) : assert(repository != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, Unit>> call(UpdateOtherInfoParams params) async {
@@ -48,19 +47,19 @@ class UpdateOtherInfo extends Usecase<ApiFailure, Unit, UpdateOtherInfoParams> {
 
 class UpdateOtherInfoParams {
   UpdateOtherInfoParams({
-    @required this.lang,
-    @required this.languages,
-    @required this.JLPTLevel,
-    @required this.selfPR,
-    @required this.motivationsSpecialSkills,
-    @required this.hobbies,
-    @required this.skills,
-    @required this.workinHours,
-    @required this.workingMinutes,
-    @required this.numberOfDependent,
-    @required this.isSpouse,
-    @required this.isSpouseSupportObligation,
-    @required this.specialConditions,
+    required this.lang,
+    required this.languages,
+    required this.JLPTLevel,
+    required this.selfPR,
+    required this.motivationsSpecialSkills,
+    required this.hobbies,
+    required this.skills,
+    required this.workinHours,
+    required this.workingMinutes,
+    required this.numberOfDependent,
+    required this.isSpouse,
+    required this.isSpouseSupportObligation,
+    required this.specialConditions,
   });
 
   final String lang;

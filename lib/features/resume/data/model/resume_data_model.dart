@@ -9,15 +9,15 @@ import 'work_history_model.dart';
 
 class ResumeDataModel extends ResumeData {
   const ResumeDataModel({
-    @required PersonalInfoModel personalInfo,
-    @required int personalInfoCompletionRate,
-    @required List<AcademicHistoryModel> academicHistory,
-    @required int academicsCompletionRate,
-    @required List<WorkHistoryModel> workHistory,
-    @required int worksCompletionRate,
-    @required List<QualificationHistoryModel> qualificationHistory,
-    @required int qualificationCompletionRate,
-    @required ResumeOptionsModel options,
+    required PersonalInfoModel? personalInfo,
+    required int? personalInfoCompletionRate,
+    required List<AcademicHistoryModel>? academicHistory,
+    required int? academicsCompletionRate,
+    required List<WorkHistoryModel>? workHistory,
+    required int? worksCompletionRate,
+    required List<QualificationHistoryModel>? qualificationHistory,
+    required int? qualificationCompletionRate,
+    required ResumeOptionsModel? options,
   }) : super(
           personalInfo: personalInfo,
           personalInfoCompletionRate: personalInfoCompletionRate,
@@ -75,18 +75,21 @@ class ResumeDataModel extends ResumeData {
 
 extension ResumeDataExt on ResumeData {
   ResumeDataModel toResumeDataModel() => ResumeDataModel(
-        personalInfo: personalInfo.toPersonalInfoModel(),
+        personalInfo: personalInfo?.toPersonalInfoModel(),
         personalInfoCompletionRate: personalInfoCompletionRate,
         academicHistory:
-            academicHistory.map((a) => a.toAcademicHistoryModel()).toList(),
+            academicHistory?.map((a) => a.toAcademicHistoryModel()).toList(),
         academicsCompletionRate: academicsCompletionRate,
         workHistory:
-            workHistory.map((work) => work.toWorkHistoryModel()).toList(),
+            workHistory?.map((work) => work.toWorkHistoryModel()).toList(),
         worksCompletionRate: worksCompletionRate,
-        qualificationHistory: qualificationHistory
-            .map((qualification) => qualification.toQualificationHistoryModel())
-            .toList(),
+        qualificationHistory: qualificationHistory == null
+            ? null
+            : qualificationHistory!
+                .map((qualification) =>
+                    qualification.toQualificationHistoryModel())
+                .toList(),
         qualificationCompletionRate: qualificationCompletionRate,
-        options: options.toResumeOptionsModel(),
+        options: options?.toResumeOptionsModel(),
       );
 }

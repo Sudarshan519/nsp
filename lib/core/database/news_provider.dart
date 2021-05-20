@@ -24,19 +24,27 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
   Future insertNewsForYou(NewsModel newsModel) async {
     await provider.open();
 
-    for (final news in newsModel.data) {
-      await provider.insert(
-        tableName: NewsItemTable.tableNewsForYou,
-        values: (news as NewsItemModel).toJson(),
-      );
+    final newsData = newsModel.data;
+    final newsSource = newsModel.source;
+
+    if (newsData != null) {
+      for (final news in newsData) {
+        await provider.insert(
+          tableName: NewsItemTable.tableNewsForYou,
+          values: (news as NewsItemModel).toJson(),
+        );
+      }
     }
 
-    for (final source in newsModel.source) {
-      final _ = await provider.insert(
-        tableName: NewsSourceTable.tableNewsSource,
-        values: {NewsSourceTable.newsSourceColumnSource: source},
-      );
+    if (newsSource != null) {
+      for (final source in newsSource) {
+        final _ = await provider.insert(
+          tableName: NewsSourceTable.tableNewsSource,
+          values: {NewsSourceTable.newsSourceColumnSource: source},
+        );
+      }
     }
+
     await provider.close();
   }
 

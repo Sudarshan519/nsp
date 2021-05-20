@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
@@ -19,20 +19,19 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
 
-class EditBasicInfoForm extends StatelessWidget {
+class EditBasicInfoFormPage extends StatelessWidget {
   final PersonalInfo info;
   final List<String> listOfNationality;
   final List<String> listOfProfession;
   final String lang;
 
-  const EditBasicInfoForm({
-    Key key,
-    @required this.info,
-    @required this.listOfNationality,
-    @required this.listOfProfession,
-    @required this.lang,
-  })  : assert(info != null),
-        super(key: key);
+  const EditBasicInfoFormPage({
+    Key? key,
+    required this.info,
+    required this.listOfNationality,
+    required this.listOfProfession,
+    required this.lang,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +123,7 @@ class EditBasicInfoForm extends StatelessWidget {
 
 class _EditBasicInfoFormBody extends StatefulWidget {
   const _EditBasicInfoFormBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -165,7 +164,7 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
 
 class _SaveButton extends StatelessWidget {
   const _SaveButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -205,8 +204,8 @@ class _NameInputField extends StatelessWidget {
   final Function() callBack;
 
   const _NameInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -236,8 +235,8 @@ class _FamilyNameInputField extends StatelessWidget {
   final Function() callBack;
 
   const _FamilyNameInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -265,7 +264,7 @@ class _FamilyNameInputField extends StatelessWidget {
 
 class _FuriganaInputField extends StatelessWidget {
   const _FuriganaInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -293,8 +292,8 @@ class _ProfessionInputField extends StatelessWidget {
   final Function() callBack;
 
   const _ProfessionInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -323,8 +322,8 @@ class _DateofBirthInputField extends StatelessWidget {
   final Function() callBack;
 
   const _DateofBirthInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -358,8 +357,8 @@ class _AgeInputField extends StatelessWidget {
   final Function() callBack;
 
   const _AgeInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -388,8 +387,8 @@ class _GenderInputField extends StatelessWidget {
   final Function() callBack;
 
   const _GenderInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -416,8 +415,8 @@ class _NationalityInputField extends StatelessWidget {
   final Function() callBack;
 
   const _NationalityInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -446,8 +445,8 @@ class _EmailInputField extends StatelessWidget {
   final Function() callBack;
 
   const _EmailInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override

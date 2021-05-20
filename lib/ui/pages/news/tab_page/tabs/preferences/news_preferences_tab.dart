@@ -9,8 +9,8 @@ class NewsPreferenceTab extends StatelessWidget {
   final Function(int) changePage;
 
   const NewsPreferenceTab({
-    Key key,
-    @required this.changePage,
+    Key? key,
+    required this.changePage,
   }) : super(key: key);
 
   @override
@@ -38,9 +38,9 @@ class _NewsPreferenceTab extends StatefulWidget {
   final Function(int) changePage;
 
   const _NewsPreferenceTab({
-    Key key,
-    @required this.preferences,
-    @required this.changePage,
+    Key? key,
+    required this.preferences,
+    required this.changePage,
   }) : super(key: key);
 
   @override
@@ -112,12 +112,12 @@ class _LanguageWithSource extends StatelessWidget {
   final int parentIndex;
 
   const _LanguageWithSource({
-    Key key,
-    @required this.title,
-    @required this.isSelected,
-    @required this.isExpanded,
-    @required this.sources,
-    @required this.parentIndex,
+    Key? key,
+    required this.title,
+    required this.isSelected,
+    required this.isExpanded,
+    required this.sources,
+    required this.parentIndex,
   }) : super(key: key);
 
   @override

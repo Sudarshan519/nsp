@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route_annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/pages/alerts/alerts_page.dart';
 import 'package:wallet_app/ui/pages/alerts/alerts_tab_page.dart';
 import 'package:wallet_app/ui/pages/alerts/detail/alert_detail_page.dart';
@@ -24,33 +24,31 @@ import 'package:wallet_app/ui/pages/tab_bar/tab_bar_screen.dart';
 import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
 
 @MaterialAutoRouter(
-  generateNavigationHelperExtension: true,
+  replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    MaterialRoute(page: SplashScreen, initial: true),
-    MaterialRoute(page: LoginPage),
-    MaterialRoute(page: ForgotPasswordPage),
-    MaterialRoute(page: VerifyUserPage),
-    MaterialRoute(page: SignupPage),
-    MaterialRoute(page: TabBarScreen),
-    MaterialRoute(page: EditBasicInfoForm),
-    MaterialRoute(page: EditCurrentAddressInfoForm),
-    MaterialRoute(page: EditContactAddressInfoForm),
-    MaterialRoute(page: EditWorkInfoForm),
-    MaterialRoute(page: EditAcademicInfoForm),
-    MaterialRoute(page: EditQualificationInfoForm),
-    MaterialRoute(page: EditOtherInfoForm),
-    MaterialRoute(page: NewsDetail),
-    MaterialRoute(page: AppWebView),
-    MaterialRoute(page: ProfilePage),
-    MaterialRoute(page: PartnerServicesPage),
-    MaterialRoute(page: ServicesDetail),
-    MaterialRoute(page: JapaneseMannerPage),
-    MaterialRoute(page: JapaneseMannerDetailPage),
-    MaterialRoute(page: AlertsPage),
-    MaterialRoute(page: AlertsTabPage),
-    MaterialRoute(page: AlertDetailPage),
+    AutoRoute(page: SplashPage, initial: true),
+    AutoRoute(page: LoginPage),
+    AutoRoute(page: ForgotPasswordPage),
+    AutoRoute(page: VerifyUserPage),
+    AutoRoute(page: SignupPage),
+    AutoRoute(page: TabBarPage),
+    AutoRoute(page: EditBasicInfoFormPage),
+    AutoRoute(page: EditCurrentAddressInfoFormPage),
+    AutoRoute(page: EditContactAddressInfoFormPage),
+    AutoRoute(page: EditWorkInfoFormPage),
+    AutoRoute(page: EditAcademicInfoFormPage),
+    AutoRoute(page: EditQualificationInfoFormPage),
+    AutoRoute(page: EditOtherInfoFormPage),
+    AutoRoute(page: NewsDetailPage),
+    AutoRoute(page: AppWebViewPage),
+    AutoRoute(page: ProfilePage),
+    AutoRoute(page: PartnerServicesPage),
+    AutoRoute(page: ServicesDetailPage),
+    AutoRoute(page: JapaneseMannerPage),
+    AutoRoute(page: JapaneseMannerDetailPage),
+    AutoRoute(page: AlertsPage),
+    AutoRoute(page: AlertsTabPage),
+    AutoRoute(page: AlertDetailPage),
   ],
 )
-class $Router {
-  SplashScreen splashScreen;
-}
+class $AppRouter {}

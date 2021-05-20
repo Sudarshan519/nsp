@@ -11,11 +11,11 @@ class ImageLoaderWidget extends StatelessWidget {
   final bool isPlaceHolderSvg;
 
   const ImageLoaderWidget({
-    Key key,
-    @required this.image,
-    @required this.height,
-    @required this.width,
-    @required this.cornerRadius,
+    Key? key,
+    required this.image,
+    required this.height,
+    required this.width,
+    required this.cornerRadius,
     this.placeholderImage = 'assets/images/navigation_bar/u1.png',
     this.isPlaceHolderSvg = false,
   }) : super(key: key);
@@ -54,7 +54,7 @@ class ImageLoaderWidget extends StatelessWidget {
           image,
           fit: BoxFit.cover,
           loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent loadingProgress) {
+              ImageChunkEvent? loadingProgress) {
             if (loadingProgress == null) return child;
             return Container(
               color: Palette.primaryBackground,
@@ -63,7 +63,7 @@ class ImageLoaderWidget extends StatelessWidget {
                 child: CircularProgressIndicator(
                   value: loadingProgress.expectedTotalBytes != null
                       ? loadingProgress.cumulativeBytesLoaded /
-                          loadingProgress.expectedTotalBytes
+                          (loadingProgress.expectedTotalBytes ?? 1)
                       : null,
                 ),
               ),

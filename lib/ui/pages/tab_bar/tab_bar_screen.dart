@@ -9,16 +9,16 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/resume_tab_page.dart
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'widgets/custom_tab_bar_widget.dart';
 
-class TabBarScreen extends StatefulWidget {
+class TabBarPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return TabBarScreenState();
   }
 }
 
-class TabBarScreenState extends State<TabBarScreen> {
+class TabBarScreenState extends State<TabBarPage> {
   int _selectedIndex = 0;
-  HomePage homePage;
+  HomePage? homePage;
 
   final List<CustomTabBarData> _tabBarData = [
     CustomTabBarData(
@@ -67,7 +67,7 @@ class TabBarScreenState extends State<TabBarScreen> {
 
   void _onTab(int page) {
     if (page == 0) {
-      homePage.scrollController.animateTo(
+      homePage?.scrollController.animateTo(
         0.0,
         curve: Curves.easeOut,
         duration: const Duration(milliseconds: 300),
@@ -87,7 +87,7 @@ class TabBarScreenState extends State<TabBarScreen> {
     );
 
     return [
-      homePage,
+      homePage!,
       const ResumePage(),
       NewsPage(),
       const MorePage(),
@@ -101,10 +101,10 @@ class TabBarScreenState extends State<TabBarScreen> {
   }
 
   void _changeResumeTabPage(int index) {
-    ResumeTabBarScreen.globalKey.currentState.changeResumeTab(index);
+    ResumeTabBarScreen.globalKey.currentState?.changeResumeTab(index);
   }
 
   void _changeNewsTabPage(int index) {
-    NewsTabBarScreen.globalKey.currentState.changeSelectedIndex(index);
+    NewsTabBarScreen.globalKey.currentState?.changeSelectedIndex(index);
   }
 }

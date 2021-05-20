@@ -17,16 +17,16 @@ abstract class ResumeRemoteDataSource {
   Future<Resume> getResumeData();
 
   Future<String> downloadPdf({
-    @required String lang,
+    required String lang,
   });
 
   Future<Unit> updateResume({
-    @required String lang,
-    @required Map<String, dynamic> body,
+    required String lang,
+    required Map<String, dynamic> body,
   });
 
   Future<Unit> updateKyc({
-    @required Map<String, dynamic> body,
+    required Map<String, dynamic> body,
   });
 }
 
@@ -42,12 +42,10 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
   };
 
   ResumeRemoteDataSourceImpl({
-    @required this.client,
-    @required this.config,
-    @required this.auth,
-  })  : assert(client != null),
-        assert(config != null),
-        assert(auth != null);
+    required this.client,
+    required this.config,
+    required this.auth,
+  });
 
   @override
   Future<Resume> getResumeData() async {
@@ -56,15 +54,15 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.getResume}";
     final accessToken = (await auth.getWalletUser()).accessToken;
 
-    if (accessToken.isEmpty) {
-      //TODO: route user to login page as the user does not have uuid
+    if (accessToken == null || accessToken.isEmpty) {
+      //TODO: route user to login page as the user does not have access token
     }
 
     _headers["Authorization"] = "Bearer $accessToken";
 
     try {
       response = await client.get(
-        url,
+        Uri.parse(url),
         headers: _headers,
       );
     } catch (ex) {
@@ -83,13 +81,13 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
 
   @override
   Future<String> downloadPdf({
-    @required String lang,
+    required String lang,
   }) async {
     http.Response response;
 
     final url =
         "${config.resumeBaseUrl}${ResumeApiEndpoints.downloadResume}$lang";
-    final uuid = (await auth.getUserDetail())?.uuid ?? "";
+    final uuid = (await auth.getUserDetail()).uuid ?? "";
 
     if (uuid.isEmpty) {
       //TODO: route user to login page as the user does not have uuid
@@ -99,7 +97,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
 
     try {
       response = await client.get(
-        url,
+        Uri.parse(url),
         headers: _headers,
       );
     } catch (ex) {
@@ -123,15 +121,15 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
 
   @override
   Future<Unit> updateResume({
-    @required String lang,
-    @required Map<String, dynamic> body,
+    required String lang,
+    required Map<String, dynamic> body,
   }) async {
     http.Response response;
     final url =
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.updateProfile}$lang";
     final accessToken = (await auth.getWalletUser()).accessToken;
 
-    if (accessToken.isEmpty) {
+    if (accessToken == null || accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have uuid
     }
 
@@ -139,7 +137,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
 
     try {
       response = await client.post(
-        url,
+        Uri.parse(url),
         headers: _headers,
         body: json.encode(body),
       );
@@ -164,7 +162,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
 
   @override
   Future<Unit> updateKyc({
-    @required Map<String, dynamic> body,
+    required Map<String, dynamic> body,
   }) async {
     body["is_kyc"] = true;
     return updateResume(lang: "en", body: body);

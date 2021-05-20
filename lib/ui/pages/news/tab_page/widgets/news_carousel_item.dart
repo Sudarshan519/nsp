@@ -7,8 +7,8 @@ class NewsCarouselItem extends StatelessWidget {
   final NewsItem newsItem;
 
   const NewsCarouselItem({
-    Key key,
-    @required this.newsItem,
+    Key? key,
+    required this.newsItem,
   }) : super(key: key);
 
   @override

@@ -17,7 +17,7 @@ class PartnerServiceCategoriesBloc
     extends Bloc<PartnerServiceCategoriesEvent, PartnerServiceCategoriesState> {
   final GetPartnerServicesCategories getPartnerServicesCategories;
   PartnerServiceCategoriesBloc({
-    @required this.getPartnerServicesCategories,
+    required this.getPartnerServicesCategories,
   }) : super(const _Initial());
 
   @override

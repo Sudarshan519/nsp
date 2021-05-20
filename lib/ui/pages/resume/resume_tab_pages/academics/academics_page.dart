@@ -20,10 +20,10 @@ class AcademicsPage extends StatelessWidget {
   final String lang;
 
   const AcademicsPage({
-    Key key,
-    @required this.academics,
-    @required this.listOfSubjects,
-    @required this.lang,
+    Key? key,
+    required this.academics,
+    required this.listOfSubjects,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -83,11 +83,11 @@ class _CreateAcademicInfoBox extends StatelessWidget {
   final String lang;
 
   const _CreateAcademicInfoBox({
-    Key key,
-    @required this.history,
-    @required this.listOfSubjects,
-    @required this.index,
-    @required this.lang,
+    Key? key,
+    required this.history,
+    required this.listOfSubjects,
+    required this.index,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -173,7 +173,7 @@ class _CreateAcademicInfoBox extends StatelessWidget {
 
 class _NameOfInstituteField extends StatelessWidget {
   const _NameOfInstituteField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -203,7 +203,7 @@ class _NameOfInstituteField extends StatelessWidget {
 
 class _MajorSubjectField extends StatelessWidget {
   const _MajorSubjectField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -228,7 +228,7 @@ class _MajorSubjectField extends StatelessWidget {
 
 class _YearOfEnrollField extends StatelessWidget {
   const _YearOfEnrollField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -286,7 +286,7 @@ class _YearOfEnrollField extends StatelessWidget {
 
 class _YearOfCompletionField extends StatelessWidget {
   const _YearOfCompletionField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -345,7 +345,7 @@ class _YearOfCompletionField extends StatelessWidget {
 
 class _MonthOfEnrollField extends StatelessWidget {
   const _MonthOfEnrollField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -383,7 +383,7 @@ class _MonthOfEnrollField extends StatelessWidget {
 
 class _MonthOfCompletionField extends StatelessWidget {
   const _MonthOfCompletionField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

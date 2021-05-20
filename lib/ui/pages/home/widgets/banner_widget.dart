@@ -3,7 +3,7 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 
 class BannerWidget extends StatelessWidget {
   const BannerWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

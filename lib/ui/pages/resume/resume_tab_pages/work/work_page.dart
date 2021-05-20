@@ -19,10 +19,10 @@ class WorkPage extends StatelessWidget {
   final String lang;
 
   const WorkPage({
-    Key key,
-    @required this.works,
-    @required this.typeOfCompanyList,
-    @required this.lang,
+    Key? key,
+    required this.works,
+    required this.typeOfCompanyList,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -83,11 +83,11 @@ class _CreateWorkInfoBox extends StatelessWidget {
   final String lang;
 
   const _CreateWorkInfoBox({
-    Key key,
-    @required this.work,
-    @required this.typeOfCompanyList,
-    @required this.index,
-    @required this.lang,
+    Key? key,
+    required this.work,
+    required this.typeOfCompanyList,
+    required this.index,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -175,7 +175,7 @@ class _CreateWorkInfoBox extends StatelessWidget {
 
 class _NameOfCompanyField extends StatelessWidget {
   const _NameOfCompanyField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -203,7 +203,7 @@ class _NameOfCompanyField extends StatelessWidget {
 
 class _TypeOfCompanyField extends StatelessWidget {
   const _TypeOfCompanyField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -228,7 +228,7 @@ class _TypeOfCompanyField extends StatelessWidget {
 
 class _StartedYearField extends StatelessWidget {
   const _StartedYearField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -285,7 +285,7 @@ class _StartedYearField extends StatelessWidget {
 
 class _StartedMonthField extends StatelessWidget {
   const _StartedMonthField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -322,7 +322,7 @@ class _StartedMonthField extends StatelessWidget {
 
 class _EndYearField extends StatelessWidget {
   const _EndYearField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -379,7 +379,7 @@ class _EndYearField extends StatelessWidget {
 
 class _EndMonthField extends StatelessWidget {
   const _EndMonthField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -416,7 +416,7 @@ class _EndMonthField extends StatelessWidget {
 
 class _PurposeOfResignField extends StatelessWidget {
   const _PurposeOfResignField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

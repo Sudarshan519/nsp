@@ -18,7 +18,7 @@ class AlertsTabPage extends StatefulWidget {
 
 class _AlertsTabPageState extends State<AlertsTabPage>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  TabController? _tabController;
 
   final List<Widget> _children = [
     AlertListPage(),

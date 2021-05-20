@@ -9,18 +9,17 @@ class AlertWidget extends StatelessWidget {
   final Alert alert;
 
   const AlertWidget({
-    Key key,
-    @required this.alert,
+    Key? key,
+    required this.alert,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 0.1;
-    final isEarthQuake = alert.label.toLowerCase() == "earthquake";
+    final isEarthQuake = alert.label?.toLowerCase() == "earthquake";
     if (isEarthQuake) {
       return InkWell(
-        onTap: () =>
-            ExtendedNavigator.of(context).pushAlertDetailPage(alert: alert),
+        onTap: () => context.router.push(AlertDetailRoute(alert: alert)),
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Column(
@@ -62,7 +61,7 @@ class AlertWidget extends StatelessWidget {
                               ),
                               const SizedBox(height: 5),
                               Text(
-                                alert.occurredValue,
+                                alert.occurredValue ?? '',
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
@@ -129,8 +128,7 @@ class AlertWidget extends StatelessWidget {
       );
     }
     return InkWell(
-      onTap: () =>
-          ExtendedNavigator.of(context).pushAlertDetailPage(alert: alert),
+      onTap: () => context.router.push(AlertDetailRoute(alert: alert)),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: Column(
@@ -171,7 +169,7 @@ class AlertWidget extends StatelessWidget {
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              alert.occurredValue,
+                              alert.occurredValue ?? '',
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,

@@ -36,10 +36,10 @@ abstract class UpdateAddressInfoActorEvent with _$UpdateAddressInfoActorEvent {
       _ChangedContPhone;
 
   const factory UpdateAddressInfoActorEvent.setInitialState({
-    @required PersonalInfo info,
-    @required List<String> prefectures,
-    @required List<String> provinces,
-    @required String lang,
+    required PersonalInfo info,
+    required List<String> prefectures,
+    required List<String> provinces,
+    required String lang,
   }) = _SetInitialState;
   const factory UpdateAddressInfoActorEvent.save() = _Save;
 }

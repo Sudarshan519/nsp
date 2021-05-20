@@ -5,16 +5,16 @@ import '../../domain/entities/resume_options.dart';
 
 class ResumeOptionsModel extends ResumeOptions {
   const ResumeOptionsModel({
-    @required List<String> nationalities,
-    @required List<KnownLanguageModel> knownLanguages,
-    @required List<String> majorSubjects,
-    @required List<String> companyTypes,
-    @required List<ResumePreferenceModel> preferences,
-    @required List<String> hobbies,
-    @required List<String> skills,
-    @required List<String> professions,
-    @required List<String> prefectures,
-    @required List<NepalProvinceModel> provinces,
+    required List<String>? nationalities,
+    required List<KnownLanguageModel>? knownLanguages,
+    required List<String>? majorSubjects,
+    required List<String>? companyTypes,
+    required List<ResumePreferenceModel>? preferences,
+    required List<String>? hobbies,
+    required List<String>? skills,
+    required List<String>? professions,
+    required List<String>? prefectures,
+    required List<NepalProvinceModel>? provinces,
   }) : super(
           nationalities: nationalities,
           knownLanguages: knownLanguages,
@@ -73,20 +73,30 @@ class ResumeOptionsModel extends ResumeOptions {
       );
 
   Map<String, dynamic> toJson() => {
-        "nationalities": List<dynamic>.from(nationalities.map((x) => x)),
-        "known_languages": List<dynamic>.from(
-            knownLanguages.map((x) => (x as KnownLanguageModel).toJson())),
-        "major_subjects": List<dynamic>.from(majorSubjects.map((x) => x)),
-        "company_types": List<dynamic>.from(companyTypes.map((x) => x)),
-        "preferences": List<dynamic>.from(
-            preferences.map((x) => (x as ResumePreferenceModel).toJson())),
+        "nationalities": nationalities == null
+            ? null
+            : List<dynamic>.from(nationalities!.map((x) => x)),
+        "known_languages": knownLanguages == null
+            ? null
+            : List<dynamic>.from(
+                knownLanguages!.map((x) => (x as KnownLanguageModel).toJson())),
+        "major_subjects": majorSubjects == null
+            ? null
+            : List<dynamic>.from(majorSubjects!.map((x) => x)),
+        "company_types": companyTypes == null
+            ? null
+            : List<dynamic>.from(companyTypes!.map((x) => x)),
+        "preferences": preferences == null
+            ? null
+            : List<dynamic>.from(
+                preferences!.map((x) => (x as ResumePreferenceModel).toJson())),
       };
 }
 
 class KnownLanguageModel extends KnownLanguage {
   const KnownLanguageModel({
-    @required String value,
-    @required String label,
+    required String? value,
+    required String? label,
   }) : super(
           label: label,
           value: value,
@@ -94,8 +104,8 @@ class KnownLanguageModel extends KnownLanguage {
 
   factory KnownLanguageModel.fromJson(Map<String, dynamic> json) =>
       KnownLanguageModel(
-        value: json["value"] as String,
-        label: json["label"] as String,
+        value: json["value"] as String?,
+        label: json["label"] as String?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -111,9 +121,9 @@ extension KnownLanguageExt on KnownLanguage {
 
 class ResumePreferenceModel extends ResumePreference {
   const ResumePreferenceModel({
-    @required String value,
-    @required String label,
-    @required int id,
+    required String? value,
+    required String? label,
+    required int? id,
   }) : super(
           id: id,
           label: label,
@@ -122,9 +132,9 @@ class ResumePreferenceModel extends ResumePreference {
 
   factory ResumePreferenceModel.fromJson(Map<String, dynamic> json) =>
       ResumePreferenceModel(
-        value: json["value"] as String,
-        label: json["label"] as String,
-        id: json["id"] as int,
+        value: json["value"] as String?,
+        label: json["label"] as String?,
+        id: json["id"] as int?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -145,14 +155,18 @@ extension ResumePreferenceExt on ResumePreference {
 extension ResumeOptionsExt on ResumeOptions {
   ResumeOptionsModel toResumeOptionsModel() => ResumeOptionsModel(
         nationalities: nationalities,
-        knownLanguages: knownLanguages
-            .map((language) => language.toKnownLanguageModel())
-            .toList(),
+        knownLanguages: knownLanguages == null
+            ? null
+            : knownLanguages!
+                .map((language) => language.toKnownLanguageModel())
+                .toList(),
         majorSubjects: majorSubjects,
         companyTypes: companyTypes,
-        preferences: preferences
-            .map((preference) => preference.toResumePreferenceModel())
-            .toList(),
+        preferences: knownLanguages == null
+            ? null
+            : preferences!
+                .map((preference) => preference.toResumePreferenceModel())
+                .toList(),
         hobbies: hobbies,
         skills: skills,
         professions: professions,

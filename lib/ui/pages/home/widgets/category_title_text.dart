@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CategoryTitleWidget extends StatelessWidget {
   final String title;
 
-  const CategoryTitleWidget({Key key, @required this.title})
+  const CategoryTitleWidget({Key? key, required this.title})
       : assert(title != null),
         super(key: key);
 

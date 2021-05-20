@@ -3,17 +3,17 @@ import 'package:sms_autofill/sms_autofill.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class PinTextWidget extends StatelessWidget {
-  final String value;
+  final String? value;
   final TextInputType textInputType;
-  final Widget prefixIcon;
-  final String Function(String) validator;
+  final Widget? prefixIcon;
+  final String? Function(String?)? validator;
   final TextInputAction textInputAction;
-  final Function(String) onChanged;
-  final Function(String) onEditingCompleted;
+  final Function(String?)? onChanged;
+  final Function(String)? onEditingCompleted;
 
   const PinTextWidget({
-    Key key,
-    @required this.onChanged,
+    Key? key,
+    this.onChanged,
     this.value,
     this.textInputType = TextInputType.number,
     this.prefixIcon,

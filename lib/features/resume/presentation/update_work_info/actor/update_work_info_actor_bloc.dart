@@ -15,11 +15,11 @@ part 'update_work_info_actor_bloc.freezed.dart';
 class UpdateWorkInfoActorBloc
     extends Bloc<UpdateWorkInfoActorEvent, UpdateWorkInfoActorState> {
   final UpdateWorkInfo updateWorkInfo;
-  WorkHistory _workHistory;
-  String _lang;
+  WorkHistory? _workHistory;
+  String? _lang;
 
   UpdateWorkInfoActorBloc({
-    @required this.updateWorkInfo,
+    required this.updateWorkInfo,
   }) : super(UpdateWorkInfoActorState.initial());
 
   @override
@@ -62,7 +62,7 @@ class UpdateWorkInfoActorBloc
     return state.copyWith(
       nameOfComapny: _changedNameOfCompany.company,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -71,7 +71,7 @@ class UpdateWorkInfoActorBloc
     return state.copyWith(
       companyType: _changedTypeOfCompany.type,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -80,7 +80,7 @@ class UpdateWorkInfoActorBloc
     return state.copyWith(
       startedYear: _changedStartedYear.year,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -89,7 +89,7 @@ class UpdateWorkInfoActorBloc
     return state.copyWith(
       startedMonth: _changedStartedMonth.month,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -98,7 +98,7 @@ class UpdateWorkInfoActorBloc
     return state.copyWith(
       endYear: _changedEndYear.year,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -107,7 +107,7 @@ class UpdateWorkInfoActorBloc
     return state.copyWith(
       endMonth: _changedEndMonth.month,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -116,7 +116,7 @@ class UpdateWorkInfoActorBloc
     return state.copyWith(
       purposeOfResign: _changedPurposeOfResign.puropse,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -124,11 +124,11 @@ class UpdateWorkInfoActorBloc
       _SetInitialState _setInitialState) async* {
     yield state.copyWith(
       isSubmitting: true,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
     final workHistory = _setInitialState.workHistory;
     _lang = _setInitialState.lang;
-    if (workHistory != null && workHistory != _workHistory) {
+    if (workHistory != _workHistory) {
       _workHistory = workHistory;
       yield state.copyWith(
         key: UniqueKey(),
@@ -138,10 +138,10 @@ class UpdateWorkInfoActorBloc
         startedMonth: workHistory.startMonth ?? "",
         endYear: workHistory.endYear ?? "",
         endMonth: workHistory.endMonth ?? "",
-        typeOfCompanyList: _setInitialState.typeOfCompanyList ?? [],
+        typeOfCompanyList: _setInitialState.typeOfCompanyList,
         isSubmitting: false,
         hasSetInitialData: true,
-        authFailureOrSuccessOption: none(),
+        failureOrSuccessOption: none(),
       );
     }
   }
@@ -153,8 +153,8 @@ class UpdateWorkInfoActorBloc
     );
     failureOrSuccess = await updateWorkInfo(
       UpdateWorkInfoParams(
-        lang: _lang,
-        id: _workHistory.id,
+        lang: _lang ?? "en",
+        id: _workHistory?.id ?? 0,
         companyName: state.nameOfComapny,
         companyType: state.companyType,
         startYear: state.startedYear,
@@ -168,7 +168,7 @@ class UpdateWorkInfoActorBloc
     yield state.copyWith(
       isSubmitting: false,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      failureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
 }

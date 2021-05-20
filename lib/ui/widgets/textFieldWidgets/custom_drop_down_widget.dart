@@ -7,15 +7,15 @@ class CustomDropDownWidget extends StatelessWidget {
   final List<String> options;
   final bool isRequired;
   final Function(String) onChanged;
-  String value;
+  String? value;
   final bool isExpanded;
-  final Alignment alignment;
+  final Alignment? alignment;
 
   CustomDropDownWidget({
-    Key key,
-    @required this.hintText,
-    @required this.options,
-    this.onChanged,
+    Key? key,
+    required this.hintText,
+    required this.options,
+    required this.onChanged,
     this.value = "",
     this.isRequired = false,
     this.isExpanded = true,
@@ -70,9 +70,9 @@ class CustomDropDownWidget extends StatelessWidget {
           },
           onChanged: (value) {
             if (value == "Select your option") {
-              onChanged("");
+              onChanged('');
             } else {
-              onChanged(value);
+              onChanged(value ?? '');
             }
           },
         ),

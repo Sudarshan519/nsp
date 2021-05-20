@@ -42,8 +42,8 @@ class SocialLoginWidget extends StatelessWidget {
   }
 
   Widget getSocialLoginBox({
-    @required String icon,
-    @required Function() onTap,
+    required String icon,
+    required Function() onTap,
   }) {
     return InkWell(
       onTap: onTap,

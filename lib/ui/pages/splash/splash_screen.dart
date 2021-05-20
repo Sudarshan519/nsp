@@ -5,7 +5,7 @@ import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<SplashBloc, SplashState>(
@@ -13,10 +13,9 @@ class SplashScreen extends StatelessWidget {
         state.map(
           initial: (_) {},
           authenticated: (_) {
-            ExtendedNavigator.of(context).replace(Routes.tabBarScreen);
+            context.router.replace(const TabBarRoute());
           },
-          unauthenticated: (_) =>
-              ExtendedNavigator.of(context).replace(Routes.loginPage),
+          unauthenticated: (_) => context.router.replace(const LoginRoute()),
         );
       },
       child: const Scaffold(
@@ -28,7 +27,7 @@ class SplashScreen extends StatelessWidget {
 
 class _SplashScreenBody extends StatelessWidget {
   const _SplashScreenBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

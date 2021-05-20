@@ -17,34 +17,20 @@ class WorkHistory extends Equatable {
     this.updatedAt,
   });
 
-  final int id;
-  final int jobSeekerId;
-  final String companyName;
-  final String companyType;
-  final String startYear;
-  final String startMonth;
-  final String endYear;
-  final String endMonth;
-  final String description;
-  final String language;
-  final String purposeOfResign;
-  final String createdAt;
-  final String updatedAt;
+  final int? id;
+  final int? jobSeekerId;
+  final String? companyName;
+  final String? companyType;
+  final String? startYear;
+  final String? startMonth;
+  final String? endYear;
+  final String? endMonth;
+  final String? description;
+  final String? language;
+  final String? purposeOfResign;
+  final String? createdAt;
+  final String? updatedAt;
 
   @override
-  List<Object> get props => [
-        id,
-        jobSeekerId,
-        companyName,
-        companyType,
-        startYear,
-        startMonth,
-        endYear,
-        endMonth,
-        description,
-        language,
-        purposeOfResign,
-        createdAt,
-        updatedAt,
-      ];
+  List<Object> get props => [];
 }

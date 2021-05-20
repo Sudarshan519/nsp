@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -62,11 +62,13 @@ class _SignupBody extends StatelessWidget {
                       title: AppConstants.signUpCompleteTitle,
                       message: AppConstants.signUpCompleteMessage,
                       onPressed: () {
-                        ExtendedNavigator.of(context).replace(
-                          Routes.verifyUserPage,
-                          arguments: VerifyUserPageArguments(
-                              email: state.emailAddress),
-                        );
+                        // ExtendedNavigator.of(context).replace(
+                        //   Routes.verifyUserPage,
+                        //   arguments: VerifyUserPageArguments(
+                        //       email: state.emailAddress),
+                        // );
+                        context.router.replace(
+                            VerifyUserRoute(email: state.emailAddress));
                       },
                     ),
                   );
@@ -94,8 +96,8 @@ class _SignupBody extends StatelessWidget {
                 (routes) {
                   routes.map(
                     showEmailVerificationScreen: (_) {
-                      ExtendedNavigator.of(context)
-                          .pushVerifyUserPage(email: state.emailAddress);
+                      context.pushRoute(
+                          VerifyUserRoute(email: state.emailAddress));
                     },
                     showSignInScreen: (_) {},
                     showHomeScreen: (_) {
@@ -105,10 +107,8 @@ class _SignupBody extends StatelessWidget {
                       context
                           .read<ResumeWatcherBloc>()
                           .add(const ResumeWatcherEvent.getResumeData());
-                      ExtendedNavigator.of(context)
-                          .popUntilPath(Routes.loginPage);
-                      ExtendedNavigator.of(context)
-                          .replace(Routes.tabBarScreen);
+                      context.router.navigate(const LoginRoute());
+                      context.router.replace(const TabBarRoute());
                     },
                     showSignUpScreen: (_) {},
                   );
@@ -144,7 +144,7 @@ class _SignupBody extends StatelessWidget {
                     height: 60,
                   ),
                   InkWell(
-                    onTap: () => ExtendedNavigator.of(context).pop(),
+                    onTap: () => context.popRoute(),
                     child: SvgPicture.asset(
                       "assets/images/navigation_bar/back-black.svg",
                     ),
@@ -221,7 +221,7 @@ class _SignupBody extends StatelessWidget {
         const SizedBox(width: 5),
         InkWell(
           onTap: () {
-            ExtendedNavigator.of(context).pop();
+            context.popRoute();
           },
           child: Text(
             "Login",

@@ -5,17 +5,11 @@ class ResumeWithLanguage extends Equatable {
   const ResumeWithLanguage({
     this.en,
     this.jp,
-    // this.options,
   });
 
-  final ResumeData en;
-  final ResumeData jp;
-  // final ResumeOptions options;
+  final ResumeData? en;
+  final ResumeData? jp;
 
   @override
-  List<Object> get props => [
-        en,
-        jp,
-        // options,
-      ];
+  List<Object> get props => [];
 }

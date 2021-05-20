@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -42,8 +42,7 @@ class ForgetPasswordFormWidget extends StatelessWidget {
                   title: "Password reset completed",
                   message: "Your password has been successfully changed.",
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .popUntilPath(Routes.loginPage);
+                    context.navigateTo(const LoginRoute());
                   },
                 ),
               );

@@ -17,8 +17,8 @@ class PopUpDownloadingOverLay extends StatefulWidget
   static bool isShown = false;
 
   const PopUpDownloadingOverLay({
-    Key key,
-    @required this.downloadUrl,
+    Key? key,
+    required this.downloadUrl,
   }) : super(key: key);
   @override
   State<StatefulWidget> createState() => PopUpDownloadOverLayState();
@@ -27,8 +27,8 @@ class PopUpDownloadingOverLay extends StatefulWidget
 class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
   final ReceivePort _port = ReceivePort();
   int _progress = 0;
-  DownloadTaskStatus _status;
-  String _taskId;
+  DownloadTaskStatus? _status;
+  // String? _taskId;
 
   static const String _send_Port = 'downloader_send_port';
 
@@ -200,7 +200,7 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
                 height: 40,
                 width: 120,
                 child: TextButton(
-                  onPressed: () => ExtendedNavigator.of(context).pop(),
+                  onPressed: () => context.popRoute(),
                   style: TextButton.styleFrom(
                     backgroundColor: Palette.primary,
                     shape: RoundedRectangleBorder(
@@ -227,7 +227,7 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
     final status = await Permission.storage.request();
 
     if (status.isGranted) {
-      Directory externalDir;
+      Directory? externalDir;
 
       if (Platform.isAndroid) {
         externalDir = await getExternalStorageDirectory();
@@ -237,11 +237,13 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
 
       final String fileName = url.split('/').last;
 
-      _taskId = await FlutterDownloader.enqueue(
-        url: url,
-        savedDir: externalDir.path,
-        fileName: fileName ?? "Resume.pdf",
-      );
+      if (externalDir != null) {
+        final _ = await FlutterDownloader.enqueue(
+          url: url,
+          savedDir: externalDir.path,
+          fileName: fileName,
+        );
+      }
 
       FlutterDownloader.registerCallback(downloadCallback);
     } else {
@@ -251,8 +253,10 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
 
   static void downloadCallback(
       String id, DownloadTaskStatus status, int progress) {
-    final SendPort send = IsolateNameServer.lookupPortByName(
+    final SendPort? send = IsolateNameServer.lookupPortByName(
         PopUpDownloadOverLayState._send_Port);
-    send.send([id, status, progress]);
+    if (send != null) {
+      send.send([id, status, progress]);
+    }
   }
 }

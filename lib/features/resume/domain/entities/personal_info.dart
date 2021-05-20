@@ -50,141 +50,79 @@ class PersonalInfo extends Equatable {
     this.emailVerified,
     this.contactNumber,
     this.phoneVerified,
-    //  this.languageSchoolPrefecture,
-    //  this.languageSchoolPrefectureId,
-    //  this.languageSchoolCity,
-    //  this.languageSchoolCityId,
-    //  this.universityPrefecture,
-    //  this.universityPrefectureId,
-    //  this.universityCity,
-    //  this.universityCityId,
     this.image,
   });
 
-  final int id;
-  final int jobSeekerId;
-  final String firstName;
-  final String lastName;
-  final String profession;
-  final String languageSchool;
-  final String languageSchoolPostalCode;
-  final String languageSchoolAddress;
-  final String languageSchoolPhone;
-  final String university;
-  final String universityPostalCode;
-  final String universityAddress;
-  final String universityPhone;
-  final String furigana;
-  final String dob;
-  final String age;
-  final String gender;
-  final String nationality;
-  final String currCountry;
-  final String currPostalCode;
-  final String currPrefecture;
-  final String currCity;
-  final String currAddress;
-  final String currPhone;
-  final String contCountry;
-  final String contPostalCode;
-  final String contPrefecture;
-  final String contCity;
-  final String contAddress;
-  final String contPhone;
-  final List<String> knownLanguages;
-  final List<String> hobbies;
-  final List<String> skills;
-  final String jlpt;
-  final String selfPr;
-  final String extraPoint;
-  final String workingHours;
-  final String dependentsExceptSpouse;
-  final String spouse;
-  final String spouseSupportObligation;
-  final String specialConditions;
-  final String language;
-  final String createdAt;
-  final String updatedAt;
-  final String email;
-  final int emailVerified;
-  final String contactNumber;
-  final int phoneVerified;
-  // final String languageSchoolPrefecture;
-  // final String languageSchoolPrefectureId;
-  // final String languageSchoolCity;
-  // final String languageSchoolCityId;
-  // final String universityPrefecture;
-  // final String universityPrefectureId;
-  // final String universityCity;
-  // final String universityCityId;
-  final String image;
+  final int? id;
+  final int? jobSeekerId;
+  final String? firstName;
+  final String? lastName;
+  final String? profession;
+  final String? languageSchool;
+  final String? languageSchoolPostalCode;
+  final String? languageSchoolAddress;
+  final String? languageSchoolPhone;
+  final String? university;
+  final String? universityPostalCode;
+  final String? universityAddress;
+  final String? universityPhone;
+  final String? furigana;
+  final String? dob;
+  final String? age;
+  final String? gender;
+  final String? nationality;
+  final String? currCountry;
+  final String? currPostalCode;
+  final String? currPrefecture;
+  final String? currCity;
+  final String? currAddress;
+  final String? currPhone;
+  final String? contCountry;
+  final String? contPostalCode;
+  final String? contPrefecture;
+  final String? contCity;
+  final String? contAddress;
+  final String? contPhone;
+  final List<String>? knownLanguages;
+  final List<String>? hobbies;
+  final List<String>? skills;
+  final String? jlpt;
+  final String? selfPr;
+  final String? extraPoint;
+  final String? workingHours;
+  final String? dependentsExceptSpouse;
+  final String? spouse;
+  final String? spouseSupportObligation;
+  final String? specialConditions;
+  final String? language;
+  final String? createdAt;
+  final String? updatedAt;
+  final String? email;
+  final int? emailVerified;
+  final String? contactNumber;
+  final int? phoneVerified;
+  final String? image;
 
   String get workingHoursOnly {
     if (workingHours != null) {
-      final split = workingHours.split(":");
+      final split = workingHours?.split(':') ?? [];
       if (split.isNotEmpty) {
         return split.first;
       }
     }
-    return "";
+    return '';
   }
 
   String get workingMinutesOnly {
     if (workingHours != null) {
-      final split = workingHours.split(":");
+      final split = workingHours?.split(":") ?? [];
       if (split.isNotEmpty) {
-        return split.last ?? "";
+        return split.last;
       }
     }
-
-    return "";
+    return '';
   }
 
   @override
-  List<Object> get props => [
-        id,
-        jobSeekerId,
-        firstName,
-        lastName,
-        profession,
-        languageSchool,
-        languageSchoolPostalCode,
-        languageSchoolAddress,
-        languageSchoolPhone,
-        university,
-        universityPostalCode,
-        universityAddress,
-        universityPhone,
-        furigana,
-        dob,
-        age,
-        gender,
-        nationality,
-        currPostalCode,
-        currPrefecture,
-        currCity,
-        currAddress,
-        currPhone,
-        contPostalCode,
-        contPrefecture,
-        contCity,
-        contAddress,
-        contPhone,
-        knownLanguages,
-        jlpt,
-        selfPr,
-        extraPoint,
-        workingHours,
-        dependentsExceptSpouse,
-        spouse,
-        spouseSupportObligation,
-        specialConditions,
-        language,
-        createdAt,
-        updatedAt,
-        email,
-        emailVerified,
-        contactNumber,
-        phoneVerified,
-      ];
+  List<Object> get props => [];
 }

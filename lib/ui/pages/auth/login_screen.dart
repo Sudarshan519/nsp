@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
@@ -47,8 +47,8 @@ class _LoginBody extends StatelessWidget {
             (routes) {
               routes.map(
                 showEmailVerificationScreen: (_) {
-                  ExtendedNavigator.of(context)
-                      .pushVerifyUserPage(email: state.emailAddress);
+                  context.router
+                      .navigate(VerifyUserRoute(email: state.emailAddress));
                 },
                 showSignInScreen: (_) {},
                 showHomeScreen: (_) {
@@ -58,7 +58,7 @@ class _LoginBody extends StatelessWidget {
                   context
                       .read<ResumeWatcherBloc>()
                       .add(const ResumeWatcherEvent.getResumeData());
-                  ExtendedNavigator.of(context).replace(Routes.tabBarScreen);
+                  context.router.replace(const TabBarRoute());
                 },
                 showSignUpScreen: (_) {},
               );
@@ -158,7 +158,7 @@ class _LoginBody extends StatelessWidget {
         const SizedBox(width: 5),
         InkWell(
           onTap: () {
-            ExtendedNavigator.of(context).pushSignupPage();
+            context.router.push(const SignupRoute());
           },
           child: Text(
             "Create an account",

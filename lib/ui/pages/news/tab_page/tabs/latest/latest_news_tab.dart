@@ -62,8 +62,8 @@ class LatestNewsTab extends StatelessWidget {
   }
 
   Widget _buildBodyWithData({
-    @required BuildContext context,
-    @required List<NewsItem> newsList,
+    required BuildContext context,
+    required List<NewsItem> newsList,
     bool isLoading = false,
   }) {
     final count = newsList.length > 5 ? 5 : newsList.length;

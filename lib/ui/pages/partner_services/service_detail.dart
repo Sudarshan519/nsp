@@ -10,14 +10,13 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
-class ServicesDetail extends StatelessWidget {
+class ServicesDetailPage extends StatelessWidget {
   final Services services;
 
-  const ServicesDetail({
-    Key key,
-    @required this.services,
-  })  : assert(services != null),
-        super(key: key);
+  const ServicesDetailPage({
+    Key? key,
+    required this.services,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

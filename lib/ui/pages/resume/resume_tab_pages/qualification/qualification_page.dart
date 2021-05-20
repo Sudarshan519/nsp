@@ -18,9 +18,9 @@ class QualificationPage extends StatelessWidget {
   final String lang;
 
   const QualificationPage({
-    Key key,
-    @required this.qualifications,
-    @required this.lang,
+    Key? key,
+    required this.qualifications,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -78,10 +78,10 @@ class _CreateQualificationInfoBox extends StatelessWidget {
   final String lang;
 
   const _CreateQualificationInfoBox({
-    Key key,
-    @required this.qualification,
-    @required this.index,
-    @required this.lang,
+    Key? key,
+    required this.qualification,
+    required this.index,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -165,7 +165,7 @@ class _CreateQualificationInfoBox extends StatelessWidget {
 
 class _NameOfQualificationField extends StatelessWidget {
   const _NameOfQualificationField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -196,7 +196,7 @@ class _NameOfQualificationField extends StatelessWidget {
 
 class _CertifiedYearField extends StatelessWidget {
   const _CertifiedYearField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -254,7 +254,7 @@ class _CertifiedYearField extends StatelessWidget {
 
 class _CertifiedMonthField extends StatelessWidget {
   const _CertifiedMonthField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

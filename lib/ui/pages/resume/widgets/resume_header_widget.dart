@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -342,11 +342,11 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
             );
           },
           errorBuilder: (_, __, ___) {
-              return Image.asset(
-                'assets/images/navigation_bar/u1.png',
-                fit: BoxFit.cover,
-              );
-            },
+            return Image.asset(
+              'assets/images/navigation_bar/u1.png',
+              fit: BoxFit.cover,
+            );
+          },
         ),
       ),
     );

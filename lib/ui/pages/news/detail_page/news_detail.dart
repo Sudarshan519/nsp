@@ -9,13 +9,13 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-class NewsDetail extends StatelessWidget {
+class NewsDetailPage extends StatelessWidget {
   final NewsItem newsItem;
 
-  const NewsDetail({
-    Key key,
-    @required this.newsItem,
-  })  : assert(newsItem != null),
+  const NewsDetailPage({
+    Key? key,
+    required this.newsItem,
+  })   : assert(newsItem != null),
         super(key: key);
 
   @override

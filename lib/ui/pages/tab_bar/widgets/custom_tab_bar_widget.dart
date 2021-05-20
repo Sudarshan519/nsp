@@ -7,8 +7,8 @@ class CustomTabBarData {
   final String image;
 
   CustomTabBarData({
-    @required this.title,
-    @required this.image,
+    required this.title,
+    required this.image,
   });
 }
 
@@ -18,10 +18,10 @@ class CustomTabBar extends StatelessWidget {
   final Function(int) onTap;
 
   const CustomTabBar({
-    Key key,
-    @required this.tabs,
-    @required this.selectedIndex,
-    @required this.onTap,
+    Key? key,
+    required this.tabs,
+    required this.selectedIndex,
+    required this.onTap,
   }) : super(key: key);
 
   @override

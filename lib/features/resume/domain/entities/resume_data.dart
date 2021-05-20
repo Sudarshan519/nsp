@@ -19,26 +19,16 @@ class ResumeData extends Equatable {
     this.options,
   });
 
-  final PersonalInfo personalInfo;
-  final int personalInfoCompletionRate;
-  final List<AcademicHistory> academicHistory;
-  final int academicsCompletionRate;
-  final List<WorkHistory> workHistory;
-  final int worksCompletionRate;
-  final List<QualificationHistory> qualificationHistory;
-  final int qualificationCompletionRate;
-  final ResumeOptions options;
+  final PersonalInfo? personalInfo;
+  final int? personalInfoCompletionRate;
+  final List<AcademicHistory>? academicHistory;
+  final int? academicsCompletionRate;
+  final List<WorkHistory>? workHistory;
+  final int? worksCompletionRate;
+  final List<QualificationHistory>? qualificationHistory;
+  final int? qualificationCompletionRate;
+  final ResumeOptions? options;
 
   @override
-  List<Object> get props => [
-        personalInfo,
-        personalInfoCompletionRate,
-        academicHistory,
-        academicsCompletionRate,
-        workHistory,
-        worksCompletionRate,
-        qualificationHistory,
-        qualificationCompletionRate,
-        options,
-      ];
+  List<Object> get props => [];
 }

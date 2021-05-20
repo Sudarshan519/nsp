@@ -11,10 +11,10 @@ ResumeModel resumeFromJson(String str) =>
 
 class ResumeModel extends Resume {
   const ResumeModel({
-    @required UserDetailModel userDetail,
-    @required ResumeStatusDataModel resumeData,
-    @required AddressesJpModel addressesJp,
-    @required AddressesNpModel addressesNp,
+    required UserDetailModel? userDetail,
+    required ResumeStatusDataModel? resumeData,
+    required AddressesJpModel? addressesJp,
+    required AddressesNpModel? addressesNp,
   }) : super(
           userDetail: userDetail,
           resumeData: resumeData,
@@ -31,18 +31,22 @@ class ResumeModel extends Resume {
             ? null
             : ResumeStatusDataModel.fromJson(
                 json["resume_data"] as Map<String, dynamic>),
-        addressesJp: AddressesJpModel.fromJson(
-            json["addresses_jp"] as Map<String, dynamic>),
-        addressesNp: AddressesNpModel.fromJson(
-            json["addresses_np"] as Map<String, dynamic>),
+        addressesJp: json["addresses_jp"] == null
+            ? null
+            : AddressesJpModel.fromJson(
+                json["addresses_jp"] as Map<String, dynamic>),
+        addressesNp: json["addresses_np"] == null
+            ? null
+            : AddressesNpModel.fromJson(
+                json["addresses_np"] as Map<String, dynamic>),
       );
 }
 
 class ResumeStatusDataModel extends ResumeStatusData {
   const ResumeStatusDataModel({
-    @required bool status,
-    @required ResumeWithLanguageModel data,
-    @required bool hasResume,
+    required bool? status,
+    required ResumeWithLanguageModel? data,
+    required bool? hasResume,
   }) : super(
           status: status,
           data: data,
@@ -51,19 +55,19 @@ class ResumeStatusDataModel extends ResumeStatusData {
 
   factory ResumeStatusDataModel.fromJson(Map<String, dynamic> json) =>
       ResumeStatusDataModel(
-        status: json["status"] as bool,
+        status: json["status"] as bool?,
         data: json["data"] == null
             ? null
             : ResumeWithLanguageModel.fromJson(
                 json["data"] as Map<String, dynamic>),
-        hasResume: json["has_resume"] as bool,
+        hasResume: json["has_resume"] as bool?,
       );
 }
 
 class AddressesJpModel extends AddressesJp {
   const AddressesJpModel({
-    @required AddressesJpWithLanguageModel en,
-    @required AddressesJpWithLanguageModel jp,
+    required AddressesJpWithLanguageModel? en,
+    required AddressesJpWithLanguageModel? jp,
   }) : super(
           en: en,
           jp: jp,
@@ -71,16 +75,20 @@ class AddressesJpModel extends AddressesJp {
 
   factory AddressesJpModel.fromJson(Map<String, dynamic> json) =>
       AddressesJpModel(
-        en: AddressesJpWithLanguageModel.fromJson(
-            json["en"] as Map<String, dynamic>),
-        jp: AddressesJpWithLanguageModel.fromJson(
-            json["jp"] as Map<String, dynamic>),
+        en: json["en"] == null
+            ? null
+            : AddressesJpWithLanguageModel.fromJson(
+                json["en"] as Map<String, dynamic>),
+        jp: json["jp"] == null
+            ? null
+            : AddressesJpWithLanguageModel.fromJson(
+                json["jp"] as Map<String, dynamic>),
       );
 }
 
 class AddressesJpWithLanguageModel extends AddressesJpWithLanguage {
   const AddressesJpWithLanguageModel({
-    @required List<String> prefectures,
+    required List<String> prefectures,
   }) : super(prefectures: prefectures);
 
   factory AddressesJpWithLanguageModel.fromJson(Map<String, dynamic> json) =>
@@ -92,8 +100,8 @@ class AddressesJpWithLanguageModel extends AddressesJpWithLanguage {
 
 class AddressesNpModel extends AddressesNp {
   const AddressesNpModel({
-    @required AddressesNpWithLanguageModel en,
-    @required AddressesNpWithLanguageModel jp,
+    required AddressesNpWithLanguageModel? en,
+    required AddressesNpWithLanguageModel? jp,
   }) : super(
           en: en,
           jp: jp,
@@ -101,30 +109,35 @@ class AddressesNpModel extends AddressesNp {
 
   factory AddressesNpModel.fromJson(Map<String, dynamic> json) =>
       AddressesNpModel(
-        en: AddressesNpWithLanguageModel.fromJson(
-            json["en"] as Map<String, dynamic>),
-        jp: AddressesNpWithLanguageModel.fromJson(
-            json["jp"] as Map<String, dynamic>),
+        en: json["en"] == null
+            ? null
+            : AddressesNpWithLanguageModel.fromJson(
+                json["en"] as Map<String, dynamic>),
+        jp: json["jp"] == null
+            ? null
+            : AddressesNpWithLanguageModel.fromJson(
+                json["jp"] as Map<String, dynamic>),
       );
 }
 
 class AddressesNpWithLanguageModel extends AddressesNpWithLanguage {
   const AddressesNpWithLanguageModel({
-    @required List<NepalProvinceModel> province,
+    required List<NepalProvinceModel>? province,
   }) : super(province: province);
 
   factory AddressesNpWithLanguageModel.fromJson(Map<String, dynamic> json) =>
       AddressesNpWithLanguageModel(
-        province: List<NepalProvinceModel>.from((json["province"] as Iterable)
-            .map(
+        province: json["province"] == null
+            ? null
+            : List<NepalProvinceModel>.from((json["province"] as Iterable).map(
                 (x) => NepalProvinceModel.fromJson(x as Map<String, dynamic>))),
       );
 }
 
 class NepalProvinceModel extends NepalProvince {
   const NepalProvinceModel({
-    @required int provinceId,
-    @required String provinceName,
+    required int? provinceId,
+    required String? provinceName,
   }) : super(
           provinceId: provinceId,
           provinceName: provinceName,
@@ -132,7 +145,7 @@ class NepalProvinceModel extends NepalProvince {
 
   factory NepalProvinceModel.fromJson(Map<String, dynamic> json) =>
       NepalProvinceModel(
-        provinceId: json["province_id"] as int,
-        provinceName: json["province_name"] as String,
+        provinceId: json["province_id"] as int?,
+        provinceName: json["province_name"] as String?,
       );
 }

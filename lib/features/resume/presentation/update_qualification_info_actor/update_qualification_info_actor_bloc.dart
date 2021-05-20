@@ -15,8 +15,8 @@ part 'update_qualification_info_actor_bloc.freezed.dart';
 class UpdateQualificationInfoActorBloc extends Bloc<
     UpdateQualificationInfoActorEvent, UpdateQualificationInfoActorState> {
   final UpdateQualificationInfo updateQualificationInfo;
-  QualificationHistory _qualificationHistory;
-  String _lang;
+  QualificationHistory? _qualificationHistory;
+  String? _lang;
 
   UpdateQualificationInfoActorBloc({
     required this.updateQualificationInfo,
@@ -50,7 +50,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     return state.copyWith(
       qualificationName: _changedQualificationName.name,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -59,7 +59,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     return state.copyWith(
       certifiedYear: _changedCertifiedYear.year,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -68,7 +68,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     return state.copyWith(
       certifiedMonth: _changedCertifiedMonth.month,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -76,7 +76,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
       _SetInitialState _setInitialState) async* {
     yield state.copyWith(
       isSubmitting: true,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
     final qualificationHistory = _setInitialState.qualificationHistory;
     _lang = _setInitialState.lang;
@@ -90,7 +90,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
         certifiedMonth: qualificationHistory.certifiedMonth ?? "",
         isSubmitting: false,
         hasSetInitialData: true,
-        authFailureOrSuccessOption: none(),
+        failureOrSuccessOption: none(),
       );
     }
   }
@@ -103,8 +103,8 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     );
     failureOrSuccess = await updateQualificationInfo(
       UpdateQualificationInfoParams(
-        lang: _lang,
-        id: _qualificationHistory.id,
+        lang: _lang ?? "en",
+        id: _qualificationHistory?.id ?? 0,
         qualificationName: state.qualificationName,
         certifiedYear: state.certifiedYear,
         certifiedMonth: state.certifiedMonth,
@@ -114,7 +114,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     yield state.copyWith(
       isSubmitting: false,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      failureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
 }

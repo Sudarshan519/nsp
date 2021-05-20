@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -13,9 +12,9 @@ class UpdateAddressInfo extends Usecase<ApiFailure, Unit, UpdateAddressParams> {
   final NetworkInfo networkInfo;
 
   UpdateAddressInfo({
-    @required this.repository,
-    @required this.networkInfo,
-  }) : assert(repository != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, Unit>> call(UpdateAddressParams params) async {
@@ -49,19 +48,19 @@ class UpdateAddressInfo extends Usecase<ApiFailure, Unit, UpdateAddressParams> {
 
 class UpdateAddressParams {
   UpdateAddressParams({
-    @required this.lang,
-    @required this.currCountry,
-    @required this.currPostalCode,
-    @required this.currPrefecture,
-    @required this.currCity,
-    @required this.currAddress,
-    @required this.currPhone,
-    @required this.contCountry,
-    @required this.contPostalCode,
-    @required this.contPrefecture,
-    @required this.contCity,
-    @required this.contAddress,
-    @required this.contPhone,
+    required this.lang,
+    required this.currCountry,
+    required this.currPostalCode,
+    required this.currPrefecture,
+    required this.currCity,
+    required this.currAddress,
+    required this.currPhone,
+    required this.contCountry,
+    required this.contPostalCode,
+    required this.contPrefecture,
+    required this.contCity,
+    required this.contAddress,
+    required this.contPhone,
   });
 
   final String lang;

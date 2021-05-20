@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -13,9 +12,9 @@ class UpdateWorkInfo extends Usecase<ApiFailure, Unit, UpdateWorkInfoParams> {
   final NetworkInfo networkInfo;
 
   UpdateWorkInfo({
-    @required this.repository,
-    @required this.networkInfo,
-  }) : assert(repository != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, Unit>> call(UpdateWorkInfoParams params) async {
@@ -45,15 +44,15 @@ class UpdateWorkInfo extends Usecase<ApiFailure, Unit, UpdateWorkInfoParams> {
 
 class UpdateWorkInfoParams {
   UpdateWorkInfoParams({
-    @required this.lang,
-    @required this.id,
-    @required this.companyName,
-    @required this.companyType,
-    @required this.startYear,
-    @required this.startMonth,
-    @required this.endYear,
-    @required this.endMonth,
-    @required this.purposeOfResign,
+    required this.lang,
+    required this.id,
+    required this.companyName,
+    required this.companyType,
+    required this.startYear,
+    required this.startMonth,
+    required this.endYear,
+    required this.endMonth,
+    required this.purposeOfResign,
   });
 
   final String lang;

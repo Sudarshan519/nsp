@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -15,9 +14,9 @@ class UpdatePersonalInfo
   final NetworkInfo networkInfo;
 
   UpdatePersonalInfo({
-    @required this.repository,
-    @required this.networkInfo,
-  }) : assert(repository != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, Unit>> call(UpdatePersonalInfoParams params) async {
@@ -58,17 +57,17 @@ class UpdatePersonalInfo
 
 class UpdatePersonalInfoParams {
   UpdatePersonalInfoParams({
-    @required this.lang,
-    @required this.firstName,
-    @required this.lastName,
-    @required this.furigana,
-    @required this.profession,
-    @required this.dob,
-    @required this.age,
-    @required this.gender,
-    @required this.nationality,
-    @required this.email,
-    @required this.phone,
+    required this.lang,
+    required this.firstName,
+    required this.lastName,
+    required this.furigana,
+    required this.profession,
+    required this.dob,
+    required this.age,
+    required this.gender,
+    required this.nationality,
+    required this.email,
+    required this.phone,
   });
 
   final String lang;

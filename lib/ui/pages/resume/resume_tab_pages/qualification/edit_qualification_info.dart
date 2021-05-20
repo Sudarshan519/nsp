@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
@@ -16,15 +16,15 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.d
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
-class EditQualificationInfoForm extends StatelessWidget {
+class EditQualificationInfoFormPage extends StatelessWidget {
   final QualificationHistory info;
   final String lang;
 
-  const EditQualificationInfoForm({
-    Key key,
-    @required this.info,
-    @required this.lang,
-  })  : assert(info != null),
+  const EditQualificationInfoFormPage({
+    Key? key,
+    required this.info,
+    required this.lang,
+  })   : assert(info != null),
         super(key: key);
 
   @override
@@ -110,7 +110,7 @@ class EditQualificationInfoForm extends StatelessWidget {
 
 class _EditBasicInfoFormBody extends StatefulWidget {
   const _EditBasicInfoFormBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -137,7 +137,7 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
 
 class _SaveButton extends StatelessWidget {
   const _SaveButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -175,7 +175,7 @@ class _SaveButton extends StatelessWidget {
 
 class _NameOfQualificationField extends StatelessWidget {
   const _NameOfQualificationField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -203,7 +203,7 @@ class _NameOfQualificationField extends StatelessWidget {
 
 class _CertifiedYearField extends StatelessWidget {
   const _CertifiedYearField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

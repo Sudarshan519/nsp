@@ -12,9 +12,9 @@ class JapaneseMannerWidget extends StatelessWidget {
   final List<JapaneseManner> data;
   final _positionNotifier = ValueNotifier<String>("1");
   JapaneseMannerWidget({
-    Key key,
-    @required this.data,
-  })  : assert(data != null),
+    Key? key,
+    required this.data,
+  })   : assert(data != null),
         super(key: key);
 
   @override

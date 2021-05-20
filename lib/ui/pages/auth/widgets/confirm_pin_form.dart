@@ -9,9 +9,7 @@ import 'pin_text_widget.dart';
 class ConfirmPinFormWidget extends StatelessWidget {
   final String email;
 
-  const ConfirmPinFormWidget({Key key, @required this.email})
-      : assert(email != null),
-        super(key: key);
+  const ConfirmPinFormWidget({Key? key, required this.email}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final node = FocusScope.of(context);
@@ -48,7 +46,7 @@ class ConfirmPinFormWidget extends StatelessWidget {
 
 class _PinInput extends StatelessWidget {
   const _PinInput({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -58,7 +56,7 @@ class _PinInput extends StatelessWidget {
           onChanged: (value) {
             context
                 .read<VerifyEmailBloc>()
-                .add(VerifyEmailEvent.changePin(value));
+                .add(VerifyEmailEvent.changePin(value ?? ''));
           },
         ),
       );
@@ -68,9 +66,9 @@ class _VerifyButton extends StatelessWidget {
   final FocusNode node;
   final String email;
   const _VerifyButton({
-    Key key,
-    @required this.node,
-    @required this.email,
+    Key? key,
+    required this.node,
+    required this.email,
   }) : super(key: key);
 
   @override

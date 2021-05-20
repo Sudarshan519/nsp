@@ -47,7 +47,7 @@ class LoginFormWidget extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: InkWell(
             onTap: () {
-              ExtendedNavigator.of(context).pushForgotPasswordPage();
+              context.router.push(const ForgotPasswordRoute());
             },
             child: Text(
               "Forget Password",
@@ -72,8 +72,8 @@ class _EmailInput extends StatelessWidget {
   final Function() callBack;
 
   const _EmailInput({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -107,8 +107,8 @@ class _PasswordInput extends StatelessWidget {
   final Function() callBack;
 
   const _PasswordInput({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -151,7 +151,7 @@ class _PasswordInput extends StatelessWidget {
 
 class _LoginButton extends StatelessWidget {
   const _LoginButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

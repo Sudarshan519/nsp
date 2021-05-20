@@ -11,9 +11,9 @@ class ForYouNewsTab extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
 
   ForYouNewsTab({
-    Key key,
-    @required this.editGenre,
-  })  : assert(editGenre != null),
+    Key? key,
+    required this.editGenre,
+  })   : assert(editGenre != null),
         super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -67,8 +67,8 @@ class ForYouNewsTab extends StatelessWidget {
   }
 
   Widget _buildBodyWithData({
-    @required BuildContext context,
-    @required List<NewsItem> newsList,
+    required BuildContext context,
+    required List<NewsItem> newsList,
     bool isLoading = false,
   }) {
     final count = newsList.length > 5 ? 5 : newsList.length;

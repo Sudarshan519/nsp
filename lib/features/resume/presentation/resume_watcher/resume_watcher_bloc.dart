@@ -23,14 +23,14 @@ part 'resume_watcher_bloc.freezed.dart';
 class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
   final GetResume getResume;
 
-  ResumeData _english;
-  ResumeData _japanese;
+  ResumeData? _english;
+  ResumeData? _japanese;
 
-  AddressesJp _addressesJp;
-  AddressesNp _addressesNp;
+  AddressesJp? _addressesJp;
+  AddressesNp? _addressesNp;
 
   ResumeWatcherBloc({
-    @required this.getResume,
+    required this.getResume,
   }) : super(ResumeWatcherState.initial());
 
   @override
@@ -52,28 +52,28 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             failureOrSuccessOption: optionOf(failure),
           ),
           (resume) {
-            final hasResume = resume?.resumeData?.hasResume ?? false;
-            if (resume.resumeData.status == false) {
+            final hasResume = resume.resumeData?.hasResume ?? false;
+            if (resume.resumeData?.status == false) {
               final userDetails = resume.userDetail;
               _english = ResumeData(
                 personalInfo: PersonalInfo(
-                  firstName: userDetails.firstName,
-                  lastName: userDetails.lastName,
-                  email: userDetails.email,
+                  firstName: userDetails?.firstName,
+                  lastName: userDetails?.lastName,
+                  email: userDetails?.email,
                 ),
-                options: resume.resumeData.data.en.options,
+                options: resume.resumeData?.data?.en?.options,
               );
               _japanese = ResumeData(
                 personalInfo: PersonalInfo(
-                  firstName: userDetails.firstName,
-                  lastName: userDetails.lastName,
-                  email: userDetails.email,
+                  firstName: userDetails?.firstName,
+                  lastName: userDetails?.lastName,
+                  email: userDetails?.email,
                 ),
-                options: resume.resumeData.data.jp.options,
+                options: resume.resumeData?.data?.jp?.options,
               );
             } else {
-              _english = resume.resumeData.data.en;
-              _japanese = resume.resumeData.data.jp;
+              _english = resume.resumeData?.data?.en;
+              _japanese = resume.resumeData?.data?.jp;
             }
 
             _addressesJp = resume.addressesJp;
@@ -95,8 +95,10 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
         );
         if (state.language == "en") {
           final prefectures = _addressesJp?.en?.prefectures;
-          final provinces =
-              _addressesNp?.en?.province?.map((p) => p.provinceName)?.toList();
+          final provinces = _addressesNp?.en?.province
+                  ?.map((p) => p.provinceName ?? '')
+                  .toList() ??
+              [];
 
           yield state.copyWith(
             isLoading: false,
@@ -106,13 +108,15 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             qualifications: _english?.qualificationHistory ?? [],
             options: _english?.options ?? const ResumeOptions(),
             prefectures: prefectures ?? [],
-            provinces: provinces ?? [],
+            provinces: provinces,
             failureOrSuccessOption: none(),
           );
         } else {
           final prefectures = _addressesJp?.jp?.prefectures;
-          final provinces =
-              _addressesNp?.jp?.province?.map((p) => p.provinceName)?.toList();
+          final provinces = _addressesNp?.jp?.province
+                  ?.map((p) => p.provinceName ?? '')
+                  .toList() ??
+              [];
           yield state.copyWith(
             isLoading: false,
             info: _japanese?.personalInfo ?? const PersonalInfo(),
@@ -121,7 +125,7 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             qualifications: _japanese?.qualificationHistory ?? [],
             options: _japanese?.options ?? const ResumeOptions(),
             prefectures: prefectures ?? [],
-            provinces: provinces ?? [],
+            provinces: provinces,
             failureOrSuccessOption: none(),
           );
         }

@@ -76,8 +76,8 @@ class _FirstNameInput extends StatelessWidget {
   final Function() callBack;
 
   const _FirstNameInput({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -107,8 +107,8 @@ class _LastNameInput extends StatelessWidget {
   final Function() callBack;
 
   const _LastNameInput({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -137,8 +137,8 @@ class _EmailInput extends StatelessWidget {
   final Function() callBack;
 
   const _EmailInput({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -168,8 +168,8 @@ class _PasswordInput extends StatelessWidget {
   final Function() callBack;
 
   const _PasswordInput({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -211,8 +211,8 @@ class _ConfirmPasswordInput extends StatelessWidget {
   final Function() callBack;
 
   const _ConfirmPasswordInput({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -253,7 +253,7 @@ class _ConfirmPasswordInput extends StatelessWidget {
 
 class _SignUpButton extends StatelessWidget {
   const _SignUpButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

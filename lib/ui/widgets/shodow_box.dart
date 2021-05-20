@@ -3,19 +3,18 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class ShadowBoxWidget extends StatelessWidget {
   final Widget child;
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry padding;
 
   const ShadowBoxWidget({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.margin,
     this.padding = const EdgeInsets.symmetric(
       horizontal: 16,
       vertical: 16,
     ),
-  })  : assert(child != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

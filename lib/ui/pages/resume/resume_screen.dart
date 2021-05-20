@@ -1,4 +1,4 @@
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,7 +16,7 @@ import 'widgets/download_resume_button.dart';
 
 class ResumePage extends StatelessWidget {
   const ResumePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -55,7 +55,7 @@ class ResumePage extends StatelessWidget {
 
 class _DownloadButton extends StatelessWidget {
   const _DownloadButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -96,7 +96,7 @@ class _DownloadButton extends StatelessWidget {
 
 class _ShareButton extends StatelessWidget {
   const _ShareButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

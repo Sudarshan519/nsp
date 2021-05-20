@@ -12,8 +12,8 @@ class HomeServiceWidget extends StatelessWidget {
   final List<Services> services;
   final _positionNotifier = ValueNotifier<String>("1");
   HomeServiceWidget({
-    Key key,
-    @required this.services,
+    Key? key,
+    required this.services,
   }) : super(key: key);
 
   @override

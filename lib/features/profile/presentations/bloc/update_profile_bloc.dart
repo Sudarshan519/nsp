@@ -24,9 +24,9 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
   final GetListOfCityFromPrefectures getListOfCityFromPrefectures;
 
   UpdateProfileBloc({
-    @required this.updateKycInfo,
-    @required this.updateResumeImage,
-    @required this.getListOfCityFromPrefectures,
+    required this.updateKycInfo,
+    required this.updateResumeImage,
+    required this.getListOfCityFromPrefectures,
   }) : super(UpdateProfileState.initial());
 
   @override
@@ -41,16 +41,16 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
         );
 
         final kycIssuedDate = e.userDetail.originDocIssuedDate;
-        final kycIssuedDateArray = kycIssuedDate.split("-");
+        final kycIssuedDateArray = kycIssuedDate?.split("-") ?? [];
 
         final List<String> originCityList = await _getListOfCities(
-          country: e.userDetail.countryOfOrigin,
-          prefectureName: e.userDetail.originProvince,
+          country: e.userDetail.countryOfOrigin ?? '',
+          prefectureName: e.userDetail.originProvince ?? '',
         );
 
         final List<String> residenceCityList = await _getListOfCities(
-          country: e.userDetail.countryOfResidence,
-          prefectureName: e.userDetail.province,
+          country: e.userDetail.countryOfResidence ?? '',
+          prefectureName: e.userDetail.province ?? '',
         );
 
         yield state.copyWith(
@@ -101,19 +101,18 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
           residenceKycDocNumber: e.userDetail.kycDocNo ?? "",
           residenceKycDocFront: e.userDetail.kycDocFront ?? "",
           residenceKycDocBack: e.userDetail.kycDocBack ?? "",
-          listOfProfession: e.userDetail.options.professions ?? [],
-          listOfCountry: e.userDetail.options.nationalities ?? [],
-          listOfJapaneseProvince: e.userDetail.options.prefectures ?? [],
-          listOfJapaneseOriginCities: originCityList ?? [],
-          listOfJapaneseResidenceCities: residenceCityList ?? [],
-          listOfNepaliProvince: e.userDetail.options.provinces == null
+          listOfProfession: e.userDetail.options?.professions ?? [],
+          listOfCountry: e.userDetail.options?.nationalities ?? [],
+          listOfJapaneseProvince: e.userDetail.options?.prefectures ?? [],
+          listOfJapaneseOriginCities: originCityList,
+          listOfJapaneseResidenceCities: residenceCityList,
+          listOfNepaliProvince: e.userDetail.options?.provinces == null
               ? []
-              : e.userDetail.options.provinces
-                      .map((province) => province.provinceName)
-                      .toList() ??
-                  [],
+              : e.userDetail.options!.provinces!
+                  .map((province) => province.provinceName ?? '')
+                  .toList(),
           listOfNepaliOriginDistrict: originCityList,
-          listOfNepaliResidenceDistrict: residenceCityList ?? [],
+          listOfNepaliResidenceDistrict: residenceCityList,
           listOfKycDocType: ["Citizenship", "Passport", "Driving Liscence"],
           isSubmitting: false,
           failureOrSuccessOption: none(),
@@ -418,8 +417,8 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
     yield state.copyWith(
       originProvince: _changeOriginProvince.province,
       originCity: '',
-      listOfJapaneseOriginCities: listOfCities ?? [],
-      listOfNepaliOriginDistrict: listOfCities ?? [],
+      listOfJapaneseOriginCities: listOfCities,
+      listOfNepaliOriginDistrict: listOfCities,
       failureOrSuccessOption: none(),
     );
   }
@@ -464,8 +463,8 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
 
     yield state.copyWith(
       residenceProvince: _changeResidenceProvince.province,
-      listOfJapaneseResidenceCities: listOfCities ?? [],
-      listOfNepaliResidenceDistrict: listOfCities ?? [],
+      listOfJapaneseResidenceCities: listOfCities,
+      listOfNepaliResidenceDistrict: listOfCities,
       failureOrSuccessOption: none(),
     );
   }
@@ -646,7 +645,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
     );
 
     final originKycDocFront = state.originKycDocFrontFile;
-    String originKycDocFrontString;
+    String? originKycDocFrontString;
 
     if (originKycDocFront != null) {
       final encodedString =
@@ -655,7 +654,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
     }
 
     final originKycDocBack = state.originKycDocBackFile;
-    String originKycDocBackString;
+    String? originKycDocBackString;
 
     if (originKycDocBack != null) {
       final encodedString = base64.encode(await originKycDocBack.readAsBytes());
@@ -663,7 +662,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
     }
 
     final residenceKycDocFront = state.residenceKycDocFrontFile;
-    String residenceKycDocFrontString;
+    String? residenceKycDocFrontString;
 
     if (residenceKycDocFront != null) {
       final encodedString =
@@ -672,7 +671,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
     }
 
     final residenceKycDoBack = state.residenceKycDocBackFile;
-    String residenceKKycDocBackString;
+    String? residenceKKycDocBackString;
 
     if (residenceKycDoBack != null) {
       final encodedString =
@@ -704,20 +703,17 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
   }
 
   Future<List<String>> _getListOfCities({
-    @required String country,
-    @required String prefectureName,
+    required String country,
+    required String prefectureName,
   }) async {
-    if (prefectureName == null) {
-      return [];
-    }
-
     if (prefectureName.isNotEmpty) {
-      final result =
-          await getListOfCityFromPrefectures(GetListOfCityFromPrefecturesParams(
-        country: country,
-        prefecture: prefectureName,
-        lang: "en",
-      ));
+      final result = await getListOfCityFromPrefectures(
+        GetListOfCityFromPrefecturesParams(
+          country: country,
+          prefecture: prefectureName,
+          lang: "en",
+        ),
+      );
       return result.fold(
         (failure) => [],
         (cities) => cities,

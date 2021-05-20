@@ -16,11 +16,11 @@ class UpdateAcademicInfoActorBloc
     extends Bloc<UpdateAcademicInfoActorEvent, UpdateAcademicInfoActorState> {
   final UpdateAcadamicInfo updateAcadamicInfo;
 
-  AcademicHistory _academicHistory;
-  String _lang;
+  AcademicHistory? _academicHistory;
+  String? _lang;
 
   UpdateAcademicInfoActorBloc({
-    @required this.updateAcadamicInfo,
+    required this.updateAcadamicInfo,
   }) : super(UpdateAcademicInfoActorState.initial());
 
   @override
@@ -60,7 +60,7 @@ class UpdateAcademicInfoActorBloc
     return state.copyWith(
       nameOfInstitute: _changedNameOfInstitute.institute,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -69,7 +69,7 @@ class UpdateAcademicInfoActorBloc
     return state.copyWith(
       majorSubject: _changedMajorSubject.subject,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -78,7 +78,7 @@ class UpdateAcademicInfoActorBloc
     return state.copyWith(
       yearOFEnroll: _changedYearOfEnroll.year,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -87,7 +87,7 @@ class UpdateAcademicInfoActorBloc
     return state.copyWith(
       monthOfEnroll: _changedMonthOfEnroll.month,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -96,7 +96,7 @@ class UpdateAcademicInfoActorBloc
     return state.copyWith(
       yearOfCpmpletion: _changedYearOfCompletion.year,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -105,7 +105,7 @@ class UpdateAcademicInfoActorBloc
     return state.copyWith(
       monthOfCompletion: _changedMonthOfCompletion.month,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -113,10 +113,10 @@ class UpdateAcademicInfoActorBloc
       _SetInitialState _setInitialState) async* {
     yield state.copyWith(
       isSubmitting: true,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
     final acadimicInfo = _setInitialState.academicHistory;
-    // if (acadimicInfo != null && acadimicInfo != _academicHistory) {
+
     _academicHistory = acadimicInfo;
     _lang = _setInitialState.lang;
     yield state.copyWith(
@@ -127,12 +127,11 @@ class UpdateAcademicInfoActorBloc
       majorSubject: acadimicInfo.majorSubject ?? "",
       yearOfCpmpletion: acadimicInfo.completionYear ?? "",
       monthOfCompletion: acadimicInfo.completionMonth ?? "",
-      majorSubjectList: _setInitialState.listOfMajorSubject ?? [],
+      majorSubjectList: _setInitialState.listOfMajorSubject,
       isSubmitting: false,
       hasSetInitialData: true,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
-    // }
   }
 
   Stream<UpdateAcademicInfoActorState> _mapSaveToState(_Save _save) async* {
@@ -142,8 +141,8 @@ class UpdateAcademicInfoActorBloc
     );
     failureOrSuccess = await updateAcadamicInfo(
       UpdateAcadamicInfoParams(
-        lang: _lang,
-        id: _academicHistory.id,
+        lang: _lang ?? 'en',
+        id: _academicHistory?.id ?? 0,
         insutitute: state.nameOfInstitute,
         majorSubject: state.majorSubject,
         startYear: state.yearOFEnroll,
@@ -155,7 +154,7 @@ class UpdateAcademicInfoActorBloc
 
     yield state.copyWith(
       isSubmitting: false,
-      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      failureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
 }

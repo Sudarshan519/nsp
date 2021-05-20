@@ -3,18 +3,18 @@ part of 'update_work_info_actor_bloc.dart';
 @freezed
 abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
   const factory UpdateWorkInfoActorState({
-    @required Key key,
-    @required String nameOfComapny,
-    @required String companyType,
-    @required String startedYear,
-    @required String startedMonth,
-    @required String endYear,
-    @required String endMonth,
-    @required String purposeOfResign,
-    @required List<String> typeOfCompanyList,
-    @required bool isSubmitting,
-    @required bool hasSetInitialData,
-    @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
+    required Key? key,
+    required String nameOfComapny,
+    required String companyType,
+    required String startedYear,
+    required String startedMonth,
+    required String endYear,
+    required String endMonth,
+    required String purposeOfResign,
+    required List<String> typeOfCompanyList,
+    required bool isSubmitting,
+    required bool hasSetInitialData,
+    required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
   }) = _UpdateWorkInfoActorState;
 
   factory UpdateWorkInfoActorState.initial() => UpdateWorkInfoActorState(
@@ -29,6 +29,6 @@ abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
         typeOfCompanyList: [],
         isSubmitting: false,
         hasSetInitialData: false,
-        authFailureOrSuccessOption: none(),
+        failureOrSuccessOption: none(),
       );
 }

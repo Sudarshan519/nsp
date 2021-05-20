@@ -9,14 +9,16 @@ PartnerServicesListModel partnerServiceListFromJson(String str) =>
 
 class PartnerServicesListModel extends PartnerServicesList {
   const PartnerServicesListModel({
-    final List<ServicesModel> results,
+    final List<ServicesModel>? results,
   }) : super(
           results: results,
         );
 
   factory PartnerServicesListModel.fromJson(Map<String, dynamic> json) =>
       PartnerServicesListModel(
-        results: List<ServicesModel>.from((json["partner_services"] as Iterable)
-            .map((x) => ServicesModel.fromJson(x as Map<String, dynamic>))),
+        results: json["partner_services"] == null
+            ? null
+            : List<ServicesModel>.from((json["partner_services"] as Iterable)
+                .map((x) => ServicesModel.fromJson(x as Map<String, dynamic>))),
       );
 }

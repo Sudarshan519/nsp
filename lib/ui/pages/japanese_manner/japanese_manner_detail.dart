@@ -10,9 +10,9 @@ class JapaneseMannerDetailPage extends StatelessWidget {
   final JapaneseManner japaneseManner;
 
   const JapaneseMannerDetailPage({
-    Key key,
-    @required this.japaneseManner,
-  })  : assert(japaneseManner != null),
+    Key? key,
+    required this.japaneseManner,
+  })   : assert(japaneseManner != null),
         super(key: key);
 
   @override

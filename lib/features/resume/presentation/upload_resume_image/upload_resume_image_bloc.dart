@@ -17,7 +17,7 @@ class UploadResumeImageBloc
   final UpdateResumeImage updateResumeImage;
 
   UploadResumeImageBloc({
-    @required this.updateResumeImage,
+    required this.updateResumeImage,
   }) : super(UploadResumeImageState.initial());
 
   @override

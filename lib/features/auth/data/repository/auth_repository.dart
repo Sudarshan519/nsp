@@ -22,7 +22,7 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({
     required this.remoteDataSource,
     required this.localDataSource,
-    // @required this.facebookLogin,
+    // required this.facebookLogin,
     required this.googleSignIn,
   });
 
@@ -122,21 +122,21 @@ class AuthRepositoryImpl implements AuthRepository {
     if (result.status == LoginStatus.success) {
       final userInfo = await FacebookAuth.instance.getUserData();
 
-      final String id = userInfo["id"] as String;
-      String email = userInfo["email"] as String;
+      final String? id = userInfo["id"] as String?;
+      String? email = userInfo["email"] as String?;
 
-      final String photo = userInfo["picture"]["data"]["url"] as String;
+      final String? photo = userInfo["picture"]["data"]["url"] as String?;
 
       email ??= "$id@nippon@fb.com";
 
-      final fullname = userInfo["name"] as String;
-      final names = fullname.split(" ");
-      final firstName = names[0];
+      final fullname = userInfo["name"] as String?;
+      final names = fullname?.split(" ") ?? [];
+      final firstName = names.isNotEmpty ? names.first : '';
       final lastName = names.length > 1 ? names[1] : '';
 
       final Map<String, String> params = {
         "email": email,
-        "facebook_id": id,
+        "facebook_id": id ?? '',
         "username": email,
         "first_name": firstName,
         "last_name": lastName,

@@ -4,22 +4,22 @@ part of 'update_personal_info_actor_bloc.dart';
 abstract class UpdatePersonalInfoActorState
     with _$UpdatePersonalInfoActorState {
   const factory UpdatePersonalInfoActorState({
-    @required Key key,
-    @required String firstName,
-    @required String lastName,
-    @required String furigana,
-    @required String profession,
-    @required String dob,
-    @required String age,
-    @required String gender,
-    @required String nationality,
-    @required String email,
-    @required String phone,
-    @required List<String> listOfNationality,
-    @required List<String> listOfProfession,
-    @required bool hasSetInitialData,
-    @required bool isSubmitting,
-    @required Option<Either<ApiFailure, Unit>> authFailureOrSuccessOption,
+    required Key? key,
+    required String firstName,
+    required String lastName,
+    required String furigana,
+    required String profession,
+    required String dob,
+    required String age,
+    required String gender,
+    required String nationality,
+    required String email,
+    required String phone,
+    required List<String> listOfNationality,
+    required List<String> listOfProfession,
+    required bool hasSetInitialData,
+    required bool isSubmitting,
+    required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
   }) = _UpdatePersonalInfoActorState;
 
   factory UpdatePersonalInfoActorState.initial() =>
@@ -39,6 +39,6 @@ abstract class UpdatePersonalInfoActorState
         listOfProfession: [],
         hasSetInitialData: false,
         isSubmitting: false,
-        authFailureOrSuccessOption: none(),
+        failureOrSuccessOption: none(),
       );
 }

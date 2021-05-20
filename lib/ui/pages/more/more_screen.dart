@@ -11,7 +11,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class MorePage extends StatelessWidget {
   const MorePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -125,10 +125,10 @@ class _ProfileItem extends StatelessWidget {
   final Function() onTap;
 
   const _ProfileItem({
-    Key key,
-    @required this.imageName,
-    @required this.title,
-    @required this.onTap,
+    Key? key,
+    required this.imageName,
+    required this.title,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -167,8 +167,8 @@ class _ProfileData {
   final Function() onTap;
 
   _ProfileData({
-    @required this.image,
-    @required this.title,
-    @required this.onTap,
+    required this.image,
+    required this.title,
+    required this.onTap,
   });
 }

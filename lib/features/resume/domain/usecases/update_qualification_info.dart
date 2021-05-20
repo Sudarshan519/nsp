@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -14,9 +13,9 @@ class UpdateQualificationInfo
   final NetworkInfo networkInfo;
 
   UpdateQualificationInfo({
-    @required this.repository,
-    @required this.networkInfo,
-  }) : assert(repository != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, Unit>> call(
@@ -43,11 +42,11 @@ class UpdateQualificationInfo
 
 class UpdateQualificationInfoParams {
   UpdateQualificationInfoParams({
-    @required this.lang,
-    @required this.id,
-    @required this.qualificationName,
-    @required this.certifiedYear,
-    @required this.certifiedMonth,
+    required this.lang,
+    required this.id,
+    required this.qualificationName,
+    required this.certifiedYear,
+    required this.certifiedMonth,
   });
 
   final String lang;

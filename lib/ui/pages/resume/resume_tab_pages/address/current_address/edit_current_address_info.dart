@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,20 +21,20 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 
-class EditCurrentAddressInfoForm extends StatelessWidget {
+class EditCurrentAddressInfoFormPage extends StatelessWidget {
   static String language = "";
   final PersonalInfo info;
   final List<String> prefecture;
   final List<String> provinces;
   final String lang;
 
-  const EditCurrentAddressInfoForm({
-    Key key,
-    @required this.info,
-    @required this.lang,
-    @required this.prefecture,
-    @required this.provinces,
-  })  : assert(info != null),
+  const EditCurrentAddressInfoFormPage({
+    Key? key,
+    required this.info,
+    required this.lang,
+    required this.prefecture,
+    required this.provinces,
+  })   : assert(info != null),
         super(key: key);
 
   @override
@@ -128,8 +128,8 @@ class _EditBasicInfoFormBody extends StatelessWidget {
   final String lang;
 
   const _EditBasicInfoFormBody({
-    Key key,
-    @required this.lang,
+    Key? key,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -161,7 +161,7 @@ class _EditBasicInfoFormBody extends StatelessWidget {
 
 class _SaveButton extends StatelessWidget {
   const _SaveButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -198,7 +198,7 @@ class _SaveButton extends StatelessWidget {
 
 class _CountryInputField extends StatelessWidget {
   const _CountryInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -225,8 +225,8 @@ class _CountryInputField extends StatelessWidget {
 class _PostalCodeInputField extends StatelessWidget {
   final String lang;
   const _PostalCodeInputField({
-    Key key,
-    @required this.lang,
+    Key? key,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -281,10 +281,10 @@ class _SearchAddressViaPostalCode extends StatelessWidget {
   final String lang;
 
   const _SearchAddressViaPostalCode({
-    Key key,
-    @required this.parentContext,
-    @required this.parentState,
-    @required this.lang,
+    Key? key,
+    required this.parentContext,
+    required this.parentState,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -354,7 +354,7 @@ class _SearchAddressViaPostalCode extends StatelessWidget {
   }
 
   Widget _buildSearchBoxWithLoading(
-      {@required BuildContext context, bool isLoading = false}) {
+      {required BuildContext context, bool isLoading = false}) {
     return Row(
       children: [
         const SizedBox(width: 5),
@@ -397,7 +397,7 @@ class _SearchAddressViaPostalCode extends StatelessWidget {
 
 class _PrefectureInputField extends StatelessWidget {
   const _PrefectureInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -445,7 +445,7 @@ class _PrefectureInputField extends StatelessWidget {
 
 class _CityInputField extends StatelessWidget {
   const _CityInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -489,7 +489,7 @@ class _CityInputField extends StatelessWidget {
 
 class _AddressInputField extends StatelessWidget {
   const _AddressInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -515,7 +515,7 @@ class _AddressInputField extends StatelessWidget {
 
 class _PhoneInputField extends StatelessWidget {
   const _PhoneInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

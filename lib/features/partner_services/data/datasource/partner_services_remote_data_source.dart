@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:http/http.dart' as http;
@@ -12,7 +11,9 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class PartnerServicesRemoteDataSource {
-  Future<PartnerServicesListModel> getPartnerServices({@required String name});
+  Future<PartnerServicesListModel> getPartnerServices({
+    required String name,
+  });
   Future<List<ServicesCategoryModel>> getJapaneseMannerCategories();
 }
 
@@ -28,19 +29,23 @@ class PartnerServicesRemoteDataSourceImpl
   };
 
   PartnerServicesRemoteDataSourceImpl({
-    @required this.client,
-    @required this.config,
+    required this.client,
+    required this.config,
   });
 
   @override
-  Future<PartnerServicesListModel> getPartnerServices(
-      {@required String name}) async {
+  Future<PartnerServicesListModel> getPartnerServices({
+    required String name,
+  }) async {
     final url =
         "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getPartnerServicesViaName}$name";
     http.Response response;
 
     try {
-      response = await client.get(url, headers: _headers);
+      response = await client.get(
+        Uri.parse(url),
+        headers: _headers,
+      );
     } catch (ex) {
       throw ServerException(message: ex.toString());
     }
@@ -64,7 +69,10 @@ class PartnerServicesRemoteDataSourceImpl
     http.Response response;
 
     try {
-      response = await client.get(url, headers: _headers);
+      response = await client.get(
+        Uri.parse(url),
+        headers: _headers,
+      );
     } catch (ex) {
       throw ServerException(message: ex.toString());
     }

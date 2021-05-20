@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
@@ -17,17 +17,17 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
-class EditWorkInfoForm extends StatelessWidget {
+class EditWorkInfoFormPage extends StatelessWidget {
   final WorkHistory info;
   final List<String> typeOfCompanyList;
   final String lang;
 
-  const EditWorkInfoForm({
-    Key key,
-    @required this.info,
-    @required this.typeOfCompanyList,
-    @required this.lang,
-  })  : assert(info != null),
+  const EditWorkInfoFormPage({
+    Key? key,
+    required this.info,
+    required this.typeOfCompanyList,
+    required this.lang,
+  })   : assert(info != null),
         super(key: key);
 
   @override
@@ -114,7 +114,7 @@ class EditWorkInfoForm extends StatelessWidget {
 
 class _EditBasicInfoFormBody extends StatefulWidget {
   const _EditBasicInfoFormBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -147,7 +147,7 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
 
 class _SaveButton extends StatelessWidget {
   const _SaveButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -184,7 +184,7 @@ class _SaveButton extends StatelessWidget {
 
 class _NameOfCompanyField extends StatelessWidget {
   const _NameOfCompanyField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -210,7 +210,7 @@ class _NameOfCompanyField extends StatelessWidget {
 
 class _MajorSubjectField extends StatelessWidget {
   const _MajorSubjectField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -235,7 +235,7 @@ class _MajorSubjectField extends StatelessWidget {
 
 class _StartedYearField extends StatelessWidget {
   const _StartedYearField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -328,7 +328,7 @@ class _StartedYearField extends StatelessWidget {
 
 class _EndYearField extends StatelessWidget {
   const _EndYearField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -423,7 +423,7 @@ class _EndYearField extends StatelessWidget {
 
 class _PurposeOfResignField extends StatelessWidget {
   const _PurposeOfResignField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

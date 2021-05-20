@@ -9,8 +9,8 @@ class BalanceAndPointWidget extends StatelessWidget {
   final bool showAddBalanceButton;
 
   const BalanceAndPointWidget({
-    Key key,
-    @required this.user,
+    Key? key,
+    required this.user,
     this.showAddBalanceButton = true,
   }) : super(key: key);
 

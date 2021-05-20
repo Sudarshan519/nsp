@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_provider/path_provider.dart';
@@ -16,8 +16,8 @@ class DownloadResumeButton extends StatelessWidget {
   final Widget loading;
 
   const DownloadResumeButton({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.loading,
   }) : super(key: key);
 

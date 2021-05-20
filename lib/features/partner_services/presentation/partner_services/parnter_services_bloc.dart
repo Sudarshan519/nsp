@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
-import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services_categories.dart';
 import 'package:wallet_app/features/partner_services/domain/usecase/get_partner_services.dart';
@@ -19,8 +18,9 @@ class ParnterServicesBloc
   final GetPartnerServices getPartnerServices;
   List<Services> data = [];
 
-  ParnterServicesBloc({@required this.getPartnerServices})
-      : super(const _Initial());
+  ParnterServicesBloc({
+    required this.getPartnerServices,
+  }) : super(const _Initial());
 
   @override
   Stream<ParnterServicesState> mapEventToState(
@@ -36,8 +36,8 @@ class ParnterServicesBloc
         yield result.fold(
           (failure) => _Failure(failure),
           (list) {
-            data = list.results;
-            return _Loaded(list.results);
+            data = list.results ?? [];
+            return _Loaded(list.results ?? []);
           },
         );
       },

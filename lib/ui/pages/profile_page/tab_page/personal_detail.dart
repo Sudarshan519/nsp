@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -523,7 +523,7 @@ class _EmailWidget extends StatelessWidget {
 
 class _OriginCountryInputField extends StatelessWidget {
   const _OriginCountryInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -549,7 +549,7 @@ class _OriginCountryInputField extends StatelessWidget {
 
 class _OriginPostalCodeInputField extends StatelessWidget {
   const _OriginPostalCodeInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -601,9 +601,9 @@ class _SearchOriginAddressViaPostalCode extends StatelessWidget {
   final UpdateProfileState parentState;
 
   const _SearchOriginAddressViaPostalCode({
-    Key key,
-    @required this.parentContext,
-    @required this.parentState,
+    Key? key,
+    required this.parentContext,
+    required this.parentState,
   }) : super(key: key);
 
   @override
@@ -658,7 +658,7 @@ class _SearchOriginAddressViaPostalCode extends StatelessWidget {
   }
 
   Widget _buildSearchBoxWithLoading(
-      {@required BuildContext context, bool isLoading = false}) {
+      {required BuildContext context, bool isLoading = false}) {
     return Row(
       children: [
         const SizedBox(width: 5),
@@ -701,7 +701,7 @@ class _SearchOriginAddressViaPostalCode extends StatelessWidget {
 
 class _OriginPrefectureInputField extends StatelessWidget {
   const _OriginPrefectureInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -751,7 +751,7 @@ class _OriginPrefectureInputField extends StatelessWidget {
 
 class _OriginCityInputField extends StatelessWidget {
   const _OriginCityInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -808,7 +808,7 @@ class _OriginCityInputField extends StatelessWidget {
 
 class _OriginAddressInputField extends StatelessWidget {
   const _OriginAddressInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -836,7 +836,7 @@ class _OriginAddressInputField extends StatelessWidget {
 
 class _ResidenceCountryInputField extends StatelessWidget {
   const _ResidenceCountryInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -862,7 +862,7 @@ class _ResidenceCountryInputField extends StatelessWidget {
 
 class _ResidencePostalCodeInputField extends StatelessWidget {
   const _ResidencePostalCodeInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -914,9 +914,9 @@ class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
   final UpdateProfileState parentState;
 
   const _SearchResidenceAddressViaPostalCode({
-    Key key,
-    @required this.parentContext,
-    @required this.parentState,
+    Key? key,
+    required this.parentContext,
+    required this.parentState,
   }) : super(key: key);
 
   @override
@@ -971,7 +971,7 @@ class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
   }
 
   Widget _buildSearchBoxWithLoading(
-      {@required BuildContext context, bool isLoading = false}) {
+      {required BuildContext context, bool isLoading = false}) {
     return Row(
       children: [
         const SizedBox(width: 5),
@@ -1014,7 +1014,7 @@ class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
 
 class _ResidencePrefectureInputField extends StatelessWidget {
   const _ResidencePrefectureInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -1063,7 +1063,7 @@ class _ResidencePrefectureInputField extends StatelessWidget {
 
 class _ResidenceCityInputField extends StatelessWidget {
   const _ResidenceCityInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -1104,7 +1104,7 @@ class _ResidenceCityInputField extends StatelessWidget {
 
 class _ResidenceAddressInputField extends StatelessWidget {
   const _ResidenceAddressInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

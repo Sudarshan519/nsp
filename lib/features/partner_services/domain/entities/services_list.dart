@@ -3,19 +3,11 @@ import 'package:wallet_app/features/partner_services/domain/entities/services.da
 
 class PartnerServicesList extends Equatable {
   const PartnerServicesList({
-    // this.count,
-    // this.next,
     this.results,
   });
 
-  // final int count;
-  // final String next;
-  final List<Services> results;
+  final List<Services>? results;
 
   @override
-  List<Object> get props => [
-        // count,
-        // next,
-        results,
-      ];
+  List<Object> get props => [];
 }

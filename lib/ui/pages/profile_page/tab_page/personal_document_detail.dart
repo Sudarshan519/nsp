@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/core/file_picker/file_provider.dart';
@@ -512,8 +512,8 @@ class _UserPhotoWidget extends StatelessWidget {
   final Function(File) callback;
 
   _UserPhotoWidget({
-    Key key,
-    @required this.callback,
+    Key? key,
+    required this.callback,
   }) : super(key: key);
 
   @override
@@ -624,11 +624,11 @@ class _OriginKycDocumentWidget extends StatelessWidget {
   final FileProvider fileProvider = getIt<FileProvider>();
 
   _OriginKycDocumentWidget({
-    Key key,
-    @required this.kycFront,
-    @required this.kycBack,
-    @required this.kycCallFront,
-    @required this.kycCallBack,
+    Key? key,
+    required this.kycFront,
+    required this.kycBack,
+    required this.kycCallFront,
+    required this.kycCallBack,
   }) : super(key: key);
 
   @override
@@ -771,11 +771,11 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
   final FileProvider fileProvider = getIt<FileProvider>();
 
   _ResidenceKycDocumentWidget({
-    Key key,
-    @required this.kycFront,
-    @required this.kycBack,
-    @required this.kycCallFront,
-    @required this.kycCallBack,
+    Key? key,
+    required this.kycFront,
+    required this.kycBack,
+    required this.kycCallFront,
+    required this.kycCallBack,
   }) : super(key: key);
 
   @override

@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
@@ -13,9 +12,9 @@ class GetDownloadablePdfLink
   final NetworkInfo networkInfo;
 
   GetDownloadablePdfLink({
-    @required this.repository,
-    @required this.networkInfo,
-  }) : assert(repository != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, String>> call(
@@ -34,6 +33,6 @@ class GetDownloadablePdfLinkParams {
   final String lang;
 
   GetDownloadablePdfLinkParams({
-    @required this.lang,
+    required this.lang,
   });
 }

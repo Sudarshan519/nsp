@@ -10,17 +10,17 @@ class CustomSearchableDropDownWidget extends StatelessWidget {
   final List<String> options;
   final bool isRequired;
   final Function(String) onChanged;
-  String value;
+  String? value;
   final bool isExpanded;
-  final Alignment alignment;
+  final Alignment? alignment;
   final bool isEnable;
 
   CustomSearchableDropDownWidget({
-    Key key,
-    @required this.hintText,
-    @required this.options,
+    Key? key,
+    required this.hintText,
+    required this.options,
+    required this.onChanged,
     this.value = "",
-    this.onChanged,
     this.isRequired = false,
     this.isExpanded = true,
     this.alignment,
@@ -37,7 +37,7 @@ class CustomSearchableDropDownWidget extends StatelessWidget {
       value = "";
     }
 
-    return SearchableDropdown.single(
+    return SearchChoices.single(
       key: UniqueKey(),
       isExpanded: isExpanded,
       readOnly: !isEnable,
@@ -72,7 +72,7 @@ class CustomSearchableDropDownWidget extends StatelessWidget {
       }).toList(),
       displayClearIcon: false,
       onChanged: (changed) {
-        if (value.toLowerCase() == "select your option") {
+        if (value?.toLowerCase() == "select your option") {
           onChanged("");
         } else {
           onChanged(changed as String);

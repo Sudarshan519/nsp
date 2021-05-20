@@ -8,8 +8,8 @@ class AlertDetailPage extends StatelessWidget {
   final Alert alert;
 
   const AlertDetailPage({
-    Key key,
-    @required this.alert,
+    Key? key,
+    required this.alert,
   }) : super(key: key);
 
   @override
@@ -33,7 +33,7 @@ class AlertDetailPage extends StatelessWidget {
   }
 
   Widget _detailBody(BuildContext context) {
-    final isEarthQuake = alert.label.toLowerCase() == "earthquake";
+    final isEarthQuake = alert.label?.toLowerCase() == "earthquake";
     return Column(
       children: [
         Container(
@@ -41,7 +41,9 @@ class AlertDetailPage extends StatelessWidget {
           alignment: Alignment.center,
           padding: const EdgeInsets.all(16.0),
           child: Text(
-            isEarthQuake ? alert.epicenterValue : alert.volcanoNameValue,
+            isEarthQuake
+                ? alert.epicenterValue ?? ''
+                : alert.volcanoNameValue ?? '',
             style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
@@ -53,11 +55,14 @@ class AlertDetailPage extends StatelessWidget {
           child: Stack(
             children: [
               if (isEarthQuake)
-                _DetailMapView(lat: alert.lat, lng: alert.lon)
+                _DetailMapView(
+                  lat: alert.lat ?? 0.0,
+                  lng: alert.lon ?? 0.0,
+                )
               else
                 _DetailMapView(
-                  lat: alert.volcanoLatitude,
-                  lng: alert.volcanoLongtitude,
+                  lat: alert.volcanoLatitude ?? 0.0,
+                  lng: alert.volcanoLongtitude ?? 0.0,
                 ),
               Align(
                 alignment: Alignment.bottomCenter,
@@ -166,7 +171,7 @@ class AlertDetailPage extends StatelessWidget {
                     _getDetailInformation(
                       svgIcon: "assets/images/alerts/max-intensity.svg",
                       title: "Warnings",
-                      value: alert.typeValue,
+                      value: alert.typeValue ?? '',
                       textColor: Palette.black.withOpacity(0.5),
                     ),
                   const SizedBox(width: 60),
@@ -186,7 +191,7 @@ class AlertDetailPage extends StatelessWidget {
                     _getDetailInformation(
                       svgIcon: "assets/images/alerts/depth.svg",
                       title: "Epicenter Depth",
-                      value: alert.depthValue,
+                      value: alert.depthValue ?? '',
                       textColor: Palette.black.withOpacity(0.5),
                     ),
                     const SizedBox(width: 40),
@@ -208,10 +213,10 @@ class AlertDetailPage extends StatelessWidget {
   }
 
   Widget _getDetailInformation({
-    @required String svgIcon,
-    @required String title,
-    @required String value,
-    @required Color textColor,
+    required String svgIcon,
+    required String title,
+    required String value,
+    required Color textColor,
   }) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -247,10 +252,10 @@ class AlertDetailPage extends StatelessWidget {
   }
 
   Widget _getSingleLineDetailInformation({
-    @required String svgIcon,
-    @required String title,
-    @required String value,
-    @required Color textColor,
+    required String svgIcon,
+    required String title,
+    required String value,
+    required Color textColor,
   }) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -293,34 +298,18 @@ class _DetailMapView extends StatelessWidget {
   final double lng;
 
   const _DetailMapView({
-    Key key,
-    @required this.lat,
-    @required this.lng,
+    Key? key,
+    required this.lat,
+    required this.lng,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (lat == null || lng == null) {
-      return GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: LatLng(lat ?? 0.0, lng ?? 0.0),
-          zoom: 12,
-        ),
-        myLocationButtonEnabled: false,
-        zoomControlsEnabled: false,
-      );
-    }
-    final _marker =
-        Marker(position: LatLng(lat, lng), markerId: MarkerId("${lat + lng}"));
-
     return GoogleMap(
       initialCameraPosition: CameraPosition(
         target: LatLng(lat, lng),
         zoom: 12,
       ),
-      // onMapCreated: _onMapCreated,
-      markers: {_marker},
-      myLocationEnabled: false,
       myLocationButtonEnabled: false,
       zoomControlsEnabled: false,
     );

@@ -1,4 +1,4 @@
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,7 +15,7 @@ import 'profile_tab_screen.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -41,7 +41,7 @@ class ProfilePage extends StatelessWidget {
 
 class _ProfilePage extends StatelessWidget {
   const _ProfilePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -101,8 +101,8 @@ class _ProfilePage extends StatelessWidget {
 class _UserInfoWidget extends StatelessWidget {
   final UserDetail user;
   const _UserInfoWidget({
-    Key key,
-    @required this.user,
+    Key? key,
+    required this.user,
   }) : super(key: key);
 
   @override
@@ -201,8 +201,8 @@ class _ProfileTab extends StatelessWidget {
   final UserDetail user;
 
   const _ProfileTab({
-    Key key,
-    @required this.user,
+    Key? key,
+    required this.user,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {

@@ -1,22 +1,20 @@
-import 'package:flutter/foundation.dart';
-
 import '../../domain/entities/work_history.dart';
 
 class WorkHistoryModel extends WorkHistory {
   const WorkHistoryModel({
-    @required int id,
-    @required int jobSeekerId,
-    @required String companyName,
-    @required String companyType,
-    @required String startYear,
-    @required String startMonth,
-    @required String endYear,
-    @required String endMonth,
-    @required String description,
-    @required String language,
-    @required String purposeOfResign,
-    @required String createdAt,
-    @required String updatedAt,
+    required int? id,
+    required int? jobSeekerId,
+    required String? companyName,
+    required String? companyType,
+    required String? startYear,
+    required String? startMonth,
+    required String? endYear,
+    required String? endMonth,
+    required String? description,
+    required String? language,
+    required String? purposeOfResign,
+    required String? createdAt,
+    required String? updatedAt,
   }) : super(
           id: id,
           jobSeekerId: jobSeekerId,
@@ -35,22 +33,23 @@ class WorkHistoryModel extends WorkHistory {
 
   factory WorkHistoryModel.fromJson(Map<String, dynamic> json) =>
       WorkHistoryModel(
-        id: json["id"] as int,
-        jobSeekerId: json["job_seeker_id"] as int,
-        companyName: json["company_name"] as String,
-        companyType: json["company_type"] as String,
-        startYear: json["start_year"] as String,
-        startMonth: json["start_month"] as String,
-        endYear: json["end_year"] as String,
-        endMonth: json["end_month"] as String,
-        description: json["description"] as String,
-        purposeOfResign: json["purpose_of_resign"] as String,
-        language: json["language"] as String,
-        createdAt: json["created_at"] as String,
-        updatedAt: json["updated_at"] as String,
+        id: json["id"] as int?,
+        jobSeekerId: json["job_seeker_id"] as int?,
+        companyName: json["company_name"] as String?,
+        companyType: json["company_type"] as String?,
+        startYear: json["start_year"] as String?,
+        startMonth: json["start_month"] as String?,
+        endYear: json["end_year"] as String?,
+        endMonth: json["end_month"] as String?,
+        description: json["description"] as String?,
+        purposeOfResign: json["purpose_of_resign"] as String?,
+        language: json["language"] as String?,
+        createdAt: json["created_at"] as String?,
+        updatedAt: json["updated_at"] as String?,
       );
 
   Map<String, dynamic> toJson() {
+    final Map<String, dynamic> parent = {};
     final Map<String, dynamic> params = {};
 
     if (id != null) {
@@ -84,8 +83,6 @@ class WorkHistoryModel extends WorkHistory {
     if (purposeOfResign != null) {
       params["purpose_of_resign"] = purposeOfResign;
     }
-
-    final Map<String, dynamic> parent = {};
 
     parent["experience"] = [params];
 

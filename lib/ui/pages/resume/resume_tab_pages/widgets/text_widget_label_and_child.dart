@@ -7,11 +7,11 @@ class TextWidetWithLabelAndChild extends StatelessWidget {
   final Widget child;
 
   const TextWidetWithLabelAndChild({
-    Key key,
-    @required this.title,
+    Key? key,
+    required this.title,
     this.isRequired = false,
-    @required this.child,
-  })  : assert(title != null),
+    required this.child,
+  })   : assert(title != null),
         assert(child != null),
         super(key: key);
 

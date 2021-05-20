@@ -1,19 +1,18 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../colors.dart';
 
 class PopUpSuccessOverLay extends StatefulWidget {
   final String title;
-  final String message;
+  final String? message;
 
   final Function() onPressed;
 
   const PopUpSuccessOverLay({
-    Key key,
-    @required this.title,
+    Key? key,
+    required this.title,
     this.message,
-    @required this.onPressed,
+    required this.onPressed,
   }) : super(key: key);
   @override
   State<StatefulWidget> createState() => PopUpSuccessOverLayState();
@@ -54,7 +53,7 @@ class PopUpSuccessOverLayState extends State<PopUpSuccessOverLay>
                   padding:
                       const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
                   child: Text(
-                    widget.title ?? "SUCCESS!",
+                    widget.title,
                     style: TextStyle(
                       color: Palette.primary,
                       fontSize: 20.0,

@@ -5,7 +5,7 @@ class NewsTabBarData {
   final String title;
 
   NewsTabBarData({
-    @required this.title,
+    required this.title,
   }) : assert(title != null);
 }
 
@@ -17,11 +17,11 @@ class NewsTabBar extends StatefulWidget {
   final EdgeInsetsGeometry labelPadding;
 
   const NewsTabBar({
-    Key key,
-    @required this.tabs,
-    @required this.selectedIndex,
-    @required this.onTap,
-    @required this.isScrollable,
+    Key? key,
+    required this.tabs,
+    required this.selectedIndex,
+    required this.onTap,
+    required this.isScrollable,
     this.labelPadding,
   }) : super(key: key);
 

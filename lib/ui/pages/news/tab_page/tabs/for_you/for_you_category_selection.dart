@@ -8,8 +8,8 @@ class ForYouCategorySelectionPage extends StatelessWidget {
   final Function() editGenre;
 
   const ForYouCategorySelectionPage({
-    Key key,
-    @required this.editGenre,
+    Key? key,
+    required this.editGenre,
   }) : super(key: key);
 
   @override
@@ -37,10 +37,10 @@ class _ForYouCategorySelectionPage extends StatefulWidget {
   final List<Genre> genres;
 
   const _ForYouCategorySelectionPage({
-    Key key,
-    @required this.genres,
-    @required this.editGenre,
-  })  : assert(editGenre != null),
+    Key? key,
+    required this.genres,
+    required this.editGenre,
+  })   : assert(editGenre != null),
         super(key: key);
 
   @override

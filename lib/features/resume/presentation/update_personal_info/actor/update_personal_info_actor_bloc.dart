@@ -16,11 +16,11 @@ part 'update_personal_info_actor_bloc.freezed.dart';
 class UpdatePersonalInfoActorBloc
     extends Bloc<UpdatePersonalInfoActorEvent, UpdatePersonalInfoActorState> {
   final UpdatePersonalInfo updatePersonalInfo;
-  PersonalInfo _personalInfo;
-  String _lang;
+  PersonalInfo? _personalInfo;
+  String? _lang;
 
   UpdatePersonalInfoActorBloc({
-    @required this.updatePersonalInfo,
+    required this.updatePersonalInfo,
   }) : super(UpdatePersonalInfoActorState.initial());
 
   @override
@@ -71,12 +71,12 @@ class UpdatePersonalInfoActorBloc
       _SetInitialState _setInitialState) async* {
     yield state.copyWith(
       isSubmitting: true,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
 
     final userInfo = _setInitialState.info;
     _lang = _setInitialState.lang;
-    if (userInfo != null && userInfo != _personalInfo) {
+    if (userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
         key: UniqueKey(),
@@ -90,11 +90,11 @@ class UpdatePersonalInfoActorBloc
         nationality: userInfo.nationality ?? "",
         email: userInfo.email ?? "",
         phone: userInfo.contPhone ?? "",
-        listOfNationality: _setInitialState.listOfNationality ?? [],
-        listOfProfession: _setInitialState.listOfProfession ?? [],
+        listOfNationality: _setInitialState.listOfNationality,
+        listOfProfession: _setInitialState.listOfProfession,
         isSubmitting: false,
         hasSetInitialData: true,
-        authFailureOrSuccessOption: none(),
+        failureOrSuccessOption: none(),
       );
     }
   }
@@ -104,7 +104,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       firstName: _changeFirstName.name,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -113,7 +113,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       lastName: _changeLastName.name,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -122,7 +122,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       furigana: _changeFuriganaName.name,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -131,7 +131,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       profession: _changeProfession.profession,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -139,7 +139,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       dob: _changeDob.dob,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -147,7 +147,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       age: _changeAge.age,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -156,7 +156,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       gender: _changeGender.gender,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -165,7 +165,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       nationality: _changeNationality.nationality,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -174,7 +174,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       email: _changeEmail.email,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -183,7 +183,7 @@ class UpdatePersonalInfoActorBloc
     return state.copyWith(
       phone: _changePhone.phone,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -194,7 +194,7 @@ class UpdatePersonalInfoActorBloc
     );
     failureOrSuccess = await updatePersonalInfo(
       UpdatePersonalInfoParams(
-        lang: _lang,
+        lang: _lang ?? 'en',
         firstName: state.firstName,
         lastName: state.lastName,
         furigana: state.furigana,
@@ -211,7 +211,7 @@ class UpdatePersonalInfoActorBloc
     yield state.copyWith(
       isSubmitting: false,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      failureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
 }

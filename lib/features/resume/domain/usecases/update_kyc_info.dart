@@ -13,9 +13,9 @@ class UpdateKycInfo extends Usecase<ApiFailure, Unit, UpdateKycInfoParams> {
   final NetworkInfo networkInfo;
 
   UpdateKycInfo({
-    @required this.repository,
-    @required this.networkInfo,
-  }) : assert(repository != null);
+    required this.repository,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<ApiFailure, Unit>> call(UpdateKycInfoParams params) async {
@@ -46,7 +46,7 @@ class UpdateKycInfo extends Usecase<ApiFailure, Unit, UpdateKycInfoParams> {
 
 class UpdateKycInfoParams {
   UpdateKycInfoParams({
-    @required this.user,
+    required this.user,
   });
 
   final UserDetail user;

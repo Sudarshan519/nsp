@@ -21,8 +21,8 @@ class SaveNewsTab extends StatelessWidget {
   }
 
   Widget _buildBodyWithData({
-    @required BuildContext context,
-    @required List<NewsItem> newsList,
+    required BuildContext context,
+    required List<NewsItem> newsList,
   }) {
     if (newsList.isEmpty) {
       return const Padding(

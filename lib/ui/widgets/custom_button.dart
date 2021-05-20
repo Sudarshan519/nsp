@@ -5,18 +5,17 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 class CustomButton extends StatelessWidget {
   final String title;
   final Function() onTap;
-  final String svgAsset;
-  final Color buttonColor;
-  final TextStyle textStyle;
+  final String? svgAsset;
+  final Color? buttonColor;
+  final TextStyle? textStyle;
   const CustomButton({
-    Key key,
-    @required this.title,
-    @required this.onTap,
+    Key? key,
+    required this.title,
+    required this.onTap,
     this.svgAsset,
     this.buttonColor,
     this.textStyle,
-  })  : assert(onTap != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +35,7 @@ class CustomButton extends StatelessWidget {
               Row(
                 children: [
                   SvgPicture.asset(
-                    svgAsset,
+                    svgAsset!,
                     color: Palette.white,
                     // height: 25.0,
                   ),

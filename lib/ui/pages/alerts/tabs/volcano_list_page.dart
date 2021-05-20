@@ -33,9 +33,9 @@ class VolcanoListPage extends StatelessWidget {
   }
 
   Widget showList({
-    @required BuildContext context,
-    @required List<Alert> alerts,
-    @required bool isLoading,
+    required BuildContext context,
+    required List<Alert> alerts,
+    required bool isLoading,
   }) {
     print(isLoading);
     return SingleChildScrollView(

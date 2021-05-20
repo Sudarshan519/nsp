@@ -103,7 +103,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
     failureOrSuccess = result.fold(
       (l) => Left(l),
-      (r) => r.status
+      (r) => (r.status ?? false)
           ? const Right(AuthRoutes.showHomeScreen())
           : Right(
               AuthRoutes.showEmailVerificationScreen(state.emailAddress),

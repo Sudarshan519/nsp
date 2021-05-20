@@ -15,11 +15,11 @@ part 'update_other_info_actor_bloc.freezed.dart';
 class UpdateOtherInfoActorBloc
     extends Bloc<UpdateOtherInfoActorEvent, UpdateOtherInfoActorState> {
   final UpdateOtherInfo updateOtherInfo;
-  PersonalInfo _personalInfo;
-  String _lang;
+  PersonalInfo? _personalInfo;
+  String? _lang;
 
   UpdateOtherInfoActorBloc({
-    @required this.updateOtherInfo,
+    required this.updateOtherInfo,
   }) : super(UpdateOtherInfoActorState.initial());
 
   @override
@@ -77,7 +77,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       languages: _changeLanguages.languages,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -86,7 +86,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       JLPTLevel: _changeJLPTLevel.JLPTLevel,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -95,7 +95,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       selfPR: _changeSelfPR.selfPR,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -105,7 +105,7 @@ class UpdateOtherInfoActorBloc
       motivationsSpecialSkills:
           _changeMotivationsSpecialSkills.motivationsSpecialSkills,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -114,7 +114,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       hobbies: _changeHobbies.hobbies,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -123,7 +123,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       skills: _changeSkills.skills,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -132,7 +132,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       workinHours: _changeWorkinHours.hours,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -141,7 +141,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       workingMinutes: _changeWorkingMinutes.minutes,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -150,7 +150,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       numberOfDependent: _changeNumberOfDependent.numberOfDependent,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -159,7 +159,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       isSpouse: _changeIsSpouse.isSpouse,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -169,7 +169,7 @@ class UpdateOtherInfoActorBloc
       isSpouseSupportObligation:
           _changeIsSpouseSupportObligation.isSpouseSupportObligation,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -178,7 +178,7 @@ class UpdateOtherInfoActorBloc
     return state.copyWith(
       specialConditions: _changeSpecialConditions.specialConditions,
       hasSetInitialData: false,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -186,32 +186,32 @@ class UpdateOtherInfoActorBloc
       _SetInitialState _setInitialState) async* {
     yield state.copyWith(
       isSubmitting: true,
-      authFailureOrSuccessOption: none(),
+      failureOrSuccessOption: none(),
     );
     final userInfo = _setInitialState.info;
     _lang = _setInitialState.lang;
-    if (userInfo != null && userInfo != _personalInfo) {
+    if (userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
         key: UniqueKey(),
-        languages: userInfo?.knownLanguages ?? [],
+        languages: userInfo.knownLanguages ?? [],
         JLPTLevel: userInfo.jlpt ?? "",
         selfPR: userInfo.selfPr ?? "",
         motivationsSpecialSkills: userInfo.extraPoint ?? "",
         hobbies: userInfo.hobbies ?? [],
         skills: userInfo.skills ?? [],
-        workinHours: userInfo.workingHoursOnly ?? "",
-        workingMinutes: userInfo.workingMinutesOnly ?? "",
+        workinHours: userInfo.workingHoursOnly,
+        workingMinutes: userInfo.workingMinutesOnly,
         numberOfDependent: userInfo.dependentsExceptSpouse ?? "",
         isSpouse: userInfo.spouse ?? "",
         isSpouseSupportObligation: userInfo.spouseSupportObligation ?? "",
         specialConditions: userInfo.specialConditions ?? "",
-        knownLanguages: _setInitialState.listOfLanguages ?? [],
-        listOfHobbies: _setInitialState.listOHobbies ?? [],
-        listOfSkills: _setInitialState.listOfSkills ?? [],
+        knownLanguages: _setInitialState.listOfLanguages,
+        listOfHobbies: _setInitialState.listOHobbies,
+        listOfSkills: _setInitialState.listOfSkills,
         hasSetInitialData: true,
         isSubmitting: false,
-        authFailureOrSuccessOption: none(),
+        failureOrSuccessOption: none(),
       );
     }
   }
@@ -223,7 +223,7 @@ class UpdateOtherInfoActorBloc
     );
     failureOrSuccess = await updateOtherInfo(
       UpdateOtherInfoParams(
-        lang: _lang,
+        lang: _lang ?? 'en',
         languages: state.languages,
         JLPTLevel: state.JLPTLevel,
         selfPR: state.selfPR,
@@ -241,7 +241,7 @@ class UpdateOtherInfoActorBloc
 
     yield state.copyWith(
       isSubmitting: false,
-      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      failureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
 }

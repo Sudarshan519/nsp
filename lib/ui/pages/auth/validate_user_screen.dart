@@ -1,5 +1,5 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,9 +14,9 @@ class VerifyUserPage extends StatelessWidget {
   final String email;
 
   const VerifyUserPage({
-    Key key,
-    @required this.email,
-  })  : assert(email != null),
+    Key? key,
+    required this.email,
+  })   : assert(email != null),
         super(key: key);
 
   @override
@@ -32,9 +32,7 @@ class VerifyUserPage extends StatelessWidget {
 class _VerifyUserPageBody extends StatelessWidget {
   final String email;
 
-  const _VerifyUserPageBody({Key key, @required this.email})
-      : assert(email != null),
-        super(key: key);
+  const _VerifyUserPageBody({Key? key, required this.email}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<VerifyEmailBloc, VerifyEmailState>(
@@ -66,7 +64,8 @@ class _VerifyUserPageBody extends StatelessWidget {
                 title: AppConstants.verificationCompletedTitle,
                 message: AppConstants.verificationCompletedMessage,
                 onPressed: () {
-                  ExtendedNavigator.of(context).popUntilPath(Routes.loginPage);
+                  context.router.navigate(const LoginRoute());
+                  // ExtendedNavigator.of(context).popUntilPath(Routes.loginPage);
                 },
               ),
             );
@@ -97,7 +96,7 @@ class _VerifyUserPageBody extends StatelessWidget {
                     height: 60,
                   ),
                   InkWell(
-                    onTap: () => ExtendedNavigator.of(context).pop(),
+                    onTap: () => context.popRoute(),
                     child: SvgPicture.asset(
                       "assets/images/navigation_bar/back-black.svg",
                     ),

@@ -13,11 +13,10 @@ part 'download_pdf_bloc.freezed.dart';
 @injectable
 class DownloadPdfBloc extends Bloc<DownloadPdfEvent, DownloadPdfState> {
   final GetDownloadablePdfLink getDownloadablePdfLink;
-
-  bool _isLinkDownloaded;
+  bool _isLinkDownloaded = false;
 
   DownloadPdfBloc({
-    @required this.getDownloadablePdfLink,
+    required this.getDownloadablePdfLink,
   }) : super(const _Initial());
 
   @override

@@ -27,11 +27,11 @@ abstract class UpdateOtherInfoActorEvent with _$UpdateOtherInfoActorEvent {
   const factory UpdateOtherInfoActorEvent.changeSpecialConditions(
       String specialConditions) = _ChangeSpecialConditions;
   const factory UpdateOtherInfoActorEvent.setInitialState({
-    @required PersonalInfo info,
-    @required String lang,
-    @required List<String> listOfLanguages,
-    @required List<String> listOHobbies,
-    @required List<String> listOfSkills,
+    required PersonalInfo info,
+    required String lang,
+    required List<String> listOfLanguages,
+    required List<String> listOHobbies,
+    required List<String> listOfSkills,
   }) = _SetInitialState;
   const factory UpdateOtherInfoActorEvent.save() = _Save;
 }

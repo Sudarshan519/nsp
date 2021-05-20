@@ -30,8 +30,8 @@ class AlertListPage extends StatelessWidget {
   }
 
   Widget showList({
-    @required BuildContext context,
-    @required List<Alert> alerts,
+    required BuildContext context,
+    required List<Alert> alerts,
     bool isLoading = false,
   }) {
     return SingleChildScrollView(

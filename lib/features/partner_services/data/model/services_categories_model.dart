@@ -1,10 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services_categories.dart';
 
 class ServicesCategoryModel extends ServicesCategory {
   const ServicesCategoryModel({
-    @required int id,
-    @required String categoryName,
+    required int? id,
+    required String? categoryName,
   }) : super(
           id: id,
           categoryName: categoryName,
@@ -12,8 +11,8 @@ class ServicesCategoryModel extends ServicesCategory {
 
   factory ServicesCategoryModel.fromJson(Map<String, dynamic> json) =>
       ServicesCategoryModel(
-        id: json["id"] as int,
-        categoryName: json["category_name"] as String,
+        id: json["id"] as int?,
+        categoryName: json["category_name"] as String?,
       );
 
   Map<String, dynamic> toJson() => {

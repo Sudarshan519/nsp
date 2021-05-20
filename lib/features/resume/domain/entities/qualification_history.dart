@@ -15,30 +15,18 @@ class QualificationHistory extends Equatable {
     this.updatedAt,
   });
 
-  final int id;
-  final int jobSeekerId;
-  final String qualificationName;
-  final String certifiedYear;
-  final String certifiedMonth;
-  final String language;
-  final String institute;
-  final String startYear;
-  final String endYear;
-  final String createdAt;
-  final String updatedAt;
+  final int? id;
+  final int? jobSeekerId;
+  final String? qualificationName;
+  final String? certifiedYear;
+  final String? certifiedMonth;
+  final String? language;
+  final String? institute;
+  final String? startYear;
+  final String? endYear;
+  final String? createdAt;
+  final String? updatedAt;
 
   @override
-  List<Object> get props => [
-        id,
-        jobSeekerId,
-        qualificationName,
-        certifiedYear,
-        certifiedMonth,
-        language,
-        institute,
-        startYear,
-        endYear,
-        createdAt,
-        updatedAt,
-      ];
+  List<Object> get props => [];
 }

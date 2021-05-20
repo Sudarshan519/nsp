@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -22,12 +22,12 @@ class OtherInfo extends StatelessWidget {
   final List<String> listOfSkills;
   final String lang;
   const OtherInfo({
-    Key key,
-    @required this.info,
-    @required this.listOfLanguages,
-    @required this.listOfHobbies,
-    @required this.listOfSkills,
-    @required this.lang,
+    Key? key,
+    required this.info,
+    required this.listOfLanguages,
+    required this.listOfHobbies,
+    required this.listOfSkills,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -151,7 +151,7 @@ class OtherInfo extends StatelessWidget {
 
 class _LanguageInputField extends StatelessWidget {
   const _LanguageInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -181,7 +181,7 @@ class _LanguageInputField extends StatelessWidget {
 
 class _JLPTLevelField extends StatelessWidget {
   const _JLPTLevelField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -210,7 +210,7 @@ class _JLPTLevelField extends StatelessWidget {
 
 class _SelfPrInputField extends StatelessWidget {
   const _SelfPrInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -238,7 +238,7 @@ class _SelfPrInputField extends StatelessWidget {
 
 class _HobbiesInputField extends StatelessWidget {
   const _HobbiesInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -268,7 +268,7 @@ class _HobbiesInputField extends StatelessWidget {
 
 class _SkillsInputField extends StatelessWidget {
   const _SkillsInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -298,7 +298,7 @@ class _SkillsInputField extends StatelessWidget {
 
 class _MotivationSpecialSkillsInputField extends StatelessWidget {
   const _MotivationSpecialSkillsInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -326,7 +326,7 @@ class _MotivationSpecialSkillsInputField extends StatelessWidget {
 
 class _AvailableWorkingHoursInputField extends StatelessWidget {
   const _AvailableWorkingHoursInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -397,7 +397,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
 
 class _NumberOfDependentInputField extends StatelessWidget {
   const _NumberOfDependentInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -432,7 +432,7 @@ class _NumberOfDependentInputField extends StatelessWidget {
 
 class _SpouseInputField extends StatelessWidget {
   const _SpouseInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -458,7 +458,7 @@ class _SpouseInputField extends StatelessWidget {
 
 class _SpouseSupportObligationInputField extends StatelessWidget {
   const _SpouseSupportObligationInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -497,7 +497,7 @@ class _SpouseSupportObligationInputField extends StatelessWidget {
 
 class _SpecialConditionInputField extends StatelessWidget {
   const _SpecialConditionInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

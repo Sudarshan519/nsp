@@ -1,4 +1,4 @@
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
@@ -28,11 +28,11 @@ class HomePage extends StatelessWidget {
   final ScrollController scrollController = ScrollController();
 
   HomePage({
-    Key key,
-    @required this.changeTabPage,
-    @required this.changeResumeTabPage,
-    @required this.changeNewsTabPage,
-  })  : assert(changeTabPage != null),
+    Key? key,
+    required this.changeTabPage,
+    required this.changeResumeTabPage,
+    required this.changeNewsTabPage,
+  })   : assert(changeTabPage != null),
         super(key: key);
 
   @override

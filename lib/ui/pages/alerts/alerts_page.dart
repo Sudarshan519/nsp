@@ -29,25 +29,25 @@ class AlertsPage extends StatelessWidget {
               context: context,
               title: "Latest Alerts",
               svgAsset: "assets/images/alerts/latest-alerts.svg",
-              onTap: () => ExtendedNavigator.of(context).pushAlertsTabPage(),
+              onTap: () => context.router.push(const AlertsTabRoute()),
             ),
             _alertsWidget(
               context: context,
               title: "Earthquake Info",
               svgAsset: "assets/images/alerts/earthquake-info.svg",
-              onTap: () => ExtendedNavigator.of(context).pushAlertsTabPage(),
+              onTap: () => context.router.push(const AlertsTabRoute()),
             ),
             _alertsWidget(
               context: context,
               title: "Volcano Alerts",
               svgAsset: "assets/images/alerts/volcano-alerts.svg",
-              onTap: () => ExtendedNavigator.of(context).pushAlertsTabPage(),
+              onTap: () => context.router.push(const AlertsTabRoute()),
             ),
             _alertsWidget(
               context: context,
               title: "Weather Info",
               svgAsset: "assets/images/alerts/weather-info.svg",
-              onTap: () => ExtendedNavigator.of(context).pushAlertsTabPage(),
+              onTap: () => context.router.push(const AlertsTabRoute()),
             ),
           ],
         ),
@@ -56,10 +56,10 @@ class AlertsPage extends StatelessWidget {
   }
 
   Widget _alertsWidget({
-    @required BuildContext context,
-    @required String title,
-    @required String svgAsset,
-    @required Function() onTap,
+    required BuildContext context,
+    required String title,
+    required String svgAsset,
+    required Function() onTap,
   }) {
     return InkWell(
       onTap: onTap,

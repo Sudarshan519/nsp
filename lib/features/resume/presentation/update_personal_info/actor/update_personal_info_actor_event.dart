@@ -22,10 +22,10 @@ abstract class UpdatePersonalInfoActorEvent
   const factory UpdatePersonalInfoActorEvent.changePhone(String phone) =
       _ChangePhone;
   const factory UpdatePersonalInfoActorEvent.setInitialState({
-    @required PersonalInfo info,
-    @required List<String> listOfNationality,
-    @required List<String> listOfProfession,
-    @required String lang,
+    required PersonalInfo info,
+    required List<String> listOfNationality,
+    required List<String> listOfProfession,
+    required String lang,
   }) = _SetInitialState;
   const factory UpdatePersonalInfoActorEvent.save() = _Save;
 }

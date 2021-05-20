@@ -11,8 +11,8 @@ class NewsItemWidget extends StatelessWidget {
   final NewsItem newsItem;
 
   const NewsItemWidget({
-    Key key,
-    @required this.newsItem,
+    Key? key,
+    required this.newsItem,
   }) : super(key: key);
 
   @override
@@ -196,9 +196,9 @@ class _FavouriteButton extends StatefulWidget {
   final bool isSaved;
 
   const _FavouriteButton({
-    Key key,
-    @required this.item,
-    @required this.isSaved,
+    Key? key,
+    required this.item,
+    required this.isSaved,
   }) : super(key: key);
 
   @override

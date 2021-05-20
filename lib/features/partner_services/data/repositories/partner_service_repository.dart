@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
@@ -12,16 +11,16 @@ import 'package:wallet_app/features/partner_services/domain/repositories/partner
 class PartnerServicesRepositoryImpl implements PartnerServicesRepository {
   final PartnerServicesRemoteDataSource remoteDataSource;
   PartnerServicesRepositoryImpl({
-    @required this.remoteDataSource,
+    required this.remoteDataSource,
   });
 
   @override
   Future<Either<ApiFailure, PartnerServicesList>> getPartnerServices({
-    @required ServicesCategory category,
+    required ServicesCategory category,
   }) async {
     try {
       return Right(await remoteDataSource.getPartnerServices(
-        name: category.categoryName,
+        name: category.categoryName ?? '',
       ));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));

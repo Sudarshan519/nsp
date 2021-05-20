@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
@@ -19,21 +19,21 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
 
-class EditOtherInfoForm extends StatelessWidget {
+class EditOtherInfoFormPage extends StatelessWidget {
   final PersonalInfo info;
   final List<String> listOfLanguages;
   final List<String> listOfHobbies;
   final List<String> listOfSkills;
   final String lang;
 
-  const EditOtherInfoForm({
-    Key key,
-    @required this.info,
-    @required this.listOfLanguages,
-    @required this.listOfHobbies,
-    @required this.listOfSkills,
-    @required this.lang,
-  })  : assert(info != null),
+  const EditOtherInfoFormPage({
+    Key? key,
+    required this.info,
+    required this.listOfLanguages,
+    required this.listOfHobbies,
+    required this.listOfSkills,
+    required this.lang,
+  })   : assert(info != null),
         super(key: key);
 
   @override
@@ -120,7 +120,7 @@ class EditOtherInfoForm extends StatelessWidget {
 
 class _EditBasicInfoFormBody extends StatefulWidget {
   const _EditBasicInfoFormBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -164,7 +164,7 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
 
 class _SaveButton extends StatelessWidget {
   const _SaveButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -203,8 +203,8 @@ class _LanguageInputField extends StatelessWidget {
   final Function() callBack;
 
   const _LanguageInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -231,7 +231,7 @@ class _LanguageInputField extends StatelessWidget {
 
 class _JLPTLevelField extends StatelessWidget {
   const _JLPTLevelField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -264,8 +264,8 @@ class _SelfPrInputField extends StatelessWidget {
   final Function() callBack;
 
   const _SelfPrInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -294,8 +294,8 @@ class _HobbiesInputField extends StatelessWidget {
   final Function() callBack;
 
   const _HobbiesInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -323,8 +323,8 @@ class _SkillsInputField extends StatelessWidget {
   final Function() callBack;
 
   const _SkillsInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -352,8 +352,8 @@ class _MotivationInputField extends StatelessWidget {
   final Function() callBack;
 
   const _MotivationInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -381,8 +381,8 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
   final Function() callBack;
 
   const _AvailableWorkingHoursInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -464,7 +464,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
 
 class _NumberOfDependentInputField extends StatelessWidget {
   const _NumberOfDependentInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -500,7 +500,7 @@ class _NumberOfDependentInputField extends StatelessWidget {
 
 class _SpouseInputField extends StatelessWidget {
   const _SpouseInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -527,7 +527,7 @@ class _SpouseInputField extends StatelessWidget {
 
 class _SpouseSupportObligationInputField extends StatelessWidget {
   const _SpouseSupportObligationInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -570,8 +570,8 @@ class _SpecialConditionInputField extends StatelessWidget {
   final Function() callBack;
 
   const _SpecialConditionInputField({
-    Key key,
-    @required this.callBack,
+    Key? key,
+    required this.callBack,
   }) : super(key: key);
 
   @override

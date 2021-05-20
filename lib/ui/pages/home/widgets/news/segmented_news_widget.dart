@@ -16,9 +16,9 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class SegmentedNewViewWidget extends StatefulWidget {
   const SegmentedNewViewWidget({
-    Key key,
-    @required this.changeTabPage,
-    @required this.changeNewsTabPage,
+    Key? key,
+    required this.changeTabPage,
+    required this.changeNewsTabPage,
   }) : super(key: key);
 
   final Function(int) changeTabPage;

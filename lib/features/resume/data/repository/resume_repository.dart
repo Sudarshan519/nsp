@@ -22,7 +22,7 @@ class ResumeRepositoryImpl implements ResumeRepository {
   final ResumeRemoteDataSource dataSource;
 
   ResumeRepositoryImpl({
-    @required this.dataSource,
+    required this.dataSource,
   });
 
   @override
@@ -36,8 +36,8 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updatePersonalInfo({
-    @required String lang,
-    @required PersonalInfo data,
+    required String lang,
+    required PersonalInfo data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
@@ -51,8 +51,8 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateAddress({
-    @required String lang,
-    @required PersonalInfo data,
+    required String lang,
+    required PersonalInfo data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
@@ -64,8 +64,8 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateOtherInfo({
-    @required String lang,
-    @required PersonalInfo data,
+    required String lang,
+    required PersonalInfo data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
@@ -77,8 +77,8 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateAcademic({
-    @required String lang,
-    @required AcademicHistory data,
+    required String lang,
+    required AcademicHistory data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
@@ -90,8 +90,8 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateWork({
-    @required String lang,
-    @required WorkHistory data,
+    required String lang,
+    required WorkHistory data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
@@ -103,8 +103,8 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateQualification({
-    @required String lang,
-    @required QualificationHistory data,
+    required String lang,
+    required QualificationHistory data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
@@ -116,8 +116,8 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateResumeImage({
-    @required String lang,
-    @required PersonalInfo data,
+    required String lang,
+    required PersonalInfo data,
   }) async {
     try {
       return Right(await dataSource.updateResume(
@@ -129,7 +129,7 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, String>> getResumePdfLink({
-    @required String lang,
+    required String lang,
   }) async {
     try {
       return Right(await dataSource.downloadPdf(
@@ -143,7 +143,7 @@ class ResumeRepositoryImpl implements ResumeRepository {
   // KYC PART
   @override
   Future<Either<ApiFailure, Unit>> updateKycInfo({
-    @required UserDetail data,
+    required UserDetail data,
   }) async {
     try {
       return Right(
@@ -158,7 +158,7 @@ class ResumeRepositoryImpl implements ResumeRepository {
 
   @override
   Future<Either<ApiFailure, Unit>> updateKycDoc({
-    @required UserDetail data,
+    required UserDetail data,
   }) async {
     try {
       return Right(

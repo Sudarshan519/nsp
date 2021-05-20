@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -24,11 +24,11 @@ class AboutPage extends StatelessWidget {
   final String lang;
 
   const AboutPage({
-    Key key,
-    @required this.info,
-    @required this.listOfNationality,
-    @required this.listOfProfession,
-    @required this.lang,
+    Key? key,
+    required this.info,
+    required this.listOfNationality,
+    required this.listOfProfession,
+    required this.lang,
   }) : super(key: key);
 
   @override
@@ -151,7 +151,7 @@ class AboutPage extends StatelessWidget {
 
 class _NameInputField extends StatelessWidget {
   const _NameInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -180,7 +180,7 @@ class _NameInputField extends StatelessWidget {
 
 class _FamilyNameInputField extends StatelessWidget {
   const _FamilyNameInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -209,7 +209,7 @@ class _FamilyNameInputField extends StatelessWidget {
 
 class _FuriganaInputField extends StatelessWidget {
   const _FuriganaInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -238,7 +238,7 @@ class _FuriganaInputField extends StatelessWidget {
 
 class _ProfessionInputField extends StatelessWidget {
   const _ProfessionInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -263,7 +263,7 @@ class _ProfessionInputField extends StatelessWidget {
 
 class _DateofBirthInputField extends StatelessWidget {
   const _DateofBirthInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -297,7 +297,7 @@ class _DateofBirthInputField extends StatelessWidget {
 
 class _AgeInputField extends StatelessWidget {
   const _AgeInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -325,7 +325,7 @@ class _AgeInputField extends StatelessWidget {
 
 class _GenderInputField extends StatelessWidget {
   const _GenderInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -349,7 +349,7 @@ class _GenderInputField extends StatelessWidget {
 
 class _NationalityInputField extends StatelessWidget {
   const _NationalityInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -374,7 +374,7 @@ class _NationalityInputField extends StatelessWidget {
 
 class _EmailInputField extends StatelessWidget {
   const _EmailInputField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

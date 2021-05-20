@@ -4,7 +4,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 class LoginTextFormDecoration extends StatelessWidget {
   final Widget child;
 
-  const LoginTextFormDecoration({Key key, @required this.child})
+  const LoginTextFormDecoration({Key? key, required this.child})
       : assert(child != null),
         super(key: key);
   @override

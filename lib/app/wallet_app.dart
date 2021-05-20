@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/favourite_news/favourite_news_bloc.dart';
@@ -9,12 +8,15 @@ import 'package:wallet_app/features/news/presentation/news_preference/news_prefe
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/ui/routes/routes.gr.dart' as router;
 import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
+import '../ui/routes/routes.gr.dart';
+
 class WalletApp extends StatelessWidget {
+  final _appRouter = AppRouter();
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -66,7 +68,9 @@ class WalletApp extends StatelessWidget {
             ),
         ),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
         title: 'Wallet',
         theme: ThemeData(
           primaryColor: Palette.primary,
@@ -75,9 +79,6 @@ class WalletApp extends StatelessWidget {
           fontFamily: 'Montserrat',
         ),
         debugShowCheckedModeBanner: getIt<ConfigReader>().isDebugApp,
-        builder: ExtendedNavigator(
-          router: router.Router(),
-        ),
       ),
     );
   }

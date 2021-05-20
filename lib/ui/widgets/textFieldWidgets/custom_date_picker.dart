@@ -14,10 +14,10 @@ class CustomDatePicker extends StatelessWidget {
   final TextAlign textAlign;
 
   const CustomDatePicker({
-    Key key,
-    this.hintText,
-    this.onChanged,
-    this.controller,
+    Key? key,
+    required this.hintText,
+    required this.onChanged,
+    required this.controller,
     this.isRequired = false,
     this.isEnable = true,
     this.futureDataAvailable = false,
@@ -79,14 +79,14 @@ class CustomDatePicker extends StatelessWidget {
 }
 
 Future selectDate({
-  @required BuildContext context,
-  @required bool futureDataAvailable,
-  @required bool showAge,
-  @required TextEditingController controller,
-  @required Function(String dob, String age) onChanged,
+  required BuildContext context,
+  required bool futureDataAvailable,
+  required bool showAge,
+  required TextEditingController controller,
+  required Function(String dob, String age) onChanged,
 }) async {
   final today = DateTime.now();
-  final DateTime picked = await showDatePicker(
+  final DateTime? picked = await showDatePicker(
     context: context,
     initialDate: today, // Refer step 1
     firstDate: futureDataAvailable ? today : DateTime(1900),

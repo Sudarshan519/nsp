@@ -16,7 +16,7 @@ part 'home_page_data_bloc.freezed.dart';
 @lazySingleton
 class HomePageDataBloc extends Bloc<HomePageDataEvent, HomePageDataState> {
   final GetHomePageData getHomePageData;
-  HomeResponse _data;
+  HomeResponse? _data;
 
   HomePageDataBloc({
     required this.getHomePageData,
@@ -52,16 +52,11 @@ class HomePageDataBloc extends Bloc<HomePageDataEvent, HomePageDataState> {
       (failure) async* {
         yield _data == null
             ? HomePageDataState.failure(failure)
-            : HomePageDataState.failureWithData(failure, _data);
+            : HomePageDataState.failureWithData(failure, _data!);
       },
       (data) async* {
-        if (data == null) {
-          _data = data;
-          yield HomePageDataState.loadingWithData(_data);
-        } else {
-          _data = data;
-          yield HomePageDataState.loaded(_data);
-        }
+        _data = data;
+        yield HomePageDataState.loaded(_data!);
       },
     );
   }
@@ -69,7 +64,7 @@ class HomePageDataBloc extends Bloc<HomePageDataEvent, HomePageDataState> {
   Stream<HomePageDataState> _mapOnDoneToEvent(
       _OnCompletedEvent _onCompletedEvent) async* {
     if (_data != null) {
-      yield HomePageDataState.loaded(_data);
+      yield HomePageDataState.loaded(_data!);
     }
   }
 }
