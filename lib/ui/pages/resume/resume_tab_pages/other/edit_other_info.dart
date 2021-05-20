@@ -74,7 +74,7 @@ class EditOtherInfoFormPage extends StatelessWidget {
   Widget editResumeBody(BuildContext context) {
     return BlocConsumer<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
+        state.failureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -96,8 +96,7 @@ class EditOtherInfoFormPage extends StatelessWidget {
                   title: "Basic Info",
                   message: "Successfully updated.",
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .popUntilPath(Routes.tabBarScreen);
+                    context.navigateTo(const TabBarRoute());
                   },
                 ),
               );
@@ -253,7 +252,7 @@ class _JLPTLevelField extends StatelessWidget {
           ],
           onChanged: (value) => context
               .read<UpdateOtherInfoActorBloc>()
-              .add(UpdateOtherInfoActorEvent.changeJLPTLevel(value)),
+              .add(UpdateOtherInfoActorEvent.changeJLPTLevel(value ?? '')),
         ),
       ),
     );

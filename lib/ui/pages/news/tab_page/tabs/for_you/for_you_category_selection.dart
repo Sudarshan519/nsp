@@ -23,7 +23,7 @@ class ForYouCategorySelectionPage extends StatelessWidget {
           initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
           loaded: (success) => _ForYouCategorySelectionPage(
-            genres: success?.genre ?? [],
+            genres: success.genre ,
             editGenre: editGenre,
           ),
         );
@@ -40,8 +40,7 @@ class _ForYouCategorySelectionPage extends StatefulWidget {
     Key? key,
     required this.genres,
     required this.editGenre,
-  })   : assert(editGenre != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   __ForYouCategorySelectionPageState createState() =>
@@ -117,14 +116,16 @@ class __ForYouCategorySelectionPageState
                 color: Palette.black.withOpacity(0.2),
               ),
               borderRadius: BorderRadius.circular(20),
-              color: genres[index].isSelected
+              color: (genres[index].isSelected ?? false)
                   ? Palette.primary
                   : Palette.black.withOpacity(0.1),
             ),
             child: Text(
-              genres[index].name,
+              genres[index].name ?? '',
               style: TextStyle(
-                color: genres[index].isSelected ? Palette.white : Palette.black,
+                color: (genres[index].isSelected ?? false)
+                    ? Palette.white
+                    : Palette.black,
               ),
             ),
           ),

@@ -54,7 +54,7 @@ class MyResumeWidget extends StatelessWidget {
                       itemCount: 5,
                       itemBuilder: (context, index) {
                         return index == 0
-                            ? _userImage(data.personalInfo.image)
+                            ? _userImage(data.personalInfo?.image ?? '')
                             : _resumeInformationBuilderWidget(index - 1, data);
                       },
                     ),
@@ -74,9 +74,7 @@ class MyResumeWidget extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                         onTap: () {
-                          if (userDetail != null) {
-                            ExtendedNavigator.of(context).pushProfilePage();
-                          }
+                          context.pushRoute(const ProfileRoute());
                         },
                       ),
                       // _DownloadResumeButton(),
@@ -121,7 +119,7 @@ class MyResumeWidget extends StatelessWidget {
           image,
           fit: BoxFit.cover,
           loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent loadingProgress) {
+              ImageChunkEvent? loadingProgress) {
             if (loadingProgress == null) return child;
             return Container(
               color: Palette.primaryBackground,
@@ -130,7 +128,7 @@ class MyResumeWidget extends StatelessWidget {
                 child: CircularProgressIndicator(
                   value: loadingProgress.expectedTotalBytes != null
                       ? loadingProgress.cumulativeBytesLoaded /
-                          loadingProgress.expectedTotalBytes
+                          (loadingProgress.expectedTotalBytes ?? 1)
                       : null,
                 ),
               ),
@@ -152,11 +150,11 @@ class MyResumeWidget extends StatelessWidget {
       const title = "Personal Info";
       final percentage = data.personalInfoCompletionRate ?? 0;
       final name =
-          "${data.personalInfo.firstName} ${data.personalInfo.lastName}";
-      final profession = data.personalInfo.profession;
-      final address = data.personalInfo.currAddress;
-      final contactNumber = data.personalInfo.currPhone;
-      final email = data.personalInfo.email;
+          "${data.personalInfo?.firstName ?? ''} ${data.personalInfo?.lastName ?? ''}";
+      final profession = data.personalInfo?.profession ?? '';
+      final address = data.personalInfo?.currAddress ?? '';
+      final contactNumber = data.personalInfo?.currPhone ?? '';
+      final email = data.personalInfo?.email ?? '';
 
       return _ResumeInformationWidget(
         title: title,
@@ -180,7 +178,7 @@ class MyResumeWidget extends StatelessWidget {
 
       final academicHistoryArray = data.academicHistory;
 
-      if (academicHistoryArray.isNotEmpty) {
+      if (academicHistoryArray?.isNotEmpty ?? false) {
         return _ResumeInformationWidgetWithArrayChild(
           index: 2, // Map Index According to the Resume Tab Section Page
           percentage: percentage,
@@ -192,16 +190,16 @@ class MyResumeWidget extends StatelessWidget {
             padding: EdgeInsets.zero,
             // physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: academicHistoryArray.length,
+            itemCount: academicHistoryArray?.length ?? 0,
             itemBuilder: (context, index) {
               final started =
-                  "${academicHistoryArray[index].startMonth} ${academicHistoryArray[index].startYear}";
+                  "${academicHistoryArray?[index].startMonth ?? ''} ${academicHistoryArray?[index].startYear ?? ''}";
 
               final completion =
-                  "${academicHistoryArray[index].completionMonth} ${academicHistoryArray[index].completionYear}";
+                  "${academicHistoryArray?[index].completionMonth ?? ''} ${academicHistoryArray?[index].completionYear ?? ''}";
               return _ResumeDescriptionItem(
-                containerTitle: academicHistoryArray[index].institute,
-                infoText1: academicHistoryArray[index].majorSubject,
+                containerTitle: academicHistoryArray?[index].institute ?? '',
+                infoText1: academicHistoryArray?[index].majorSubject ?? '',
                 infoText1Icon: "assets/images/resume/academy.svg",
                 infoText2: "$started - $completion",
                 infoText2Icon: "",
@@ -223,7 +221,7 @@ class MyResumeWidget extends StatelessWidget {
 
       final workHistoryArray = data.workHistory;
 
-      if (workHistoryArray.isNotEmpty) {
+      if (workHistoryArray?.isNotEmpty ?? false) {
         return _ResumeInformationWidgetWithArrayChild(
           index: 3, // Map Index According to the Resume Tab Section Page
           percentage: percentage,
@@ -235,16 +233,16 @@ class MyResumeWidget extends StatelessWidget {
             padding: EdgeInsets.zero,
             // physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: workHistoryArray.length,
+            itemCount: workHistoryArray?.length ?? 0,
             itemBuilder: (context, index) {
               final started =
-                  "${workHistoryArray[index].startMonth} ${workHistoryArray[index].startYear}";
+                  "${workHistoryArray?[index].startMonth ?? ''} ${workHistoryArray?[index].startYear ?? ''}";
 
               final completion =
-                  "${workHistoryArray[index].endMonth} ${workHistoryArray[index].endYear}";
+                  "${workHistoryArray?[index].endMonth ?? ''} ${workHistoryArray?[index].endYear ?? ''}";
               return _ResumeDescriptionItem(
-                containerTitle: workHistoryArray[index].companyName,
-                infoText1: workHistoryArray[index].companyType,
+                containerTitle: workHistoryArray?[index].companyName ?? '',
+                infoText1: workHistoryArray?[index].companyType ?? '',
                 infoText1Icon: "assets/images/resume/academy.svg",
                 infoText2: "$started - $completion",
                 infoText2Icon: "",
@@ -266,7 +264,7 @@ class MyResumeWidget extends StatelessWidget {
 
       final qualificationHistoryArray = data.qualificationHistory;
 
-      if (qualificationHistoryArray.isNotEmpty) {
+      if (qualificationHistoryArray?.isNotEmpty ?? false) {
         return _ResumeInformationWidgetWithArrayChild(
           index: 4, // Map Index According to the Resume Tab Section Page
           percentage: percentage,
@@ -277,14 +275,14 @@ class MyResumeWidget extends StatelessWidget {
             primary: false,
             padding: EdgeInsets.zero,
             shrinkWrap: true,
-            itemCount: qualificationHistoryArray.length,
+            itemCount: qualificationHistoryArray?.length ?? 0,
             itemBuilder: (context, index) {
               final certifiedYear =
-                  "${qualificationHistoryArray[index].certifiedMonth} ${qualificationHistoryArray[index].certifiedYear}";
+                  "${qualificationHistoryArray?[index].certifiedMonth ?? ''} ${qualificationHistoryArray?[index].certifiedYear ?? ''}";
 
               return _ResumeDescriptionItem(
                 containerTitle:
-                    qualificationHistoryArray[index].qualificationName,
+                    qualificationHistoryArray?[index].qualificationName ?? '',
                 infoText1: certifiedYear,
                 infoText1Icon: "assets/images/resume/academy.svg",
                 infoText2: "",
@@ -311,7 +309,7 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
   final Widget child;
 
   final Function(int) changeTabPage;
-  final Function(int) changeResumeTabPage;
+  final Function(int)? changeResumeTabPage;
 
   const _ResumeInformationWidgetWithArrayChild({
     Key? key,
@@ -335,7 +333,7 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
           Row(
             children: [
               Text(
-                title ?? "",
+                title,
                 style: const TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
@@ -346,7 +344,7 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   Text(
-                    "${percentage ?? ""}",
+                    "$percentage",
                     style: TextStyle(
                       fontSize: 8,
                       fontWeight: FontWeight.w700,
@@ -386,11 +384,11 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    if (changeTabPage != null) {
-                      DefaultTabController.of(context).animateTo(1);
-                      changeTabPage(1);
+                    DefaultTabController.of(context)?.animateTo(1);
+                    changeTabPage(1);
 
-                      changeResumeTabPage(index);
+                    if (changeResumeTabPage != null) {
+                      changeResumeTabPage!(index);
                     }
                   },
                   child: Text(
@@ -440,7 +438,7 @@ class _ResumeInformationWidget extends StatelessWidget {
     required this.infoText3Icon,
     required this.infoText4,
     required this.infoText4Icon,
-    this.changeTabPage,
+    required this.changeTabPage,
   }) : super(key: key);
 
   @override
@@ -455,7 +453,7 @@ class _ResumeInformationWidget extends StatelessWidget {
           Row(
             children: [
               Text(
-                title ?? "",
+                title,
                 style: const TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
@@ -466,7 +464,7 @@ class _ResumeInformationWidget extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   Text(
-                    "${percentage ?? ""}",
+                    "$percentage",
                     style: TextStyle(
                       fontSize: 8,
                       fontWeight: FontWeight.w700,
@@ -512,10 +510,8 @@ class _ResumeInformationWidget extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    if (changeTabPage != null) {
-                      DefaultTabController.of(context).animateTo(1);
-                      changeTabPage(1);
-                    }
+                    DefaultTabController.of(context)?.animateTo(1);
+                    changeTabPage(1);
                   },
                   child: Text(
                     "View Details",
@@ -566,7 +562,7 @@ class _ResumeDescriptionItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          containerTitle ?? "",
+          containerTitle,
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
@@ -607,7 +603,10 @@ class _ResumeDescriptionItem extends StatelessWidget {
     );
   }
 
-  Widget _buildInformation({String assetIcon, String value}) {
+  Widget _buildInformation({
+    required String assetIcon,
+    required String value,
+  }) {
     return Row(
       children: [
         SvgPicture.asset(
@@ -618,7 +617,7 @@ class _ResumeDescriptionItem extends StatelessWidget {
         const SizedBox(width: 4),
         Flexible(
           child: Text(
-            value ?? "",
+            value,
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w500,

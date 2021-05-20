@@ -67,7 +67,7 @@ class EditAcademicInfoFormPage extends StatelessWidget {
     return BlocConsumer<UpdateAcademicInfoActorBloc,
         UpdateAcademicInfoActorState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
+        state.failureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -89,8 +89,7 @@ class EditAcademicInfoFormPage extends StatelessWidget {
                   title: "Academic Info",
                   message: "Successfully updated.",
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .popUntilPath(Routes.tabBarScreen);
+                    context.navigateTo(const TabBarRoute());
                   },
                 ),
               );
@@ -226,9 +225,8 @@ class _MajorSubjectField extends StatelessWidget {
           hintText: "Major Subject",
           value: state.majorSubject,
           options: state.majorSubjectList,
-          onChanged: (value) => context
-              .read<UpdateAcademicInfoActorBloc>()
-              .add(UpdateAcademicInfoActorEvent.changedMajorSubject(value)),
+          onChanged: (value) => context.read<UpdateAcademicInfoActorBloc>().add(
+              UpdateAcademicInfoActorEvent.changedMajorSubject(value ?? '')),
         ),
       ),
     );
@@ -393,7 +391,7 @@ class _YearOfCompletionField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            if (state.yearOfCpmpletion?.toLowerCase() != "running")
+            if (state.yearOfCpmpletion.toLowerCase() != "running")
               SizedBox(
                 width: 120,
                 child: CustomDropDownWidget(

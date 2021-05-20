@@ -42,8 +42,7 @@ class PersonalDetailPage extends StatelessWidget {
                   title: "Kyc Info",
                   message: "Successfully updated.",
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .popUntilPath(Routes.tabBarScreen);
+                    context.router.navigate(const TabBarRoute());
                     getIt<HomePageDataBloc>()
                         .add(const HomePageDataEvent.fetch());
                     getIt<ResumeWatcherBloc>()
@@ -59,12 +58,15 @@ class PersonalDetailPage extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        return buildBody(context, state.key);
+        return buildBody(
+          context,
+          state.key,
+        );
       },
     );
   }
 
-  Widget buildBody(BuildContext context, Key key) {
+  Widget buildBody(BuildContext context, Key? key) {
     return ShadowBoxWidget(
       key: key,
       margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -331,7 +333,7 @@ class _ProfessionWidget extends StatelessWidget {
               value: state.profession,
               onChanged: (value) => context
                   .read<UpdateProfileBloc>()
-                  .add(UpdateProfileEvent.changeProfession(value)),
+                  .add(UpdateProfileEvent.changeProfession(value ?? '')),
             ),
           );
         },
@@ -353,7 +355,7 @@ class _NationalityWidget extends StatelessWidget {
               options: state.listOfCountry,
               onChanged: (value) => context
                   .read<UpdateProfileBloc>()
-                  .add(UpdateProfileEvent.changeNationality(value)),
+                  .add(UpdateProfileEvent.changeNationality(value ?? '')),
             ),
           );
         },
@@ -540,7 +542,7 @@ class _OriginCountryInputField extends StatelessWidget {
           options: state.listOfCountry,
           onChanged: (value) => context
               .read<UpdateProfileBloc>()
-              .add(UpdateProfileEvent.changeOriginCountry(value)),
+              .add(UpdateProfileEvent.changeOriginCountry(value ?? '')),
         ),
       ),
     );
@@ -629,12 +631,8 @@ class _SearchOriginAddressViaPostalCode extends StatelessWidget {
 
             if (data.isNotEmpty) {
               final addressData = data.first;
-              String prefecture = addressData.prefecture.toLowerCase();
-              prefecture =
-                  "${prefecture[0].toUpperCase()}${prefecture.substring(1)}";
-
-              String city = addressData.city.toLowerCase();
-              city = "${city[0].toUpperCase()}${city.substring(1)}";
+              final String prefecture = addressData.prefecture ?? '';
+              final String city = addressData.city ?? '';
 
               parentContext
                   .read<UpdateProfileBloc>()
@@ -644,7 +642,7 @@ class _SearchOriginAddressViaPostalCode extends StatelessWidget {
                   .add(UpdateProfileEvent.changeOriginCity(city));
               parentContext.read<UpdateProfileBloc>().add(
                   UpdateProfileEvent.changeOriginStreetAddress(
-                      addressData.street));
+                      addressData.street ?? ''));
             }
 
             return _buildSearchBoxWithLoading(context: context);
@@ -719,9 +717,8 @@ class _OriginPrefectureInputField extends StatelessWidget {
                 value: state.originProvince,
                 options: state.listOfJapaneseProvince,
                 onChanged: (value) {
-                  context
-                      .read<UpdateProfileBloc>()
-                      .add(UpdateProfileEvent.changeOriginProvince(value));
+                  context.read<UpdateProfileBloc>().add(
+                      UpdateProfileEvent.changeOriginProvince(value ?? ''));
                 },
               )
             : state.originCountry.toLowerCase() == "nepal"
@@ -731,7 +728,8 @@ class _OriginPrefectureInputField extends StatelessWidget {
                     options: state.listOfNepaliProvince,
                     onChanged: (value) {
                       context.read<UpdateProfileBloc>().add(
-                            UpdateProfileEvent.changeOriginProvince(value),
+                            UpdateProfileEvent.changeOriginProvince(
+                                value ?? ''),
                           );
                     },
                   )
@@ -772,24 +770,23 @@ class _OriginCityInputField extends StatelessWidget {
             ? CustomSearchableDropDownWidget(
                 key: UniqueKey(),
                 hintText: "City",
-                value: state.originCity ?? "",
+                value: state.originCity,
                 options: state.listOfJapaneseResidenceCities,
                 onChanged: (value) {
                   context
                       .read<UpdateProfileBloc>()
-                      .add(UpdateProfileEvent.changeOriginCity(value));
+                      .add(UpdateProfileEvent.changeOriginCity(value ?? ''));
                 },
               )
             : state.originCountry.toLowerCase() == "nepal"
                 ? CustomSearchableDropDownWidget(
                     key: UniqueKey(),
                     hintText: "City",
-                    value: state.originCity ?? "",
+                    value: state.originCity,
                     options: state.listOfJapaneseOriginCities,
                     onChanged: (value) {
-                      context
-                          .read<UpdateProfileBloc>()
-                          .add(UpdateProfileEvent.changeOriginCity(value));
+                      context.read<UpdateProfileBloc>().add(
+                          UpdateProfileEvent.changeOriginCity(value ?? ''));
                     },
                   )
                 : InputTextWidget(
@@ -853,7 +850,7 @@ class _ResidenceCountryInputField extends StatelessWidget {
           options: state.listOfCountry,
           onChanged: (value) => context
               .read<UpdateProfileBloc>()
-              .add(UpdateProfileEvent.changeResidenceCountry(value)),
+              .add(UpdateProfileEvent.changeResidenceCountry(value ?? '')),
         ),
       ),
     );
@@ -942,12 +939,9 @@ class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
 
             if (data.isNotEmpty) {
               final addressData = data.first;
-              String prefecture = addressData.prefecture.toLowerCase();
-              prefecture =
-                  "${prefecture[0].toUpperCase()}${prefecture.substring(1)}";
+              String prefecture = addressData.prefecture ?? '';
 
-              String city = addressData.city.toLowerCase();
-              city = "${city[0].toUpperCase()}${city.substring(1)}";
+              String city = addressData.city ?? '';
 
               parentContext
                   .read<UpdateProfileBloc>()
@@ -957,7 +951,7 @@ class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
                   .add(UpdateProfileEvent.changeResidenceCity(city));
               parentContext.read<UpdateProfileBloc>().add(
                   UpdateProfileEvent.changeResidenceStreetAddress(
-                      addressData.street));
+                      addressData.street ?? ''));
             }
 
             return _buildSearchBoxWithLoading(context: context);
@@ -1032,9 +1026,8 @@ class _ResidencePrefectureInputField extends StatelessWidget {
                 value: state.residenceProvince,
                 options: state.listOfJapaneseProvince,
                 onChanged: (value) {
-                  context
-                      .read<UpdateProfileBloc>()
-                      .add(UpdateProfileEvent.changeResidenceProvince(value));
+                  context.read<UpdateProfileBloc>().add(
+                      UpdateProfileEvent.changeResidenceProvince(value ?? ''));
                 },
               )
             : state.residenceCountry.toLowerCase() == "nepal"
@@ -1044,7 +1037,8 @@ class _ResidencePrefectureInputField extends StatelessWidget {
                     options: state.listOfNepaliProvince,
                     onChanged: (value) {
                       context.read<UpdateProfileBloc>().add(
-                            UpdateProfileEvent.changeResidenceProvince(value),
+                            UpdateProfileEvent.changeResidenceProvince(
+                                value ?? ''),
                           );
                     },
                   )
@@ -1085,7 +1079,7 @@ class _ResidenceCityInputField extends StatelessWidget {
                 onChanged: (value) {
                   context
                       .read<UpdateProfileBloc>()
-                      .add(UpdateProfileEvent.changeResidenceCity(value));
+                      .add(UpdateProfileEvent.changeResidenceCity(value ?? ''));
                 },
               )
             : InputTextWidget(

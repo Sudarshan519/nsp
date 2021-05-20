@@ -12,8 +12,8 @@ class ProfileTabBarScreen extends StatefulWidget {
 
 class _ProfileTabBarScreenState extends State<ProfileTabBarScreen>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
-  int _selectedIndex;
+  TabController? _tabController;
+  int? _selectedIndex;
 
   final List<Widget> _children = [
     PersonalDetailPage(),
@@ -43,13 +43,13 @@ class _ProfileTabBarScreenState extends State<ProfileTabBarScreen>
   void initState() {
     _tabController = TabController(length: _children.length, vsync: this);
     _selectedIndex = 0;
-    _tabController.addListener(tabChanged);
+    _tabController?.addListener(tabChanged);
     super.initState();
   }
 
   void tabChanged() {
     setState(() {
-      _selectedIndex = _tabController.index;
+      _selectedIndex = _tabController?.index;
     });
   }
 

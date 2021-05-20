@@ -23,7 +23,7 @@ class ResumeTabBarScreen extends StatefulWidget {
 
 class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  TabController? _tabController;
 
   @override
   void initState() {
@@ -32,7 +32,7 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
   }
 
   void changeResumeTab(int index) {
-    _tabController.animateTo(index);
+    _tabController?.animateTo(index);
   }
 
   @override
@@ -73,7 +73,7 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _tabController?.dispose();
     super.dispose();
   }
 
@@ -136,38 +136,39 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
     return [
       AboutPage(
         info: state.info,
-        listOfNationality: state?.options?.nationalities ?? [],
-        listOfProfession: state?.options?.professions ?? [],
+        listOfNationality: state.options.nationalities ?? [],
+        listOfProfession: state.options.professions ?? [],
         lang: state.language,
       ),
       AddressPage(
         info: state.info,
-        prefecture: state.prefectures ?? [],
-        provinces: state.provinces ?? [],
+        prefecture: state.prefectures,
+        provinces: state.provinces,
         lang: state.language,
       ),
       AcademicsPage(
-        academics: state.academics ?? [],
-        listOfSubjects: state?.options?.majorSubjects ?? [],
+        academics: state.academics,
+        listOfSubjects: state.options.majorSubjects ?? [],
         lang: state.language,
       ),
       WorkPage(
-        works: state.works ?? [],
-        typeOfCompanyList: state?.options?.companyTypes ?? [],
+        works: state.works,
+        typeOfCompanyList: state.options.companyTypes ?? [],
         lang: state.language,
       ),
       QualificationPage(
-        qualifications: state.qualifications ?? [],
+        qualifications: state.qualifications,
         lang: state.language,
       ),
       OtherInfo(
         info: state.info,
-        listOfLanguages: state?.options?.knownLanguages
-                ?.map((language) => language.label)
-                ?.toList() ??
+        listOfLanguages: state.options.knownLanguages
+                ?.map((language) => language.label ?? '')
+                .toSet()
+                .toList() ??
             [],
-        listOfHobbies: state?.options?.hobbies ?? [],
-        listOfSkills: state?.options?.skills ?? [],
+        listOfHobbies: state.options.hobbies ?? [],
+        listOfSkills: state.options.skills ?? [],
         lang: state.language,
       ),
     ];

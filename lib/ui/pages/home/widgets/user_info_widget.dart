@@ -6,10 +6,10 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'balance_and_points.dart';
 
 class UserInfoWidget extends StatelessWidget {
-  final UserDetail user;
+  final UserDetail? user;
   const UserInfoWidget({
     Key? key,
-    required this.user,
+    this.user,
   }) : super(key: key);
 
   @override

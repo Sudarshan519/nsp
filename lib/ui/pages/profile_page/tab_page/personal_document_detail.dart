@@ -28,11 +28,11 @@ class PersonalDocumentDetailPage extends StatefulWidget {
 
 class _PersonalDocumentDetailPageState
     extends State<PersonalDocumentDetailPage> {
-  File _userImage;
-  File _originKycDocFront;
-  File _originKycDocBack;
-  File _residenceKycDocFront;
-  File _residenceKycDocBack;
+  File? _userImage;
+  File? _originKycDocFront;
+  File? _originKycDocBack;
+  File? _residenceKycDocFront;
+  File? _residenceKycDocBack;
 
   @override
   void initState() {
@@ -67,8 +67,7 @@ class _PersonalDocumentDetailPageState
                   title: "Kyc Info",
                   message: "Successfully updated.",
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .popUntilPath(Routes.tabBarScreen);
+                    context.router.navigate(const TabBarRoute());
                     getIt<HomePageDataBloc>()
                         .add(const HomePageDataEvent.fetch());
                     getIt<ResumeWatcherBloc>()
@@ -89,7 +88,7 @@ class _PersonalDocumentDetailPageState
     );
   }
 
-  Widget buildBody(BuildContext context, Key key) {
+  Widget buildBody(BuildContext context, Key? key) {
     return Column(
       key: key,
       children: [
@@ -434,10 +433,12 @@ class _PersonalDocumentDetailPageState
                   width: 80,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(40.0),
-                    child: Image.file(
-                      _userImage,
-                      fit: BoxFit.cover,
-                    ),
+                    child: _userImage == null
+                        ? const SizedBox.expand()
+                        : Image.file(
+                            _userImage!,
+                            fit: BoxFit.cover,
+                          ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -446,11 +447,13 @@ class _PersonalDocumentDetailPageState
                   children: [
                     InkWell(
                       onTap: () {
-                        context.read<UpdateProfileBloc>().add(
-                              UpdateProfileEvent.saveUserImage(
-                                _userImage,
-                              ),
-                            );
+                        if (_userImage != null) {
+                          context.read<UpdateProfileBloc>().add(
+                                UpdateProfileEvent.saveUserImage(
+                                  _userImage!,
+                                ),
+                              );
+                        }
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -616,8 +619,8 @@ class _UserPhotoWidget extends StatelessWidget {
 }
 
 class _OriginKycDocumentWidget extends StatelessWidget {
-  final File kycFront;
-  final File kycBack;
+  final File? kycFront;
+  final File? kycBack;
   final Function(File) kycCallFront;
   final Function(File) kycCallBack;
 
@@ -678,10 +681,12 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                               height: 100,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
-                                child: Image.file(
-                                  kycFront,
-                                  fit: BoxFit.cover,
-                                ),
+                                child: kycFront == null
+                                    ? const SizedBox.expand()
+                                    : Image.file(
+                                        kycFront!,
+                                        fit: BoxFit.cover,
+                                      ),
                               ),
                             ),
                     ),
@@ -728,10 +733,12 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                               height: 100,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
-                                child: Image.file(
-                                  kycBack,
-                                  fit: BoxFit.cover,
-                                ),
+                                child: kycBack == null
+                                    ? const SizedBox.expand()
+                                    : Image.file(
+                                        kycBack!,
+                                        fit: BoxFit.cover,
+                                      ),
                               ),
                             ),
                     ),
@@ -763,8 +770,8 @@ class _OriginKycDocumentWidget extends StatelessWidget {
 }
 
 class _ResidenceKycDocumentWidget extends StatelessWidget {
-  final File kycFront;
-  final File kycBack;
+  final File? kycFront;
+  final File? kycBack;
   final Function(File) kycCallFront;
   final Function(File) kycCallBack;
 
@@ -825,10 +832,12 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                               height: 100,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
-                                child: Image.file(
-                                  kycFront,
-                                  fit: BoxFit.cover,
-                                ),
+                                child: kycFront == null
+                                    ? const SizedBox.expand()
+                                    : Image.file(
+                                        kycFront!,
+                                        fit: BoxFit.cover,
+                                      ),
                               ),
                             ),
                     ),
@@ -875,10 +884,12 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                               height: 100,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
-                                child: Image.file(
-                                  kycBack,
-                                  fit: BoxFit.cover,
-                                ),
+                                child: kycBack == null
+                                    ? const SizedBox.expand()
+                                    : Image.file(
+                                        kycBack!,
+                                        fit: BoxFit.cover,
+                                      ),
                               ),
                             ),
                     ),

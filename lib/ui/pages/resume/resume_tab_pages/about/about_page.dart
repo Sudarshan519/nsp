@@ -55,7 +55,7 @@ class AboutPage extends StatelessWidget {
     return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
+        state.failureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -104,12 +104,12 @@ class AboutPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () =>
-                          ExtendedNavigator.of(context).pushEditBasicInfoForm(
-                        info: info,
-                        listOfNationality: listOfNationality,
-                        listOfProfession: listOfProfession,
-                        lang: lang,
+                      onTap: () => context.pushRoute(
+                        EditBasicInfoFormRoute(
+                            info: info,
+                            listOfNationality: listOfNationality,
+                            listOfProfession: listOfProfession,
+                            lang: lang),
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",

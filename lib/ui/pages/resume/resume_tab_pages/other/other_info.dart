@@ -53,7 +53,7 @@ class OtherInfo extends StatelessWidget {
   Widget _aboutPageBlocConsumer(BuildContext context, PersonalInfo info) {
     return BlocConsumer<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
+        state.failureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -101,13 +101,13 @@ class OtherInfo extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () =>
-                          ExtendedNavigator.of(context).pushEditOtherInfoForm(
-                        info: info,
-                        listOfLanguages: listOfLanguages,
-                        listOfHobbies: listOfHobbies,
-                        listOfSkills: listOfSkills,
-                        lang: lang,
+                      onTap: () => context.pushRoute(
+                        EditOtherInfoFormRoute(
+                            info: info,
+                            listOfLanguages: listOfLanguages,
+                            listOfHobbies: listOfHobbies,
+                            listOfSkills: listOfSkills,
+                            lang: lang),
                       ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",

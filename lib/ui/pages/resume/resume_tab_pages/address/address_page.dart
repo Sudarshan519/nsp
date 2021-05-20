@@ -57,7 +57,7 @@ class AddressPage extends StatelessWidget {
     return BlocConsumer<UpdateAddressInfoActorBloc,
         UpdateAddressInfoActorState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
+        state.failureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -106,13 +106,12 @@ class AddressPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () => ExtendedNavigator.of(context)
-                          .pushEditCurrentAddressInfoForm(
-                        info: info,
-                        prefecture: prefecture,
-                        provinces: provinces,
-                        lang: lang,
-                      ),
+                      onTap: () => context.pushRoute(
+                          EditCurrentAddressInfoFormRoute(
+                              info: info,
+                              lang: lang,
+                              prefecture: prefecture,
+                              provinces: provinces)),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
                         color: Palette.primary,
@@ -154,13 +153,12 @@ class AddressPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () => ExtendedNavigator.of(context)
-                          .pushEditContactAddressInfoForm(
-                        info: info,
-                        prefecture: prefecture,
-                        provinces: provinces,
-                        lang: lang,
-                      ),
+                      onTap: () => context.pushRoute(
+                          EditContactAddressInfoFormRoute(
+                              info: info,
+                              lang: lang,
+                              prefecture: prefecture,
+                              provinces: provinces)),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
                         color: Palette.primary,

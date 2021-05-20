@@ -18,9 +18,7 @@ class NewsItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => ExtendedNavigator.of(context).pushNewsDetail(
-        newsItem: newsItem,
-      ),
+      onTap: () => context.pushRoute(NewsDetailRoute(newsItem: newsItem)),
       child: Column(
         children: [
           Container(
@@ -36,7 +34,7 @@ class NewsItemWidget extends StatelessWidget {
                     height: 100,
                     width: 120,
                     child: Image.network(
-                      newsItem.image,
+                      newsItem.image ?? '',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -53,7 +51,7 @@ class NewsItemWidget extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              newsItem?.title ?? "",
+                              newsItem.title ?? "",
                               style: TextStyle(
                                 color: Palette.black,
                                 fontSize: 14,
@@ -66,7 +64,7 @@ class NewsItemWidget extends StatelessWidget {
                           const SizedBox(width: 2),
                           _FavouriteButton(
                             item: newsItem,
-                            isSaved: newsItem?.isLocallySaved ?? false,
+                            isSaved: newsItem.isLocallySaved ?? false,
                           ),
                         ],
                       ),
@@ -90,7 +88,7 @@ class NewsItemWidget extends StatelessWidget {
                               ),
                             ),
                             child: Text(
-                              newsItem.category,
+                              newsItem.category ?? '',
                               style: TextStyle(
                                 color: Palette.black.withOpacity(0.7),
                                 fontSize: 10,
@@ -155,13 +153,13 @@ class NewsItemWidget extends StatelessWidget {
                       Row(
                         children: [
                           Image.network(
-                            newsItem.sourceImage,
+                            newsItem.sourceImage ?? '',
                             fit: BoxFit.fitHeight,
                             height: 10,
                           ),
                           const SizedBox(width: 5),
                           Text(
-                            newsItem?.source ?? "",
+                            newsItem.source ?? "",
                             style: TextStyle(
                               color: Palette.black,
                               fontSize: 12,
@@ -206,7 +204,7 @@ class _FavouriteButton extends StatefulWidget {
 }
 
 class __FavouriteButtonState extends State<_FavouriteButton> {
-  bool isSaved;
+  late bool isSaved;
 
   @override
   void initState() {

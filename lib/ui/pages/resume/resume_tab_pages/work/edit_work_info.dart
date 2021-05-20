@@ -68,7 +68,7 @@ class EditWorkInfoFormPage extends StatelessWidget {
   Widget editResumeBody(BuildContext context) {
     return BlocConsumer<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
+        state.failureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -90,8 +90,7 @@ class EditWorkInfoFormPage extends StatelessWidget {
                   title: "Work Info",
                   message: "Successfully updated.",
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .popUntilPath(Routes.tabBarScreen);
+                    context.navigateTo(const TabBarRoute());
                   },
                 ),
               );
@@ -226,7 +225,7 @@ class _MajorSubjectField extends StatelessWidget {
           options: state.typeOfCompanyList,
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
-              .add(UpdateWorkInfoActorEvent.changedTypeOfCompany(value)),
+              .add(UpdateWorkInfoActorEvent.changedTypeOfCompany(value ?? '')),
         ),
       ),
     );
@@ -388,7 +387,7 @@ class _EndYearField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            if (state.endYear?.toLowerCase() != "running")
+            if (state.endYear.toLowerCase() != "running")
               SizedBox(
                 width: 120,
                 child: CustomDropDownWidget(
@@ -429,7 +428,7 @@ class _PurposeOfResignField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      builder: (context, state) => state.endYear?.toLowerCase() != "running"
+      builder: (context, state) => state.endYear.toLowerCase() != "running"
           ? TextWidetWithLabelAndChild(
               title: "Purpose of Resign",
               child: InputTextWidget(

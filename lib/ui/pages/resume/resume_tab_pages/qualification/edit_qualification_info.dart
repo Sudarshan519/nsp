@@ -24,8 +24,7 @@ class EditQualificationInfoFormPage extends StatelessWidget {
     Key? key,
     required this.info,
     required this.lang,
-  })   : assert(info != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +63,7 @@ class EditQualificationInfoFormPage extends StatelessWidget {
     return BlocConsumer<UpdateQualificationInfoActorBloc,
         UpdateQualificationInfoActorState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
+        state.failureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -86,8 +85,7 @@ class EditQualificationInfoFormPage extends StatelessWidget {
                   title: "Academic Info",
                   message: "Successfully updated.",
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .popUntilPath(Routes.tabBarScreen);
+                    context.navigateTo(const TabBarRoute());
                   },
                 ),
               );

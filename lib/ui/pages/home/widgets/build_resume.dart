@@ -51,7 +51,7 @@ class BuildResume extends StatelessWidget {
                       CustomButton(
                         title: "Create Resume",
                         onTap: () {
-                          DefaultTabController.of(context).animateTo(1);
+                          DefaultTabController.of(context)?.animateTo(1);
                           changeTabPage(1);
                         },
                       ),

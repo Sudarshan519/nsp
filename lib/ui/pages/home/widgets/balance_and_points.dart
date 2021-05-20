@@ -5,7 +5,7 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class BalanceAndPointWidget extends StatelessWidget {
-  final UserDetail user;
+  final UserDetail? user;
   final bool showAddBalanceButton;
 
   const BalanceAndPointWidget({

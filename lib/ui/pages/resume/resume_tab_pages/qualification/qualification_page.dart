@@ -56,10 +56,10 @@ class QualificationPage extends StatelessWidget {
           child: FloatingActionButton(
             backgroundColor: Palette.white,
             onPressed: () {
-              ExtendedNavigator.of(context).pushEditQualificationInfoForm(
+              context.pushRoute(EditQualificationInfoFormRoute(
                 info: const QualificationHistory(),
                 lang: lang,
-              );
+              ));
             },
             child: SvgPicture.asset(
               "assets/images/resume/icon-add.svg",
@@ -139,11 +139,10 @@ class _CreateQualificationInfoBox extends StatelessWidget {
               ),
               const Spacer(),
               InkWell(
-                onTap: () =>
-                    ExtendedNavigator.of(context).pushEditQualificationInfoForm(
+                onTap: () => context.pushRoute(EditQualificationInfoFormRoute(
                   info: qualification,
                   lang: lang,
-                ),
+                )),
                 child: SvgPicture.asset(
                   "assets/images/resume/edit.svg",
                   color: Palette.primary,

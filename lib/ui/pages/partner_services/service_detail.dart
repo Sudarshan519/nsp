@@ -53,7 +53,7 @@ class ServicesDetailPage extends StatelessWidget {
             width: width,
             fit: BoxFit.fitWidth,
             loadingBuilder: (BuildContext context, Widget child,
-                ImageChunkEvent loadingProgress) {
+                ImageChunkEvent? loadingProgress) {
               if (loadingProgress == null) return child;
               return Container(
                 color: Palette.primaryBackground,
@@ -62,7 +62,7 @@ class ServicesDetailPage extends StatelessWidget {
                   child: CircularProgressIndicator(
                     value: loadingProgress.expectedTotalBytes != null
                         ? loadingProgress.cumulativeBytesLoaded /
-                            loadingProgress.expectedTotalBytes
+                            (loadingProgress.expectedTotalBytes ?? 1)
                         : null,
                   ),
                 ),
@@ -98,7 +98,7 @@ class ServicesDetailPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            services?.serviceProductName ?? "",
+                            services.serviceProductName ?? "",
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
@@ -108,7 +108,7 @@ class ServicesDetailPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 5),
                           Text(
-                            "${services?.companyAddressHeadStreet ?? ""}, ${services?.companyAddressHeadCity ?? ""}, ${services?.companyAddressHeadProvince ?? ""}, ${services?.companyAddressHeadCountry ?? ""}",
+                            "${services.companyAddressHeadStreet ?? ""}, ${services.companyAddressHeadCity ?? ""}, ${services.companyAddressHeadProvince ?? ""}, ${services.companyAddressHeadCountry ?? ""}",
                             style: const TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
@@ -129,7 +129,7 @@ class ServicesDetailPage extends StatelessWidget {
                               ),
                             ),
                             child: Text(
-                              services?.category ?? "",
+                              services.category ?? "",
                               style: TextStyle(
                                 color: Palette.black.withOpacity(0.7),
                                 fontSize: 10,
@@ -155,17 +155,15 @@ class ServicesDetailPage extends StatelessWidget {
                 ),
                 Html(
                   data: services.description,
-                  onLinkTap: (link) {
-                    ExtendedNavigator.of(context).pushAppWebView(
-                      url: link,
-                      title: "",
-                    );
+                  onLinkTap: (link, _, __, ___) {
+                    context
+                        .pushRoute(AppWebViewRoute(url: link ?? '', title: ""));
                   },
                 ),
 
                 const SizedBox(height: 20),
 
-                if (services?.serviceUrl != null)
+                if (services.serviceUrl != null)
                   Column(
                     children: [
                       Center(
@@ -176,11 +174,9 @@ class ServicesDetailPage extends StatelessWidget {
                             fontSize: 10,
                             fontWeight: FontWeight.w600,
                           ),
-                          onTap: () =>
-                              ExtendedNavigator.of(context).pushAppWebView(
-                            url: services?.serviceUrl ?? "",
-                            title: services?.companyName ?? "",
-                          ),
+                          onTap: () => context.pushRoute(AppWebViewRoute(
+                              url: services.serviceUrl ?? "",
+                              title: services.companyName ?? "")),
                         ),
                       ),
                       const SizedBox(height: 20),

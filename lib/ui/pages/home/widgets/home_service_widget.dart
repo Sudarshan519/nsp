@@ -92,8 +92,8 @@ class HomeServiceWidget extends StatelessWidget {
             Row(
               children: [
                 InkWell(
-                  onTap: () => ExtendedNavigator.of(context)
-                      .pushServicesDetail(services: services),
+                  onTap: () => context
+                      .pushRoute(ServicesDetailRoute(services: services)),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(16),
                     child: Image.network(
@@ -110,7 +110,7 @@ class HomeServiceWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        services?.serviceProductName ?? "",
+                        services.serviceProductName ?? "",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -119,9 +119,9 @@ class HomeServiceWidget extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       InkWell(
-                        onTap: () => ExtendedNavigator.of(context)
-                            .pushPartnerServicesPage(
-                          categoryName: services?.category,
+                        onTap: () => context.pushRoute(
+                          PartnerServicesRoute(
+                              categoryName: services.category ?? ''),
                         ),
                         child: Container(
                           padding: const EdgeInsets.symmetric(
@@ -135,7 +135,7 @@ class HomeServiceWidget extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            services?.category ?? "",
+                            services.category ?? "",
                             style: TextStyle(
                               color: Palette.black.withOpacity(0.7),
                               fontSize: 10,
@@ -151,7 +151,7 @@ class HomeServiceWidget extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              services?.descriptionWithOutHtmlTags ?? "",
+              services.descriptionWithOutHtmlTags,
               style: const TextStyle(
                 fontWeight: FontWeight.w400,
               ),
@@ -160,8 +160,8 @@ class HomeServiceWidget extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             InkWell(
-              onTap: () => ExtendedNavigator.of(context)
-                  .pushServicesDetail(services: services),
+              onTap: () =>
+                  context.pushRoute(ServicesDetailRoute(services: services)),
               child: Text(
                 "Know More",
                 style: TextStyle(

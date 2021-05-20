@@ -24,7 +24,7 @@ class NewsPreferenceTab extends StatelessWidget {
           initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
           loaded: (success) => _NewsPreferenceTab(
-            preferences: success?.genre ?? [],
+            preferences: success.genre,
             changePage: changePage,
           ),
         );
@@ -71,7 +71,7 @@ class __NewsPreferenceTabState extends State<_NewsPreferenceTab> {
                   context
                       .read<NewsPreferenceBloc>()
                       .add(const NewsPreferenceEvent.save());
-                  DefaultTabController.of(context).animateTo(1);
+                  DefaultTabController.of(context)?.animateTo(1);
                   widget.changePage(1);
                 },
               )
@@ -90,10 +90,10 @@ class __NewsPreferenceTabState extends State<_NewsPreferenceTab> {
             itemCount: widget.preferences.length,
             itemBuilder: (context, index) {
               return _LanguageWithSource(
-                title: widget.preferences[index].name,
-                isSelected: widget.preferences[index].isSelected,
+                title: widget.preferences[index].name ?? '',
+                isSelected: widget.preferences[index].isSelected ?? false,
                 isExpanded: true,
-                sources: widget.preferences[index].sources,
+                sources: widget.preferences[index].sources ?? [],
                 parentIndex: index,
               );
             },
@@ -140,7 +140,7 @@ class _LanguageWithSource extends StatelessWidget {
                   child: Checkbox(
                     value: isSelected,
                     activeColor: Palette.primary,
-                    onChanged: (bool value) {
+                    onChanged: (_) {
                       context.read<NewsPreferenceBloc>().add(
                           NewsPreferenceEvent.changeTitleStatus(parentIndex));
                     },
@@ -184,7 +184,7 @@ class _LanguageWithSource extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: sources[index].isSelected
+                          color: (sources[index].isSelected ?? false)
                               ? Palette.primaryButtonColor
                               : Palette.black.withOpacity(0.1),
                         ),
@@ -200,7 +200,7 @@ class _LanguageWithSource extends StatelessWidget {
                           const SizedBox(width: 2),
                           Flexible(
                             child: Text(
-                              sources[index].name,
+                              sources[index].name ?? '',
                               overflow: TextOverflow.fade,
                             ),
                           ),

@@ -14,7 +14,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class JapaneseMannerPage extends StatelessWidget {
-  final String categoryName;
+  final String? categoryName;
 
   const JapaneseMannerPage({
     Key? key,
@@ -78,7 +78,7 @@ class JapaneseMannerPage extends StatelessWidget {
 
 class _JapaneseMannerTabPage extends StatefulWidget {
   final List<JapaneseMannerCategory> categories;
-  final String categoryName;
+  final String? categoryName;
 
   const _JapaneseMannerTabPage({
     Key? key,
@@ -144,13 +144,13 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
   List<NewsTabBarData> _getTabbarData(List<JapaneseMannerCategory> categories) {
     final List<NewsTabBarData> tabData = [];
     for (final category in categories) {
-      tabData.add(NewsTabBarData(title: category.categoryName));
+      tabData.add(NewsTabBarData(title: category.categoryName ?? ''));
     }
     return tabData;
   }
 
   void setPage() {
-    if (widget.categoryName != null && widget.categoryName.isNotEmpty) {
+    if (widget.categoryName != null && widget.categoryName!.isNotEmpty) {
       final categoryFound = widget.categories.firstWhere(
           (category) => category.categoryName == widget.categoryName);
       if (categoryFound != null) {

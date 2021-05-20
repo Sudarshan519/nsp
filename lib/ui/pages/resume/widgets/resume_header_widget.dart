@@ -22,9 +22,9 @@ class ResumeHeaderWidget extends StatefulWidget {
 }
 
 class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
-  File _selectedImage;
-  bool _isLoading;
-  UploadResumeImageBloc _uploadResumeImageBloc;
+  File? _selectedImage;
+  late bool _isLoading;
+  late UploadResumeImageBloc _uploadResumeImageBloc;
 
   @override
   void initState() {
@@ -79,7 +79,7 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
     );
   }
 
-  Widget _resumeHeader(BuildContext context, UserDetail userDetail) {
+  Widget _resumeHeader(BuildContext context, UserDetail? userDetail) {
     final FileProvider fileProvider = getIt<FileProvider>();
 
     return BlocConsumer<UploadResumeImageBloc, UploadResumeImageState>(
@@ -105,7 +105,7 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                     title: "Basic Info",
                     message: "Successfully updated.",
                     onPressed: () {
-                      ExtendedNavigator.of(context).pop();
+                      context.popRoute();
                     },
                   ),
                 );
@@ -197,10 +197,12 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                         width: 82,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(41.0),
-                          child: Image.file(
-                            _selectedImage,
-                            fit: BoxFit.cover,
-                          ),
+                          child: _selectedImage == null
+                              ? const SizedBox.expand()
+                              : Image.file(
+                                  _selectedImage!,
+                                  fit: BoxFit.cover,
+                                ),
                         ),
                       ),
                     const SizedBox(height: 10),
@@ -209,12 +211,14 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                       children: [
                         InkWell(
                           onTap: () {
-                            context
-                                .read<UploadResumeImageBloc>()
-                                .add(UploadResumeImageEvent.updateProfileImage(
-                                  _selectedImage,
-                                  "en",
-                                ));
+                            if (_selectedImage != null) {
+                              context.read<UploadResumeImageBloc>().add(
+                                    UploadResumeImageEvent.updateProfileImage(
+                                      _selectedImage!,
+                                      "en",
+                                    ),
+                                  );
+                            }
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -326,7 +330,7 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
           image,
           fit: BoxFit.cover,
           loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent loadingProgress) {
+              ImageChunkEvent? loadingProgress) {
             if (loadingProgress == null) return child;
             return Container(
               color: Palette.primaryBackground,
@@ -335,7 +339,7 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                 child: CircularProgressIndicator(
                   value: loadingProgress.expectedTotalBytes != null
                       ? loadingProgress.cumulativeBytesLoaded /
-                          loadingProgress.expectedTotalBytes
+                          (loadingProgress.expectedTotalBytes ?? 1)
                       : null,
                 ),
               ),

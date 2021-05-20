@@ -34,12 +34,11 @@ class EditContactAddressInfoFormPage extends StatelessWidget {
     required this.lang,
     required this.prefecture,
     required this.provinces,
-  })   : assert(info != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    EditContactAddressInfoForm.language = lang;
+    EditContactAddressInfoFormPage.language = lang;
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
       getCountries: getIt<GetCountries>(),
@@ -81,7 +80,7 @@ class EditContactAddressInfoFormPage extends StatelessWidget {
     return BlocConsumer<UpdateAddressInfoActorBloc,
         UpdateAddressInfoActorState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
+        state.failureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -103,8 +102,7 @@ class EditContactAddressInfoFormPage extends StatelessWidget {
                   title: "Address Info",
                   message: "Successfully updated.",
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .popUntilPath(Routes.tabBarScreen);
+                    context.navigateTo(const TabBarRoute());
                   },
                 ),
               );
@@ -219,10 +217,10 @@ class _SameAsCurrentAddress extends StatelessWidget {
             Checkbox(
               value: state.sameAsCurrAddressInfo,
               activeColor: Palette.primary,
-              onChanged: (bool value) => context
+              onChanged: (value) => context
                   .read<UpdateAddressInfoActorBloc>()
                   .add(UpdateAddressInfoActorEvent.changeSameAsCurrAddressInfo(
-                      value)),
+                      value ?? false)),
             ),
           ],
         );
@@ -250,7 +248,7 @@ class _CountryInputField extends StatelessWidget {
           options: state.listOfCountries,
           onChanged: (value) => context
               .read<UpdateAddressInfoActorBloc>()
-              .add(UpdateAddressInfoActorEvent.changeContCountry(value)),
+              .add(UpdateAddressInfoActorEvent.changeContCountry(value ?? '')),
         ),
       ),
     );
@@ -337,19 +335,19 @@ class _SearchAddressViaPostalCode extends StatelessWidget {
             if (data.isNotEmpty) {
               final addressData = data.first;
 
-              final String prefectureEn = addressData.prefecture;
-              final String prefectureJp = addressData.prefectureJp;
+              final String prefectureEn = addressData.prefecture ?? '';
+              final String prefectureJp = addressData.prefectureJp ?? '';
               // prefectureEn =
               //     "${prefectureEn[0].toUpperCase()}${prefectureEn.substring(1)}";
 
-              final String cityEn = addressData.city;
-              final String cityJp = addressData.cityJp;
+              final String cityEn = addressData.city ?? '';
+              final String cityJp = addressData.cityJp ?? '';
               // cityEn = "${cityEn[0].toUpperCase()}${cityEn.substring(1)}";
 
-              final String addressEn = addressData.street;
-              final String addressJp = addressData.streetJp;
+              final String addressEn = addressData.street ?? '';
+              final String addressJp = addressData.streetJp ?? '';
 
-              if (EditContactAddressInfoForm.language == "en") {
+              if (EditContactAddressInfoFormPage.language == "en") {
                 parentContext.read<UpdateAddressInfoActorBloc>().add(
                     UpdateAddressInfoActorEvent.changedContJapanesePrefecture(
                         prefectureEn));
@@ -440,7 +438,7 @@ class _PrefectureInputField extends StatelessWidget {
                 onChanged: (value) {
                   context.read<UpdateAddressInfoActorBloc>().add(
                       UpdateAddressInfoActorEvent.changedContJapanesePrefecture(
-                          value));
+                          value ?? ''));
                 },
               )
             : state.contCountry.toLowerCase() == "nepal"
@@ -451,7 +449,7 @@ class _PrefectureInputField extends StatelessWidget {
                     onChanged: (value) {
                       context.read<UpdateAddressInfoActorBloc>().add(
                             UpdateAddressInfoActorEvent
-                                .changedContNepaliProvince(value),
+                                .changedContNepaliProvince(value ?? ''),
                           );
                     },
                   )
@@ -485,9 +483,8 @@ class _CityInputField extends StatelessWidget {
                 value: state.contCity,
                 options: state.listOfContCities,
                 onChanged: (value) {
-                  context
-                      .read<UpdateAddressInfoActorBloc>()
-                      .add(UpdateAddressInfoActorEvent.changedContCity(value));
+                  context.read<UpdateAddressInfoActorBloc>().add(
+                      UpdateAddressInfoActorEvent.changedContCity(value ?? ''));
                 },
               )
             : state.contCountry.toLowerCase() == "nepal"
@@ -497,7 +494,8 @@ class _CityInputField extends StatelessWidget {
                     options: state.listOfContCities,
                     onChanged: (value) {
                       context.read<UpdateAddressInfoActorBloc>().add(
-                          UpdateAddressInfoActorEvent.changedContCity(value));
+                          UpdateAddressInfoActorEvent.changedContCity(
+                              value ?? ''));
                     },
                   )
                 : InputTextWidget(

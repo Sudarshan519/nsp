@@ -12,8 +12,7 @@ class JapaneseMannerDetailPage extends StatelessWidget {
   const JapaneseMannerDetailPage({
     Key? key,
     required this.japaneseManner,
-  })   : assert(japaneseManner != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,7 @@ class JapaneseMannerDetailPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            japaneseManner.title,
+            japaneseManner.title ?? '',
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
@@ -60,11 +59,9 @@ class JapaneseMannerDetailPage extends StatelessWidget {
                 children: [
                   Html(
                       data: japaneseManner.description,
-                      onLinkTap: (link) {
-                        ExtendedNavigator.of(context).pushAppWebView(
-                          url: link,
-                          title: "",
-                        );
+                      onLinkTap: (link, _, __, ___) {
+                        context.pushRoute(
+                            AppWebViewRoute(url: link ?? '', title: ''));
                       }),
                   const SizedBox(height: 10),
                 ],

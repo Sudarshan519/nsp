@@ -14,9 +14,12 @@ import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class PartnerServicesPage extends StatelessWidget {
-  final String categoryName;
+  final String? categoryName;
 
-  const PartnerServicesPage({Key? key, this.categoryName}) : super(key: key);
+  const PartnerServicesPage({
+    Key? key,
+    this.categoryName,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +78,7 @@ class PartnerServicesPage extends StatelessWidget {
 
 class _PartnerServicesTabPage extends StatefulWidget {
   final List<ServicesCategory> categories;
-  final String categoryName;
+  final String? categoryName;
 
   const _PartnerServicesTabPage({
     Key? key,
@@ -140,13 +143,13 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
   List<NewsTabBarData> _getTabbarData(List<ServicesCategory> categories) {
     final List<NewsTabBarData> tabData = [];
     for (final category in categories) {
-      tabData.add(NewsTabBarData(title: category.categoryName));
+      tabData.add(NewsTabBarData(title: category.categoryName ?? ''));
     }
     return tabData;
   }
 
   void setPage() {
-    if (widget.categoryName != null && widget.categoryName.isNotEmpty) {
+    if (widget.categoryName != null && widget.categoryName!.isNotEmpty) {
       final categoryFound = widget.categories.firstWhere(
           (category) => category.categoryName == widget.categoryName);
       if (categoryFound != null) {
@@ -229,8 +232,8 @@ class _PartnerServicesPageList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
-                onTap: () => ExtendedNavigator.of(context)
-                    .pushServicesDetail(services: data),
+                onTap: () =>
+                    context.pushRoute(ServicesDetailRoute(services: data)),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(width / 2.0),
                   child: Image.network(
@@ -248,8 +251,8 @@ class _PartnerServicesPageList extends StatelessWidget {
                   children: [
                     const SizedBox(height: 10),
                     InkWell(
-                      onTap: () => ExtendedNavigator.of(context)
-                          .pushServicesDetail(services: data),
+                      onTap: () => context
+                          .pushRoute(ServicesDetailRoute(services: data)),
                       child: Text(
                         data.serviceProductName ?? "",
                         style: const TextStyle(
@@ -282,7 +285,7 @@ class _PartnerServicesPageList extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        data?.category ?? "",
+                        data.category ?? "",
                         style: TextStyle(
                           color: Palette.black.withOpacity(0.7),
                           fontSize: 10,

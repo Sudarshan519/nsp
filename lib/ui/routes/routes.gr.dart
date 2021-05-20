@@ -607,7 +607,7 @@ class ProfileRoute extends _i1.PageRouteInfo {
 }
 
 class PartnerServicesRoute extends _i1.PageRouteInfo<PartnerServicesRouteArgs> {
-  PartnerServicesRoute({_i2.Key? key, String categoryName})
+  PartnerServicesRoute({_i2.Key? key, String? categoryName})
       : super(name,
             path: '/partner-services-page',
             args:
@@ -621,7 +621,7 @@ class PartnerServicesRouteArgs {
 
   final _i2.Key? key;
 
-  final String categoryName;
+  final String? categoryName;
 }
 
 class ServicesDetailRoute extends _i1.PageRouteInfo<ServicesDetailRouteArgs> {
@@ -642,7 +642,7 @@ class ServicesDetailRouteArgs {
 }
 
 class JapaneseMannerRoute extends _i1.PageRouteInfo<JapaneseMannerRouteArgs> {
-  JapaneseMannerRoute({_i2.Key? key, String categoryName})
+  JapaneseMannerRoute({_i2.Key? key, String? categoryName})
       : super(name,
             path: '/japanese-manner-page',
             args:
@@ -656,7 +656,7 @@ class JapaneseMannerRouteArgs {
 
   final _i2.Key? key;
 
-  final String categoryName;
+  final String? categoryName;
 }
 
 class JapaneseMannerDetailRoute

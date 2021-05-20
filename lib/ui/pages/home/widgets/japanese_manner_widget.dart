@@ -14,8 +14,7 @@ class JapaneseMannerWidget extends StatelessWidget {
   JapaneseMannerWidget({
     Key? key,
     required this.data,
-  })   : assert(data != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class JapaneseMannerWidget extends StatelessWidget {
                       valueListenable: _positionNotifier,
                       builder: (context, position, child) {
                         return Text(
-                          position as String,
+                          position as String? ?? '',
                           style: const TextStyle(
                             fontWeight: FontWeight.w500,
                           ),
@@ -66,7 +65,7 @@ class JapaneseMannerWidget extends StatelessWidget {
                   itemCount: data.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    if (data[index].isYoutube) {
+                    if (data[index].isYoutube ?? false) {
                       return _getYoutubePlayer(context, data[index]);
                     }
                     return _getServiceItem(context, data[index]);
@@ -95,8 +94,8 @@ class JapaneseMannerWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
-            onTap: () => ExtendedNavigator.of(context)
-                .pushJapaneseMannerDetailPage(japaneseManner: data),
+            onTap: () => context
+                .pushRoute(JapaneseMannerDetailRoute(japaneseManner: data)),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.network(
@@ -117,9 +116,8 @@ class JapaneseMannerWidget extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           InkWell(
-            onTap: () => ExtendedNavigator.of(context).pushJapaneseMannerPage(
-              categoryName: data?.category?.categoryName,
-            ),
+            onTap: () => context.pushRoute(JapaneseMannerRoute(
+                categoryName: data.category?.categoryName ?? '')),
             child: Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 4,
@@ -132,7 +130,7 @@ class JapaneseMannerWidget extends StatelessWidget {
                 ),
               ),
               child: Text(
-                data?.category?.categoryName ?? "",
+                data.category?.categoryName ?? "",
                 style: TextStyle(
                   color: Palette.black.withOpacity(0.7),
                   fontSize: 10,
@@ -147,12 +145,12 @@ class JapaneseMannerWidget extends StatelessWidget {
   }
 
   Widget _getYoutubePlayer(BuildContext context, JapaneseManner data) {
-    String url = data.description;
+    String url = data.description ?? '';
     url = url.replaceAll("<p>", "");
     url = url.replaceAll("</p>", "");
 
     String videoId;
-    videoId = YoutubePlayer.convertUrlToId(url);
+    videoId = YoutubePlayer.convertUrlToId(url) ?? '';
 
     final YoutubePlayerController _controller = YoutubePlayerController(
       initialVideoId: videoId,
@@ -164,10 +162,7 @@ class JapaneseMannerWidget extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        ExtendedNavigator.of(context).pushAppWebView(
-          url: url ?? "",
-          title: data.title ?? "",
-        );
+        context.pushRoute(AppWebViewRoute(url: url, title: data.title ?? ''));
       },
       child: Container(
         color: Palette.white,
@@ -219,7 +214,7 @@ class JapaneseMannerWidget extends StatelessWidget {
                 ),
               ),
               child: Text(
-                data?.category?.categoryName ?? "",
+                data.category?.categoryName ?? "",
                 style: TextStyle(
                   color: Palette.black.withOpacity(0.7),
                   fontSize: 10,

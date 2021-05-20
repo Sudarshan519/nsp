@@ -74,7 +74,7 @@ class EditBasicInfoFormPage extends StatelessWidget {
     return BlocConsumer<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
+        state.failureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -96,8 +96,7 @@ class EditBasicInfoFormPage extends StatelessWidget {
                   title: "Basic Info",
                   message: "Successfully updated.",
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .popUntilPath(Routes.tabBarScreen);
+                    context.navigateTo(const TabBarRoute());
                   },
                 ),
               );
@@ -311,7 +310,7 @@ class _ProfessionInputField extends StatelessWidget {
           options: state.listOfProfession,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeProfession(value)),
+              .add(UpdatePersonalInfoActorEvent.changeProfession(value ?? '')),
         ),
       ),
     );
@@ -434,7 +433,7 @@ class _NationalityInputField extends StatelessWidget {
           options: state.listOfNationality,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeNationality(value)),
+              .add(UpdatePersonalInfoActorEvent.changeNationality(value ?? '')),
         ),
       ),
     );

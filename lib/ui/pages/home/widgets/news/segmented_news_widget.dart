@@ -29,7 +29,7 @@ class SegmentedNewViewWidget extends StatefulWidget {
 }
 
 class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
-  int _selectedIndex;
+  late int _selectedIndex;
 
   @override
   void initState() {
@@ -249,7 +249,7 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
                 fontWeight: FontWeight.w600,
               ),
               onTap: () {
-                DefaultTabController.of(context).animateTo(2);
+                DefaultTabController.of(context)?.animateTo(2);
                 if (_selectedIndex == 1) {
                   widget.changeNewsTabPage(1);
                 }
@@ -308,7 +308,7 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
                 fontWeight: FontWeight.w600,
               ),
               onTap: () {
-                ExtendedNavigator.of(context).push(Routes.alertsTabPage);
+                context.pushRoute(const AlertsTabRoute());
               },
             ),
           ),

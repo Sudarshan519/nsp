@@ -32,8 +32,7 @@ class HomePage extends StatelessWidget {
     required this.changeTabPage,
     required this.changeResumeTabPage,
     required this.changeNewsTabPage,
-  })   : assert(changeTabPage != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +87,10 @@ class HomePage extends StatelessWidget {
             return loadingPage();
           },
           loadingWithData: (success) => _homePageBodyContent(
-              context, success.data.homeData, success.data.userDetail),
+            context,
+            success.data.homeData,
+            success.data.userDetail,
+          ),
           loaded: (success) => _homePageBodyContent(
               context, success.data.homeData, success.data.userDetail),
           failure: (error) {
@@ -122,7 +124,12 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _homePageBodyContent(
-      BuildContext context, List data, UserDetail userDetail) {
+      BuildContext context, List? data, UserDetail? userDetail) {
+    if (data == null || data.isEmpty) {
+      debugPrint(" data is null or empty");
+      return const SizedBox.shrink();
+    }
+
     return ListView.builder(
       primary: false,
       padding: EdgeInsets.zero,
@@ -136,9 +143,9 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _listItemBuilder(
-      BuildContext context, dynamic data, UserDetail userDetail) {
+      BuildContext context, dynamic? data, UserDetail? userDetail) {
     final model = data as HomeData;
-    final typeString = model.type;
+    final typeString = model.type ?? '';
 
     final type = _getHomeItemTypeString(typeString);
 
@@ -165,7 +172,7 @@ class HomePage extends StatelessWidget {
             .map((x) =>
                 JapaneseMannerModel.fromJson(x as Map<String, dynamic>)));
         return JapaneseMannerWidget(
-          data: data ?? [],
+          data: data,
         );
 
       case HomeItemType.banner:
@@ -187,17 +194,22 @@ class HomePage extends StatelessWidget {
 
   HomeItemType _getHomeItemTypeString(String type) {
     final _type = 'HomeItemType.$type';
-    return HomeItemType.values
-        .firstWhere((f) => f.toString() == _type, orElse: () => null);
+    return HomeItemType.values.firstWhere((f) => f.toString() == _type,
+        orElse: () => HomeItemType.disaster_alert);
   }
 
-  MyResumeWidget buildResumeSection(
+  Widget buildResumeSection(
     BuildContext context,
     Map<String, dynamic> data,
-    UserDetail userDetail,
+    UserDetail? userDetail,
   ) {
     final map = data["data"] as Map<String, dynamic>;
     final resumeModel = ResumeDataModel.fromJson(map);
+
+    if (userDetail == null) {
+      debugPrint("User Detail is null");
+      return const SizedBox.shrink();
+    }
 
     return MyResumeWidget(
       userDetail: userDetail,

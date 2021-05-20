@@ -59,10 +59,12 @@ class WorkPage extends StatelessWidget {
           child: FloatingActionButton(
             backgroundColor: Palette.white,
             onPressed: () {
-              ExtendedNavigator.of(context).pushEditWorkInfoForm(
-                info: const WorkHistory(),
-                typeOfCompanyList: typeOfCompanyList,
-                lang: lang,
+              context.pushRoute(
+                EditWorkInfoFormRoute(
+                  info: const WorkHistory(),
+                  typeOfCompanyList: typeOfCompanyList,
+                  lang: lang,
+                ),
               );
             },
             child: SvgPicture.asset(
@@ -137,10 +139,12 @@ class _CreateWorkInfoBox extends StatelessWidget {
               ),
               const Spacer(),
               InkWell(
-                onTap: () => ExtendedNavigator.of(context).pushEditWorkInfoForm(
-                  info: work,
-                  typeOfCompanyList: typeOfCompanyList,
-                  lang: lang,
+                onTap: () => context.pushRoute(
+                  EditWorkInfoFormRoute(
+                    info: work,
+                    typeOfCompanyList: typeOfCompanyList,
+                    lang: lang,
+                  ),
                 ),
                 child: SvgPicture.asset(
                   "assets/images/resume/edit.svg",

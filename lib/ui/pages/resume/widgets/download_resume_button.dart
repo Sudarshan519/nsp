@@ -13,7 +13,7 @@ import 'package:http/http.dart' as http;
 
 class DownloadResumeButton extends StatelessWidget {
   final Widget child;
-  final Widget loading;
+  final Widget? loading;
 
   const DownloadResumeButton({
     Key? key,
@@ -67,15 +67,18 @@ class DownloadResumeButton extends StatelessWidget {
   }
 
   Future share(String url) async {
-    final response = await http.get(url);
-    Directory externalDir;
+    final response = await http.get(Uri.parse(url));
+    Directory? externalDir;
     if (Platform.isAndroid) {
       externalDir = await getExternalStorageDirectory();
     } else if (Platform.isIOS) {
       externalDir = await getApplicationDocumentsDirectory();
     }
+    if (externalDir == null) {
+      return;
+    }
     final documentDirectory = externalDir.path;
-    final String fileName = url.split('/').last ?? "resume.pdf";
+    final String fileName = url.split('/').last;
     final File file = File('$documentDirectory/$fileName');
     file.writeAsBytesSync(response.bodyBytes);
 

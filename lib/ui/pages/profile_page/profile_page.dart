@@ -53,7 +53,10 @@ class _ProfilePage extends StatelessWidget {
           initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
           loadingWithData: (success) => loadingPage(),
-          loaded: (success) => profileBody(context, success.data.userDetail),
+          loaded: (success) => profileBody(
+            context,
+            success.data.userDetail,
+          ),
           failure: (error) {
             Future.delayed(Duration.zero, () {
               FlushbarHelper.createError(
@@ -83,7 +86,12 @@ class _ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget profileBody(BuildContext context, UserDetail user) {
+  Widget profileBody(BuildContext context, UserDetail? user) {
+    if (user == null) {
+      debugPrint(" Userdetail is null");
+      return const SizedBox.shrink();
+    }
+
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -124,7 +132,7 @@ class _UserInfoWidget extends StatelessWidget {
                 clipBehavior: Clip.none,
                 children: [
                   ImageLoaderWidget(
-                    image: user?.avatar ?? "",
+                    image: user.avatar ?? "",
                     height: 80,
                     width: 80,
                     cornerRadius: 40,
@@ -170,7 +178,7 @@ class _UserInfoWidget extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                "${user?.firstName ?? ""} ${user?.lastName ?? ""}",
+                "${user.firstName ?? ""} ${user.lastName ?? ""}",
                 // "Siraj Ashikarisadasd",
                 style: TextStyle(
                   color: Palette.white,

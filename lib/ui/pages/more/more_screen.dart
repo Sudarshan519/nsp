@@ -60,22 +60,22 @@ class MorePage extends StatelessWidget {
       _ProfileData(
         image: "icon-profile",
         title: "Profile",
-        onTap: () => ExtendedNavigator.of(context).pushProfilePage(),
+        onTap: () => context.pushRoute(const ProfileRoute()),
       ),
       _ProfileData(
         image: "icon-jap-manner",
         title: "Japanese Manners",
-        onTap: () => ExtendedNavigator.of(context).pushJapaneseMannerPage(),
+        onTap: () => context.pushRoute(JapaneseMannerRoute()),
       ),
       _ProfileData(
         image: "icon-partner",
         title: "Partner Services",
-        onTap: () => ExtendedNavigator.of(context).pushPartnerServicesPage(),
+        onTap: () => context.pushRoute(PartnerServicesRoute()),
       ),
       _ProfileData(
         image: "icon-alerts",
         title: "Alerts",
-        onTap: () => ExtendedNavigator.of(context).pushAlertsTabPage(),
+        onTap: () => context.pushRoute(const AlertsTabRoute()),
       ),
       _ProfileData(
         image: "icon-about",
@@ -91,9 +91,10 @@ class MorePage extends StatelessWidget {
         image: "icon-privacy-policy",
         title: "Privacy Policy",
         onTap: () {
-          ExtendedNavigator.of(context).pushAppWebView(
-            url: "https://nspweb.truestreamz.com/privacy-policy",
-            title: "Privacy Policy",
+          context.pushRoute(
+            AppWebViewRoute(
+                url: "https://nspweb.truestreamz.com/privacy-policy",
+                title: "Privacy Policy"),
           );
         },
       ),
@@ -101,9 +102,11 @@ class MorePage extends StatelessWidget {
         image: "icon-terms",
         title: "Terms and Conditions",
         onTap: () {
-          ExtendedNavigator.of(context).pushAppWebView(
-            url: "https://nspweb.truestreamz.com/terms-conditions",
-            title: "Terms and Conditions",
+          context.pushRoute(
+            AppWebViewRoute(
+              url: "https://nspweb.truestreamz.com/terms-conditions",
+              title: "Terms and Conditions",
+            ),
           );
         },
       ),
@@ -112,7 +115,7 @@ class MorePage extends StatelessWidget {
         title: "Logout",
         onTap: () {
           getIt<LogoutUser>().call(NoParams());
-          ExtendedNavigator.of(context).replace(Routes.loginPage);
+          context.router.replace(const LoginRoute());
         },
       ),
     ];

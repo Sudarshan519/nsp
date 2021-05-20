@@ -59,11 +59,10 @@ class AcademicsPage extends StatelessWidget {
           child: FloatingActionButton(
             backgroundColor: Palette.white,
             onPressed: () {
-              ExtendedNavigator.of(context).pushEditAcademicInfoForm(
-                info: const AcademicHistory(),
-                listOfSubjects: listOfSubjects,
-                lang: lang,
-              );
+              context.pushRoute(EditAcademicInfoFormRoute(
+                  info: const AcademicHistory(),
+                  listOfSubjects: listOfSubjects,
+                  lang: lang));
             },
             child: SvgPicture.asset(
               "assets/images/resume/icon-add.svg",
@@ -137,12 +136,10 @@ class _CreateAcademicInfoBox extends StatelessWidget {
               ),
               const Spacer(),
               InkWell(
-                onTap: () =>
-                    ExtendedNavigator.of(context).pushEditAcademicInfoForm(
-                  info: academicHistory,
-                  listOfSubjects: listOfSubjects,
-                  lang: lang,
-                ),
+                onTap: () => context.pushRoute(EditAcademicInfoFormRoute(
+                    info: academicHistory,
+                    listOfSubjects: listOfSubjects,
+                    lang: lang)),
                 child: SvgPicture.asset(
                   "assets/images/resume/edit.svg",
                   color: Palette.primary,

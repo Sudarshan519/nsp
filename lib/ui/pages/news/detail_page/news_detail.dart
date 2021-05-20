@@ -15,8 +15,7 @@ class NewsDetailPage extends StatelessWidget {
   const NewsDetailPage({
     Key? key,
     required this.newsItem,
-  })   : assert(newsItem != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,7 @@ class NewsDetailPage extends StatelessWidget {
         innerDistance: -60,
         children: [
           Image.network(
-            newsItem.image,
+            newsItem.image ?? '',
             width: width,
             fit: BoxFit.fitWidth,
           ),
@@ -60,13 +59,13 @@ class NewsDetailPage extends StatelessWidget {
                 Row(
                   children: [
                     Image.network(
-                      newsItem.sourceImage,
+                      newsItem.sourceImage ?? '',
                       fit: BoxFit.fitHeight,
                       height: 10,
                     ),
                     const SizedBox(width: 5),
                     Text(
-                      newsItem?.source ?? "",
+                      newsItem.source ?? "",
                       style: TextStyle(
                         color: Palette.black,
                         fontSize: 12,
@@ -78,7 +77,7 @@ class NewsDetailPage extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  newsItem?.title ?? "",
+                  newsItem.title ?? "",
                   style: TextStyle(
                     color: Palette.black,
                     fontSize: 14,
@@ -107,7 +106,7 @@ class NewsDetailPage extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        newsItem.category,
+                        newsItem.category ?? '',
                         style: TextStyle(
                           color: Palette.black.withOpacity(0.7),
                           fontSize: 10,
@@ -179,10 +178,9 @@ class NewsDetailPage extends StatelessWidget {
                 // Text(newsItem.description)
                 Html(
                   data: newsItem.description,
-                  onLinkTap: (link) {
-                    ExtendedNavigator.of(context).pushAppWebView(
-                      url: link,
-                      title: "",
+                  onLinkTap: (link, _, __, ___) {
+                    context.pushRoute(
+                      AppWebViewRoute(url: link ?? '', title: ''),
                     );
                   },
                 ),
@@ -197,9 +195,10 @@ class NewsDetailPage extends StatelessWidget {
                       fontSize: 10,
                       fontWeight: FontWeight.w600,
                     ),
-                    onTap: () => ExtendedNavigator.of(context).pushAppWebView(
-                      url: newsItem.link ?? "",
-                      title: newsItem.title ?? "",
+                    onTap: () => context.pushRoute(
+                      AppWebViewRoute(
+                          url: newsItem.link ?? '',
+                          title: newsItem.title ?? ''),
                     ),
                   ),
                 ),

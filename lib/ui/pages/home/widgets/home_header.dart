@@ -47,8 +47,7 @@ class HomeHeaderWidget extends StatelessWidget {
               failure: (_) => _userImage(context, null),
               failureWithData: (_) => _userImage(context, null),
               loading: (_) => _userImage(context, null),
-              loaded: (success) =>
-                  _userImage(context, success?.data?.userDetail),
+              loaded: (success) => _userImage(context, success.data.userDetail),
               loadingWithData: (_) => _userImage(context, null),
             );
           },
@@ -76,14 +75,14 @@ class HomeHeaderWidget extends StatelessWidget {
     );
   }
 
-  Widget _userImage(BuildContext context, UserDetail userDetail) {
+  Widget _userImage(BuildContext context, UserDetail? userDetail) {
     final image = userDetail?.avatar ?? "";
 
     if (image.isEmpty) {
       return InkWell(
         onTap: () {
           if (userDetail != null) {
-            ExtendedNavigator.of(context).pushProfilePage();
+            context.pushRoute(const ProfileRoute());
           }
         },
         child: SizedBox(
@@ -103,7 +102,7 @@ class HomeHeaderWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (userDetail != null) {
-          ExtendedNavigator.of(context).pushProfilePage();
+          context.pushRoute(const ProfileRoute());
         }
       },
       child: SizedBox(
@@ -115,7 +114,7 @@ class HomeHeaderWidget extends StatelessWidget {
             image,
             fit: BoxFit.cover,
             loadingBuilder: (BuildContext context, Widget child,
-                ImageChunkEvent loadingProgress) {
+                ImageChunkEvent? loadingProgress) {
               if (loadingProgress == null) return child;
               return Container(
                 color: Palette.primaryBackground,
@@ -124,7 +123,7 @@ class HomeHeaderWidget extends StatelessWidget {
                   child: CircularProgressIndicator(
                     value: loadingProgress.expectedTotalBytes != null
                         ? loadingProgress.cumulativeBytesLoaded /
-                            loadingProgress.expectedTotalBytes
+                            (loadingProgress.expectedTotalBytes ?? 1)
                         : null,
                   ),
                 ),
