@@ -146,6 +146,8 @@ class PersonalDetailPage extends StatelessWidget {
           ShadowBoxWidget(
             child: Column(
               children: const [
+                _SameAsPermanentAddress(),
+                SizedBox(height: 10),
                 _ResidenceCountryInputField(),
                 SizedBox(height: 10),
                 _ResidencePostalCodeInputField(),
@@ -758,7 +760,7 @@ class _OriginCityInputField extends StatelessWidget {
                 key: UniqueKey(),
                 hintText: "City",
                 value: state.originCity,
-                options: state.listOfJapaneseResidenceCities,
+                options: state.listOfJapaneseOriginCities,
                 onChanged: (value) {
                   context
                       .read<UpdateProfileBloc>()
@@ -815,6 +817,41 @@ class _OriginAddressInputField extends StatelessWidget {
 }
 
 // RESIDENCE ADDRESS
+class _SameAsPermanentAddress extends StatelessWidget {
+  const _SameAsPermanentAddress({
+    Key? key,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateProfileBloc,
+        UpdateProfileState>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            Checkbox(
+              value: state.isSameAsOriginAddress,
+              activeColor: Palette.primary,
+              onChanged: (value) 
+               => context
+                  .read<UpdateProfileBloc>()
+                  .add(const UpdateProfileEvent.changeSameAsOriginAddress(
+                      )),
+            ),
+            const Text(
+              "Same as Origin/Permanent Address",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            
+          ],
+        );
+      },
+    );
+  }
+}
 
 class _ResidenceCountryInputField extends StatelessWidget {
   const _ResidenceCountryInputField({
@@ -917,9 +954,9 @@ class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
 
             if (data.isNotEmpty) {
               final addressData = data.first;
-              String prefecture = addressData.prefecture ?? '';
+              final String prefecture = addressData.prefecture ?? '';
 
-              String city = addressData.city ?? '';
+              final String city = addressData.city ?? '';
 
               parentContext
                   .read<UpdateProfileBloc>()

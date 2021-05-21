@@ -43,6 +43,8 @@ class UpdateProfileEvent with _$UpdateProfileEvent {
       _ChangeOriginCity;
   const factory UpdateProfileEvent.changeOriginStreetAddress(
       String streetAddress) = _ChangeOriginStreetAddress;
+  const factory UpdateProfileEvent.changeSameAsOriginAddress() =
+      _ChangeSameAsOriginAddress;
   const factory UpdateProfileEvent.changeResidenceCountry(String country) =
       _ChangeResidenceCountry;
   const factory UpdateProfileEvent.changeResidencePostalCode(
