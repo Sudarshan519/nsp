@@ -397,6 +397,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
       _ChangeOriginCountry _changeOriginCountry) {
     return state.copyWith(
       originCountry: _changeOriginCountry.country,
+      originCity: '',
       failureOrSuccessOption: none(),
     );
   }

@@ -154,7 +154,7 @@ class UpdateWorkInfoActorBloc
     failureOrSuccess = await updateWorkInfo(
       UpdateWorkInfoParams(
         lang: _lang ?? "en",
-        id: _workHistory?.id ?? 0,
+        id: _workHistory?.id,
         companyName: state.nameOfComapny,
         companyType: state.companyType,
         startYear: state.startedYear,

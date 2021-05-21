@@ -55,7 +55,7 @@ class UpdateAcadamicInfoParams {
   });
 
   final String lang;
-  final int id;
+  final int? id;
   final String insutitute;
   final String majorSubject;
   final String startYear;

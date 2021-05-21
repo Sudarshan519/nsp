@@ -1,7 +1,7 @@
 part of 'update_other_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
+class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
   const factory UpdateOtherInfoActorState({
     required Key? key,
     required List<String> languages,

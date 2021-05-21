@@ -1,7 +1,7 @@
 part of 'update_profile_bloc.dart';
 
 @freezed
-abstract class UpdateProfileState with _$UpdateProfileState {
+class UpdateProfileState with _$UpdateProfileState {
   const factory UpdateProfileState({
     required Key? key,
     required String firstName,

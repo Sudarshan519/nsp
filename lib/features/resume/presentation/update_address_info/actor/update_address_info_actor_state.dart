@@ -1,7 +1,7 @@
 part of 'update_address_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
+class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
   const factory UpdateAddressInfoActorState({
     required Key? key,
     required String currCountry,

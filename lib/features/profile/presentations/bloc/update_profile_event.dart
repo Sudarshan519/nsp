@@ -1,7 +1,7 @@
 part of 'update_profile_bloc.dart';
 
 @freezed
-abstract class UpdateProfileEvent with _$UpdateProfileEvent {
+class UpdateProfileEvent with _$UpdateProfileEvent {
   const factory UpdateProfileEvent.changeFirstName(String name) =
       _ChangeFirstName;
   const factory UpdateProfileEvent.changeLastName(String name) =

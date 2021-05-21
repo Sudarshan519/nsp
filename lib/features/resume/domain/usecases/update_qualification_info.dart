@@ -51,7 +51,7 @@ class UpdateQualificationInfoParams {
 
   final String lang;
 
-  final int id;
+  final int? id;
   final String qualificationName;
   final String certifiedYear;
   final String certifiedMonth;

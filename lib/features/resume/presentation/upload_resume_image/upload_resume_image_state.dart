@@ -1,7 +1,7 @@
 part of 'upload_resume_image_bloc.dart';
 
 @freezed
-abstract class UploadResumeImageState with _$UploadResumeImageState {
+class UploadResumeImageState with _$UploadResumeImageState {
   const factory UploadResumeImageState({
     File? resumeProfileImage,
     required bool isSubmitting,

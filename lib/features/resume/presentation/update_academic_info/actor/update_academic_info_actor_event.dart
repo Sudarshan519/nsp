@@ -1,8 +1,7 @@
 part of 'update_academic_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateAcademicInfoActorEvent
-    with _$UpdateAcademicInfoActorEvent {
+class UpdateAcademicInfoActorEvent with _$UpdateAcademicInfoActorEvent {
   const factory UpdateAcademicInfoActorEvent.changedNameOfInstitute(
       String institute) = _ChangedNameOfInstitute;
   const factory UpdateAcademicInfoActorEvent.changedMajorSubject(

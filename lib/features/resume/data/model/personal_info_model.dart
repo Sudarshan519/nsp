@@ -201,7 +201,7 @@ class PersonalInfoModel extends PersonalInfo {
       params["profession"] = profession;
     }
 
-    if (dob != null) {
+    if (dob != null && dob!.isNotEmpty) {
       params["dob"] = dob;
     }
 

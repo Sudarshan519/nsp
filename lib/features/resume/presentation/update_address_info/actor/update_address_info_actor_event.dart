@@ -1,7 +1,7 @@
 part of 'update_address_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateAddressInfoActorEvent with _$UpdateAddressInfoActorEvent {
+class UpdateAddressInfoActorEvent with _$UpdateAddressInfoActorEvent {
   const factory UpdateAddressInfoActorEvent.changeCurrCountry(String country) =
       _ChangedCurrCountry;
   const factory UpdateAddressInfoActorEvent.changedCurrPostalCode(String code) =

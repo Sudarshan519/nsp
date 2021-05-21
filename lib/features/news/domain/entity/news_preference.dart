@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class NewsPreference {
   NewsPreference({
     required this.name,

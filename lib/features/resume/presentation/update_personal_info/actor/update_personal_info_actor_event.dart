@@ -1,8 +1,7 @@
 part of 'update_personal_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdatePersonalInfoActorEvent
-    with _$UpdatePersonalInfoActorEvent {
+class UpdatePersonalInfoActorEvent with _$UpdatePersonalInfoActorEvent {
   const factory UpdatePersonalInfoActorEvent.changeFirstName(String name) =
       _ChangeFirstName;
   const factory UpdatePersonalInfoActorEvent.changeLastName(String name) =

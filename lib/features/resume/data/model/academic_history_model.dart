@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 import '../../domain/entities/academic_history.dart';
 
 class AcademicHistoryModel extends AcademicHistory {

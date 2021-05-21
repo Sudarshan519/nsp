@@ -350,7 +350,7 @@ class SearchChoices<T> extends StatefulWidget {
     bool rightToLeft = false,
     bool autofocus = true,
     Function? selectedAggregateWidgetFn,
-    double padding = 10.0,
+    double padding = 0.0,
     Function? setOpenDialog,
     Widget Function(
       Widget titleBar,
@@ -476,7 +476,7 @@ class SearchChoices<T> extends StatefulWidget {
     bool rightToLeft = false,
     bool autofocus = true,
     Function? selectedAggregateWidgetFn,
-    double padding = 10.0,
+    double padding = 0.0,
     Function? setOpenDialog,
     Widget Function(
       Widget titleBar,
@@ -566,7 +566,7 @@ class SearchChoices<T> extends StatefulWidget {
     required this.rightToLeft,
     required this.autofocus,
     this.selectedAggregateWidgetFn,
-    this.padding = 10,
+    this.padding = 0,
     this.setOpenDialog,
     this.buildDropDownDialog,
     this.searchInputDecoration,
@@ -1157,9 +1157,9 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
       duration: const Duration(milliseconds: 300),
       child: Card(
         color: widget.menuBackgroundColor,
-        margin: EdgeInsets.symmetric(
-            vertical: widget.dialogBox ? 10 : 5,
-            horizontal: widget.dialogBox ? 10 : 4),
+        // margin: EdgeInsets.symmetric(
+        //     vertical: widget.dialogBox ? 10 : 5,
+        //     horizontal: widget.dialogBox ? 10 : 4),
         child: Container(
           constraints: widget.menuConstraints,
           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
@@ -1271,14 +1271,14 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
                           Icons.search,
                           size: 24,
                         ),
-                        contentPadding: EdgeInsets.symmetric(vertical: 12),
+                        // contentPadding: EdgeInsets.symmetric(vertical: 12),
                       )
                     : InputDecoration(
                         prefixIcon: Icon(
                           Icons.search,
                           size: 24,
                         ),
-                        contentPadding: EdgeInsets.symmetric(vertical: 12),
+                        // contentPadding: EdgeInsets.symmetric(vertical: 12),
                       ),
             style: widget.style,
             autofocus: widget.autofocus,

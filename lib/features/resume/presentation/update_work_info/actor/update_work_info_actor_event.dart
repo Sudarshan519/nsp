@@ -1,7 +1,7 @@
 part of 'update_work_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateWorkInfoActorEvent with _$UpdateWorkInfoActorEvent {
+class UpdateWorkInfoActorEvent with _$UpdateWorkInfoActorEvent {
   const factory UpdateWorkInfoActorEvent.changedNameOfCompany(String company) =
       _ChangedNameOfCompany;
   const factory UpdateWorkInfoActorEvent.changedTypeOfCompany(String type) =

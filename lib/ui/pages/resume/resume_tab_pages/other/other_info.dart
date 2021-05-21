@@ -201,6 +201,7 @@ class _JLPTLevelField extends StatelessWidget {
             "N3",
             "N4",
             "N5",
+            "NOT AVAILABLE",
           ],
         ),
       ),

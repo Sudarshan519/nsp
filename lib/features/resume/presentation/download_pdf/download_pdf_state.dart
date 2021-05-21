@@ -1,7 +1,7 @@
 part of 'download_pdf_bloc.dart';
 
 @freezed
-abstract class DownloadPdfState with _$DownloadPdfState {
+class DownloadPdfState with _$DownloadPdfState {
   const factory DownloadPdfState.initial() = _Initial;
   const factory DownloadPdfState.preparing() = _Preparing;
   const factory DownloadPdfState.downLoadableLink(

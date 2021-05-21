@@ -1,8 +1,7 @@
 part of 'update_academic_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateAcademicInfoActorState
-    with _$UpdateAcademicInfoActorState {
+class UpdateAcademicInfoActorState with _$UpdateAcademicInfoActorState {
   const factory UpdateAcademicInfoActorState({
     required Key? key,
     required String nameOfInstitute,

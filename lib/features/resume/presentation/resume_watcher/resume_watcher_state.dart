@@ -1,7 +1,7 @@
 part of 'resume_watcher_bloc.dart';
 
 @freezed
-abstract class ResumeWatcherState with _$ResumeWatcherState {
+class ResumeWatcherState with _$ResumeWatcherState {
   const factory ResumeWatcherState({
     required String language,
     required PersonalInfo info,

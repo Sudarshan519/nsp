@@ -223,26 +223,15 @@ class __$ChangeFirstNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeFirstName
-    with DiagnosticableTreeMixin
-    implements _ChangeFirstName {
+class _$_ChangeFirstName implements _ChangeFirstName {
   const _$_ChangeFirstName(this.name);
 
   @override
   final String name;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changeFirstName(name: $name)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdatePersonalInfoActorEvent.changeFirstName'))
-      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -394,26 +383,15 @@ class __$ChangeLastNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeLastName
-    with DiagnosticableTreeMixin
-    implements _ChangeLastName {
+class _$_ChangeLastName implements _ChangeLastName {
   const _$_ChangeLastName(this.name);
 
   @override
   final String name;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changeLastName(name: $name)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdatePersonalInfoActorEvent.changeLastName'))
-      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -565,26 +543,15 @@ class __$ChangeFuriganaNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeFuriganaName
-    with DiagnosticableTreeMixin
-    implements _ChangeFuriganaName {
+class _$_ChangeFuriganaName implements _ChangeFuriganaName {
   const _$_ChangeFuriganaName(this.name);
 
   @override
   final String name;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changeFuriganaName(name: $name)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdatePersonalInfoActorEvent.changeFuriganaName'))
-      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -736,26 +703,15 @@ class __$ChangeProfessionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeProfession
-    with DiagnosticableTreeMixin
-    implements _ChangeProfession {
+class _$_ChangeProfession implements _ChangeProfession {
   const _$_ChangeProfession(this.profession);
 
   @override
   final String profession;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changeProfession(profession: $profession)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdatePersonalInfoActorEvent.changeProfession'))
-      ..add(DiagnosticsProperty('profession', profession));
   }
 
   @override
@@ -907,24 +863,15 @@ class __$ChangeDobCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeDob with DiagnosticableTreeMixin implements _ChangeDob {
+class _$_ChangeDob implements _ChangeDob {
   const _$_ChangeDob(this.dob);
 
   @override
   final String dob;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changeDob(dob: $dob)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'UpdatePersonalInfoActorEvent.changeDob'))
-      ..add(DiagnosticsProperty('dob', dob));
   }
 
   @override
@@ -1075,24 +1022,15 @@ class __$ChangeAgeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeAge with DiagnosticableTreeMixin implements _ChangeAge {
+class _$_ChangeAge implements _ChangeAge {
   const _$_ChangeAge(this.age);
 
   @override
   final String age;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changeAge(age: $age)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'UpdatePersonalInfoActorEvent.changeAge'))
-      ..add(DiagnosticsProperty('age', age));
   }
 
   @override
@@ -1244,24 +1182,15 @@ class __$ChangeGenderCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeGender with DiagnosticableTreeMixin implements _ChangeGender {
+class _$_ChangeGender implements _ChangeGender {
   const _$_ChangeGender(this.gender);
 
   @override
   final String gender;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changeGender(gender: $gender)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdatePersonalInfoActorEvent.changeGender'))
-      ..add(DiagnosticsProperty('gender', gender));
   }
 
   @override
@@ -1413,26 +1342,15 @@ class __$ChangeNationalityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeNationality
-    with DiagnosticableTreeMixin
-    implements _ChangeNationality {
+class _$_ChangeNationality implements _ChangeNationality {
   const _$_ChangeNationality(this.nationality);
 
   @override
   final String nationality;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changeNationality(nationality: $nationality)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdatePersonalInfoActorEvent.changeNationality'))
-      ..add(DiagnosticsProperty('nationality', nationality));
   }
 
   @override
@@ -1585,24 +1503,15 @@ class __$ChangeEmailCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeEmail with DiagnosticableTreeMixin implements _ChangeEmail {
+class _$_ChangeEmail implements _ChangeEmail {
   const _$_ChangeEmail(this.email);
 
   @override
   final String email;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changeEmail(email: $email)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdatePersonalInfoActorEvent.changeEmail'))
-      ..add(DiagnosticsProperty('email', email));
   }
 
   @override
@@ -1754,24 +1663,15 @@ class __$ChangePhoneCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangePhone with DiagnosticableTreeMixin implements _ChangePhone {
+class _$_ChangePhone implements _ChangePhone {
   const _$_ChangePhone(this.phone);
 
   @override
   final String phone;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.changePhone(phone: $phone)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdatePersonalInfoActorEvent.changePhone'))
-      ..add(DiagnosticsProperty('phone', phone));
   }
 
   @override
@@ -1942,9 +1842,7 @@ class __$SetInitialStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SetInitialState
-    with DiagnosticableTreeMixin
-    implements _SetInitialState {
+class _$_SetInitialState implements _SetInitialState {
   const _$_SetInitialState(
       {required this.info,
       required this.listOfNationality,
@@ -1961,20 +1859,8 @@ class _$_SetInitialState
   final String lang;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.setInitialState(info: $info, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, lang: $lang)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdatePersonalInfoActorEvent.setInitialState'))
-      ..add(DiagnosticsProperty('info', info))
-      ..add(DiagnosticsProperty('listOfNationality', listOfNationality))
-      ..add(DiagnosticsProperty('listOfProfession', listOfProfession))
-      ..add(DiagnosticsProperty('lang', lang));
   }
 
   @override
@@ -2130,19 +2016,12 @@ class __$SaveCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Save with DiagnosticableTreeMixin implements _Save {
+class _$_Save implements _Save {
   const _$_Save();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorEvent.save()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdatePersonalInfoActorEvent.save'));
   }
 
   @override
@@ -2568,9 +2447,7 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdatePersonalInfoActorState
-    with DiagnosticableTreeMixin
-    implements _UpdatePersonalInfoActorState {
+class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
   const _$_UpdatePersonalInfoActorState(
       {required this.key,
       required this.firstName,
@@ -2623,32 +2500,8 @@ class _$_UpdatePersonalInfoActorState
   final Option<Either<ApiFailure, Unit>> failureOrSuccessOption;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdatePersonalInfoActorState(key: $key, firstName: $firstName, lastName: $lastName, furigana: $furigana, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, hasSetInitialData: $hasSetInitialData, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdatePersonalInfoActorState'))
-      ..add(DiagnosticsProperty('key', key))
-      ..add(DiagnosticsProperty('firstName', firstName))
-      ..add(DiagnosticsProperty('lastName', lastName))
-      ..add(DiagnosticsProperty('furigana', furigana))
-      ..add(DiagnosticsProperty('profession', profession))
-      ..add(DiagnosticsProperty('dob', dob))
-      ..add(DiagnosticsProperty('age', age))
-      ..add(DiagnosticsProperty('gender', gender))
-      ..add(DiagnosticsProperty('nationality', nationality))
-      ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('phone', phone))
-      ..add(DiagnosticsProperty('listOfNationality', listOfNationality))
-      ..add(DiagnosticsProperty('listOfProfession', listOfProfession))
-      ..add(DiagnosticsProperty('hasSetInitialData', hasSetInitialData))
-      ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
-      ..add(DiagnosticsProperty(
-          'failureOrSuccessOption', failureOrSuccessOption));
   }
 
   @override

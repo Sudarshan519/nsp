@@ -142,7 +142,7 @@ class UpdateAcademicInfoActorBloc
     failureOrSuccess = await updateAcadamicInfo(
       UpdateAcadamicInfoParams(
         lang: _lang ?? 'en',
-        id: _academicHistory?.id ?? 0,
+        id: _academicHistory?.id,
         insutitute: state.nameOfInstitute,
         majorSubject: state.majorSubject,
         startYear: state.yearOFEnroll,

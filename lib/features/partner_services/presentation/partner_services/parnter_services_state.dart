@@ -1,7 +1,7 @@
 part of 'parnter_services_bloc.dart';
 
 @freezed
-abstract class ParnterServicesState with _$ParnterServicesState {
+class ParnterServicesState with _$ParnterServicesState {
   const factory ParnterServicesState.initial() = _Initial;
   const factory ParnterServicesState.loading() = _Loading;
   const factory ParnterServicesState.loaded(List<Services> list) = _Loaded;

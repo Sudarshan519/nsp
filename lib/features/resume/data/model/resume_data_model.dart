@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 import '../../domain/entities/resume_data.dart';
 import 'academic_history_model.dart';
 import 'personal_info_model.dart';

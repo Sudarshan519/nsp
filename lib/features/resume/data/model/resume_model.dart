@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_model.dart';
 

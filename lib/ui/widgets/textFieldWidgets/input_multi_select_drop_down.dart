@@ -3,8 +3,8 @@ import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 class CustomMultiSelectDropDownWidget extends StatelessWidget {
-  final Function(List<dynamic>) onConfirm;
-  final List<String> values;
+  final Function(List<Object?>) onConfirm;
+  final List<String?> values;
   final List<String> options;
 
   const CustomMultiSelectDropDownWidget({

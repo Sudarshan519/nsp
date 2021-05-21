@@ -1,8 +1,7 @@
 part of 'update_personal_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdatePersonalInfoActorState
-    with _$UpdatePersonalInfoActorState {
+class UpdatePersonalInfoActorState with _$UpdatePersonalInfoActorState {
   const factory UpdatePersonalInfoActorState({
     required Key? key,
     required String firstName,

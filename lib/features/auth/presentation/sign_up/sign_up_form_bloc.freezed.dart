@@ -171,25 +171,15 @@ class __$ChangeFirstNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeFirstName
-    with DiagnosticableTreeMixin
-    implements _ChangeFirstName {
+class _$_ChangeFirstName implements _ChangeFirstName {
   const _$_ChangeFirstName(this.name);
 
   @override
   final String name;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SignUpFormEvent.changeFirstName(name: $name)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SignUpFormEvent.changeFirstName'))
-      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -324,25 +314,15 @@ class __$ChangeLastNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeLastName
-    with DiagnosticableTreeMixin
-    implements _ChangeLastName {
+class _$_ChangeLastName implements _ChangeLastName {
   const _$_ChangeLastName(this.name);
 
   @override
   final String name;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SignUpFormEvent.changeLastName(name: $name)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SignUpFormEvent.changeLastName'))
-      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -477,23 +457,15 @@ class __$ChangeEmailCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeEmail with DiagnosticableTreeMixin implements _ChangeEmail {
+class _$_ChangeEmail implements _ChangeEmail {
   const _$_ChangeEmail(this.email);
 
   @override
   final String email;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SignUpFormEvent.changeEmail(email: $email)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SignUpFormEvent.changeEmail'))
-      ..add(DiagnosticsProperty('email', email));
   }
 
   @override
@@ -628,25 +600,15 @@ class __$ChangePasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangePassword
-    with DiagnosticableTreeMixin
-    implements _ChangePassword {
+class _$_ChangePassword implements _ChangePassword {
   const _$_ChangePassword(this.password);
 
   @override
   final String password;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SignUpFormEvent.changePassword(password: $password)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SignUpFormEvent.changePassword'))
-      ..add(DiagnosticsProperty('password', password));
   }
 
   @override
@@ -769,19 +731,12 @@ class __$ShowPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ShowPassword with DiagnosticableTreeMixin implements _ShowPassword {
+class _$_ShowPassword implements _ShowPassword {
   const _$_ShowPassword();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SignUpFormEvent.showPassword()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SignUpFormEvent.showPassword'));
   }
 
   @override
@@ -902,26 +857,15 @@ class __$ChangeConfirmPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeConfirmPassword
-    with DiagnosticableTreeMixin
-    implements _ChangeConfirmPassword {
+class _$_ChangeConfirmPassword implements _ChangeConfirmPassword {
   const _$_ChangeConfirmPassword(this.password);
 
   @override
   final String password;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SignUpFormEvent.changeConfirmPassword(password: $password)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'SignUpFormEvent.changeConfirmPassword'))
-      ..add(DiagnosticsProperty('password', password));
   }
 
   @override
@@ -1046,21 +990,12 @@ class __$ShowConfirmPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ShowConfirmPassword
-    with DiagnosticableTreeMixin
-    implements _ShowConfirmPassword {
+class _$_ShowConfirmPassword implements _ShowConfirmPassword {
   const _$_ShowConfirmPassword();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SignUpFormEvent.showConfirmPassword()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SignUpFormEvent.showConfirmPassword'));
   }
 
   @override
@@ -1173,21 +1108,12 @@ class __$SignUpWithEmailPasswordAndOtherPressedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SignUpWithEmailPasswordAndOtherPressed
-    with DiagnosticableTreeMixin
     implements _SignUpWithEmailPasswordAndOtherPressed {
   const _$_SignUpWithEmailPasswordAndOtherPressed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SignUpFormEvent.signUpWithEmailPasswordAndOtherPressed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'SignUpFormEvent.signUpWithEmailPasswordAndOtherPressed'));
   }
 
   @override
@@ -1491,9 +1417,7 @@ class __$SignInFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SignInFormState
-    with DiagnosticableTreeMixin
-    implements _SignInFormState {
+class _$_SignInFormState implements _SignInFormState {
   const _$_SignInFormState(
       {required this.firstName,
       required this.lastName,
@@ -1525,26 +1449,8 @@ class _$_SignInFormState
   final Option<Either<ApiFailure, AuthRoutes>> authFailureOrSuccessOption;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SignUpFormState(firstName: $firstName, lastName: $lastName, emailAddress: $emailAddress, password: $password, confirmPassword: $confirmPassword, isPasswordVisible: $isPasswordVisible, isConfirmPasswordVisible: $isConfirmPasswordVisible, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SignUpFormState'))
-      ..add(DiagnosticsProperty('firstName', firstName))
-      ..add(DiagnosticsProperty('lastName', lastName))
-      ..add(DiagnosticsProperty('emailAddress', emailAddress))
-      ..add(DiagnosticsProperty('password', password))
-      ..add(DiagnosticsProperty('confirmPassword', confirmPassword))
-      ..add(DiagnosticsProperty('isPasswordVisible', isPasswordVisible))
-      ..add(DiagnosticsProperty(
-          'isConfirmPasswordVisible', isConfirmPasswordVisible))
-      ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
-      ..add(DiagnosticsProperty(
-          'authFailureOrSuccessOption', authFailureOrSuccessOption));
   }
 
   @override

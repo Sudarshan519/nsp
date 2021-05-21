@@ -33,8 +33,7 @@ class EditOtherInfoFormPage extends StatelessWidget {
     required this.listOfHobbies,
     required this.listOfSkills,
     required this.lang,
-  })   : assert(info != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -218,10 +217,13 @@ class _LanguageInputField extends StatelessWidget {
           key: UniqueKey(),
           values: state.languages,
           options: state.knownLanguages,
-          onConfirm: (values) => context.read<UpdateOtherInfoActorBloc>().add(
-                UpdateOtherInfoActorEvent.changeLanguages(
-                    values as List<String>),
-              ),
+          onConfirm: (values) {
+            context.read<UpdateOtherInfoActorBloc>().add(
+                  UpdateOtherInfoActorEvent.changeLanguages(
+                    values.map((e) => e as String? ?? '').toList(),
+                  ),
+                );
+          },
         ),
       ),
     );
@@ -269,7 +271,6 @@ class _SelfPrInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) => previous.selfPR != current.selfPR,
       builder: (context, state) => TextWidetWithLabelAndChild(
@@ -310,7 +311,9 @@ class _HobbiesInputField extends StatelessWidget {
           values: state.hobbies,
           options: state.listOfHobbies,
           onConfirm: (values) => context.read<UpdateOtherInfoActorBloc>().add(
-                UpdateOtherInfoActorEvent.changeHobbies(values as List<String>),
+                UpdateOtherInfoActorEvent.changeHobbies(
+                  values.map((e) => e as String? ?? '').toList(),
+                ),
               ),
         ),
       ),
@@ -339,7 +342,9 @@ class _SkillsInputField extends StatelessWidget {
           values: state.skills,
           options: state.listOfSkills,
           onConfirm: (values) => context.read<UpdateOtherInfoActorBloc>().add(
-                UpdateOtherInfoActorEvent.changeSkills(values as List<String>),
+                UpdateOtherInfoActorEvent.changeSkills(
+                  values.map((e) => e as String? ?? '').toList(),
+                ),
               ),
         ),
       ),

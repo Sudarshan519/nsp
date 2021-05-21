@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/features/news/data/model/news_item_model.dart';
 import 'package:wallet_app/features/news/data/model/news_model.dart';

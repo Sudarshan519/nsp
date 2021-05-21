@@ -103,18 +103,12 @@ class __$FetchCopyWithImpl<$Res> extends _$NewsGenreEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Fetch with DiagnosticableTreeMixin implements _Fetch {
+class _$_Fetch implements _Fetch {
   const _$_Fetch();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NewsGenreEvent.fetch()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'NewsGenreEvent.fetch'));
   }
 
   @override
@@ -212,23 +206,15 @@ class __$ChangeGenreCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeGenre with DiagnosticableTreeMixin implements _ChangeGenre {
+class _$_ChangeGenre implements _ChangeGenre {
   const _$_ChangeGenre(this.index);
 
   @override
   final int index;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NewsGenreEvent.changeGenre(index: $index)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NewsGenreEvent.changeGenre'))
-      ..add(DiagnosticsProperty('index', index));
   }
 
   @override
@@ -324,18 +310,12 @@ class __$SaveCopyWithImpl<$Res> extends _$NewsGenreEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Save with DiagnosticableTreeMixin implements _Save {
+class _$_Save implements _Save {
   const _$_Save();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NewsGenreEvent.save()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'NewsGenreEvent.save'));
   }
 
   @override
@@ -500,18 +480,12 @@ class __$InitialCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial with DiagnosticableTreeMixin implements _Initial {
+class _$_Initial implements _Initial {
   const _$_Initial();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NewsGenreState.initial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'NewsGenreState.initial'));
   }
 
   @override
@@ -597,18 +571,12 @@ class __$LoadingCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loading with DiagnosticableTreeMixin implements _Loading {
+class _$_Loading implements _Loading {
   const _$_Loading();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NewsGenreState.loading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'NewsGenreState.loading'));
   }
 
   @override
@@ -707,23 +675,15 @@ class __$LoadedCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loaded with DiagnosticableTreeMixin implements _Loaded {
+class _$_Loaded implements _Loaded {
   const _$_Loaded(this.genre);
 
   @override
   final List<Genre> genre;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NewsGenreState.loaded(genre: $genre)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NewsGenreState.loaded'))
-      ..add(DiagnosticsProperty('genre', genre));
   }
 
   @override
@@ -844,23 +804,15 @@ class __$FailureCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Failure with DiagnosticableTreeMixin implements _Failure {
+class _$_Failure implements _Failure {
   const _$_Failure(this.failure);
 
   @override
   final ApiFailure failure;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NewsGenreState.failure(failure: $failure)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NewsGenreState.failure'))
-      ..add(DiagnosticsProperty('failure', failure));
   }
 
   @override

@@ -705,10 +705,6 @@ class _OriginPrefectureInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-      buildWhen: (previous, current) =>
-          previous.originProvince != current.originProvince ||
-          previous.originCountry != current.originCountry ||
-          previous.originPostalCode != current.originPostalCode,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
         child: state.originCountry.toLowerCase() == "japan"
@@ -755,15 +751,6 @@ class _OriginCityInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-      buildWhen: (previous, current) =>
-          previous.originCity != current.originCity ||
-          previous.originProvince != current.originProvince ||
-          previous.originCountry != current.originCountry ||
-          previous.originPostalCode != current.originPostalCode ||
-          previous.listOfJapaneseOriginCities !=
-              current.listOfJapaneseOriginCities ||
-          previous.listOfJapaneseOriginCities !=
-              current.listOfJapaneseOriginCities,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City/District",
         child: state.originCountry.toLowerCase() == "japan"
@@ -811,8 +798,6 @@ class _OriginAddressInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-      buildWhen: (previous, current) =>
-          previous.originStreetAddress != current.originStreetAddress,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Address",
         child: InputTextWidget(
@@ -839,9 +824,6 @@ class _ResidenceCountryInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-      buildWhen: (previous, current) =>
-          previous.residenceCountry != current.residenceCountry ||
-          previous.listOfCountry != current.listOfCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Country",
         child: CustomSearchableDropDownWidget(
@@ -865,9 +847,6 @@ class _ResidencePostalCodeInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-      buildWhen: (previous, current) =>
-          previous.residencePostalCode != current.residencePostalCode ||
-          previous.residenceCountry != current.residenceCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Postal Code",
         child: Row(
@@ -919,7 +898,6 @@ class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LocationViaPostalCodeBloc, LocationViaPostalCodeState>(
-      buildWhen: (previous, current) => previous.hashCode != current.hashCode,
       builder: (context, state) {
         return state.map(
           failure: (failure) {
@@ -1014,10 +992,6 @@ class _ResidencePrefectureInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-      buildWhen: (previous, current) =>
-          previous.residenceProvince != current.residenceProvince ||
-          previous.residenceCountry != current.residenceCountry ||
-          previous.residencePostalCode != current.residencePostalCode,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
         child: state.residenceCountry.toLowerCase() == "japan"
@@ -1063,11 +1037,6 @@ class _ResidenceCityInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-      buildWhen: (previous, current) =>
-          previous.residenceCity != current.residenceCity ||
-          previous.residenceProvince != current.residenceProvince ||
-          previous.residenceCountry != current.residenceCountry ||
-          previous.residencePostalCode != current.residencePostalCode,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
         child: state.residenceCountry.toLowerCase() == "japan"
@@ -1104,8 +1073,6 @@ class _ResidenceAddressInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-      buildWhen: (previous, current) =>
-          previous.residenceStreetAddress != current.residenceStreetAddress,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Address",
         child: InputTextWidget(

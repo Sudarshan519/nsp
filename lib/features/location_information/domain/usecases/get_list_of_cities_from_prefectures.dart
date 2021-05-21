@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
@@ -23,7 +23,7 @@ class GetListOfCityFromPrefectures
       nameOfPrefecture: params.prefecture,
       lang: params.lang,
     );
-    
+
     return result.fold(
       (failure) => Left(failure),
       (data) {

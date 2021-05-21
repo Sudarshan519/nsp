@@ -1,7 +1,7 @@
 part of 'update_other_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateOtherInfoActorEvent with _$UpdateOtherInfoActorEvent {
+class UpdateOtherInfoActorEvent with _$UpdateOtherInfoActorEvent {
   const factory UpdateOtherInfoActorEvent.changeLanguages(
       List<String> languages) = _ChangeLanguages;
   const factory UpdateOtherInfoActorEvent.changeJLPTLevel(String JLPTLevel) =

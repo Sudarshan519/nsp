@@ -1,7 +1,7 @@
 part of 'update_work_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
+class UpdateWorkInfoActorState with _$UpdateWorkInfoActorState {
   const factory UpdateWorkInfoActorState({
     required Key? key,
     required String nameOfComapny,

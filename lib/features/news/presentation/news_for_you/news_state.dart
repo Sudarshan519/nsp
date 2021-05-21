@@ -1,7 +1,7 @@
 part of 'news_bloc.dart';
 
 @freezed
-abstract class NewsState with _$NewsState {
+class NewsState with _$NewsState {
   const factory NewsState.loading() = _Loading;
   const factory NewsState.loadingWith(List<NewsItem> offlinedata) =
       _LoadingWith;

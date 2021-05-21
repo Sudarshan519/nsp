@@ -104,7 +104,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     failureOrSuccess = await updateQualificationInfo(
       UpdateQualificationInfoParams(
         lang: _lang ?? "en",
-        id: _qualificationHistory?.id ?? 0,
+        id: _qualificationHistory?.id,
         qualificationName: state.qualificationName,
         certifiedYear: state.certifiedYear,
         certifiedMonth: state.certifiedMonth,

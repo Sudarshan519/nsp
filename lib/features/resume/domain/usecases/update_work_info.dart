@@ -56,7 +56,7 @@ class UpdateWorkInfoParams {
   });
 
   final String lang;
-  final int id;
+  final int? id;
   final String companyName;
   final String companyType;
   final String startYear;

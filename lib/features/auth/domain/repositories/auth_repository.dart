@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';

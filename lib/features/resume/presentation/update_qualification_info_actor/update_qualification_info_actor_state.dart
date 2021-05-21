@@ -1,7 +1,7 @@
 part of 'update_qualification_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateQualificationInfoActorState
+class UpdateQualificationInfoActorState
     with _$UpdateQualificationInfoActorState {
   const factory UpdateQualificationInfoActorState({
     required Key? key,

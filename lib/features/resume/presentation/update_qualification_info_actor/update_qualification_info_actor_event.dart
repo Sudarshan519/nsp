@@ -1,7 +1,7 @@
 part of 'update_qualification_info_actor_bloc.dart';
 
 @freezed
-abstract class UpdateQualificationInfoActorEvent
+class UpdateQualificationInfoActorEvent
     with _$UpdateQualificationInfoActorEvent {
   const factory UpdateQualificationInfoActorEvent.changedQualificationName(
       String name) = _ChangedQualificationName;
