@@ -1,9 +1,17 @@
-import 'package:esewa_pnp/esewa.dart';
-import 'package:esewa_pnp/esewa_pnp.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class PaymentOptions extends StatelessWidget {
+  const PaymentOptions({
+    Key? key,
+    required this.paymentMethods,
+  }) : super(key: key);
+
+  final List<PaymentMethod> paymentMethods;
+
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -13,11 +21,15 @@ class PaymentOptions extends StatelessWidget {
       childAspectRatio: 1.2,
       // This creates two columns with two items in each column
       children: List.generate(
-        4,
+        paymentMethods.length,
         (index) {
+          if (!(paymentMethods[index].isActive ?? true)) {
+            return const SizedBox.shrink();
+          }
+
           return InkWell(
             onTap: () {
-              _esewaPay();
+              onPaymentSelected(context, index);
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -35,12 +47,15 @@ class PaymentOptions extends StatelessWidget {
                         color: Palette.dividerColor,
                       ),
                     ),
-                    child: const SizedBox.shrink(),
+                    child: Image.network(
+                      paymentMethods[index].logo ?? '',
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 5),
-                const Text(
-                  "E-sewa",
+                Text(
+                  paymentMethods[index].name ?? '',
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -51,28 +66,21 @@ class PaymentOptions extends StatelessWidget {
     );
   }
 
-  Future _esewaPay() async {
-    final ESewaConfiguration _configuration = ESewaConfiguration(
-        clientID: "JB0BBQ4aD0UqIThFJwAKBgAXEUkEGQUBBAwdOgABHD4DChwUAB0R",
-        secretKey: "BhwIWQQADhIYSxILExMcAgFXFhcOBwAKBgAXEQ==",
-        environment: ESewaConfiguration.ENVIRONMENT_TEST //ENVIRONMENT_LIVE
-        );
-
-    final ESewaPnp _eSewaPnp = ESewaPnp(configuration: _configuration);
-
-    final ESewaPayment _payment = ESewaPayment(
-        productPrice: 20,
-        productName: "Test Product",
-        productID: "test-product-id",
-        callBackURL: "https://uat.esewa.com.np/");
-
-    try {
-      final _res = await _eSewaPnp.initPayment(payment: _payment);
-
-      // Handle success
-    } on ESewaPaymentException catch (e) {
-      // Handle error
-      print(e.message);
+  Future onPaymentSelected(BuildContext context, int index) async {
+    final paymentMethod = paymentMethods[index];
+    switch (paymentMethod.type) {
+      case "stripe":
+        context.pushRoute(StripePaymentCardSelectionRoute(balance: ""));
+        break;
+      case "esewa":
+        // await _esewaPay(paymentMethod);
+        context.pushRoute(EsewaTopupRoute(method: paymentMethod));
+        break;
+      case "ime-pay":
+        break;
+      case "khalti":
+        break;
+      default:
     }
   }
 }

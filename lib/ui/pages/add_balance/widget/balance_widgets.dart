@@ -1,16 +1,13 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
-import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class BalanceWidget extends StatelessWidget {
-  final UserDetail? user;
+  final String balance;
 
   const BalanceWidget({
     Key? key,
-    required this.user,
+    required this.balance,
   }) : super(key: key);
 
   @override
@@ -46,7 +43,7 @@ class BalanceWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "NRP ${user?.balance ?? 0}",
+                    "NRP $balance",
                     style: TextStyle(
                       color: Palette.black,
                       fontSize: 16,
