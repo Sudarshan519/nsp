@@ -87,7 +87,7 @@ class _LoginBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const SizedBox(
-                    height: 172,
+                    height: 100,
                   ),
                   LoginFormWidget(),
                   const SizedBox(
