@@ -32,7 +32,9 @@ dependencies:
   auto_route: ^2.2.0                
   carousel_slider: ^4.0.0-nullsafety.0   
   dartz: ^0.10.0-nullsafety.2  
-  internet_connection_checker: ^0.0.1               
+  # esewa_pnp: ^1.0.5   
+  esewa_pnp:
+    path: ../sdk/esewa_pnp 
   equatable: ^2.0.0                           
   flutter_bloc: ^7.0.0                
   flutter_downloader: ^1.6.0                
@@ -47,7 +49,8 @@ dependencies:
   google_sign_in: ^5.0.3                
   http: ^0.13.3               
   image_picker: ^0.7.5                
-  injectable: ^1.4.0                
+  injectable: ^1.4.0    
+  internet_connection_checker: ^0.0.1            
   kana_kit: ^2.0.0                
   modal_bottom_sheet: ^2.0.0                
   multi_select_flutter: ^4.0.0                

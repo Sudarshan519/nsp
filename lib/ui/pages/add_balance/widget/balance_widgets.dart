@@ -2,18 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class BalanceAndPointWidget extends StatelessWidget {
+class BalanceWidget extends StatelessWidget {
   final UserDetail? user;
-  final bool showAddBalanceButton;
 
-  const BalanceAndPointWidget({
+  const BalanceWidget({
     Key? key,
     required this.user,
-    this.showAddBalanceButton = true,
   }) : super(key: key);
 
   @override
@@ -59,42 +56,9 @@ class BalanceAndPointWidget extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Points",
-                        style: TextStyle(
-                          color: Palette.black.withOpacity(0.7),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "${user?.point ?? 0}",
-                        style: TextStyle(
-                          color: Palette.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  if (showAddBalanceButton)
-                    CustomButton(
-                      title: "+ Add Balance",
-                      onTap: () => context.pushRoute(const AddBalanceRoute()),
-                    ),
-                ],
-              )
+              const Icon(
+                Icons.replay_outlined,
+              ),
             ],
           ),
         ),
