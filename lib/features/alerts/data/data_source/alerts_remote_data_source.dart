@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/features/alerts/data/constants/constant.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_model.dart';
+import 'package:wallet_app/logger/logger.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -24,6 +25,7 @@ abstract class AlertRemoteDataSource {
 class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   final http.Client client;
   final ConfigReader config;
+  final Logger logger;
 
   final _header = {
     'Accept': 'application/json',
@@ -33,6 +35,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   AlertRemoteDataSourceImpl({
     required this.client,
     required this.config,
+    required this.logger,
   });
 
   @override
