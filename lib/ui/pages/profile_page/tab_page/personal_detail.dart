@@ -516,6 +516,7 @@ class _EmailWidget extends StatelessWidget {
               hintText: "abc@def.ghi",
               textInputType: TextInputType.emailAddress,
               value: state.email,
+              isEnable: false,
               onChanged: (value) => context
                   .read<UpdateProfileBloc>()
                   .add(UpdateProfileEvent.changeEmail(value)),
@@ -823,19 +824,16 @@ class _SameAsPermanentAddress extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateProfileBloc,
-        UpdateProfileState>(
+    return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       builder: (context, state) {
         return Row(
           children: [
             Checkbox(
               value: state.isSameAsOriginAddress,
               activeColor: Palette.primary,
-              onChanged: (value) 
-               => context
+              onChanged: (value) => context
                   .read<UpdateProfileBloc>()
-                  .add(const UpdateProfileEvent.changeSameAsOriginAddress(
-                      )),
+                  .add(const UpdateProfileEvent.changeSameAsOriginAddress()),
             ),
             const Text(
               "Same as Origin/Permanent Address",
@@ -845,7 +843,6 @@ class _SameAsPermanentAddress extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            
           ],
         );
       },

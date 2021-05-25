@@ -63,10 +63,12 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
     if (statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
       final homeResponse = homeResponseModelFromJson(responseBody);
-      final userDetails = homeResponse.first.userDetail as UserDetailModel;
-      final homeData = homeResponse.last.homeData as List<HomeDataModel>;
+      final userDetails = homeResponse.first.userDetail as UserDetailModel?;
+      final homeData = homeResponse.last.homeData as List<HomeDataModel>?;
 
-      auth.saveUserDetail(userDetails);
+      if (userDetails != null) {
+        auth.saveUserDetail(userDetails);
+      }
 
       return HomeResponseModel(userDetail: userDetails, homeData: homeData);
     } else {
