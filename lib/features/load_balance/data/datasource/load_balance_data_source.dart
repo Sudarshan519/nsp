@@ -47,6 +47,14 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     final url =
         "${config.baseURL}${config.apiPath}${LoadBalanceApiEndpoints.getListOfPaymentTypes}";
 
+    final accessToken = (await auth.getWalletUser()).accessToken;
+
+    if (accessToken?.isEmpty ?? true) {
+      //TODO: user access token is empty we have to redirect to login page.
+    }
+
+    _header["Authorization"] = "Bearer $accessToken";
+
     http.Response response;
 
     try {
@@ -63,7 +71,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       return paymentMethodsModelFromJson(response.body);
     } else {
       throw ServerException(
-          message: errorMessageFromServer(response.body) ??
+          message: errorMessageFromServerWithError(response.body) ??
               AppConstants.someThingWentWrong);
     }
   }
@@ -116,7 +124,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       return unit;
     } else {
       throw ServerException(
-          message: errorMessageFromServer(response.body) ??
+          message: errorMessageFromServerWithError(response.body) ??
               AppConstants.someThingWentWrong);
     }
   }

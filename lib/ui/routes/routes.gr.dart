@@ -765,7 +765,7 @@ class AddBalanceRoute extends _i1.PageRouteInfo {
 
 class StripePaymentCardSelectionRoute
     extends _i1.PageRouteInfo<StripePaymentCardSelectionRouteArgs> {
-  StripePaymentCardSelectionRoute({_i2.Key? key, required String balance})
+  StripePaymentCardSelectionRoute({_i2.Key? key, required double balance})
       : super(name,
             path: '/stripe-payment-card-selection-page',
             args: StripePaymentCardSelectionRouteArgs(
@@ -779,12 +779,12 @@ class StripePaymentCardSelectionRouteArgs {
 
   final _i2.Key? key;
 
-  final String balance;
+  final double balance;
 }
 
 class StripeNewCardPaymentRoute
     extends _i1.PageRouteInfo<StripeNewCardPaymentRouteArgs> {
-  StripeNewCardPaymentRoute({_i2.Key? key, required String balance})
+  StripeNewCardPaymentRoute({_i2.Key? key, required double balance})
       : super(name,
             path: '/stripe-new-card-payment-page',
             args: StripeNewCardPaymentRouteArgs(key: key, balance: balance));
@@ -797,7 +797,7 @@ class StripeNewCardPaymentRouteArgs {
 
   final _i2.Key? key;
 
-  final String balance;
+  final double balance;
 }
 
 class StripePaymentRoute extends _i1.PageRouteInfo<StripePaymentRouteArgs> {

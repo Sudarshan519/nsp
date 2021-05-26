@@ -15,20 +15,22 @@ class EsewaTopupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DraggableScrollableSheet(
-      initialChildSize: 0.4,
-      maxChildSize: 0.6,
-      builder: (context, scrollable) {
-        return SingleChildScrollView(
-          controller: scrollable,
-          child: Column(
-            children: [
-              Container(height: 200),
-              _AmountWidget(),
-            ],
-          ),
-        );
-      },
+    return Scaffold(
+      body: DraggableScrollableSheet(
+        initialChildSize: 0.4,
+        maxChildSize: 0.6,
+        builder: (context, scrollable) {
+          return SingleChildScrollView(
+            controller: scrollable,
+            child: Column(
+              children: [
+                Container(height: 200),
+                _AmountWidget(),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 

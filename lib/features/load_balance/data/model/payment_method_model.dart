@@ -9,7 +9,7 @@ class LoadFundModel extends LoadFund {
   LoadFundModel({
     required bool? status,
     required List<PaymentMethod>? paymentMethods,
-    required String? balance,
+    required double? balance,
   }) : super(
           balance: balance,
           status: status,
@@ -23,7 +23,7 @@ class LoadFundModel extends LoadFund {
             : List<PaymentMethodsModel>.from(
                 (json["payment_methods"] as Iterable).map((x) =>
                     PaymentMethodsModel.fromJson(x as Map<String, dynamic>))),
-        balance: json["balance"] == null ? null : json["balance"] as String?,
+        balance: json["balance"] == null ? null : json["balance"] as double?,
       );
 }
 

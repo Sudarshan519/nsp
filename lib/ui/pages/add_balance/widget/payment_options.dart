@@ -8,9 +8,11 @@ class PaymentOptions extends StatelessWidget {
   const PaymentOptions({
     Key? key,
     required this.paymentMethods,
+    required this.balance,
   }) : super(key: key);
 
   final List<PaymentMethod> paymentMethods;
+  final double balance;
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +72,11 @@ class PaymentOptions extends StatelessWidget {
     final paymentMethod = paymentMethods[index];
     switch (paymentMethod.type) {
       case "stripe":
-        context.pushRoute(StripePaymentCardSelectionRoute(balance: ""));
+        context.pushRoute(StripePaymentCardSelectionRoute(balance: balance));
         break;
       case "esewa":
         // await _esewaPay(paymentMethod);
-        context.pushRoute(EsewaTopupRoute(method: paymentMethod));
+        // context.pushRoute(EsewaTopupRoute(method: paymentMethod));
         break;
       case "ime-pay":
         break;

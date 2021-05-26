@@ -7,7 +7,7 @@ class LoadFund {
 
   final bool? status;
   final List<PaymentMethod>? paymentMethods;
-  final String? balance;
+  final double? balance;
 }
 
 class PaymentMethod {

@@ -3,7 +3,7 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class BalanceWidget extends StatelessWidget {
-  final String balance;
+  final double balance;
 
   const BalanceWidget({
     Key? key,

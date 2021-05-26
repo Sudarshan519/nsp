@@ -65,7 +65,7 @@ class AddBalancePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        BalanceWidget(balance: loadFund?.balance ?? ''),
+        BalanceWidget(balance: loadFund?.balance ?? 0.0),
         const SizedBox(height: 20),
         const Padding(
           padding: EdgeInsets.only(left: 16.0),
@@ -78,7 +78,10 @@ class AddBalancePage extends StatelessWidget {
         const SizedBox(height: 8),
         ShadowBoxWidget(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: PaymentOptions(paymentMethods: loadFund?.paymentMethods ?? []),
+          child: PaymentOptions(
+            balance: loadFund?.balance ?? 0.0,
+            paymentMethods: loadFund?.paymentMethods ?? [],
+          ),
         ),
       ],
     );

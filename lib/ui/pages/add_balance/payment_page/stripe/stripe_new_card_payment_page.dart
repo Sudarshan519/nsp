@@ -1,11 +1,14 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/presentations/topup_via_stripe/topup_via_stripe_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
@@ -13,7 +16,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class StripeNewCardPaymentPage extends StatelessWidget {
-  final String balance;
+  final double balance;
 
   const StripeNewCardPaymentPage({
     Key? key,
@@ -60,7 +63,20 @@ class StripeNewCardPaymentPage extends StatelessWidget {
                 ),
               ).show(context);
             },
-            (success) {},
+            (success) {
+              showDialog(
+                context: context,
+                builder: (_) => PopUpSuccessOverLay(
+                  title: AppConstants.topUpSuccessTitle,
+                  message: AppConstants.topUpSuccessMessage,
+                  onPressed: () {
+                    context.router.navigate(const TabBarRoute());
+                    getIt<HomePageDataBloc>()
+                        .add(const HomePageDataEvent.fetch());
+                  },
+                ),
+              );
+            },
           ),
         );
       },

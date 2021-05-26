@@ -6,7 +6,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class StripePaymentCardSelectionPage extends StatelessWidget {
-  final String balance;
+  final double balance;
 
   const StripePaymentCardSelectionPage({
     Key? key,
@@ -39,7 +39,7 @@ class StripePaymentCardSelectionPage extends StatelessWidget {
           ),
           InkWell(
             onTap: () =>
-                context.pushRoute(StripeNewCardPaymentRoute(balance: '')),
+                context.pushRoute(StripeNewCardPaymentRoute(balance: balance)),
             child: Container(
               margin: const EdgeInsets.symmetric(
                 horizontal: 16.0,
