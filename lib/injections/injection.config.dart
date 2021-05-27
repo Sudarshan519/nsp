@@ -16,6 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart' as _i19;
 import '../core/database/local_database_provider.dart' as _i96;
 import '../core/database/news_provider.dart' as _i45;
 import '../core/file_picker/file_provider.dart' as _i4;
+import '../core/logger/logger.dart' as _i13;
 import '../core/network/newtork_info.dart' as _i14;
 import '../features/alerts/data/data_source/alerts_remote_data_source.dart'
     as _i20;
@@ -138,7 +139,6 @@ import '../features/resume/presentation/download_pdf/download_pdf_bloc.dart'
 import '../features/resume/presentation/resume_watcher/resume_watcher_bloc.dart'
     as _i90;
 import '../features/splash/presentation/splash_bloc.dart' as _i61;
-import '../logger/logger.dart' as _i13;
 import '../utils/config_reader.dart' as _i9;
 import 'injectable/data_connection_checker_injectable_module.dart' as _i100;
 import 'injectable/flutter_secure_storage_module.dart' as _i98;
@@ -192,9 +192,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       preResolve: true);
   gh.lazySingleton<_i20.AlertRemoteDataSource>(() =>
       _i20.AlertRemoteDataSourceImpl(
-          client: get<_i3.Client>(),
-          config: get<_i9.ConfigReader>(),
-          logger: get<_i13.Logger>()));
+          client: get<_i3.Client>(), config: get<_i9.ConfigReader>()));
   gh.lazySingleton<_i21.AlertRepository>(() =>
       _i22.AlertRepositoryImpl(dataSource: get<_i20.AlertRemoteDataSource>()));
   gh.lazySingleton<_i23.AuthLocalDataSource>(() => _i23.AuthLocalDataSourceImpl(
@@ -202,7 +200,9 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       preferences: get<_i19.SharedPreferences>()));
   gh.lazySingleton<_i24.AuthRemoteDataSource>(() =>
       _i24.AuthRemoteDataSourceImpl(
-          client: get<_i3.Client>(), config: get<_i9.ConfigReader>()));
+          client: get<_i3.Client>(),
+          config: get<_i9.ConfigReader>(),
+          logger: get<_i13.Logger>()));
   gh.lazySingleton<_i25.AuthRepository>(() => _i26.AuthRepositoryImpl(
       remoteDataSource: get<_i24.AuthRemoteDataSource>(),
       localDataSource: get<_i23.AuthLocalDataSource>(),
