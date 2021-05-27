@@ -62,7 +62,15 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
 
     if (statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      final homeResponse = homeResponseModelFromJson(responseBody);
+
+      List<HomeResponseModel> homeResponse;
+      try {
+        homeResponse = homeResponseModelFromJson(responseBody);
+      } catch (ex) {
+        // Todo: Log this error.
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
+
       final userDetails = homeResponse.first.userDetail as UserDetailModel?;
       final homeData = homeResponse.last.homeData as List<HomeDataModel>?;
 
