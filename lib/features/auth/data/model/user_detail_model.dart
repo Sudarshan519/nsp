@@ -113,7 +113,9 @@ class UserDetailModel extends UserDetail {
         mobile: json["mobile"] as String?,
         uuid: json["uuid"] as String?,
         avatar: json["avatar"] as String?,
-        balance: json["balance"] as double?,
+        balance: (json["balance"] is int?)
+            ? double.parse("${json["balance"] as int? ?? 0}")
+            : json["balance"] as double?,
         point: json["point"] as int?,
         dob: json["dob"] as String?,
         gender: json["gender"] as String?,

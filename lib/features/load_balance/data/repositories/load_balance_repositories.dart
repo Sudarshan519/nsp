@@ -49,4 +49,23 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
+
+  @override
+  Future<Either<ApiFailure, Unit>> verifyEsewaTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+  }) async {
+    try {
+      return Right(
+        await dataSource.verifyEsewaTopup(
+          referenceId: referenceId,
+          amount: amount,
+          purpose: purpose,
+        ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
 }

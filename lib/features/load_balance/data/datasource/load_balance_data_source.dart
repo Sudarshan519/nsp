@@ -23,6 +23,12 @@ abstract class LoadBalanceDataSource {
     required String amount,
     required bool saveCard,
   });
+
+  Future<Unit> verifyEsewaTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+  });
 }
 
 @LazySingleton(as: LoadBalanceDataSource)
@@ -107,6 +113,57 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       "exp_month": expMonth,
       "amount": amount,
       "save_card": saveCard,
+    };
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(params),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200) {
+      return unit;
+    } else {
+      throw ServerException(
+          message: errorMessageFromServerWithError(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<Unit> verifyEsewaTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+  }) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${LoadBalanceApiEndpoints.verifyEsewaTopup}";
+
+    final accessToken = (await auth.getWalletUser()).accessToken;
+    final userId = (await auth.getUserDetail()).uuid;
+
+    if (accessToken?.isEmpty ?? true) {
+      //TODO: user access token is empty we have to redirect to login page.
+    }
+
+    if (userId?.isEmpty ?? true) {
+      //TODO: user id is empty we have to redirect to login page.
+    }
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    final params = {
+      "reference_id": referenceId,
+      "product_id": userId,
+      "amount": amount,
+      "purpose": purpose,
     };
 
     try {

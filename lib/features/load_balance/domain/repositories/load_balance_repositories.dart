@@ -14,4 +14,10 @@ abstract class LoadBalanceRepositories {
     required String amount,
     required bool saveCard,
   });
+
+  Future<Either<ApiFailure, Unit>> verifyEsewaTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+  });
 }
