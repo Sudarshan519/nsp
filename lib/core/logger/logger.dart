@@ -21,6 +21,11 @@ class LoggerImpl implements Logger {
     required this.client,
   });
 
+  final _headers = {
+    'Accept': 'application/json; charset=utf-8',
+    "Content-Type": 'application/json; charset=utf-8',
+  };
+
   @override
   Future log({
     required String className,
@@ -39,6 +44,7 @@ class LoggerImpl implements Logger {
     try {
       await client.post(
         Uri.parse(url),
+        headers: _headers,
         body: json.encode(params),
       );
     } catch (ex) {

@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
 import 'package:wallet_app/utils/config_reader.dart';
@@ -75,6 +76,7 @@ abstract class AuthRemoteDataSource {
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final http.Client client;
   final ConfigReader config;
+  final Logger logger;
 
   final _header = {
     'Accept': 'application/json',
@@ -84,8 +86,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   AuthRemoteDataSourceImpl({
     required this.client,
     required this.config,
-  })   : assert(client != null),
-        assert(config != null);
+    required this.logger,
+  });
 
   @override
   Future<WalletUserModel> postNormalLogin({
@@ -124,17 +126,29 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     try {
       response = await client.post(
-        Uri.parse(url),
+        Uri.parse("url"),
         headers: _header,
         body: json.encode(params),
       );
     } catch (ex) {
+      logger.log(
+        className: "AuthRemoteDataSource",
+        functionName: "postNormalSignUp()",
+        errorText: "Error on sign up",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
     final statusCode = response.statusCode;
     if (statusCode == 200) {
       return unit;
     } else {
+      logger.log(
+        className: "AuthRemoteDataSource",
+        functionName: "postNormalSignUp()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);
