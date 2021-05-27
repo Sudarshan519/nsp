@@ -518,6 +518,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  ime_pay:
+    dependency: "direct main"
+    description:
+      name: ime_pay
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.6"
   injectable:
     dependency: "direct main"
     description:
