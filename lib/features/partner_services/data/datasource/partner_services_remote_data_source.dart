@@ -29,8 +29,11 @@ class PartnerServicesRemoteDataSourceImpl
     "Content-Type": 'application/json; charset=utf-8',
   };
 
-  PartnerServicesRemoteDataSourceImpl(
-      {required this.client, required this.config, required this.logger});
+  PartnerServicesRemoteDataSourceImpl({
+    required this.client,
+    required this.config,
+    required this.logger,
+  });
 
   @override
   Future<PartnerServicesListModel> getPartnerServices({
@@ -52,7 +55,9 @@ class PartnerServicesRemoteDataSourceImpl
         errorText: "Error on getting partner services from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
@@ -63,18 +68,20 @@ class PartnerServicesRemoteDataSourceImpl
         return partnerServiceListFromJson(responseBody);
       } catch (ex) {
         logger.log(
-            className: "PartnerServicesRemoteDataSource",
-            functionName: "getPartnerServices()",
-            errorText: "Error casting from json to partnerServiceList",
-            errorMessage: ex.toString());
+          className: "PartnerServicesRemoteDataSource",
+          functionName: "getPartnerServices()",
+          errorText: "Error casting from json to partnerServiceList",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
       logger.log(
-          className: "PartnerServicesRemoteDataSource",
-          functionName: "getPartnerServices()",
-          errorText: "Error on API status code: $statusCode",
-          errorMessage: response.body);
+        className: "PartnerServicesRemoteDataSource",
+        functionName: "getPartnerServices()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);
@@ -99,7 +106,9 @@ class PartnerServicesRemoteDataSourceImpl
         errorText: "Error on getting Japanese Manner Categories from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
@@ -116,26 +125,29 @@ class PartnerServicesRemoteDataSourceImpl
           );
         } catch (ex) {
           logger.log(
-              className: "PartnerServicesRemoteDataSource",
-              functionName: "getJapaneseMannerCategories()",
-              errorText: "Error casting from json to ServicesCategoryModel",
-              errorMessage: ex.toString());
+            className: "PartnerServicesRemoteDataSource",
+            functionName: "getJapaneseMannerCategories()",
+            errorText: "Error casting from json to ServicesCategoryModel",
+            errorMessage: ex.toString(),
+          );
           throw const ServerException(message: AppConstants.someThingWentWrong);
         }
       } else {
         logger.log(
-            className: "PartnerServicesRemoteDataSource",
-            functionName: "getJapaneseMannerCategories()",
-            errorText: "Error on API status code: $statusCode",
-            errorMessage: response.body);
+          className: "PartnerServicesRemoteDataSource",
+          functionName: "getJapaneseMannerCategories()",
+          errorText: "Error on API status code: $statusCode",
+          errorMessage: response.body,
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
       logger.log(
-          className: "PartnerServicesRemoteDataSource",
-          functionName: "getJapaneseMannerCategories()",
-          errorText: "Error on API status code: $statusCode",
-          errorMessage: response.body);
+        className: "PartnerServicesRemoteDataSource",
+        functionName: "getJapaneseMannerCategories()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
 
       throw ServerException(
           message: errorMessageFromServer(response.body) ??

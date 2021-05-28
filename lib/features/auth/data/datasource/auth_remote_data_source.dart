@@ -137,7 +137,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         errorText: "Error on sign up",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
     final statusCode = response.statusCode;
     if (statusCode == 200) {
@@ -185,7 +187,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         errorText: "Error in  login and register",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
@@ -195,10 +199,11 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
             json.decode(response.body) as Map<String, dynamic>);
       } catch (ex) {
         logger.log(
-            className: "AuthRemoteDataSource",
-            functionName: "_postLoginRegister()",
-            errorText: "Error casting from json to WalletUserModel",
-            errorMessage: ex.toString());
+          className: "AuthRemoteDataSource",
+          functionName: "_postLoginRegister()",
+          errorText: "Error casting from json to WalletUserModel",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else if (statusCode == 400) {
@@ -274,7 +279,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         errorText: "Error in post login after register",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
     final statusCode = response.statusCode;
 

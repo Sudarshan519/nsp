@@ -14,8 +14,10 @@ import 'package:wallet_app/utils/constant.dart';
 class JapaneseMannerRepositoryImpl implements JapaneseMannerRepository {
   final JapaneseMannersRemoteDataSource remoteDataSource;
   final Logger logger;
-  JapaneseMannerRepositoryImpl(
-      {required this.remoteDataSource, required this.logger});
+  JapaneseMannerRepositoryImpl({
+    required this.remoteDataSource,
+    required this.logger,
+  });
 
   @override
   Future<Either<ApiFailure, JapaneseMannerList>> getJapaneseManner({

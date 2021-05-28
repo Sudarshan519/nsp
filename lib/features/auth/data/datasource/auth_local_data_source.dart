@@ -111,10 +111,11 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
             json.decode(value) as Map<String, dynamic>);
       } on Exception catch (ex) {
         logger.log(
-            className: "AuthLocalDataSource",
-            functionName: "getUserDetail()",
-            errorText: "Error casting from json to UserDetailModel",
-            errorMessage: ex.toString());
+          className: "AuthLocalDataSource",
+          functionName: "getUserDetail()",
+          errorText: "Error casting from json to UserDetailModel",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } catch (ex) {

@@ -113,7 +113,9 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         errorText: "Error getting genre list from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     if (response.statusCode == 200) {
@@ -122,10 +124,11 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         return genreModelFromJson(responseBody);
       } catch (ex) {
         logger.log(
-            className: "NewsRemoteDataSource",
-            functionName: "getGenreList()",
-            errorText: "Error casting from json to genreModel",
-            errorMessage: ex.toString());
+          className: "NewsRemoteDataSource",
+          functionName: "getGenreList()",
+          errorText: "Error casting from json to genreModel",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
@@ -142,10 +145,11 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
             message: errorModel?.error ?? AppConstants.someThingWentWrong);
       } catch (ex) {
         logger.log(
-            className: "NewsRemoteDataSource",
-            functionName: "getGenreList()",
-            errorText: "Error casting from json to newsModel",
-            errorMessage: ex.toString());
+          className: "NewsRemoteDataSource",
+          functionName: "getGenreList()",
+          errorText: "Error casting from json to newsModel",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     }
@@ -168,7 +172,9 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         errorText: "Error getting preference list from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     if (response.statusCode == 200) {
@@ -177,10 +183,11 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         return preferenceModelFromJson(responseBody);
       } catch (ex) {
         logger.log(
-            className: "NewsRemoteDataSource",
-            functionName: "getPreferenceList()",
-            errorText: "Error casting from json to preferenceModel",
-            errorMessage: ex.toString());
+          className: "NewsRemoteDataSource",
+          functionName: "getPreferenceList()",
+          errorText: "Error casting from json to preferenceModel",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
@@ -213,7 +220,9 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         errorText: "Error getting news from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     if (response.statusCode == 200) {

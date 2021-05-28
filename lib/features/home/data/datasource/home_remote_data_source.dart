@@ -32,11 +32,12 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
     "Content-Type": 'application/json; charset=utf-8',
   };
 
-  HomePageRemoteDataSourceImpl(
-      {required this.client,
-      required this.config,
-      required this.auth,
-      required this.logger});
+  HomePageRemoteDataSourceImpl({
+    required this.client,
+    required this.config,
+    required this.auth,
+    required this.logger,
+  });
 
   @override
   Future<HomeResponseModel> getHomePageData() async {
@@ -63,7 +64,9 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
         errorText: "Error fetching data for home page via API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
@@ -76,10 +79,11 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
         homeResponse = homeResponseModelFromJson(responseBody);
       } catch (ex) {
         logger.log(
-            className: "HomePageRemoteDataSource",
-            functionName: "getHomePageData()",
-            errorText: "Error casting from json to homeResponseModel",
-            errorMessage: ex.toString());
+          className: "HomePageRemoteDataSource",
+          functionName: "getHomePageData()",
+          errorText: "Error casting from json to homeResponseModel",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
 
