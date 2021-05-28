@@ -63,7 +63,16 @@ class JapaneseMannersRemoteDataSourceImpl
 
     if (statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      return japaneseMannerListFromJson(responseBody);
+      try {
+        return japaneseMannerListFromJson(responseBody);
+      } catch (ex) {
+        logger.log(
+            className: "JapaneseMannersRemoteDataSource",
+            functionName: "getJapaneseManners()",
+            errorText: "Error casting from json to japaneseMannerList",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } else {
       logger.log(
         className: "JapaneseMannersRemoteDataSource",
@@ -105,12 +114,22 @@ class JapaneseMannersRemoteDataSourceImpl
       final responseBody = utf8.decode(response.bodyBytes);
       final jsonMap = json.decode(responseBody) as Map<String, dynamic>;
       if ((jsonMap["status"] as bool) == true) {
-        return List<JapaneseMannerCategoryModel>.from(
-          (jsonMap["categories"] as Iterable).map(
-            (x) =>
-                JapaneseMannerCategoryModel.fromJson(x as Map<String, dynamic>),
-          ),
-        );
+        try {
+          return List<JapaneseMannerCategoryModel>.from(
+            (jsonMap["categories"] as Iterable).map(
+              (x) => JapaneseMannerCategoryModel.fromJson(
+                  x as Map<String, dynamic>),
+            ),
+          );
+        } catch (ex) {
+          logger.log(
+              className: "JapaneseMannersRemoteDataSource",
+              functionName: "getJapaneseMannerCategories()",
+              errorText:
+                  "Error casting from json to JapaneseMannerCategoryModel",
+              errorMessage: ex.toString());
+          throw const ServerException(message: AppConstants.someThingWentWrong);
+        }
       } else {
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }

@@ -80,7 +80,16 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
 
     if (response.statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      return resumeFromJson(responseBody);
+      try {
+        return resumeFromJson(responseBody);
+      } catch (ex) {
+        logger.log(
+            className: "ResumeRemoteDataSource",
+            functionName: "getResumeData()",
+            errorText: "Error casting from json to Resume",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } else {
       logger.log(
         className: "ResumeRemoteDataSource",

@@ -59,7 +59,16 @@ class PartnerServicesRemoteDataSourceImpl
 
     if (statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      return partnerServiceListFromJson(responseBody);
+      try {
+        return partnerServiceListFromJson(responseBody);
+      } catch (ex) {
+        logger.log(
+            className: "PartnerServicesRemoteDataSource",
+            functionName: "getPartnerServices()",
+            errorText: "Error casting from json to partnerServiceList",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } else {
       logger.log(
           className: "PartnerServicesRemoteDataSource",
@@ -99,12 +108,26 @@ class PartnerServicesRemoteDataSourceImpl
       final responseBody = utf8.decode(response.bodyBytes);
       final jsonMap = json.decode(responseBody) as Map<String, dynamic>;
       if ((jsonMap["status"] as bool) == true) {
-        return List<ServicesCategoryModel>.from(
-          (jsonMap["categories"] as Iterable).map(
-            (x) => ServicesCategoryModel.fromJson(x as Map<String, dynamic>),
-          ),
-        );
+        try {
+          return List<ServicesCategoryModel>.from(
+            (jsonMap["categories"] as Iterable).map(
+              (x) => ServicesCategoryModel.fromJson(x as Map<String, dynamic>),
+            ),
+          );
+        } catch (ex) {
+          logger.log(
+              className: "PartnerServicesRemoteDataSource",
+              functionName: "getJapaneseMannerCategories()",
+              errorText: "Error casting from json to ServicesCategoryModel",
+              errorMessage: ex.toString());
+          throw const ServerException(message: AppConstants.someThingWentWrong);
+        }
       } else {
+        logger.log(
+            className: "PartnerServicesRemoteDataSource",
+            functionName: "getJapaneseMannerCategories()",
+            errorText: "Error on API status code: $statusCode",
+            errorMessage: response.body);
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {

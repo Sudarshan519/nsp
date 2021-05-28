@@ -76,11 +76,10 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
         homeResponse = homeResponseModelFromJson(responseBody);
       } catch (ex) {
         logger.log(
-          className: "HomePageRemoteDataSource",
-          functionName: "getHomePageData()",
-          errorText: "Error fetching data for home page via API",
-          errorMessage: ex.toString(),
-        );
+            className: "HomePageRemoteDataSource",
+            functionName: "getHomePageData()",
+            errorText: "Error casting from json to homeResponseModel",
+            errorMessage: ex.toString());
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
 

@@ -96,7 +96,16 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
 
     if (statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      return alertModelFromJson(responseBody);
+      try {
+        return alertModelFromJson(responseBody);
+      } catch (ex) {
+        logger.log(
+            className: "AlertRemoteDataSource",
+            functionName: "_getAlertList()",
+            errorText: "Error casting from json to alert model",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } else {
       logger.log(
         className: "AlertRemoteDataSource",

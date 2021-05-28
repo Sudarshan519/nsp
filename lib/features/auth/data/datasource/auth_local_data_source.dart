@@ -9,6 +9,7 @@ import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 abstract class AuthLocalDataSource {
   Future save(WalletUserModel user);
@@ -105,8 +106,17 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
       if (value == null) {
         throw CacheException();
       }
-      return UserDetailModel.fromJson(
-          json.decode(value) as Map<String, dynamic>);
+      try {
+        return UserDetailModel.fromJson(
+            json.decode(value) as Map<String, dynamic>);
+      } on Exception catch (ex) {
+        logger.log(
+            className: "AuthLocalDataSource",
+            functionName: "getUserDetail()",
+            errorText: "Error casting from json to UserDetailModel",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } catch (ex) {
       logger.log(
         className: "AuthLocalDataSource",
