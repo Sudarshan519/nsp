@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_remote_data_source.dart';
@@ -18,13 +19,14 @@ class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
   final AuthLocalDataSource localDataSource;
   final GoogleSignIn googleSignIn;
+  final Logger logger;
 
-  AuthRepositoryImpl({
-    required this.remoteDataSource,
-    required this.localDataSource,
-    // required this.facebookLogin,
-    required this.googleSignIn,
-  });
+  AuthRepositoryImpl(
+      {required this.remoteDataSource,
+      required this.localDataSource,
+      // required this.facebookLogin,
+      required this.googleSignIn,
+      required this.logger});
 
   @override
   Future<Either<ApiFailure, WalletUser>> postUserSignInWithUsernameAndPassword({
@@ -62,6 +64,12 @@ class AuthRepositoryImpl implements AuthRepository {
       );
       return const Right(unit);
     } on ServerException catch (ex) {
+      logger.log(
+        className: "AuthRepository",
+        functionName: "postUserSignUpWithUsernamePasswordAndOtherInformation()",
+        errorText: "Error on post normal sign",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -116,6 +124,12 @@ class AuthRepositoryImpl implements AuthRepository {
         ],
       );
     } catch (ex) {
+      logger.log(
+        className: "AuthRepository",
+        functionName: "loginWithFacebook()",
+        errorText: "Error on login via FB",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.toString()));
     }
 
@@ -166,6 +180,13 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       userAccount = await googleSignIn.signIn();
     } catch (ex) {
+      logger.log(
+        className: "AuthRepository",
+        functionName: "loginWithGoogle()",
+        errorText: "Error on login via Google",
+        errorMessage: ex.toString(),
+      );
+
       return Left(ApiFailure.serverError(message: ex.toString()));
     }
     if (userAccount == null) {
@@ -213,6 +234,13 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       return Right(await localDataSource.getWalletUser());
     } catch (ex) {
+      logger.log(
+        className: "AuthRepository",
+        functionName: "getWalletUser()",
+        errorText: "Error getting user data waller from local source",
+        errorMessage: ex.toString(),
+      );
+
       return const Left(ApiFailure.invalidUser());
     }
   }
@@ -284,6 +312,12 @@ class AuthRepositoryImpl implements AuthRepository {
       localDataSource.save(userData);
       return Right(userData);
     } on ServerException catch (ex) {
+      logger.log(
+        className: "AuthRepository",
+        functionName: "_login()",
+        errorText: "Error loggin in from local data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -294,6 +328,12 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       return Right(await request());
     } on ServerException catch (ex) {
+      logger.log(
+        className: "AuthRepository",
+        functionName: "_postMethod()",
+        errorText: "Error in post method request",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }

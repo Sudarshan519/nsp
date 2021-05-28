@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/japanese_manners/data/app_constant/constant.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_categories_model.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_list_model.dart';
@@ -22,6 +23,7 @@ class JapaneseMannersRemoteDataSourceImpl
     implements JapaneseMannersRemoteDataSource {
   final http.Client client;
   final ConfigReader config;
+  final Logger logger;
 
   final _headers = {
     'Accept': 'application/json; charset=utf-8',
@@ -31,6 +33,7 @@ class JapaneseMannersRemoteDataSourceImpl
   JapaneseMannersRemoteDataSourceImpl({
     required this.client,
     required this.config,
+    required this.logger,
   });
 
   @override
@@ -47,6 +50,12 @@ class JapaneseMannersRemoteDataSourceImpl
         headers: _headers,
       );
     } catch (ex) {
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseManners()",
+        errorText: "Error fetching Japanease manners from API",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
@@ -56,6 +65,12 @@ class JapaneseMannersRemoteDataSourceImpl
       final responseBody = utf8.decode(response.bodyBytes);
       return japaneseMannerListFromJson(responseBody);
     } else {
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseManners()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);
@@ -75,6 +90,12 @@ class JapaneseMannersRemoteDataSourceImpl
         headers: _headers,
       );
     } catch (ex) {
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseMannerCategories()",
+        errorText: "Error fetching Japanease manners Categories from API",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
@@ -94,6 +115,12 @@ class JapaneseMannersRemoteDataSourceImpl
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseMannerCategories()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);

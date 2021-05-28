@@ -126,7 +126,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     try {
       response = await client.post(
-        Uri.parse("url"),
+        Uri.parse(url),
         headers: _header,
         body: json.encode(params),
       );
@@ -179,6 +179,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         body: json.encode(body),
       );
     } catch (ex) {
+      logger.log(
+        className: "AuthRemoteDataSource",
+        functionName: "_postLoginRegister()",
+        errorText: "Error in  login and register",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
@@ -189,6 +195,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     } else if (statusCode == 400) {
       return WalletUserModel.fromUnVerifiedUser();
     } else {
+      logger.log(
+        className: "AuthRemoteDataSource",
+        functionName: "_postLoginRegister()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServerWithError(response.body) ??
               AppConstants.someThingWentWrong);
@@ -247,6 +259,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         body: json.encode(body),
       );
     } catch (ex) {
+      logger.log(
+        className: "AuthRemoteDataSource",
+        functionName: "_postRequestForAuth()",
+        errorText: "Error in post login after register",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
     final statusCode = response.statusCode;
@@ -254,6 +272,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     if (statusCode == 200) {
       return unit;
     } else {
+      logger.log(
+        className: "AuthRemoteDataSource",
+        functionName: "_postRequestForAuth()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);

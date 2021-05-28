@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/news/domain/entity/news.dart';
+import 'package:wallet_app/injections/injection.dart';
 
 import 'news_item_model.dart';
 
@@ -8,7 +10,14 @@ NewsModel? newsModelFromJson(String str) {
   try {
     return NewsModel.fromJson(json.decode(str) as Map<String, dynamic>);
   } catch (ex) {
-    // TODO: add a logger for this.
+    final logger = getIt<Logger>();
+
+    logger.log(
+      className: "NewsModel",
+      functionName: "newsModelFromJson()",
+      errorText: "Error decoding string json into news model object",
+      errorMessage: ex.toString(),
+    );
     return null;
     // return null if the current str json cannot be parsed.
     // basic error message is shown to the user.
