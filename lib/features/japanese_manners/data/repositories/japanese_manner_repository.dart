@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/japanese_manners/data/datasource/japanese_manners_remote_data_source.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner_categories.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner_list.dart';
@@ -12,9 +13,9 @@ import 'package:wallet_app/utils/constant.dart';
 @LazySingleton(as: JapaneseMannerRepository)
 class JapaneseMannerRepositoryImpl implements JapaneseMannerRepository {
   final JapaneseMannersRemoteDataSource remoteDataSource;
-  JapaneseMannerRepositoryImpl({
-    required this.remoteDataSource,
-  });
+  final Logger logger;
+  JapaneseMannerRepositoryImpl(
+      {required this.remoteDataSource, required this.logger});
 
   @override
   Future<Either<ApiFailure, JapaneseMannerList>> getJapaneseManner({
@@ -34,6 +35,12 @@ class JapaneseMannerRepositoryImpl implements JapaneseMannerRepository {
             ApiFailure.serverError(message: AppConstants.someThingWentWrong));
       }
     } on ServerException catch (ex) {
+      logger.log(
+        className: "JapaneseMannerRepository",
+        functionName: "getJapaneseManner()",
+        errorText: "Error on getting Japanese Manners from remote",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -46,6 +53,12 @@ class JapaneseMannerRepositoryImpl implements JapaneseMannerRepository {
         await remoteDataSource.getJapaneseMannerCategories(),
       );
     } on ServerException catch (ex) {
+      logger.log(
+        className: "JapaneseMannerRepository",
+        functionName: "getJapaneseMannerCategories()",
+        errorText: "Error on getting Japanese Manners Categories from remote",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }

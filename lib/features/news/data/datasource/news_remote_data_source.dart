@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/news/data/app_constant/constant.dart';
 import 'package:wallet_app/features/news/data/model/news_genre_model.dart';
 import 'package:wallet_app/features/news/data/model/news_model.dart';
@@ -38,6 +39,7 @@ abstract class NewsRemoteDataSourceProtocol {
 class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
   final http.Client client;
   final ConfigReader config;
+  final Logger logger;
 
   final _headers = {
     'Accept': 'application/json',
@@ -47,6 +49,7 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
   NewsRemoteDataSource({
     required this.client,
     required this.config,
+    required this.logger,
   });
 
   @override
@@ -104,6 +107,12 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         headers: _headers,
       );
     } catch (ex) {
+      logger.log(
+        className: "NewsRemoteDataSource",
+        functionName: "getGenreList()",
+        errorText: "Error getting genre list from API",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
@@ -112,6 +121,12 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
       return genreModelFromJson(responseBody);
     } else {
       final errorModel = newsModelFromJson(response.body);
+      logger.log(
+        className: "NewsRemoteDataSource",
+        functionName: "getGenreList()",
+        errorText: "Error on API status code: ${response.statusCode}",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorModel?.error ?? AppConstants.someThingWentWrong);
     }
@@ -128,6 +143,12 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         headers: _headers,
       );
     } catch (ex) {
+      logger.log(
+        className: "NewsRemoteDataSource",
+        functionName: "getPreferenceList()",
+        errorText: "Error getting preference list from API",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
@@ -136,6 +157,12 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
       return preferenceModelFromJson(responseBody);
     } else {
       final errorModel = newsModelFromJson(response.body);
+      logger.log(
+        className: "NewsRemoteDataSource",
+        functionName: "getPreferenceList()",
+        errorText: "Error on API status code: ${response.statusCode}",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorModel?.error ?? AppConstants.someThingWentWrong);
     }
@@ -152,6 +179,12 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         headers: _headers,
       );
     } catch (ex) {
+      logger.log(
+        className: "NewsRemoteDataSource",
+        functionName: "getNews()",
+        errorText: "Error getting news from API",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
@@ -164,6 +197,12 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
       throw const ServerException(message: AppConstants.someThingWentWrong);
     } else {
       final errorModel = newsModelFromJson(response.body);
+      logger.log(
+        className: "NewsRemoteDataSource",
+        functionName: "getNews()",
+        errorText: "Error on API status code: ${response.statusCode}",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorModel?.error ?? AppConstants.someThingWentWrong);
     }

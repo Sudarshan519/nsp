@@ -5,6 +5,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
@@ -29,10 +30,12 @@ abstract class AuthLocalDataSource {
 class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   final FlutterSecureStorage secureStorage;
   final SharedPreferences preferences;
+  final Logger logger;
 
   AuthLocalDataSourceImpl({
     required this.secureStorage,
     required this.preferences,
+    required this.logger,
   });
 
   @override
@@ -45,6 +48,13 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
       return WalletUserModel.fromLocalStorage(
           json.decode(value) as Map<String, dynamic>);
     } catch (ex) {
+      logger.log(
+        className: "AuthLocalDataSource",
+        functionName: "getWalletUser()",
+        errorText: "Error  getting wallet from shared prefs",
+        errorMessage: ex.toString(),
+      );
+
       debugPrint(ex.toString());
       throw CacheException();
     }
@@ -56,6 +66,12 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
     try {
       await preferences.setString(AuthPreferenceKeys.walletUser, jsonString);
     } catch (ex) {
+      logger.log(
+        className: "AuthLocalDataSource",
+        functionName: "save()",
+        errorText: "Error saving user JSON to shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
     }
   }
@@ -72,6 +88,12 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
     try {
       await preferences.setString(AuthPreferenceKeys.userDetails, jsonString);
     } catch (ex) {
+      logger.log(
+        className: "AuthLocalDataSource",
+        functionName: "saveUserDetail()",
+        errorText: "Error saving user details to shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
     }
   }
@@ -86,6 +108,12 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
       return UserDetailModel.fromJson(
           json.decode(value) as Map<String, dynamic>);
     } catch (ex) {
+      logger.log(
+        className: "AuthLocalDataSource",
+        functionName: "getUserDetail()",
+        errorText: "Error getting user details from shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
       throw CacheException();
     }
@@ -108,6 +136,12 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
       }
       return json.decode(value) as Map<String, dynamic>;
     } catch (ex) {
+      logger.log(
+        className: "AuthLocalDataSource",
+        functionName: "getAppleUser()",
+        errorText: "Error getting apple user from secure storage",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
       throw CacheException();
     }

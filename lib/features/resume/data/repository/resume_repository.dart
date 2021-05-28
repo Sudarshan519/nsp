@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/resume/data/data_source/resume_remote_data_source.dart';
@@ -20,9 +21,11 @@ import 'package:wallet_app/features/resume/domain/repository/resume_repository.d
 @LazySingleton(as: ResumeRepository)
 class ResumeRepositoryImpl implements ResumeRepository {
   final ResumeRemoteDataSource dataSource;
+  final Logger logger;
 
   ResumeRepositoryImpl({
     required this.dataSource,
+    required this.logger,
   });
 
   @override
@@ -30,6 +33,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
     try {
       return Right(await dataSource.getResumeData());
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "getResumeData()",
+        errorText: "Error on getting resume data from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -45,6 +54,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
         body: data.toPersonalInfoModel().toJson(),
       ));
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "updatePersonalInfo()",
+        errorText: "Error on updating personal info from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -58,6 +73,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
       return Right(await dataSource.updateResume(
           lang: lang, body: data.toPersonalInfoModel().toCurrentAddressJson()));
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "updateAddress()",
+        errorText: "Error on updating address from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -71,6 +92,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
       return Right(await dataSource.updateResume(
           lang: lang, body: data.toPersonalInfoModel().toOtherJson()));
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "updateOtherInfo()",
+        errorText: "Error on updating other info from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -84,6 +111,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
       return Right(await dataSource.updateResume(
           lang: lang, body: data.toAcademicHistoryModel().toJson()));
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "updateAcademic()",
+        errorText: "Error on updating academic info from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -97,6 +130,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
       return Right(await dataSource.updateResume(
           lang: lang, body: data.toWorkHistoryModel().toJson()));
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "updateWork()",
+        errorText: "Error on updating work info from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -110,6 +149,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
       return Right(await dataSource.updateResume(
           lang: lang, body: data.toQualificationHistoryModel().toJson()));
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "updateQualification()",
+        errorText: "Error on updating qualification from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -123,6 +168,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
       return Right(await dataSource.updateResume(
           lang: lang, body: data.toPersonalInfoModel().toImageJson()));
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "updateResumeImage()",
+        errorText: "Error on updating reume image from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -136,6 +187,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
         lang: lang,
       ));
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "getResumePdfLink()",
+        errorText: "Error on getting reume pdf link from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -152,6 +209,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
         ),
       );
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "updateKycInfo()",
+        errorText: "Error on updating KYC info from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
@@ -167,6 +230,12 @@ class ResumeRepositoryImpl implements ResumeRepository {
         ),
       );
     } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "updateKycDoc()",
+        errorText: "Error on updating KYC Doc from data source",
+        errorMessage: ex.toString(),
+      );
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
