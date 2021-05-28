@@ -13,7 +13,10 @@ class AlertRepositoryImpl implements AlertRepository {
   final AlertRemoteDataSource dataSource;
   final Logger logger;
 
-  AlertRepositoryImpl({required this.dataSource, required this.logger});
+  AlertRepositoryImpl({
+    required this.dataSource,
+    required this.logger,
+  });
 
   @override
   Future<Either<ApiFailure, List<Alert>>> getAlerts({

@@ -21,12 +21,13 @@ class AuthRepositoryImpl implements AuthRepository {
   final GoogleSignIn googleSignIn;
   final Logger logger;
 
-  AuthRepositoryImpl(
-      {required this.remoteDataSource,
-      required this.localDataSource,
-      // required this.facebookLogin,
-      required this.googleSignIn,
-      required this.logger});
+  AuthRepositoryImpl({
+    required this.remoteDataSource,
+    required this.localDataSource,
+    // required this.facebookLogin,
+    required this.googleSignIn,
+    required this.logger,
+  });
 
   @override
   Future<Either<ApiFailure, WalletUser>> postUserSignInWithUsernameAndPassword({

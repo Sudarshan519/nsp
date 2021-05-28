@@ -56,7 +56,9 @@ class JapaneseMannersRemoteDataSourceImpl
         errorText: "Error fetching Japanease manners from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
@@ -67,10 +69,11 @@ class JapaneseMannersRemoteDataSourceImpl
         return japaneseMannerListFromJson(responseBody);
       } catch (ex) {
         logger.log(
-            className: "JapaneseMannersRemoteDataSource",
-            functionName: "getJapaneseManners()",
-            errorText: "Error casting from json to japaneseMannerList",
-            errorMessage: ex.toString());
+          className: "JapaneseMannersRemoteDataSource",
+          functionName: "getJapaneseManners()",
+          errorText: "Error casting from json to japaneseMannerList",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
@@ -105,7 +108,9 @@ class JapaneseMannersRemoteDataSourceImpl
         errorText: "Error fetching Japanease manners Categories from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
@@ -123,11 +128,11 @@ class JapaneseMannersRemoteDataSourceImpl
           );
         } catch (ex) {
           logger.log(
-              className: "JapaneseMannersRemoteDataSource",
-              functionName: "getJapaneseMannerCategories()",
-              errorText:
-                  "Error casting from json to JapaneseMannerCategoryModel",
-              errorMessage: ex.toString());
+            className: "JapaneseMannersRemoteDataSource",
+            functionName: "getJapaneseMannerCategories()",
+            errorText: "Error casting from json to JapaneseMannerCategoryModel",
+            errorMessage: ex.toString(),
+          );
           throw const ServerException(message: AppConstants.someThingWentWrong);
         }
       } else {

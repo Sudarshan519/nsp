@@ -21,10 +21,11 @@ class NewsRepository implements NewsRepositoryProtocol {
   final NewsLocalDataSourceProtocol localDataSource;
   final Logger logger;
 
-  NewsRepository(
-      {required this.remoteDataSource,
-      required this.localDataSource,
-      required this.logger});
+  NewsRepository({
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required this.logger,
+  });
 
   @override
   Future<Either<ApiFailure, News>> getNewsForYou({

@@ -12,7 +12,10 @@ class HomeRepositoryImpl implements HomeReporisitory {
   final HomePageRemoteDataSource remoteDataSource;
   Logger logger;
 
-  HomeRepositoryImpl({required this.remoteDataSource, required this.logger});
+  HomeRepositoryImpl({
+    required this.remoteDataSource,
+    required this.logger,
+  });
 
   @override
   Stream<Either<ApiFailure, HomeResponseModel>> getHomePageData() async* {

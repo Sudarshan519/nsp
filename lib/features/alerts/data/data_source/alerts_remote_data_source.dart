@@ -89,7 +89,9 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
         errorText: "Error on fetching alert list from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
@@ -100,10 +102,11 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
         return alertModelFromJson(responseBody);
       } catch (ex) {
         logger.log(
-            className: "AlertRemoteDataSource",
-            functionName: "_getAlertList()",
-            errorText: "Error casting from json to alert model",
-            errorMessage: ex.toString());
+          className: "AlertRemoteDataSource",
+          functionName: "_getAlertList()",
+          errorText: "Error casting from json to alert model",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {

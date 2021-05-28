@@ -45,10 +45,11 @@ class LocationInformationLocalDataSource
         return countryModelModelFromJson(listOfPrefectureString);
       } catch (ex) {
         logger.log(
-            className: "LocationInformationLocalDataSource",
-            functionName: "getCounties()",
-            errorText: "Error casting from json to countryModel",
-            errorMessage: ex.toString());
+          className: "LocationInformationLocalDataSource",
+          functionName: "getCounties()",
+          errorText: "Error casting from json to countryModel",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } catch (ex) {
@@ -80,7 +81,9 @@ class LocationInformationLocalDataSource
         errorText: "Error getting Prefs and City from postal code",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
     if (response.statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
@@ -124,7 +127,9 @@ class LocationInformationLocalDataSource
         errorText: "Error getting cities from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     if (response.statusCode == 200) {

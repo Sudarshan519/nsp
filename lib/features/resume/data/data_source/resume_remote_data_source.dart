@@ -75,7 +75,9 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
         errorMessage: ex.toString(),
       );
 
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     if (response.statusCode == 200) {
@@ -84,10 +86,11 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
         return resumeFromJson(responseBody);
       } catch (ex) {
         logger.log(
-            className: "ResumeRemoteDataSource",
-            functionName: "getResumeData()",
-            errorText: "Error casting from json to Resume",
-            errorMessage: ex.toString());
+          className: "ResumeRemoteDataSource",
+          functionName: "getResumeData()",
+          errorText: "Error casting from json to Resume",
+          errorMessage: ex.toString(),
+        );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
@@ -131,7 +134,9 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
         errorText: "Error on downloading pdf from API",
         errorMessage: ex.toString(),
       );
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     if (response.statusCode == 200) {
@@ -191,17 +196,20 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
         errorMessage: ex.toString(),
       );
 
-      throw ServerException(message: ex.toString());
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     if (response.statusCode == 200) {
       final responseJson = json.decode(response.body);
       if (responseJson["status"] == false) {
         logger.log(
-            className: "ResumeRemoteDataSource",
-            functionName: "updateResume()",
-            errorText: "Error on API status code: ${response.statusCode}",
-            errorMessage: response.body);
+          className: "ResumeRemoteDataSource",
+          functionName: "updateResume()",
+          errorText: "Error on API status code: ${response.statusCode}",
+          errorMessage: response.body,
+        );
         throw ServerException(
             message: errorMessageFromServerWithMessage(response.body) ??
                 AppConstants.someThingWentWrong);
@@ -209,10 +217,11 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
       return unit;
     } else {
       logger.log(
-          className: "ResumeRemoteDataSource",
-          functionName: "updateResume()",
-          errorText: "Error on API status code: ${response.statusCode}",
-          errorMessage: response.body);
+        className: "ResumeRemoteDataSource",
+        functionName: "updateResume()",
+        errorText: "Error on API status code: ${response.statusCode}",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServerWithMessage(response.body) ??
               AppConstants.someThingWentWrong);
