@@ -117,18 +117,37 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
     }
 
     if (response.statusCode == 200) {
-      final responseBody = utf8.decode(response.bodyBytes);
-      return genreModelFromJson(responseBody);
+      try {
+        final responseBody = utf8.decode(response.bodyBytes);
+        return genreModelFromJson(responseBody);
+      } catch (ex) {
+        logger.log(
+            className: "NewsRemoteDataSource",
+            functionName: "getGenreList()",
+            errorText: "Error casting from json to genreModel",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } else {
-      final errorModel = newsModelFromJson(response.body);
-      logger.log(
-        className: "NewsRemoteDataSource",
-        functionName: "getGenreList()",
-        errorText: "Error on API status code: ${response.statusCode}",
-        errorMessage: response.body,
-      );
-      throw ServerException(
-          message: errorModel?.error ?? AppConstants.someThingWentWrong);
+      try {
+        final errorModel = newsModelFromJson(response.body);
+
+        logger.log(
+          className: "NewsRemoteDataSource",
+          functionName: "getGenreList()",
+          errorText: "Error on API status code: ${response.statusCode}",
+          errorMessage: response.body,
+        );
+        throw ServerException(
+            message: errorModel?.error ?? AppConstants.someThingWentWrong);
+      } catch (ex) {
+        logger.log(
+            className: "NewsRemoteDataSource",
+            functionName: "getGenreList()",
+            errorText: "Error casting from json to newsModel",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     }
   }
 
@@ -153,8 +172,17 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
     }
 
     if (response.statusCode == 200) {
-      final responseBody = utf8.decode(response.bodyBytes);
-      return preferenceModelFromJson(responseBody);
+      try {
+        final responseBody = utf8.decode(response.bodyBytes);
+        return preferenceModelFromJson(responseBody);
+      } catch (ex) {
+        logger.log(
+            className: "NewsRemoteDataSource",
+            functionName: "getPreferenceList()",
+            errorText: "Error casting from json to preferenceModel",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } else {
       final errorModel = newsModelFromJson(response.body);
       logger.log(

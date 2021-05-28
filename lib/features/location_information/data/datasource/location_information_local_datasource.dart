@@ -41,7 +41,16 @@ class LocationInformationLocalDataSource
     try {
       final listOfPrefectureString = await _getFile(
           'lib/features/location_information/data/datasource/json/data.json');
-      return countryModelModelFromJson(listOfPrefectureString);
+      try {
+        return countryModelModelFromJson(listOfPrefectureString);
+      } catch (ex) {
+        logger.log(
+            className: "LocationInformationLocalDataSource",
+            functionName: "getCounties()",
+            errorText: "Error casting from json to countryModel",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } catch (ex) {
       logger.log(
         className: "LocationInformationLocalDataSource",

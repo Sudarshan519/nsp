@@ -190,8 +190,17 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     final statusCode = response.statusCode;
     if (statusCode == 200) {
-      return WalletUserModel.fromJSON(
-          json.decode(response.body) as Map<String, dynamic>);
+      try {
+        return WalletUserModel.fromJSON(
+            json.decode(response.body) as Map<String, dynamic>);
+      } catch (ex) {
+        logger.log(
+            className: "AuthRemoteDataSource",
+            functionName: "_postLoginRegister()",
+            errorText: "Error casting from json to WalletUserModel",
+            errorMessage: ex.toString());
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } else if (statusCode == 400) {
       return WalletUserModel.fromUnVerifiedUser();
     } else {
