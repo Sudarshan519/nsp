@@ -10,6 +10,7 @@ import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -55,6 +56,7 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     children: [
                       const HomePageHeader(),
+                      UtilityPamentWidget(),
                       _homePageBody(),
                     ],
                   ),
