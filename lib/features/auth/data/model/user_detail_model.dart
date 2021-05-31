@@ -258,8 +258,8 @@ class UserDetailModel extends UserDetail {
       params["community"] = community;
     }
 
-    if (mobile != null) {
-      params["mobile"] = mobile;
+    if (mobile != null && mobile!.isNotEmpty) {
+      params["mobile_phone"] = mobile;
     }
 
     if (otherPhone != null) {

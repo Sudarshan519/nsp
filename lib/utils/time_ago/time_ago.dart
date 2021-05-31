@@ -124,6 +124,12 @@ String dateFormat(DateTime date) {
   return "${date.day} ${months[date.month - 1]}, ${date.year}";
 }
 
-DateTime convertToDateTime(String datetime) {
-  return DateFormat('E, d MMM yyyy HH:mm:ss').parse(datetime);
+DateTime? convertToDateTime(String datetime) {
+  try {
+    return DateFormat('E, d MMM yyyy HH:mm:ss').parse(datetime);
+  } catch (ex) {
+    // To do add Logger here
+    print(ex.toString());
+    return null;
+  }
 }

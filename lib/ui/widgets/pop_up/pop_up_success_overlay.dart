@@ -33,7 +33,7 @@ class PopUpSuccessOverLayState extends State<PopUpSuccessOverLay>
         child: Container(
           margin: const EdgeInsets.all(40.0),
           padding: const EdgeInsets.only(top: 40),
-          height: 300.0,
+          height: 350.0,
           decoration: ShapeDecoration(
               color: Palette.white,
               shape: RoundedRectangleBorder(

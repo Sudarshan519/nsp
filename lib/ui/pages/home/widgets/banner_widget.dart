@@ -1,5 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 
 class BannerWidget extends StatelessWidget {
   const BannerWidget({
@@ -8,17 +9,15 @@ class BannerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      child: ShadowBoxWidget(
-        padding: const EdgeInsets.all(8),
-        child: Center(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(16),
-            child: Image.asset(
-              'assets/images/placeholders/how-to-apply.jpg',
-              fit: BoxFit.fitWidth,
-            ),
+    return InkWell(
+      onTap: () => context.pushRoute(const BannerDetailRoute()),
+      child: Container(
+        margin: const EdgeInsets.all(16),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Image.asset(
+            'assets/images/placeholders/choy-san-ad-banner.png',
+            fit: BoxFit.fitWidth,
           ),
         ),
       ),
