@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+
+import 'user_input_widget/text_widget_label_and_child.dart';
 
 class RemitRateExchangePage extends StatelessWidget {
   @override
@@ -8,6 +11,21 @@ class RemitRateExchangePage extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 5),
+        Expanded(
+          child: Row(
+            children: [
+              // TextWidetWithLabelAndChild(
+              //   title: "Amount",
+              //   child: InputTextWidget(
+              //     hintText: "¥ 1000",
+              //     textInputType: TextInputType.number,
+              //     value: "",
+              //     onChanged: (value) {},
+              //   ),
+              // ),
+            ],
+          ),
+        ),
         const SizedBox(height: 5),
         const RateAndViewGraphWidget(),
         const SizedBox(height: 5),

@@ -67,7 +67,7 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
           color: Palette.dividerColor,
         ),
         SizedBox(
-          // height: 60,
+          height: 150,
           child: TabBarView(
             controller: _tabController,
             children: _children.map((child) => child).toList(),
