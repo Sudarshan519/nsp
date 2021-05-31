@@ -19,6 +19,7 @@ import 'widgets/home_page_header.dart';
 import 'widgets/home_service_widget.dart';
 import 'widgets/japanese_manner_widget.dart';
 import 'widgets/news/segmented_news_widget.dart';
+import 'widgets/remit_rate/remit_rate_widget.dart';
 
 class HomePage extends StatelessWidget {
   final Function(int) changeTabPage;
@@ -55,6 +56,7 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     children: [
                       const HomePageHeader(),
+                      RemitRateWidget(),
                       _homePageBody(),
                     ],
                   ),
