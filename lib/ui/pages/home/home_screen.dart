@@ -175,7 +175,10 @@ class HomePage extends StatelessWidget {
         );
 
       case HomeItemType.ad_banner:
-        return const BannerWidget();
+        final banner = model.data.first["image"].toString();
+        return BannerWidget(
+          bannerUrl: banner,
+        );
 
       case HomeItemType.news:
         return SegmentedNewViewWidget(
