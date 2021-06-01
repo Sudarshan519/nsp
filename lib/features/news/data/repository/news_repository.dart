@@ -128,7 +128,7 @@ class NewsRepository implements NewsRepositoryProtocol {
           await localDataSource.getNewsPreferencesGenre();
 
       final newList = list.map((genre) {
-        final isAvailable = listOfSelectedGenre.contains(genre.name);
+        final isAvailable = listOfSelectedGenre.contains(genre.slug);
         genre.isSelected = isAvailable;
         return genre;
       }).toList();

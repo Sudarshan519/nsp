@@ -10,6 +10,6 @@ final GetIt getIt = GetIt.instance;
   preferRelativeImports: true, // default
   asExtension: false, // default
 )
-void configureInjection(String environment) {
-  $initGetIt(getIt);
+Future configureInjection(String environment) async {
+  await $initGetIt(getIt);
 }

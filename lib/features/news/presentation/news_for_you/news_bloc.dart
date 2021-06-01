@@ -64,6 +64,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       },
       (newsData) {
         isFetching = false;
+        _page = _page + 1;
         if (newsData.isEmpty) {
           _hasReachedEnd = true;
         }

@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 
 import '../colors.dart';
 
-class PopUpSuccessOverLay extends StatefulWidget {
+class PopUpCommingSoon extends StatefulWidget {
   final String title;
   final String? message;
 
   final Function() onPressed;
 
-  const PopUpSuccessOverLay({
+  const PopUpCommingSoon({
     Key? key,
     required this.title,
     this.message,
     required this.onPressed,
   }) : super(key: key);
   @override
-  State<StatefulWidget> createState() => PopUpSuccessOverLayState();
+  State<StatefulWidget> createState() => PopUpCommingSoonLayState();
 }
 
-class PopUpSuccessOverLayState extends State<PopUpSuccessOverLay>
-    with SingleTickerProviderStateMixin {
+class PopUpCommingSoonLayState extends State<PopUpCommingSoon> {
   @override
   void initState() {
     super.initState();
@@ -40,14 +39,14 @@ class PopUpSuccessOverLayState extends State<PopUpSuccessOverLay>
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              const Image(
-                image: AssetImage(
-                  'assets/images/pop_up/success.png',
-                ),
-                height: 80,
-                fit: BoxFit.contain,
-                // width: 200,
-              ),
+              // const Image(
+              //   image: AssetImage(
+              //     'assets/images/pop_up/success.png',
+              //   ),
+              //   height: 80,
+              //   fit: BoxFit.contain,
+              //   // width: 200,
+              // ),
               Flexible(
                 child: Padding(
                   padding:
