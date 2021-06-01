@@ -13,7 +13,7 @@ class UtilityPamentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -38,7 +38,7 @@ class UtilityPamentWidget extends StatelessWidget {
                       GridItem(
                         label: 'Internet',
                         svgPath: Assets.internet,
-                        route: InternetRoute(),
+                        route: ISPListRoute(),
                       ),
                       GridItem(
                         label: 'Airlines',
