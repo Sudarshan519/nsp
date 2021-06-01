@@ -14,6 +14,7 @@ import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 abstract class JapaneseMannersRemoteDataSource {
   Future<JapaneseMannerListModel> getJapaneseManners({
     required int id,
+    required String page,
   });
   Future<List<JapaneseMannerCategoryModel>> getJapaneseMannerCategories();
 }
@@ -39,9 +40,19 @@ class JapaneseMannersRemoteDataSourceImpl
   @override
   Future<JapaneseMannerListModel> getJapaneseManners({
     required int id,
+    required String page,
   }) async {
-    final url =
-        "${config.baseURL}${config.apiPath}${JapaneseMannerApiEndpoints.getJapaneseMannersById}$id";
+    String url = "";
+
+    if (id == 0) // This is all category
+    {
+      url =
+          "${config.baseURL}${config.apiPath}${JapaneseMannerApiEndpoints.getJapaneseManners}?page=$page";
+    } else {
+      url =
+          "${config.baseURL}${config.apiPath}${JapaneseMannerApiEndpoints.getJapaneseMannersById}$id?page=$page";
+    }
+
     http.Response response;
 
     try {

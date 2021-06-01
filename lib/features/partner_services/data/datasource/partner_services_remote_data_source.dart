@@ -14,6 +14,7 @@ import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 abstract class PartnerServicesRemoteDataSource {
   Future<PartnerServicesListModel> getPartnerServices({
     required String name,
+    required String page,
   });
   Future<List<ServicesCategoryModel>> getJapaneseMannerCategories();
 }
@@ -38,9 +39,18 @@ class PartnerServicesRemoteDataSourceImpl
   @override
   Future<PartnerServicesListModel> getPartnerServices({
     required String name,
+    required String page,
   }) async {
-    final url =
-        "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getPartnerServicesViaName}$name";
+    String url = "";
+
+    if (name.isEmpty || name.toLowerCase() == "all") {
+      url =
+          "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getPartnerServices}?page=$page";
+    } else {
+      url =
+          "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getPartnerServicesViaName}$name?page=$page";
+    }
+
     http.Response response;
 
     try {

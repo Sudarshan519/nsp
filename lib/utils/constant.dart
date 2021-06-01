@@ -23,4 +23,8 @@ class AppConstants {
   static const verificationCompletedTitle = "Verification completed";
   static const verificationCompletedMessage =
       "Successfully verified. Please relogin.";
+
+  static const topUpSuccessTitle = "Topup completed";
+  static const topUpSuccessMessage =
+      "Your top up request have been successfully completed. Thank you.";
 }

@@ -27,13 +27,18 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  advance_pdf_viewer: ^2.0.0
+  # advance_pdf_viewer: ^2.0.0
   assorted_layout_widgets: ^4.0.8     
   another_flushbar: ^1.10.20           
   auto_route: ^2.2.0                
   carousel_slider: ^4.0.0-nullsafety.0   
   dartz: ^0.10.0-nullsafety.2  
-  internet_connection_checker: ^0.0.1               
+  # esewa_pnp: ^1.0.5   
+  esewa_pnp:
+    # path: ../sdk/esewa_pnp
+    git:
+      url: https://github.com/asisadh/esewa_pnp.git
+      ref: null-safety
   equatable: ^2.0.0                           
   flutter_bloc: ^7.0.0                
   flutter_downloader: ^1.6.0                
@@ -47,10 +52,11 @@ dependencies:
   google_maps_flutter: ^2.0.5                
   google_sign_in: ^5.0.3                
   http: ^0.13.3               
-  image_picker: ^0.7.5                
-  injectable: ^1.4.0                
-  kana_kit: ^2.0.0                
-  modal_bottom_sheet: ^2.0.0                
+  image_picker: ^0.7.5   
+  ime_pay: ^0.0.6             
+  injectable: ^1.4.0    
+  internet_connection_checker: ^0.0.1            
+  kana_kit: ^2.0.0                              
   multi_select_flutter: ^4.0.0                
   path_provider: ^2.0.1                
   permission_handler: ^7.1.0                
@@ -87,7 +93,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/navigation_bar/
+    - assets/images/top_up/
     - assets/images/home/
+    - assets/images/home/utility-payment/
     - assets/images/navigation_tabs/
     - assets/images/news/
     - assets/images/auth/

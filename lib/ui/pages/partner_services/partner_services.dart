@@ -151,19 +151,22 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
   void setPage() {
     if (widget.categoryName != null && widget.categoryName!.isNotEmpty) {
       final categoryFound = widget.categories.firstWhere(
-          (category) => category.categoryName == widget.categoryName);
-      if (categoryFound != null) {
-        final index = widget.categories.indexOf(categoryFound);
+        (category) => category.categoryName == widget.categoryName,
+      );
+
+      final index = widget.categories.indexOf(categoryFound);
+      setState(() {
         _selectedIndex = index;
-      }
+      });
     }
   }
 }
 
 class _PartnerServicesPageList extends StatelessWidget {
   final ServicesCategory category;
+  final ScrollController _scrollController = ScrollController();
 
-  const _PartnerServicesPageList({
+  _PartnerServicesPageList({
     Key? key,
     required this.category,
   }) : super(key: key);
@@ -181,9 +184,16 @@ class _PartnerServicesPageList extends StatelessWidget {
     return BlocBuilder<ParnterServicesBloc, ParnterServicesState>(
       builder: (context, state) {
         return state.map(
-          initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
-          loaded: (success) => _listOfPartnerServices(context, success.list),
+          loadingWithData: (data) => _listOfPartnerServices(
+            context: context,
+            services: data.list,
+            isLoading: true,
+          ),
+          loaded: (success) => _listOfPartnerServices(
+            context: context,
+            services: success.list,
+          ),
           failure: (failure) {
             Future.delayed(Duration.zero, () {
               FlushbarHelper.createError(
@@ -196,23 +206,67 @@ class _PartnerServicesPageList extends StatelessWidget {
             });
             return const SizedBox.shrink();
           },
-          reachEnd: (_) => loadingPage(),
+          failureWithData: (data) {
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: data.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
+            return _listOfPartnerServices(
+              context: context,
+              services: data.list,
+            );
+          },
         );
       },
     );
   }
 
-  Widget _listOfPartnerServices(BuildContext context, List<Services> manners) {
-    if (manners.isEmpty) {
+  Widget _listOfPartnerServices({
+    required BuildContext context,
+    required List<Services> services,
+    bool isLoading = false,
+  }) {
+    if (services.isEmpty) {
       return const Center(
         child: Text("No data availabe for this section"),
       );
     }
-    return ListView.builder(
-      itemCount: manners.length,
-      itemBuilder: (context, index) {
-        return _parnterServicesWidget(context, manners[index]);
-      },
+    return SingleChildScrollView(
+      controller: _scrollController
+        ..addListener(
+          () {
+            if (_scrollController.offset ==
+                    _scrollController.position.maxScrollExtent &&
+                !context.read<ParnterServicesBloc>().isFetching) {
+              debugPrint("reached end");
+              context.read<ParnterServicesBloc>().add(
+                    ParnterServicesEvent.fetch(category),
+                  );
+            }
+          },
+        ),
+      child: Column(
+        children: [
+          ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: services.length,
+            itemBuilder: (context, index) {
+              return _parnterServicesWidget(context, services[index]);
+            },
+          ),
+          if (isLoading)
+            SizedBox(
+              height: 70,
+              child: loadingPage(),
+            ),
+        ],
+      ),
     );
   }
 

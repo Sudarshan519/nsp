@@ -10,6 +10,7 @@ import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -56,6 +57,7 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     children: [
                       const HomePageHeader(),
+                      const UtilityPamentWidget(),
                       RemitRateWidget(),
                       _homePageBody(),
                     ],
@@ -149,6 +151,7 @@ class HomePage extends StatelessWidget {
     final typeString = model.type ?? '';
 
     final type = _getHomeItemTypeString(typeString);
+    print(type);
 
     switch (type) {
       case HomeItemType.resume:
@@ -177,7 +180,10 @@ class HomePage extends StatelessWidget {
         );
 
       case HomeItemType.ad_banner:
-        return const BannerWidget();
+        final banner = model.data.first["image"].toString();
+        return BannerWidget(
+          bannerUrl: banner,
+        );
 
       case HomeItemType.news:
         return SegmentedNewViewWidget(

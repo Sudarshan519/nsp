@@ -11,9 +11,7 @@ class TextWidetWithLabelAndChild extends StatelessWidget {
     required this.title,
     this.isRequired = false,
     required this.child,
-  })   : assert(title != null),
-        assert(child != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

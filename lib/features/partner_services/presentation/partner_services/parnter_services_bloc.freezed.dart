@@ -341,12 +341,14 @@ abstract class _PullToRefresh implements ParnterServicesEvent {
 class _$ParnterServicesStateTearOff {
   const _$ParnterServicesStateTearOff();
 
-  _Initial initial() {
-    return const _Initial();
-  }
-
   _Loading loading() {
     return const _Loading();
+  }
+
+  _LoadingWithData loadingWithData(List<Services> list) {
+    return _LoadingWithData(
+      list,
+    );
   }
 
   _Loaded loaded(List<Services> list) {
@@ -355,13 +357,16 @@ class _$ParnterServicesStateTearOff {
     );
   }
 
-  _ReachedEnd reachEnd() {
-    return const _ReachedEnd();
-  }
-
   _Failure failure(ApiFailure failure) {
     return _Failure(
       failure,
+    );
+  }
+
+  _FailureWithData failureWithData(ApiFailure failure, List<Services> list) {
+    return _FailureWithData(
+      failure,
+      list,
     );
   }
 }
@@ -373,39 +378,40 @@ const $ParnterServicesState = _$ParnterServicesStateTearOff();
 mixin _$ParnterServicesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Services> list) loadingWithData,
     required TResult Function(List<Services> list) loaded,
-    required TResult Function() reachEnd,
     required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<Services> list)
+        failureWithData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Services> list)? loadingWithData,
     TResult Function(List<Services> list)? loaded,
-    TResult Function()? reachEnd,
     TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<Services> list)? failureWithData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWithData value) loadingWithData,
     required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWithData value)? loadingWithData,
     TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
     TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -426,102 +432,6 @@ class _$ParnterServicesStateCopyWithImpl<$Res>
   final ParnterServicesState _value;
   // ignore: unused_field
   final $Res Function(ParnterServicesState) _then;
-}
-
-/// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$ParnterServicesStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'ParnterServicesState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<Services> list) loaded,
-    required TResult Function() reachEnd,
-    required TResult Function(ApiFailure failure) failure,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Services> list)? loaded,
-    TResult Function()? reachEnd,
-    TResult Function(ApiFailure failure)? failure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements ParnterServicesState {
-  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -562,11 +472,12 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Services> list) loadingWithData,
     required TResult Function(List<Services> list) loaded,
-    required TResult Function() reachEnd,
     required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<Services> list)
+        failureWithData,
   }) {
     return loading();
   }
@@ -574,11 +485,11 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Services> list)? loadingWithData,
     TResult Function(List<Services> list)? loaded,
-    TResult Function()? reachEnd,
     TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<Services> list)? failureWithData,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -590,11 +501,11 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWithData value) loadingWithData,
     required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
   }) {
     return loading(this);
   }
@@ -602,11 +513,11 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWithData value)? loadingWithData,
     TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
     TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -618,6 +529,135 @@ class _$_Loading implements _Loading {
 
 abstract class _Loading implements ParnterServicesState {
   const factory _Loading() = _$_Loading;
+}
+
+/// @nodoc
+abstract class _$LoadingWithDataCopyWith<$Res> {
+  factory _$LoadingWithDataCopyWith(
+          _LoadingWithData value, $Res Function(_LoadingWithData) then) =
+      __$LoadingWithDataCopyWithImpl<$Res>;
+  $Res call({List<Services> list});
+}
+
+/// @nodoc
+class __$LoadingWithDataCopyWithImpl<$Res>
+    extends _$ParnterServicesStateCopyWithImpl<$Res>
+    implements _$LoadingWithDataCopyWith<$Res> {
+  __$LoadingWithDataCopyWithImpl(
+      _LoadingWithData _value, $Res Function(_LoadingWithData) _then)
+      : super(_value, (v) => _then(v as _LoadingWithData));
+
+  @override
+  _LoadingWithData get _value => super._value as _LoadingWithData;
+
+  @override
+  $Res call({
+    Object? list = freezed,
+  }) {
+    return _then(_LoadingWithData(
+      list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<Services>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LoadingWithData implements _LoadingWithData {
+  const _$_LoadingWithData(this.list);
+
+  @override
+  final List<Services> list;
+
+  @override
+  String toString() {
+    return 'ParnterServicesState.loadingWithData(list: $list)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _LoadingWithData &&
+            (identical(other.list, list) ||
+                const DeepCollectionEquality().equals(other.list, list)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+
+  @JsonKey(ignore: true)
+  @override
+  _$LoadingWithDataCopyWith<_LoadingWithData> get copyWith =>
+      __$LoadingWithDataCopyWithImpl<_LoadingWithData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<Services> list) loadingWithData,
+    required TResult Function(List<Services> list) loaded,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<Services> list)
+        failureWithData,
+  }) {
+    return loadingWithData(list);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<Services> list)? loadingWithData,
+    TResult Function(List<Services> list)? loaded,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<Services> list)? failureWithData,
+    required TResult orElse(),
+  }) {
+    if (loadingWithData != null) {
+      return loadingWithData(list);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWithData value) loadingWithData,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
+  }) {
+    return loadingWithData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWithData value)? loadingWithData,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
+    required TResult orElse(),
+  }) {
+    if (loadingWithData != null) {
+      return loadingWithData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingWithData implements ParnterServicesState {
+  const factory _LoadingWithData(List<Services> list) = _$_LoadingWithData;
+
+  List<Services> get list => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$LoadingWithDataCopyWith<_LoadingWithData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -683,11 +723,12 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Services> list) loadingWithData,
     required TResult Function(List<Services> list) loaded,
-    required TResult Function() reachEnd,
     required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<Services> list)
+        failureWithData,
   }) {
     return loaded(list);
   }
@@ -695,11 +736,11 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Services> list)? loadingWithData,
     TResult Function(List<Services> list)? loaded,
-    TResult Function()? reachEnd,
     TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<Services> list)? failureWithData,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -711,11 +752,11 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWithData value) loadingWithData,
     required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
   }) {
     return loaded(this);
   }
@@ -723,11 +764,11 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWithData value)? loadingWithData,
     TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
     TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -743,104 +784,6 @@ abstract class _Loaded implements ParnterServicesState {
   List<Services> get list => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ReachedEndCopyWith<$Res> {
-  factory _$ReachedEndCopyWith(
-          _ReachedEnd value, $Res Function(_ReachedEnd) then) =
-      __$ReachedEndCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ReachedEndCopyWithImpl<$Res>
-    extends _$ParnterServicesStateCopyWithImpl<$Res>
-    implements _$ReachedEndCopyWith<$Res> {
-  __$ReachedEndCopyWithImpl(
-      _ReachedEnd _value, $Res Function(_ReachedEnd) _then)
-      : super(_value, (v) => _then(v as _ReachedEnd));
-
-  @override
-  _ReachedEnd get _value => super._value as _ReachedEnd;
-}
-
-/// @nodoc
-
-class _$_ReachedEnd implements _ReachedEnd {
-  const _$_ReachedEnd();
-
-  @override
-  String toString() {
-    return 'ParnterServicesState.reachEnd()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ReachedEnd);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<Services> list) loaded,
-    required TResult Function() reachEnd,
-    required TResult Function(ApiFailure failure) failure,
-  }) {
-    return reachEnd();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Services> list)? loaded,
-    TResult Function()? reachEnd,
-    TResult Function(ApiFailure failure)? failure,
-    required TResult orElse(),
-  }) {
-    if (reachEnd != null) {
-      return reachEnd();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return reachEnd(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (reachEnd != null) {
-      return reachEnd(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ReachedEnd implements ParnterServicesState {
-  const factory _ReachedEnd() = _$_ReachedEnd;
 }
 
 /// @nodoc
@@ -915,11 +858,12 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Services> list) loadingWithData,
     required TResult Function(List<Services> list) loaded,
-    required TResult Function() reachEnd,
     required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<Services> list)
+        failureWithData,
   }) {
     return failure(this.failure);
   }
@@ -927,11 +871,11 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Services> list)? loadingWithData,
     TResult Function(List<Services> list)? loaded,
-    TResult Function()? reachEnd,
     TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<Services> list)? failureWithData,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -943,11 +887,11 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWithData value) loadingWithData,
     required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
   }) {
     return failure(this);
   }
@@ -955,11 +899,11 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWithData value)? loadingWithData,
     TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
     TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -975,5 +919,157 @@ abstract class _Failure implements ParnterServicesState {
   ApiFailure get failure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$FailureCopyWith<_Failure> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$FailureWithDataCopyWith<$Res> {
+  factory _$FailureWithDataCopyWith(
+          _FailureWithData value, $Res Function(_FailureWithData) then) =
+      __$FailureWithDataCopyWithImpl<$Res>;
+  $Res call({ApiFailure failure, List<Services> list});
+
+  $ApiFailureCopyWith<$Res> get failure;
+}
+
+/// @nodoc
+class __$FailureWithDataCopyWithImpl<$Res>
+    extends _$ParnterServicesStateCopyWithImpl<$Res>
+    implements _$FailureWithDataCopyWith<$Res> {
+  __$FailureWithDataCopyWithImpl(
+      _FailureWithData _value, $Res Function(_FailureWithData) _then)
+      : super(_value, (v) => _then(v as _FailureWithData));
+
+  @override
+  _FailureWithData get _value => super._value as _FailureWithData;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+    Object? list = freezed,
+  }) {
+    return _then(_FailureWithData(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as ApiFailure,
+      list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<Services>,
+    ));
+  }
+
+  @override
+  $ApiFailureCopyWith<$Res> get failure {
+    return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_FailureWithData implements _FailureWithData {
+  const _$_FailureWithData(this.failure, this.list);
+
+  @override
+  final ApiFailure failure;
+  @override
+  final List<Services> list;
+
+  @override
+  String toString() {
+    return 'ParnterServicesState.failureWithData(failure: $failure, list: $list)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FailureWithData &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality()
+                    .equals(other.failure, failure)) &&
+            (identical(other.list, list) ||
+                const DeepCollectionEquality().equals(other.list, list)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failure) ^
+      const DeepCollectionEquality().hash(list);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
+      __$FailureWithDataCopyWithImpl<_FailureWithData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<Services> list) loadingWithData,
+    required TResult Function(List<Services> list) loaded,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<Services> list)
+        failureWithData,
+  }) {
+    return failureWithData(this.failure, list);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<Services> list)? loadingWithData,
+    TResult Function(List<Services> list)? loaded,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<Services> list)? failureWithData,
+    required TResult orElse(),
+  }) {
+    if (failureWithData != null) {
+      return failureWithData(this.failure, list);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWithData value) loadingWithData,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
+  }) {
+    return failureWithData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWithData value)? loadingWithData,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
+    required TResult orElse(),
+  }) {
+    if (failureWithData != null) {
+      return failureWithData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FailureWithData implements ParnterServicesState {
+  const factory _FailureWithData(ApiFailure failure, List<Services> list) =
+      _$_FailureWithData;
+
+  ApiFailure get failure => throw _privateConstructorUsedError;
+  List<Services> get list => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
       throw _privateConstructorUsedError;
 }

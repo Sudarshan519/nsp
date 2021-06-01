@@ -32,13 +32,13 @@ class PopUpSuccessOverLayState extends State<PopUpSuccessOverLay>
         color: Colors.transparent,
         child: Container(
           margin: const EdgeInsets.all(40.0),
-          padding: const EdgeInsets.only(top: 40),
-          height: 350.0,
+          padding: const EdgeInsets.only(top: 40, bottom: 10),
           decoration: ShapeDecoration(
               color: Palette.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0))),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               const Image(
                 image: AssetImage(
@@ -48,7 +48,7 @@ class PopUpSuccessOverLayState extends State<PopUpSuccessOverLay>
                 fit: BoxFit.contain,
                 // width: 200,
               ),
-              Expanded(
+              Flexible(
                 child: Padding(
                   padding:
                       const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
@@ -76,9 +76,9 @@ class PopUpSuccessOverLayState extends State<PopUpSuccessOverLay>
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
-              Expanded(
+              Flexible(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[

@@ -16,11 +16,14 @@ part 'parnter_services_bloc.freezed.dart';
 class ParnterServicesBloc
     extends Bloc<ParnterServicesEvent, ParnterServicesState> {
   final GetPartnerServices getPartnerServices;
-  List<Services> data = [];
+  bool isFetching = false;
+  int _page = 1;
+  bool _hasReachedEnd = false;
+  final List<Services> _data = [];
 
   ParnterServicesBloc({
     required this.getPartnerServices,
-  }) : super(const _Initial());
+  }) : super(const _Loading());
 
   @override
   Stream<ParnterServicesState> mapEventToState(
@@ -28,20 +31,47 @@ class ParnterServicesBloc
   ) async* {
     yield* event.map(
       fetch: (e) async* {
-        if (data.isEmpty) {
-          yield const _Loading();
+        if (_hasReachedEnd) {
+          yield _Loaded(_data);
+        } else {
+          isFetching = true;
+          if (_data.isEmpty) {
+            yield const _Loading();
+          }
+          yield* _mapFetchEventToState(e);
         }
-        final result = await getPartnerServices(
-            GetPartnerServicesParam(category: e.category));
-        yield result.fold(
-          (failure) => _Failure(failure),
-          (list) {
-            data = list.results ?? [];
-            return _Loaded(list.results ?? []);
-          },
-        );
       },
       pullToRefresh: (e) async* {},
+    );
+  }
+
+  Stream<ParnterServicesState> _mapFetchEventToState(_Fetch _fetch) async* {
+    if (_data.isNotEmpty) {
+      yield _LoadingWithData(_data);
+    }
+    final result = await getPartnerServices(GetPartnerServicesParam(
+      category: _fetch.category,
+      page: "$_page",
+    ));
+    yield result.fold(
+      (failure) {
+        isFetching = false;
+        if (_data.isEmpty) {
+          return _FailureWithData(failure, _data);
+        } else {
+          return _Failure(failure);
+        }
+      },
+      (list) {
+        isFetching = false;
+        _page = _page + 1;
+
+        if ((list.results ?? []).isEmpty) {
+          _hasReachedEnd = true;
+        }
+        _data.addAll(list.results ?? []);
+        return _Loaded(_data);
+      },
     );
   }
 }
