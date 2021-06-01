@@ -5,12 +5,12 @@ import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_model.dart';
-import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_model.dart';
 import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -56,6 +56,7 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     children: [
                       const HomePageHeader(),
+                      const UtilityPamentWidget(),
                       _homePageBody(),
                     ],
                   ),
@@ -143,11 +144,12 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _listItemBuilder(
-      BuildContext context, dynamic? data, UserDetail? userDetail) {
+      BuildContext context, dynamic data, UserDetail? userDetail) {
     final model = data as HomeData;
     final typeString = model.type ?? '';
 
     final type = _getHomeItemTypeString(typeString);
+    print(type);
 
     switch (type) {
       case HomeItemType.resume:
@@ -175,8 +177,11 @@ class HomePage extends StatelessWidget {
           data: data,
         );
 
-      case HomeItemType.banner:
-        return const BannerWidget();
+      case HomeItemType.ad_banner:
+        final banner = model.data.first["image"].toString();
+        return BannerWidget(
+          bannerUrl: banner,
+        );
 
       case HomeItemType.news:
         return SegmentedNewViewWidget(

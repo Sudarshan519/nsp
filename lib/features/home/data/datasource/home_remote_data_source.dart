@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/home/data/app_constant/constant.dart';
 import 'package:wallet_app/features/home/data/model/home_data_model.dart';
@@ -24,6 +25,7 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
   final http.Client client;
   final ConfigReader config;
   final AuthLocalDataSource auth;
+  final Logger logger;
 
   final _headers = {
     'Accept': 'application/json; charset=utf-8',
@@ -34,6 +36,7 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
     required this.client,
     required this.config,
     required this.auth,
+    required this.logger,
   });
 
   @override
@@ -55,14 +58,35 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
         headers: _headers,
       );
     } catch (ex) {
-      throw ServerException(message: ex.toString());
+      logger.log(
+        className: "HomePageRemoteDataSource",
+        functionName: "getHomePageData()",
+        errorText: "Error fetching data for home page via API",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
 
     if (statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      final homeResponse = homeResponseModelFromJson(responseBody);
+
+      List<HomeResponseModel> homeResponse;
+      try {
+        homeResponse = homeResponseModelFromJson(responseBody);
+      } catch (ex) {
+        logger.log(
+          className: "HomePageRemoteDataSource",
+          functionName: "getHomePageData()",
+          errorText: "Error casting from json to homeResponseModel",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
+
       final userDetails = homeResponse.first.userDetail as UserDetailModel?;
       final homeData = homeResponse.last.homeData as List<HomeDataModel>?;
 
@@ -72,6 +96,12 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
 
       return HomeResponseModel(userDetail: userDetails, homeData: homeData);
     } else {
+      logger.log(
+        className: "HomePageRemoteDataSource",
+        functionName: "getHomePageData()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);

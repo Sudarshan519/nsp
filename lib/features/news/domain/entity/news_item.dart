@@ -27,11 +27,17 @@ class NewsItem {
 
   String get publishedYearOnly {
     final date = date_time.convertToDateTime(publishedDate ?? '');
-    return date_time.dateFormat(date);
+    if (date != null) {
+      return date_time.dateFormat(date);
+    }
+    return '';
   }
 
   String get publishedTimeAgo {
     final date = date_time.convertToDateTime(publishedDate ?? '');
-    return date_time.timeSince(date);
+    if (date != null) {
+      return date_time.timeSince(date);
+    }
+    return '';
   }
 }

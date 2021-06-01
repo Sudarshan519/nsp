@@ -6,6 +6,7 @@ import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_ma
 abstract class JapaneseMannerRepository {
   Future<Either<ApiFailure, JapaneseMannerList>> getJapaneseManner({
     required JapaneseMannerCategory category,
+    required String page,
   });
   Future<Either<ApiFailure, List<JapaneseMannerCategory>>>
       getJapaneseMannerCategories();

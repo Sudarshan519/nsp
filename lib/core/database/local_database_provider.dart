@@ -1,5 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:wallet_app/core/logger/logger.dart';
+import 'package:wallet_app/injections/injection.dart';
 
 import 'database_table_constant/table_constant.dart';
 
@@ -32,6 +34,8 @@ class DBProviderImpl implements DBProvider {
   static const int _version = 1;
   Database? _database;
 
+  final _logger = getIt<Logger>();
+
   @override
   Future open() async {
     final databasesPath = await getDatabasesPath();
@@ -59,6 +63,12 @@ class DBProviderImpl implements DBProvider {
         await dbBatch.commit(noResult: true);
       });
     } catch (ex) {
+      _logger.log(
+        className: "DBProvider",
+        functionName: "open()",
+        errorText: "Error opening local daabase",
+        errorMessage: ex.toString(),
+      );
       print(ex.toString());
     }
   }

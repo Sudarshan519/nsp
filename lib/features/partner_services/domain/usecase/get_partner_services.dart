@@ -22,7 +22,10 @@ class GetPartnerServices
   Future<Either<ApiFailure, PartnerServicesList>> call(
       GetPartnerServicesParam params) async {
     if (await networkInfo.isConnected) {
-      return repository.getPartnerServices(category: params.category);
+      return repository.getPartnerServices(
+        category: params.category,
+        page: params.page,
+      );
     } else {
       return const Left(ApiFailure.noInternetConnection());
     }
@@ -31,8 +34,10 @@ class GetPartnerServices
 
 class GetPartnerServicesParam {
   final ServicesCategory category;
+  final String page;
 
   GetPartnerServicesParam({
     required this.category,
+    required this.page,
   });
 }

@@ -22,7 +22,10 @@ class GetJapaneseManner
   Future<Either<ApiFailure, JapaneseMannerList>> call(
       GetJapaneseMannerParams params) async {
     if (await networkInfo.isConnected) {
-      return repository.getJapaneseManner(category: params.category);
+      return repository.getJapaneseManner(
+        category: params.category,
+        page: params.page,
+      );
     } else {
       return const Left(ApiFailure.noInternetConnection());
     }
@@ -31,8 +34,10 @@ class GetJapaneseManner
 
 class GetJapaneseMannerParams {
   final JapaneseMannerCategory category;
+  final String page;
 
   GetJapaneseMannerParams({
     required this.category,
+    required this.page,
   });
 }

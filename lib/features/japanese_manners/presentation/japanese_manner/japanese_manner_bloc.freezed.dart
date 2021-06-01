@@ -280,12 +280,14 @@ abstract class _PullToRefresh implements JapaneseMannerEvent {
 class _$JapaneseMannerStateTearOff {
   const _$JapaneseMannerStateTearOff();
 
-  _Initial initial() {
-    return const _Initial();
-  }
-
   _Loading loading() {
     return const _Loading();
+  }
+
+  _LoadingWith loadingWith(List<JapaneseManner> offlinedata) {
+    return _LoadingWith(
+      offlinedata,
+    );
   }
 
   _Loaded loaded(List<JapaneseManner> list) {
@@ -294,13 +296,17 @@ class _$JapaneseMannerStateTearOff {
     );
   }
 
-  _ReachedEnd reachEnd() {
-    return const _ReachedEnd();
-  }
-
   _Failure failure(ApiFailure failure) {
     return _Failure(
       failure,
+    );
+  }
+
+  _FailureWithData failureWithData(
+      ApiFailure failure, List<JapaneseManner> list) {
+    return _FailureWithData(
+      failure,
+      list,
     );
   }
 }
@@ -312,39 +318,41 @@ const $JapaneseMannerState = _$JapaneseMannerStateTearOff();
 mixin _$JapaneseMannerState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<JapaneseManner> offlinedata) loadingWith,
     required TResult Function(List<JapaneseManner> list) loaded,
-    required TResult Function() reachEnd,
     required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<JapaneseManner> list)
+        failureWithData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<JapaneseManner> offlinedata)? loadingWith,
     TResult Function(List<JapaneseManner> list)? loaded,
-    TResult Function()? reachEnd,
     TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<JapaneseManner> list)?
+        failureWithData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWith value) loadingWith,
     required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWith value)? loadingWith,
     TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
     TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -365,102 +373,6 @@ class _$JapaneseMannerStateCopyWithImpl<$Res>
   final JapaneseMannerState _value;
   // ignore: unused_field
   final $Res Function(JapaneseMannerState) _then;
-}
-
-/// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$JapaneseMannerStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'JapaneseMannerState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<JapaneseManner> list) loaded,
-    required TResult Function() reachEnd,
-    required TResult Function(ApiFailure failure) failure,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<JapaneseManner> list)? loaded,
-    TResult Function()? reachEnd,
-    TResult Function(ApiFailure failure)? failure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements JapaneseMannerState {
-  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -501,11 +413,12 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<JapaneseManner> offlinedata) loadingWith,
     required TResult Function(List<JapaneseManner> list) loaded,
-    required TResult Function() reachEnd,
     required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<JapaneseManner> list)
+        failureWithData,
   }) {
     return loading();
   }
@@ -513,11 +426,12 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<JapaneseManner> offlinedata)? loadingWith,
     TResult Function(List<JapaneseManner> list)? loaded,
-    TResult Function()? reachEnd,
     TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<JapaneseManner> list)?
+        failureWithData,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -529,11 +443,11 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWith value) loadingWith,
     required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
   }) {
     return loading(this);
   }
@@ -541,11 +455,11 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWith value)? loadingWith,
     TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
     TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -557,6 +471,137 @@ class _$_Loading implements _Loading {
 
 abstract class _Loading implements JapaneseMannerState {
   const factory _Loading() = _$_Loading;
+}
+
+/// @nodoc
+abstract class _$LoadingWithCopyWith<$Res> {
+  factory _$LoadingWithCopyWith(
+          _LoadingWith value, $Res Function(_LoadingWith) then) =
+      __$LoadingWithCopyWithImpl<$Res>;
+  $Res call({List<JapaneseManner> offlinedata});
+}
+
+/// @nodoc
+class __$LoadingWithCopyWithImpl<$Res>
+    extends _$JapaneseMannerStateCopyWithImpl<$Res>
+    implements _$LoadingWithCopyWith<$Res> {
+  __$LoadingWithCopyWithImpl(
+      _LoadingWith _value, $Res Function(_LoadingWith) _then)
+      : super(_value, (v) => _then(v as _LoadingWith));
+
+  @override
+  _LoadingWith get _value => super._value as _LoadingWith;
+
+  @override
+  $Res call({
+    Object? offlinedata = freezed,
+  }) {
+    return _then(_LoadingWith(
+      offlinedata == freezed
+          ? _value.offlinedata
+          : offlinedata // ignore: cast_nullable_to_non_nullable
+              as List<JapaneseManner>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LoadingWith implements _LoadingWith {
+  const _$_LoadingWith(this.offlinedata);
+
+  @override
+  final List<JapaneseManner> offlinedata;
+
+  @override
+  String toString() {
+    return 'JapaneseMannerState.loadingWith(offlinedata: $offlinedata)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _LoadingWith &&
+            (identical(other.offlinedata, offlinedata) ||
+                const DeepCollectionEquality()
+                    .equals(other.offlinedata, offlinedata)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(offlinedata);
+
+  @JsonKey(ignore: true)
+  @override
+  _$LoadingWithCopyWith<_LoadingWith> get copyWith =>
+      __$LoadingWithCopyWithImpl<_LoadingWith>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<JapaneseManner> offlinedata) loadingWith,
+    required TResult Function(List<JapaneseManner> list) loaded,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<JapaneseManner> list)
+        failureWithData,
+  }) {
+    return loadingWith(offlinedata);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<JapaneseManner> offlinedata)? loadingWith,
+    TResult Function(List<JapaneseManner> list)? loaded,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<JapaneseManner> list)?
+        failureWithData,
+    required TResult orElse(),
+  }) {
+    if (loadingWith != null) {
+      return loadingWith(offlinedata);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWith value) loadingWith,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
+  }) {
+    return loadingWith(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWith value)? loadingWith,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
+    required TResult orElse(),
+  }) {
+    if (loadingWith != null) {
+      return loadingWith(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingWith implements JapaneseMannerState {
+  const factory _LoadingWith(List<JapaneseManner> offlinedata) = _$_LoadingWith;
+
+  List<JapaneseManner> get offlinedata => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$LoadingWithCopyWith<_LoadingWith> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -622,11 +667,12 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<JapaneseManner> offlinedata) loadingWith,
     required TResult Function(List<JapaneseManner> list) loaded,
-    required TResult Function() reachEnd,
     required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<JapaneseManner> list)
+        failureWithData,
   }) {
     return loaded(list);
   }
@@ -634,11 +680,12 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<JapaneseManner> offlinedata)? loadingWith,
     TResult Function(List<JapaneseManner> list)? loaded,
-    TResult Function()? reachEnd,
     TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<JapaneseManner> list)?
+        failureWithData,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -650,11 +697,11 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWith value) loadingWith,
     required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
   }) {
     return loaded(this);
   }
@@ -662,11 +709,11 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWith value)? loadingWith,
     TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
     TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -682,104 +729,6 @@ abstract class _Loaded implements JapaneseMannerState {
   List<JapaneseManner> get list => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ReachedEndCopyWith<$Res> {
-  factory _$ReachedEndCopyWith(
-          _ReachedEnd value, $Res Function(_ReachedEnd) then) =
-      __$ReachedEndCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ReachedEndCopyWithImpl<$Res>
-    extends _$JapaneseMannerStateCopyWithImpl<$Res>
-    implements _$ReachedEndCopyWith<$Res> {
-  __$ReachedEndCopyWithImpl(
-      _ReachedEnd _value, $Res Function(_ReachedEnd) _then)
-      : super(_value, (v) => _then(v as _ReachedEnd));
-
-  @override
-  _ReachedEnd get _value => super._value as _ReachedEnd;
-}
-
-/// @nodoc
-
-class _$_ReachedEnd implements _ReachedEnd {
-  const _$_ReachedEnd();
-
-  @override
-  String toString() {
-    return 'JapaneseMannerState.reachEnd()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ReachedEnd);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<JapaneseManner> list) loaded,
-    required TResult Function() reachEnd,
-    required TResult Function(ApiFailure failure) failure,
-  }) {
-    return reachEnd();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<JapaneseManner> list)? loaded,
-    TResult Function()? reachEnd,
-    TResult Function(ApiFailure failure)? failure,
-    required TResult orElse(),
-  }) {
-    if (reachEnd != null) {
-      return reachEnd();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return reachEnd(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (reachEnd != null) {
-      return reachEnd(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ReachedEnd implements JapaneseMannerState {
-  const factory _ReachedEnd() = _$_ReachedEnd;
 }
 
 /// @nodoc
@@ -854,11 +803,12 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<JapaneseManner> offlinedata) loadingWith,
     required TResult Function(List<JapaneseManner> list) loaded,
-    required TResult Function() reachEnd,
     required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<JapaneseManner> list)
+        failureWithData,
   }) {
     return failure(this.failure);
   }
@@ -866,11 +816,12 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<JapaneseManner> offlinedata)? loadingWith,
     TResult Function(List<JapaneseManner> list)? loaded,
-    TResult Function()? reachEnd,
     TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<JapaneseManner> list)?
+        failureWithData,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -882,11 +833,11 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWith value) loadingWith,
     required TResult Function(_Loaded value) loaded,
-    required TResult Function(_ReachedEnd value) reachEnd,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
   }) {
     return failure(this);
   }
@@ -894,11 +845,11 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWith value)? loadingWith,
     TResult Function(_Loaded value)? loaded,
-    TResult Function(_ReachedEnd value)? reachEnd,
     TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -914,5 +865,158 @@ abstract class _Failure implements JapaneseMannerState {
   ApiFailure get failure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$FailureCopyWith<_Failure> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$FailureWithDataCopyWith<$Res> {
+  factory _$FailureWithDataCopyWith(
+          _FailureWithData value, $Res Function(_FailureWithData) then) =
+      __$FailureWithDataCopyWithImpl<$Res>;
+  $Res call({ApiFailure failure, List<JapaneseManner> list});
+
+  $ApiFailureCopyWith<$Res> get failure;
+}
+
+/// @nodoc
+class __$FailureWithDataCopyWithImpl<$Res>
+    extends _$JapaneseMannerStateCopyWithImpl<$Res>
+    implements _$FailureWithDataCopyWith<$Res> {
+  __$FailureWithDataCopyWithImpl(
+      _FailureWithData _value, $Res Function(_FailureWithData) _then)
+      : super(_value, (v) => _then(v as _FailureWithData));
+
+  @override
+  _FailureWithData get _value => super._value as _FailureWithData;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+    Object? list = freezed,
+  }) {
+    return _then(_FailureWithData(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as ApiFailure,
+      list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<JapaneseManner>,
+    ));
+  }
+
+  @override
+  $ApiFailureCopyWith<$Res> get failure {
+    return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_FailureWithData implements _FailureWithData {
+  const _$_FailureWithData(this.failure, this.list);
+
+  @override
+  final ApiFailure failure;
+  @override
+  final List<JapaneseManner> list;
+
+  @override
+  String toString() {
+    return 'JapaneseMannerState.failureWithData(failure: $failure, list: $list)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FailureWithData &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality()
+                    .equals(other.failure, failure)) &&
+            (identical(other.list, list) ||
+                const DeepCollectionEquality().equals(other.list, list)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failure) ^
+      const DeepCollectionEquality().hash(list);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
+      __$FailureWithDataCopyWithImpl<_FailureWithData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<JapaneseManner> offlinedata) loadingWith,
+    required TResult Function(List<JapaneseManner> list) loaded,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function(ApiFailure failure, List<JapaneseManner> list)
+        failureWithData,
+  }) {
+    return failureWithData(this.failure, list);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<JapaneseManner> offlinedata)? loadingWith,
+    TResult Function(List<JapaneseManner> list)? loaded,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function(ApiFailure failure, List<JapaneseManner> list)?
+        failureWithData,
+    required TResult orElse(),
+  }) {
+    if (failureWithData != null) {
+      return failureWithData(this.failure, list);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingWith value) loadingWith,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_FailureWithData value) failureWithData,
+  }) {
+    return failureWithData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingWith value)? loadingWith,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_FailureWithData value)? failureWithData,
+    required TResult orElse(),
+  }) {
+    if (failureWithData != null) {
+      return failureWithData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FailureWithData implements JapaneseMannerState {
+  const factory _FailureWithData(
+      ApiFailure failure, List<JapaneseManner> list) = _$_FailureWithData;
+
+  ApiFailure get failure => throw _privateConstructorUsedError;
+  List<JapaneseManner> get list => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
       throw _privateConstructorUsedError;
 }
