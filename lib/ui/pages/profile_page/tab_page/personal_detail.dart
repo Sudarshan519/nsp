@@ -835,12 +835,14 @@ class _SameAsPermanentAddress extends StatelessWidget {
                   .read<UpdateProfileBloc>()
                   .add(const UpdateProfileEvent.changeSameAsOriginAddress()),
             ),
-            const Text(
-              "Same as Origin/Permanent Address",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
+            const Expanded(
+              child: Text(
+                "Same as Origin/Permanent Address",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ],

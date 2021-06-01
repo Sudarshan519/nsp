@@ -100,6 +100,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     Either<ApiFailure, Unit> failureOrSuccess;
     yield state.copyWith(
       isSubmitting: true,
+      failureOrSuccessOption: none(),
     );
     failureOrSuccess = await updateQualificationInfo(
       UpdateQualificationInfoParams(

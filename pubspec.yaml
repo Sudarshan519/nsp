@@ -27,6 +27,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  advance_pdf_viewer: ^2.0.0
   assorted_layout_widgets: ^4.0.8     
   another_flushbar: ^1.10.20           
   auto_route: ^2.2.0                
@@ -93,6 +94,7 @@ flutter:
     - assets/images/navigation_bar/
     - assets/images/top_up/
     - assets/images/home/
+    - assets/images/home/utility-payment/
     - assets/images/navigation_tabs/
     - assets/images/news/
     - assets/images/auth/
@@ -102,6 +104,7 @@ flutter:
     - assets/images/more/
     - assets/images/profile/
     - assets/images/alerts/
+    - assets/images/banner_details/
     - config/
     - lib/features/location_information/data/datasource/json/
 

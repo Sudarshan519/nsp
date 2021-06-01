@@ -5,6 +5,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/location_information/data/model/country_model.dart';
 import 'package:wallet_app/features/location_information/data/model/prefecture_and_city_from_postal_code_model.dart';
 import 'package:wallet_app/utils/config_reader.dart';
@@ -27,10 +28,12 @@ class LocationInformationLocalDataSource
     implements LocationInformationLocalDataSourceProtocol {
   final http.Client client;
   final ConfigReader config;
+  final Logger logger;
 
   LocationInformationLocalDataSource({
     required this.client,
     required this.config,
+    required this.logger,
   });
 
   @override
@@ -38,8 +41,24 @@ class LocationInformationLocalDataSource
     try {
       final listOfPrefectureString = await _getFile(
           'lib/features/location_information/data/datasource/json/data.json');
-      return countryModelModelFromJson(listOfPrefectureString);
+      try {
+        return countryModelModelFromJson(listOfPrefectureString);
+      } catch (ex) {
+        logger.log(
+          className: "LocationInformationLocalDataSource",
+          functionName: "getCounties()",
+          errorText: "Error casting from json to countryModel",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } catch (ex) {
+      logger.log(
+        className: "LocationInformationLocalDataSource",
+        functionName: "getCounties()",
+        errorText: "Error getting country list from json file",
+        errorMessage: ex.toString(),
+      );
       rethrow;
     }
   }
@@ -56,7 +75,15 @@ class LocationInformationLocalDataSource
         Uri.parse(url),
       );
     } catch (ex) {
-      throw ServerException(message: ex.toString());
+      logger.log(
+        className: "LocationInformationLocalDataSource",
+        functionName: "getPreferenceAndCityFromPostalCode()",
+        errorText: "Error getting Prefs and City from postal code",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
     if (response.statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
@@ -68,6 +95,12 @@ class LocationInformationLocalDataSource
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
+      logger.log(
+        className: "LocationInformationLocalDataSource",
+        functionName: "getPreferenceAndCityFromPostalCode()",
+        errorText: "Error on API status code: ${response.statusCode}",
+        errorMessage: response.body,
+      );
       throw const ServerException(
           message: "No Information found for the current postal address.");
     }
@@ -88,7 +121,15 @@ class LocationInformationLocalDataSource
         Uri.parse(url),
       );
     } catch (ex) {
-      throw ServerException(message: ex.toString());
+      logger.log(
+        className: "LocationInformationLocalDataSource",
+        functionName: "getListOfCities()",
+        errorText: "Error getting cities from API",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     if (response.statusCode == 200) {
@@ -114,6 +155,12 @@ class LocationInformationLocalDataSource
 
       return listOfCities;
     } else {
+      logger.log(
+        className: "LocationInformationLocalDataSource",
+        functionName: "getListOfCities()",
+        errorText: "Error on API status code: ${response.statusCode}",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServerWithMessage(response.body) ??
               AppConstants.someThingWentWrong);

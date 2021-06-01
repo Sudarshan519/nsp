@@ -6,6 +6,7 @@ import 'package:wallet_app/features/partner_services/domain/entities/services_li
 abstract class PartnerServicesRepository {
   Future<Either<ApiFailure, PartnerServicesList>> getPartnerServices({
     required ServicesCategory category,
+    required String page,
   });
   Future<Either<ApiFailure, List<ServicesCategory>>>
       getPartnerServicesCategories();

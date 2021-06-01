@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
 
    <application
-        android:label="Nippon Secure Payment"
+        android:label="BNPJ - Buy Now Pay Japan"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true" 
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"

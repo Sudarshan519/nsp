@@ -10,5 +10,8 @@ class ServicesCategory extends Equatable {
   final String? categoryName;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [
+        id ?? 0,
+        categoryName ?? '',
+      ];
 }

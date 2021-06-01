@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:wallet_app/core/logger/logger.dart';
+import 'package:wallet_app/injections/injection.dart';
+
 // String errorMessageFromServer(String message) {
 //   try {
 //     final data = json.decode(message) as Map<String, dynamic>;
@@ -24,6 +27,7 @@ import 'dart:convert';
 //     return ex.toString();
 //   }
 // }
+final logger = getIt<Logger>();
 
 String? errorMessageFromServer(String message) {
   try {
@@ -41,6 +45,13 @@ String? errorMessageFromServer(String message) {
 
     return actualError[0] as String;
   } catch (ex) {
+    logger.log(
+      className: "Parse Message From Server",
+      functionName: "errorMessageFromServer()",
+      errorText: "Error on parsing message from server",
+      errorMessage: ex.toString(),
+    );
+
     return null;
   }
 }
@@ -52,6 +63,12 @@ String? errorMessageFromServerWithError(String message) {
     // search for a error key which is another json object
     return data["error"] as String;
   } catch (ex) {
+    logger.log(
+      className: "Parse Message From Server",
+      functionName: "errorMessageFromServerWithError()",
+      errorText: "Error on parsing message from server",
+      errorMessage: ex.toString(),
+    );
     return null;
   }
 }
@@ -63,6 +80,12 @@ String? errorMessageFromServerWithMessage(String message) {
     // search for a error key which is another json object
     return data["message"] as String;
   } catch (ex) {
+    logger.log(
+      className: "Parse Message From Server",
+      functionName: "errorMessageFromServerWithError()",
+      errorText: "Error on parsing message from server",
+      errorMessage: ex.toString(),
+    );
     return null;
   }
 }
