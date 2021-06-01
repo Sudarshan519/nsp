@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
@@ -5,17 +7,21 @@ import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 
 class TopUpPage extends StatelessWidget {
-  final TextEditingController _phNoController = new TextEditingController();
+  final TextEditingController _phNoController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Topup'),
+        title: const Text(
+          'Topup',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             ShadowBoxWidget(
@@ -33,7 +39,8 @@ class TopUpPage extends StatelessWidget {
                       ),
                       Text(
                         'NRP 1200',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
                       ),
                     ],
                   ),
@@ -48,12 +55,14 @@ class TopUpPage extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 15.0),
-              child: Text('Mobile (10 digits)'),
+              child: Text(
+                'Mobile (10 digits)',
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
             ),
             Container(
-              height: 50,
+              height: 36,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: TextField(
@@ -65,6 +74,7 @@ class TopUpPage extends StatelessWidget {
                       ],
                       decoration: InputDecoration(
                           hintText: "Mobile Number",
+                          hintStyle: TextStyle(fontSize: 13),
                           counterText: "",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(25),
@@ -93,18 +103,48 @@ class TopUpPage extends StatelessWidget {
                 ],
               ),
             ),
-            OutlineButton(
+            const SizedBox(
+              height: 40,
+            ),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
               onPressed: () {},
-              child: Text('I have a coupon'),
-              color: Palette.primary,
+              child: Text(
+                'I have a coupon',
+                style: TextStyle(color: Palette.primary),
+              ),
             ),
             MaterialButton(
+              minWidth: double.infinity,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0)),
               onPressed: () {},
               color: Palette.primary,
               textColor: Colors.white,
               child: const Text('Proceed'),
             ),
-            Text('My Payment')
+            const Spacer(),
+            OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                    textStyle: const TextStyle(color: Colors.black)),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      'My Payments (1)',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Icon(
+                      Icons.keyboard_arrow_up_outlined,
+                      color: Colors.black,
+                    )
+                  ],
+                ))
           ],
         ),
       ),
