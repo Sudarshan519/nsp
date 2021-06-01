@@ -38,22 +38,22 @@ class UtilityPamentWidget extends StatelessWidget {
                       GridItem(
                         label: 'Internet',
                         svgPath: Assets.internet,
-                        route: TopUpRoute(),
+                        route: InternetRoute(),
                       ),
                       GridItem(
                         label: 'Airlines',
                         svgPath: Assets.airLines,
-                        route: TopUpRoute(),
+                        route: AirLinesRoute(),
                       ),
                       GridItem(
                         label: 'Insurance',
                         svgPath: Assets.insurance,
-                        route: TopUpRoute(),
+                        route: InsuranceRoute(),
                       ),
                       GridItem(
                         label: 'Bus Ticket',
                         svgPath: Assets.busTicket,
-                        route: TopUpRoute(),
+                        route: BusTicketRoute(),
                       ),
                     ]),
               ))
