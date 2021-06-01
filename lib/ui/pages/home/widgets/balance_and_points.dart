@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_comming_soon.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
@@ -89,7 +91,17 @@ class BalanceAndPointWidget extends StatelessWidget {
                   if (showAddBalanceButton)
                     CustomButton(
                       title: "+ Add Balance",
-                      onTap: () {},
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (_) => PopUpCommingSoon(
+                            title: "Comming Soon",
+                            onPressed: () {
+                              context.popRoute();
+                            },
+                          ),
+                        );
+                      },
                     ),
                 ],
               )

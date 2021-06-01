@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -163,8 +161,9 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
 
 class _JapaneseMannerPageList extends StatelessWidget {
   final JapaneseMannerCategory category;
+  final ScrollController _scrollController = ScrollController();
 
-  const _JapaneseMannerPageList({
+  _JapaneseMannerPageList({
     Key? key,
     required this.category,
   }) : super(key: key);
@@ -182,9 +181,23 @@ class _JapaneseMannerPageList extends StatelessWidget {
     return BlocBuilder<JapaneseMannerBloc, JapaneseMannerState>(
       builder: (context, state) {
         return state.map(
-          initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
-          loaded: (success) => _listOfJapaneseManner(success.list),
+          loadingWith: (data) => _listOfJapaneseManner(
+              context: context, manners: data.offlinedata, isLoading: true),
+          loaded: (success) =>
+              _listOfJapaneseManner(context: context, manners: success.list),
+          failureWithData: (data) {
+            Future.delayed(Duration.zero, () {
+              FlushbarHelper.createError(
+                message: data.failure.map(
+                  noInternetConnection: (error) => AppConstants.noNetwork,
+                  serverError: (error) => error.message,
+                  invalidUser: (error) => AppConstants.someThingWentWrong,
+                ),
+              ).show(context);
+            });
+            return _listOfJapaneseManner(context: context, manners: data.list);
+          },
           failure: (failure) {
             Future.delayed(Duration.zero, () {
               FlushbarHelper.createError(
@@ -197,23 +210,52 @@ class _JapaneseMannerPageList extends StatelessWidget {
             });
             return const SizedBox.shrink();
           },
-          reachEnd: (_) => loadingPage(),
         );
       },
     );
   }
 
-  Widget _listOfJapaneseManner(List<JapaneseManner> manners) {
+  Widget _listOfJapaneseManner({
+    required BuildContext context,
+    required List<JapaneseManner> manners,
+    bool isLoading = false,
+  }) {
     if (manners.isEmpty) {
       return const Center(
         child: Text("No data availabe for this section"),
       );
     }
-    return ListView.builder(
-      itemCount: manners.length,
-      itemBuilder: (context, index) {
-        return JapaneseMannerWidget(data: manners[index]);
-      },
+    return SingleChildScrollView(
+      controller: _scrollController
+        ..addListener(
+          () {
+            if (_scrollController.offset ==
+                    _scrollController.position.maxScrollExtent &&
+                !context.read<JapaneseMannerBloc>().isFetching) {
+              debugPrint("reached end");
+              context.read<JapaneseMannerBloc>().add(
+                    JapaneseMannerEvent.fetch(category),
+                  );
+            }
+          },
+        ),
+      child: Column(
+        children: [
+          ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: manners.length,
+            itemBuilder: (context, index) {
+              return JapaneseMannerWidget(data: manners[index]);
+            },
+          ),
+          if (isLoading)
+            SizedBox(
+              height: 70,
+              child: loadingPage(),
+            ),
+        ],
+      ),
     );
   }
 }

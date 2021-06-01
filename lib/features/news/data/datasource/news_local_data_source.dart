@@ -178,7 +178,9 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
     }
 
     try {
-      return List<String>.from((json.decode(value) as Iterable).map((x) => x));
+      final some =
+          List<String>.from((json.decode(value) as Iterable).map((x) => x));
+      return some;
     } catch (ex) {
       logger.log(
         className: "NewsLocalDataSource",

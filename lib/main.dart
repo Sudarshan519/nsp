@@ -8,10 +8,9 @@ import 'utils/config_reader.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureInjection(Environment.prod);
+  await configureInjection(Environment.prod);
 
   /// for registering the factory.
-  await Future.delayed(const Duration(seconds: 2));
   await getIt<ConfigReader>().initialize();
   await FlutterDownloader.initialize(
     debug: getIt<ConfigReader>()
