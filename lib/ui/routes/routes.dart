@@ -1,4 +1,9 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:wallet_app/ui/pages/add_balance/add_balance.dart';
+import 'package:wallet_app/ui/pages/add_balance/payment_page/esewa/esewa_topup_page.dart';
+import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart';
+import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_new_card_payment_page.dart';
+import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_payment_page.dart';
 import 'package:wallet_app/ui/pages/alerts/alerts_page.dart';
 import 'package:wallet_app/ui/pages/alerts/alerts_tab_page.dart';
 import 'package:wallet_app/ui/pages/alerts/detail/alert_detail_page.dart';
@@ -57,6 +62,11 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: AlertsPage),
     AutoRoute(page: AlertsTabPage),
     AutoRoute(page: AlertDetailPage),
+    AutoRoute(page: AddBalancePage),
+    AutoRoute(page: StripePaymentCardSelectionPage),
+    AutoRoute(page: StripeNewCardPaymentPage),
+    AutoRoute(page: StripePaymentPage),
+    AutoRoute(page: EsewaTopupPage),
     AutoRoute(page: BannerDetailPage),
     AutoRoute(page: PdfViewerPage),
     AutoRoute(page: TopUpPage),

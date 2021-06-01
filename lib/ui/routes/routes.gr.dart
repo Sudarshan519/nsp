@@ -24,25 +24,15 @@ import '../pages/auth/forgot_password_screen.dart' as _i5;
 import '../pages/auth/login_screen.dart' as _i4;
 import '../pages/auth/register_screen.dart' as _i7;
 import '../pages/auth/validate_user_screen.dart' as _i6;
-import '../pages/banner_detail_page/banner_detail_page.dart' as _i26;
-import '../pages/home/widgets/utility_payment/detail_pages/airlines/airlines_page.dart'
-    as _i29;
-import '../pages/home/widgets/utility_payment/detail_pages/bus_ticket/bus_ticket_page.dart'
-    as _i30;
-import '../pages/home/widgets/utility_payment/detail_pages/insurance/insurance_page.dart'
-    as _i31;
-import '../pages/home/widgets/utility_payment/detail_pages/internet/individual_isp_page.dart'
+import '../pages/banner_detail_page/banner_detail_page.dart' as _i31;
+import '../pages/home/widgets/utility_payment/detail_pages/topup_page.dart'
     as _i33;
-import '../pages/home/widgets/utility_payment/detail_pages/internet/isp_list_page.dart'
-    as _i32;
-import '../pages/home/widgets/utility_payment/detail_pages/topup/topup_page.dart'
-    as _i28;
 import '../pages/japanese_manner/japanese_manner_detail.dart' as _i22;
 import '../pages/japanese_manner/japanese_manner_page.dart' as _i21;
 import '../pages/news/detail_page/news_detail.dart' as _i16;
 import '../pages/partner_services/partner_services.dart' as _i19;
 import '../pages/partner_services/service_detail.dart' as _i20;
-import '../pages/pdf_viewer/pdf_viewer.dart' as _i27;
+import '../pages/pdf_viewer/pdf_viewer.dart' as _i32;
 import '../pages/profile_page/profile_page.dart' as _i18;
 import '../pages/resume/resume_tab_pages/about/edit_basic_info.dart' as _i9;
 import '../pages/resume/resume_tab_pages/academics/edit_academic_info.dart'
@@ -235,48 +225,54 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<AlertDetailRouteArgs>();
           return _i25.AlertDetailPage(key: args.key, alert: args.alert);
         }),
+    AddBalanceRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i26.AddBalancePage();
+        }),
+    StripePaymentCardSelectionRoute.name: (routeData) =>
+        _i1.MaterialPageX<dynamic>(
+            routeData: routeData,
+            builder: (data) {
+              final args = data.argsAs<StripePaymentCardSelectionRouteArgs>();
+              return _i27.StripePaymentCardSelectionPage(
+                  key: args.key, balance: args.balance);
+            }),
+    StripeNewCardPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<StripeNewCardPaymentRouteArgs>();
+          return _i28.StripeNewCardPaymentPage(
+              key: args.key, balance: args.balance);
+        }),
+    StripePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<StripePaymentRouteArgs>();
+          return _i29.StripePaymentPage(key: args.key, balance: args.balance);
+        }),
+    EsewaTopupRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<EsewaTopupRouteArgs>();
+          return _i30.EsewaTopupPage(key: args.key, method: args.method);
+        }),
     BannerDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i26.BannerDetailPage();
+          return _i31.BannerDetailPage();
         }),
     PdfViewerRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<PdfViewerRouteArgs>();
-          return _i27.PdfViewerPage(
+          return _i32.PdfViewerPage(
               key: args.key, pdfUrl: args.pdfUrl, title: args.title);
         }),
     TopUpRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i28.TopUpPage();
-        }),
-    AirLinesRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return _i29.AirLinesPage();
-        }),
-    BusTicketRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return _i30.BusTicketPage();
-        }),
-    InsuranceRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return _i31.InsurancePage();
-        }),
-    ISPListRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return _i32.ISPListPage();
-        }),
-    IndividualISPRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (data) {
-          final args = data.argsAs<IndividualISPRouteArgs>();
-          return _i33.IndividualISPPage(key: args.key, ispTitle: args.ispTitle);
+          return _i33.TopUpPage();
         })
   };
 
@@ -317,14 +313,16 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(AlertsRoute.name, path: '/alerts-page'),
         _i1.RouteConfig(AlertsTabRoute.name, path: '/alerts-tab-page'),
         _i1.RouteConfig(AlertDetailRoute.name, path: '/alert-detail-page'),
+        _i1.RouteConfig(AddBalanceRoute.name, path: '/add-balance-page'),
+        _i1.RouteConfig(StripePaymentCardSelectionRoute.name,
+            path: '/stripe-payment-card-selection-page'),
+        _i1.RouteConfig(StripeNewCardPaymentRoute.name,
+            path: '/stripe-new-card-payment-page'),
+        _i1.RouteConfig(StripePaymentRoute.name, path: '/stripe-payment-page'),
+        _i1.RouteConfig(EsewaTopupRoute.name, path: '/esewa-topup-page'),
         _i1.RouteConfig(BannerDetailRoute.name, path: '/banner-detail-page'),
         _i1.RouteConfig(PdfViewerRoute.name, path: '/pdf-viewer-page'),
-        _i1.RouteConfig(TopUpRoute.name, path: '/top-up-page'),
-        _i1.RouteConfig(AirLinesRoute.name, path: '/air-lines-page'),
-        _i1.RouteConfig(BusTicketRoute.name, path: '/bus-ticket-page'),
-        _i1.RouteConfig(InsuranceRoute.name, path: '/insurance-page'),
-        _i1.RouteConfig(ISPListRoute.name, path: '/i-sp-list-page'),
-        _i1.RouteConfig(IndividualISPRoute.name, path: '/individual-is-pPage')
+        _i1.RouteConfig(TopUpRoute.name, path: '/top-up-page')
       ];
 }
 
@@ -773,6 +771,83 @@ class AlertDetailRouteArgs {
   final _i41.Alert alert;
 }
 
+class AddBalanceRoute extends _i1.PageRouteInfo {
+  const AddBalanceRoute() : super(name, path: '/add-balance-page');
+
+  static const String name = 'AddBalanceRoute';
+}
+
+class StripePaymentCardSelectionRoute
+    extends _i1.PageRouteInfo<StripePaymentCardSelectionRouteArgs> {
+  StripePaymentCardSelectionRoute({_i2.Key? key, required double balance})
+      : super(name,
+            path: '/stripe-payment-card-selection-page',
+            args: StripePaymentCardSelectionRouteArgs(
+                key: key, balance: balance));
+
+  static const String name = 'StripePaymentCardSelectionRoute';
+}
+
+class StripePaymentCardSelectionRouteArgs {
+  const StripePaymentCardSelectionRouteArgs({this.key, required this.balance});
+
+  final _i2.Key? key;
+
+  final double balance;
+}
+
+class StripeNewCardPaymentRoute
+    extends _i1.PageRouteInfo<StripeNewCardPaymentRouteArgs> {
+  StripeNewCardPaymentRoute({_i2.Key? key, required double balance})
+      : super(name,
+            path: '/stripe-new-card-payment-page',
+            args: StripeNewCardPaymentRouteArgs(key: key, balance: balance));
+
+  static const String name = 'StripeNewCardPaymentRoute';
+}
+
+class StripeNewCardPaymentRouteArgs {
+  const StripeNewCardPaymentRouteArgs({this.key, required this.balance});
+
+  final _i2.Key? key;
+
+  final double balance;
+}
+
+class StripePaymentRoute extends _i1.PageRouteInfo<StripePaymentRouteArgs> {
+  StripePaymentRoute({_i2.Key? key, required String balance})
+      : super(name,
+            path: '/stripe-payment-page',
+            args: StripePaymentRouteArgs(key: key, balance: balance));
+
+  static const String name = 'StripePaymentRoute';
+}
+
+class StripePaymentRouteArgs {
+  const StripePaymentRouteArgs({this.key, required this.balance});
+
+  final _i2.Key? key;
+
+  final String balance;
+}
+
+class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
+  EsewaTopupRoute({_i2.Key? key, required _i42.PaymentMethod method})
+      : super(name,
+            path: '/esewa-topup-page',
+            args: EsewaTopupRouteArgs(key: key, method: method));
+
+  static const String name = 'EsewaTopupRoute';
+}
+
+class EsewaTopupRouteArgs {
+  const EsewaTopupRouteArgs({this.key, required this.method});
+
+  final _i2.Key? key;
+
+  final _i42.PaymentMethod method;
+}
+
 class BannerDetailRoute extends _i1.PageRouteInfo {
   const BannerDetailRoute() : super(name, path: '/banner-detail-page');
 
@@ -803,45 +878,4 @@ class TopUpRoute extends _i1.PageRouteInfo {
   const TopUpRoute() : super(name, path: '/top-up-page');
 
   static const String name = 'TopUpRoute';
-}
-
-class AirLinesRoute extends _i1.PageRouteInfo {
-  const AirLinesRoute() : super(name, path: '/air-lines-page');
-
-  static const String name = 'AirLinesRoute';
-}
-
-class BusTicketRoute extends _i1.PageRouteInfo {
-  const BusTicketRoute() : super(name, path: '/bus-ticket-page');
-
-  static const String name = 'BusTicketRoute';
-}
-
-class InsuranceRoute extends _i1.PageRouteInfo {
-  const InsuranceRoute() : super(name, path: '/insurance-page');
-
-  static const String name = 'InsuranceRoute';
-}
-
-class ISPListRoute extends _i1.PageRouteInfo {
-  const ISPListRoute() : super(name, path: '/i-sp-list-page');
-
-  static const String name = 'ISPListRoute';
-}
-
-class IndividualISPRoute extends _i1.PageRouteInfo<IndividualISPRouteArgs> {
-  IndividualISPRoute({_i2.Key? key, required String ispTitle})
-      : super(name,
-            path: '/individual-is-pPage',
-            args: IndividualISPRouteArgs(key: key, ispTitle: ispTitle));
-
-  static const String name = 'IndividualISPRoute';
-}
-
-class IndividualISPRouteArgs {
-  const IndividualISPRouteArgs({this.key, required this.ispTitle});
-
-  final _i2.Key? key;
-
-  final String ispTitle;
 }

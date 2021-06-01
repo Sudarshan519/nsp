@@ -31,10 +31,8 @@ class TextWidetWithLabelAndChild extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
           decoration: BoxDecoration(
             border: Border.all(
-              color: Palette.dividerColor.withOpacity(0.8),
-              width: 0.5,
+              color: Palette.dividerColor,
             ),
-            color: Palette.dividerColor.withOpacity(0.3),
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: child,
