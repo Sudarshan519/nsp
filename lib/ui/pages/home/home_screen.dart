@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     children: [
                       const HomePageHeader(),
-                      UtilityPamentWidget(),
+                      const UtilityPamentWidget(),
                       _homePageBody(),
                     ],
                   ),
@@ -149,6 +149,7 @@ class HomePage extends StatelessWidget {
     final typeString = model.type ?? '';
 
     final type = _getHomeItemTypeString(typeString);
+    print(type);
 
     switch (type) {
       case HomeItemType.resume:

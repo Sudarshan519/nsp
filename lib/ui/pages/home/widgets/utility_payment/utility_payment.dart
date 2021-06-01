@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/ui/pages/home/widgets/category_title_text.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:wallet_app/utils/assets.dart';
 
 class UtilityPamentWidget extends StatelessWidget {
   const UtilityPamentWidget({
@@ -20,36 +24,36 @@ class UtilityPamentWidget extends StatelessWidget {
               padding: const EdgeInsets.all(1),
               margin: const EdgeInsets.all(1),
               child: Container(
-                height: size.height * 0.24,
+                height: size.height * 0.28,
                 color: Colors.white30,
                 child: GridView.count(
                     crossAxisCount: 3,
-                    childAspectRatio: 16 / 9,
-                    children: [
+                    childAspectRatio: 16 / 11,
+                    children: const [
                       GridItem(
                         label: 'Topup',
-                        icon: Icons.phone_iphone_sharp,
-                        onTap: () {},
+                        svgPath: Assets.topup,
+                        route: TopUpRoute(),
                       ),
                       GridItem(
                         label: 'Internet',
-                        icon: Icons.wifi,
-                        onTap: () {},
+                        svgPath: Assets.internet,
+                        route: TopUpRoute(),
                       ),
                       GridItem(
                         label: 'Airlines',
-                        icon: Icons.airplanemode_on_outlined,
-                        onTap: () {},
+                        svgPath: Assets.airLines,
+                        route: TopUpRoute(),
                       ),
                       GridItem(
                         label: 'Insurance',
-                        icon: Icons.person,
-                        onTap: () {},
+                        svgPath: Assets.insurance,
+                        route: TopUpRoute(),
                       ),
                       GridItem(
                         label: 'Bus Ticket',
-                        icon: Icons.bus_alert,
-                        onTap: () {},
+                        svgPath: Assets.busTicket,
+                        route: TopUpRoute(),
                       ),
                     ]),
               ))
@@ -61,21 +65,21 @@ class UtilityPamentWidget extends StatelessWidget {
 
 class GridItem extends StatelessWidget {
   final String label;
-  final IconData icon;
-  final Function onTap;
+  final String svgPath;
+  final PageRouteInfo<dynamic> route;
   const GridItem({
     Key? key,
     required this.label,
-    required this.icon,
-    required this.onTap,
+    required this.svgPath,
+    required this.route,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap(),
+      onTap: () => context.pushRoute(route),
       child: Column(children: [
-        Icon(icon, color: Colors.amber),
+        SvgPicture.asset(svgPath),
         const SizedBox(height: 2),
         Text(
           label,

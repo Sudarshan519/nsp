@@ -88,6 +88,7 @@ flutter:
   assets:
     - assets/images/navigation_bar/
     - assets/images/home/
+    - assets/images/home/utility-payment/
     - assets/images/navigation_tabs/
     - assets/images/news/
     - assets/images/auth/
