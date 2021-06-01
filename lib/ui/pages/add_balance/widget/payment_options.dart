@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/ime_pay/ime_pay_page.dart';
+import 'package:wallet_app/ui/pages/add_balance/payment_page/esewa/esewa_topup_page.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
@@ -76,8 +77,19 @@ class PaymentOptions extends StatelessWidget {
         context.pushRoute(StripePaymentCardSelectionRoute(balance: balance));
         break;
       case "esewa":
-        // await _esewaPay(paymentMethod);
-        // context.pushRoute(EsewaTopupRoute(method: paymentMethod));
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
+          ),
+          builder: (BuildContext context) {
+            return EsewaTopupPage(method: paymentMethod);
+          },
+        );
         break;
       case "ime_pay":
         showModalBottomSheet(

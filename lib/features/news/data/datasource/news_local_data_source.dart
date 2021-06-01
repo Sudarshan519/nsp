@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallet_app/core/database/news_provider.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/news/data/app_constant/constant.dart';
 import 'package:wallet_app/features/news/data/model/news_item_model.dart';
 import 'package:wallet_app/features/news/data/model/news_model.dart';
@@ -46,10 +47,12 @@ abstract class NewsLocalDataSourceProtocol {
 class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
   final NewsLocalProvider localProvider;
   final SharedPreferences preferences;
+  final Logger logger;
 
   NewsLocalDataSource({
     required this.localProvider,
     required this.preferences,
+    required this.logger,
   });
 
   @override
@@ -115,6 +118,12 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
       selectedLanguageCodeString = json.encode(selectedLanguageCodeArray);
       selectedSourceSlugString = json.encode(selectedSourceSlugArray);
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "saveNewsSourceAndLanguage()",
+        errorText: "Error saving news and language",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
     }
 
@@ -123,6 +132,12 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
           .preferences
           .setString(NewsConstant.lang, selectedLanguageCodeString);
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "saveNewsSourceAndLanguage()",
+        errorText: "Error saving news language to shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
     }
 
@@ -131,6 +146,12 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
           .preferences
           .setString(NewsConstant.sources, selectedSourceSlugString);
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "saveNewsSourceAndLanguage()",
+        errorText: "Error saving news source to shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
     }
   }
@@ -142,6 +163,12 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
     try {
       value = preferences.getString(NewsConstant.sources);
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "getNewsPreferencesSources()",
+        errorText: "Error getting news source from shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
       return [];
     }
@@ -151,8 +178,17 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
     }
 
     try {
-      return List<String>.from((json.decode(value) as Iterable).map((x) => x));
+      final some =
+          List<String>.from((json.decode(value) as Iterable).map((x) => x));
+      return some;
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "getNewsPreferencesSources()",
+        errorText:
+            "Error in json casting on getting news source from shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
       return [];
     }
@@ -165,6 +201,12 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
     try {
       value = preferences.getString(NewsConstant.lang);
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "getNewsPreferencesLanguages()",
+        errorText: "Error getting news pref lanaguage from shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
       return [];
     }
@@ -175,6 +217,13 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
     try {
       return List<String>.from((json.decode(value) as Iterable).map((x) => x));
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "getNewsPreferencesLanguages()",
+        errorText:
+            "Error in json casting on getting news pref lanaguage from shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
       return [];
     }
@@ -195,12 +244,24 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
     try {
       selectedGenreString = json.encode(listOfSelectedGenreArray);
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "saveNewsGenre()",
+        errorText: "Error in json encoding of list of selected genre",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
     }
 
     try {
       await preferences.setString(NewsConstant.genre, selectedGenreString);
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "saveNewsGenre()",
+        errorText: "Error in json encoding of list of selected genre",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
     }
   }
@@ -212,6 +273,12 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
     try {
       value = preferences.getString(NewsConstant.genre);
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "getNewsPreferencesGenre()",
+        errorText: "Error in getting news prefs genre from shared prefs",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
       return [];
     }
@@ -222,6 +289,12 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
     try {
       return List<String>.from((json.decode(value) as Iterable).map((x) => x));
     } catch (ex) {
+      logger.log(
+        className: "NewsLocalDataSource",
+        functionName: "getNewsPreferencesGenre()",
+        errorText: "Error in json decoding news prefs genre",
+        errorMessage: ex.toString(),
+      );
       debugPrint(ex.toString());
       return [];
     }

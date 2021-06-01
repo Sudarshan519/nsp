@@ -5,7 +5,7 @@ class AuthApiEndpoints {
   static const googleLogin = "/login/google/";
   static const postRegister = "/register/";
   static const verifyEmail = "/email/verify/";
-  static const emailActivationCode = "email/activation/code/";
+  static const emailActivationCode = "/email/activation/code/";
   static const getNewVerificationCode = "/email/password/reset/code/";
   static const resetPassword = "/email/password/reset/";
 }

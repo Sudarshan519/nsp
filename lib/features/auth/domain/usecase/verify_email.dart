@@ -14,8 +14,7 @@ class VerifyEmail implements Usecase<ApiFailure, Unit, VerifyEmailParams> {
   VerifyEmail({
     required this.repository,
     required this.networkInfo,
-  })   : assert(repository != null),
-        assert(networkInfo != null);
+  });
 
   @override
   Future<Either<ApiFailure, Unit>> call(VerifyEmailParams params) async {

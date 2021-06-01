@@ -23,7 +23,11 @@ class LoadFundModel extends LoadFund {
             : List<PaymentMethodsModel>.from(
                 (json["payment_methods"] as Iterable).map((x) =>
                     PaymentMethodsModel.fromJson(x as Map<String, dynamic>))),
-        balance: json["balance"] == null ? null : json["balance"] as double?,
+        balance: json["balance"] == null
+            ? null
+            : (json["balance"] is int?)
+                ? double.parse("${json["balance"] as int? ?? 0}")
+                : json["balance"] as double?,
       );
 }
 

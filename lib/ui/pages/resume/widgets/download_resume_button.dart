@@ -85,8 +85,8 @@ class DownloadResumeButton extends StatelessWidget {
     Share.shareFiles(
       ['$documentDirectory/$fileName'],
       text:
-          'Check out my resume auto generated resume from Nippon Secure Payment App.',
-      subject: 'Resume generated from Nippon Secure Payment',
+          'Check out my resume auto generated resume from BNPJ - Buy Now Pay Japan App.',
+      subject: 'Resume generated from BNPJ - Buy Now Pay Japan',
     );
   }
 }

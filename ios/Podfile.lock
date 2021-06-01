@@ -1,4 +1,6 @@
 PODS:
+  - advance_pdf_viewer (1.0.5):
+    - Flutter
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -82,7 +84,11 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+<<<<<<< HEAD
   - esewa_pnp (from `.symlinks/plugins/esewa_pnp/ios`)
+=======
+  - advance_pdf_viewer (from `.symlinks/plugins/advance_pdf_viewer/ios`)
+>>>>>>> version-2
   - Flutter (from `Flutter`)
   - flutter_downloader (from `.symlinks/plugins/flutter_downloader/ios`)
   - flutter_facebook_auth (from `.symlinks/plugins/flutter_facebook_auth/ios`)
@@ -116,8 +122,13 @@ SPEC REPOS:
     - OrderedSet
 
 EXTERNAL SOURCES:
+<<<<<<< HEAD
   esewa_pnp:
     :path: ".symlinks/plugins/esewa_pnp/ios"
+=======
+  advance_pdf_viewer:
+    :path: ".symlinks/plugins/advance_pdf_viewer/ios"
+>>>>>>> version-2
   Flutter:
     :path: Flutter
   flutter_downloader:
@@ -158,6 +169,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter/ios"
 
 SPEC CHECKSUMS:
+  advance_pdf_viewer: 5c832f382b4ca84fe735f893b7e91aa830c27d7b
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   esewa_pnp: 9c61e6be5134cd5bbaff0fd8f5051365f88ab8d6
   FBSDKCoreKit: a00fe2efd780c195a5e09201bf51c56106245b40

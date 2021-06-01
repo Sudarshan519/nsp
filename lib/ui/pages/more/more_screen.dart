@@ -77,16 +77,16 @@ class MorePage extends StatelessWidget {
         title: "Alerts",
         onTap: () => context.pushRoute(const AlertsTabRoute()),
       ),
-      _ProfileData(
-        image: "icon-about",
-        title: "About",
-        onTap: () {},
-      ),
-      _ProfileData(
-        image: "icon-contact",
-        title: "Contact",
-        onTap: () {},
-      ),
+      // _ProfileData(
+      //   image: "icon-about",
+      //   title: "About",
+      //   onTap: () {},
+      // ),
+      // _ProfileData(
+      //   image: "icon-contact",
+      //   title: "Contact",
+      //   onTap: () {},
+      // ),
       _ProfileData(
         image: "icon-privacy-policy",
         title: "Privacy Policy",

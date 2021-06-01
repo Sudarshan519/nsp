@@ -2,7 +2,7 @@ enum HomeItemType {
   resume,
   services,
   jp_manners,
-  banner,
+  ad_banner,
   news,
   disaster_alert,
 }

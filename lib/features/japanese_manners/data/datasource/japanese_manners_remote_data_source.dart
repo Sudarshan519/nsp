@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/japanese_manners/data/app_constant/constant.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_categories_model.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_list_model.dart';
@@ -13,6 +14,7 @@ import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 abstract class JapaneseMannersRemoteDataSource {
   Future<JapaneseMannerListModel> getJapaneseManners({
     required int id,
+    required String page,
   });
   Future<List<JapaneseMannerCategoryModel>> getJapaneseMannerCategories();
 }
@@ -22,6 +24,7 @@ class JapaneseMannersRemoteDataSourceImpl
     implements JapaneseMannersRemoteDataSource {
   final http.Client client;
   final ConfigReader config;
+  final Logger logger;
 
   final _headers = {
     'Accept': 'application/json; charset=utf-8',
@@ -31,14 +34,25 @@ class JapaneseMannersRemoteDataSourceImpl
   JapaneseMannersRemoteDataSourceImpl({
     required this.client,
     required this.config,
+    required this.logger,
   });
 
   @override
   Future<JapaneseMannerListModel> getJapaneseManners({
     required int id,
+    required String page,
   }) async {
-    final url =
-        "${config.baseURL}${config.apiPath}${JapaneseMannerApiEndpoints.getJapaneseMannersById}$id";
+    String url = "";
+
+    if (id == 0) // This is all category
+    {
+      url =
+          "${config.baseURL}${config.apiPath}${JapaneseMannerApiEndpoints.getJapaneseManners}?page=$page";
+    } else {
+      url =
+          "${config.baseURL}${config.apiPath}${JapaneseMannerApiEndpoints.getJapaneseMannersById}$id?page=$page";
+    }
+
     http.Response response;
 
     try {
@@ -47,15 +61,39 @@ class JapaneseMannersRemoteDataSourceImpl
         headers: _headers,
       );
     } catch (ex) {
-      throw ServerException(message: ex.toString());
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseManners()",
+        errorText: "Error fetching Japanease manners from API",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
 
     if (statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      return japaneseMannerListFromJson(responseBody);
+      try {
+        return japaneseMannerListFromJson(responseBody);
+      } catch (ex) {
+        logger.log(
+          className: "JapaneseMannersRemoteDataSource",
+          functionName: "getJapaneseManners()",
+          errorText: "Error casting from json to japaneseMannerList",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } else {
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseManners()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);
@@ -75,7 +113,15 @@ class JapaneseMannersRemoteDataSourceImpl
         headers: _headers,
       );
     } catch (ex) {
-      throw ServerException(message: ex.toString());
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseMannerCategories()",
+        errorText: "Error fetching Japanease manners Categories from API",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
     }
 
     final statusCode = response.statusCode;
@@ -84,16 +130,32 @@ class JapaneseMannersRemoteDataSourceImpl
       final responseBody = utf8.decode(response.bodyBytes);
       final jsonMap = json.decode(responseBody) as Map<String, dynamic>;
       if ((jsonMap["status"] as bool) == true) {
-        return List<JapaneseMannerCategoryModel>.from(
-          (jsonMap["categories"] as Iterable).map(
-            (x) =>
-                JapaneseMannerCategoryModel.fromJson(x as Map<String, dynamic>),
-          ),
-        );
+        try {
+          return List<JapaneseMannerCategoryModel>.from(
+            (jsonMap["categories"] as Iterable).map(
+              (x) => JapaneseMannerCategoryModel.fromJson(
+                  x as Map<String, dynamic>),
+            ),
+          );
+        } catch (ex) {
+          logger.log(
+            className: "JapaneseMannersRemoteDataSource",
+            functionName: "getJapaneseMannerCategories()",
+            errorText: "Error casting from json to JapaneseMannerCategoryModel",
+            errorMessage: ex.toString(),
+          );
+          throw const ServerException(message: AppConstants.someThingWentWrong);
+        }
       } else {
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseMannerCategories()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);

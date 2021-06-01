@@ -16,7 +16,7 @@ class VerifyUserPage extends StatelessWidget {
   const VerifyUserPage({
     Key? key,
     required this.email,
-  })   : assert(email != null),
+  })  : assert(email != null),
         super(key: key);
 
   @override
@@ -126,7 +126,7 @@ class _VerifyUserPageBody extends StatelessWidget {
   Widget _didnotRecivedTheCode(
     BuildContext context,
   ) {
-    return Row(
+    return Wrap(
       children: [
         Text(
           "Did not receive the code?",

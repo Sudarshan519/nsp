@@ -64,6 +64,7 @@ class StripeNewCardPaymentPage extends StatelessWidget {
               ).show(context);
             },
             (success) {
+              getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
               showDialog(
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
@@ -71,8 +72,6 @@ class StripeNewCardPaymentPage extends StatelessWidget {
                   message: AppConstants.topUpSuccessMessage,
                   onPressed: () {
                     context.router.navigate(const TabBarRoute());
-                    getIt<HomePageDataBloc>()
-                        .add(const HomePageDataEvent.fetch());
                   },
                 ),
               );

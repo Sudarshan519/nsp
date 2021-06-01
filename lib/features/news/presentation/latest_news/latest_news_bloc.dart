@@ -68,6 +68,7 @@ class LatestNewsBloc extends Bloc<LatestNewsEvent, LatestNewsState> {
           _hasReachedEnd = true;
         }
         _newsData.addAll(newsData);
+        _page = _page + 1;
         return _Loaded(_newsData);
       },
     );

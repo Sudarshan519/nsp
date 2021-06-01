@@ -17,7 +17,10 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
   @override
   Future<Either<ApiFailure, LoadFund>> getListOfPaymentMethods() async {
     try {
-      return Right(await dataSource.getListOfPaymentMethod());
+      final listOfPayments = await dataSource.getListOfPaymentMethod();
+      listOfPayments.paymentMethods
+          ?.removeWhere((method) => !(method.isActive ?? false));
+      return Right(listOfPayments);
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
@@ -59,6 +62,25 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
     try {
       return Right(
         await dataSource.verifyImePayTopup(
+          referenceId: referenceId,
+          amount: amount,
+          purpose: purpose,
+        ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> verifyEsewaTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+  }) async {
+    try {
+      return Right(
+        await dataSource.verifyEsewaTopup(
           referenceId: referenceId,
           amount: amount,
           purpose: purpose,
