@@ -151,8 +151,6 @@ class HomePage extends StatelessWidget {
     final typeString = model.type ?? '';
 
     final type = _getHomeItemTypeString(typeString);
-    print(type);
-
     switch (type) {
       case HomeItemType.resume:
         final data = model.data as Map<String, dynamic>;

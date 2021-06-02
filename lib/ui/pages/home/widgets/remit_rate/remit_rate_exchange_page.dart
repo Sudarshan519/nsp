@@ -10,25 +10,66 @@ class RemitRateExchangePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 5),
+        const SizedBox(height: 10),
         Expanded(
           child: Row(
             children: [
-              // TextWidetWithLabelAndChild(
-              //   title: "Amount",
-              //   child: InputTextWidget(
-              //     hintText: "¥ 1000",
-              //     textInputType: TextInputType.number,
-              //     value: "",
-              //     onChanged: (value) {},
-              //   ),
-              // ),
+              Expanded(
+                child: TextWidetWithLabelAndChild(
+                  title: "Amount",
+                  child: InputTextWidget(
+                    hintText: "¥ 1000",
+                    textInputType: TextInputType.number,
+                    value: "",
+                    onChanged: (value) {},
+                  ),
+                ),
+              ),
+              const SizedBox(width: 5),
+              Expanded(
+                child: TextWidetWithLabelAndChild(
+                  title: "From",
+                  child: InputTextWidget(
+                    hintText: "¥ 1000",
+                    textInputType: TextInputType.number,
+                    value: "",
+                    onChanged: (value) {},
+                  ),
+                ),
+              ),
+              const SizedBox(width: 5),
+              Container(
+                margin: const EdgeInsets.only(top: 15),
+                alignment: Alignment.bottomCenter,
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Palette.dividerColor,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    20,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 5),
+              Expanded(
+                child: TextWidetWithLabelAndChild(
+                  title: "To",
+                  child: InputTextWidget(
+                    hintText: "¥ 1000",
+                    textInputType: TextInputType.number,
+                    value: "",
+                    onChanged: (value) {},
+                  ),
+                ),
+              ),
             ],
           ),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 8),
         const RateAndViewGraphWidget(),
-        const SizedBox(height: 5),
+        const SizedBox(height: 8),
         const ServiceChargeWidget(),
       ],
     );

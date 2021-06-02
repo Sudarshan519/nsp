@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/load_balance/data/constants/constant.dart';
 import 'package:wallet_app/features/load_balance/data/model/payment_method_model.dart';
@@ -41,6 +42,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
   final http.Client client;
   final ConfigReader config;
   final AuthLocalDataSource auth;
+  final Logger logger;
 
   final _header = {
     'Accept': 'application/json',
@@ -51,6 +53,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     required this.client,
     required this.config,
     required this.auth,
+    required this.logger,
   });
 
   @override
@@ -127,6 +130,12 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
         body: json.encode(params),
       );
     } catch (ex) {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "topupViaStripe()",
+        errorText: "exception throws from client",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
@@ -134,6 +143,12 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     if (statusCode == 200) {
       return unit;
     } else {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "topupViaStripe()",
+        errorText: "Api Status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServerWithError(response.body) ??
               AppConstants.someThingWentWrong);
@@ -179,6 +194,12 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
         body: json.encode(params),
       );
     } catch (ex) {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "verifyImePayTopup()",
+        errorText: "exception throws from client",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
@@ -187,12 +208,19 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     if (statusCode == 200) {
       return unit;
     } else {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "verifyImePayTopup()",
+        errorText: "Api Status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServerWithError(response.body) ??
               AppConstants.someThingWentWrong);
     }
   }
 
+  @override
   Future<Unit> verifyEsewaTopup({
     required String referenceId,
     required String amount,
@@ -231,6 +259,12 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
         body: json.encode(params),
       );
     } catch (ex) {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "verifyEsewaTopup()",
+        errorText: "exception throws from client",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
@@ -239,6 +273,12 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     if (statusCode == 200) {
       return unit;
     } else {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "verifyEsewaTopup()",
+        errorText: "Api Status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServerWithError(response.body) ??
               AppConstants.someThingWentWrong);
