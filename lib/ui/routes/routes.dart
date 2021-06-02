@@ -12,7 +12,13 @@ import 'package:wallet_app/ui/pages/auth/login_screen.dart';
 import 'package:wallet_app/ui/pages/auth/register_screen.dart';
 import 'package:wallet_app/ui/pages/auth/validate_user_screen.dart';
 import 'package:wallet_app/ui/pages/banner_detail_page/banner_detail_page.dart';
-import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/topup_page.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/airlines/airlines_page.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/bus_ticket/bus_ticket_page.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/insurance/individual_insurance_page.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/insurance/insurance_list_page.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/internet/individual_isp_page.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/internet/isp_list_page.dart';
+import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/topup/topup_page.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_detail.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_page.dart';
 import 'package:wallet_app/ui/pages/news/detail_page/news_detail.dart';
@@ -65,6 +71,12 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: BannerDetailPage),
     AutoRoute(page: PdfViewerPage),
     AutoRoute(page: TopUpPage),
+    AutoRoute(page: AirLinesPage),
+    AutoRoute(page: BusTicketPage),
+    AutoRoute(page: IndividualInsurancePage),
+    AutoRoute(page: InsuranceListPage),
+    AutoRoute(page: ISPListPage),
+    AutoRoute(page: IndividualISPPage),
   ],
 )
 class $AppRouter {}

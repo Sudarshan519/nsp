@@ -1,59 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
-import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class TopUpPage extends StatelessWidget {
-  final TextEditingController _phNoController = new TextEditingController();
+  final TextEditingController _phNoController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Topup'),
+        title: Text(
+          "Topup",
+          style: TextStyle(
+            color: Palette.white,
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         centerTitle: true,
+        backgroundColor: Palette.primary,
+        elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
+      body: Column(
+        children: [
+          const BalanceWidget(balance: 1300),
+          body(),
+        ],
+      ),
+    );
+  }
+
+  Widget body() {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            ShadowBoxWidget(
-              padding: const EdgeInsets.all(12),
-              margin: const EdgeInsets.all(0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Balance',
-                        style: TextStyle(fontSize: 12, color: Colors.amber),
-                      ),
-                      Text(
-                        'NRP 1200',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.refresh,
-                        size: 34,
-                      ))
-                ],
-              ),
-            ),
+            const SizedBox(height: 20),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 15.0),
-              child: Text('Mobile (10 digits)'),
+              child: Text(
+                'Mobile (10 digits)',
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
             ),
             Container(
-              height: 50,
+              height: 36,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: TextField(
@@ -65,6 +64,7 @@ class TopUpPage extends StatelessWidget {
                       ],
                       decoration: InputDecoration(
                           hintText: "Mobile Number",
+                          hintStyle: TextStyle(fontSize: 13),
                           counterText: "",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(25),
@@ -93,18 +93,48 @@ class TopUpPage extends StatelessWidget {
                 ],
               ),
             ),
-            OutlineButton(
+            const SizedBox(
+              height: 40,
+            ),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
               onPressed: () {},
-              child: Text('I have a coupon'),
-              color: Palette.primary,
+              child: Text(
+                'I have a coupon',
+                style: TextStyle(color: Palette.primary),
+              ),
             ),
             MaterialButton(
+              minWidth: double.infinity,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0)),
               onPressed: () {},
               color: Palette.primary,
               textColor: Colors.white,
               child: const Text('Proceed'),
             ),
-            Text('My Payment')
+            const Spacer(),
+            OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                    textStyle: const TextStyle(color: Colors.black)),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      'My Payments (1)',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Icon(
+                      Icons.keyboard_arrow_up_outlined,
+                      color: Colors.black,
+                    )
+                  ],
+                ))
           ],
         ),
       ),
