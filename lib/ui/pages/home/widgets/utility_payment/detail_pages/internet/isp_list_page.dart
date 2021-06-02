@@ -48,15 +48,15 @@ class ISPListPage extends StatelessWidget {
                                   imageURL:
                                       "https://cdn.fing.io/images/isp/NP/logo/worldlink_logo.png"),
                               ISPItem(
-                                  name: 'WorldLink',
+                                  name: 'ViaNet',
                                   imageURL:
                                       "https://cdn.fing.io/images/isp/NP/logo/worldlink_logo.png"),
                               ISPItem(
-                                  name: 'WorldLink',
+                                  name: 'ClassicTech',
                                   imageURL:
                                       "https://cdn.fing.io/images/isp/NP/logo/worldlink_logo.png"),
                               ISPItem(
-                                  name: 'WorldLink',
+                                  name: 'Subisu',
                                   imageURL:
                                       "https://cdn.fing.io/images/isp/NP/logo/worldlink_logo.png"),
                               ISPItem(
