@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/home/domain/entities/remit_rate.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -6,105 +8,221 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'user_input_widget/text_widget_label_and_child.dart';
 
 class RemitRateExchangePage extends StatelessWidget {
+  final RemitRate remitRate;
+
+  const RemitRateExchangePage({
+    Key? key,
+    required this.remitRate,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const SizedBox(height: 10),
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(
-                child: TextWidetWithLabelAndChild(
-                  title: "Amount",
-                  child: InputTextWidget(
-                    hintText: "¥ 1000",
-                    textInputType: TextInputType.number,
-                    value: "",
-                    onChanged: (value) {},
-                  ),
-                ),
-              ),
-              const SizedBox(width: 5),
-              Expanded(
-                child: TextWidetWithLabelAndChild(
-                  title: "From",
-                  child: InputTextWidget(
-                    hintText: "¥ 1000",
-                    textInputType: TextInputType.number,
-                    value: "",
-                    onChanged: (value) {},
-                  ),
-                ),
-              ),
-              const SizedBox(width: 5),
-              Container(
-                margin: const EdgeInsets.only(top: 15),
-                alignment: Alignment.bottomCenter,
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Palette.dividerColor,
-                  ),
-                  borderRadius: BorderRadius.circular(
-                    20,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 5),
-              Expanded(
-                child: TextWidetWithLabelAndChild(
-                  title: "To",
-                  child: InputTextWidget(
-                    hintText: "¥ 1000",
-                    textInputType: TextInputType.number,
-                    value: "",
-                    onChanged: (value) {},
-                  ),
-                ),
-              ),
-            ],
+        if (remitRate.remitCharge?.isNotEmpty ?? false)
+          RemitExchangeProceGenerator(
+            remitRate: remitRate,
           ),
+        RateAndViewGraphWidget(
+          remitRate: remitRate,
         ),
         const SizedBox(height: 8),
-        const RateAndViewGraphWidget(),
-        const SizedBox(height: 8),
-        const ServiceChargeWidget(),
+        ServiceChargeWidget(
+          remitRate: remitRate,
+        ),
       ],
     );
   }
 }
 
-class ServiceChargeWidget extends StatelessWidget {
-  const ServiceChargeWidget({
+class RemitExchangeProceGenerator extends StatefulWidget {
+  final RemitRate remitRate;
+  const RemitExchangeProceGenerator({
     Key? key,
+    required this.remitRate,
   }) : super(key: key);
+
+  @override
+  _RemitExchangeProceGeneratorState createState() =>
+      _RemitExchangeProceGeneratorState();
+}
+
+class _RemitExchangeProceGeneratorState
+    extends State<RemitExchangeProceGenerator> {
+  late bool _hasSwapped;
+  late double _rate;
+  late double _reverseRate;
+
+  String _amount = "";
+  String _fromValue = '';
+  String _toValue = '';
+
+  @override
+  void initState() {
+    _hasSwapped = false;
+    _rate = widget.remitRate.remitExchange?.first.exchangeRate ?? 0.0;
+    _reverseRate =
+        widget.remitRate.remitExchange?.first.exchangeReverseRate ?? 0.0;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      children: [
+        Expanded(
+          child: TextWidetWithLabelAndChild(
+            title: "Amount",
+            child: InputTextWidget(
+              hintText: "¥ 1000",
+              textInputType: TextInputType.number,
+              value: _amount,
+              onChanged: changeAmount,
+            ),
+          ),
+        ),
+        const SizedBox(width: 5),
+        Expanded(
+          child: TextWidetWithLabelAndChild(
+            key: UniqueKey(),
+            title: "From",
+            child: InputTextWidget(
+              hintText: "1000",
+              textInputType: TextInputType.number,
+              value: _fromValue,
+              isEnable: false,
+              prefixIcon: _hasSwapped
+                  ? SvgPicture.asset(
+                      'assets/images/remit/nepal.svg',
+                    )
+                  : SvgPicture.asset(
+                      'assets/images/remit/japan.svg',
+                    ),
+              onChanged: (value) {},
+            ),
+          ),
+        ),
+        const SizedBox(width: 5),
+        InkWell(
+          onTap: () => setState(() {
+            _hasSwapped = !_hasSwapped;
+            changeAmount(_amount);
+          }),
+          child: Container(
+            margin: const EdgeInsets.only(top: 10),
+            alignment: Alignment.bottomCenter,
+            height: 40,
+            width: 40,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Palette.dividerColor,
+              ),
+              borderRadius: BorderRadius.circular(
+                20,
+              ),
+            ),
+            child: Center(
+              child: SvgPicture.asset(
+                'assets/images/remit/arrow.svg',
+                // height: 25.0,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: 5),
+        Expanded(
+          child: TextWidetWithLabelAndChild(
+            key: UniqueKey(),
+            title: "To",
+            child: InputTextWidget(
+              hintText: "1000",
+              textInputType: TextInputType.number,
+              value: _toValue,
+              isEnable: false,
+              prefixIcon: _hasSwapped
+                  ? SvgPicture.asset(
+                      'assets/images/remit/japan.svg',
+                    )
+                  : SvgPicture.asset(
+                      'assets/images/remit/nepal.svg',
+                    ),
+              onChanged: (value) {},
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  void changeAmount(String amount) {
+    if (amount.isEmpty) {
+      setState(() {
+        _amount = amount;
+        _fromValue = amount;
+        _toValue = _amount;
+      });
+    } else {
+      final doubleAmount = double.parse(amount);
+      if (_hasSwapped) {
+        setState(() {
+          _amount = amount;
+          _fromValue = amount;
+          final doubleFromValue = doubleAmount * _rate;
+          _toValue = "$doubleFromValue";
+        });
+      } else {
+        setState(() {
+          _amount = amount;
+          _fromValue = amount;
+          final doubleFromValue = doubleAmount * _reverseRate;
+          _toValue = "$doubleFromValue";
+        });
+      }
+    }
+  }
+}
+
+class ServiceChargeWidget extends StatelessWidget {
+  final RemitRate remitRate;
+  const ServiceChargeWidget({
+    Key? key,
+    required this.remitRate,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (remitRate.remitCharge?.isEmpty ?? true) {
+      return const SizedBox.shrink();
+    }
+
+    final remitCharge = remitRate.remitCharge?.first;
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Wrap(
-          children: const [
-            Text(
-              "Service Charge:",
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w300,
+        Expanded(
+          child: Wrap(
+            children: [
+              const Text(
+                "Service Charge:",
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w300,
+                ),
               ),
-            ),
-            SizedBox(width: 5),
-            Text(
-              "¥ 1000 (Till ¥100k)",
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w300,
+              const SizedBox(width: 5),
+              Text(
+                "${remitCharge?.remitRate ?? 0.0} (${remitCharge?.rangeName ?? ''})",
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w300,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
+        // if ((remitRate.remitCharge?.isNotEmpty ?? false) &&
+        //     (remitRate.remitCharge?.length ?? 0) > 1)
         Text(
           "View More",
           style: TextStyle(
@@ -119,39 +237,47 @@ class ServiceChargeWidget extends StatelessWidget {
 }
 
 class RateAndViewGraphWidget extends StatelessWidget {
+  final RemitRate remitRate;
   const RateAndViewGraphWidget({
     Key? key,
+    required this.remitRate,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    if (remitRate.remitExchange?.isEmpty ?? true) {
+      return const SizedBox.shrink();
+    }
+
+    final exchangeRate = remitRate.remitExchange?.first;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Wrap(
-          children: const [
-            Text(
-              "1 JPY = 1.001 NPR.",
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
+        Expanded(
+          child: Wrap(
+            children: [
+              Text(
+                "1 JPY = ${exchangeRate?.exchangeRate ?? 0.0} NPR.",
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(width: 5),
-            Text(
-              "1 JPY = 1.001 NPR",
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
+              const SizedBox(width: 5),
+              Text(
+                "1 NPR = ${exchangeRate?.exchangeReverseRate ?? 0.0} JPY",
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-          ],
-        ),
-        Flexible(
-          child: CustomButton(
-            title: "View Graph",
-            onTap: () {},
+            ],
           ),
+        ),
+        CustomButton(
+          title: "View Graph",
+          onTap: () {},
         ),
       ],
     );

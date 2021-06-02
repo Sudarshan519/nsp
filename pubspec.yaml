@@ -105,6 +105,7 @@ flutter:
     - assets/images/more/
     - assets/images/profile/
     - assets/images/alerts/
+    - assets/images/remit/
     - assets/images/banner_details/
     - config/
     - lib/features/location_information/data/datasource/json/

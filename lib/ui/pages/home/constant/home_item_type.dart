@@ -1,4 +1,6 @@
 enum HomeItemType {
+  utility_payments,
+  remit_service,
   resume,
   services,
   jp_manners,
