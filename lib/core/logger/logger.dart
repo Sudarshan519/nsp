@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/utils/config_reader.dart';
 
 abstract class Logger {
   Future log({
@@ -16,9 +17,11 @@ abstract class Logger {
 @LazySingleton(as: Logger)
 class LoggerImpl implements Logger {
   final http.Client client;
+  final ConfigReader config;
 
   LoggerImpl({
     required this.client,
+    required this.config,
   });
 
   final _headers = {
@@ -33,7 +36,7 @@ class LoggerImpl implements Logger {
     required String errorText,
     required String errorMessage,
   }) async {
-    const url = 'https://nspdev.truestreamz.com/api/v1/api_error_log/save';
+    final url = '${config.baseURL}${config.apiPath}/api_error_log/save';
 
     final params = {
       "error_message": errorText,

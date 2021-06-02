@@ -8,8 +8,21 @@ class RemitRateTabPage extends StatefulWidget {
   _RemitRateTabPageState createState() => _RemitRateTabPageState();
 }
 
-class _RemitRateTabPageState extends State<RemitRateTabPage>
-    with SingleTickerProviderStateMixin {
+class _RemitRateTabPageState extends State<RemitRateTabPage> {
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = 0;
+  }
+
+  void setSelectedIndex(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   TabController? _tabController;
   final List<Tab> _tabBar = const [
     Tab(
@@ -42,12 +55,6 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
     RemitRateExchangePage(),
     RemitRateExchangePage(),
   ];
-
-  @override
-  void initState() {
-    _tabController = TabController(length: 4, vsync: this);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
