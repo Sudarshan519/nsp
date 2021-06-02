@@ -48,7 +48,7 @@ class UtilityPamentWidget extends StatelessWidget {
                       GridItem(
                         label: 'Insurance',
                         svgPath: Assets.insurance,
-                        route: InsuranceRoute(),
+                        route: InsuranceListRoute(),
                       ),
                       GridItem(
                         label: 'Bus Ticket',
