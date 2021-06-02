@@ -64,7 +64,7 @@ class _RemitRateTabPageState extends State<RemitRateTabPage> {
           unselectedLabelColor: Palette.black,
           labelColor: Palette.black,
           tabs: _tabBar,
-          controller: _tabController,
+          onTap: (index) => setSelectedIndex(index),
           indicatorSize: TabBarIndicatorSize.tab,
           indicatorColor: Palette.primary,
           isScrollable: true,
@@ -73,12 +73,8 @@ class _RemitRateTabPageState extends State<RemitRateTabPage> {
           height: 1,
           color: Palette.dividerColor,
         ),
-        SizedBox(
-          height: 150,
-          child: TabBarView(
-            controller: _tabController,
-            children: _children.map((child) => child).toList(),
-          ),
+        Expanded(
+          child: _children[_selectedIndex],
         ),
       ],
     );
