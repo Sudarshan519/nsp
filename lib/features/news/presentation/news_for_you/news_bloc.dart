@@ -39,6 +39,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       },
       pullToRefresh: (e) async* {
         isFetching = true;
+        _hasReachedEnd = false;
         _page = 1;
         _newsData = [];
         yield const _Loading();

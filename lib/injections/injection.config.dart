@@ -269,7 +269,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i36.LoadBalanceDataSourceImpl(
           client: get<_i3.Client>(),
           config: get<_i13.ConfigReader>(),
-          auth: get<_i21.AuthLocalDataSource>()));
+          auth: get<_i21.AuthLocalDataSource>(),
+          logger: get<_i10.Logger>()));
   gh.lazySingleton<_i37.LoadBalanceRepositories>(() =>
       _i38.LoadBalanceRepositoriesImpl(
           dataSource: get<_i36.LoadBalanceDataSource>()));
