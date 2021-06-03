@@ -6,6 +6,7 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 import 'graphs/remit_graph_page.dart';
+import 'more_remit_service_charge.dart';
 import 'user_input_widget/text_widget_label_and_child.dart';
 
 class RemitRateExchangePage extends StatelessWidget {
@@ -224,12 +225,31 @@ class ServiceChargeWidget extends StatelessWidget {
         ),
         // if ((remitRate.remitCharge?.isNotEmpty ?? false) &&
         //     (remitRate.remitCharge?.length ?? 0) > 1)
-        Text(
-          "View More",
-          style: TextStyle(
-            fontSize: 12,
-            color: Palette.primary,
-            fontWeight: FontWeight.w500,
+        GestureDetector(
+          onTap: () {
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                ),
+              ),
+              builder: (BuildContext context) {
+                return RemitServiceChargeList(
+                  charges: remitRate.remitCharge,
+                );
+              },
+            );
+          },
+          child: Text(
+            "View More",
+            style: TextStyle(
+              fontSize: 12,
+              color: Palette.primary,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
       ],
