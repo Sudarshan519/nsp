@@ -106,27 +106,46 @@ String timeSince(
       .join(messages.wordSeparator());
 }
 
+final months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
+];
+
 String dateFormat(DateTime date) {
-  final months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-  ];
   return "${date.day} ${months[date.month - 1]}, ${date.year}";
+}
+
+String dateMonthFormat(DateTime date) {
+  return "${date.day} ${months[date.month - 1]}";
+}
+
+String dateWithTimeFormat(DateTime date) {
+  return "${date.day} ${months[date.month - 1]}, ${date.hour}:${date.minute}";
 }
 
 DateTime? convertToDateTime(String datetime) {
   try {
     return DateFormat('E, d MMM yyyy HH:mm:ss').parse(datetime);
+  } catch (ex) {
+    // To do add Logger here
+    print(ex.toString());
+    return null;
+  }
+}
+
+DateTime? convertToDate(String datetime) {
+  try {
+    return DateTime.parse(datetime);
   } catch (ex) {
     // To do add Logger here
     print(ex.toString());

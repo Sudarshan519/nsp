@@ -5,6 +5,7 @@ import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
+import 'graphs/remit_graph_page.dart';
 import 'user_input_widget/text_widget_label_and_child.dart';
 
 class RemitRateExchangePage extends StatelessWidget {
@@ -277,7 +278,25 @@ class RateAndViewGraphWidget extends StatelessWidget {
         ),
         CustomButton(
           title: "View Graph",
-          onTap: () {},
+          onTap: () {
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                ),
+              ),
+              builder: (BuildContext context) {
+                return RemitGraphPage(
+                  remitExchanges: remitRate.remitExchange ?? [],
+                  logoUrl: remitRate.logo ?? '',
+                  updatedAt: remitRate.formattedDate,
+                );
+              },
+            );
+          },
         ),
       ],
     );

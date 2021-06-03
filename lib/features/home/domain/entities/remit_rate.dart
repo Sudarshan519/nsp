@@ -1,3 +1,5 @@
+import 'package:wallet_app/utils/time_ago/time_ago.dart' as date_time;
+
 class RemitRate {
   RemitRate({
     required this.id,
@@ -20,6 +22,14 @@ class RemitRate {
   final String? createdAt;
   final String? updatedAt;
   final int? updatedBy;
+
+  String get formattedDate {
+    final dateObj = date_time.convertToDate(updatedAt ?? '');
+    if (dateObj != null) {
+      return date_time.dateWithTimeFormat(dateObj);
+    }
+    return '';
+  }
 }
 
 class RemitCharge {
@@ -50,4 +60,20 @@ class RemitExchange {
   final String? primaryRate;
   final double? exchangeRate;
   final double? exchangeReverseRate;
+
+  String get formattedDate {
+    final dateObj = date_time.convertToDate(date ?? '');
+    if (dateObj != null) {
+      return date_time.dateMonthFormat(dateObj);
+    }
+    return '';
+  }
+
+  String get formattedDateWithYear {
+    final dateObj = date_time.convertToDate(date ?? '');
+    if (dateObj != null) {
+      return date_time.dateFormat(dateObj);
+    }
+    return '';
+  }
 }
