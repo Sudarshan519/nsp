@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -32,18 +33,20 @@ class _SplashScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SplashBloc, SplashState>(
-      listener: (context, state) {},
+    final width = MediaQuery.of(context).size.width;
+    return BlocBuilder<SplashBloc, SplashState>(
       builder: (context, state) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Stack(
-            children: [
-              Container(
-                color: Palette.white,
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(
+              width: width * 0.5,
+              child: SvgPicture.asset(
+                "assets/images/splash/splash-logo.svg",
               ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );
