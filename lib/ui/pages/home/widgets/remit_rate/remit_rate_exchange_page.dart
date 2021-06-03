@@ -5,7 +5,7 @@ import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-import 'more_remit_rate.dart';
+import 'more_remit_service_charge.dart';
 import 'user_input_widget/text_widget_label_and_child.dart';
 
 class RemitRateExchangePage extends StatelessWidget {

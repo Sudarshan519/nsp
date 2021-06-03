@@ -7,9 +7,9 @@ class RemitServiceChargeList extends StatelessWidget {
   const RemitServiceChargeList({Key? key, required this.charges})
       : super(key: key);
 
-  String _formatString(String? input) {
+  String _formatString(String? input, double? rate) {
     if (input == null) return '';
-    return '${input.replaceAll('JPY', '¥').replaceAll('to', '(Till')})';
+    return 'JPY $rate ($input)'.replaceAll('JPY', '¥');
   }
 
   @override
@@ -59,7 +59,10 @@ class RemitServiceChargeList extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 6.0),
                         child: Text(
-                          _formatString(item?.rangeName),
+                          _formatString(
+                            item?.rangeName,
+                            item?.remitRate,
+                          ),
                           style: const TextStyle(
                               fontStyle: FontStyle.italic,
                               fontWeight: FontWeight.w600,
