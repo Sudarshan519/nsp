@@ -20,43 +20,37 @@ class UtilityPamentWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const CategoryTitleWidget(title: "Utility Payment"),
+          const SizedBox(height: 10),
           ShadowBoxWidget(
-              padding: const EdgeInsets.all(1),
-              margin: const EdgeInsets.all(1),
-              child: Container(
-                height: size.height * 0.28,
-                color: Colors.white30,
-                child: GridView.count(
-                    crossAxisCount: 3,
-                    childAspectRatio: 16 / 11,
-                    children: const [
-                      GridItem(
-                        label: 'Topup',
-                        svgPath: Assets.topup,
-                        route: TopUpRoute(),
-                      ),
-                      GridItem(
-                        label: 'Internet',
-                        svgPath: Assets.internet,
-                        route: ISPListRoute(),
-                      ),
-                      GridItem(
-                        label: 'Airlines',
-                        svgPath: Assets.airLines,
-                        route: AirLinesRoute(),
-                      ),
-                      GridItem(
-                        label: 'Insurance',
-                        svgPath: Assets.insurance,
-                        route: InsuranceListRoute(),
-                      ),
-                      GridItem(
-                        label: 'Bus Ticket',
-                        svgPath: Assets.busTicket,
-                        route: BusTicketRoute(),
-                      ),
-                    ]),
-              ))
+            padding: const EdgeInsets.all(1),
+            margin: const EdgeInsets.all(1),
+            child: Container(
+              color: Colors.white30,
+              child: GridView.count(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                crossAxisCount: 3,
+                childAspectRatio: 16 / 11,
+                children: const [
+                  GridItem(
+                    label: 'NTC Topup',
+                    svgPath: Assets.topup,
+                    route: TopUpRoute(),
+                  ),
+                  GridItem(
+                    label: 'Ncell Topup',
+                    svgPath: Assets.topup,
+                    route: TopUpRoute(),
+                  ),
+                  GridItem(
+                    label: 'Smart Cell Topup',
+                    svgPath: Assets.topup,
+                    route: TopUpRoute(),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -80,7 +74,7 @@ class GridItem extends StatelessWidget {
       onTap: () => context.pushRoute(route),
       child: Column(children: [
         SvgPicture.asset(svgPath),
-        const SizedBox(height: 2),
+        const SizedBox(height: 6),
         Text(
           label,
           textScaleFactor: 0.87,

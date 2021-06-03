@@ -7,6 +7,13 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 class TopUpPage extends StatelessWidget {
   final TextEditingController _phNoController = TextEditingController();
 
+  // final String balance;
+
+  TopUpPage({
+    Key? key,
+    // required this.balance,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
