@@ -95,7 +95,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder: (_) => PopUpCommingSoon(
-                            title: "Comming Soon",
+                            title: "Coming Soon",
                             onPressed: () {
                               context.popRoute();
                             },

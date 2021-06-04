@@ -11,11 +11,11 @@ class FileProvider {
     bool? allowCompression,
   }) async {
     final result = await ImagePicker()
-        .getImage(source: ImageSource.gallery, imageQuality: 2);
+        .getImage(source: ImageSource.gallery, imageQuality: 35);
 
     if (result == null) {
       return const Left(
-        "Sorry the file you choose could not be fetch. Please select another one.",
+        "Sorry the file you chose could not be fetched. Please select another one.",
       );
     }
 
