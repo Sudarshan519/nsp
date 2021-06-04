@@ -139,6 +139,7 @@ class UpdateWorkInfoActorBloc
         endYear: workHistory.endYear ?? "",
         endMonth: workHistory.endMonth ?? "",
         typeOfCompanyList: _setInitialState.typeOfCompanyList,
+        purposeOfResign: workHistory.purposeOfResign ?? "",
         isSubmitting: false,
         hasSetInitialData: true,
         failureOrSuccessOption: none(),
