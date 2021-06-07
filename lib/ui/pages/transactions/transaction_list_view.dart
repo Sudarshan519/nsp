@@ -24,7 +24,7 @@ class TransactionListView extends StatelessWidget {
           endIndent: 12,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return TransactionItem(
+          return TransactionViewItem(
               transaction: Transaction(
             placeName: 'Katsushika, Tokyo',
             activity: 'Purchase',
@@ -40,9 +40,9 @@ class TransactionListView extends StatelessWidget {
   }
 }
 
-class TransactionItem extends StatelessWidget {
+class TransactionViewItem extends StatelessWidget {
   final Transaction transaction;
-  const TransactionItem({Key? key, required this.transaction})
+  const TransactionViewItem({Key? key, required this.transaction})
       : super(key: key);
 
   @override
