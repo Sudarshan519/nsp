@@ -63,6 +63,11 @@ class MorePage extends StatelessWidget {
         onTap: () => context.pushRoute(const ProfileRoute()),
       ),
       _ProfileData(
+        image: "icon-about",
+        title: "Transactions",
+        onTap: () => context.pushRoute(const TransactionRoute()),
+      ),
+      _ProfileData(
         image: "icon-jap-manner",
         title: "Japanese Manners",
         onTap: () => context.pushRoute(JapaneseMannerRoute()),

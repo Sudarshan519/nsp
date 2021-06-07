@@ -35,6 +35,8 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/qualification/edit_q
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/work/edit_work_info.dart';
 import 'package:wallet_app/ui/pages/splash/splash_screen.dart';
 import 'package:wallet_app/ui/pages/tab_bar/tab_bar_screen.dart';
+import 'package:wallet_app/ui/pages/transactions/transaction_detail_page.dart';
+import 'package:wallet_app/ui/pages/transactions/transactions_page.dart';
 import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
 
 @MaterialAutoRouter(
@@ -77,6 +79,8 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: InsuranceListPage),
     AutoRoute(page: ISPListPage),
     AutoRoute(page: IndividualISPPage),
+    AutoRoute(page: TransactionPage),
+    AutoRoute(page: TransactionDetailPage),
   ],
 )
 class $AppRouter {}
