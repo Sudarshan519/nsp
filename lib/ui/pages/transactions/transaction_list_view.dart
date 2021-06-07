@@ -24,16 +24,7 @@ class TransactionListView extends StatelessWidget {
           endIndent: 12,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return TransactionViewItem(
-              transaction: Transaction(
-            placeName: 'Katsushika, Tokyo',
-            activity: 'Purchase',
-            day: 'Yesterday',
-            amount: '600',
-            date: DateTime.now(),
-            long: 85.32,
-            lat: 27.71,
-          ));
+          return TransactionViewItem();
         },
       ),
     );

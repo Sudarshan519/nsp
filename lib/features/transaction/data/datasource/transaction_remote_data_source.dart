@@ -1,12 +1,10 @@
 import 'dart:convert';
 
-import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
-import 'package:wallet_app/features/resume/domain/entities/resume_model.dart';
 import 'package:wallet_app/features/transaction/data/app_constant/constant.dart';
 import 'package:wallet_app/features/transaction/data/model/transaction_model.dart';
 import 'package:wallet_app/utils/config_reader.dart';
@@ -14,7 +12,7 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class TransactionRemoteDataSource {
-  Future<TransactionModel?> getTransactions();
+  Future<TransactionModel> getTransactions();
 }
 
 @LazySingleton(as: TransactionRemoteDataSource)
@@ -37,7 +35,7 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
   });
 
   @override
-  Future<TransactionModel?> getTransactions() async {
+  Future<TransactionModel> getTransactions() async {
     http.Response response;
     final url =
         "${config.baseURL}${config.apiPath}${TransactionApiEndpoints.getTransactions}";

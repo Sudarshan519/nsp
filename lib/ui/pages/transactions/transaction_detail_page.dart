@@ -3,12 +3,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 
-import 'transaction.dart';
-
 class TransactionDetailPage extends StatelessWidget {
-  final Transaction transaction;
-  const TransactionDetailPage({Key? key, required this.transaction})
-      : super(key: key);
+  const TransactionDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +49,9 @@ class TransactionDetailPage extends StatelessWidget {
                     'Total',
                     style: TextStyle(fontWeight: FontWeight.w700),
                   ),
-                  Text(
-                    '¥ ${transaction.amount}',
-                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  const Text(
+                    '¥ 600',
+                    style: TextStyle(fontWeight: FontWeight.w700),
                   ),
                 ],
               ),
@@ -84,7 +80,7 @@ class TransactionDetailPage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  '¥ ${transaction.amount}',
+                  '¥ 500}',
                   style: const TextStyle(
                       fontSize: 37,
                       fontWeight: FontWeight.bold,
@@ -94,14 +90,14 @@ class TransactionDetailPage extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  transaction.placeName,
+                  'Tokyo, Japan',
                   style: const TextStyle(color: Colors.white),
                 ),
                 const SizedBox(
                   height: 6,
                 ),
                 Text(
-                  transaction.activity,
+                  'Purchase',
                   style: const TextStyle(color: Colors.white),
                 ),
                 const SizedBox(
@@ -121,14 +117,17 @@ class TransactionDetailPage extends StatelessWidget {
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
-            child: GoogleMap(
+            child: const GoogleMap(
                 initialCameraPosition: CameraPosition(
                     zoom: 17,
-                    target: LatLng(transaction.lat, transaction.long))),
+                    target: LatLng(
+                      27.71,
+                      85.32,
+                    ))),
           ),
-          Text(
-            transaction.placeName,
-            style: const TextStyle(fontWeight: FontWeight.w700),
+          const Text(
+            'Tokyo Japan',
+            style: TextStyle(fontWeight: FontWeight.w700),
           ),
         ],
       ),
