@@ -3,7 +3,7 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class BalanceWidget extends StatelessWidget {
-  final double balance;
+  final String balance;
 
   const BalanceWidget({
     Key? key,
@@ -43,7 +43,7 @@ class BalanceWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "NRP $balance",
+                    balance,
                     style: TextStyle(
                       color: Palette.black,
                       fontSize: 16,

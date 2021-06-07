@@ -293,8 +293,9 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     TopUpRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i33.TopUpPage();
+        builder: (data) {
+          final args = data.argsAs<TopUpRouteArgs>();
+          return _i33.TopUpPage(key: args.key, balance: args.balance);
         }),
     AirLinesRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -841,7 +842,7 @@ class AddBalanceRoute extends _i1.PageRouteInfo {
 
 class StripePaymentCardSelectionRoute
     extends _i1.PageRouteInfo<StripePaymentCardSelectionRouteArgs> {
-  StripePaymentCardSelectionRoute({_i2.Key? key, required double balance})
+  StripePaymentCardSelectionRoute({_i2.Key? key, required String balance})
       : super(name,
             path: '/stripe-payment-card-selection-page',
             args: StripePaymentCardSelectionRouteArgs(
@@ -855,12 +856,12 @@ class StripePaymentCardSelectionRouteArgs {
 
   final _i2.Key? key;
 
-  final double balance;
+  final String balance;
 }
 
 class StripeNewCardPaymentRoute
     extends _i1.PageRouteInfo<StripeNewCardPaymentRouteArgs> {
-  StripeNewCardPaymentRoute({_i2.Key? key, required double balance})
+  StripeNewCardPaymentRoute({_i2.Key? key, required String balance})
       : super(name,
             path: '/stripe-new-card-payment-page',
             args: StripeNewCardPaymentRouteArgs(key: key, balance: balance));
@@ -873,7 +874,7 @@ class StripeNewCardPaymentRouteArgs {
 
   final _i2.Key? key;
 
-  final double balance;
+  final String balance;
 }
 
 class StripePaymentRoute extends _i1.PageRouteInfo<StripePaymentRouteArgs> {
@@ -936,10 +937,21 @@ class PdfViewerRouteArgs {
   final String title;
 }
 
-class TopUpRoute extends _i1.PageRouteInfo {
-  const TopUpRoute() : super(name, path: '/top-up-page');
+class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
+  TopUpRoute({_i2.Key? key, required String balance})
+      : super(name,
+            path: '/top-up-page',
+            args: TopUpRouteArgs(key: key, balance: balance));
 
   static const String name = 'TopUpRoute';
+}
+
+class TopUpRouteArgs {
+  const TopUpRouteArgs({this.key, required this.balance});
+
+  final _i2.Key? key;
+
+  final String balance;
 }
 
 class AirLinesRoute extends _i1.PageRouteInfo {

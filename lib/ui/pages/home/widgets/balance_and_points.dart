@@ -49,7 +49,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "NRP ${user?.balance ?? "xx.xx"}",
+                    user?.formattedBalance ?? 'JPY XX.XX',
                     style: TextStyle(
                       color: Palette.black,
                       fontSize: 16,
