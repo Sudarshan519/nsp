@@ -20,10 +20,10 @@ class TransactionItem {
 
   int? id;
   String? topupBy;
-  int? topupAmount;
+  double? topupAmount;
   String? currency;
-  int? referenceId;
-  int? transactionId;
+  String? referenceId;
+  String? transactionId;
   bool? status;
   String? transactionStatus;
   String? transactionFor;

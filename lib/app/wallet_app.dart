@@ -7,6 +7,7 @@ import 'package:wallet_app/features/news/presentation/news_genre/news_genre_bloc
 import 'package:wallet_app/features/news/presentation/news_preference/news_preference_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
@@ -65,6 +66,12 @@ class WalletApp extends StatelessWidget {
           create: (_) => getIt<NewsPreferenceBloc>()
             ..add(
               const NewsPreferenceEvent.fetch(),
+            ),
+        ),
+        BlocProvider(
+          create: (_) => getIt<TransactionBloc>()
+            ..add(
+              const TransactionEvent.fetchTransactionData(),
             ),
         ),
       ],

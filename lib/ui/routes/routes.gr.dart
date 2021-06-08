@@ -69,7 +69,6 @@ import '../pages/resume/resume_tab_pages/qualification/edit_qualification_info.d
 import '../pages/resume/resume_tab_pages/work/edit_work_info.dart' as _i12;
 import '../pages/splash/splash_screen.dart' as _i3;
 import '../pages/tab_bar/tab_bar_screen.dart' as _i8;
-import '../pages/transactions/transaction.dart' as _i51;
 import '../pages/transactions/transaction_detail_page.dart' as _i41;
 import '../pages/transactions/transactions_page.dart' as _i40;
 import '../pages/webview/app_web_view.dart' as _i17;
@@ -339,10 +338,8 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     TransactionDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (data) {
-          final args = data.argsAs<TransactionDetailRouteArgs>();
-          return _i41.TransactionDetailPage(
-              key: args.key, transaction: args.transaction);
+        builder: (_) {
+          return const _i41.TransactionDetailPage();
         })
   };
 
@@ -1026,21 +1023,9 @@ class TransactionRoute extends _i1.PageRouteInfo {
   static const String name = 'TransactionRoute';
 }
 
-class TransactionDetailRoute
-    extends _i1.PageRouteInfo<TransactionDetailRouteArgs> {
-  TransactionDetailRoute({_i2.Key? key, required _i51.Transaction transaction})
-      : super(name,
-            path: '/transaction-detail-page',
-            args:
-                TransactionDetailRouteArgs(key: key, transaction: transaction));
+class TransactionDetailRoute extends _i1.PageRouteInfo {
+  const TransactionDetailRoute()
+      : super(name, path: '/transaction-detail-page');
 
   static const String name = 'TransactionDetailRoute';
-}
-
-class TransactionDetailRouteArgs {
-  const TransactionDetailRouteArgs({this.key, required this.transaction});
-
-  final _i2.Key? key;
-
-  final _i51.Transaction transaction;
 }

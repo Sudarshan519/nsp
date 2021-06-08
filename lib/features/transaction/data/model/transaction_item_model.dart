@@ -1,12 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 
 class TransactionItemModel extends TransactionItem {
   TransactionItemModel({
     required int? id,
-    required int? topupAmount,
+    required double? topupAmount,
     required String? currency,
-    required int? referenceId,
-    required int? transactionId,
+    required String? referenceId,
+    required String? transactionId,
     required bool? status,
     required String? transactionStatus,
     required String? transactionFor,
@@ -36,10 +37,10 @@ class TransactionItemModel extends TransactionItem {
       TransactionItemModel(
         id: json['id'] as int?,
         topupBy: json['topup_by'] as String?,
-        topupAmount: json['topup_amount'] as int?,
+        topupAmount: json['topup_amount'] as double?,
         currency: json['currency'] as String?,
-        referenceId: json['reference_id'] as int?,
-        transactionId: json['transaction_id'] as int?,
+        referenceId: json['reference_id'] as String?,
+        transactionId: json['transaction_id'] as String?,
         status: json['status'] as bool?,
         transactionStatus: json['transaction_status'] as String?,
         transactionFor: json['transaction_for'] as String?,

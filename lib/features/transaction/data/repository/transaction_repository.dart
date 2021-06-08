@@ -5,7 +5,7 @@ import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/transaction/data/datasource/transaction_remote_data_source.dart';
-import 'package:wallet_app/features/transaction/data/model/transaction_model.dart';
+import 'package:wallet_app/features/transaction/domain/entity/transaction.dart';
 import 'package:wallet_app/features/transaction/domain/repository/transaction_repository.dart';
 
 @LazySingleton(as: TransactionRepository)
@@ -19,7 +19,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
   });
 
   @override
-  Future<Either<ApiFailure, TransactionModel>> getTransaction() async {
+  Future<Either<ApiFailure, Transaction>> getTransaction() async {
     try {
       return Right(await dataSource.getTransactions());
     } on ServerException catch (ex) {

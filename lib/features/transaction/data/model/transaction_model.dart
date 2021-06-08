@@ -14,9 +14,9 @@ class TransactionModel extends Transaction {
 
   factory TransactionModel.fromJson(Map<String, dynamic> json) =>
       TransactionModel(
-        statements: json["data"] != null
-            ? List<TransactionItemModel>.from((json["data"] as Iterable).map(
-                (x) =>
+        statements: json["statements"] != null
+            ? List<TransactionItemModel>.from((json["statements"] as Iterable)
+                .map((x) =>
                     TransactionItemModel.fromJson(x as Map<String, dynamic>)))
             : null,
       );
