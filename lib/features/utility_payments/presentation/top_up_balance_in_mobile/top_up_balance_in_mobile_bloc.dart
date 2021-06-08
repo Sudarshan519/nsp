@@ -39,9 +39,11 @@ class TopUpBalanceInMobileBloc
 
   TopUpBalanceInMobileState _mapChangePhoneNumberEventToState(
       _ChangePhoneNumber _changePhoneNumber) {
+    final type = getType(fromNumber: _changePhoneNumber.number);
+
     return state.copyWith(
       number: _changePhoneNumber.number,
-      type: 'ntc',
+      type: type,
       failureOrSuccessOption: none(),
     );
   }
@@ -74,5 +76,25 @@ class TopUpBalanceInMobileBloc
       isSubmitting: false,
       failureOrSuccessOption: optionOf(result),
     );
+  }
+
+  String getType({required String fromNumber}) {
+    final ntcRegx = RegExp(r'^(984|985|986|)\d{7}$', caseSensitive: false);
+    final ncellRegx = RegExp(r'^(980|981|982)\d{7}$', caseSensitive: false);
+    final smartCellRegx = RegExp(r'^(961|988)\d{7}$', caseSensitive: false);
+
+    if (ntcRegx.hasMatch(fromNumber)) {
+      return 'ntc';
+    }
+
+    if (ncellRegx.hasMatch(fromNumber)) {
+      return 'ncell';
+    }
+
+    if (smartCellRegx.hasMatch(fromNumber)) {
+      return 'smartcell';
+    }
+
+    return '';
   }
 }
