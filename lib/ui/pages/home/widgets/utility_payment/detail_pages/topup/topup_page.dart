@@ -1,8 +1,10 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttercontactpicker/fluttercontactpicker.dart';
 import 'package:wallet_app/features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
@@ -77,6 +79,33 @@ class TopUpPage extends StatelessWidget {
 class _MobileNumberTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //get phone contacts
+    Future handleContact(BuildContext context) async {
+      final bool hasPermission = await FlutterContactPicker.hasPermission();
+      if (!hasPermission) {
+        FlushbarHelper.createError(
+                message: "Please provide contact read permission")
+            .show(context);
+        await Future.delayed(const Duration(seconds: 2));
+        FlutterContactPicker.requestPermission();
+      }
+      final PhoneContact contact =
+          await FlutterContactPicker.pickPhoneContact();
+      if (contact.phoneNumber != null) {
+        final String? number = contact.phoneNumber?.number;
+        final String formattedNUmber = number
+            .toString()
+            .replaceAll('(', '')
+            .replaceAll(')', '')
+            .replaceAll('-', '')
+            .replaceAll(' ', '');
+
+        context
+            .read<TopUpBalanceInMobileBloc>()
+            .add(TopUpBalanceInMobileEvent.changePhoneNumber(formattedNUmber));
+      }
+    }
+
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
         return Row(
@@ -95,8 +124,11 @@ class _MobileNumberTextField extends StatelessWidget {
                   onChanged: (value) => context
                       .read<TopUpBalanceInMobileBloc>()
                       .add(TopUpBalanceInMobileEvent.changePhoneNumber(value)),
-                  suffixIcon: SvgPicture.asset(
-                    "assets/images/home/utility-payment/icon-Phone-book.svg",
+                  suffixIcon: GestureDetector(
+                    onTap: () => handleContact(context),
+                    child: SvgPicture.asset(
+                      "assets/images/home/utility-payment/icon-Phone-book.svg",
+                    ),
                   ),
                 ),
               ),
