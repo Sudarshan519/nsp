@@ -254,7 +254,7 @@ class _TransactionDetail extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        state.amount,
+                        '${double.parse(state.amount) * 0.94}',
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,

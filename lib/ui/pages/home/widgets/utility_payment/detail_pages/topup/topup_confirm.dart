@@ -150,7 +150,7 @@ class _TransactionAmountInJPYField extends StatelessWidget {
       builder: (context, state) {
         return _TransactionDetailRow(
           title: 'Transcation Amount (JPY)',
-          value: state.amount,
+          value: '${double.parse(state.amount) * 0.94}',
         );
       },
     );
