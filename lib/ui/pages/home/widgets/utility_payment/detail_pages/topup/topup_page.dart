@@ -1,8 +1,11 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttercontactpicker/fluttercontactpicker.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
@@ -12,8 +15,9 @@ import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/dashed_line.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
-class TopUpPage extends StatelessWidget {
+class TopUpPage extends StatefulWidget {
   final String balance;
 
   const TopUpPage({
@@ -22,10 +26,22 @@ class TopUpPage extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _TopUpPageState createState() => _TopUpPageState();
+}
+
+class _TopUpPageState extends State<TopUpPage> {
+  late bool _isConfirmPage;
+
+  @override
+  void initState() {
+    _isConfirmPage = false;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final bloc = getIt<TopUpBalanceInMobileBloc>();
     return BlocProvider(
-      create: (context) => bloc,
+      create: (context) => getIt<TopUpBalanceInMobileBloc>(),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -36,7 +52,15 @@ class TopUpPage extends StatelessWidget {
           ),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              if (_isConfirmPage) {
+                setState(() {
+                  _isConfirmPage = false;
+                });
+              } else {
+                context.popRoute();
+              }
+            },
           ),
           centerTitle: true,
           backgroundColor: Palette.primary,
@@ -44,15 +68,60 @@ class TopUpPage extends StatelessWidget {
         ),
         body: Column(
           children: [
-            BalanceWidget(balance: balance),
-            body(context, bloc),
+            BalanceWidget(balance: widget.balance),
+            _blocConsumer(context),
           ],
         ),
       ),
     );
   }
 
-  Widget body(BuildContext context, TopUpBalanceInMobileBloc bloc) {
+  Widget _blocConsumer(BuildContext context) {
+    return BlocConsumer<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      listener: (context, state) {
+        state.failureOrSuccessOption.fold(
+          () => {},
+          (either) => either.fold(
+            (failure) {
+              FlushbarHelper.createError(
+                  message: failure.map(
+                serverError: (error) => error.message,
+                invalidUser: (_) => AppConstants.someThingWentWrong,
+                noInternetConnection: (_) => AppConstants.noNetwork,
+              )).show(context);
+            },
+            (success) {
+              getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              showDialog(
+                context: context,
+                builder: (_) => PopUpSuccessOverLay(
+                  title: AppConstants.topUpSuccessTitle,
+                  message: AppConstants.topUpSuccessMessage,
+                  onPressed: () {
+                    context.router.navigate(const TabBarRoute());
+                  },
+                ),
+              );
+            },
+          ),
+        );
+      },
+      builder: (context, state) {
+        if (state.isSubmitting) {
+          return Expanded(
+            child: loadingPage(),
+          );
+        }
+
+        if (_isConfirmPage) {
+          return topupConfirmationbody(context);
+        }
+        return topupInformationbody(context);
+      },
+    );
+  }
+
+  Widget topupInformationbody(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Column(
@@ -65,9 +134,31 @@ class TopUpPage extends StatelessWidget {
           _TransactionDetail(),
           const SizedBox(height: 20),
           _ProceedButton(
-            balance: balance,
-            bloc: bloc,
+            callback: () {
+              setState(() {
+                _isConfirmPage = true;
+              });
+            },
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget topupConfirmationbody(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 20),
+          _MobileNumberField(),
+          const SizedBox(height: 5),
+          _TransactionAmountInNPRField(),
+          const SizedBox(height: 5),
+          _TransactionAmountInJPYField(),
+          const SizedBox(height: 40),
+          const _ConfirmButton(),
         ],
       ),
     );
@@ -77,12 +168,14 @@ class TopUpPage extends StatelessWidget {
 class _MobileNumberTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //get phone contacts
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
+              key: state.key,
               child: TextWidetWithLabelAndChild(
                 title: "Mobile (10 digit)",
                 child: InputTextWidget(
@@ -95,8 +188,16 @@ class _MobileNumberTextField extends StatelessWidget {
                   onChanged: (value) => context
                       .read<TopUpBalanceInMobileBloc>()
                       .add(TopUpBalanceInMobileEvent.changePhoneNumber(value)),
-                  suffixIcon: SvgPicture.asset(
-                    "assets/images/home/utility-payment/icon-Phone-book.svg",
+                  suffixIcon: InkWell(
+                    onTap: () async {
+                      final phoneNumber = await handleContact(context);
+                      context.read<TopUpBalanceInMobileBloc>().add(
+                          TopUpBalanceInMobileEvent.changePhoneNumberViaContact(
+                              phoneNumber));
+                    },
+                    child: SvgPicture.asset(
+                      "assets/images/home/utility-payment/icon-Phone-book.svg",
+                    ),
                   ),
                 ),
               ),
@@ -118,6 +219,31 @@ class _MobileNumberTextField extends StatelessWidget {
         );
       },
     );
+  }
+
+  Future<String> handleContact(BuildContext context) async {
+    final bool hasPermission = await FlutterContactPicker.hasPermission();
+    if (!hasPermission) {
+      // FlushbarHelper.createError(
+      //         message: "Please provide contact read permission")
+      //     .show(context);
+      // await Future.delayed(const Duration(seconds: 2));
+      FlutterContactPicker.requestPermission();
+    }
+    final PhoneContact contact = await FlutterContactPicker.pickPhoneContact();
+    if (contact.phoneNumber != null) {
+      final String? number = contact.phoneNumber?.number;
+      final String formattedNumber = number
+          .toString()
+          .replaceAll('(', '')
+          .replaceAll(')', '')
+          .replaceAll('-', '')
+          .replaceAll('977', '')
+          .replaceAll(' ', '');
+
+      return formattedNumber;
+    }
+    return "";
   }
 }
 
@@ -275,13 +401,16 @@ class _TransactionDetail extends StatelessWidget {
 }
 
 class _ProceedButton extends StatelessWidget {
-  final String balance;
-  final TopUpBalanceInMobileBloc bloc;
+  // final String balance;
+  // final TopUpBalanceInMobileBloc bloc;
+
+  final Function callback;
 
   const _ProceedButton({
     Key? key,
-    required this.balance,
-    required this.bloc,
+    // required this.balance,
+    // required this.bloc,
+    required this.callback,
   }) : super(key: key);
 
   @override
@@ -298,12 +427,14 @@ class _ProceedButton extends StatelessWidget {
                 state.amount.isEmpty) {
               return;
             }
-            context.pushRoute(
-              TopupConfirmRoute(
-                balance: balance,
-                bloc: bloc,
-              ),
-            );
+
+            callback();
+            // context.pushRoute(
+            //   TopupConfirmRoute(
+            //     balance: balance,
+            //     bloc: bloc,
+            //   ),
+            // );
           },
           child: Container(
             height: 40,
@@ -314,6 +445,133 @@ class _ProceedButton extends StatelessWidget {
             child: Center(
               child: Text(
                 "Proceed",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+//! Class from here are verification page
+
+class _MobileNumberField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        return _TransactionDetailRow(
+          title: 'Mobile Number',
+          value: state.number,
+          isValueBold: true,
+        );
+      },
+    );
+  }
+}
+
+class _TransactionAmountInNPRField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        return _TransactionDetailRow(
+          title: 'Transcation Amount (NPR)',
+          value: state.amount,
+        );
+      },
+    );
+  }
+}
+
+class _TransactionAmountInJPYField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        return _TransactionDetailRow(
+          title: 'Transcation Amount (JPY)',
+          value: '${double.parse(state.amount) * 0.94}',
+        );
+      },
+    );
+  }
+}
+
+class _TransactionDetailRow extends StatelessWidget {
+  final String title;
+  final bool isTitleBold;
+  final String value;
+  final bool isValueBold;
+
+  const _TransactionDetailRow({
+    Key? key,
+    required this.title,
+    this.isTitleBold = false,
+    required this.value,
+    this.isValueBold = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 10,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Palette.dividerColor.withOpacity(0.2),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: isTitleBold ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: isValueBold ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ConfirmButton extends StatelessWidget {
+  const _ConfirmButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context
+              .read<TopUpBalanceInMobileBloc>()
+              .add(const TopUpBalanceInMobileEvent.topup()),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Confirm",
                 style: TextStyle(
                   color: Palette.white,
                 ),

@@ -22,10 +22,20 @@ class _$TopUpBalanceInMobileEventTearOff {
     );
   }
 
+  _ChangePhoneNumberViaContact changePhoneNumberViaContact(String number) {
+    return _ChangePhoneNumberViaContact(
+      number,
+    );
+  }
+
   _ChangeAmount changeAmount(String amount) {
     return _ChangeAmount(
       amount,
     );
+  }
+
+  _Validate validate() {
+    return const _Validate();
   }
 
   _Topup topup() {
@@ -41,14 +51,18 @@ mixin _$TopUpBalanceInMobileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function() validate,
     required TResult Function() topup,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
   }) =>
@@ -56,14 +70,20 @@ mixin _$TopUpBalanceInMobileEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
+    required TResult Function(_ChangePhoneNumberViaContact value)
+        changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
+    TResult Function(_ChangePhoneNumberViaContact value)?
+        changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
   }) =>
@@ -153,7 +173,9 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function() validate,
     required TResult Function() topup,
   }) {
     return changePhoneNumber(number);
@@ -163,7 +185,9 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
   }) {
@@ -177,7 +201,10 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
+    required TResult Function(_ChangePhoneNumberViaContact value)
+        changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) {
     return changePhoneNumber(this);
@@ -187,7 +214,10 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
+    TResult Function(_ChangePhoneNumberViaContact value)?
+        changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
   }) {
@@ -205,6 +235,142 @@ abstract class _ChangePhoneNumber implements TopUpBalanceInMobileEvent {
   @JsonKey(ignore: true)
   _$ChangePhoneNumberCopyWith<_ChangePhoneNumber> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangePhoneNumberViaContactCopyWith<$Res> {
+  factory _$ChangePhoneNumberViaContactCopyWith(
+          _ChangePhoneNumberViaContact value,
+          $Res Function(_ChangePhoneNumberViaContact) then) =
+      __$ChangePhoneNumberViaContactCopyWithImpl<$Res>;
+  $Res call({String number});
+}
+
+/// @nodoc
+class __$ChangePhoneNumberViaContactCopyWithImpl<$Res>
+    extends _$TopUpBalanceInMobileEventCopyWithImpl<$Res>
+    implements _$ChangePhoneNumberViaContactCopyWith<$Res> {
+  __$ChangePhoneNumberViaContactCopyWithImpl(
+      _ChangePhoneNumberViaContact _value,
+      $Res Function(_ChangePhoneNumberViaContact) _then)
+      : super(_value, (v) => _then(v as _ChangePhoneNumberViaContact));
+
+  @override
+  _ChangePhoneNumberViaContact get _value =>
+      super._value as _ChangePhoneNumberViaContact;
+
+  @override
+  $Res call({
+    Object? number = freezed,
+  }) {
+    return _then(_ChangePhoneNumberViaContact(
+      number == freezed
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangePhoneNumberViaContact implements _ChangePhoneNumberViaContact {
+  const _$_ChangePhoneNumberViaContact(this.number);
+
+  @override
+  final String number;
+
+  @override
+  String toString() {
+    return 'TopUpBalanceInMobileEvent.changePhoneNumberViaContact(number: $number)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangePhoneNumberViaContact &&
+            (identical(other.number, number) ||
+                const DeepCollectionEquality().equals(other.number, number)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(number);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangePhoneNumberViaContactCopyWith<_ChangePhoneNumberViaContact>
+      get copyWith => __$ChangePhoneNumberViaContactCopyWithImpl<
+          _ChangePhoneNumberViaContact>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number) changePhoneNumberViaContact,
+    required TResult Function(String amount) changeAmount,
+    required TResult Function() validate,
+    required TResult Function() topup,
+  }) {
+    return changePhoneNumberViaContact(number);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number)? changePhoneNumberViaContact,
+    TResult Function(String amount)? changeAmount,
+    TResult Function()? validate,
+    TResult Function()? topup,
+    required TResult orElse(),
+  }) {
+    if (changePhoneNumberViaContact != null) {
+      return changePhoneNumberViaContact(number);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
+    required TResult Function(_ChangePhoneNumberViaContact value)
+        changePhoneNumberViaContact,
+    required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_Validate value) validate,
+    required TResult Function(_Topup value) topup,
+  }) {
+    return changePhoneNumberViaContact(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
+    TResult Function(_ChangePhoneNumberViaContact value)?
+        changePhoneNumberViaContact,
+    TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_Validate value)? validate,
+    TResult Function(_Topup value)? topup,
+    required TResult orElse(),
+  }) {
+    if (changePhoneNumberViaContact != null) {
+      return changePhoneNumberViaContact(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePhoneNumberViaContact
+    implements TopUpBalanceInMobileEvent {
+  const factory _ChangePhoneNumberViaContact(String number) =
+      _$_ChangePhoneNumberViaContact;
+
+  String get number => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangePhoneNumberViaContactCopyWith<_ChangePhoneNumberViaContact>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -273,7 +439,9 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function() validate,
     required TResult Function() topup,
   }) {
     return changeAmount(amount);
@@ -283,7 +451,9 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
   }) {
@@ -297,7 +467,10 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
+    required TResult Function(_ChangePhoneNumberViaContact value)
+        changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) {
     return changeAmount(this);
@@ -307,7 +480,10 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
+    TResult Function(_ChangePhoneNumberViaContact value)?
+        changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
   }) {
@@ -325,6 +501,104 @@ abstract class _ChangeAmount implements TopUpBalanceInMobileEvent {
   @JsonKey(ignore: true)
   _$ChangeAmountCopyWith<_ChangeAmount> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ValidateCopyWith<$Res> {
+  factory _$ValidateCopyWith(_Validate value, $Res Function(_Validate) then) =
+      __$ValidateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ValidateCopyWithImpl<$Res>
+    extends _$TopUpBalanceInMobileEventCopyWithImpl<$Res>
+    implements _$ValidateCopyWith<$Res> {
+  __$ValidateCopyWithImpl(_Validate _value, $Res Function(_Validate) _then)
+      : super(_value, (v) => _then(v as _Validate));
+
+  @override
+  _Validate get _value => super._value as _Validate;
+}
+
+/// @nodoc
+
+class _$_Validate implements _Validate {
+  const _$_Validate();
+
+  @override
+  String toString() {
+    return 'TopUpBalanceInMobileEvent.validate()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Validate);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number) changePhoneNumberViaContact,
+    required TResult Function(String amount) changeAmount,
+    required TResult Function() validate,
+    required TResult Function() topup,
+  }) {
+    return validate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number)? changePhoneNumberViaContact,
+    TResult Function(String amount)? changeAmount,
+    TResult Function()? validate,
+    TResult Function()? topup,
+    required TResult orElse(),
+  }) {
+    if (validate != null) {
+      return validate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
+    required TResult Function(_ChangePhoneNumberViaContact value)
+        changePhoneNumberViaContact,
+    required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_Validate value) validate,
+    required TResult Function(_Topup value) topup,
+  }) {
+    return validate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
+    TResult Function(_ChangePhoneNumberViaContact value)?
+        changePhoneNumberViaContact,
+    TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_Validate value)? validate,
+    TResult Function(_Topup value)? topup,
+    required TResult orElse(),
+  }) {
+    if (validate != null) {
+      return validate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Validate implements TopUpBalanceInMobileEvent {
+  const factory _Validate() = _$_Validate;
 }
 
 /// @nodoc
@@ -366,7 +640,9 @@ class _$_Topup implements _Topup {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function() validate,
     required TResult Function() topup,
   }) {
     return topup();
@@ -376,7 +652,9 @@ class _$_Topup implements _Topup {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
   }) {
@@ -390,7 +668,10 @@ class _$_Topup implements _Topup {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
+    required TResult Function(_ChangePhoneNumberViaContact value)
+        changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) {
     return topup(this);
@@ -400,7 +681,10 @@ class _$_Topup implements _Topup {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
+    TResult Function(_ChangePhoneNumberViaContact value)?
+        changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
   }) {
@@ -420,12 +704,14 @@ class _$TopUpBalanceInMobileStateTearOff {
   const _$TopUpBalanceInMobileStateTearOff();
 
   _TopUpBalanceInMobileState call(
-      {required String number,
+      {required Key key,
+      required String number,
       required String type,
       required String amount,
       required bool isSubmitting,
       required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
     return _TopUpBalanceInMobileState(
+      key: key,
       number: number,
       type: type,
       amount: amount,
@@ -440,6 +726,7 @@ const $TopUpBalanceInMobileState = _$TopUpBalanceInMobileStateTearOff();
 
 /// @nodoc
 mixin _$TopUpBalanceInMobileState {
+  Key get key => throw _privateConstructorUsedError;
   String get number => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get amount => throw _privateConstructorUsedError;
@@ -458,7 +745,8 @@ abstract class $TopUpBalanceInMobileStateCopyWith<$Res> {
           $Res Function(TopUpBalanceInMobileState) then) =
       _$TopUpBalanceInMobileStateCopyWithImpl<$Res>;
   $Res call(
-      {String number,
+      {Key key,
+      String number,
       String type,
       String amount,
       bool isSubmitting,
@@ -476,6 +764,7 @@ class _$TopUpBalanceInMobileStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? key = freezed,
     Object? number = freezed,
     Object? type = freezed,
     Object? amount = freezed,
@@ -483,6 +772,10 @@ class _$TopUpBalanceInMobileStateCopyWithImpl<$Res>
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as Key,
       number: number == freezed
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -515,7 +808,8 @@ abstract class _$TopUpBalanceInMobileStateCopyWith<$Res>
       __$TopUpBalanceInMobileStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String number,
+      {Key key,
+      String number,
       String type,
       String amount,
       bool isSubmitting,
@@ -536,6 +830,7 @@ class __$TopUpBalanceInMobileStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? key = freezed,
     Object? number = freezed,
     Object? type = freezed,
     Object? amount = freezed,
@@ -543,6 +838,10 @@ class __$TopUpBalanceInMobileStateCopyWithImpl<$Res>
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_TopUpBalanceInMobileState(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as Key,
       number: number == freezed
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -571,12 +870,15 @@ class __$TopUpBalanceInMobileStateCopyWithImpl<$Res>
 
 class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
   const _$_TopUpBalanceInMobileState(
-      {required this.number,
+      {required this.key,
+      required this.number,
       required this.type,
       required this.amount,
       required this.isSubmitting,
       required this.failureOrSuccessOption});
 
+  @override
+  final Key key;
   @override
   final String number;
   @override
@@ -590,13 +892,15 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
 
   @override
   String toString() {
-    return 'TopUpBalanceInMobileState(number: $number, type: $type, amount: $amount, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'TopUpBalanceInMobileState(key: $key, number: $number, type: $type, amount: $amount, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _TopUpBalanceInMobileState &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.number, number) ||
                 const DeepCollectionEquality().equals(other.number, number)) &&
             (identical(other.type, type) ||
@@ -614,6 +918,7 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(key) ^
       const DeepCollectionEquality().hash(number) ^
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(amount) ^
@@ -630,13 +935,16 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
 
 abstract class _TopUpBalanceInMobileState implements TopUpBalanceInMobileState {
   const factory _TopUpBalanceInMobileState(
-          {required String number,
+          {required Key key,
+          required String number,
           required String type,
           required String amount,
           required bool isSubmitting,
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
       _$_TopUpBalanceInMobileState;
 
+  @override
+  Key get key => throw _privateConstructorUsedError;
   @override
   String get number => throw _privateConstructorUsedError;
   @override

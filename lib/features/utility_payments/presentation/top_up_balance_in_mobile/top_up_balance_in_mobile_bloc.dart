@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
@@ -28,9 +29,13 @@ class TopUpBalanceInMobileBloc
       changePhoneNumber: (e) async* {
         yield _mapChangePhoneNumberEventToState(e);
       },
+      changePhoneNumberViaContact: (e) async* {
+        yield _mapChangePhoneNumberViaContactEventToState(e);
+      },
       changeAmount: (e) async* {
         yield _mapChangeAmountEventToState(e);
       },
+      validate: (e) async* {},
       topup: (e) async* {
         yield* _mapTopupEventToState(e);
       },
@@ -43,6 +48,18 @@ class TopUpBalanceInMobileBloc
 
     return state.copyWith(
       number: _changePhoneNumber.number,
+      type: type,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopUpBalanceInMobileState _mapChangePhoneNumberViaContactEventToState(
+      _ChangePhoneNumberViaContact _changePhoneNumberViaContact) {
+    final type = getType(fromNumber: _changePhoneNumberViaContact.number);
+
+    return state.copyWith(
+      key: UniqueKey(),
+      number: _changePhoneNumberViaContact.number,
       type: type,
       failureOrSuccessOption: none(),
     );
