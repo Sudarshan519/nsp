@@ -10,12 +10,16 @@ class RemitGraphPage extends StatefulWidget {
   final List<RemitExchange> remitExchanges;
   final String logoUrl;
   final String updatedAt;
+  final String primary;
+  final String secondary;
 
   const RemitGraphPage({
     Key? key,
     required this.remitExchanges,
     required this.logoUrl,
     required this.updatedAt,
+    required this.primary,
+    required this.secondary,
   }) : super(key: key);
 
   @override
@@ -30,8 +34,32 @@ class _RemitGraphPageState extends State<RemitGraphPage> {
   void initState() {
     final count =
         widget.remitExchanges.length > 7 ? 7 : widget.remitExchanges.length;
-    final trimmedList = widget.remitExchanges.sublist(0, count);
-    _remitExchanges = trimmedList.reversed.toList();
+    var trimmedList = widget.remitExchanges.sublist(0, count);
+    trimmedList = trimmedList.reversed.toList();
+
+    _remitExchanges = [];
+
+//What is being done here:
+//if the primary rate is -> JPY
+//We dont reverse the exchange rate
+//if primary rate is -> NPR
+//We reverse the exchange rate, i.e
+// exchangeReverseRate = exchangeRate and vice versa
+
+    for (final element in trimmedList) {
+      final bool isJPYPrimary = widget.primary == 'JPY';
+      _remitExchanges.add(RemitExchange(
+          id: element.id,
+          date: element.date,
+          primaryCurrency: element.primaryCurrency,
+          primaryRate: element.primaryRate,
+          exchangeRate:
+              isJPYPrimary ? element.exchangeRate : element.exchangeReverseRate,
+          exchangeReverseRate: isJPYPrimary
+              ? element.exchangeReverseRate
+              : element.exchangeRate));
+    }
+
     _selectedIndex = 0;
     super.initState();
   }
@@ -141,7 +169,7 @@ class _RemitGraphPageState extends State<RemitGraphPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "JPY to NPR",
+                "${widget.primary} to ${widget.secondary}",
                 style: TextStyle(
                   color: Palette.black,
                   fontSize: 14,

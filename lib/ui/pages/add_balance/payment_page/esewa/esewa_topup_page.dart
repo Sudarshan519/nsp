@@ -91,6 +91,7 @@ class EsewaTopupPage extends StatelessWidget {
             const SizedBox(height: 10),
             const _AmountWidget(),
             const SizedBox(height: 10),
+            const _ConversionRate(),
             const _AmountFromSuggestionWidget(),
             const SizedBox(height: 10),
             const _PurposeWidget(),
@@ -167,6 +168,28 @@ class EsewaTopupPage extends StatelessWidget {
       // TODO: add Log here too.
       FlushbarHelper.createError(message: e.message).show(context);
     }
+  }
+}
+
+class _ConversionRate extends StatelessWidget {
+  const _ConversionRate({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0, bottom: 12.0),
+      child: Row(
+        children: const [
+          Spacer(),
+          Text(
+            '(¥ 1000 = NP 1,062.82)',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
   }
 }
 
