@@ -10,12 +10,14 @@ class RemitGraphPage extends StatefulWidget {
   final List<RemitExchange> remitExchanges;
   final String logoUrl;
   final String updatedAt;
+  final bool hasSwapped;
 
   const RemitGraphPage({
     Key? key,
     required this.remitExchanges,
     required this.logoUrl,
     required this.updatedAt,
+    required this.hasSwapped,
   }) : super(key: key);
 
   @override
@@ -141,7 +143,7 @@ class _RemitGraphPageState extends State<RemitGraphPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "JPY to NPR",
+                widget.hasSwapped ? 'NPR TO JPY' : 'JPY TO NPR',
                 style: TextStyle(
                   color: Palette.black,
                   fontSize: 14,
@@ -188,8 +190,9 @@ class _RemitGraphPageState extends State<RemitGraphPage> {
                 xValueMapper: (RemitExchange exchange, _) {
                   return exchange.formattedDate;
                 },
-                yValueMapper: (RemitExchange exchange, _) =>
-                    exchange.exchangeRate ?? 0.0,
+                yValueMapper: (RemitExchange exchange, _) => widget.hasSwapped
+                    ? exchange.exchangeReverseRate ?? 0.0
+                    : exchange.exchangeRate ?? 0.0,
                 animationDuration: 1000,
               )
             ],

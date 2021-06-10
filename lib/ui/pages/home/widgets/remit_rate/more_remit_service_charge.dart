@@ -15,62 +15,64 @@ class RemitServiceChargeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: MediaQuery.of(context).viewInsets,
-        child: Container(
-            padding: const EdgeInsets.all(18.0),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+      padding: MediaQuery.of(context).viewInsets,
+      child: Container(
+        padding: const EdgeInsets.all(18.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const SizedBox(
-                          width: 1,
-                        ),
-                        Container(
-                          color: Palette.primaryButtonColor,
-                          height: 3,
-                          width: 120,
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.close),
-                          onPressed: () => Navigator.of(context).pop(),
-                        )
-                      ],
+                  const SizedBox(
+                    width: 1,
+                  ),
+                  Container(
+                    color: Palette.primaryButtonColor,
+                    height: 3,
+                    width: 120,
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => Navigator.of(context).pop(),
+                  )
+                ],
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(
+                'Service Charge:',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              ),
+            ),
+            ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: charges?.length,
+              itemBuilder: (BuildContext context, int index) {
+                final item = charges?[index];
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6.0),
+                  child: Text(
+                    _formatString(
+                      item?.rangeName,
+                      item?.remitRate,
                     ),
+                    style: const TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      'Service Charge:',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    ),
-                  ),
-                  ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: charges?.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final item = charges?[index];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 6.0),
-                        child: Text(
-                          _formatString(
-                            item?.rangeName,
-                            item?.remitRate,
-                          ),
-                          style: const TextStyle(
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 15),
-                        ),
-                      );
-                    },
-                  ),
-                ])));
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
