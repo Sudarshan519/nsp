@@ -33,7 +33,7 @@ class RemitRateExchangePage extends StatelessWidget {
         RateAndViewGraphWidget(
           remitRate: remitRate,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         ServiceChargeWidget(
           remitRate: remitRate,
         ),
@@ -157,7 +157,7 @@ class _RemitExchangeProceGeneratorState
             changeAmount(_fromValue);
           }),
           child: Container(
-            margin: const EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 15),
             alignment: Alignment.bottomCenter,
             height: 40,
             width: 40,

@@ -138,6 +138,9 @@ class EsewaTopupPage extends StatelessWidget {
       return;
     }
 
+    // TODO: change this Later
+    final amountDoubleInRupees = doubleAmount * 1.08;
+
     final ESewaConfiguration _configuration = ESewaConfiguration(
       clientID: method.merchantId ?? '',
       secretKey: method.merchantSecret ?? '',
@@ -147,7 +150,7 @@ class EsewaTopupPage extends StatelessWidget {
     final ESewaPnp _eSewaPnp = ESewaPnp(configuration: _configuration);
 
     final ESewaPayment _payment = ESewaPayment(
-      productPrice: doubleAmount,
+      productPrice: amountDoubleInRupees,
       productName: "Load Balance from Esewa",
       productID: "load-balance-from-esewa",
       callBackURL: method.callbackUrl ?? '',
@@ -178,17 +181,26 @@ class _ConversionRate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 8.0, bottom: 12.0),
-      child: Row(
-        children: const [
-          Spacer(),
-          Text(
-            '(¥ 1000 = NP 1,062.82)',
-            style: TextStyle(fontWeight: FontWeight.bold),
+    return BlocBuilder<EsewaFormCubit, EsewaFormState>(
+      builder: (context, state) {
+        if (state.amount.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        // TODO: change this Later
+        final amountDouble = double.parse(state.amount) * 1.08;
+        return Padding(
+          padding: const EdgeInsets.only(right: 8.0, bottom: 12.0),
+          child: Row(
+            children: [
+              const Spacer(),
+              Text(
+                '(¥ ${state.amount} = NP $amountDouble)',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
