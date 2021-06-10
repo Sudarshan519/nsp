@@ -6,7 +6,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class StripePaymentCardSelectionPage extends StatelessWidget {
-  final double balance;
+  final String balance;
 
   const StripePaymentCardSelectionPage({
     Key? key,

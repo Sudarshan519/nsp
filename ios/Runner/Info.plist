@@ -78,6 +78,8 @@
 	<string>Photo Library is used to change the person documents</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>This is used for speect to text feature.</string>
+	<key>NSContactsUsageDescription</key>  
+	<string>This app requires contacts access for Topup feature.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

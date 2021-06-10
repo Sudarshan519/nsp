@@ -3,30 +3,6 @@ import 'dart:convert';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/injections/injection.dart';
 
-// String errorMessageFromServer(String message) {
-//   try {
-//     final data = json.decode(message) as Map<String, dynamic>;
-//     final error = data["error"] as Map<String, dynamic>;
-//     final errorKey = error.keys.toList()[0];
-//     try {
-//       final actualError = error[errorKey] as List;
-//       return actualError[0] as String;
-//     } on TypeError {
-//       final actualError = error[errorKey] as String;
-//       return actualError;
-//     }
-//   } on TypeError {
-//     final data = json.decode(message) as Map<String, dynamic>;
-//     final error = data["error"] as String;
-//     return error ?? "Something went wrong";
-//   } on NoSuchMethodError {
-//     final data = json.decode(message) as Map<String, dynamic>;
-//     final error = data["error"] as String;
-//     return error ?? "Something went wrong";
-//   } catch (ex) {
-//     return ex.toString();
-//   }
-// }
 final logger = getIt<Logger>();
 
 String? errorMessageFromServer(String message) {

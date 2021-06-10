@@ -1,3 +1,5 @@
+import 'package:wallet_app/utils/currency_formater.dart';
+
 class LoadFund {
   LoadFund({
     required this.status,
@@ -8,6 +10,8 @@ class LoadFund {
   final bool? status;
   final List<PaymentMethod>? paymentMethods;
   final double? balance;
+
+  String get formattedBalance => currencyFormatter(value: balance ?? 0.0);
 }
 
 class PaymentMethod {

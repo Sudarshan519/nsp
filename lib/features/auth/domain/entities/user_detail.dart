@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 
 class UserDetail extends Equatable {
   const UserDetail({
@@ -103,6 +104,8 @@ class UserDetail extends Equatable {
   final int? smartPitNo;
   final bool? isKycVerified;
   final ResumeOptions? options;
+
+  String get formattedBalance => currencyFormatter(value: balance ?? 0.0);
 
   @override
   List<Object> get props => [];

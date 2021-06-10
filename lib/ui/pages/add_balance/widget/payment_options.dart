@@ -14,7 +14,7 @@ class PaymentOptions extends StatelessWidget {
   }) : super(key: key);
 
   final List<PaymentMethod> paymentMethods;
-  final double balance;
+  final String balance;
 
   @override
   Widget build(BuildContext context) {

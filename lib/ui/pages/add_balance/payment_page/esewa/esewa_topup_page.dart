@@ -91,6 +91,7 @@ class EsewaTopupPage extends StatelessWidget {
             const SizedBox(height: 10),
             const _AmountWidget(),
             const SizedBox(height: 10),
+            const _ConversionRate(),
             const _AmountFromSuggestionWidget(),
             const SizedBox(height: 10),
             const _PurposeWidget(),
@@ -137,6 +138,9 @@ class EsewaTopupPage extends StatelessWidget {
       return;
     }
 
+    // TODO: change this Later
+    final amountDoubleInRupees = doubleAmount * 1.08;
+
     final ESewaConfiguration _configuration = ESewaConfiguration(
       clientID: method.merchantId ?? '',
       secretKey: method.merchantSecret ?? '',
@@ -146,7 +150,7 @@ class EsewaTopupPage extends StatelessWidget {
     final ESewaPnp _eSewaPnp = ESewaPnp(configuration: _configuration);
 
     final ESewaPayment _payment = ESewaPayment(
-      productPrice: doubleAmount,
+      productPrice: amountDoubleInRupees,
       productName: "Load Balance from Esewa",
       productID: "load-balance-from-esewa",
       callBackURL: method.callbackUrl ?? '',
@@ -167,6 +171,37 @@ class EsewaTopupPage extends StatelessWidget {
       // TODO: add Log here too.
       FlushbarHelper.createError(message: e.message).show(context);
     }
+  }
+}
+
+class _ConversionRate extends StatelessWidget {
+  const _ConversionRate({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<EsewaFormCubit, EsewaFormState>(
+      builder: (context, state) {
+        if (state.amount.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        // TODO: change this Later
+        final amountDouble = double.parse(state.amount) * 1.08;
+        return Padding(
+          padding: const EdgeInsets.only(right: 8.0, bottom: 12.0),
+          child: Row(
+            children: [
+              const Spacer(),
+              Text(
+                '(¥ ${state.amount} = NP $amountDouble)',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 

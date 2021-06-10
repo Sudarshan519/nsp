@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/transactions/transaction_list_view.dart';
 import 'package:wallet_app/ui/pages/transactions/bnpj_card.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/loading_widget.dart';
 
 class TransactionPage extends StatelessWidget {
   const TransactionPage({Key? key}) : super(key: key);
@@ -31,7 +28,7 @@ class TransactionPage extends StatelessWidget {
       body: Scrollbar(
         child: Column(
           children: [
-            const BalanceWidget(balance: 1300),
+            const BalanceWidget(balance: '1300'),
             body(),
           ],
         ),

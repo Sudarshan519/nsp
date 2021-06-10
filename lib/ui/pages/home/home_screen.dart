@@ -151,8 +151,10 @@ class HomePage extends StatelessWidget {
 
     final type = _getHomeItemTypeString(typeString);
     switch (type) {
-      // case HomeItemType.utility_payments:
-      //   return const UtilityPamentWidget();
+      case HomeItemType.utility_payments:
+        return UtilityPamentWidget(
+          balance: userDetail?.formattedBalance ?? 'JPY XX.XX',
+        );
 
       case HomeItemType.remit_service:
         final data = List<RemitRateModel>.from((model.data as Iterable)
