@@ -9,13 +9,11 @@ import 'graphs/remit_graph_page.dart';
 import 'more_remit_service_charge.dart';
 import 'user_input_widget/text_widget_label_and_child.dart';
 
-String primary = 'JPY';
-String secondary = 'NPR';
-
 class RemitRateExchangePage extends StatelessWidget {
   final RemitRate remitRate;
+  final _hasSwappedValueNotifier = ValueNotifier<bool>(false);
 
-  const RemitRateExchangePage({
+  RemitRateExchangePage({
     Key? key,
     required this.remitRate,
   }) : super(key: key);
@@ -29,9 +27,16 @@ class RemitRateExchangePage extends StatelessWidget {
         if (remitRate.remitCharge?.isNotEmpty ?? false)
           RemitExchangeProceGenerator(
             remitRate: remitRate,
+            onChanged: (value) => _hasSwappedValueNotifier.value = value,
           ),
-        RateAndViewGraphWidget(
-          remitRate: remitRate,
+        ValueListenableBuilder(
+          valueListenable: _hasSwappedValueNotifier,
+          builder: (context, hasSwapped, child) {
+            return RateAndViewGraphWidget(
+              remitRate: remitRate,
+              hasSwapped: hasSwapped as bool? ?? false,
+            );
+          },
         ),
         const SizedBox(height: 10),
         ServiceChargeWidget(
@@ -87,9 +92,12 @@ class ViewMoreRate extends StatelessWidget {
 
 class RemitExchangeProceGenerator extends StatefulWidget {
   final RemitRate remitRate;
+  final Function(bool) onChanged;
+
   const RemitExchangeProceGenerator({
     Key? key,
     required this.remitRate,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
@@ -99,8 +107,6 @@ class RemitExchangeProceGenerator extends StatefulWidget {
 
 class _RemitExchangeProceGeneratorState
     extends State<RemitExchangeProceGenerator> {
-  /// if [_hasSwapped] = false, prmary is JPY
-  ///
   late bool _hasSwapped;
   late double _rate;
   late double _reverseRate;
@@ -137,25 +143,21 @@ class _RemitExchangeProceGeneratorState
                   : SvgPicture.asset(
                       'assets/images/remit/japan.svg',
                     ),
-              onChanged: (s) {
-                changeAmount(s);
+              onChanged: (value) {
+                changeAmount(value);
               },
             ),
           ),
         ),
         const SizedBox(width: 5),
         InkWell(
-          onTap: () => setState(() {
-            _hasSwapped = !_hasSwapped;
-            if (_hasSwapped) {
-              primary = 'NPR';
-              secondary = 'JPY';
-            } else {
-              primary = 'JPY';
-              secondary = 'NPR';
-            }
-            changeAmount(_fromValue);
-          }),
+          onTap: () => setState(
+            () {
+              _hasSwapped = !_hasSwapped;
+              changeAmount(_fromValue);
+              widget.onChanged(_hasSwapped);
+            },
+          ),
           child: Container(
             margin: const EdgeInsets.only(top: 15),
             alignment: Alignment.bottomCenter,
@@ -203,10 +205,6 @@ class _RemitExchangeProceGeneratorState
   }
 
   void changeAmount(String amount) {
-    setState(() {
-      _fromValue = amount;
-    });
-
     final doubleAmount = double.parse(amount);
     if (!_hasSwapped) {
       setState(() {
@@ -271,9 +269,11 @@ class ServiceChargeWidget extends StatelessWidget {
 
 class RateAndViewGraphWidget extends StatelessWidget {
   final RemitRate remitRate;
+  final bool hasSwapped;
   const RateAndViewGraphWidget({
     Key? key,
     required this.remitRate,
+    required this.hasSwapped,
   }) : super(key: key);
 
   @override
@@ -325,8 +325,7 @@ class RateAndViewGraphWidget extends StatelessWidget {
                   remitExchanges: remitRate.remitExchange ?? [],
                   logoUrl: remitRate.logo ?? '',
                   updatedAt: remitRate.formattedDate,
-                  primary: primary,
-                  secondary: secondary,
+                  hasSwapped: hasSwapped,
                 );
               },
             );
