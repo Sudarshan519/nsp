@@ -37,9 +37,18 @@ class GetTransactions
 }
 
 class GetTransactionParam {
+  // -from_date
+  // -to_date
+  // -status
+  // -transaction_type
+
   final String page;
+  // final String fromDate;
+  // final String toDate;
 
   GetTransactionParam({
     required this.page,
+    // required this.fromDate,
+    // required this.toDate,
   });
 }
