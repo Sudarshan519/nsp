@@ -110,6 +110,7 @@ flutter:
     - assets/images/remit/
     - assets/images/splash/
     - assets/images/banner_details/
+    - assets/images/transaction/
     - config/
     - lib/features/location_information/data/datasource/json/
 

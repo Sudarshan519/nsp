@@ -19,6 +19,7 @@ import '../../features/resume/domain/entities/personal_info.dart' as _i42;
 import '../../features/resume/domain/entities/qualification_history.dart'
     as _i45;
 import '../../features/resume/domain/entities/work_history.dart' as _i43;
+import '../../features/transaction/domain/entity/transaction_item.dart' as _i51;
 import '../pages/add_balance/add_balance.dart' as _i26;
 import '../pages/add_balance/payment_page/esewa/esewa_topup_page.dart' as _i30;
 import '../pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart'
@@ -338,8 +339,9 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     TransactionDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return const _i41.TransactionDetailPage();
+        builder: (data) {
+          final args = data.argsAs<TransactionDetailRouteArgs>();
+          return _i41.TransactionDetailPage(key: args.key, item: args.item);
         })
   };
 
@@ -1023,9 +1025,20 @@ class TransactionRoute extends _i1.PageRouteInfo {
   static const String name = 'TransactionRoute';
 }
 
-class TransactionDetailRoute extends _i1.PageRouteInfo {
-  const TransactionDetailRoute()
-      : super(name, path: '/transaction-detail-page');
+class TransactionDetailRoute
+    extends _i1.PageRouteInfo<TransactionDetailRouteArgs> {
+  TransactionDetailRoute({_i2.Key? key, required _i51.TransactionItem item})
+      : super(name,
+            path: '/transaction-detail-page',
+            args: TransactionDetailRouteArgs(key: key, item: item));
 
   static const String name = 'TransactionDetailRoute';
+}
+
+class TransactionDetailRouteArgs {
+  const TransactionDetailRouteArgs({this.key, required this.item});
+
+  final _i2.Key? key;
+
+  final _i51.TransactionItem item;
 }
