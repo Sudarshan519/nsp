@@ -143,10 +143,18 @@ class _SaveButton extends StatelessWidget {
     return BlocBuilder<UpdateQualificationInfoActorBloc,
         UpdateQualificationInfoActorState>(
       builder: (context, state) {
+        if (state.isSubmitting) {
+          return const SizedBox.shrink();
+        }
         return InkWell(
-          onTap: () => context.read<UpdateQualificationInfoActorBloc>().add(
-                const UpdateQualificationInfoActorEvent.save(),
-              ),
+          onTap: () {
+            if (state.isSubmitting) {
+              return;
+            }
+            context.read<UpdateQualificationInfoActorBloc>().add(
+                  const UpdateQualificationInfoActorEvent.save(),
+                );
+          },
           child: Center(
             child: Container(
               decoration: BoxDecoration(

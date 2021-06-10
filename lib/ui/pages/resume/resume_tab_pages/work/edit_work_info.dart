@@ -27,8 +27,7 @@ class EditWorkInfoFormPage extends StatelessWidget {
     required this.info,
     required this.typeOfCompanyList,
     required this.lang,
-  })   : assert(info != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -153,10 +152,18 @@ class _SaveButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       builder: (context, state) {
+        if (state.isSubmitting) {
+          return const SizedBox.shrink();
+        }
         return InkWell(
-          onTap: () => context.read<UpdateWorkInfoActorBloc>().add(
-                const UpdateWorkInfoActorEvent.save(),
-              ),
+          onTap: () {
+            if (state.isSubmitting) {
+              return;
+            }
+            context.read<UpdateWorkInfoActorBloc>().add(
+                  const UpdateWorkInfoActorEvent.save(),
+                );
+          },
           child: Center(
             child: Container(
               decoration: BoxDecoration(
