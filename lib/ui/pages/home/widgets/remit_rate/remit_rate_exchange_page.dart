@@ -11,8 +11,9 @@ import 'user_input_widget/text_widget_label_and_child.dart';
 
 class RemitRateExchangePage extends StatelessWidget {
   final RemitRate remitRate;
+  final _hasSwappedValueNotifier = ValueNotifier<bool>(false);
 
-  const RemitRateExchangePage({
+  RemitRateExchangePage({
     Key? key,
     required this.remitRate,
   }) : super(key: key);
@@ -20,29 +21,83 @@ class RemitRateExchangePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 10),
         if (remitRate.remitCharge?.isNotEmpty ?? false)
           RemitExchangeProceGenerator(
             remitRate: remitRate,
+            onChanged: (value) => _hasSwappedValueNotifier.value = value,
           ),
-        RateAndViewGraphWidget(
-          remitRate: remitRate,
+        ValueListenableBuilder(
+          valueListenable: _hasSwappedValueNotifier,
+          builder: (context, hasSwapped, child) {
+            return RateAndViewGraphWidget(
+              remitRate: remitRate,
+              hasSwapped: hasSwapped as bool? ?? false,
+            );
+          },
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         ServiceChargeWidget(
           remitRate: remitRate,
         ),
+        const SizedBox(height: 10),
+        ViewMoreRate(remitRate: remitRate),
       ],
+    );
+  }
+}
+
+class ViewMoreRate extends StatelessWidget {
+  const ViewMoreRate({
+    Key? key,
+    required this.remitRate,
+  }) : super(key: key);
+
+  final RemitRate remitRate;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
+          ),
+          builder: (BuildContext context) {
+            return RemitServiceChargeList(
+              charges: remitRate.remitCharge,
+            );
+          },
+        );
+      },
+      child: Text(
+        "View More",
+        textAlign: TextAlign.left,
+        style: TextStyle(
+          fontSize: 12,
+          color: Palette.primary,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
     );
   }
 }
 
 class RemitExchangeProceGenerator extends StatefulWidget {
   final RemitRate remitRate;
+  final Function(bool) onChanged;
+
   const RemitExchangeProceGenerator({
     Key? key,
     required this.remitRate,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
@@ -56,7 +111,6 @@ class _RemitExchangeProceGeneratorState
   late double _rate;
   late double _reverseRate;
 
-  String _amount = "";
   String _fromValue = '';
   String _toValue = '';
 
@@ -75,25 +129,13 @@ class _RemitExchangeProceGeneratorState
       children: [
         Expanded(
           child: TextWidetWithLabelAndChild(
-            title: "Amount",
-            child: InputTextWidget(
-              hintText: "¥ 1000",
-              textInputType: TextInputType.number,
-              value: _amount,
-              onChanged: changeAmount,
-            ),
-          ),
-        ),
-        const SizedBox(width: 5),
-        Expanded(
-          child: TextWidetWithLabelAndChild(
-            key: UniqueKey(),
+            // key: UniqueKey(),
             title: "From",
             child: InputTextWidget(
               hintText: "1000",
               textInputType: TextInputType.number,
               value: _fromValue,
-              isEnable: false,
+              // isEnable: false,
               prefixIcon: _hasSwapped
                   ? SvgPicture.asset(
                       'assets/images/remit/nepal.svg',
@@ -101,18 +143,23 @@ class _RemitExchangeProceGeneratorState
                   : SvgPicture.asset(
                       'assets/images/remit/japan.svg',
                     ),
-              onChanged: (value) {},
+              onChanged: (value) {
+                changeAmount(value);
+              },
             ),
           ),
         ),
         const SizedBox(width: 5),
         InkWell(
-          onTap: () => setState(() {
-            _hasSwapped = !_hasSwapped;
-            changeAmount(_amount);
-          }),
+          onTap: () => setState(
+            () {
+              _hasSwapped = !_hasSwapped;
+              changeAmount(_fromValue);
+              widget.onChanged(_hasSwapped);
+            },
+          ),
           child: Container(
-            margin: const EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 15),
             alignment: Alignment.bottomCenter,
             height: 40,
             width: 40,
@@ -158,29 +205,19 @@ class _RemitExchangeProceGeneratorState
   }
 
   void changeAmount(String amount) {
-    if (amount.isEmpty) {
+    final doubleAmount = double.parse(amount);
+    if (!_hasSwapped) {
       setState(() {
-        _amount = amount;
         _fromValue = amount;
-        _toValue = _amount;
+        final doubleFromValue = doubleAmount * _rate;
+        _toValue = "$doubleFromValue";
       });
     } else {
-      final doubleAmount = double.parse(amount);
-      if (_hasSwapped) {
-        setState(() {
-          _amount = amount;
-          _fromValue = amount;
-          final doubleFromValue = doubleAmount * _rate;
-          _toValue = "$doubleFromValue";
-        });
-      } else {
-        setState(() {
-          _amount = amount;
-          _fromValue = amount;
-          final doubleFromValue = doubleAmount * _reverseRate;
-          _toValue = "$doubleFromValue";
-        });
-      }
+      setState(() {
+        _fromValue = amount;
+        final doubleFromValue = doubleAmount * _reverseRate;
+        _toValue = "$doubleFromValue";
+      });
     }
   }
 }
@@ -225,33 +262,6 @@ class ServiceChargeWidget extends StatelessWidget {
         ),
         // if ((remitRate.remitCharge?.isNotEmpty ?? false) &&
         //     (remitRate.remitCharge?.length ?? 0) > 1)
-        GestureDetector(
-          onTap: () {
-            showModalBottomSheet(
-              context: context,
-              isScrollControlled: true,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(16),
-                  topRight: Radius.circular(16),
-                ),
-              ),
-              builder: (BuildContext context) {
-                return RemitServiceChargeList(
-                  charges: remitRate.remitCharge,
-                );
-              },
-            );
-          },
-          child: Text(
-            "View More",
-            style: TextStyle(
-              fontSize: 12,
-              color: Palette.primary,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
       ],
     );
   }
@@ -259,9 +269,11 @@ class ServiceChargeWidget extends StatelessWidget {
 
 class RateAndViewGraphWidget extends StatelessWidget {
   final RemitRate remitRate;
+  final bool hasSwapped;
   const RateAndViewGraphWidget({
     Key? key,
     required this.remitRate,
+    required this.hasSwapped,
   }) : super(key: key);
 
   @override
@@ -313,6 +325,7 @@ class RateAndViewGraphWidget extends StatelessWidget {
                   remitExchanges: remitRate.remitExchange ?? [],
                   logoUrl: remitRate.logo ?? '',
                   updatedAt: remitRate.formattedDate,
+                  hasSwapped: hasSwapped,
                 );
               },
             );

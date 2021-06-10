@@ -77,13 +77,35 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
         headers: _header,
       );
     } catch (ex) {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "topupViaStripe()",
+        errorText: "exception throws from client",
+        errorMessage: ex.toString(),
+      );
       throw ServerException(message: ex.toString());
     }
 
     final statusCode = response.statusCode;
     if (statusCode == 200) {
-      return paymentMethodsModelFromJson(response.body);
+      try {
+        return paymentMethodsModelFromJson(response.body);
+      } catch (ex) {
+        logger.log(
+          className: "LoadBalanceDataSource",
+          functionName: "topupViaStripe()",
+          errorText: "exception throws while parsing",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
     } else {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "topupViaStripe()",
+        errorText: "status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServerWithError(response.body) ??
               AppConstants.someThingWentWrong);

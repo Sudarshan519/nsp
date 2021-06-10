@@ -16,7 +16,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class StripeNewCardPaymentPage extends StatelessWidget {
-  final double balance;
+  final String balance;
 
   const StripeNewCardPaymentPage({
     Key? key,
