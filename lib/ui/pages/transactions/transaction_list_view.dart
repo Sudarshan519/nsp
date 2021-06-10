@@ -42,6 +42,8 @@ class TransactionBuilder extends StatefulWidget {
 class _TransactionBuilderState extends State<TransactionBuilder>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
+  List<TransactionItem> _activeList = [];
+  List<TransactionItem> _searchList = [];
   int _currentIndex = 0;
   bool _showFilter = false;
   final TextEditingController _searchController = TextEditingController();
@@ -53,8 +55,6 @@ class _TransactionBuilderState extends State<TransactionBuilder>
 
   @override
   Widget build(BuildContext context) {
-    List<TransactionItem> _activeList = [];
-    List<TransactionItem> _searchList = [];
     Widget _searchWidget() {
       return Container(
         margin: const EdgeInsets.only(top: 8),
@@ -65,35 +65,36 @@ class _TransactionBuilderState extends State<TransactionBuilder>
               child: TextField(
                   maxLength: 25,
                   onChanged: (s) {
-                    _searchList.clear();
-                    _searchList = _activeList
-                        .where((element) =>
-                            element.transactionType
-                                .toString()
-                                .toLowerCase()
-                                .contains(s.toLowerCase()) ||
-                            element.remarks
-                                .toString()
-                                .toLowerCase()
-                                .contains(s.toLowerCase()) ||
-                            element.referenceId
-                                .toString()
-                                .toLowerCase()
-                                .contains(s.toLowerCase()) ||
-                            element.topupBy
-                                .toString()
-                                .toLowerCase()
-                                .contains(s.toLowerCase()) ||
-                            element.transactionFor
-                                .toString()
-                                .toLowerCase()
-                                .contains(s.toLowerCase()) ||
-                            element.user
-                                .toString()
-                                .toLowerCase()
-                                .contains(s.toLowerCase()))
-                        .toList();
-                    setState(() {});
+                    setState(() {
+                      _searchList.clear();
+                      _searchList = _activeList
+                          .where((element) =>
+                              element.transactionType
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()) ||
+                              element.remarks
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()) ||
+                              element.referenceId
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()) ||
+                              element.topupBy
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()) ||
+                              element.transactionFor
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()) ||
+                              element.user
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()))
+                          .toList();
+                    });
                   },
                   controller: _searchController,
                   textAlignVertical: TextAlignVertical.center,
