@@ -17,22 +17,25 @@ class TransactionItemModel extends TransactionItem {
     required String? updatedAt,
     required String? user,
     required String? topupBy,
+    required String? transactionName,
+    required String? icon,
   }) : super(
-          topupBy: topupBy,
-          transactionFor: transactionFor,
-          transactionType: transactionType,
-          updatedAt: updatedAt,
-          user: user,
-          referenceId: referenceId,
-          remarks: remarks,
-          transactionId: transactionId,
-          transactionStatus: transactionStatus,
-          id: id,
-          status: status,
-          createdAt: createdAt,
-          currency: currency,
-          topupAmount: topupAmount,
-        );
+            topupBy: topupBy,
+            transactionFor: transactionFor,
+            transactionType: transactionType,
+            updatedAt: updatedAt,
+            user: user,
+            referenceId: referenceId,
+            remarks: remarks,
+            transactionId: transactionId,
+            transactionStatus: transactionStatus,
+            id: id,
+            status: status,
+            createdAt: createdAt,
+            currency: currency,
+            topupAmount: topupAmount,
+            transactionName: transactionName,
+            icon: icon);
   factory TransactionItemModel.fromJson(Map<String, dynamic> json) =>
       TransactionItemModel(
         id: json['id'] as int?,
@@ -49,5 +52,7 @@ class TransactionItemModel extends TransactionItem {
         createdAt: json['created_at'] as String?,
         updatedAt: json['updated_at'] as String?,
         user: json['user'] as String?,
+        icon: json['icon'] as String?,
+        transactionName: json['transaction_name'] as String?,
       );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:wallet_app/core/utlities.dart/utils.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
@@ -12,8 +13,8 @@ class TransactionDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget dateTime() {
       ///TODO: Formate datetime from transaction.date
-      final String date = '2022/03/03';
-      final String time = '10:30';
+      final String date = Utils.formatDate(item.createdAt.toString());
+      final String time = Utils.formatTime(item.createdAt.toString());
       return Container(
         margin: const EdgeInsets.symmetric(horizontal: 80),
         padding: const EdgeInsets.all(4),
@@ -174,7 +175,7 @@ class TransactionDetailPage extends StatelessWidget {
           children: [
             TableRow(children: [
               _tableRowItem('Title:'),
-              _tableRowItem(item.transactionType),
+              _tableRowItem(item.transactionName),
             ]),
             TableRow(children: [
               _tableRowItem('Amount:'),

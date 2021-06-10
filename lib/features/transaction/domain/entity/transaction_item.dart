@@ -16,6 +16,8 @@ class TransactionItem {
     required this.updatedAt,
     required this.user,
     required this.topupBy,
+    required this.transactionName,
+    required this.icon,
   });
 
   int? id;
@@ -28,8 +30,10 @@ class TransactionItem {
   String? transactionStatus;
   String? transactionFor;
   String? transactionType;
+  String? transactionName;
   String? remarks;
   String? createdAt;
   String? updatedAt;
   String? user;
+  String? icon;
 }

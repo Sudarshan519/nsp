@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wallet_app/core/utlities.dart/utils.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -69,7 +71,7 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                       _searchList.clear();
                       _searchList = _activeList
                           .where((element) =>
-                              element.transactionType
+                              element.transactionName
                                   .toString()
                                   .toLowerCase()
                                   .contains(s.toLowerCase()) ||
@@ -85,10 +87,10 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                                   .toString()
                                   .toLowerCase()
                                   .contains(s.toLowerCase()) ||
-                              element.transactionFor
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(s.toLowerCase()) ||
+                              // element.transactionFor
+                              //     .toString()
+                              //     .toLowerCase()
+                              //     .contains(s.toLowerCase()) ||
                               element.user
                                   .toString()
                                   .toLowerCase()
@@ -260,10 +262,15 @@ class _TransactionBuilderState extends State<TransactionBuilder>
       //TOPUP
       case 1:
         _activeList = widget.items
-            .where((element) => element.transactionType
-                .toString()
-                .toLowerCase()
-                .contains('topup'))
+            .where((element) =>
+                element.transactionType
+                    .toString()
+                    .toLowerCase()
+                    .contains('topup') ||
+                element.transactionName
+                    .toString()
+                    .toLowerCase()
+                    .contains('topup'))
             .toList();
         break;
       //PURCHASE
@@ -299,7 +306,7 @@ class TransactionListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 20),
-      elevation: 12,
+      elevation: 8,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
@@ -339,17 +346,19 @@ class TransactionViewItem extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(8)),
             color: Palette.primary,
           ),
-          child: const Icon(
-            Icons.bus_alert_sharp,
-            color: Colors.white,
+          child: SizedBox(
+            child: SvgPicture.network(
+              transaction.icon.toString(),
+              fit: BoxFit.scaleDown,
+            ),
           )),
-      title: const Text(
-        'Tokyo, Japan',
+      title: Text(
+        transaction.transactionName.toString(),
         textScaleFactor: 0.9,
-        style: TextStyle(fontWeight: FontWeight.w700),
+        style: const TextStyle(fontWeight: FontWeight.w700),
       ),
       subtitle: Text(
-        '${transaction.transactionType}\n${transaction.createdAt}',
+        '''${transaction.transactionType}\n${Utils.formatDate(transaction.createdAt.toString())} - ${Utils.formatTime(transaction.createdAt.toString())}''',
         textScaleFactor: 0.85,
       ),
       trailing: Column(
