@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 
 class TransactionItemModel extends TransactionItem {
@@ -19,23 +18,28 @@ class TransactionItemModel extends TransactionItem {
     required String? topupBy,
     required String? transactionName,
     required String? icon,
+    required String? paidWith,
+    required String? gps,
   }) : super(
-            topupBy: topupBy,
-            transactionFor: transactionFor,
-            transactionType: transactionType,
-            updatedAt: updatedAt,
-            user: user,
-            referenceId: referenceId,
-            remarks: remarks,
-            transactionId: transactionId,
-            transactionStatus: transactionStatus,
-            id: id,
-            status: status,
-            createdAt: createdAt,
-            currency: currency,
-            topupAmount: topupAmount,
-            transactionName: transactionName,
-            icon: icon);
+          topupBy: topupBy,
+          transactionFor: transactionFor,
+          transactionType: transactionType,
+          updatedAt: updatedAt,
+          user: user,
+          referenceId: referenceId,
+          remarks: remarks,
+          transactionId: transactionId,
+          transactionStatus: transactionStatus,
+          id: id,
+          status: status,
+          createdAt: createdAt,
+          currency: currency,
+          topupAmount: topupAmount,
+          transactionName: transactionName,
+          icon: icon,
+          paidWith: paidWith,
+          gps: gps,
+        );
   factory TransactionItemModel.fromJson(Map<String, dynamic> json) =>
       TransactionItemModel(
         id: json['id'] as int?,
@@ -54,5 +58,7 @@ class TransactionItemModel extends TransactionItem {
         user: json['user'] as String?,
         icon: json['icon'] as String?,
         transactionName: json['transaction_name'] as String?,
+        paidWith: json['paid_with'] as String?,
+        gps: json['gps'] as String?,
       );
 }

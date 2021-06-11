@@ -18,6 +18,8 @@ class TransactionItem {
     required this.topupBy,
     required this.transactionName,
     required this.icon,
+    required this.paidWith,
+    required this.gps,
   });
 
   int? id;
@@ -36,4 +38,6 @@ class TransactionItem {
   String? updatedAt;
   String? user;
   String? icon;
+  String? paidWith;
+  String? gps;
 }

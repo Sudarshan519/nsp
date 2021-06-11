@@ -17,7 +17,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   final GetTransactions getTransaction;
   bool isFetching = false;
   int _page = 1;
-  bool _hasReachedEnd = false;
+  // bool _hasReachedEnd = false;
   DateTime from = DateTime.now();
   DateTime to = DateTime.now();
   final List<TransactionItem> _data = [];
@@ -31,15 +31,16 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     // TODO: implement mapEventToState
     yield* event.map(
       fetchTransactionData: (d) async* {
-        if (_hasReachedEnd) {
-          yield _Loaded(_data);
-        } else {
-          isFetching = true;
-          if (_data.isEmpty) {
-            yield const _Loading();
-          }
-          yield* _mapFetchNewsToState(d);
+        // if (_hasReachedEnd) {
+        //   yield _Loaded(_data);
+        // } else {
+        isFetching = true;
+        if (_data.isEmpty) {
+          yield const _Loading();
         }
+        yield* _mapFetchNewsToState(d);
+
+        // }
       },
       pullToRefresh: (e) async* {},
     );
@@ -63,10 +64,13 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       },
       (transactionData) {
         isFetching = false;
-        if (transactionData.isEmpty) {
-          _hasReachedEnd = true;
-        }
+        // if (transactionData.isEmpty) {
+        //   _hasReachedEnd = true;
+        // }
+        // _data.addAll(transactionData);
+        _data.clear();
         _data.addAll(transactionData);
+
         _page = _page + 1;
         return _Loaded(_data);
       },

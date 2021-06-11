@@ -113,7 +113,7 @@ class TransactionDetailPage extends StatelessWidget {
                         fontSize: 14),
                     children: <TextSpan>[
                       TextSpan(
-                        text: item.transactionType.toString(),
+                        text: item.paidWith.toString(),
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
@@ -126,38 +126,25 @@ class TransactionDetailPage extends StatelessWidget {
             //Description Widget
             descriptionWidget(),
 
-            Container(
-              margin: const EdgeInsets.all(12),
-              height: 275,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-              ),
-              child: const GoogleMap(
-                  initialCameraPosition: CameraPosition(
-                      zoom: 17,
-                      target: LatLng(
-                        27.71,
-                        85.32,
-                      ))),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.pin_drop_sharp,
-                      color: Palette.primary,
-                    ),
-                    const Text(
-                      '  Tokyo, Japan',
-                      style: TextStyle(fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            if (item.gps != null) googleMap()
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: Center(
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       children: [
+            //         Icon(
+            //           Icons.pin_drop_sharp,
+            //           color: Palette.primary,
+            //         ),
+            //         const Text(
+            //           '  Tokyo, Japan',
+            //           style: TextStyle(fontWeight: FontWeight.w700),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -223,6 +210,26 @@ class TransactionDetailPage extends StatelessWidget {
         style:
             TextStyle(fontWeight: bold ? FontWeight.bold : FontWeight.normal),
       ),
+    );
+  }
+
+  Widget googleMap() {
+    final arr = item.gps.toString().split(':');
+    final lat = double.parse(arr.first);
+    final long = double.parse(arr.last);
+    return Container(
+      margin: const EdgeInsets.all(12),
+      height: 275,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
+      child: GoogleMap(
+          initialCameraPosition: CameraPosition(
+              zoom: 17,
+              target: LatLng(
+                lat,
+                long,
+              ))),
     );
   }
 }

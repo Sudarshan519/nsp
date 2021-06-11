@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/features/transaction/domain/usecase/get_transaction.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
-import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:auto_route/auto_route.dart';
@@ -25,8 +24,9 @@ class TransactionBlocView extends StatelessWidget {
         return state.map(
           loading: (a) => loadingPage(),
           loaded: (data) => TransactionBuilder(state: state, items: data.list),
-          failure: (a) => loadingPage(),
-          failureWithData: (a) => loadingPage(),
+          failure: (a) => const InfoWidget(message: 'Some error occoured'),
+          failureWithData: (a) =>
+              const InfoWidget(message: 'Some error occoured'),
         );
       },
     );
@@ -209,27 +209,31 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                     borderRadius: BorderRadius.circular(32.0),
                   ),
                 ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
+                    Row(
+                      children: const [
                         Text(
                           "From",
                           textScaleFactor: 0.8,
                         ),
-                        // Spacer(),
-                        Text(
-                          DateTimeFormatter.formatDate(from.toString()),
-                          textScaleFactor: 0.8,
+                        SizedBox(
+                          width: 6,
+                        ),
+                        Icon(
+                          Icons.calendar_today,
+                          size: 12,
                         ),
                       ],
                     ),
-                    Spacer(),
-                    Icon(
-                      Icons.calendar_today,
-                      size: 20,
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    Text(
+                      DateTimeFormatter.formatDate(from.toString()),
+                      textScaleFactor: 0.8,
                     ),
                   ],
                 ),
@@ -244,8 +248,8 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                 onPressed: () async {
                   final toPick = await showDatePicker(
                       context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(2018),
+                      initialDate: from,
+                      firstDate: from,
                       lastDate: DateTime.now());
                   if (toPick != null) {
                     setState(() {
@@ -260,27 +264,31 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                     borderRadius: BorderRadius.circular(32.0),
                   ),
                 ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
+                    Row(
+                      children: const [
                         Text(
-                          "To",
+                          "From",
                           textScaleFactor: 0.8,
                         ),
-                        // Spacer(),
-                        Text(
-                          DateTimeFormatter.formatDate(to.toString()),
-                          textScaleFactor: 0.8,
+                        SizedBox(
+                          width: 6,
+                        ),
+                        Icon(
+                          Icons.calendar_today,
+                          size: 12,
                         ),
                       ],
                     ),
-                    Spacer(),
-                    Icon(
-                      Icons.calendar_today,
-                      size: 20,
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    Text(
+                      DateTimeFormatter.formatDate(to.toString()),
+                      textScaleFactor: 0.8,
                     ),
                   ],
                 ),
@@ -301,13 +309,6 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                                     DateTimeFormatter.formatDateToApi(from),
                                 toDate: DateTimeFormatter.formatDateToApi(to))),
                       );
-
-                  // getIt<TransactionBloc>().add(
-                  //     //default from today till last 7 days
-                  //     TransactionEvent.fetchTransactionData(GetTransactionParam(
-                  //         page: "page",
-                  //         fromDate: '2021-06-03',
-                  //         toDate: '2021-06-05')));
                 },
                 style: ElevatedButton.styleFrom(
                   onPrimary: Colors.black,
@@ -316,7 +317,7 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                     borderRadius: BorderRadius.circular(32.0),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   "Show",
                   textScaleFactor: 0.8,
                 ),
@@ -364,10 +365,45 @@ class _TransactionBuilderState extends State<TransactionBuilder>
         _tabBar(),
         _searchWidget(),
         if (_showFilter) _dateFilterWidget(context),
-        TransactionListView(
-            items:
-                _searchController.text.isNotEmpty ? _searchList : _activeList)
+        // ignore: prefer_if_elements_to_conditional_expressions
+        widget.items.isEmpty
+            ? const InfoWidget(message: 'No data available')
+            : TransactionListView(
+                items: _searchController.text.isNotEmpty
+                    ? _searchList
+                    : _activeList)
       ],
+    );
+  }
+}
+
+class InfoWidget extends StatelessWidget {
+  final String message;
+  const InfoWidget({
+    Key? key,
+    required this.message,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(22.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            Icons.info,
+            size: 25,
+          ),
+          const SizedBox(
+            width: 7,
+          ),
+          Text(
+            message,
+            textScaleFactor: 1.1,
+          )
+        ],
+      ),
     );
   }
 }
