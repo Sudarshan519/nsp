@@ -21,7 +21,7 @@ class GetTransactions
   Future<Either<ApiFailure, List<TransactionItem>>> call(
       GetTransactionParam params) async {
     if (await networkInfo.isConnected) {
-      final remoteData = await repository.getTransaction();
+      final remoteData = await repository.getTransaction(params);
       return remoteData.fold(
         (failure) {
           return Left(failure);
@@ -43,12 +43,12 @@ class GetTransactionParam {
   // -transaction_type
 
   final String page;
-  // final String fromDate;
-  // final String toDate;
+  final String fromDate;
+  final String toDate;
 
   GetTransactionParam({
     required this.page,
-    // required this.fromDate,
-    // required this.toDate,
+    required this.fromDate,
+    required this.toDate,
   });
 }

@@ -7,11 +7,13 @@ import 'package:wallet_app/features/news/presentation/news_genre/news_genre_bloc
 import 'package:wallet_app/features/news/presentation/news_preference/news_preference_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
+import 'package:wallet_app/features/transaction/domain/usecase/get_transaction.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/utils/config_reader.dart';
+import 'package:wallet_app/utils/date_time_formatter.dart';
 
 import '../ui/routes/routes.gr.dart';
 
@@ -71,7 +73,12 @@ class WalletApp extends StatelessWidget {
         BlocProvider(
           create: (_) => getIt<TransactionBloc>()
             ..add(
-              const TransactionEvent.fetchTransactionData(),
+              //default from today to last 7 days
+              TransactionEvent.fetchTransactionData(GetTransactionParam(
+                  page: 'page',
+                  fromDate: DateTimeFormatter.formatDateToApi(
+                      DateTime.now().subtract(const Duration(days: 7))),
+                  toDate: DateTimeFormatter.formatDateToApi(DateTime.now()))),
             ),
         ),
       ],

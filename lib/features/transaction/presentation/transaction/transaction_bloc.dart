@@ -18,6 +18,8 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   bool isFetching = false;
   int _page = 1;
   bool _hasReachedEnd = false;
+  DateTime from = DateTime.now();
+  DateTime to = DateTime.now();
   final List<TransactionItem> _data = [];
 
   TransactionBloc({
@@ -36,19 +38,20 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
           if (_data.isEmpty) {
             yield const _Loading();
           }
-          yield* _mapFetchNewsToState();
+          yield* _mapFetchNewsToState(d);
         }
       },
       pullToRefresh: (e) async* {},
     );
   }
 
-  Stream<TransactionState> _mapFetchNewsToState() async* {
+  Stream<TransactionState> _mapFetchNewsToState(
+      _FetchTransactionData d) async* {
     if (_data.isNotEmpty) {
       yield const _Loading();
     }
 
-    final result = await getTransaction(GetTransactionParam(page: "$_page"));
+    final result = await getTransaction(d.params);
     yield result.fold(
       (failure) {
         isFetching = false;

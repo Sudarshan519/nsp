@@ -7,12 +7,13 @@ import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/transaction/data/app_constant/constant.dart';
 import 'package:wallet_app/features/transaction/data/model/transaction_model.dart';
+import 'package:wallet_app/features/transaction/domain/usecase/get_transaction.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class TransactionRemoteDataSource {
-  Future<TransactionModel> getTransactions();
+  Future<TransactionModel> getTransactions(GetTransactionParam params);
 }
 
 @LazySingleton(as: TransactionRemoteDataSource)
@@ -35,10 +36,18 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
   });
 
   @override
-  Future<TransactionModel> getTransactions() async {
+  Future<TransactionModel> getTransactions(GetTransactionParam params) async {
     http.Response response;
-    final url =
+
+    final endpointUrl =
         "${config.baseURL}${config.apiPath}${TransactionApiEndpoints.getTransactions}";
+
+    final String queryString = Uri(queryParameters: {
+      'from_date': params.fromDate,
+      'to_date': params.toDate,
+    }).query;
+    final requestUrl = '$endpointUrl?$queryString';
+
     final accessToken = (await auth.getWalletUser()).accessToken;
 
     if (accessToken == null || accessToken.isEmpty) {
@@ -48,8 +57,9 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
     _headers["Authorization"] = "Bearer $accessToken";
 
     try {
+      //nikkon
       response = await client.get(
-        Uri.parse(url),
+        Uri.parse(requestUrl),
         headers: _headers,
       );
     } catch (ex) {

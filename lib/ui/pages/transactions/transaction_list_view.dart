@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:wallet_app/core/utlities.dart/utils.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
+import 'package:wallet_app/features/transaction/domain/usecase/get_transaction.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/utils/date_time_formatter.dart';
 
 class TransactionBlocView extends StatelessWidget {
   const TransactionBlocView({
@@ -43,6 +45,8 @@ class TransactionBuilder extends StatefulWidget {
 
 class _TransactionBuilderState extends State<TransactionBuilder>
     with SingleTickerProviderStateMixin {
+  DateTime from = DateTime.now().subtract(const Duration(days: 7));
+  DateTime to = DateTime.now();
   TabController? _tabController;
   List<TransactionItem> _activeList = [];
   List<TransactionItem> _searchList = [];
@@ -179,18 +183,24 @@ class _TransactionBuilderState extends State<TransactionBuilder>
       return Container(
         margin: const EdgeInsets.symmetric(vertical: 8),
         padding: const EdgeInsets.all(8),
-        height: 44,
+        height: 60,
         color: Palette.primary,
         child: Row(
           children: [
             Expanded(
+              flex: 3,
               child: ElevatedButton(
                 onPressed: () async {
-                  var from = await showDatePicker(
+                  final fromPick = await showDatePicker(
                       context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime(2018),
                       lastDate: DateTime.now());
+                  if (fromPick != null) {
+                    setState(() {
+                      from = fromPick;
+                    });
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   onPrimary: Colors.black,
@@ -200,10 +210,21 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                   ),
                 ),
                 child: Row(
-                  children: const [
-                    Text(
-                      "From",
-                      textScaleFactor: 0.8,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "From",
+                          textScaleFactor: 0.8,
+                        ),
+                        // Spacer(),
+                        Text(
+                          DateTimeFormatter.formatDate(from.toString()),
+                          textScaleFactor: 0.8,
+                        ),
+                      ],
                     ),
                     Spacer(),
                     Icon(
@@ -218,13 +239,19 @@ class _TransactionBuilderState extends State<TransactionBuilder>
               width: 8,
             ),
             Expanded(
+              flex: 3,
               child: ElevatedButton(
                 onPressed: () async {
-                  var to = await showDatePicker(
+                  final toPick = await showDatePicker(
                       context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime(2018),
                       lastDate: DateTime.now());
+                  if (toPick != null) {
+                    setState(() {
+                      to = toPick;
+                    });
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   onPrimary: Colors.black,
@@ -234,10 +261,21 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                   ),
                 ),
                 child: Row(
-                  children: const [
-                    Text(
-                      "To",
-                      textScaleFactor: 0.8,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "To",
+                          textScaleFactor: 0.8,
+                        ),
+                        // Spacer(),
+                        Text(
+                          DateTimeFormatter.formatDate(to.toString()),
+                          textScaleFactor: 0.8,
+                        ),
+                      ],
                     ),
                     Spacer(),
                     Icon(
@@ -245,6 +283,42 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                       size: 20,
                     ),
                   ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            Expanded(
+              flex: 2,
+              child: ElevatedButton(
+                onPressed: () async {
+                  context.read<TransactionBloc>().add(
+                        TransactionEvent.fetchTransactionData(
+                            GetTransactionParam(
+                                page: "page",
+                                fromDate:
+                                    DateTimeFormatter.formatDateToApi(from),
+                                toDate: DateTimeFormatter.formatDateToApi(to))),
+                      );
+
+                  // getIt<TransactionBloc>().add(
+                  //     //default from today till last 7 days
+                  //     TransactionEvent.fetchTransactionData(GetTransactionParam(
+                  //         page: "page",
+                  //         fromDate: '2021-06-03',
+                  //         toDate: '2021-06-05')));
+                },
+                style: ElevatedButton.styleFrom(
+                  onPrimary: Colors.black,
+                  primary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(32.0),
+                  ),
+                ),
+                child: Text(
+                  "Show",
+                  textScaleFactor: 0.8,
                 ),
               ),
             ),
@@ -358,7 +432,7 @@ class TransactionViewItem extends StatelessWidget {
         style: const TextStyle(fontWeight: FontWeight.w700),
       ),
       subtitle: Text(
-        '''${transaction.transactionType}\n${Utils.formatDate(transaction.createdAt.toString())} - ${Utils.formatTime(transaction.createdAt.toString())}''',
+        '''${transaction.transactionType}\n${DateTimeFormatter.formatDate(transaction.createdAt.toString())} - ${DateTimeFormatter.formatTime(transaction.createdAt.toString())}''',
         textScaleFactor: 0.85,
       ),
       trailing: Column(

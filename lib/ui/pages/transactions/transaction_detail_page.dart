@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:wallet_app/core/utlities.dart/utils.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:wallet_app/utils/date_time_formatter.dart';
 
 class TransactionDetailPage extends StatelessWidget {
   final TransactionItem item;
@@ -13,8 +12,10 @@ class TransactionDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget dateTime() {
       ///TODO: Formate datetime from transaction.date
-      final String date = Utils.formatDate(item.createdAt.toString());
-      final String time = Utils.formatTime(item.createdAt.toString());
+      final String date =
+          DateTimeFormatter.formatDate(item.createdAt.toString());
+      final String time =
+          DateTimeFormatter.formatTime(item.createdAt.toString());
       return Container(
         margin: const EdgeInsets.symmetric(horizontal: 80),
         padding: const EdgeInsets.all(4),
