@@ -195,7 +195,6 @@ class _NameOfQualificationField extends StatelessWidget {
         title: "Name of the qualification",
         child: InputTextWidget(
           hintText: "AWS Certification",
-          textInputType: TextInputType.name,
           value: state.qualificationName,
           onChanged: (value) => context
               .read<UpdateQualificationInfoActorBloc>()

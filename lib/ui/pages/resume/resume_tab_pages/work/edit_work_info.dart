@@ -203,7 +203,6 @@ class _NameOfCompanyField extends StatelessWidget {
         title: "Name of the company",
         child: InputTextWidget(
           hintText: "XYZ Company",
-          textInputType: TextInputType.name,
           value: state.nameOfComapny,
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
@@ -440,7 +439,6 @@ class _PurposeOfResignField extends StatelessWidget {
               title: "Purpose of Resign",
               child: InputTextWidget(
                 hintText: "purpose of resign",
-                textInputType: TextInputType.name,
                 value: state.purposeOfResign,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()

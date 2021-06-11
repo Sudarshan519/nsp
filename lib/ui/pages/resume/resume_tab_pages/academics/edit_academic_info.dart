@@ -203,7 +203,6 @@ class _NameOfInstituteField extends StatelessWidget {
         title: "Name of Institute",
         child: InputTextWidget(
           hintText: "Name of Institute",
-          textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.nameOfInstitute,
           onChanged: (value) => context
