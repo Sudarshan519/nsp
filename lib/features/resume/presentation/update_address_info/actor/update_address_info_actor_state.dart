@@ -23,7 +23,6 @@ class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
     required List<String> listOfCurrCities,
     required List<String> listOfContCities,
     required bool isSubmitting,
-    required bool hasSetInitialData,
     required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
   }) = _UpdateAddressInfoActorState;
 
@@ -48,7 +47,6 @@ class UpdateAddressInfoActorState with _$UpdateAddressInfoActorState {
         listOfCurrCities: [],
         listOfContCities: [],
         isSubmitting: false,
-        hasSetInitialData: false,
         failureOrSuccessOption: none(),
       );
 }

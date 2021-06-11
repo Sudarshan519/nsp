@@ -129,7 +129,6 @@ class UpdateAddressInfoActorBloc
         listOfCurrCities: _currCityArray,
         listOfContCities: _contCityArray,
         isSubmitting: false,
-        hasSetInitialData: true,
         failureOrSuccessOption: none(),
       );
     }
@@ -138,10 +137,10 @@ class UpdateAddressInfoActorBloc
   UpdateAddressInfoActorState _mapChangeCurrCountryToState(
       _ChangedCurrCountry _changedCountry) {
     return state.copyWith(
+      key: UniqueKey(),
       currCountry: _changedCountry.country,
       currPrefecture: '',
       currCity: '',
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -150,7 +149,6 @@ class UpdateAddressInfoActorBloc
       _ChangedCurrPostalCode _changedPostalCode) {
     return state.copyWith(
       currPostalCode: _changedPostalCode.code,
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -159,6 +157,10 @@ class UpdateAddressInfoActorBloc
   // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeCurrJapanesePrefectureToState(
       _ChangedCurJapaneserPrefecture _changedPrefecture) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+      failureOrSuccessOption: none(),
+    );
     final listOfCurrCities = await _getListOfCities(
         country: state.currCountry,
         prefectureName: _changedPrefecture.prefecture);
@@ -167,29 +169,36 @@ class UpdateAddressInfoActorBloc
       listOfPrefectures.add(_changedPrefecture.prefecture);
     }
     yield state.copyWith(
+      key: UniqueKey(),
       currPrefecture: _changedPrefecture.prefecture,
       listOfJapanesePrefectures: listOfPrefectures,
       listOfCurrCities: listOfCurrCities,
       currCity: '',
+      isSubmitting: false,
       failureOrSuccessOption: none(),
     );
   }
 
   Stream<UpdateAddressInfoActorState> _mapChangeCurrNepaliPrefectureToState(
       _ChangedCurrNepaliProvince _changedPrefecture) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+      failureOrSuccessOption: none(),
+    );
     final listOfCurrCities = await _getListOfCities(
         country: state.currCountry,
         prefectureName: _changedPrefecture.province);
-    final List<String> listOfPrefectures = state.listOfJapanesePrefectures;
+    final List<String> listOfPrefectures = state.listOfNepaliProvinces;
     if (!listOfPrefectures.contains(_changedPrefecture.province)) {
       listOfPrefectures.add(_changedPrefecture.province);
     }
     yield state.copyWith(
+      key: UniqueKey(),
       currPrefecture: _changedPrefecture.province,
       listOfNepaliProvinces: listOfPrefectures,
       listOfCurrCities: listOfCurrCities,
       currCity: '',
-      hasSetInitialData: false,
+      isSubmitting: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -205,7 +214,6 @@ class UpdateAddressInfoActorBloc
     return state.copyWith(
       currCity: _changedCity.city,
       listOfCurrCities: listOfCities,
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -222,7 +230,6 @@ class UpdateAddressInfoActorBloc
       _ChangedCurrPhone _changedPhone) {
     return state.copyWith(
       currPhone: _changedPhone.phone,
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -242,7 +249,6 @@ class UpdateAddressInfoActorBloc
       contPhone: sameAsCurrAddressInfo ? state.currPhone : "",
       listOfContCities: state.listOfCurrCities,
       isSubmitting: false,
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -250,10 +256,10 @@ class UpdateAddressInfoActorBloc
   UpdateAddressInfoActorState _mapChangeContCountryToState(
       _ChangedContCountry _changedCountry) {
     return state.copyWith(
+      key: UniqueKey(),
       contCountry: _changedCountry.country,
       contPrefecture: '',
       contCity: '',
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -262,7 +268,6 @@ class UpdateAddressInfoActorBloc
       _ChangedContPostalCode _changedPostalCode) {
     return state.copyWith(
       contPostalCode: _changedPostalCode.code,
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -271,18 +276,19 @@ class UpdateAddressInfoActorBloc
   // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeContJapanesePrefectureToState(
       _ChangedContJapanesePrefecture _changedPrefecture) async* {
-    // final List<String> listOfPrefectures = state.listOfJapanesePrefectures;
-    // if (!listOfPrefectures.contains(_changedPrefecture.prefecture)) {
-    //   listOfPrefectures.add(_changedPrefecture.prefecture);
-    // }
+    yield state.copyWith(
+      isSubmitting: true,
+      failureOrSuccessOption: none(),
+    );
     final listOfContCities = await _getListOfCities(
         country: state.contCountry,
         prefectureName: _changedPrefecture.prefecture);
     yield state.copyWith(
+      key: UniqueKey(),
       contPrefecture: _changedPrefecture.prefecture,
       listOfContCities: listOfContCities,
       contCity: '',
-      hasSetInitialData: false,
+      isSubmitting: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -293,15 +299,20 @@ class UpdateAddressInfoActorBloc
     // if (!listOfPrefectures.contains(_changedPrefecture.province)) {
     //   listOfPrefectures.add(_changedPrefecture.province);
     // }
+    yield state.copyWith(
+      isSubmitting: true,
+      failureOrSuccessOption: none(),
+    );
+
     final listOfContCities = await _getListOfCities(
         country: state.contCountry,
         prefectureName: _changedPrefecture.province);
     yield state.copyWith(
+      key: UniqueKey(),
       contPrefecture: _changedPrefecture.province,
       listOfContCities: listOfContCities,
-      // listOfPrefectures: listOfPrefectures,
       contCity: '',
-      hasSetInitialData: false,
+      isSubmitting: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -315,7 +326,6 @@ class UpdateAddressInfoActorBloc
     return state.copyWith(
       contCity: _changedCity.city,
       listOfContCities: listOfCities,
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -324,7 +334,6 @@ class UpdateAddressInfoActorBloc
       _ChangedContAddress _changedAddress) {
     return state.copyWith(
       contAddress: _changedAddress.address,
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -333,7 +342,6 @@ class UpdateAddressInfoActorBloc
       _ChangedContPhone _changedPhone) {
     return state.copyWith(
       contPhone: _changedPhone.phone,
-      hasSetInitialData: false,
       failureOrSuccessOption: none(),
     );
   }
@@ -364,7 +372,6 @@ class UpdateAddressInfoActorBloc
 
     yield state.copyWith(
       isSubmitting: false,
-      hasSetInitialData: false,
       failureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }

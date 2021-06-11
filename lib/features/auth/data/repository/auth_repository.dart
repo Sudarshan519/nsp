@@ -142,7 +142,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
       final String? photo = userInfo["picture"]["data"]["url"] as String?;
 
-      email ??= "$id@nippon@fb.com";
+      email ??= "$id@bnpy.fb.com";
 
       final fullname = userInfo["name"] as String?;
       final names = fullname?.split(" ") ?? [];
@@ -170,6 +170,13 @@ class AuthRepositoryImpl implements AuthRepository {
         },
       );
     } else {
+      logger.log(
+        className: "AuthRepository",
+        functionName: "loginWithFacebook()",
+        errorText:
+            "Error on login via FB | ${result.status} | ${result.message}",
+        errorMessage: result.toString(),
+      );
       return const Left(
           ApiFailure.serverError(message: AppConstants.someThingWentWrong));
     }

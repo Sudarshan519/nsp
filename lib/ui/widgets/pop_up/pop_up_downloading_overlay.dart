@@ -253,6 +253,11 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
 
   static void downloadCallback(
       String id, DownloadTaskStatus status, int progress) {
+    if (status == DownloadTaskStatus.failed && progress == -1) {
+      /// download failed mostly due to Server replied HTTP code: 416
+      // TODO: retry download of the certain task
+      FlutterDownloader.retry(taskId: id);
+    }
     final SendPort? send = IsolateNameServer.lookupPortByName(
         PopUpDownloadOverLayState._send_Port);
     if (send != null) {

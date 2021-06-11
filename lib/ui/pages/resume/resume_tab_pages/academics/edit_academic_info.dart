@@ -151,10 +151,18 @@ class _SaveButton extends StatelessWidget {
     return BlocBuilder<UpdateAcademicInfoActorBloc,
         UpdateAcademicInfoActorState>(
       builder: (context, state) {
+        if (state.isSubmitting) {
+          return const SizedBox.shrink();
+        }
         return InkWell(
-          onTap: () => context.read<UpdateAcademicInfoActorBloc>().add(
-                const UpdateAcademicInfoActorEvent.save(),
-              ),
+          onTap: () {
+            if (state.isSubmitting) {
+              return;
+            }
+            context.read<UpdateAcademicInfoActorBloc>().add(
+                  const UpdateAcademicInfoActorEvent.save(),
+                );
+          },
           child: Center(
             child: Container(
               decoration: BoxDecoration(
@@ -195,7 +203,6 @@ class _NameOfInstituteField extends StatelessWidget {
         title: "Name of Institute",
         child: InputTextWidget(
           hintText: "Name of Institute",
-          textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.nameOfInstitute,
           onChanged: (value) => context

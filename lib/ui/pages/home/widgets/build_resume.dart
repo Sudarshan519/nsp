@@ -39,7 +39,7 @@ class BuildResume extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const Text(
-                        "Build you resume from here. Easily and quickly.",
+                        "Build your resume from here. Easily and quickly.",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                         ),

@@ -180,7 +180,7 @@ class _PersonalDocumentDetailPageState
                       title: "${state.originKycDocType} Number",
                       child: InputTextWidget(
                         hintText: "Number",
-                        textInputType: TextInputType.name,
+                        textInputType: TextInputType.number,
                         value: state.originKycDocNumber,
                         onChanged: (value) => context
                             .read<UpdateProfileBloc>()
@@ -362,7 +362,7 @@ class _PersonalDocumentDetailPageState
                       title: "${state.residenceKycDocType} Number",
                       child: InputTextWidget(
                         hintText: "Number",
-                        textInputType: TextInputType.name,
+                        textInputType: TextInputType.number,
                         value: state.residenceKycDocNumber,
                         onChanged: (value) => context
                             .read<UpdateProfileBloc>()
