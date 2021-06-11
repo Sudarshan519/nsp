@@ -271,7 +271,7 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                     Row(
                       children: const [
                         Text(
-                          "From",
+                          "To",
                           textScaleFactor: 0.8,
                         ),
                         SizedBox(
