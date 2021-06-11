@@ -1,4 +1,4 @@
-// import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
@@ -18,12 +18,12 @@ class PdfViewerPage extends StatefulWidget {
 
 class _PdfViewerPageState extends State<PdfViewerPage> {
   late bool _isLoading;
-  // PDFDocument? _doc;
+  PDFDocument? _doc;
 
   @override
   void initState() {
     _isLoading = true;
-    // _getPdfDoc();
+    _getPdfDoc();
     super.initState();
   }
 
@@ -45,41 +45,41 @@ class _PdfViewerPageState extends State<PdfViewerPage> {
         backgroundColor: Palette.primary,
         elevation: 0,
       ),
-      // body: pdfBody(context),
+      body: pdfBody(context),
     );
   }
 
-  // Widget pdfBody(BuildContext context) {
-  //   if (_isLoading) {
-  //     return loadingPage();
-  //   }
-  //   if (_doc != null) {
-  //     return PDFViewer(document: _doc!);
-  //   } else {
-  //     return const Center(
-  //       child: Text(
-  //         "Something went wrong while reading the pdf. Please try again later.",
-  //         style: TextStyle(
-  //           fontWeight: FontWeight.w400,
-  //           fontSize: 15,
-  //         ),
-  //       ),
-  //     );
-  //   }
-  // }
+  Widget pdfBody(BuildContext context) {
+    if (_isLoading) {
+      return loadingPage();
+    }
+    if (_doc != null) {
+      return PDFViewer(document: _doc!);
+    } else {
+      return const Center(
+        child: Text(
+          "Something went wrong while reading the pdf. Please try again later.",
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: 15,
+          ),
+        ),
+      );
+    }
+  }
 
-  // Future _getPdfDoc() async {
-  //   try {
-  //     final PDFDocument doc = await PDFDocument.fromURL(widget.pdfUrl);
-  //     setState(() {
-  //       _doc = doc;
-  //       _isLoading = false;
-  //     });
-  //   } catch (ex) {
-  //     setState(() {
-  //       _isLoading = false;
-  //     });
-  //     print(ex.toString());
-  //   }
-  // }
+  Future _getPdfDoc() async {
+    try {
+      final PDFDocument doc = await PDFDocument.fromURL(widget.pdfUrl);
+      setState(() {
+        _doc = doc;
+        _isLoading = false;
+      });
+    } catch (ex) {
+      setState(() {
+        _isLoading = false;
+      });
+      print(ex.toString());
+    }
+  }
 }

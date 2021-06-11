@@ -11,9 +11,11 @@ packages:
   advance_pdf_viewer:
     dependency: "direct main"
     description:
-      name: advance_pdf_viewer
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: pdf-viewer-file-fix
+      resolved-ref: "93d23ff7c3e11a58e0d4d9b4a987d534dda3a5a2"
+      url: "https://github.com/AdiD253/pdf_viewer.git"
+    source: git
     version: "2.0.0"
   analyzer:
     dependency: transitive
@@ -277,11 +279,9 @@ packages:
   esewa_pnp:
     dependency: "direct main"
     description:
-      path: "."
-      ref: null-safety
-      resolved-ref: c9502b46f4e463c02c7e3b88bef8c2a014e99670
-      url: "https://github.com/asisadh/esewa_pnp.git"
-    source: git
+      path: "../sdk/esewa_pnp"
+      relative: true
+    source: path
     version: "1.0.5"
   fake_async:
     dependency: transitive
