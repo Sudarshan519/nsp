@@ -27,8 +27,7 @@ class EditWorkInfoFormPage extends StatelessWidget {
     required this.info,
     required this.typeOfCompanyList,
     required this.lang,
-  })   : assert(info != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -153,10 +152,18 @@ class _SaveButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       builder: (context, state) {
+        if (state.isSubmitting) {
+          return const SizedBox.shrink();
+        }
         return InkWell(
-          onTap: () => context.read<UpdateWorkInfoActorBloc>().add(
-                const UpdateWorkInfoActorEvent.save(),
-              ),
+          onTap: () {
+            if (state.isSubmitting) {
+              return;
+            }
+            context.read<UpdateWorkInfoActorBloc>().add(
+                  const UpdateWorkInfoActorEvent.save(),
+                );
+          },
           child: Center(
             child: Container(
               decoration: BoxDecoration(
@@ -196,7 +203,6 @@ class _NameOfCompanyField extends StatelessWidget {
         title: "Name of the company",
         child: InputTextWidget(
           hintText: "XYZ Company",
-          textInputType: TextInputType.name,
           value: state.nameOfComapny,
           onChanged: (value) => context
               .read<UpdateWorkInfoActorBloc>()
@@ -433,7 +439,6 @@ class _PurposeOfResignField extends StatelessWidget {
               title: "Purpose of Resign",
               child: InputTextWidget(
                 hintText: "purpose of resign",
-                textInputType: TextInputType.name,
                 value: state.purposeOfResign,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()

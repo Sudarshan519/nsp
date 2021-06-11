@@ -34,3 +34,6 @@ Execute: openssl base64 -in config/app_config.json -out config/outputfile.txt
 Check Coverage:
 Execute: flutter test --coverage
 Execute: genhtml -o coverage coverage/lcov.info
+
+Remove all local git branch
+git branch | grep -v "master\|develop\|current_branch" | xargs git branch -D 

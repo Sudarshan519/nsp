@@ -34,7 +34,7 @@ class EditCurrentAddressInfoFormPage extends StatelessWidget {
     required this.lang,
     required this.prefecture,
     required this.provinces,
-  })   : assert(info != null),
+  })  : assert(info != null),
         super(key: key);
 
   @override
