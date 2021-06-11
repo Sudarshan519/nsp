@@ -4,9 +4,11 @@ import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/geo_location/geo_location.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/utility_payments/data/constants/constant.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -60,6 +62,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final params = {
       "phone_number": number,
       "amount": amount,
+      "gps": getIt<GeoLocationManager>().gps,
     };
 
     try {

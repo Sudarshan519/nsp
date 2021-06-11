@@ -277,11 +277,9 @@ packages:
   esewa_pnp:
     dependency: "direct main"
     description:
-      path: "."
-      ref: null-safety
-      resolved-ref: c9502b46f4e463c02c7e3b88bef8c2a014e99670
-      url: "https://github.com/asisadh/esewa_pnp.git"
-    source: git
+      path: "../sdk/esewa_pnp"
+      relative: true
+    source: path
     version: "1.0.5"
   fake_async:
     dependency: transitive
@@ -506,6 +504,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  geolocator:
+    dependency: "direct main"
+    description:
+      name: geolocator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.0.3"
+  geolocator_platform_interface:
+    dependency: transitive
+    description:
+      name: geolocator_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  geolocator_web:
+    dependency: transitive
+    description:
+      name: geolocator_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
   get_it:
     dependency: "direct main"
     description:
