@@ -11,9 +11,11 @@ packages:
   advance_pdf_viewer:
     dependency: "direct main"
     description:
-      name: advance_pdf_viewer
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: pdf-viewer-file-fix
+      resolved-ref: "93d23ff7c3e11a58e0d4d9b4a987d534dda3a5a2"
+      url: "https://github.com/AdiD253/pdf_viewer.git"
+    source: git
     version: "2.0.0"
   analyzer:
     dependency: transitive
@@ -426,6 +428,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  flutter_local_notifications:
+    dependency: "direct main"
+    description:
+      name: flutter_local_notifications
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.0"
+  flutter_local_notifications_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_local_notifications_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -1118,6 +1134,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0"
+  timezone:
+    dependency: transitive
+    description:
+      name: timezone
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.0"
   timing:
     dependency: transitive
     description:
@@ -1316,4 +1339,4 @@ packages:
     version: "8.0.0"
 sdks:
   dart: ">=2.13.0 <3.0.0"
-  flutter: ">=2.0.0"
+  flutter: ">=2.2.0"

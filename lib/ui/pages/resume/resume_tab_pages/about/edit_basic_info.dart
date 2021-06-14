@@ -209,7 +209,6 @@ class _NameInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
       buildWhen: (previous, current) => previous.firstName != current.firstName,
@@ -217,7 +216,6 @@ class _NameInputField extends StatelessWidget {
         title: "Name",
         child: InputTextWidget(
           hintText: "Name",
-          textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.firstName,
           onEditingCompleted: callBack,
@@ -240,7 +238,6 @@ class _FamilyNameInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdatePersonalInfoActorBloc,
         UpdatePersonalInfoActorState>(
       buildWhen: (previous, current) => previous.lastName != current.lastName,
@@ -248,7 +245,6 @@ class _FamilyNameInputField extends StatelessWidget {
         title: "Family Name",
         child: InputTextWidget(
           hintText: "Family Name",
-          textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.lastName,
           onEditingCompleted: callBack,
@@ -275,7 +271,6 @@ class _FuriganaInputField extends StatelessWidget {
         title: "Furigana",
         child: InputTextWidget(
           hintText: "フリガナ Furigana (Japanese Katakana)",
-          textInputType: TextInputType.name,
           validator: Validator.isNotKatakana,
           value: state.furigana,
           onChanged: (value) => context

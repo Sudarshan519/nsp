@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -27,13 +27,15 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  advance_pdf_viewer: ^2.0.0
+  advance_pdf_viewer:
+    git:
+      url: https://github.com/AdiD253/pdf_viewer.git
+      ref: pdf-viewer-file-fix
   assorted_layout_widgets: ^4.0.8     
   another_flushbar: ^1.10.20           
   auto_route: ^2.2.0                
   carousel_slider: ^4.0.0-nullsafety.0   
-  dartz: ^0.10.0-nullsafety.2  
-  # esewa_pnp: ^1.0.5   
+  dartz: ^0.10.0-nullsafety.2   
   esewa_pnp:
     path: ../sdk/esewa_pnp
     # git:
@@ -47,7 +49,8 @@ dependencies:
   fluttercontactpicker: ^4.4.0              
   flutter_downloader: ^1.6.0                
   flutter_facebook_auth: ^3.3.3+1              
-  flutter_html: ^2.0.0                
+  flutter_html: ^2.0.0  
+  flutter_local_notifications: ^6.0.0              
   flutter_secure_storage: ^4.2.0                
   flutter_svg: ^0.22.0               
   form_validator: ^1.0.0-nullsafety.1   

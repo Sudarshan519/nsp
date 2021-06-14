@@ -87,7 +87,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       );
 
       throw ServerException(
-        message: errorMessageFromServerWithError(response.body) ??
+        message: errorMessageFromServer(response.body) ??
             AppConstants.someThingWentWrong,
       );
     }

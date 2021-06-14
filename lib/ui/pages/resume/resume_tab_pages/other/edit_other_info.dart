@@ -277,7 +277,6 @@ class _SelfPrInputField extends StatelessWidget {
         title: "Self PR",
         child: InputTextWidget(
           hintText: "Self PR",
-          textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.selfPR,
           onEditingCompleted: callBack,
@@ -369,7 +368,6 @@ class _MotivationInputField extends StatelessWidget {
         title: "Motivations and Appeal Points",
         child: InputTextWidget(
           hintText: "Motivations and Appeal Points",
-          textInputType: TextInputType.name,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.motivationsSpecialSkills,
           onEditingCompleted: callBack,
