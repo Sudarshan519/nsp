@@ -12,12 +12,12 @@ class HomeHeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _headerInfo(),
+        _headerInfo(context),
       ],
     );
   }
 
-  Container _headerInfo() {
+  Container _headerInfo(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 16, right: 16),
       decoration: BoxDecoration(
@@ -27,7 +27,7 @@ class HomeHeaderWidget extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 5),
-            _navigationBar(),
+            _navigationBar(context),
             const SizedBox(
               height: 5,
             ),
@@ -37,7 +37,7 @@ class HomeHeaderWidget extends StatelessWidget {
     );
   }
 
-  Widget _navigationBar() {
+  Widget _navigationBar(BuildContext context) {
     return Row(
       children: [
         BlocBuilder<HomePageDataBloc, HomePageDataState>(
@@ -67,9 +67,12 @@ class HomeHeaderWidget extends StatelessWidget {
         // const SizedBox(
         //   width: 10,
         // ),
-        SvgPicture.asset(
-          "assets/images/navigation_bar/notification.svg",
-          height: 25.0,
+        GestureDetector(
+          onTap: () => context.pushRoute(const NotificationListRoute()),
+          child: SvgPicture.asset(
+            "assets/images/navigation_bar/notification.svg",
+            height: 25.0,
+          ),
         ),
       ],
     );

@@ -5,6 +5,7 @@ import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bl
 import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_genre/news_genre_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_preference/news_preference_bloc.dart';
+import 'package:wallet_app/features/notifications/presentation/notification/notifications_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -65,6 +66,12 @@ class WalletApp extends StatelessWidget {
           create: (_) => getIt<NewsPreferenceBloc>()
             ..add(
               const NewsPreferenceEvent.fetch(),
+            ),
+        ),
+        BlocProvider(
+          create: (_) => getIt<NotificationsBloc>()
+            ..add(
+              const NotificationsEvent.fetchNotificationData(),
             ),
         ),
       ],
