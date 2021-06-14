@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/domain/usecase/get_notifications.dart';
@@ -10,6 +11,7 @@ part 'notifications_event.dart';
 part 'notifications_state.dart';
 part 'notifications_bloc.freezed.dart';
 
+@injectable
 class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   NotificationsBloc({
     required this.getNotifications,
@@ -61,12 +63,12 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
           return _Failure(failure);
         }
       },
-      (newsData) {
+      (notifData) {
         isFetching = false;
-        if (newsData.isEmpty) {
+        if (notifData.isEmpty) {
           hasReachedEnd = true;
         }
-        noitfData.addAll(newsData);
+        noitfData.addAll(notifData);
         page = page + 1;
         return _Loaded(noitfData);
       },

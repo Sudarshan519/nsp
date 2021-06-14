@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$NotificationsEventTearOff {
   const _$NotificationsEventTearOff();
 
-  _FetchNewsData fetchNotificationData() {
-    return const _FetchNewsData();
+  _FetchNotification fetchNotificationData() {
+    return const _FetchNotification();
   }
 
   _PullToRefresh pullToRefresh() {
@@ -45,13 +45,13 @@ mixin _$NotificationsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FetchNewsData value) fetchNotificationData,
+    required TResult Function(_FetchNotification value) fetchNotificationData,
     required TResult Function(_PullToRefresh value) pullToRefresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchNewsData value)? fetchNotificationData,
+    TResult Function(_FetchNotification value)? fetchNotificationData,
     TResult Function(_PullToRefresh value)? pullToRefresh,
     required TResult orElse(),
   }) =>
@@ -76,28 +76,28 @@ class _$NotificationsEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$FetchNewsDataCopyWith<$Res> {
-  factory _$FetchNewsDataCopyWith(
-          _FetchNewsData value, $Res Function(_FetchNewsData) then) =
-      __$FetchNewsDataCopyWithImpl<$Res>;
+abstract class _$FetchNotificationCopyWith<$Res> {
+  factory _$FetchNotificationCopyWith(
+          _FetchNotification value, $Res Function(_FetchNotification) then) =
+      __$FetchNotificationCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$FetchNewsDataCopyWithImpl<$Res>
+class __$FetchNotificationCopyWithImpl<$Res>
     extends _$NotificationsEventCopyWithImpl<$Res>
-    implements _$FetchNewsDataCopyWith<$Res> {
-  __$FetchNewsDataCopyWithImpl(
-      _FetchNewsData _value, $Res Function(_FetchNewsData) _then)
-      : super(_value, (v) => _then(v as _FetchNewsData));
+    implements _$FetchNotificationCopyWith<$Res> {
+  __$FetchNotificationCopyWithImpl(
+      _FetchNotification _value, $Res Function(_FetchNotification) _then)
+      : super(_value, (v) => _then(v as _FetchNotification));
 
   @override
-  _FetchNewsData get _value => super._value as _FetchNewsData;
+  _FetchNotification get _value => super._value as _FetchNotification;
 }
 
 /// @nodoc
 
-class _$_FetchNewsData implements _FetchNewsData {
-  const _$_FetchNewsData();
+class _$_FetchNotification implements _FetchNotification {
+  const _$_FetchNotification();
 
   @override
   String toString() {
@@ -106,7 +106,7 @@ class _$_FetchNewsData implements _FetchNewsData {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _FetchNewsData);
+    return identical(this, other) || (other is _FetchNotification);
   }
 
   @override
@@ -137,7 +137,7 @@ class _$_FetchNewsData implements _FetchNewsData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FetchNewsData value) fetchNotificationData,
+    required TResult Function(_FetchNotification value) fetchNotificationData,
     required TResult Function(_PullToRefresh value) pullToRefresh,
   }) {
     return fetchNotificationData(this);
@@ -146,7 +146,7 @@ class _$_FetchNewsData implements _FetchNewsData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchNewsData value)? fetchNotificationData,
+    TResult Function(_FetchNotification value)? fetchNotificationData,
     TResult Function(_PullToRefresh value)? pullToRefresh,
     required TResult orElse(),
   }) {
@@ -157,8 +157,8 @@ class _$_FetchNewsData implements _FetchNewsData {
   }
 }
 
-abstract class _FetchNewsData implements NotificationsEvent {
-  const factory _FetchNewsData() = _$_FetchNewsData;
+abstract class _FetchNotification implements NotificationsEvent {
+  const factory _FetchNotification() = _$_FetchNotification;
 }
 
 /// @nodoc
@@ -223,7 +223,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FetchNewsData value) fetchNotificationData,
+    required TResult Function(_FetchNotification value) fetchNotificationData,
     required TResult Function(_PullToRefresh value) pullToRefresh,
   }) {
     return pullToRefresh(this);
@@ -232,7 +232,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchNewsData value)? fetchNotificationData,
+    TResult Function(_FetchNotification value)? fetchNotificationData,
     TResult Function(_PullToRefresh value)? pullToRefresh,
     required TResult orElse(),
   }) {

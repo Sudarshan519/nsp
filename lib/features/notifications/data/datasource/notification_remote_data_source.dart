@@ -53,7 +53,6 @@ class NotificationsRemoteDataSourceImpl
     _headers["Authorization"] = "Bearer $accessToken";
 
     try {
-      //nikkon
       response = await client.get(
         Uri.parse(url),
         headers: _headers,
