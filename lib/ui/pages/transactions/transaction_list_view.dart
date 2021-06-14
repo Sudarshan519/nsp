@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/features/transaction/domain/usecase/get_transaction.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:auto_route/auto_route.dart';
@@ -17,18 +18,30 @@ class TransactionBlocView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TransactionBloc, TransactionState>(
-      listener: (context, state) {},
-      buildWhen: (previous, current) => previous.hashCode != current.hashCode,
-      builder: (context, state) {
-        return state.map(
-          loading: (a) => loadingPage(),
-          loaded: (data) => TransactionBuilder(state: state, items: data.list),
-          failure: (a) => const InfoWidget(message: 'Some error occoured'),
-          failureWithData: (a) =>
-              const InfoWidget(message: 'Some error occoured'),
-        );
-      },
+    return BlocProvider(
+      create: (_) => getIt<TransactionBloc>()
+        ..add(
+          //default from today to last 7 days
+          TransactionEvent.fetchTransactionData(GetTransactionParam(
+              page: 'page',
+              fromDate: DateTimeFormatter.formatDateToApi(
+                  DateTime.now().subtract(const Duration(days: 7))),
+              toDate: DateTimeFormatter.formatDateToApi(DateTime.now()))),
+        ),
+      child: BlocConsumer<TransactionBloc, TransactionState>(
+        listener: (context, state) {},
+        buildWhen: (previous, current) => previous.hashCode != current.hashCode,
+        builder: (context, state) {
+          return state.map(
+            loading: (a) => loadingPage(),
+            loaded: (data) =>
+                TransactionBuilder(state: state, items: data.list),
+            failure: (a) => const InfoWidget(message: 'Some error occoured'),
+            failureWithData: (a) =>
+                const InfoWidget(message: 'Some error occoured'),
+          );
+        },
+      ),
     );
   }
 }
