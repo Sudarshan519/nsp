@@ -4,9 +4,12 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
+import 'package:wallet_app/core/geo_location/geo_location.dart';
 import 'package:wallet_app/core/logger/logger.dart';
+import 'package:wallet_app/core/notification/push_notification_manager.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -119,8 +122,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       "email": email,
       "password": password,
       "password_confirmation": confirmPassword,
-      "phone": "112233445566",
-      "created_gps": "gps",
+      "phone": "",
+      "created_gps": getIt<GeoLocationManager>().gps,
     };
     http.Response response;
 
@@ -173,6 +176,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     http.Response response;
 
     final url = "${config.baseURL}${config.apiPath}$uri";
+
+    body["firebaseToken"] = getIt<PushNotificationManager>().fireBaseToken;
+    body["gps"] = getIt<GeoLocationManager>().gps;
 
     try {
       response = await client.post(

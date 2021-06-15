@@ -69,7 +69,6 @@ class DBProviderImpl implements DBProvider {
         errorText: "Error opening local daabase",
         errorMessage: ex.toString(),
       );
-      print(ex.toString());
     }
   }
 
