@@ -279,9 +279,11 @@ packages:
   esewa_pnp:
     dependency: "direct main"
     description:
-      path: "../sdk/esewa_pnp"
-      relative: true
-    source: path
+      path: "."
+      ref: null-safety
+      resolved-ref: c9502b46f4e463c02c7e3b88bef8c2a014e99670
+      url: "https://github.com/asisadh/esewa_pnp.git"
+    source: git
     version: "1.0.5"
   fake_async:
     dependency: transitive
