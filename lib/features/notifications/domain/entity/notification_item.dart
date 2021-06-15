@@ -4,7 +4,7 @@ class NotificationItem {
   String? message;
   int? userId;
   String? image;
-  bool? isPinned;
+  bool isPinned;
   bool? isShow;
   String? createdAt;
   String? updatedAt;
@@ -15,7 +15,7 @@ class NotificationItem {
       this.message,
       this.userId,
       this.image,
-      this.isPinned,
+      this.isPinned = false,
       this.isShow,
       this.createdAt,
       this.updatedAt});

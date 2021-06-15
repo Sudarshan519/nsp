@@ -7,7 +7,7 @@ class NotificationItemModel extends NotificationItem {
       required String? message,
       required int? userId,
       required String? image,
-      required bool? isPinned,
+      required bool isPinned,
       required bool? isShow,
       required String? createdAt,
       required String? updatedAt})
@@ -28,7 +28,7 @@ class NotificationItemModel extends NotificationItem {
     message = json['message'] as String?;
     userId = json['user_id'] as int?;
     image = json['image'] as String?;
-    isPinned = json['is_pinned'] as bool?;
+    isPinned = json['is_pinned'] as bool;
     isShow = json['is_show'] as bool?;
     createdAt = json['created_at'] as String?;
     updatedAt = json['updated_at'] as String?;

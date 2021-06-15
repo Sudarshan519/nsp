@@ -21,7 +21,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   bool isFetching = false;
   int page = 1;
   bool hasReachedEnd = false;
-  List<NotificationItem> noitfData = [];
+  List<NotificationItem> data = [];
 
   @override
   Stream<NotificationsState> mapEventToState(
@@ -30,7 +30,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
     yield* event.map(
       fetchNotificationData: (e) async* {
         if (hasReachedEnd) {
-          yield _Loaded(noitfData);
+          yield _Loaded(data);
         } else {
           isFetching = true;
           yield const _Loading();
@@ -41,7 +41,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         isFetching = true;
         hasReachedEnd = false;
         page = 1;
-        noitfData = [];
+        data = [];
         yield const _Loading();
         yield* _mapFetchNotificationToState();
       },
@@ -49,16 +49,16 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   }
 
   Stream<NotificationsState> _mapFetchNotificationToState() async* {
-    if (noitfData.isNotEmpty) {
-      yield _LoadingWith(noitfData);
+    if (data.isNotEmpty) {
+      yield _LoadingWith(data);
     }
 
     final result = await getNotifications(GetNotificationParam(page: "$page"));
     yield result.fold(
       (failure) {
         isFetching = false;
-        if (noitfData.isEmpty) {
-          return _FailureWithData(failure, noitfData);
+        if (data.isEmpty) {
+          return _FailureWithData(failure, data);
         } else {
           return _Failure(failure);
         }
@@ -68,9 +68,17 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         if (notifData.isEmpty) {
           hasReachedEnd = true;
         }
-        noitfData.addAll(notifData);
+        //extracting pinned items
+        final pinned = notifData.where((element) => element.isPinned).toList();
+
+        //removing pinned items from list
+        notifData.removeWhere((element) => element.isPinned);
+
+        //adding pinned items to the beginning of list
+        notifData = [...pinned, ...notifData];
+        data.addAll(notifData);
         page = page + 1;
-        return _Loaded(noitfData);
+        return _Loaded(data);
       },
     );
   }
