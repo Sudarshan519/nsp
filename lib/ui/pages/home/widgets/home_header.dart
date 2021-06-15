@@ -67,7 +67,7 @@ class HomeHeaderWidget extends StatelessWidget {
         // const SizedBox(
         //   width: 10,
         // ),
-        GestureDetector(
+        InkWell(
           onTap: () => context.pushRoute(const NotificationListRoute()),
           child: SvgPicture.asset(
             "assets/images/navigation_bar/notification.svg",

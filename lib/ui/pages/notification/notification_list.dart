@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/presentation/notification/notifications_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -63,7 +65,7 @@ class _NotificationListView extends StatelessWidget {
       shrinkWrap: true,
       itemCount: notifs.length,
       itemBuilder: (BuildContext context, int index) {
-        var item = notifs[index];
+        final item = notifs[index];
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
           child: Card(
@@ -71,45 +73,58 @@ class _NotificationListView extends StatelessWidget {
               borderRadius: BorderRadius.circular(15.0),
             ),
             elevation: 4,
-            child: ListTile(
-              leading: CircleAvatar(
-                  backgroundColor:
-                      item.image != null ? Colors.white : Palette.primary,
-                  child: item.image != null
-                      ? Image.network(
-                          baseURL + item.image.toString(),
-                          scale: 0.3,
-                        )
-                      : const Icon(
-                          Icons.notifications_none_outlined,
-                          color: Colors.white,
-                        )),
-              title: Text(
-                item.title.toString(),
-                textScaleFactor: 0.9,
-                style: const TextStyle(fontWeight: FontWeight.w700),
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top: 6.0, bottom: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.message.toString(),
-                      textScaleFactor: 0.85,
-                      style: const TextStyle(fontWeight: FontWeight.w500),
+            child: Stack(
+              children: [
+                ListTile(
+                  leading: CircleAvatar(
+                      backgroundColor:
+                          item.image != null ? Colors.white : Palette.primary,
+                      child: item.image != null
+                          ? Image.network(
+                              baseURL + item.image.toString(),
+                              scale: 0.3,
+                            )
+                          : SvgPicture.asset(
+                              'assets/images/notification/icon-notify.svg',
+                              color: Colors.white)),
+                  title: Text(
+                    item.title.toString(),
+                    textScaleFactor: 0.9,
+                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                  subtitle: Padding(
+                    padding: const EdgeInsets.only(top: 6.0, bottom: 12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item.message.toString(),
+                          textScaleFactor: 0.85,
+                          style: const TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          '${date_time.dateFormat(DateTime.parse(item.createdAt.toString()))}   |   ${date_time.timeSince(DateTime.parse(item.createdAt.toString()))}',
+                          textScaleFactor: 0.85,
+                          style: const TextStyle(fontWeight: FontWeight.w300),
+                        ),
+                      ],
                     ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      '${date_time.dateFormat(DateTime.parse(item.createdAt.toString()))}   |   ${date_time.timeSince(DateTime.parse(item.createdAt.toString()))}',
-                      textScaleFactor: 0.85,
-                      style: const TextStyle(fontWeight: FontWeight.w300),
-                    ),
-                  ],
+                  ),
+                  onTap: () {
+                    // url_launcher.launch('http://www.google.com');
+                  },
                 ),
-              ),
+                if (item.isPinned)
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: SvgPicture.asset(
+                      'assets/images/notification/icon-pin.svg',
+                    ),
+                  )
+              ],
             ),
           ),
         );
