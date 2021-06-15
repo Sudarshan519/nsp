@@ -214,6 +214,11 @@ class TransactionDetailPage extends StatelessWidget {
   }
 
   Widget googleMap() {
+    if (!item.gps.toString().contains(':')) {
+      //Sometimes gps data can have other unknon string value
+      return const SizedBox();
+    }
+
     final arr = item.gps.toString().split(':');
     final lat = double.parse(arr.first);
     final long = double.parse(arr.last);
