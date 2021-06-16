@@ -350,15 +350,10 @@ class _TransactionBuilderState extends State<TransactionBuilder>
       //TOPUP
       case 1:
         _activeList = widget.items
-            .where((element) =>
-                element.transactionType
-                    .toString()
-                    .toLowerCase()
-                    .contains('topup') ||
-                element.transactionName
-                    .toString()
-                    .toLowerCase()
-                    .contains('topup'))
+            .where((element) => element.transactionType
+                .toString()
+                .toLowerCase()
+                .contains('topup'))
             .toList();
         break;
       //PURCHASE
