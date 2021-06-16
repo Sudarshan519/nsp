@@ -77,16 +77,10 @@ class _NotificationListView extends StatelessWidget {
               children: [
                 ListTile(
                   leading: CircleAvatar(
-                      backgroundColor:
-                          item.image != null ? Colors.white : Palette.primary,
-                      child: item.image != null
-                          ? Image.network(
-                              baseURL + item.image.toString(),
-                              scale: 0.3,
-                            )
-                          : SvgPicture.asset(
-                              'assets/images/notification/icon-notify.svg',
-                              color: Colors.white)),
+                      backgroundColor: Palette.primary,
+                      child: SvgPicture.asset(
+                          'assets/images/notification/icon-notify.svg',
+                          color: Colors.white)),
                   title: Text(
                     item.title.toString(),
                     textScaleFactor: 0.9,
@@ -97,6 +91,11 @@ class _NotificationListView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        if (item.image != null)
+                          Image.network(
+                            baseURL + item.image.toString(),
+                            scale: 0.3,
+                          ),
                         Text(
                           item.message.toString(),
                           textScaleFactor: 0.85,
