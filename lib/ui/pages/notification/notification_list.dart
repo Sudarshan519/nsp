@@ -122,7 +122,9 @@ class _NotificationListView extends StatelessWidget {
                     ),
                   ),
                   onTap: () {
-                    // url_launcher.launch('http://www.google.com');
+                    if (item.redirectUrl != null) {
+                      url_launcher.launch(item.redirectUrl!);
+                    }
                   },
                 ),
                 if (item.isPinned) pinWidget()

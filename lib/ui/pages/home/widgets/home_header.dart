@@ -67,11 +67,32 @@ class HomeHeaderWidget extends StatelessWidget {
         // const SizedBox(
         //   width: 10,
         // ),
+
+        ///unread notification count
         InkWell(
           onTap: () => context.pushRoute(const NotificationListRoute()),
-          child: SvgPicture.asset(
-            "assets/images/navigation_bar/notification.svg",
-            height: 25.0,
+          child: Stack(
+            children: [
+              SvgPicture.asset(
+                "assets/images/navigation_bar/notification.svg",
+                height: 25.0,
+              ),
+              Positioned(
+                right: 0.1,
+                child: Transform.translate(
+                  offset: const Offset(0, -4),
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 7,
+                    child: Text(
+                      '7',
+                      textScaleFactor: 0.65,
+                      style: TextStyle(fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ],

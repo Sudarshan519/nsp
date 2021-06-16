@@ -1,4 +1,6 @@
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
+import 'package:wallet_app/features/transaction/data/model/transaction_item_model.dart';
+import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 
 class NotificationItemModel extends NotificationItem {
   NotificationItemModel(
@@ -9,6 +11,8 @@ class NotificationItemModel extends NotificationItem {
       required String? image,
       required bool isPinned,
       required bool? isShow,
+      required String? redirectUrl,
+      required TransactionItemModel? transactionItem,
       required String? createdAt,
       required String? updatedAt})
       : super(
@@ -20,6 +24,8 @@ class NotificationItemModel extends NotificationItem {
             message: message,
             title: title,
             updatedAt: updatedAt,
+            redirectUrl: redirectUrl,
+            transactionItem: transactionItem,
             userId: userId);
 
   NotificationItemModel.fromJson(Map<String, dynamic> json) {
@@ -30,7 +36,13 @@ class NotificationItemModel extends NotificationItem {
     image = json['image'] as String?;
     isPinned = json['is_pinned'] as bool;
     isShow = json['is_show'] as bool?;
+    redirectUrl = json['redirect_url'] as String?;
     createdAt = json['created_at'] as String?;
     updatedAt = json['updated_at'] as String?;
+
+    if (json['transaction'] != null) {
+      transactionItem = TransactionItemModel.fromJson(
+          json['transaction'] as Map<String, dynamic>);
+    }
   }
 }
