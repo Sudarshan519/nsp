@@ -222,6 +222,20 @@ class TransactionDetailPage extends StatelessWidget {
     final arr = item.gps.toString().split(':');
     final lat = double.parse(arr.first);
     final long = double.parse(arr.last);
+
+    final Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
+    const MarkerId markerId = MarkerId('pin_point');
+
+    // creating a new MARKER
+    final Marker marker = Marker(
+      markerId: markerId,
+      position: LatLng(lat, long),
+      infoWindow: const InfoWindow(title: 'Transaction Point'),
+    );
+
+    // adding a new marker to map
+    markers[markerId] = marker;
+
     return Container(
       margin: const EdgeInsets.all(12),
       height: 275,
@@ -229,6 +243,7 @@ class TransactionDetailPage extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       child: GoogleMap(
+          markers: Set<Marker>.of(markers.values),
           initialCameraPosition: CameraPosition(
               zoom: 17,
               target: LatLng(
