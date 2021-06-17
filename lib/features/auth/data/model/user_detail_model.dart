@@ -52,6 +52,8 @@ class UserDetailModel extends UserDetail {
     required int? smartPitNo,
     required bool? isKycVerified,
     ResumeOptionsModel? options,
+    required double? currencyConversionRate,
+    required int? notificationCount,
   }) : super(
           firstName: firstName,
           lastName: lastName,
@@ -102,6 +104,8 @@ class UserDetailModel extends UserDetail {
           smartPitNo: smartPitNo,
           options: options,
           isKycVerified: isKycVerified,
+          currencyConversionRate: currencyConversionRate,
+          notificationCount: notificationCount,
         );
 
   factory UserDetailModel.fromJson(Map<String, dynamic> json) =>
@@ -161,6 +165,8 @@ class UserDetailModel extends UserDetail {
             ? null
             : ResumeOptionsModel.fromJson(
                 json["options"] as Map<String, dynamic>),
+        currencyConversionRate: json["currency_conversion_rate"] as double?,
+        notificationCount: json["notification_count"] as int?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -413,5 +419,7 @@ extension UserDetailExt on UserDetail {
         smartPitNo: smartPitNo,
         isKycVerified: isKycVerified,
         // options: options.toResumeOptionsModel(),
+        currencyConversionRate: currencyConversionRate,
+        notificationCount: notificationCount,
       );
 }

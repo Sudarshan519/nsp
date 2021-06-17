@@ -53,6 +53,8 @@ class UserDetail extends Equatable {
     this.smartPitNo,
     this.options,
     this.isKycVerified,
+    this.currencyConversionRate,
+    this.notificationCount,
   });
 
   final String? firstName;
@@ -104,6 +106,8 @@ class UserDetail extends Equatable {
   final int? smartPitNo;
   final bool? isKycVerified;
   final ResumeOptions? options;
+  final double? currencyConversionRate;
+  final int? notificationCount;
 
   String get formattedBalance => currencyFormatter(value: balance ?? 0.0);
 
