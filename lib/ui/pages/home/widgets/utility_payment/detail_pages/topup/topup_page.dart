@@ -66,11 +66,13 @@ class _TopUpPageState extends State<TopUpPage> {
           backgroundColor: Palette.primary,
           elevation: 0,
         ),
-        body: Column(
-          children: [
-            BalanceWidget(balance: widget.balance),
-            _blocConsumer(context),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              BalanceWidget(balance: widget.balance),
+              _blocConsumer(context),
+            ],
+          ),
         ),
       ),
     );
@@ -480,7 +482,7 @@ class _TransactionAmountInNPRField extends StatelessWidget {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
         return _TransactionDetailRow(
-          title: 'Transcation Amount (NPR)',
+          title: 'Transaction Amount (NPR)',
           value: state.amount,
         );
       },
@@ -494,7 +496,7 @@ class _TransactionAmountInJPYField extends StatelessWidget {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
         return _TransactionDetailRow(
-          title: 'Transcation Amount (JPY)',
+          title: 'Transaction Amount (JPY)',
           value: '${double.parse(state.amount) * 0.94}',
         );
       },
