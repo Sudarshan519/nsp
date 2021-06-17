@@ -48,7 +48,7 @@ class PurchasePackageParams {
   final String packageName;
   final double amount;
   final int packageId;
-  final String serviceId;
+  final int serviceId;
 
   PurchasePackageParams({
     required this.customerId,
