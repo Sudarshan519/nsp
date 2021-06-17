@@ -76,18 +76,24 @@ class _NotificationListView extends StatelessWidget {
             child: Stack(
               children: [
                 ListTile(
-                  leading: CircleAvatar(
-                      backgroundColor: Palette.primary,
-                      child: SvgPicture.asset(
-                          'assets/images/notification/icon-notify.svg',
-                          color: Colors.white)),
+                  contentPadding: EdgeInsets.all(16),
+                  leading: Transform.translate(
+                    offset: const Offset(0, -9),
+                    child: CircleAvatar(
+                        backgroundColor: Palette.primary,
+                        child: SvgPicture.asset(
+                            'assets/images/notification/icon-notify.svg',
+                            color: Colors.white)),
+                  ),
                   title: Text(
                     item.title.toString(),
                     textScaleFactor: 0.9,
                     style: const TextStyle(fontWeight: FontWeight.w700),
                   ),
                   subtitle: Padding(
-                    padding: const EdgeInsets.only(top: 6.0, bottom: 12),
+                    padding: const EdgeInsets.only(
+                      top: 6.0,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -96,6 +102,9 @@ class _NotificationListView extends StatelessWidget {
                             baseURL + item.image.toString(),
                             scale: 0.3,
                           ),
+                        const SizedBox(
+                          height: 6,
+                        ),
                         Text(
                           item.message.toString(),
                           textScaleFactor: 0.85,
@@ -113,21 +122,38 @@ class _NotificationListView extends StatelessWidget {
                     ),
                   ),
                   onTap: () {
-                    // url_launcher.launch('http://www.google.com');
+                    if (item.redirectUrl != null) {
+                      url_launcher.launch(item.redirectUrl!);
+                    }
                   },
                 ),
-                if (item.isPinned)
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: SvgPicture.asset(
-                      'assets/images/notification/icon-pin.svg',
-                    ),
-                  )
+                if (item.isPinned) pinWidget()
               ],
             ),
           ),
         );
       },
+    );
+  }
+
+  Align pinWidget() {
+    return Align(
+      alignment: Alignment.topRight,
+      child: Transform.translate(
+        offset: const Offset(11, -6),
+        child: Card(
+          elevation: 6,
+          shape: const CircleBorder(),
+          child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: SvgPicture.asset(
+              'assets/images/notification/icon-pin.svg',
+              height: 17,
+              width: 17,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
