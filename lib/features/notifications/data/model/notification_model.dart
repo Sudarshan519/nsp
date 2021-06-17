@@ -16,8 +16,8 @@ class NotificationModel extends Notification {
       NotificationModel(
         notifications: json["notifications"] != null
             ? List<NotificationItem>.from((json["notifications"] as Iterable)
-                .map((x) =>
-                    NotificationItemModel.fromJson(x as Map<String, dynamic>)))
+                .map((item) => NotificationItemModel.fromJson(
+                    item as Map<String, dynamic>)))
             : null,
       );
 }

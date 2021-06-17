@@ -1,3 +1,5 @@
+import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
+
 class NotificationItem {
   int? id;
   String? title;
@@ -6,8 +8,10 @@ class NotificationItem {
   String? image;
   bool isPinned;
   bool? isShow;
+  String? redirectUrl;
   String? createdAt;
   String? updatedAt;
+  TransactionItem? transactionItem;
 
   NotificationItem(
       {this.id,
@@ -18,5 +22,7 @@ class NotificationItem {
       this.isPinned = false,
       this.isShow,
       this.createdAt,
+      this.redirectUrl,
+      this.transactionItem,
       this.updatedAt});
 }
