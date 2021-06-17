@@ -22,7 +22,7 @@ class ServicesModel extends Services {
       required String? companyAddressHeadCity,
       required String? companyAddressHeadStreet,
       required String? description,
-      required List<ServicePackages> servicePackages})
+      required List<ServicePackage> servicePackages})
       : super(
             id: id,
             // branches: branches,
@@ -67,9 +67,9 @@ class ServicesModel extends Services {
       companyAddressHeadCity: json["company_address_head_city"] as String?,
       companyAddressHeadStreet: json["company_address_head_street"] as String?,
       description: json["description"] as String?,
-      servicePackages: List<ServicePackagesModel>.from(
-          (json["service_packages"] as Iterable).map((x) =>
-              ServicePackagesModel.fromJson(x as Map<String, dynamic>))));
+      servicePackages: List<ServicePackageModel>.from(
+          (json["service_packages"] as Iterable).map(
+              (x) => ServicePackageModel.fromJson(x as Map<String, dynamic>))));
 
   Map<String, dynamic> toJson() => {
         "id": id,

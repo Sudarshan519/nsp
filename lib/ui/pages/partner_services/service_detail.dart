@@ -245,7 +245,9 @@ class ServicesDetailPage extends StatelessWidget {
                   height: 30,
                   width: 70,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context.pushRoute(BuyPackageRoute(package: item));
+                    },
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       decoration: BoxDecoration(

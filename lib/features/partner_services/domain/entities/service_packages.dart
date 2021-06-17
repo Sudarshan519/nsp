@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class ServicePackages extends Equatable {
+class ServicePackage extends Equatable {
   final int? id;
   final String? serviceId;
   final String? packageName;
@@ -12,7 +12,7 @@ class ServicePackages extends Equatable {
   final String? createdAt;
   final String? updatedAt;
 
-  const ServicePackages(
+  const ServicePackage(
       {this.id,
       this.serviceId,
       this.packageName,

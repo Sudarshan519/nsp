@@ -42,7 +42,7 @@ class Services extends Equatable {
   final String? companyAddressHeadCity;
   final String? companyAddressHeadStreet;
   final String? description;
-  final List<ServicePackages> servicePackages;
+  final List<ServicePackage> servicePackages;
 
   String get descriptionWithOutHtmlTags {
     if (description != null) {

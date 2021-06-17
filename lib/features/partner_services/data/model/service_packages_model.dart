@@ -1,7 +1,7 @@
 import 'package:wallet_app/features/partner_services/domain/entities/service_packages.dart';
 
-class ServicePackagesModel extends ServicePackages {
-  const ServicePackagesModel({
+class ServicePackageModel extends ServicePackage {
+  const ServicePackageModel({
     required int? id,
     required String? serviceId,
     required String? packageName,
@@ -25,8 +25,8 @@ class ServicePackagesModel extends ServicePackages {
           updatedAt: updatedAt,
         );
 
-  factory ServicePackagesModel.fromJson(Map<String, dynamic> json) =>
-      ServicePackagesModel(
+  factory ServicePackageModel.fromJson(Map<String, dynamic> json) =>
+      ServicePackageModel(
         id: json['id'] as int,
         serviceId: json['service_id'] as String?,
         packageName: json['package_name'] as String?,
