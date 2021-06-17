@@ -99,7 +99,7 @@ class _LoginBody extends StatelessWidget {
                   ),
                   SocialLoginWidget(),
                   const SizedBox(
-                    height: 80,
+                    height: 60,
                   ),
                   _newUserCreateAnAccount(context),
                   const SizedBox(

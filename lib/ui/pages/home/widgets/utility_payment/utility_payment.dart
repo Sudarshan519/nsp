@@ -95,7 +95,7 @@ class GridItem extends StatelessWidget {
           Expanded(
             child: Text(
               label,
-              textScaleFactor: 0.87,
+              textScaleFactor: 0.84,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 14,
