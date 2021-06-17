@@ -242,7 +242,7 @@ class _AmountWidget extends StatelessWidget {
           return TextWidetWithLabelAndChild(
             title: "Amount",
             child: InputTextWidget(
-              hintText: "100",
+              hintText: "¥ 100",
               textInputType: TextInputType.number,
               value: state.amount,
               onChanged: (value) => context.read<TopupViaStripeBloc>().add(

@@ -35,6 +35,9 @@ class TopUpBalanceInMobileBloc
       changeAmount: (e) async* {
         yield _mapChangeAmountEventToState(e);
       },
+      changeconvertedJpyAmount: (e) async* {
+        yield _mapChangeconvertedJpyAmountEventToState(e);
+      },
       validate: (e) async* {},
       topup: (e) async* {
         yield* _mapTopupEventToState(e);
@@ -73,6 +76,14 @@ class TopUpBalanceInMobileBloc
     );
   }
 
+  TopUpBalanceInMobileState _mapChangeconvertedJpyAmountEventToState(
+      _ChangeconvertedJpyAmount _changeAmount) {
+    return state.copyWith(
+      convertedJpyAmount: _changeAmount.amount,
+      failureOrSuccessOption: none(),
+    );
+  }
+
   Stream<TopUpBalanceInMobileState> _mapTopupEventToState(
       _Topup _topup) async* {
     Either<ApiFailure, Unit> result;
@@ -83,7 +94,7 @@ class TopUpBalanceInMobileBloc
 
     result = await topUpBalanceForMobile(
       TopUpBalanceForMobileParams(
-        amount: state.amount,
+        amount: state.convertedJpyAmount,
         number: state.number,
         type: state.type,
       ),

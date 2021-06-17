@@ -11,10 +11,12 @@ class PaymentOptions extends StatelessWidget {
     Key? key,
     required this.paymentMethods,
     required this.balance,
+    required this.conversionRate,
   }) : super(key: key);
 
   final List<PaymentMethod> paymentMethods;
   final String balance;
+  final double conversionRate;
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +89,10 @@ class PaymentOptions extends StatelessWidget {
             ),
           ),
           builder: (BuildContext context) {
-            return EsewaTopupPage(method: paymentMethod);
+            return EsewaTopupPage(
+              method: paymentMethod,
+              conversionRate: conversionRate,
+            );
           },
         );
         break;

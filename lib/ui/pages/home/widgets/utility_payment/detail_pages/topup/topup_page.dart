@@ -19,10 +19,12 @@ import 'package:wallet_app/utils/constant.dart';
 
 class TopUpPage extends StatefulWidget {
   final String balance;
+  final double conversionRate;
 
   const TopUpPage({
     Key? key,
     required this.balance,
+    required this.conversionRate,
   }) : super(key: key);
 
   @override
@@ -66,13 +68,11 @@ class _TopUpPageState extends State<TopUpPage> {
           backgroundColor: Palette.primary,
           elevation: 0,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              BalanceWidget(balance: widget.balance),
-              _blocConsumer(context),
-            ],
-          ),
+        body: Column(
+          children: [
+            BalanceWidget(balance: widget.balance),
+            _blocConsumer(context),
+          ],
         ),
       ),
     );
@@ -116,9 +116,9 @@ class _TopUpPageState extends State<TopUpPage> {
         }
 
         if (_isConfirmPage) {
-          return topupConfirmationbody(context);
+          return Expanded(child: topupConfirmationbody(context));
         }
-        return topupInformationbody(context);
+        return Expanded(child: topupInformationbody(context));
       },
     );
   }
@@ -126,42 +126,52 @@ class _TopUpPageState extends State<TopUpPage> {
   Widget topupInformationbody(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 20),
-          _MobileNumberTextField(),
-          _TypeOfNumber(),
-          _AmountTextField(),
-          _TransactionDetail(),
-          const SizedBox(height: 20),
-          _ProceedButton(
-            callback: () {
-              setState(() {
-                _isConfirmPage = true;
-              });
-            },
-          ),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            _MobileNumberTextField(),
+            _TypeOfNumber(),
+            _AmountTextField(
+              conversionRate: widget.conversionRate,
+            ),
+            _TransactionDetail(
+              conversionRate: widget.conversionRate,
+            ),
+            const SizedBox(height: 20),
+            _ProceedButton(
+              callback: () {
+                setState(() {
+                  _isConfirmPage = true;
+                });
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
 
   Widget topupConfirmationbody(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 20),
-          _MobileNumberField(),
-          const SizedBox(height: 5),
-          _TransactionAmountInNPRField(),
-          const SizedBox(height: 5),
-          _TransactionAmountInJPYField(),
-          const SizedBox(height: 40),
-          const _ConfirmButton(),
-        ],
+    return SingleChildScrollView(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            _MobileNumberField(),
+            const SizedBox(height: 5),
+            _TransactionAmountInNPRField(),
+            const SizedBox(height: 5),
+            _TransactionAmountInJPYField(
+              conversionRate: widget.conversionRate,
+            ),
+            const SizedBox(height: 40),
+            const _ConfirmButton(),
+          ],
+        ),
       ),
     );
   }
@@ -250,6 +260,12 @@ class _MobileNumberTextField extends StatelessWidget {
 }
 
 class _AmountTextField extends StatelessWidget {
+  final double conversionRate;
+
+  const _AmountTextField({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
@@ -265,9 +281,22 @@ class _AmountTextField extends StatelessWidget {
                 hintText: "Rs. 100",
                 textInputType: TextInputType.number,
                 value: state.amount,
-                onChanged: (value) => context
-                    .read<TopUpBalanceInMobileBloc>()
-                    .add(TopUpBalanceInMobileEvent.changeAmount(value)),
+                onChanged: (value) {
+                  context
+                      .read<TopUpBalanceInMobileBloc>()
+                      .add(TopUpBalanceInMobileEvent.changeAmount(value));
+                  if (value.isNotEmpty) {
+                    final conversionValue =
+                        double.parse(value) * conversionRate;
+                    context.read<TopUpBalanceInMobileBloc>().add(
+                        TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
+                            conversionValue.toStringAsFixed(2)));
+                  } else {
+                    context.read<TopUpBalanceInMobileBloc>().add(
+                        TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
+                            value));
+                  }
+                },
               ),
             ),
             const SizedBox(height: 20),
@@ -323,6 +352,12 @@ class _TypeOfNumber extends StatelessWidget {
 }
 
 class _TransactionDetail extends StatelessWidget {
+  final double conversionRate;
+
+  const _TransactionDetail({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
@@ -332,6 +367,7 @@ class _TransactionDetail extends StatelessWidget {
             state.amount.isEmpty) {
           return const SizedBox.shrink();
         }
+        final conversionValue = double.parse(state.amount) * conversionRate;
         return Column(
           children: [
             Container(
@@ -382,7 +418,7 @@ class _TransactionDetail extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${double.parse(state.amount) * 0.94}',
+                        conversionValue.toStringAsFixed(2),
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -491,13 +527,20 @@ class _TransactionAmountInNPRField extends StatelessWidget {
 }
 
 class _TransactionAmountInJPYField extends StatelessWidget {
+  final double conversionRate;
+
+  const _TransactionAmountInJPYField({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
+        final conversionValue = double.parse(state.amount) * conversionRate;
         return _TransactionDetailRow(
           title: 'Transaction Amount (JPY)',
-          value: '${double.parse(state.amount) * 0.94}',
+          value: conversionValue.toStringAsFixed(2),
         );
       },
     );

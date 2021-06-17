@@ -18,10 +18,12 @@ import 'package:wallet_app/utils/constant.dart';
 
 class EsewaTopupPage extends StatelessWidget {
   final PaymentMethod method;
+  final double conversionRate;
 
   const EsewaTopupPage({
     Key? key,
     required this.method,
+    required this.conversionRate,
   }) : super(key: key);
 
   @override
@@ -139,7 +141,7 @@ class EsewaTopupPage extends StatelessWidget {
     }
 
     // TODO: change this Later
-    final amountDoubleInRupees = doubleAmount * 1.08;
+    final amountDoubleInRupees = doubleAmount * conversionRate;
 
     final ESewaConfiguration _configuration = ESewaConfiguration(
       clientID: method.merchantId ?? '',
@@ -163,7 +165,7 @@ class EsewaTopupPage extends StatelessWidget {
       context.read<VerifyEsewaTopupBloc>().add(
             VerifyEsewaTopupEvent.verify(
               transactionId: _res.referenceId,
-              amount: _res.totalAmount,
+              amount: amount,
               purpose: purpose,
             ),
           );

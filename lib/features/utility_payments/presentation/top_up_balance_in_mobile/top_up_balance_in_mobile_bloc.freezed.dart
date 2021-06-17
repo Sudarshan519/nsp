@@ -34,6 +34,12 @@ class _$TopUpBalanceInMobileEventTearOff {
     );
   }
 
+  _ChangeconvertedJpyAmount changeconvertedJpyAmount(String amount) {
+    return _ChangeconvertedJpyAmount(
+      amount,
+    );
+  }
+
   _Validate validate() {
     return const _Validate();
   }
@@ -53,6 +59,7 @@ mixin _$TopUpBalanceInMobileEvent {
     required TResult Function(String number) changePhoneNumber,
     required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
     required TResult Function() topup,
   }) =>
@@ -62,6 +69,7 @@ mixin _$TopUpBalanceInMobileEvent {
     TResult Function(String number)? changePhoneNumber,
     TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
@@ -73,6 +81,8 @@ mixin _$TopUpBalanceInMobileEvent {
     required TResult Function(_ChangePhoneNumberViaContact value)
         changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeconvertedJpyAmount value)
+        changeconvertedJpyAmount,
     required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) =>
@@ -83,6 +93,7 @@ mixin _$TopUpBalanceInMobileEvent {
     TResult Function(_ChangePhoneNumberViaContact value)?
         changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
@@ -175,6 +186,7 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
     required TResult Function(String number) changePhoneNumber,
     required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
     required TResult Function() topup,
   }) {
@@ -187,6 +199,7 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
     TResult Function(String number)? changePhoneNumber,
     TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
@@ -204,6 +217,8 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
     required TResult Function(_ChangePhoneNumberViaContact value)
         changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeconvertedJpyAmount value)
+        changeconvertedJpyAmount,
     required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) {
@@ -217,6 +232,7 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
     TResult Function(_ChangePhoneNumberViaContact value)?
         changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
@@ -309,6 +325,7 @@ class _$_ChangePhoneNumberViaContact implements _ChangePhoneNumberViaContact {
     required TResult Function(String number) changePhoneNumber,
     required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
     required TResult Function() topup,
   }) {
@@ -321,6 +338,7 @@ class _$_ChangePhoneNumberViaContact implements _ChangePhoneNumberViaContact {
     TResult Function(String number)? changePhoneNumber,
     TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
@@ -338,6 +356,8 @@ class _$_ChangePhoneNumberViaContact implements _ChangePhoneNumberViaContact {
     required TResult Function(_ChangePhoneNumberViaContact value)
         changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeconvertedJpyAmount value)
+        changeconvertedJpyAmount,
     required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) {
@@ -351,6 +371,7 @@ class _$_ChangePhoneNumberViaContact implements _ChangePhoneNumberViaContact {
     TResult Function(_ChangePhoneNumberViaContact value)?
         changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
@@ -441,6 +462,7 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(String number) changePhoneNumber,
     required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
     required TResult Function() topup,
   }) {
@@ -453,6 +475,7 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult Function(String number)? changePhoneNumber,
     TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
@@ -470,6 +493,8 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(_ChangePhoneNumberViaContact value)
         changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeconvertedJpyAmount value)
+        changeconvertedJpyAmount,
     required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) {
@@ -483,6 +508,7 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult Function(_ChangePhoneNumberViaContact value)?
         changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
@@ -500,6 +526,144 @@ abstract class _ChangeAmount implements TopUpBalanceInMobileEvent {
   String get amount => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeAmountCopyWith<_ChangeAmount> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeconvertedJpyAmountCopyWith<$Res> {
+  factory _$ChangeconvertedJpyAmountCopyWith(_ChangeconvertedJpyAmount value,
+          $Res Function(_ChangeconvertedJpyAmount) then) =
+      __$ChangeconvertedJpyAmountCopyWithImpl<$Res>;
+  $Res call({String amount});
+}
+
+/// @nodoc
+class __$ChangeconvertedJpyAmountCopyWithImpl<$Res>
+    extends _$TopUpBalanceInMobileEventCopyWithImpl<$Res>
+    implements _$ChangeconvertedJpyAmountCopyWith<$Res> {
+  __$ChangeconvertedJpyAmountCopyWithImpl(_ChangeconvertedJpyAmount _value,
+      $Res Function(_ChangeconvertedJpyAmount) _then)
+      : super(_value, (v) => _then(v as _ChangeconvertedJpyAmount));
+
+  @override
+  _ChangeconvertedJpyAmount get _value =>
+      super._value as _ChangeconvertedJpyAmount;
+
+  @override
+  $Res call({
+    Object? amount = freezed,
+  }) {
+    return _then(_ChangeconvertedJpyAmount(
+      amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeconvertedJpyAmount implements _ChangeconvertedJpyAmount {
+  const _$_ChangeconvertedJpyAmount(this.amount);
+
+  @override
+  final String amount;
+
+  @override
+  String toString() {
+    return 'TopUpBalanceInMobileEvent.changeconvertedJpyAmount(amount: $amount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeconvertedJpyAmount &&
+            (identical(other.amount, amount) ||
+                const DeepCollectionEquality().equals(other.amount, amount)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(amount);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeconvertedJpyAmountCopyWith<_ChangeconvertedJpyAmount> get copyWith =>
+      __$ChangeconvertedJpyAmountCopyWithImpl<_ChangeconvertedJpyAmount>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number) changePhoneNumberViaContact,
+    required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeconvertedJpyAmount,
+    required TResult Function() validate,
+    required TResult Function() topup,
+  }) {
+    return changeconvertedJpyAmount(amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number)? changePhoneNumberViaContact,
+    TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeconvertedJpyAmount,
+    TResult Function()? validate,
+    TResult Function()? topup,
+    required TResult orElse(),
+  }) {
+    if (changeconvertedJpyAmount != null) {
+      return changeconvertedJpyAmount(amount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
+    required TResult Function(_ChangePhoneNumberViaContact value)
+        changePhoneNumberViaContact,
+    required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeconvertedJpyAmount value)
+        changeconvertedJpyAmount,
+    required TResult Function(_Validate value) validate,
+    required TResult Function(_Topup value) topup,
+  }) {
+    return changeconvertedJpyAmount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
+    TResult Function(_ChangePhoneNumberViaContact value)?
+        changePhoneNumberViaContact,
+    TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
+    TResult Function(_Validate value)? validate,
+    TResult Function(_Topup value)? topup,
+    required TResult orElse(),
+  }) {
+    if (changeconvertedJpyAmount != null) {
+      return changeconvertedJpyAmount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeconvertedJpyAmount implements TopUpBalanceInMobileEvent {
+  const factory _ChangeconvertedJpyAmount(String amount) =
+      _$_ChangeconvertedJpyAmount;
+
+  String get amount => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeconvertedJpyAmountCopyWith<_ChangeconvertedJpyAmount> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -544,6 +708,7 @@ class _$_Validate implements _Validate {
     required TResult Function(String number) changePhoneNumber,
     required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
     required TResult Function() topup,
   }) {
@@ -556,6 +721,7 @@ class _$_Validate implements _Validate {
     TResult Function(String number)? changePhoneNumber,
     TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
@@ -573,6 +739,8 @@ class _$_Validate implements _Validate {
     required TResult Function(_ChangePhoneNumberViaContact value)
         changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeconvertedJpyAmount value)
+        changeconvertedJpyAmount,
     required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) {
@@ -586,6 +754,7 @@ class _$_Validate implements _Validate {
     TResult Function(_ChangePhoneNumberViaContact value)?
         changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
@@ -642,6 +811,7 @@ class _$_Topup implements _Topup {
     required TResult Function(String number) changePhoneNumber,
     required TResult Function(String number) changePhoneNumberViaContact,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
     required TResult Function() topup,
   }) {
@@ -654,6 +824,7 @@ class _$_Topup implements _Topup {
     TResult Function(String number)? changePhoneNumber,
     TResult Function(String number)? changePhoneNumberViaContact,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
     TResult Function()? topup,
     required TResult orElse(),
@@ -671,6 +842,8 @@ class _$_Topup implements _Topup {
     required TResult Function(_ChangePhoneNumberViaContact value)
         changePhoneNumberViaContact,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeconvertedJpyAmount value)
+        changeconvertedJpyAmount,
     required TResult Function(_Validate value) validate,
     required TResult Function(_Topup value) topup,
   }) {
@@ -684,6 +857,7 @@ class _$_Topup implements _Topup {
     TResult Function(_ChangePhoneNumberViaContact value)?
         changePhoneNumberViaContact,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
     TResult Function(_Topup value)? topup,
     required TResult orElse(),
@@ -708,6 +882,7 @@ class _$TopUpBalanceInMobileStateTearOff {
       required String number,
       required String type,
       required String amount,
+      required String convertedJpyAmount,
       required bool isSubmitting,
       required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
     return _TopUpBalanceInMobileState(
@@ -715,6 +890,7 @@ class _$TopUpBalanceInMobileStateTearOff {
       number: number,
       type: type,
       amount: amount,
+      convertedJpyAmount: convertedJpyAmount,
       isSubmitting: isSubmitting,
       failureOrSuccessOption: failureOrSuccessOption,
     );
@@ -730,6 +906,7 @@ mixin _$TopUpBalanceInMobileState {
   String get number => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get amount => throw _privateConstructorUsedError;
+  String get convertedJpyAmount => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -749,6 +926,7 @@ abstract class $TopUpBalanceInMobileStateCopyWith<$Res> {
       String number,
       String type,
       String amount,
+      String convertedJpyAmount,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
 }
@@ -768,6 +946,7 @@ class _$TopUpBalanceInMobileStateCopyWithImpl<$Res>
     Object? number = freezed,
     Object? type = freezed,
     Object? amount = freezed,
+    Object? convertedJpyAmount = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
@@ -787,6 +966,10 @@ class _$TopUpBalanceInMobileStateCopyWithImpl<$Res>
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+      convertedJpyAmount: convertedJpyAmount == freezed
+          ? _value.convertedJpyAmount
+          : convertedJpyAmount // ignore: cast_nullable_to_non_nullable
               as String,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
@@ -812,6 +995,7 @@ abstract class _$TopUpBalanceInMobileStateCopyWith<$Res>
       String number,
       String type,
       String amount,
+      String convertedJpyAmount,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
 }
@@ -834,6 +1018,7 @@ class __$TopUpBalanceInMobileStateCopyWithImpl<$Res>
     Object? number = freezed,
     Object? type = freezed,
     Object? amount = freezed,
+    Object? convertedJpyAmount = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
@@ -853,6 +1038,10 @@ class __$TopUpBalanceInMobileStateCopyWithImpl<$Res>
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+      convertedJpyAmount: convertedJpyAmount == freezed
+          ? _value.convertedJpyAmount
+          : convertedJpyAmount // ignore: cast_nullable_to_non_nullable
               as String,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
@@ -874,6 +1063,7 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
       required this.number,
       required this.type,
       required this.amount,
+      required this.convertedJpyAmount,
       required this.isSubmitting,
       required this.failureOrSuccessOption});
 
@@ -886,13 +1076,15 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
   @override
   final String amount;
   @override
+  final String convertedJpyAmount;
+  @override
   final bool isSubmitting;
   @override
   final Option<Either<ApiFailure, Unit>> failureOrSuccessOption;
 
   @override
   String toString() {
-    return 'TopUpBalanceInMobileState(key: $key, number: $number, type: $type, amount: $amount, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'TopUpBalanceInMobileState(key: $key, number: $number, type: $type, amount: $amount, convertedJpyAmount: $convertedJpyAmount, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -907,6 +1099,9 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)) &&
+            (identical(other.convertedJpyAmount, convertedJpyAmount) ||
+                const DeepCollectionEquality()
+                    .equals(other.convertedJpyAmount, convertedJpyAmount)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
@@ -922,6 +1117,7 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
       const DeepCollectionEquality().hash(number) ^
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(amount) ^
+      const DeepCollectionEquality().hash(convertedJpyAmount) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(failureOrSuccessOption);
 
@@ -939,6 +1135,7 @@ abstract class _TopUpBalanceInMobileState implements TopUpBalanceInMobileState {
           required String number,
           required String type,
           required String amount,
+          required String convertedJpyAmount,
           required bool isSubmitting,
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
       _$_TopUpBalanceInMobileState;
@@ -951,6 +1148,8 @@ abstract class _TopUpBalanceInMobileState implements TopUpBalanceInMobileState {
   String get type => throw _privateConstructorUsedError;
   @override
   String get amount => throw _privateConstructorUsedError;
+  @override
+  String get convertedJpyAmount => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override

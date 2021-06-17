@@ -8,6 +8,8 @@ class TopUpBalanceInMobileEvent with _$TopUpBalanceInMobileEvent {
       String number) = _ChangePhoneNumberViaContact;
   const factory TopUpBalanceInMobileEvent.changeAmount(String amount) =
       _ChangeAmount;
+  const factory TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
+      String amount) = _ChangeconvertedJpyAmount;
   const factory TopUpBalanceInMobileEvent.validate() = _Validate;
   const factory TopUpBalanceInMobileEvent.topup() = _Topup;
 }

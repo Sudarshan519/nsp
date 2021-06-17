@@ -258,8 +258,10 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     AddBalanceRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i26.AddBalancePage();
+        builder: (data) {
+          final args = data.argsAs<AddBalanceRouteArgs>();
+          return _i26.AddBalancePage(
+              key: args.key, conversionRate: args.conversionRate);
         }),
     StripePaymentCardSelectionRoute.name: (routeData) =>
         _i1.MaterialPageX<dynamic>(
@@ -286,7 +288,10 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<EsewaTopupRouteArgs>();
-          return _i30.EsewaTopupPage(key: args.key, method: args.method);
+          return _i30.EsewaTopupPage(
+              key: args.key,
+              method: args.method,
+              conversionRate: args.conversionRate);
         }),
     BannerDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -304,7 +309,10 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<TopUpRouteArgs>();
-          return _i33.TopUpPage(key: args.key, balance: args.balance);
+          return _i33.TopUpPage(
+              key: args.key,
+              balance: args.balance,
+              conversionRate: args.conversionRate);
         }),
     PartnerServicePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -880,10 +888,22 @@ class AlertDetailRouteArgs {
   final _i52.Alert alert;
 }
 
-class AddBalanceRoute extends _i1.PageRouteInfo {
-  const AddBalanceRoute() : super(name, path: '/add-balance-page');
+class AddBalanceRoute extends _i1.PageRouteInfo<AddBalanceRouteArgs> {
+  AddBalanceRoute({_i2.Key? key, required double conversionRate})
+      : super(name,
+            path: '/add-balance-page',
+            args:
+                AddBalanceRouteArgs(key: key, conversionRate: conversionRate));
 
   static const String name = 'AddBalanceRoute';
+}
+
+class AddBalanceRouteArgs {
+  const AddBalanceRouteArgs({this.key, required this.conversionRate});
+
+  final _i2.Key? key;
+
+  final double conversionRate;
 }
 
 class StripePaymentCardSelectionRoute
@@ -941,20 +961,27 @@ class StripePaymentRouteArgs {
 }
 
 class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
-  EsewaTopupRoute({_i2.Key? key, required _i53.PaymentMethod method})
+  EsewaTopupRoute(
+      {_i2.Key? key,
+      required _i53.PaymentMethod method,
+      required double conversionRate})
       : super(name,
             path: '/esewa-topup-page',
-            args: EsewaTopupRouteArgs(key: key, method: method));
+            args: EsewaTopupRouteArgs(
+                key: key, method: method, conversionRate: conversionRate));
 
   static const String name = 'EsewaTopupRoute';
 }
 
 class EsewaTopupRouteArgs {
-  const EsewaTopupRouteArgs({this.key, required this.method});
+  const EsewaTopupRouteArgs(
+      {this.key, required this.method, required this.conversionRate});
 
   final _i2.Key? key;
 
   final _i53.PaymentMethod method;
+
+  final double conversionRate;
 }
 
 class BannerDetailRoute extends _i1.PageRouteInfo {
@@ -984,20 +1011,25 @@ class PdfViewerRouteArgs {
 }
 
 class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
-  TopUpRoute({_i2.Key? key, required String balance})
+  TopUpRoute(
+      {_i2.Key? key, required String balance, required double conversionRate})
       : super(name,
             path: '/top-up-page',
-            args: TopUpRouteArgs(key: key, balance: balance));
+            args: TopUpRouteArgs(
+                key: key, balance: balance, conversionRate: conversionRate));
 
   static const String name = 'TopUpRoute';
 }
 
 class TopUpRouteArgs {
-  const TopUpRouteArgs({this.key, required this.balance});
+  const TopUpRouteArgs(
+      {this.key, required this.balance, required this.conversionRate});
 
   final _i2.Key? key;
 
   final String balance;
+
+  final double conversionRate;
 }
 
 class PartnerServicePaymentRoute

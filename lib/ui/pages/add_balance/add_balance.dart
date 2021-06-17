@@ -12,6 +12,12 @@ import 'widget/balance_widgets.dart';
 import 'widget/payment_options.dart';
 
 class AddBalancePage extends StatelessWidget {
+  final double conversionRate;
+
+  const AddBalancePage({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -81,6 +87,7 @@ class AddBalancePage extends StatelessWidget {
           child: PaymentOptions(
             balance: loadFund?.formattedBalance ?? 'JPY XX.XX',
             paymentMethods: loadFund?.paymentMethods ?? [],
+            conversionRate: conversionRate,
           ),
         ),
       ],

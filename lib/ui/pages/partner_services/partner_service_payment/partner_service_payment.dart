@@ -134,27 +134,25 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: SingleChildScrollView(
-        child: Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              _SubscriptionIdTextField(),
-              if (serviceSubscription != null)
-                _TransactionDetail(
-                  subscription: serviceSubscription!,
-                ),
-              const SizedBox(height: 20),
-              if (serviceSubscription != null)
-                _ProceedButton(
-                  callback: () {
-                    setState(() {
-                      _isConfirmPage = true;
-                    });
-                  },
-                ),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            _SubscriptionIdTextField(),
+            if (serviceSubscription != null)
+              _TransactionDetail(
+                subscription: serviceSubscription!,
+              ),
+            const SizedBox(height: 20),
+            if (serviceSubscription != null)
+              _ProceedButton(
+                callback: () {
+                  setState(() {
+                    _isConfirmPage = true;
+                  });
+                },
+              ),
+          ],
         ),
       ),
     );

@@ -7,6 +7,7 @@ class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
     required String number,
     required String type,
     required String amount,
+    required String convertedJpyAmount,
     required bool isSubmitting,
     required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
   }) = _TopUpBalanceInMobileState;
@@ -16,6 +17,7 @@ class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
         number: '',
         type: '',
         amount: '',
+        convertedJpyAmount: '',
         isSubmitting: false,
         failureOrSuccessOption: none(),
       );

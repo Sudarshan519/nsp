@@ -91,7 +91,11 @@ class BalanceAndPointWidget extends StatelessWidget {
                   if (showAddBalanceButton)
                     CustomButton(
                       title: "+ Add Balance",
-                      onTap: () => context.pushRoute(const AddBalanceRoute()),
+                      onTap: () => context.pushRoute(
+                        AddBalanceRoute(
+                          conversionRate: user?.currencyConversionRate ?? 1.067,
+                        ),
+                      ),
                     ),
                 ],
               )

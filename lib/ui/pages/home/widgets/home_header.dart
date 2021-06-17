@@ -27,7 +27,20 @@ class HomeHeaderWidget extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 5),
-            _navigationBar(context),
+            // _navigationBar(context),
+            BlocBuilder<HomePageDataBloc, HomePageDataState>(
+              builder: (context, state) {
+                return state.map(
+                  initial: (_) => _navigationBar(context, null),
+                  failure: (_) => _navigationBar(context, null),
+                  failureWithData: (_) => _navigationBar(context, null),
+                  loading: (_) => _navigationBar(context, null),
+                  loaded: (success) =>
+                      _navigationBar(context, success.data.userDetail),
+                  loadingWithData: (_) => _navigationBar(context, null),
+                );
+              },
+            ),
             const SizedBox(
               height: 5,
             ),
@@ -37,21 +50,10 @@ class HomeHeaderWidget extends StatelessWidget {
     );
   }
 
-  Widget _navigationBar(BuildContext context) {
+  Widget _navigationBar(BuildContext context, UserDetail? details) {
     return Row(
       children: [
-        BlocBuilder<HomePageDataBloc, HomePageDataState>(
-          builder: (context, state) {
-            return state.map(
-              initial: (_) => _userImage(context, null),
-              failure: (_) => _userImage(context, null),
-              failureWithData: (_) => _userImage(context, null),
-              loading: (_) => _userImage(context, null),
-              loaded: (success) => _userImage(context, success.data.userDetail),
-              loadingWithData: (_) => _userImage(context, null),
-            );
-          },
-        ),
+        _userImage(context, details),
         const Spacer(),
         // SvgPicture.asset(
         //   "assets/images/navigation_bar/search.svg",
@@ -77,21 +79,24 @@ class HomeHeaderWidget extends StatelessWidget {
                 "assets/images/navigation_bar/notification.svg",
                 height: 25.0,
               ),
-              Positioned(
-                right: 0.1,
-                child: Transform.translate(
-                  offset: const Offset(0, -4),
-                  child: const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 7,
-                    child: Text(
-                      '7',
-                      textScaleFactor: 0.65,
-                      style: TextStyle(fontWeight: FontWeight.w700),
+              if (details != null &&
+                  details.notificationCount != null &&
+                  (details.notificationCount! > 0))
+                Positioned(
+                  right: 0.1,
+                  child: Transform.translate(
+                    offset: const Offset(5, -5),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 10,
+                      child: Text(
+                        '${details.notificationCount}',
+                        textScaleFactor: 0.65,
+                        style: const TextStyle(fontWeight: FontWeight.w700),
+                      ),
                     ),
                   ),
-                ),
-              )
+                )
             ],
           ),
         ),

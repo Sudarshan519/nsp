@@ -8,9 +8,12 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class UtilityPamentWidget extends StatelessWidget {
   final String balance;
+  final double conversionRate;
+
   const UtilityPamentWidget({
     Key? key,
     required this.balance,
+    required this.conversionRate,
   }) : super(key: key);
 
   @override
@@ -35,17 +38,26 @@ class UtilityPamentWidget extends StatelessWidget {
                 GridItem(
                   label: 'NTC Topup',
                   imageAsset: 'ntc',
-                  route: TopUpRoute(balance: balance),
+                  route: TopUpRoute(
+                    balance: balance,
+                    conversionRate: conversionRate,
+                  ),
                 ),
                 GridItem(
                   label: 'Ncell Topup',
                   imageAsset: 'ncell',
-                  route: TopUpRoute(balance: balance),
+                  route: TopUpRoute(
+                    balance: balance,
+                    conversionRate: conversionRate,
+                  ),
                 ),
                 GridItem(
                   label: 'Smart Cell Topup',
                   imageAsset: 'smartcell',
-                  route: TopUpRoute(balance: balance),
+                  route: TopUpRoute(
+                    balance: balance,
+                    conversionRate: conversionRate,
+                  ),
                 ),
                 GridItem(
                   label: 'Mirai Life Insurance',

@@ -154,6 +154,7 @@ class HomePage extends StatelessWidget {
       case HomeItemType.utility_payments:
         return UtilityPamentWidget(
           balance: userDetail?.formattedBalance ?? 'JPY XX.XX',
+          conversionRate: 1 / (userDetail?.currencyConversionRate ?? 1.067),
         );
 
       case HomeItemType.remit_service:
