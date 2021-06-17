@@ -8,6 +8,7 @@ import 'package:wallet_app/features/partner_services/data/model/services_categor
 import 'package:wallet_app/features/partner_services/domain/entities/services_categories.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services_list.dart';
 import 'package:wallet_app/features/partner_services/domain/repositories/partner_services_repository.dart';
+import 'package:wallet_app/features/partner_services/domain/usecase/get_partner_services.dart';
 
 @LazySingleton(as: PartnerServicesRepository)
 class PartnerServicesRepositoryImpl implements PartnerServicesRepository {
@@ -53,6 +54,22 @@ class PartnerServicesRepositoryImpl implements PartnerServicesRepository {
         functionName: "getPartnerServicesCategories()",
         errorText:
             "Error getting Partner Service Category from remote data source",
+        errorMessage: ex.toString(),
+      );
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, dynamic>> purchasepackage(
+      PurchasePackageParams params) async {
+    try {
+      return Right(await remoteDataSource.purchasePackage(params));
+    } on ServerException catch (ex) {
+      logger.log(
+        className: "PartnerServicesRepository",
+        functionName: "purchasepackage()",
+        errorText: "Error purchasing package from remote data source",
         errorMessage: ex.toString(),
       );
       return Left(ApiFailure.serverError(message: ex.message));

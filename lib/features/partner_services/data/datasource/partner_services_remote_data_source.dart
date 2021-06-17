@@ -7,6 +7,7 @@ import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/partner_services/data/app_constant/constant.dart';
 import 'package:wallet_app/features/partner_services/data/model/service_list_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_categories_model.dart';
+import 'package:wallet_app/features/partner_services/domain/usecase/get_partner_services.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -17,6 +18,7 @@ abstract class PartnerServicesRemoteDataSource {
     required String page,
   });
   Future<List<ServicesCategoryModel>> getJapaneseMannerCategories();
+  Future<dynamic> purchasePackage(PurchasePackageParams params);
 }
 
 @LazySingleton(as: PartnerServicesRemoteDataSource)
@@ -159,6 +161,56 @@ class PartnerServicesRemoteDataSourceImpl
         errorMessage: response.body,
       );
 
+      throw ServerException(
+          message: errorMessageFromServer(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<dynamic> purchasePackage(PurchasePackageParams params) async {
+    String url = "";
+
+    url =
+        "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.purchasePackage}";
+
+    http.Response response;
+    final body = json.encode({
+      'customer_id': params.customerId,
+      'package_id': params.packageId,
+      'service_id': params.serviceId,
+      'package_name': params.packageName,
+      'amount': params.amount,
+      'remarks': params.remarks,
+    });
+
+    try {
+      response =
+          await client.post(Uri.parse(url), headers: _headers, body: body);
+    } catch (ex) {
+      logger.log(
+        className: "PartnerServicesRemoteDataSource",
+        functionName: "getPartnerServices()",
+        errorText: "Error on getting partner services from API",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
+    }
+
+    final statusCode = response.statusCode;
+
+    if (statusCode == 200) {
+      final responseBody = utf8.decode(response.bodyBytes);
+      return true;
+    } else {
+      logger.log(
+        className: "PartnerServicesRemoteDataSource",
+        functionName: "getPartnerServices()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);
