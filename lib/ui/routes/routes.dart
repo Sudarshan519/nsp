@@ -18,13 +18,13 @@ import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/in
 import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/insurance/insurance_list_page.dart';
 import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/internet/individual_isp_page.dart';
 import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/internet/isp_list_page.dart';
-import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/topup/topup_confirm.dart';
 import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/topup/topup_page.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_detail.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_page.dart';
 import 'package:wallet_app/ui/pages/news/detail_page/news_detail.dart';
 import 'package:wallet_app/ui/pages/notification/notification_list.dart';
 import 'package:wallet_app/ui/pages/partner_services/buy_package.dart';
+import 'package:wallet_app/ui/pages/partner_services/partner_service_payment/partner_service_payment.dart';
 import 'package:wallet_app/ui/pages/partner_services/partner_services.dart';
 import 'package:wallet_app/ui/pages/partner_services/service_detail.dart';
 import 'package:wallet_app/ui/pages/pdf_viewer/pdf_viewer.dart';
@@ -76,7 +76,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: BannerDetailPage),
     AutoRoute(page: PdfViewerPage),
     AutoRoute(page: TopUpPage),
-    AutoRoute(page: TopupConfirmPage),
+    AutoRoute(page: PartnerServicePaymentPage),
     AutoRoute(page: AirLinesPage),
     AutoRoute(page: BusTicketPage),
     AutoRoute(page: IndividualInsurancePage),

@@ -7,6 +7,7 @@ import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/geo_location/geo_location.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
+import 'package:wallet_app/features/partner_services/data/model/service_subscription_model.dart';
 import 'package:wallet_app/features/utility_payments/data/constants/constant.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
@@ -19,6 +20,14 @@ abstract class UtilityPaymentDataSource {
     required String number,
     required String type,
   });
+
+  Future<ServiceSubscriptionModel> getSubscriptionDetailForPartnerService({
+    required String subscriptionId,
+  });
+
+  // Future<ServiceSubscriptionModel> getSubscriptionDetailForPartnerService({
+  //   required String subscriptionId,
+  // });
 }
 
 @LazySingleton(as: UtilityPaymentDataSource)
@@ -86,6 +95,63 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
         errorMessage: response.body,
       );
 
+      throw ServerException(
+        message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<ServiceSubscriptionModel> getSubscriptionDetailForPartnerService({
+    required String subscriptionId,
+  }) async {
+    final url =
+        "${config.miraiLifeBaseUrl}${config.apiPath}${UtilityPaymentsApiEndpoints.getMiraiSubscription}$subscriptionId";
+
+    http.Response response;
+
+    try {
+      response = await client.get(
+        Uri.parse(url),
+        headers: _header,
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200) {
+      try {
+        return serviceSubscriptionModelFromJson(response.body);
+      } catch (ex) {
+        logger.log(
+          className: "UtilityPaymentDataSource",
+          functionName: "getMirailifeSubscriptionDetail() | $subscriptionId",
+          errorText: "Error on parsing",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(
+          message: AppConstants.someThingWentWrong,
+        );
+      }
+    } else if (statusCode == 404) {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "getMirailifeSubscriptionDetail() | $subscriptionId",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw const ServerException(
+        message: "Subscription id did not match. Please try again.",
+      );
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "getMirailifeSubscriptionDetail() | $subscriptionId",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
         message: errorMessageFromServer(response.body) ??
             AppConstants.someThingWentWrong,

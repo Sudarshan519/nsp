@@ -14,16 +14,14 @@ import '../../features/load_balance/domain/entities/payment_method.dart'
     as _i53;
 import '../../features/news/domain/entity/news_item.dart' as _i49;
 import '../../features/partner_services/domain/entities/service_packages.dart'
-    as _i56;
+    as _i55;
 import '../../features/partner_services/domain/entities/services.dart' as _i50;
 import '../../features/resume/domain/entities/academic_history.dart' as _i47;
 import '../../features/resume/domain/entities/personal_info.dart' as _i45;
 import '../../features/resume/domain/entities/qualification_history.dart'
     as _i48;
 import '../../features/resume/domain/entities/work_history.dart' as _i46;
-import '../../features/transaction/domain/entity/transaction_item.dart' as _i55;
-import '../../features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart'
-    as _i54;
+import '../../features/transaction/domain/entity/transaction_item.dart' as _i54;
 import '../pages/add_balance/add_balance.dart' as _i26;
 import '../pages/add_balance/payment_page/esewa/esewa_topup_page.dart' as _i30;
 import '../pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart'
@@ -52,8 +50,6 @@ import '../pages/home/widgets/utility_payment/detail_pages/internet/individual_i
     as _i40;
 import '../pages/home/widgets/utility_payment/detail_pages/internet/isp_list_page.dart'
     as _i39;
-import '../pages/home/widgets/utility_payment/detail_pages/topup/topup_confirm.dart'
-    as _i34;
 import '../pages/home/widgets/utility_payment/detail_pages/topup/topup_page.dart'
     as _i33;
 import '../pages/japanese_manner/japanese_manner_detail.dart' as _i22;
@@ -61,6 +57,8 @@ import '../pages/japanese_manner/japanese_manner_page.dart' as _i21;
 import '../pages/news/detail_page/news_detail.dart' as _i16;
 import '../pages/notification/notification_list.dart' as _i43;
 import '../pages/partner_services/buy_package.dart' as _i44;
+import '../pages/partner_services/partner_service_payment/partner_service_payment.dart'
+    as _i34;
 import '../pages/partner_services/partner_services.dart' as _i19;
 import '../pages/partner_services/service_detail.dart' as _i20;
 import '../pages/pdf_viewer/pdf_viewer.dart' as _i32;
@@ -308,12 +306,12 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<TopUpRouteArgs>();
           return _i33.TopUpPage(key: args.key, balance: args.balance);
         }),
-    TopupConfirmRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    PartnerServicePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<TopupConfirmRouteArgs>();
-          return _i34.TopupConfirmPage(
-              key: args.key, balance: args.balance, bloc: args.bloc);
+          final args = data.argsAs<PartnerServicePaymentRouteArgs>();
+          return _i34.PartnerServicePaymentPage(
+              key: args.key, balance: args.balance, title: args.title);
         }),
     AirLinesRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -419,7 +417,8 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(BannerDetailRoute.name, path: '/banner-detail-page'),
         _i1.RouteConfig(PdfViewerRoute.name, path: '/pdf-viewer-page'),
         _i1.RouteConfig(TopUpRoute.name, path: '/top-up-page'),
-        _i1.RouteConfig(TopupConfirmRoute.name, path: '/topup-confirm-page'),
+        _i1.RouteConfig(PartnerServicePaymentRoute.name,
+            path: '/partner-service-payment-page'),
         _i1.RouteConfig(AirLinesRoute.name, path: '/air-lines-page'),
         _i1.RouteConfig(BusTicketRoute.name, path: '/bus-ticket-page'),
         _i1.RouteConfig(IndividualInsuranceRoute.name,
@@ -1001,28 +1000,27 @@ class TopUpRouteArgs {
   final String balance;
 }
 
-class TopupConfirmRoute extends _i1.PageRouteInfo<TopupConfirmRouteArgs> {
-  TopupConfirmRoute(
-      {_i2.Key? key,
-      required String balance,
-      required _i54.TopUpBalanceInMobileBloc bloc})
+class PartnerServicePaymentRoute
+    extends _i1.PageRouteInfo<PartnerServicePaymentRouteArgs> {
+  PartnerServicePaymentRoute(
+      {_i2.Key? key, required String balance, required String title})
       : super(name,
-            path: '/topup-confirm-page',
-            args:
-                TopupConfirmRouteArgs(key: key, balance: balance, bloc: bloc));
+            path: '/partner-service-payment-page',
+            args: PartnerServicePaymentRouteArgs(
+                key: key, balance: balance, title: title));
 
-  static const String name = 'TopupConfirmRoute';
+  static const String name = 'PartnerServicePaymentRoute';
 }
 
-class TopupConfirmRouteArgs {
-  const TopupConfirmRouteArgs(
-      {this.key, required this.balance, required this.bloc});
+class PartnerServicePaymentRouteArgs {
+  const PartnerServicePaymentRouteArgs(
+      {this.key, required this.balance, required this.title});
 
   final _i2.Key? key;
 
   final String balance;
 
-  final _i54.TopUpBalanceInMobileBloc bloc;
+  final String title;
 }
 
 class AirLinesRoute extends _i1.PageRouteInfo {
@@ -1093,7 +1091,7 @@ class TransactionRoute extends _i1.PageRouteInfo {
 
 class TransactionDetailRoute
     extends _i1.PageRouteInfo<TransactionDetailRouteArgs> {
-  TransactionDetailRoute({_i2.Key? key, required _i55.TransactionItem item})
+  TransactionDetailRoute({_i2.Key? key, required _i54.TransactionItem item})
       : super(name,
             path: '/transaction-detail-page',
             args: TransactionDetailRouteArgs(key: key, item: item));
@@ -1106,7 +1104,7 @@ class TransactionDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i55.TransactionItem item;
+  final _i54.TransactionItem item;
 }
 
 class NotificationListRoute extends _i1.PageRouteInfo {
@@ -1116,7 +1114,7 @@ class NotificationListRoute extends _i1.PageRouteInfo {
 }
 
 class BuyPackageRoute extends _i1.PageRouteInfo<BuyPackageRouteArgs> {
-  BuyPackageRoute({_i2.Key? key, required _i56.ServicePackage package})
+  BuyPackageRoute({_i2.Key? key, required _i55.ServicePackage package})
       : super(name,
             path: '/buy-package-page',
             args: BuyPackageRouteArgs(key: key, package: package));
@@ -1129,5 +1127,5 @@ class BuyPackageRouteArgs {
 
   final _i2.Key? key;
 
-  final _i56.ServicePackage package;
+  final _i55.ServicePackage package;
 }
