@@ -47,6 +47,14 @@ class UtilityPamentWidget extends StatelessWidget {
                   imageAsset: 'smartcell',
                   route: TopUpRoute(balance: balance),
                 ),
+                GridItem(
+                  label: 'Mirai Life Insurance',
+                  imageAsset: 'mirai',
+                  route: PartnerServicePaymentRoute(
+                    balance: balance,
+                    title: 'Mirai Life Insurance',
+                  ),
+                ),
               ],
             ),
           ),
@@ -88,22 +96,22 @@ class GridItem extends StatelessWidget {
               child: Center(
                 child: Image.asset(
                   'assets/images/home/utility-payment/${imageAsset ?? ''}.png',
+                  height: 50,
                 ),
               ),
             ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 3),
           Expanded(
             child: Text(
               label,
-              textScaleFactor: 0.87,
+              // textScaleFactor: 0.87,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
-                fontSize: 14,
+                fontSize: 12,
               ),
               textAlign: TextAlign.center,
-              // overflow: TextOverflow.fade,
             ),
-          )
+          ),
         ],
       ),
     );
