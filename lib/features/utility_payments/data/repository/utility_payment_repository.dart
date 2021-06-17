@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/partner_services/data/model/service_subscription_model.dart';
 import 'package:wallet_app/features/utility_payments/data/datasource/utility_payment_datasource.dart';
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 
@@ -25,6 +26,21 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
           amount: amount,
           number: number,
           type: type,
+        ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  Future<Either<ApiFailure, ServiceSubscriptionModel>>
+      getSubscriptionDetailForPartnerService({
+    required String subscriptionId,
+  }) async {
+    try {
+      return Right(
+        await dataSource.getSubscriptionDetailForPartnerService(
+          subscriptionId: subscriptionId,
         ),
       );
     } on ServerException catch (ex) {

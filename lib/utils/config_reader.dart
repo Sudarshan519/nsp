@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 abstract class ConfigReader {
   Future<void> initialize();
   String get baseURL;
+  String get miraiLifeBaseUrl;
   String get resumeBaseUrl;
   String get alertBaseUrl;
   String get apiPath;
@@ -31,6 +32,14 @@ class ConfigReaderImpl implements ConfigReader {
       return "";
     }
     return _config?['resume_base_url'] as String? ?? "";
+  }
+
+  @override
+  String get miraiLifeBaseUrl {
+    if (_config == null) {
+      return "";
+    }
+    return _config?['mirai_life_base_url'] as String? ?? "";
   }
 
   @override
