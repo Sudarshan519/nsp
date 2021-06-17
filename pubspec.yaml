@@ -119,6 +119,7 @@ flutter:
     - assets/images/banner_details/
     - assets/images/transaction/
     - assets/images/notification/
+    - assets/images/services/
     - config/
     - lib/features/location_information/data/datasource/json/
 

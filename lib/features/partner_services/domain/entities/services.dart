@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:wallet_app/features/partner_services/domain/entities/service_packages.dart';
 
 class Services extends Equatable {
   const Services({
@@ -20,6 +21,7 @@ class Services extends Equatable {
     required this.companyAddressHeadCity,
     required this.companyAddressHeadStreet,
     required this.description,
+    required this.servicePackages,
   });
 
   final int? id;
@@ -40,6 +42,7 @@ class Services extends Equatable {
   final String? companyAddressHeadCity;
   final String? companyAddressHeadStreet;
   final String? description;
+  final List<ServicePackages> servicePackages;
 
   String get descriptionWithOutHtmlTags {
     if (description != null) {

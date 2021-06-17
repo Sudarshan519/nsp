@@ -467,7 +467,7 @@ class TransactionViewItem extends StatelessWidget {
           child: SizedBox(
             child: SvgPicture.network(
               transaction.icon.toString(),
-              fit: BoxFit.scaleDown,
+              // fit: BoxFit.scaleDown,
             ),
           )),
       title: Text(

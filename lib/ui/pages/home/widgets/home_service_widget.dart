@@ -97,7 +97,7 @@ class HomeServiceWidget extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(16),
                     child: Image.network(
-                      "$baseURL${services.companyLogo}",
+                      "$baseURL/media/${services.companyLogo}",
                       height: 76,
                       width: 90,
                       fit: BoxFit.cover,
