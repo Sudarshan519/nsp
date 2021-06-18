@@ -168,8 +168,36 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
             const SizedBox(height: 20),
             _ConfirmationView(subscription: serviceSubscription!),
             const SizedBox(height: 40),
-            _ConfirmButton(
-              callback: () {},
+            BlocBuilder<SubscriptionForPartnerServiceBloc,
+                SubscriptionForPartnerServiceState>(
+              builder: (context, state) {
+                return _ConfirmButton(
+                  callback: () {
+                    if (serviceSubscription != null) {
+                      final amount = widget.balance
+                          .replaceAll(",", "")
+                          .replaceAll(' ', '')
+                          .replaceAll("JPY", "");
+                      final amountDouble = double.parse(amount);
+                      final packageAmount =
+                          serviceSubscription?.invoice?.dueAmount ?? 0.0;
+
+                      if (packageAmount <= amountDouble) {
+                        context.read<SubscriptionForPartnerServiceBloc>().add(
+                              SubscriptionForPartnerServiceEvent
+                                  .purchaseSubscription(
+                                subscription: serviceSubscription!,
+                              ),
+                            );
+                      } else {
+                        FlushbarHelper.createError(
+                          message: "Insufficient balance.",
+                        ).show(context);
+                      }
+                    }
+                  },
+                );
+              },
             ),
             const SizedBox(height: 20),
           ],
@@ -274,7 +302,7 @@ class _TransactionDetail extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Aashish Adhikari",
+                    subscription.invoice?.insuredName ?? '',
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
@@ -318,7 +346,7 @@ class _TransactionDetail extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "MIRAI LIFE PREMIUM",
+                    subscription.invoice?.planName ?? '',
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
@@ -469,8 +497,6 @@ class _TransactionDetail extends StatelessWidget {
         const SizedBox(height: 20),
       ],
     );
-    //   },
-    // );
   }
 }
 
@@ -522,7 +548,7 @@ class _ConfirmationView extends StatelessWidget {
         const SizedBox(height: 10),
         _TransactionDetailRow(
           title: "Name",
-          value: "Aashish Adhikari",
+          value: subscription.invoice?.insuredName ?? '',
         ),
         const SizedBox(height: 10),
         _TransactionDetailRow(
@@ -532,7 +558,7 @@ class _ConfirmationView extends StatelessWidget {
         const SizedBox(height: 10),
         _TransactionDetailRow(
           title: 'Plan',
-          value: "MIRAI LIFE PREMIUM",
+          value: subscription.invoice?.planName ?? '',
         ),
         const SizedBox(height: 10),
         _TransactionDetailRow(

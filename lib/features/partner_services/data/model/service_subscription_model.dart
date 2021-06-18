@@ -26,6 +26,8 @@ class ServiceSubscriptionModel extends ServiceSubscription {
 
 class SubscriptionInvoiceModel extends SubscriptionInvoice {
   SubscriptionInvoiceModel({
+    required String? insuredName,
+    required String? planName,
     required String? invoiceNumber,
     required String? paymentType,
     required String? invoiceDate,
@@ -34,6 +36,8 @@ class SubscriptionInvoiceModel extends SubscriptionInvoice {
     required double? amountReceived,
     required double? dueAmount,
   }) : super(
+          insuredName: insuredName,
+          planName: planName,
           invoiceNumber: invoiceNumber,
           paymentType: paymentType,
           invoiceDate: invoiceDate,
@@ -45,6 +49,11 @@ class SubscriptionInvoiceModel extends SubscriptionInvoice {
 
   factory SubscriptionInvoiceModel.fromJson(Map<String, dynamic> json) =>
       SubscriptionInvoiceModel(
+        insuredName: json["insured_name"] == null
+            ? null
+            : json["insured_name"] as String?,
+        planName:
+            json["plan_name"] == null ? null : json["plan_name"] as String?,
         invoiceNumber: json["invoice_number"] == null
             ? null
             : json["invoice_number"] as String?,

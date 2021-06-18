@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/logger/logger.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/partner_services/data/app_constant/constant.dart';
 import 'package:wallet_app/features/partner_services/data/model/service_list_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_categories_model.dart';
@@ -27,6 +28,7 @@ class PartnerServicesRemoteDataSourceImpl
     implements PartnerServicesRemoteDataSource {
   final http.Client client;
   final ConfigReader config;
+  final AuthLocalDataSource auth;
   final Logger logger;
   final _headers = {
     'Accept': 'application/json; charset=utf-8',
@@ -35,6 +37,7 @@ class PartnerServicesRemoteDataSourceImpl
 
   PartnerServicesRemoteDataSourceImpl({
     required this.client,
+    required this.auth,
     required this.config,
     required this.logger,
   });
@@ -170,10 +173,16 @@ class PartnerServicesRemoteDataSourceImpl
 
   @override
   Future<Unit> purchasePackage(PurchasePackageParams params) async {
-    String url = "";
-
-    url =
+    final String url =
         "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.purchasePackage}";
+
+    final accessToken = (await auth.getWalletUser()).accessToken;
+
+    if (accessToken == null || accessToken.isEmpty) {
+      //TODO: route user to login page as the user does not have access token
+    }
+
+    _headers["Authorization"] = "Bearer $accessToken";
 
     http.Response response;
     final body = json.encode({

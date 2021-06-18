@@ -22,9 +22,10 @@ class _$SubscriptionForPartnerServiceEventTearOff {
     );
   }
 
-  _PurchaseSubscription purchaseSubscription({required String subscriptionId}) {
+  _PurchaseSubscription purchaseSubscription(
+      {required ServiceSubscription subscription}) {
     return _PurchaseSubscription(
-      subscriptionId: subscriptionId,
+      subscription: subscription,
     );
   }
 }
@@ -35,18 +36,17 @@ const $SubscriptionForPartnerServiceEvent =
 
 /// @nodoc
 mixin _$SubscriptionForPartnerServiceEvent {
-  String get subscriptionId => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
-    required TResult Function(String subscriptionId) purchaseSubscription,
+    required TResult Function(ServiceSubscription subscription)
+        purchaseSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
-    TResult Function(String subscriptionId)? purchaseSubscription,
+    TResult Function(ServiceSubscription subscription)? purchaseSubscription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,11 +63,6 @@ mixin _$SubscriptionForPartnerServiceEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SubscriptionForPartnerServiceEventCopyWith<
-          SubscriptionForPartnerServiceEvent>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -76,7 +71,6 @@ abstract class $SubscriptionForPartnerServiceEventCopyWith<$Res> {
           SubscriptionForPartnerServiceEvent value,
           $Res Function(SubscriptionForPartnerServiceEvent) then) =
       _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>;
-  $Res call({String subscriptionId});
 }
 
 /// @nodoc
@@ -87,27 +81,13 @@ class _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
   final SubscriptionForPartnerServiceEvent _value;
   // ignore: unused_field
   final $Res Function(SubscriptionForPartnerServiceEvent) _then;
-
-  @override
-  $Res call({
-    Object? subscriptionId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      subscriptionId: subscriptionId == freezed
-          ? _value.subscriptionId
-          : subscriptionId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$GetSubscriptionCopyWith<$Res>
-    implements $SubscriptionForPartnerServiceEventCopyWith<$Res> {
+abstract class _$GetSubscriptionCopyWith<$Res> {
   factory _$GetSubscriptionCopyWith(
           _GetSubscription value, $Res Function(_GetSubscription) then) =
       __$GetSubscriptionCopyWithImpl<$Res>;
-  @override
   $Res call({String subscriptionId});
 }
 
@@ -171,7 +151,8 @@ class _$_GetSubscription implements _GetSubscription {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
-    required TResult Function(String subscriptionId) purchaseSubscription,
+    required TResult Function(ServiceSubscription subscription)
+        purchaseSubscription,
   }) {
     return getSubscription(subscriptionId);
   }
@@ -180,7 +161,7 @@ class _$_GetSubscription implements _GetSubscription {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
-    TResult Function(String subscriptionId)? purchaseSubscription,
+    TResult Function(ServiceSubscription subscription)? purchaseSubscription,
     required TResult orElse(),
   }) {
     if (getSubscription != null) {
@@ -216,22 +197,18 @@ abstract class _GetSubscription implements SubscriptionForPartnerServiceEvent {
   const factory _GetSubscription({required String subscriptionId}) =
       _$_GetSubscription;
 
-  @override
   String get subscriptionId => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   _$GetSubscriptionCopyWith<_GetSubscription> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PurchaseSubscriptionCopyWith<$Res>
-    implements $SubscriptionForPartnerServiceEventCopyWith<$Res> {
+abstract class _$PurchaseSubscriptionCopyWith<$Res> {
   factory _$PurchaseSubscriptionCopyWith(_PurchaseSubscription value,
           $Res Function(_PurchaseSubscription) then) =
       __$PurchaseSubscriptionCopyWithImpl<$Res>;
-  @override
-  $Res call({String subscriptionId});
+  $Res call({ServiceSubscription subscription});
 }
 
 /// @nodoc
@@ -247,13 +224,13 @@ class __$PurchaseSubscriptionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? subscriptionId = freezed,
+    Object? subscription = freezed,
   }) {
     return _then(_PurchaseSubscription(
-      subscriptionId: subscriptionId == freezed
-          ? _value.subscriptionId
-          : subscriptionId // ignore: cast_nullable_to_non_nullable
-              as String,
+      subscription: subscription == freezed
+          ? _value.subscription
+          : subscription // ignore: cast_nullable_to_non_nullable
+              as ServiceSubscription,
     ));
   }
 }
@@ -261,29 +238,28 @@ class __$PurchaseSubscriptionCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PurchaseSubscription implements _PurchaseSubscription {
-  const _$_PurchaseSubscription({required this.subscriptionId});
+  const _$_PurchaseSubscription({required this.subscription});
 
   @override
-  final String subscriptionId;
+  final ServiceSubscription subscription;
 
   @override
   String toString() {
-    return 'SubscriptionForPartnerServiceEvent.purchaseSubscription(subscriptionId: $subscriptionId)';
+    return 'SubscriptionForPartnerServiceEvent.purchaseSubscription(subscription: $subscription)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PurchaseSubscription &&
-            (identical(other.subscriptionId, subscriptionId) ||
+            (identical(other.subscription, subscription) ||
                 const DeepCollectionEquality()
-                    .equals(other.subscriptionId, subscriptionId)));
+                    .equals(other.subscription, subscription)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(subscriptionId);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(subscription);
 
   @JsonKey(ignore: true)
   @override
@@ -295,20 +271,21 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
-    required TResult Function(String subscriptionId) purchaseSubscription,
+    required TResult Function(ServiceSubscription subscription)
+        purchaseSubscription,
   }) {
-    return purchaseSubscription(subscriptionId);
+    return purchaseSubscription(subscription);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
-    TResult Function(String subscriptionId)? purchaseSubscription,
+    TResult Function(ServiceSubscription subscription)? purchaseSubscription,
     required TResult orElse(),
   }) {
     if (purchaseSubscription != null) {
-      return purchaseSubscription(subscriptionId);
+      return purchaseSubscription(subscription);
     }
     return orElse();
   }
@@ -338,12 +315,10 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
 
 abstract class _PurchaseSubscription
     implements SubscriptionForPartnerServiceEvent {
-  const factory _PurchaseSubscription({required String subscriptionId}) =
-      _$_PurchaseSubscription;
+  const factory _PurchaseSubscription(
+      {required ServiceSubscription subscription}) = _$_PurchaseSubscription;
 
-  @override
-  String get subscriptionId => throw _privateConstructorUsedError;
-  @override
+  ServiceSubscription get subscription => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$PurchaseSubscriptionCopyWith<_PurchaseSubscription> get copyWith =>
       throw _privateConstructorUsedError;
