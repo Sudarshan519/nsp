@@ -157,7 +157,7 @@ class EsewaTopupPage extends StatelessWidget {
 
       if (sum >= limit) {
         FlushbarHelper.createError(
-                message: "unverified user cannot topupmore than limit $limit.")
+                message: "Unverified user cannot topup more than limit $limit.")
             .show(context);
         return;
       }
