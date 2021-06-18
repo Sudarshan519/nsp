@@ -118,12 +118,16 @@ class _TopUpPageState extends State<TopUpPage> {
         if (_isConfirmPage) {
           return Expanded(child: topupConfirmationbody(context));
         }
-        return Expanded(child: topupInformationbody(context));
+        return Expanded(
+            child: topupInformationbody(
+          context,
+          state.amount,
+        ));
       },
     );
   }
 
-  Widget topupInformationbody(BuildContext context) {
+  Widget topupInformationbody(BuildContext context, String amount) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: SingleChildScrollView(
@@ -142,9 +146,17 @@ class _TopUpPageState extends State<TopUpPage> {
             const SizedBox(height: 20),
             _ProceedButton(
               callback: () {
-                setState(() {
-                  _isConfirmPage = true;
-                });
+                final double bal = double.parse(
+                    widget.balance.split(' ').last.replaceAll(',', ''));
+                final double amt = double.parse(amount);
+                if (amt > bal) {
+                  FlushbarHelper.createError(message: 'Insufficient balance!')
+                      .show(context);
+                } else {
+                  setState(() {
+                    _isConfirmPage = true;
+                  });
+                }
               },
             ),
           ],

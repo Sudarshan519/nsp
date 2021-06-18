@@ -149,6 +149,13 @@ class EsewaTopupPage extends StatelessWidget {
     // TODO: change this Later
     final amountDoubleInRupees = doubleAmount * conversionRate;
 
+    //checking sufficient balance
+    if (balance < amountDoubleInRupees) {
+      FlushbarHelper.createError(message: "You have insufficient balance")
+          .show(context);
+      return;
+    }
+
     //checking if verified
     if (!isVerified) {
       //TODO: update limit from API

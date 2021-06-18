@@ -53,7 +53,7 @@ class ServicesDetailPage extends StatelessWidget {
             innerDistance: -50,
             children: [
               Image.network(
-                "$baseURL/media/${services.companyBannerImage}",
+                "$baseURL${services.companyBannerImage}",
                 width: width,
                 fit: BoxFit.fitWidth,
                 loadingBuilder: (BuildContext context, Widget child,
@@ -89,7 +89,7 @@ class ServicesDetailPage extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(16),
                           child: FadeInImage.assetNetwork(
-                            image: "$baseURL/media/${services.companyLogo}",
+                            image: "$baseURL${services.companyLogo}",
                             height: 76,
                             width: 90,
                             fit: BoxFit.cover,

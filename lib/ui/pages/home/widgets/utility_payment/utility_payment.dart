@@ -34,6 +34,7 @@ class UtilityPamentWidget extends StatelessWidget {
               crossAxisCount: 3,
               mainAxisSpacing: 10,
               crossAxisSpacing: 10,
+              childAspectRatio: 7 / 8,
               children: [
                 GridItem(
                   label: 'NTC Topup',
