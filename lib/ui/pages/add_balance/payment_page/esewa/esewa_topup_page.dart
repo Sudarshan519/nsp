@@ -19,11 +19,15 @@ import 'package:wallet_app/utils/constant.dart';
 class EsewaTopupPage extends StatelessWidget {
   final PaymentMethod method;
   final double conversionRate;
+  final bool isVerified;
+  final double balance;
 
   const EsewaTopupPage({
     Key? key,
     required this.method,
     required this.conversionRate,
+    required this.isVerified,
+    required this.balance,
   }) : super(key: key);
 
   @override
@@ -144,6 +148,20 @@ class EsewaTopupPage extends StatelessWidget {
 
     // TODO: change this Later
     final amountDoubleInRupees = doubleAmount * conversionRate;
+
+    //checking if verified
+    if (!isVerified) {
+      //TODO: update limit from API
+      const limit = 10000;
+      final sum = amountDoubleInRupees + balance;
+
+      if (sum >= limit) {
+        FlushbarHelper.createError(
+                message: "unverified user cannot topupmore than limit $limit.")
+            .show(context);
+        return;
+      }
+    }
 
     final ESewaConfiguration _configuration = ESewaConfiguration(
       clientID: method.merchantId ?? '',

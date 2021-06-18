@@ -12,11 +12,13 @@ class PaymentOptions extends StatelessWidget {
     required this.paymentMethods,
     required this.balance,
     required this.conversionRate,
+    required this.isVerified,
   }) : super(key: key);
 
   final List<PaymentMethod> paymentMethods;
   final String balance;
   final double conversionRate;
+  final bool isVerified;
 
   @override
   Widget build(BuildContext context) {
@@ -90,9 +92,11 @@ class PaymentOptions extends StatelessWidget {
           ),
           builder: (BuildContext context) {
             return EsewaTopupPage(
-              method: paymentMethod,
-              conversionRate: conversionRate,
-            );
+                method: paymentMethod,
+                conversionRate: conversionRate,
+                balance:
+                    double.parse(balance.split(' ').last.replaceAll(',', "")),
+                isVerified: isVerified);
           },
         );
         break;

@@ -261,7 +261,9 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<AddBalanceRouteArgs>();
           return _i26.AddBalancePage(
-              key: args.key, conversionRate: args.conversionRate);
+              key: args.key,
+              conversionRate: args.conversionRate,
+              isVerified: args.isVerified);
         }),
     StripePaymentCardSelectionRoute.name: (routeData) =>
         _i1.MaterialPageX<dynamic>(
@@ -291,7 +293,9 @@ class AppRouter extends _i1.RootStackRouter {
           return _i30.EsewaTopupPage(
               key: args.key,
               method: args.method,
-              conversionRate: args.conversionRate);
+              conversionRate: args.conversionRate,
+              isVerified: args.isVerified,
+              balance: args.balance);
         }),
     BannerDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -889,21 +893,27 @@ class AlertDetailRouteArgs {
 }
 
 class AddBalanceRoute extends _i1.PageRouteInfo<AddBalanceRouteArgs> {
-  AddBalanceRoute({_i2.Key? key, required double conversionRate})
+  AddBalanceRoute(
+      {_i2.Key? key, required double conversionRate, required bool isVerified})
       : super(name,
             path: '/add-balance-page',
-            args:
-                AddBalanceRouteArgs(key: key, conversionRate: conversionRate));
+            args: AddBalanceRouteArgs(
+                key: key,
+                conversionRate: conversionRate,
+                isVerified: isVerified));
 
   static const String name = 'AddBalanceRoute';
 }
 
 class AddBalanceRouteArgs {
-  const AddBalanceRouteArgs({this.key, required this.conversionRate});
+  const AddBalanceRouteArgs(
+      {this.key, required this.conversionRate, required this.isVerified});
 
   final _i2.Key? key;
 
   final double conversionRate;
+
+  final bool isVerified;
 }
 
 class StripePaymentCardSelectionRoute
@@ -964,24 +974,38 @@ class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
   EsewaTopupRoute(
       {_i2.Key? key,
       required _i53.PaymentMethod method,
-      required double conversionRate})
+      required double conversionRate,
+      required bool isVerified,
+      required double balance})
       : super(name,
             path: '/esewa-topup-page',
             args: EsewaTopupRouteArgs(
-                key: key, method: method, conversionRate: conversionRate));
+                key: key,
+                method: method,
+                conversionRate: conversionRate,
+                isVerified: isVerified,
+                balance: balance));
 
   static const String name = 'EsewaTopupRoute';
 }
 
 class EsewaTopupRouteArgs {
   const EsewaTopupRouteArgs(
-      {this.key, required this.method, required this.conversionRate});
+      {this.key,
+      required this.method,
+      required this.conversionRate,
+      required this.isVerified,
+      required this.balance});
 
   final _i2.Key? key;
 
   final _i53.PaymentMethod method;
 
   final double conversionRate;
+
+  final bool isVerified;
+
+  final double balance;
 }
 
 class BannerDetailRoute extends _i1.PageRouteInfo {

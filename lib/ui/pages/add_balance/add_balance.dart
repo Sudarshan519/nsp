@@ -13,10 +13,12 @@ import 'widget/payment_options.dart';
 
 class AddBalancePage extends StatelessWidget {
   final double conversionRate;
+  final bool isVerified;
 
   const AddBalancePage({
     Key? key,
     required this.conversionRate,
+    required this.isVerified,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -85,10 +87,10 @@ class AddBalancePage extends StatelessWidget {
         ShadowBoxWidget(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: PaymentOptions(
-            balance: loadFund?.formattedBalance ?? 'JPY XX.XX',
-            paymentMethods: loadFund?.paymentMethods ?? [],
-            conversionRate: conversionRate,
-          ),
+              balance: loadFund?.formattedBalance ?? 'JPY XX.XX',
+              paymentMethods: loadFund?.paymentMethods ?? [],
+              conversionRate: conversionRate,
+              isVerified: isVerified),
         ),
       ],
     );
