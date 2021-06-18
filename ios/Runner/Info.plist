@@ -58,6 +58,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>GADApplicationIdentifier</key>
+	<!-- ca-app-pub-3940256099942544~1458002511 is sample ad id for ios update the key -->
+	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>$(PRODUCT_NAME) apple music use</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>

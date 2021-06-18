@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/admob/admob_service.dart';
 import 'package:wallet_app/injections/injection.dart';
 
 import 'app/wallet_app.dart';
@@ -11,6 +13,7 @@ import 'utils/config_reader.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  AdMobService.init();
   await configureInjection(Environment.prod);
 
   /// for registering the factory.

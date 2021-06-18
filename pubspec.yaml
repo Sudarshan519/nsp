@@ -76,6 +76,7 @@ dependencies:
   syncfusion_flutter_charts: ^19.1.66+1          
   url_launcher: ^6.0.3                
   youtube_player_flutter: ^8.0.0
+  google_mobile_ads: ^0.13.0
 
 dev_dependencies:
   flutter_test:

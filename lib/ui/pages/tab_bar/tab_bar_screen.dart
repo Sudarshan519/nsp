@@ -5,6 +5,7 @@ import 'package:wallet_app/ui/pages/news/news_screen.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/news_tab_page.dart';
 import 'package:wallet_app/ui/pages/resume/resume_screen.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/resume_tab_page.dart';
+import 'package:wallet_app/ui/widgets/google_banner_ad/google_banner_ad.dart';
 
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'widgets/custom_tab_bar_widget.dart';
@@ -53,10 +54,16 @@ class TabBarScreenState extends State<TabBarPage> {
             ? Container(
                 color: Palette.primaryBackground,
                 child: SafeArea(
-                  child: CustomTabBar(
-                    selectedIndex: _selectedIndex,
-                    onTap: _onTab,
-                    tabs: _tabBarData,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const GoogleBannerAd(),
+                      CustomTabBar(
+                        selectedIndex: _selectedIndex,
+                        onTap: _onTab,
+                        tabs: _tabBarData,
+                      ),
+                    ],
                   ),
                 ),
               )
