@@ -131,15 +131,26 @@ class __$ChangeCustomerIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeCustomerId implements _ChangeCustomerId {
+class _$_ChangeCustomerId
+    with DiagnosticableTreeMixin
+    implements _ChangeCustomerId {
   const _$_ChangeCustomerId(this.id);
 
   @override
   final String id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PurchasePackageEvent.changeCustomerId(id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'PurchasePackageEvent.changeCustomerId'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -255,15 +266,23 @@ class __$ChangeRemarkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeRemark implements _ChangeRemark {
+class _$_ChangeRemark with DiagnosticableTreeMixin implements _ChangeRemark {
   const _$_ChangeRemark(this.remark);
 
   @override
   final String remark;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PurchasePackageEvent.changeRemark(remark: $remark)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PurchasePackageEvent.changeRemark'))
+      ..add(DiagnosticsProperty('remark', remark));
   }
 
   @override
@@ -379,15 +398,25 @@ class __$SetInitialStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SetInitialState implements _SetInitialState {
+class _$_SetInitialState
+    with DiagnosticableTreeMixin
+    implements _SetInitialState {
   const _$_SetInitialState(this.package);
 
   @override
   final ServicePackage package;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PurchasePackageEvent.setInitialState(package: $package)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PurchasePackageEvent.setInitialState'))
+      ..add(DiagnosticsProperty('package', package));
   }
 
   @override
@@ -488,12 +517,19 @@ class __$PurchaseCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Purchase implements _Purchase {
+class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
   const _$_Purchase();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PurchasePackageEvent.purchase()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PurchasePackageEvent.purchase'));
   }
 
   @override
@@ -566,7 +602,8 @@ class _$PurchasePackageStateTearOff {
   const _$PurchasePackageStateTearOff();
 
   _PurchasePackageState call(
-      {required String customerId,
+      {required Key key,
+      required String customerId,
       required int packageId,
       required int serviceId,
       required String packageName,
@@ -575,6 +612,7 @@ class _$PurchasePackageStateTearOff {
       required bool isSubmitting,
       required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
     return _PurchasePackageState(
+      key: key,
       customerId: customerId,
       packageId: packageId,
       serviceId: serviceId,
@@ -592,6 +630,7 @@ const $PurchasePackageState = _$PurchasePackageStateTearOff();
 
 /// @nodoc
 mixin _$PurchasePackageState {
+  Key get key => throw _privateConstructorUsedError;
   String get customerId => throw _privateConstructorUsedError;
   int get packageId => throw _privateConstructorUsedError;
   int get serviceId => throw _privateConstructorUsedError;
@@ -613,7 +652,8 @@ abstract class $PurchasePackageStateCopyWith<$Res> {
           $Res Function(PurchasePackageState) then) =
       _$PurchasePackageStateCopyWithImpl<$Res>;
   $Res call(
-      {String customerId,
+      {Key key,
+      String customerId,
       int packageId,
       int serviceId,
       String packageName,
@@ -634,6 +674,7 @@ class _$PurchasePackageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? key = freezed,
     Object? customerId = freezed,
     Object? packageId = freezed,
     Object? serviceId = freezed,
@@ -644,6 +685,10 @@ class _$PurchasePackageStateCopyWithImpl<$Res>
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as Key,
       customerId: customerId == freezed
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
@@ -688,7 +733,8 @@ abstract class _$PurchasePackageStateCopyWith<$Res>
       __$PurchasePackageStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String customerId,
+      {Key key,
+      String customerId,
       int packageId,
       int serviceId,
       String packageName,
@@ -711,6 +757,7 @@ class __$PurchasePackageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? key = freezed,
     Object? customerId = freezed,
     Object? packageId = freezed,
     Object? serviceId = freezed,
@@ -721,6 +768,10 @@ class __$PurchasePackageStateCopyWithImpl<$Res>
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_PurchasePackageState(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as Key,
       customerId: customerId == freezed
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
@@ -759,9 +810,12 @@ class __$PurchasePackageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PurchasePackageState implements _PurchasePackageState {
+class _$_PurchasePackageState
+    with DiagnosticableTreeMixin
+    implements _PurchasePackageState {
   const _$_PurchasePackageState(
-      {required this.customerId,
+      {required this.key,
+      required this.customerId,
       required this.packageId,
       required this.serviceId,
       required this.packageName,
@@ -770,6 +824,8 @@ class _$_PurchasePackageState implements _PurchasePackageState {
       required this.isSubmitting,
       required this.failureOrSuccessOption});
 
+  @override
+  final Key key;
   @override
   final String customerId;
   @override
@@ -788,14 +844,33 @@ class _$_PurchasePackageState implements _PurchasePackageState {
   final Option<Either<ApiFailure, Unit>> failureOrSuccessOption;
 
   @override
-  String toString() {
-    return 'PurchasePackageState(customerId: $customerId, packageId: $packageId, serviceId: $serviceId, packageName: $packageName, amount: $amount, remark: $remark, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'PurchasePackageState(key: $key, customerId: $customerId, packageId: $packageId, serviceId: $serviceId, packageName: $packageName, amount: $amount, remark: $remark, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PurchasePackageState'))
+      ..add(DiagnosticsProperty('key', key))
+      ..add(DiagnosticsProperty('customerId', customerId))
+      ..add(DiagnosticsProperty('packageId', packageId))
+      ..add(DiagnosticsProperty('serviceId', serviceId))
+      ..add(DiagnosticsProperty('packageName', packageName))
+      ..add(DiagnosticsProperty('amount', amount))
+      ..add(DiagnosticsProperty('remark', remark))
+      ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
+      ..add(DiagnosticsProperty(
+          'failureOrSuccessOption', failureOrSuccessOption));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PurchasePackageState &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.customerId, customerId) ||
                 const DeepCollectionEquality()
                     .equals(other.customerId, customerId)) &&
@@ -823,6 +898,7 @@ class _$_PurchasePackageState implements _PurchasePackageState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(key) ^
       const DeepCollectionEquality().hash(customerId) ^
       const DeepCollectionEquality().hash(packageId) ^
       const DeepCollectionEquality().hash(serviceId) ^
@@ -841,7 +917,8 @@ class _$_PurchasePackageState implements _PurchasePackageState {
 
 abstract class _PurchasePackageState implements PurchasePackageState {
   const factory _PurchasePackageState(
-          {required String customerId,
+          {required Key key,
+          required String customerId,
           required int packageId,
           required int serviceId,
           required String packageName,
@@ -851,6 +928,8 @@ abstract class _PurchasePackageState implements PurchasePackageState {
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
       _$_PurchasePackageState;
 
+  @override
+  Key get key => throw _privateConstructorUsedError;
   @override
   String get customerId => throw _privateConstructorUsedError;
   @override

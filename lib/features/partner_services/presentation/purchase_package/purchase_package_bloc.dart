@@ -2,10 +2,11 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
-import 'package:wallet_app/features/auth/domain/auth_routes/auth_routes.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_packages.dart';
 import 'package:wallet_app/features/partner_services/domain/usecase/get_partner_services.dart';
 import 'package:wallet_app/features/partner_services/domain/usecase/purchase_package.dart';
@@ -14,7 +15,7 @@ part 'purchase_package_event.dart';
 part 'purchase_package_state.dart';
 part 'purchase_package_bloc.freezed.dart';
 
-@injectable
+@singleton
 class PurchasePackageBloc
     extends Bloc<PurchasePackageEvent, PurchasePackageState> {
   final PurchasePackage purchasePackage;
@@ -61,6 +62,8 @@ class PurchasePackageBloc
   PurchasePackageState mapSetInitialStateEventToState(
       _SetInitialState _setInitialState) {
     return state.copyWith(
+      key: UniqueKey(),
+      isSubmitting: false,
       packageId: _setInitialState.package.id ?? 0,
       serviceId: int.parse(_setInitialState.package.serviceId ?? '0'),
       packageName: _setInitialState.package.packageName ?? '',

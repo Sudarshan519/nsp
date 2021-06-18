@@ -3,6 +3,7 @@ part of 'purchase_package_bloc.dart';
 @freezed
 class PurchasePackageState with _$PurchasePackageState {
   const factory PurchasePackageState({
+    required Key key,
     required String customerId,
     required int packageId,
     required int serviceId,
@@ -14,6 +15,7 @@ class PurchasePackageState with _$PurchasePackageState {
   }) = _PurchasePackageState;
 
   factory PurchasePackageState.initial() => PurchasePackageState(
+        key: UniqueKey(),
         customerId: '',
         packageId: 0,
         serviceId: 0,
