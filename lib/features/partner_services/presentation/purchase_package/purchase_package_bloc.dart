@@ -65,7 +65,7 @@ class PurchasePackageBloc
       key: UniqueKey(),
       isSubmitting: false,
       packageId: _setInitialState.package.id ?? 0,
-      serviceId: int.parse(_setInitialState.package.serviceId ?? '0'),
+      serviceId: _setInitialState.package.serviceId ?? 0,
       packageName: _setInitialState.package.packageName ?? '',
       amount: _setInitialState.package.packagePrice ?? 0,
       failureOrSuccessOption: none(),

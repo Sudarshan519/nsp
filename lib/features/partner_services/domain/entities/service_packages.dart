@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class ServicePackage extends Equatable {
   final int? id;
-  final String? serviceId;
+  final int? serviceId;
   final String? packageName;
   final String? description;
   final double? packagePrice;

@@ -3,7 +3,7 @@ import 'package:wallet_app/features/partner_services/domain/entities/service_pac
 class ServicePackageModel extends ServicePackage {
   const ServicePackageModel({
     required int? id,
-    required String? serviceId,
+    required int? serviceId,
     required String? packageName,
     required String? description,
     required double? packagePrice,
@@ -28,7 +28,7 @@ class ServicePackageModel extends ServicePackage {
   factory ServicePackageModel.fromJson(Map<String, dynamic> json) =>
       ServicePackageModel(
         id: json['id'] as int,
-        serviceId: json['service_id'] as String?,
+        serviceId: json['service_id'] as int?,
         packageName: json['package_name'] as String?,
         description: json['description'] as String?,
         packagePrice: json['package_price'] as double?,
