@@ -109,7 +109,6 @@ class BuyPackagePage extends StatelessWidget {
                 ),
                 TextWidetWithLabelAndChild(
                     title: 'Remarks',
-                    isRequired: true,
                     child: InputTextWidget(
                       hintText: 'Remarks',
                       onChanged: (value) => context

@@ -10,6 +10,8 @@ class ServiceSubscription {
 
 class SubscriptionInvoice {
   SubscriptionInvoice({
+    required this.insuredName,
+    required this.planName,
     required this.invoiceNumber,
     required this.paymentType,
     required this.invoiceDate,
@@ -19,6 +21,8 @@ class SubscriptionInvoice {
     required this.dueAmount,
   });
 
+  final String? insuredName;
+  final String? planName;
   final String? invoiceNumber;
   final String? paymentType;
   final String? invoiceDate;

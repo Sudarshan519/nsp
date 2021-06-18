@@ -8,6 +8,6 @@ class SubscriptionForPartnerServiceEvent
   }) = _GetSubscription;
 
   const factory SubscriptionForPartnerServiceEvent.purchaseSubscription({
-    required String subscriptionId,
+    required ServiceSubscription subscription,
   }) = _PurchaseSubscription;
 }
