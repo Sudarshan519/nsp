@@ -93,7 +93,9 @@ class EsewaTopupPage extends StatelessWidget {
             const SizedBox(height: 10),
             const _AmountWidget(),
             const SizedBox(height: 10),
-            const _ConversionRate(),
+            _ConversionRate(
+              conversionRate: conversionRate,
+            ),
             const _AmountFromSuggestionWidget(),
             const SizedBox(height: 10),
             const _PurposeWidget(),
@@ -177,8 +179,10 @@ class EsewaTopupPage extends StatelessWidget {
 }
 
 class _ConversionRate extends StatelessWidget {
+  final double conversionRate;
   const _ConversionRate({
     Key? key,
+    required this.conversionRate,
   }) : super(key: key);
 
   @override
@@ -188,8 +192,11 @@ class _ConversionRate extends StatelessWidget {
         if (state.amount.isEmpty) {
           return const SizedBox.shrink();
         }
-        // TODO: change this Later
-        final amountDouble = double.parse(state.amount) * 1.08;
+        double amountDouble = 0.0;
+        try {
+          amountDouble = double.parse(state.amount) * conversionRate;
+        } catch (ex) {}
+
         return Padding(
           padding: const EdgeInsets.only(right: 8.0, bottom: 12.0),
           child: Row(
@@ -221,7 +228,7 @@ class _AmountWidget extends StatelessWidget {
             title: "Enter Amount",
             child: InputTextWidget(
               hintText: "¥ 1000",
-              textInputType: TextInputType.number,
+              textInputType: TextInputType.phone,
               value: state.amount,
               onChanged: (value) =>
                   context.read<EsewaFormCubit>().updateAmountFromForm(value),

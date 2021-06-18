@@ -27,4 +27,8 @@ class AppConstants {
   static const topUpSuccessTitle = "Topup completed";
   static const topUpSuccessMessage =
       "Your top up request have been successfully completed. Thank you.";
+
+  static const paymentSuccessTitle = "Payment completed";
+  static const paymentSuccessMessage =
+      "Your payment request have been successfully completed. Thank you.";
 }

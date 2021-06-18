@@ -7,8 +7,7 @@ import 'package:wallet_app/features/partner_services/domain/repositories/partner
 import 'package:wallet_app/features/partner_services/domain/usecase/get_partner_services.dart';
 
 @singleton
-class PurchasePackage
-    extends Usecase<ApiFailure, dynamic, PurchasePackageParams> {
+class PurchasePackage extends Usecase<ApiFailure, Unit, PurchasePackageParams> {
   final PartnerServicesRepository repository;
   final NetworkInfo networkInfo;
 
@@ -18,11 +17,17 @@ class PurchasePackage
   });
 
   @override
-  Future<Either<ApiFailure, dynamic>> call(PurchasePackageParams params) async {
-    if (await networkInfo.isConnected) {
-      return repository.purchasepackage(params);
-    } else {
+  Future<Either<ApiFailure, Unit>> call(PurchasePackageParams params) async {
+    final isConnected = await networkInfo.isConnected;
+    if (!isConnected) {
       return const Left(ApiFailure.noInternetConnection());
     }
+
+    if (params.customerId.isEmpty) {
+      return const Left(
+          ApiFailure.serverError(message: "Customer ID cannot be empty"));
+    }
+
+    return repository.purchasepackage(params);
   }
 }

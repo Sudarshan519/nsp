@@ -16,10 +16,26 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$PurchasePackageEventTearOff {
   const _$PurchasePackageEventTearOff();
 
-  _Purchase purchase(PurchasePackageParams params) {
-    return _Purchase(
-      params,
+  _ChangeCustomerId changeCustomerId(String id) {
+    return _ChangeCustomerId(
+      id,
     );
+  }
+
+  _ChangeRemark changeRemark(String remark) {
+    return _ChangeRemark(
+      remark,
+    );
+  }
+
+  _SetInitialState setInitialState(ServicePackage package) {
+    return _SetInitialState(
+      package,
+    );
+  }
+
+  _Purchase purchase() {
+    return const _Purchase();
   }
 }
 
@@ -28,33 +44,39 @@ const $PurchasePackageEvent = _$PurchasePackageEventTearOff();
 
 /// @nodoc
 mixin _$PurchasePackageEvent {
-  PurchasePackageParams get params => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PurchasePackageParams params) purchase,
+    required TResult Function(String id) changeCustomerId,
+    required TResult Function(String remark) changeRemark,
+    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function() purchase,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PurchasePackageParams params)? purchase,
+    TResult Function(String id)? changeCustomerId,
+    TResult Function(String remark)? changeRemark,
+    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function()? purchase,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeCustomerId value) changeCustomerId,
+    required TResult Function(_ChangeRemark value) changeRemark,
+    required TResult Function(_SetInitialState value) setInitialState,
     required TResult Function(_Purchase value) purchase,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult Function(_ChangeRemark value)? changeRemark,
+    TResult Function(_SetInitialState value)? setInitialState,
     TResult Function(_Purchase value)? purchase,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $PurchasePackageEventCopyWith<PurchasePackageEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -63,7 +85,6 @@ abstract class $PurchasePackageEventCopyWith<$Res> {
   factory $PurchasePackageEventCopyWith(PurchasePackageEvent value,
           $Res Function(PurchasePackageEvent) then) =
       _$PurchasePackageEventCopyWithImpl<$Res>;
-  $Res call({PurchasePackageParams params});
 }
 
 /// @nodoc
@@ -74,27 +95,384 @@ class _$PurchasePackageEventCopyWithImpl<$Res>
   final PurchasePackageEvent _value;
   // ignore: unused_field
   final $Res Function(PurchasePackageEvent) _then;
+}
+
+/// @nodoc
+abstract class _$ChangeCustomerIdCopyWith<$Res> {
+  factory _$ChangeCustomerIdCopyWith(
+          _ChangeCustomerId value, $Res Function(_ChangeCustomerId) then) =
+      __$ChangeCustomerIdCopyWithImpl<$Res>;
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$ChangeCustomerIdCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res>
+    implements _$ChangeCustomerIdCopyWith<$Res> {
+  __$ChangeCustomerIdCopyWithImpl(
+      _ChangeCustomerId _value, $Res Function(_ChangeCustomerId) _then)
+      : super(_value, (v) => _then(v as _ChangeCustomerId));
+
+  @override
+  _ChangeCustomerId get _value => super._value as _ChangeCustomerId;
 
   @override
   $Res call({
-    Object? params = freezed,
+    Object? id = freezed,
   }) {
-    return _then(_value.copyWith(
-      params: params == freezed
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as PurchasePackageParams,
+    return _then(_ChangeCustomerId(
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$PurchaseCopyWith<$Res>
-    implements $PurchasePackageEventCopyWith<$Res> {
+
+class _$_ChangeCustomerId implements _ChangeCustomerId {
+  const _$_ChangeCustomerId(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'PurchasePackageEvent.changeCustomerId(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeCustomerId &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeCustomerIdCopyWith<_ChangeCustomerId> get copyWith =>
+      __$ChangeCustomerIdCopyWithImpl<_ChangeCustomerId>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) changeCustomerId,
+    required TResult Function(String remark) changeRemark,
+    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function() purchase,
+  }) {
+    return changeCustomerId(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? changeCustomerId,
+    TResult Function(String remark)? changeRemark,
+    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function()? purchase,
+    required TResult orElse(),
+  }) {
+    if (changeCustomerId != null) {
+      return changeCustomerId(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeCustomerId value) changeCustomerId,
+    required TResult Function(_ChangeRemark value) changeRemark,
+    required TResult Function(_SetInitialState value) setInitialState,
+    required TResult Function(_Purchase value) purchase,
+  }) {
+    return changeCustomerId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult Function(_ChangeRemark value)? changeRemark,
+    TResult Function(_SetInitialState value)? setInitialState,
+    TResult Function(_Purchase value)? purchase,
+    required TResult orElse(),
+  }) {
+    if (changeCustomerId != null) {
+      return changeCustomerId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeCustomerId implements PurchasePackageEvent {
+  const factory _ChangeCustomerId(String id) = _$_ChangeCustomerId;
+
+  String get id => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeCustomerIdCopyWith<_ChangeCustomerId> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeRemarkCopyWith<$Res> {
+  factory _$ChangeRemarkCopyWith(
+          _ChangeRemark value, $Res Function(_ChangeRemark) then) =
+      __$ChangeRemarkCopyWithImpl<$Res>;
+  $Res call({String remark});
+}
+
+/// @nodoc
+class __$ChangeRemarkCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res>
+    implements _$ChangeRemarkCopyWith<$Res> {
+  __$ChangeRemarkCopyWithImpl(
+      _ChangeRemark _value, $Res Function(_ChangeRemark) _then)
+      : super(_value, (v) => _then(v as _ChangeRemark));
+
+  @override
+  _ChangeRemark get _value => super._value as _ChangeRemark;
+
+  @override
+  $Res call({
+    Object? remark = freezed,
+  }) {
+    return _then(_ChangeRemark(
+      remark == freezed
+          ? _value.remark
+          : remark // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeRemark implements _ChangeRemark {
+  const _$_ChangeRemark(this.remark);
+
+  @override
+  final String remark;
+
+  @override
+  String toString() {
+    return 'PurchasePackageEvent.changeRemark(remark: $remark)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeRemark &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(remark);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeRemarkCopyWith<_ChangeRemark> get copyWith =>
+      __$ChangeRemarkCopyWithImpl<_ChangeRemark>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) changeCustomerId,
+    required TResult Function(String remark) changeRemark,
+    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function() purchase,
+  }) {
+    return changeRemark(remark);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? changeCustomerId,
+    TResult Function(String remark)? changeRemark,
+    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function()? purchase,
+    required TResult orElse(),
+  }) {
+    if (changeRemark != null) {
+      return changeRemark(remark);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeCustomerId value) changeCustomerId,
+    required TResult Function(_ChangeRemark value) changeRemark,
+    required TResult Function(_SetInitialState value) setInitialState,
+    required TResult Function(_Purchase value) purchase,
+  }) {
+    return changeRemark(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult Function(_ChangeRemark value)? changeRemark,
+    TResult Function(_SetInitialState value)? setInitialState,
+    TResult Function(_Purchase value)? purchase,
+    required TResult orElse(),
+  }) {
+    if (changeRemark != null) {
+      return changeRemark(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeRemark implements PurchasePackageEvent {
+  const factory _ChangeRemark(String remark) = _$_ChangeRemark;
+
+  String get remark => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeRemarkCopyWith<_ChangeRemark> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SetInitialStateCopyWith<$Res> {
+  factory _$SetInitialStateCopyWith(
+          _SetInitialState value, $Res Function(_SetInitialState) then) =
+      __$SetInitialStateCopyWithImpl<$Res>;
+  $Res call({ServicePackage package});
+}
+
+/// @nodoc
+class __$SetInitialStateCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res>
+    implements _$SetInitialStateCopyWith<$Res> {
+  __$SetInitialStateCopyWithImpl(
+      _SetInitialState _value, $Res Function(_SetInitialState) _then)
+      : super(_value, (v) => _then(v as _SetInitialState));
+
+  @override
+  _SetInitialState get _value => super._value as _SetInitialState;
+
+  @override
+  $Res call({
+    Object? package = freezed,
+  }) {
+    return _then(_SetInitialState(
+      package == freezed
+          ? _value.package
+          : package // ignore: cast_nullable_to_non_nullable
+              as ServicePackage,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetInitialState implements _SetInitialState {
+  const _$_SetInitialState(this.package);
+
+  @override
+  final ServicePackage package;
+
+  @override
+  String toString() {
+    return 'PurchasePackageEvent.setInitialState(package: $package)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SetInitialState &&
+            (identical(other.package, package) ||
+                const DeepCollectionEquality().equals(other.package, package)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(package);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) changeCustomerId,
+    required TResult Function(String remark) changeRemark,
+    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function() purchase,
+  }) {
+    return setInitialState(package);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? changeCustomerId,
+    TResult Function(String remark)? changeRemark,
+    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function()? purchase,
+    required TResult orElse(),
+  }) {
+    if (setInitialState != null) {
+      return setInitialState(package);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeCustomerId value) changeCustomerId,
+    required TResult Function(_ChangeRemark value) changeRemark,
+    required TResult Function(_SetInitialState value) setInitialState,
+    required TResult Function(_Purchase value) purchase,
+  }) {
+    return setInitialState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult Function(_ChangeRemark value)? changeRemark,
+    TResult Function(_SetInitialState value)? setInitialState,
+    TResult Function(_Purchase value)? purchase,
+    required TResult orElse(),
+  }) {
+    if (setInitialState != null) {
+      return setInitialState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetInitialState implements PurchasePackageEvent {
+  const factory _SetInitialState(ServicePackage package) = _$_SetInitialState;
+
+  ServicePackage get package => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$PurchaseCopyWith<$Res> {
   factory _$PurchaseCopyWith(_Purchase value, $Res Function(_Purchase) then) =
       __$PurchaseCopyWithImpl<$Res>;
-  @override
-  $Res call({PurchasePackageParams params});
 }
 
 /// @nodoc
@@ -106,66 +484,48 @@ class __$PurchaseCopyWithImpl<$Res>
 
   @override
   _Purchase get _value => super._value as _Purchase;
-
-  @override
-  $Res call({
-    Object? params = freezed,
-  }) {
-    return _then(_Purchase(
-      params == freezed
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as PurchasePackageParams,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_Purchase implements _Purchase {
-  const _$_Purchase(this.params);
-
-  @override
-  final PurchasePackageParams params;
+  const _$_Purchase();
 
   @override
   String toString() {
-    return 'PurchasePackageEvent.purchase(params: $params)';
+    return 'PurchasePackageEvent.purchase()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Purchase &&
-            (identical(other.params, params) ||
-                const DeepCollectionEquality().equals(other.params, params)));
+    return identical(this, other) || (other is _Purchase);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(params);
-
-  @JsonKey(ignore: true)
-  @override
-  _$PurchaseCopyWith<_Purchase> get copyWith =>
-      __$PurchaseCopyWithImpl<_Purchase>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PurchasePackageParams params) purchase,
+    required TResult Function(String id) changeCustomerId,
+    required TResult Function(String remark) changeRemark,
+    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function() purchase,
   }) {
-    return purchase(params);
+    return purchase();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PurchasePackageParams params)? purchase,
+    TResult Function(String id)? changeCustomerId,
+    TResult Function(String remark)? changeRemark,
+    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function()? purchase,
     required TResult orElse(),
   }) {
     if (purchase != null) {
-      return purchase(params);
+      return purchase();
     }
     return orElse();
   }
@@ -173,6 +533,9 @@ class _$_Purchase implements _Purchase {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeCustomerId value) changeCustomerId,
+    required TResult Function(_ChangeRemark value) changeRemark,
+    required TResult Function(_SetInitialState value) setInitialState,
     required TResult Function(_Purchase value) purchase,
   }) {
     return purchase(this);
@@ -181,6 +544,9 @@ class _$_Purchase implements _Purchase {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult Function(_ChangeRemark value)? changeRemark,
+    TResult Function(_SetInitialState value)? setInitialState,
     TResult Function(_Purchase value)? purchase,
     required TResult orElse(),
   }) {
@@ -192,37 +558,31 @@ class _$_Purchase implements _Purchase {
 }
 
 abstract class _Purchase implements PurchasePackageEvent {
-  const factory _Purchase(PurchasePackageParams params) = _$_Purchase;
-
-  @override
-  PurchasePackageParams get params => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  _$PurchaseCopyWith<_Purchase> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _Purchase() = _$_Purchase;
 }
 
 /// @nodoc
 class _$PurchasePackageStateTearOff {
   const _$PurchasePackageStateTearOff();
 
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Loaded loaded(dynamic data) {
-    return _Loaded(
-      data,
-    );
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
+  _PurchasePackageState call(
+      {required String customerId,
+      required int packageId,
+      required int serviceId,
+      required String packageName,
+      required double amount,
+      required String remark,
+      required bool isSubmitting,
+      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
+    return _PurchasePackageState(
+      customerId: customerId,
+      packageId: packageId,
+      serviceId: serviceId,
+      packageName: packageName,
+      amount: amount,
+      remark: remark,
+      isSubmitting: isSubmitting,
+      failureOrSuccessOption: failureOrSuccessOption,
     );
   }
 }
@@ -232,39 +592,18 @@ const $PurchasePackageState = _$PurchasePackageStateTearOff();
 
 /// @nodoc
 mixin _$PurchasePackageState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(dynamic data) loaded,
-    required TResult Function(ApiFailure failure) failure,
-  }) =>
+  String get customerId => throw _privateConstructorUsedError;
+  int get packageId => throw _privateConstructorUsedError;
+  int get serviceId => throw _privateConstructorUsedError;
+  String get packageName => throw _privateConstructorUsedError;
+  double get amount => throw _privateConstructorUsedError;
+  String get remark => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(dynamic data)? loaded,
-    TResult Function(ApiFailure failure)? failure,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failure value) failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) =>
+
+  @JsonKey(ignore: true)
+  $PurchasePackageStateCopyWith<PurchasePackageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -273,6 +612,15 @@ abstract class $PurchasePackageStateCopyWith<$Res> {
   factory $PurchasePackageStateCopyWith(PurchasePackageState value,
           $Res Function(PurchasePackageState) then) =
       _$PurchasePackageStateCopyWithImpl<$Res>;
+  $Res call(
+      {String customerId,
+      int packageId,
+      int serviceId,
+      String packageName,
+      double amount,
+      String remark,
+      bool isSubmitting,
+      Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
 }
 
 /// @nodoc
@@ -283,440 +631,245 @@ class _$PurchasePackageStateCopyWithImpl<$Res>
   final PurchasePackageState _value;
   // ignore: unused_field
   final $Res Function(PurchasePackageState) _then;
-}
-
-/// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$PurchasePackageStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'PurchasePackageState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(dynamic data) loaded,
-    required TResult Function(ApiFailure failure) failure,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(dynamic data)? loaded,
-    TResult Function(ApiFailure failure)? failure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements PurchasePackageState {
-  const factory _Initial() = _$_Initial;
-}
-
-/// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$LoadingCopyWithImpl<$Res>
-    extends _$PurchasePackageStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
-}
-
-/// @nodoc
-
-class _$_Loading implements _Loading {
-  const _$_Loading();
-
-  @override
-  String toString() {
-    return 'PurchasePackageState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(dynamic data) loaded,
-    required TResult Function(ApiFailure failure) failure,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(dynamic data)? loaded,
-    TResult Function(ApiFailure failure)? failure,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements PurchasePackageState {
-  const factory _Loading() = _$_Loading;
-}
-
-/// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
-  $Res call({dynamic data});
-}
-
-/// @nodoc
-class __$LoadedCopyWithImpl<$Res>
-    extends _$PurchasePackageStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
-
-  @override
-  _Loaded get _value => super._value as _Loaded;
 
   @override
   $Res call({
-    Object? data = freezed,
+    Object? customerId = freezed,
+    Object? packageId = freezed,
+    Object? serviceId = freezed,
+    Object? packageName = freezed,
+    Object? amount = freezed,
+    Object? remark = freezed,
+    Object? isSubmitting = freezed,
+    Object? failureOrSuccessOption = freezed,
   }) {
-    return _then(_Loaded(
-      data == freezed
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+    return _then(_value.copyWith(
+      customerId: customerId == freezed
+          ? _value.customerId
+          : customerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      packageId: packageId == freezed
+          ? _value.packageId
+          : packageId // ignore: cast_nullable_to_non_nullable
+              as int,
+      serviceId: serviceId == freezed
+          ? _value.serviceId
+          : serviceId // ignore: cast_nullable_to_non_nullable
+              as int,
+      packageName: packageName == freezed
+          ? _value.packageName
+          : packageName // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
+      remark: remark == freezed
+          ? _value.remark
+          : remark // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      failureOrSuccessOption: failureOrSuccessOption == freezed
+          ? _value.failureOrSuccessOption
+          : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ApiFailure, Unit>>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$PurchasePackageStateCopyWith<$Res>
+    implements $PurchasePackageStateCopyWith<$Res> {
+  factory _$PurchasePackageStateCopyWith(_PurchasePackageState value,
+          $Res Function(_PurchasePackageState) then) =
+      __$PurchasePackageStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String customerId,
+      int packageId,
+      int serviceId,
+      String packageName,
+      double amount,
+      String remark,
+      bool isSubmitting,
+      Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
+}
+
+/// @nodoc
+class __$PurchasePackageStateCopyWithImpl<$Res>
+    extends _$PurchasePackageStateCopyWithImpl<$Res>
+    implements _$PurchasePackageStateCopyWith<$Res> {
+  __$PurchasePackageStateCopyWithImpl(
+      _PurchasePackageState _value, $Res Function(_PurchasePackageState) _then)
+      : super(_value, (v) => _then(v as _PurchasePackageState));
+
+  @override
+  _PurchasePackageState get _value => super._value as _PurchasePackageState;
+
+  @override
+  $Res call({
+    Object? customerId = freezed,
+    Object? packageId = freezed,
+    Object? serviceId = freezed,
+    Object? packageName = freezed,
+    Object? amount = freezed,
+    Object? remark = freezed,
+    Object? isSubmitting = freezed,
+    Object? failureOrSuccessOption = freezed,
+  }) {
+    return _then(_PurchasePackageState(
+      customerId: customerId == freezed
+          ? _value.customerId
+          : customerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      packageId: packageId == freezed
+          ? _value.packageId
+          : packageId // ignore: cast_nullable_to_non_nullable
+              as int,
+      serviceId: serviceId == freezed
+          ? _value.serviceId
+          : serviceId // ignore: cast_nullable_to_non_nullable
+              as int,
+      packageName: packageName == freezed
+          ? _value.packageName
+          : packageName // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
+      remark: remark == freezed
+          ? _value.remark
+          : remark // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      failureOrSuccessOption: failureOrSuccessOption == freezed
+          ? _value.failureOrSuccessOption
+          : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<ApiFailure, Unit>>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.data);
+class _$_PurchasePackageState implements _PurchasePackageState {
+  const _$_PurchasePackageState(
+      {required this.customerId,
+      required this.packageId,
+      required this.serviceId,
+      required this.packageName,
+      required this.amount,
+      required this.remark,
+      required this.isSubmitting,
+      required this.failureOrSuccessOption});
 
   @override
-  final dynamic data;
+  final String customerId;
+  @override
+  final int packageId;
+  @override
+  final int serviceId;
+  @override
+  final String packageName;
+  @override
+  final double amount;
+  @override
+  final String remark;
+  @override
+  final bool isSubmitting;
+  @override
+  final Option<Either<ApiFailure, Unit>> failureOrSuccessOption;
 
   @override
   String toString() {
-    return 'PurchasePackageState.loaded(data: $data)';
+    return 'PurchasePackageState(customerId: $customerId, packageId: $packageId, serviceId: $serviceId, packageName: $packageName, amount: $amount, remark: $remark, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Loaded &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
+        (other is _PurchasePackageState &&
+            (identical(other.customerId, customerId) ||
+                const DeepCollectionEquality()
+                    .equals(other.customerId, customerId)) &&
+            (identical(other.packageId, packageId) ||
+                const DeepCollectionEquality()
+                    .equals(other.packageId, packageId)) &&
+            (identical(other.serviceId, serviceId) ||
+                const DeepCollectionEquality()
+                    .equals(other.serviceId, serviceId)) &&
+            (identical(other.packageName, packageName) ||
+                const DeepCollectionEquality()
+                    .equals(other.packageName, packageName)) &&
+            (identical(other.amount, amount) ||
+                const DeepCollectionEquality().equals(other.amount, amount)) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
+                const DeepCollectionEquality().equals(
+                    other.failureOrSuccessOption, failureOrSuccessOption)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(packageId) ^
+      const DeepCollectionEquality().hash(serviceId) ^
+      const DeepCollectionEquality().hash(packageName) ^
+      const DeepCollectionEquality().hash(amount) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(dynamic data) loaded,
-    required TResult Function(ApiFailure failure) failure,
-  }) {
-    return loaded(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(dynamic data)? loaded,
-    TResult Function(ApiFailure failure)? failure,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
+  _$PurchasePackageStateCopyWith<_PurchasePackageState> get copyWith =>
+      __$PurchasePackageStateCopyWithImpl<_PurchasePackageState>(
+          this, _$identity);
 }
 
-abstract class _Loaded implements PurchasePackageState {
-  const factory _Loaded(dynamic data) = _$_Loaded;
+abstract class _PurchasePackageState implements PurchasePackageState {
+  const factory _PurchasePackageState(
+          {required String customerId,
+          required int packageId,
+          required int serviceId,
+          required String packageName,
+          required double amount,
+          required String remark,
+          required bool isSubmitting,
+          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
+      _$_PurchasePackageState;
 
-  dynamic get data => throw _privateConstructorUsedError;
+  @override
+  String get customerId => throw _privateConstructorUsedError;
+  @override
+  int get packageId => throw _privateConstructorUsedError;
+  @override
+  int get serviceId => throw _privateConstructorUsedError;
+  @override
+  String get packageName => throw _privateConstructorUsedError;
+  @override
+  double get amount => throw _privateConstructorUsedError;
+  @override
+  String get remark => throw _privateConstructorUsedError;
+  @override
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  @override
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
-  $Res call({ApiFailure failure});
-
-  $ApiFailureCopyWith<$Res> get failure;
-}
-
-/// @nodoc
-class __$FailureCopyWithImpl<$Res>
-    extends _$PurchasePackageStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
-
-  @override
-  _Failure get _value => super._value as _Failure;
-
-  @override
-  $Res call({
-    Object? failure = freezed,
-  }) {
-    return _then(_Failure(
-      failure == freezed
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as ApiFailure,
-    ));
-  }
-
-  @override
-  $ApiFailureCopyWith<$Res> get failure {
-    return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
-      return _then(_value.copyWith(failure: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_Failure implements _Failure {
-  const _$_Failure(this.failure);
-
-  @override
-  final ApiFailure failure;
-
-  @override
-  String toString() {
-    return 'PurchasePackageState.failure(failure: $failure)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
-
-  @JsonKey(ignore: true)
-  @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(dynamic data) loaded,
-    required TResult Function(ApiFailure failure) failure,
-  }) {
-    return failure(this.failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(dynamic data)? loaded,
-    TResult Function(ApiFailure failure)? failure,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure(this.failure);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return failure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Failure implements PurchasePackageState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
-
-  ApiFailure get failure => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$PurchasePackageStateCopyWith<_PurchasePackageState> get copyWith =>
       throw _privateConstructorUsedError;
 }

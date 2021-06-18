@@ -61,7 +61,7 @@ class PartnerServicesRepositoryImpl implements PartnerServicesRepository {
   }
 
   @override
-  Future<Either<ApiFailure, dynamic>> purchasepackage(
+  Future<Either<ApiFailure, Unit>> purchasepackage(
       PurchasePackageParams params) async {
     try {
       return Right(await remoteDataSource.purchasePackage(params));

@@ -12,6 +12,6 @@ abstract class PartnerServicesRepository {
   Future<Either<ApiFailure, List<ServicesCategory>>>
       getPartnerServicesCategories();
 
-  Future<Either<ApiFailure, dynamic>> purchasepackage(
+  Future<Either<ApiFailure, Unit>> purchasepackage(
       PurchasePackageParams params);
 }

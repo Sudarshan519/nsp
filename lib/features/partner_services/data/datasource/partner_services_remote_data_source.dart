@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:http/http.dart' as http;
@@ -18,7 +19,7 @@ abstract class PartnerServicesRemoteDataSource {
     required String page,
   });
   Future<List<ServicesCategoryModel>> getJapaneseMannerCategories();
-  Future<dynamic> purchasePackage(PurchasePackageParams params);
+  Future<Unit> purchasePackage(PurchasePackageParams params);
 }
 
 @LazySingleton(as: PartnerServicesRemoteDataSource)
@@ -168,7 +169,7 @@ class PartnerServicesRemoteDataSourceImpl
   }
 
   @override
-  Future<dynamic> purchasePackage(PurchasePackageParams params) async {
+  Future<Unit> purchasePackage(PurchasePackageParams params) async {
     String url = "";
 
     url =
@@ -202,8 +203,7 @@ class PartnerServicesRemoteDataSourceImpl
     final statusCode = response.statusCode;
 
     if (statusCode == 200) {
-      final responseBody = utf8.decode(response.bodyBytes);
-      return true;
+      return unit;
     } else {
       logger.log(
         className: "PartnerServicesRemoteDataSource",

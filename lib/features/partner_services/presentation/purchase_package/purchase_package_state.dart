@@ -2,9 +2,25 @@ part of 'purchase_package_bloc.dart';
 
 @freezed
 class PurchasePackageState with _$PurchasePackageState {
-  const factory PurchasePackageState.initial() = _Initial;
-  const factory PurchasePackageState.loading() = _Loading;
+  const factory PurchasePackageState({
+    required String customerId,
+    required int packageId,
+    required int serviceId,
+    required String packageName,
+    required double amount,
+    required String remark,
+    required bool isSubmitting,
+    required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
+  }) = _PurchasePackageState;
 
-  const factory PurchasePackageState.loaded(dynamic data) = _Loaded;
-  const factory PurchasePackageState.failure(ApiFailure failure) = _Failure;
+  factory PurchasePackageState.initial() => PurchasePackageState(
+        customerId: '',
+        packageId: 0,
+        serviceId: 0,
+        packageName: '',
+        amount: 0.0,
+        remark: '',
+        isSubmitting: false,
+        failureOrSuccessOption: none(),
+      );
 }
