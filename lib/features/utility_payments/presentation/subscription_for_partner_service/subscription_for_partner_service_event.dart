@@ -7,7 +7,13 @@ class SubscriptionForPartnerServiceEvent
     required String subscriptionId,
   }) = _GetSubscription;
 
-  const factory SubscriptionForPartnerServiceEvent.purchaseSubscription({
-    required ServiceSubscription subscription,
-  }) = _PurchaseSubscription;
+  const factory SubscriptionForPartnerServiceEvent.selectSubscription({
+    required SubscriptionInvoice invoice,
+  }) = _SelectSubscription;
+
+  const factory SubscriptionForPartnerServiceEvent.selectAllSubscription() =
+      _SelectAllSubscription;
+
+  const factory SubscriptionForPartnerServiceEvent.purchaseSubscription() =
+      _PurchaseSubscription;
 }

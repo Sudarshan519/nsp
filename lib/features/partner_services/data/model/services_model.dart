@@ -22,54 +22,62 @@ class ServicesModel extends Services {
       required String? companyAddressHeadCity,
       required String? companyAddressHeadStreet,
       required String? description,
-      required List<ServicePackage> servicePackages})
+      required List<ServicePackage>? servicePackages})
       : super(
-            id: id,
-            // branches: branches,
-            serviceProductName: serviceProductName,
-            category: category,
-            companyName: companyName,
-            companyLogo: companyLogo,
-            serviceUrl: serviceUrl,
-            companyBannerImage: companyBannerImage,
-            salesContactEmail: salesContactEmail,
-            salesContactPhone: salesContactPhone,
-            supportContactEmail: supportContactEmail,
-            supportContactPhone: supportContactPhone,
-            companyAddressHeadCountry: companyAddressHeadCountry,
-            companyAddressHeadPostCode: companyAddressHeadPostCode,
-            companyAddressHeadProvince: companyAddressHeadProvince,
-            companyAddressHeadCity: companyAddressHeadCity,
-            companyAddressHeadStreet: companyAddressHeadStreet,
-            description: description,
-            servicePackages: servicePackages);
+          id: id,
+          // branches: branches,
+          serviceProductName: serviceProductName,
+          category: category,
+          companyName: companyName,
+          companyLogo: companyLogo,
+          serviceUrl: serviceUrl,
+          companyBannerImage: companyBannerImage,
+          salesContactEmail: salesContactEmail,
+          salesContactPhone: salesContactPhone,
+          supportContactEmail: supportContactEmail,
+          supportContactPhone: supportContactPhone,
+          companyAddressHeadCountry: companyAddressHeadCountry,
+          companyAddressHeadPostCode: companyAddressHeadPostCode,
+          companyAddressHeadProvince: companyAddressHeadProvince,
+          companyAddressHeadCity: companyAddressHeadCity,
+          companyAddressHeadStreet: companyAddressHeadStreet,
+          description: description,
+          servicePackages: servicePackages,
+        );
 
   factory ServicesModel.fromJson(Map<String, dynamic> json) => ServicesModel(
-      id: json["id"] as int?,
-      // branches:
-      //     List<dynamic>.from((json["branches"] as Iterable).map((x) => x)),
-      serviceProductName: json["service_product_name"] as String?,
-      category: json["category"] as String?,
-      companyName: json["company_name"] as String?,
-      companyLogo: json["company_logo"] as String?,
-      serviceUrl: json["service_url"] as String?,
-      companyBannerImage: json["company_banner_image"] as String?,
-      salesContactEmail: json["sales_contact_email"] as String?,
-      salesContactPhone: json["sales_contact_phone"] as String?,
-      supportContactEmail: json["support_contact_email"] as String?,
-      supportContactPhone: json["support_contact_phone"] as String?,
-      companyAddressHeadCountry:
-          json["company_address_head_country"] as String?,
-      companyAddressHeadPostCode:
-          json["company_address_head_post_code"] as String?,
-      companyAddressHeadProvince:
-          json["company_address_head_province"] as String?,
-      companyAddressHeadCity: json["company_address_head_city"] as String?,
-      companyAddressHeadStreet: json["company_address_head_street"] as String?,
-      description: json["description"] as String?,
-      servicePackages: List<ServicePackageModel>.from(
-          (json["service_packages"] as Iterable).map(
-              (x) => ServicePackageModel.fromJson(x as Map<String, dynamic>))));
+        id: json["id"] as int?,
+        // branches:
+        //     List<dynamic>.from((json["branches"] as Iterable).map((x) => x)),
+        serviceProductName: json["service_product_name"] as String?,
+        category: json["category"] as String?,
+        companyName: json["company_name"] as String?,
+        companyLogo: json["company_logo"] as String?,
+        serviceUrl: json["service_url"] as String?,
+        companyBannerImage: json["company_banner_image"] as String?,
+        salesContactEmail: json["sales_contact_email"] as String?,
+        salesContactPhone: json["sales_contact_phone"] as String?,
+        supportContactEmail: json["support_contact_email"] as String?,
+        supportContactPhone: json["support_contact_phone"] as String?,
+        companyAddressHeadCountry:
+            json["company_address_head_country"] as String?,
+        companyAddressHeadPostCode:
+            json["company_address_head_post_code"] as String?,
+        companyAddressHeadProvince:
+            json["company_address_head_province"] as String?,
+        companyAddressHeadCity: json["company_address_head_city"] as String?,
+        companyAddressHeadStreet:
+            json["company_address_head_street"] as String?,
+        description: json["description"] as String?,
+        servicePackages: json["service_packages"] == null
+            ? null
+            : List<ServicePackageModel>.from(
+                (json["service_packages"] as Iterable).map(
+                  (x) =>
+                      ServicePackageModel.fromJson(x as Map<String, dynamic>),
+                ),
+              ),
+      );
 
   Map<String, dynamic> toJson() => {
         "id": id,

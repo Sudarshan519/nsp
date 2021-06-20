@@ -29,8 +29,9 @@ class PartnerServicePaymentPage extends StatefulWidget {
 }
 
 class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
-  late bool _isConfirmPage;
-  ServiceSubscription? serviceSubscription;
+  // late bool _isConfirmPage;
+  // ServiceSubscription? serviceSubscription;
+  // int? selectedIndex;
 
   @override
   void initState() {
@@ -70,6 +71,7 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
           children: [
             BalanceWidget(balance: widget.balance),
             _blocConsumer(context),
+            _showProceedButton(context),
           ],
         ),
       ),
@@ -122,10 +124,87 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
           );
         }
 
-        if (_isConfirmPage) {
-          return Expanded(child: subscriptionConfirmationbody(context));
-        }
+        // if (_isConfirmPage) {
+        //   return Expanded(child: subscriptionConfirmationbody(context));
+        // }
         return Expanded(child: subscriptionInformationbody(context));
+      },
+    );
+  }
+
+  Widget _showProceedButton(BuildContext context) {
+    return BlocBuilder<SubscriptionForPartnerServiceBloc,
+        SubscriptionForPartnerServiceState>(
+      builder: (context, state) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Palette.dividerColor,
+            ),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(16.0),
+              topRight: Radius.circular(16.0),
+            ),
+          ),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Palette.dividerColor,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                      color: Palette.white,
+                    ),
+                    child:
+                        // invoice.isSelected
+                        //     ? Icon(Icons.check, color: Palette.white)
+                        //     :
+                        const SizedBox.shrink(),
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    "All",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const Spacer(),
+                  Row(
+                    children: [
+                      const Text(
+                        "Grand Total:",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "4000.00",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: Palette.primary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              _ProceedButton(
+                callback: () {},
+              ),
+            ],
+          ),
+        );
       },
     );
   }
@@ -142,69 +221,82 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
             if (serviceSubscription != null)
               _TransactionDetail(
                 subscription: serviceSubscription!,
-              ),
-            const SizedBox(height: 20),
-            if (serviceSubscription != null)
-              _ProceedButton(
-                callback: () {
+                callback: (index) {
                   setState(() {
-                    _isConfirmPage = true;
+                    selectedIndex = index;
+                    // _isConfirmPage = true;
                   });
                 },
               ),
+            const SizedBox(height: 20),
+            // if (serviceSubscription != null)
+            //   _ProceedButton(
+            //     callback: () {
+            // setState(() {
+            //   _isConfirmPage = true;
+            // });
+            //     },
+            //   ),
           ],
         ),
       ),
     );
   }
 
-  Widget subscriptionConfirmationbody(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            _ConfirmationView(subscription: serviceSubscription!),
-            const SizedBox(height: 40),
-            BlocBuilder<SubscriptionForPartnerServiceBloc,
-                SubscriptionForPartnerServiceState>(
-              builder: (context, state) {
-                return _ConfirmButton(
-                  callback: () {
-                    if (serviceSubscription != null) {
-                      final amount = widget.balance
-                          .replaceAll(",", "")
-                          .replaceAll(' ', '')
-                          .replaceAll("JPY", "");
-                      final amountDouble = double.parse(amount);
-                      final packageAmount =
-                          serviceSubscription?.invoice?.dueAmount ?? 0.0;
+  // Widget subscriptionConfirmationbody(BuildContext context) {
+  //   return Container(
+  //     padding: const EdgeInsets.symmetric(horizontal: 15.0),
+  //     child: SingleChildScrollView(
+  //       child: Column(
+  //         crossAxisAlignment: CrossAxisAlignment.start,
+  //         children: [
+  //           const SizedBox(height: 20),
+  //           _ConfirmationView(
+  //             subscription: serviceSubscription!,
+  //             selectedIndex: selectedIndex!,
+  //           ),
+  //           const SizedBox(height: 40),
+  //           BlocBuilder<SubscriptionForPartnerServiceBloc,
+  //               SubscriptionForPartnerServiceState>(
+  //             builder: (context, state) {
+  //               return _ConfirmButton(
+  //                 callback: () {
+  //                   if (serviceSubscription != null && selectedIndex != null) {
+  //                     final amount = widget.balance
+  //                         .replaceAll(",", "")
+  //                         .replaceAll(' ', '')
+  //                         .replaceAll("JPY", "");
+  //                     final amountDouble = double.parse(amount);
+  //                     final packageAmount = serviceSubscription
+  //                             ?.invoice?[selectedIndex!].dueAmount ??
+  //                         0.0;
 
-                      if (packageAmount <= amountDouble) {
-                        context.read<SubscriptionForPartnerServiceBloc>().add(
-                              SubscriptionForPartnerServiceEvent
-                                  .purchaseSubscription(
-                                subscription: serviceSubscription!,
-                              ),
-                            );
-                      } else {
-                        FlushbarHelper.createError(
-                          message: "Insufficient balance.",
-                        ).show(context);
-                      }
-                    }
-                  },
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-          ],
-        ),
-      ),
-    );
-  }
+  //                     final invoice =
+  //                         serviceSubscription?.invoice?[selectedIndex!];
+
+  //                     if (packageAmount <= amountDouble) {
+  //                       context.read<SubscriptionForPartnerServiceBloc>().add(
+  //                             SubscriptionForPartnerServiceEvent
+  //                                 .purchaseSubscription(
+  //                               invoice: invoice!,
+  //                             ),
+  //                           );
+  //                     } else {
+  //                       FlushbarHelper.createError(
+  //                         message: "Insufficient balance.",
+  //                       ).show(context);
+  //                     }
+  //                   }
+  //                 },
+  //               );
+  //             },
+  //           ),
+  //           const SizedBox(height: 20),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 }
 
 // ignore: must_be_immutable
@@ -222,7 +314,7 @@ class _SubscriptionIdTextField extends StatelessWidget {
               Expanded(
                 child: InputTextWidget(
                   hintText: "1212XXXXXXX",
-                  textInputType: TextInputType.number,
+                  textInputType: TextInputType.emailAddress,
                   value: "",
                   onChanged: (value) {
                     subscriptionId = value;
@@ -270,233 +362,175 @@ class _SubscriptionIdTextField extends StatelessWidget {
 
 class _TransactionDetail extends StatelessWidget {
   final ServiceSubscription subscription;
+  final Function(int) callback;
 
   const _TransactionDetail({
     Key? key,
     required this.subscription,
+    required this.callback,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          // height: 30,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Palette.primary,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Name',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    subscription.invoice?.insuredName ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Invoice Number',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    subscription.invoice?.invoiceNumber ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Plan',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    subscription.invoice?.planName ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Terms',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    subscription.invoice?.paymentType ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Invoice date',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    subscription.invoice?.invoiceDate ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Due date',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    subscription.invoice?.invoiceDueDate ?? 'N/A',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Total Amount',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    '${subscription.invoice?.totalAmount ?? 0.0}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Amount Received',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    '${subscription.invoice?.amountReceived ?? 0.0}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              DashedLineWidget(
-                color: Palette.white,
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Total Paying Amount',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    '${subscription.invoice?.dueAmount ?? 0.0}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 20),
-      ],
+      children: _getSubscriptionList(context),
     );
+  }
+
+  List<Widget> _getSubscriptionList(BuildContext context) {
+    final invoices = subscription.invoice;
+    final widgets = <Widget>[];
+
+    if (invoices != null) {
+      // for (int i = 0; i < invoices.length; i++) {
+      for (final invoice in invoices) {
+        // final invoice = invoices[i];
+        widgets.add(
+          InkWell(
+            onTap: () {
+              // callback(i);
+              invoice.isSelected = !invoice.isSelected;
+              callback(0);
+            },
+            child: Row(
+              children: [
+                Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Palette.dividerColor,
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                    color: invoice.isSelected ? Palette.primary : Palette.white,
+                  ),
+                  child: invoice.isSelected
+                      ? Icon(Icons.check, color: Palette.white)
+                      : const SizedBox.shrink(),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 16),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Palette.dividerColor,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Name',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.black,
+                              ),
+                            ),
+                            Text(
+                              invoice.insuredName ?? '',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Invoice Number',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.black,
+                              ),
+                            ),
+                            Text(
+                              invoice.invoiceNumber ?? '',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Plan',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.black,
+                              ),
+                            ),
+                            Text(
+                              invoice.planName ?? '',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        DashedLineWidget(
+                          color: Palette.black,
+                        ),
+                        const SizedBox(height: 5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Total Paying Amount',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.black,
+                              ),
+                            ),
+                            Text(
+                              '${invoice.dueAmount ?? 0.0}',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+
+        widgets.add(
+          const SizedBox(
+            height: 20,
+          ),
+        );
+      }
+    }
+
+    return widgets;
   }
 }
 
@@ -533,142 +567,145 @@ class _ProceedButton extends StatelessWidget {
 
 //! Conformation View
 
-class _ConfirmationView extends StatelessWidget {
-  final ServiceSubscription subscription;
+// class _ConfirmationView extends StatelessWidget {
+//   final ServiceSubscription subscription;
+//   final int selectedIndex;
 
-  const _ConfirmationView({
-    Key? key,
-    required this.subscription,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: "Name",
-          value: subscription.invoice?.insuredName ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: "Invoice Number",
-          value: subscription.invoice?.invoiceNumber ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Plan',
-          value: subscription.invoice?.planName ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Terms',
-          value: subscription.invoice?.paymentType ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Invoice date',
-          value: subscription.invoice?.invoiceDate ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Due date',
-          value: subscription.invoice?.invoiceDueDate ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Total Amount',
-          value: '${subscription.invoice?.totalAmount ?? 0.0}',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Amount Received',
-          value: '${subscription.invoice?.amountReceived ?? 0.0}',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Total Paying Amount',
-          value: '${subscription.invoice?.dueAmount ?? 0.0}',
-        ),
-      ],
-    );
-  }
-}
+//   const _ConfirmationView({
+//     Key? key,
+//     required this.subscription,
+//     required this.selectedIndex,
+//   }) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: [
+//         const SizedBox(height: 10),
+//         _TransactionDetailRow(
+//           title: "Name",
+//           value: subscription.invoice?[selectedIndex].insuredName ?? '',
+//         ),
+//         const SizedBox(height: 10),
+//         _TransactionDetailRow(
+//           title: "Invoice Number",
+//           value: subscription.invoice?[selectedIndex].invoiceNumber ?? '',
+//         ),
+//         const SizedBox(height: 10),
+//         _TransactionDetailRow(
+//           title: 'Plan',
+//           value: subscription.invoice?[selectedIndex].planName ?? '',
+//         ),
+//         const SizedBox(height: 10),
+//         _TransactionDetailRow(
+//           title: 'Terms',
+//           value: subscription.invoice?[selectedIndex].paymentType ?? '',
+//         ),
+//         const SizedBox(height: 10),
+//         _TransactionDetailRow(
+//           title: 'Invoice date',
+//           value: subscription.invoice?[selectedIndex].invoiceDate ?? '',
+//         ),
+//         const SizedBox(height: 10),
+//         _TransactionDetailRow(
+//           title: 'Due date',
+//           value: subscription.invoice?[selectedIndex].invoiceDueDate ?? '',
+//         ),
+//         const SizedBox(height: 10),
+//         _TransactionDetailRow(
+//           title: 'Total Amount',
+//           value: '${subscription.invoice?[selectedIndex].totalAmount ?? 0.0}',
+//         ),
+//         const SizedBox(height: 10),
+//         _TransactionDetailRow(
+//           title: 'Amount Received',
+//           value:
+//               '${subscription.invoice?[selectedIndex].amountReceived ?? 0.0}',
+//         ),
+//         const SizedBox(height: 10),
+//         _TransactionDetailRow(
+//           title: 'Total Paying Amount',
+//           value: '${subscription.invoice?[selectedIndex].dueAmount ?? 0.0}',
+//         ),
+//       ],
+//     );
+//   }
+// }
 
-class _TransactionDetailRow extends StatelessWidget {
-  final String title;
-  final bool isTitleBold;
-  final String value;
-  final bool isValueBold;
+// class _TransactionDetailRow extends StatelessWidget {
+//   final String title;
+//   final bool isTitleBold;
+//   final String value;
+//   final bool isValueBold;
 
-  const _TransactionDetailRow({
-    Key? key,
-    required this.title,
-    this.isTitleBold = false,
-    required this.value,
-    this.isValueBold = false,
-  }) : super(key: key);
+//   const _TransactionDetailRow({
+//     Key? key,
+//     required this.title,
+//     this.isTitleBold = false,
+//     required this.value,
+//     this.isValueBold = false,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 10,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Palette.dividerColor.withOpacity(0.2),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: isTitleBold ? FontWeight.bold : FontWeight.normal,
-            ),
-          ),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: isValueBold ? FontWeight.bold : FontWeight.normal,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       padding: const EdgeInsets.symmetric(
+//         horizontal: 10,
+//         vertical: 10,
+//       ),
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(10),
+//         color: Palette.dividerColor.withOpacity(0.2),
+//       ),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           Text(
+//             title,
+//             style: TextStyle(
+//               fontSize: 14,
+//               fontWeight: isTitleBold ? FontWeight.bold : FontWeight.normal,
+//             ),
+//           ),
+//           Text(
+//             value,
+//             style: TextStyle(
+//               fontSize: 14,
+//               fontWeight: isValueBold ? FontWeight.bold : FontWeight.normal,
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
-class _ConfirmButton extends StatelessWidget {
-  final Function() callback;
-  const _ConfirmButton({
-    Key? key,
-    required this.callback,
-  }) : super(key: key);
+// class _ConfirmButton extends StatelessWidget {
+//   final Function() callback;
+//   const _ConfirmButton({
+//     Key? key,
+//     required this.callback,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: callback,
-      child: Container(
-        height: 40,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Palette.primary,
-        ),
-        child: Center(
-          child: Text(
-            "Confirm",
-            style: TextStyle(
-              color: Palette.white,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return InkWell(
+//       onTap: callback,
+//       child: Container(
+//         height: 40,
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(20),
+//           color: Palette.primary,
+//         ),
+//         child: Center(
+//           child: Text(
+//             "Confirm",
+//             style: TextStyle(
+//               color: Palette.white,
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

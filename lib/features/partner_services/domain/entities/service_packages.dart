@@ -8,9 +8,9 @@ class ServicePackage extends Equatable {
   final double? packagePrice;
   final bool? isPayable;
   final bool? isActive;
-  final String? updatedBy;
-  final String? createdAt;
-  final String? updatedAt;
+  // final String? updatedBy;
+  // final String? createdAt;
+  // final String? updatedAt;
 
   const ServicePackage({
     this.id,
@@ -20,9 +20,9 @@ class ServicePackage extends Equatable {
     this.packagePrice,
     this.isPayable,
     this.isActive,
-    this.updatedBy,
-    this.createdAt,
-    this.updatedAt,
+    // this.updatedBy,
+    // this.createdAt,
+    // this.updatedAt,
   });
 
   @override

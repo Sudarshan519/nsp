@@ -12,6 +12,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
 class ServicesDetailPage extends StatelessWidget {
+  // final String balance;
   final Services services;
 
   const ServicesDetailPage({
@@ -121,25 +122,65 @@ class ServicesDetailPage extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                               ),
                               const SizedBox(height: 5),
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 4,
-                                  vertical: 2,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                    color: Palette.black.withOpacity(0.3),
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 4,
+                                      vertical: 2,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                        color: Palette.black.withOpacity(0.3),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      services.category ?? "",
+                                      style: TextStyle(
+                                        color: Palette.black.withOpacity(0.7),
+                                        fontSize: 10,
+                                      ),
+                                      overflow: TextOverflow.clip,
+                                    ),
                                   ),
-                                ),
-                                child: Text(
-                                  services.category ?? "",
-                                  style: TextStyle(
-                                    color: Palette.black.withOpacity(0.7),
-                                    fontSize: 10,
+                                  const SizedBox(
+                                    width: 10,
                                   ),
-                                  overflow: TextOverflow.clip,
-                                ),
+                                  if (services.companyName != null &&
+                                      services.companyName!.contains("Mirai"))
+                                    InkWell(
+                                      onTap: () {
+                                        context.pushRoute(
+                                          PartnerServicePaymentRoute(
+                                            balance: "JPY 16,732",
+                                            title: 'Mirai Life Insurance',
+                                          ),
+                                        );
+                                      },
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 4,
+                                          vertical: 2,
+                                        ),
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            // border: Border.all(
+                                            //   color: Palette.black.withOpacity(0.3),
+                                            // ),
+                                            color: Palette.primary),
+                                        child: Text(
+                                          "View/Pay Bills",
+                                          style: TextStyle(
+                                            color: Palette.white,
+                                            fontSize: 10,
+                                          ),
+                                          overflow: TextOverflow.clip,
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
                             ],
                           ),
@@ -191,7 +232,7 @@ class ServicesDetailPage extends StatelessWidget {
               ),
             ],
           ),
-          if (services.servicePackages.isNotEmpty) packageList()
+          if (services.servicePackages?.isNotEmpty ?? false) packageList()
         ],
       ),
     );
@@ -211,16 +252,15 @@ class ServicesDetailPage extends StatelessWidget {
         ListView.separated(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: services.servicePackages.length,
+          itemCount: services.servicePackages?.length ?? 0,
           separatorBuilder: (context, index) => const Divider(
             color: Colors.black54,
             indent: 18,
             endIndent: 18,
           ),
           itemBuilder: (BuildContext context, int index) {
-            final item = services.servicePackages[0];
+            final item = services.servicePackages?[0];
             return ListTile(
-                //
                 leading: Container(
                     width: 60,
                     height: 50,
@@ -235,18 +275,23 @@ class ServicesDetailPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                     )),
-                title: Text(item.packageName!),
+                title: Text(item?.packageName ?? ''),
                 subtitle: Text(
-                  "¥ ${item.packagePrice}",
+                  "¥ ${item?.packagePrice}",
                   style: TextStyle(
                       fontWeight: FontWeight.w700, color: Palette.primary),
                 ),
-                trailing: SizedBox(
+                trailing:
+                    // (item.isPayable ?? false)
+                    //     ?
+                    SizedBox(
                   height: 30,
                   width: 70,
                   child: InkWell(
                     onTap: () {
-                      context.pushRoute(BuyPackageRoute(package: item));
+                      if (item != null) {
+                        context.pushRoute(BuyPackageRoute(package: item));
+                      }
                     },
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -264,7 +309,9 @@ class ServicesDetailPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                ));
+                )
+                // : const SizedBox.shrink(),
+                );
           },
         ),
       ],

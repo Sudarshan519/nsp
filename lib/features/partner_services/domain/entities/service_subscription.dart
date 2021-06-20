@@ -5,7 +5,7 @@ class ServiceSubscription {
   });
 
   final bool? status;
-  final SubscriptionInvoice? invoice;
+  final List<SubscriptionInvoice>? invoice;
 }
 
 class SubscriptionInvoice {
@@ -19,6 +19,7 @@ class SubscriptionInvoice {
     required this.totalAmount,
     required this.amountReceived,
     required this.dueAmount,
+    this.isSelected = false,
   });
 
   final String? insuredName;
@@ -30,4 +31,5 @@ class SubscriptionInvoice {
   final double? totalAmount;
   final double? amountReceived;
   final double? dueAmount;
+  bool isSelected;
 }

@@ -8,7 +8,7 @@ ServiceSubscriptionModel serviceSubscriptionModelFromJson(String str) =>
 class ServiceSubscriptionModel extends ServiceSubscription {
   ServiceSubscriptionModel({
     required bool? status,
-    required SubscriptionInvoiceModel? invoice,
+    required List<SubscriptionInvoiceModel>? invoice,
   }) : super(
           status: status,
           invoice: invoice,
@@ -17,10 +17,14 @@ class ServiceSubscriptionModel extends ServiceSubscription {
   factory ServiceSubscriptionModel.fromJson(Map<String, dynamic> json) =>
       ServiceSubscriptionModel(
         status: json["status"] == null ? null : json["status"] as bool?,
-        invoice: json["invoice"] == null
+        invoice: json["invoices"] == null
             ? null
-            : SubscriptionInvoiceModel.fromJson(
-                json["invoice"] as Map<String, dynamic>),
+            : List<SubscriptionInvoiceModel>.from(
+                (json["invoices"] as Iterable).map(
+                  (x) => SubscriptionInvoiceModel.fromJson(
+                      x as Map<String, dynamic>),
+                ),
+              ),
       );
 }
 
@@ -66,11 +70,18 @@ class SubscriptionInvoiceModel extends SubscriptionInvoice {
         invoiceDueDate: json["invoice_due_date"] as String?,
         totalAmount: json["total_amount"] == null
             ? null
-            : json["total_amount"] as double?,
+            : json["total_amount"] is int
+                ? (json["total_amount"] as int).toDouble()
+                : json["total_amount"] as double?,
         amountReceived: json["amount_received"] == null
             ? null
-            : json["amount_received"] as double?,
-        dueAmount:
-            json["due_amount"] == null ? null : json["due_amount"] as double?,
+            : json["amount_received"] is int
+                ? (json["amount_received"] as int).toDouble()
+                : json["amount_received"] as double?,
+        dueAmount: json["due_amount"] == null
+            ? null
+            : json["due_amount"] is int
+                ? (json["due_amount"] as int).toDouble()
+                : json["due_amount"] as double?,
       );
 }

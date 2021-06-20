@@ -106,8 +106,10 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
   Future<ServiceSubscriptionModel> getSubscriptionDetailForPartnerService({
     required String subscriptionId,
   }) async {
-    final url =
-        "${config.miraiLifeBaseUrl}${config.apiPath}${UtilityPaymentsApiEndpoints.getMiraiSubscription}$subscriptionId";
+    // final url =
+    //     "${config.miraiLifeBaseUrl}${config.apiPath}${UtilityPaymentsApiEndpoints.getMiraiSubscription}$subscriptionId";
+
+    final url = "https://run.mocky.io/v3/33f8f6ab-1ef8-47ca-a2ca-55dbca40f62d";
 
     http.Response response;
 

@@ -19,47 +19,51 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
   final GetSubscriptionDetailForPartnerService
       getSubscriptionDetailForPartnerService;
   final PurchasePackage purchasePackage;
+
   SubscriptionForPartnerServiceBloc({
     required this.getSubscriptionDetailForPartnerService,
     required this.purchasePackage,
   }) : super(const _Initial());
 
+  String? grandTotal;
+  List<SubscriptionInvoice> _invoices = [];
+
   @override
   Stream<SubscriptionForPartnerServiceState> mapEventToState(
     SubscriptionForPartnerServiceEvent event,
   ) async* {
-    yield* event.map(
-      getSubscription: (e) async* {
-        yield const _Loading();
-        final result = await getSubscriptionDetailForPartnerService(
-          GetSubscriptionDetailForPartnerServiceParams(
-            subscriptionId: e.subscriptionId,
-          ),
-        );
-        yield result.fold(
-          (failure) => _Failure(failure, null),
-          (subscription) => _FetchSubscriptionSuccessfully(subscription),
-        );
-      },
-      purchaseSubscription: (e) async* {
-        yield const _Loading();
+    // yield* event.map(
+    //   getSubscription: (e) async* {
+    //     yield const _Loading();
+    //     final result = await getSubscriptionDetailForPartnerService(
+    //       GetSubscriptionDetailForPartnerServiceParams(
+    //         subscriptionId: e.subscriptionId,
+    //       ),
+    //     );
+    //     yield result.fold(
+    //       (failure) => _Failure(failure, null),
+    //       (subscription) => _FetchSubscriptionSuccessfully(subscription),
+    //     );
+    //   },
+    //   purchaseSubscription: (e) async* {
+    //     yield const _Loading();
 
-        final result = await purchasePackage(
-          PurchasePackageParams(
-            customerId: e.subscription.invoice?.insuredName ?? '',
-            remarks: 'mirai package purchase',
-            packageId: 0,
-            packageName: e.subscription.invoice?.planName ?? '',
-            serviceId: int.parse(e.subscription.invoice?.invoiceNumber ?? '0'),
-            amount: e.subscription.invoice?.dueAmount ?? 0.0,
-          ),
-        );
+    //     final result = await purchasePackage(
+    //       PurchasePackageParams(
+    //         customerId: e.invoice.insuredName ?? '',
+    //         remarks: 'mirai package purchase',
+    //         packageId: 0,
+    //         packageName: e.invoice.planName ?? '',
+    //         serviceId: int.parse(e.invoice.invoiceNumber ?? '0'),
+    //         amount: e.invoice.dueAmount ?? 0.0,
+    //       ),
+    //     );
 
-        yield result.fold(
-          (failure) => _Failure(failure, null),
-          (subscription) => const _PurchasedSuccessfully(),
-        );
-      },
-    );
+    //     yield result.fold(
+    //       (failure) => _Failure(failure, null),
+    //       (subscription) => const _PurchasedSuccessfully(),
+    //     );
+    //   },
+    // );
   }
 }
