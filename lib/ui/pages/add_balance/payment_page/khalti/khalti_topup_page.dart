@@ -1,28 +1,30 @@
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:esewa_pnp/esewa.dart';
-import 'package:esewa_pnp/esewa_pnp.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
-import 'package:wallet_app/features/load_balance/presentations/esewa/esewa_form/esewa_form_cubit.dart';
-import 'package:wallet_app/features/load_balance/presentations/esewa/verify_esewa_topup/verify_esewa_topup_bloc.dart';
+import 'package:wallet_app/features/load_balance/presentations/khalti/khalti_form/khalti_form_cubit.dart';
+import 'package:wallet_app/features/load_balance/presentations/khalti/verify_khalti_topup/verify_khalti_topup_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
-import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:flutter_khalti/flutter_khalti.dart';
 
-class EsewaTopupPage extends StatelessWidget {
+class KhaltiTopupPage extends StatelessWidget {
   final PaymentMethod method;
   final double conversionRate;
   final bool isVerified;
   final double balance;
 
-  const EsewaTopupPage({
+  const KhaltiTopupPage({
     Key? key,
     required this.method,
     required this.conversionRate,
@@ -35,10 +37,10 @@ class EsewaTopupPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<VerifyEsewaTopupBloc>(),
+          create: (context) => getIt<VerifyKhaltiTopupBloc>(),
         ),
         BlocProvider(
-          create: (context) => getIt<EsewaFormCubit>(),
+          create: (context) => getIt<KhaltiFormCubit>(),
         ),
       ],
       child: blocBuilderWidget(context),
@@ -46,7 +48,7 @@ class EsewaTopupPage extends StatelessWidget {
   }
 
   Widget blocBuilderWidget(BuildContext context) {
-    return BlocConsumer<VerifyEsewaTopupBloc, VerifyEsewaTopupState>(
+    return BlocConsumer<VerifyKhaltiTopupBloc, VerifyKhaltiTopupState>(
       listener: (context, state) {
         state.map(
           initial: (_) {},
@@ -76,15 +78,15 @@ class EsewaTopupPage extends StatelessWidget {
         );
       },
       builder: (context, state) {
-        if (state == const VerifyEsewaTopupState.loading()) {
+        if (state == const VerifyKhaltiTopupState.loading()) {
           return loadingPage();
         }
-        return esewaFormWidget(context);
+        return khaltiFormWidget(context);
       },
     );
   }
 
-  Widget esewaFormWidget(BuildContext context) {
+  Widget khaltiFormWidget(BuildContext context) {
     return Padding(
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
@@ -105,7 +107,7 @@ class EsewaTopupPage extends StatelessWidget {
             const _PurposeWidget(),
             const SizedBox(height: 10),
             _ProceedButton(
-              onTap: () => _esewaPay(context),
+              onTap: () => _khaltiPay(context),
             ),
             const SizedBox(height: 10),
           ],
@@ -127,9 +129,9 @@ class EsewaTopupPage extends StatelessWidget {
     );
   }
 
-  Future _esewaPay(BuildContext context) async {
-    final amount = context.read<EsewaFormCubit>().state.amount;
-    final purpose = context.read<EsewaFormCubit>().state.purpose;
+  Future _khaltiPay(BuildContext context) async {
+    final amount = context.read<KhaltiFormCubit>().state.amount;
+    final purpose = context.read<KhaltiFormCubit>().state.purpose;
 
     if (amount.isEmpty) {
       FlushbarHelper.createError(message: "The amount cannot be empty.")
@@ -170,36 +172,42 @@ class EsewaTopupPage extends StatelessWidget {
       }
     }
 
-    final ESewaConfiguration _configuration = ESewaConfiguration(
-      clientID: method.merchantId ?? '',
-      secretKey: method.merchantSecret ?? '',
-      environment: ESewaConfiguration.ENVIRONMENT_TEST, //ENVIRONMENT_LIVE
+    // final khaltiTestKey = 'test_public_key_eacadfb91994475d8bebfa577b0bca68';
+    // const khaltiTestKey = 'test_public_key_dc74e0fd57cb46cd93832aee0a390234';
+    //  khalti test -> 9807223827 / 1627
+
+    final FlutterKhalti _flutterKhalti = FlutterKhalti.configure(
+      // paymentPreferences: [KhaltiPaymentPreference.MOBILE_BANKING],
+      publicKey: method.secretKey!, //  method.secretKey!,
+      urlSchemeIOS:
+          "KhaltiPayFlutterExampleScheme", //TODO: url scheme info.plist iOS
+    );
+    final product = KhaltiProduct(
+      id: 'load-balance-from-khalti',
+      amount: amountDoubleInRupees,
+      name: "Load Balance from Khalti",
     );
 
-    final ESewaPnp _eSewaPnp = ESewaPnp(configuration: _configuration);
+    _flutterKhalti.startPayment(
+      product: product,
+      onSuccess: (data) {
+        context.read<VerifyKhaltiTopupBloc>().add(
+              VerifyKhaltiTopupEvent.verify(
+                transactionId: data['id'] as String,
+                amount: amount,
+                purpose: purpose,
+              ),
+            );
+        FlushbarHelper.createSuccess(message: data['message'].toString())
+            .show(context);
+      },
+      onFaliure: (error) {
+        debugPrint(error.toString());
 
-    final ESewaPayment _payment = ESewaPayment(
-      productPrice: amountDoubleInRupees,
-      productName: "Load Balance from Esewa",
-      productID: "load-balance-from-esewa",
-      callBackURL: method.callbackUrl ?? '',
+        FlushbarHelper.createError(message: error['message'].toString())
+            .show(context);
+      },
     );
-
-    try {
-      final _res = await _eSewaPnp.initPayment(payment: _payment);
-      debugPrint(_res.message);
-
-      context.read<VerifyEsewaTopupBloc>().add(
-            VerifyEsewaTopupEvent.verify(
-              transactionId: _res.referenceId,
-              amount: amount,
-              purpose: purpose,
-            ),
-          );
-    } on ESewaPaymentException catch (e) {
-      // TODO: add Log here too.
-      FlushbarHelper.createError(message: e.message).show(context);
-    }
   }
 }
 
@@ -212,7 +220,7 @@ class _ConversionRate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EsewaFormCubit, EsewaFormState>(
+    return BlocBuilder<KhaltiFormCubit, KhaltiFormState>(
       builder: (context, state) {
         if (state.amount.isEmpty) {
           return const SizedBox.shrink();
@@ -246,7 +254,7 @@ class _AmountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      BlocBuilder<EsewaFormCubit, EsewaFormState>(
+      BlocBuilder<KhaltiFormCubit, KhaltiFormState>(
         builder: (context, state) {
           return TextWidetWithLabelAndChild(
             key: state.key,
@@ -256,7 +264,7 @@ class _AmountWidget extends StatelessWidget {
               textInputType: TextInputType.phone,
               value: state.amount,
               onChanged: (value) =>
-                  context.read<EsewaFormCubit>().updateAmountFromForm(value),
+                  context.read<KhaltiFormCubit>().updateAmountFromForm(value),
             ),
           );
         },
@@ -295,10 +303,10 @@ class _AmountFromSuggestionWidget extends StatelessWidget {
   }
 
   Widget buildPriceHelperItem(BuildContext context, String price) {
-    return BlocBuilder<EsewaFormCubit, EsewaFormState>(
+    return BlocBuilder<KhaltiFormCubit, KhaltiFormState>(
       builder: (context, state) {
         return InkWell(
-          onTap: () => context.read<EsewaFormCubit>().updateAmountFromMenu(
+          onTap: () => context.read<KhaltiFormCubit>().updateAmountFromMenu(
                 price.replaceAll(",", ""),
               ),
           child: Container(
@@ -329,7 +337,7 @@ class _PurposeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      BlocBuilder<EsewaFormCubit, EsewaFormState>(
+      BlocBuilder<KhaltiFormCubit, KhaltiFormState>(
         builder: (context, state) {
           return TextWidetWithLabelAndChild(
             title: "Purpose",
@@ -344,7 +352,7 @@ class _PurposeWidget extends StatelessWidget {
                 "Others",
               ],
               onChanged: (value) =>
-                  context.read<EsewaFormCubit>().setPurpose(value ?? ''),
+                  context.read<KhaltiFormCubit>().setPurpose(value ?? ''),
             ),
           );
         },

@@ -27,4 +27,9 @@ abstract class LoadBalanceRepositories {
     required String amount,
     required String purpose,
   });
+  Future<Either<ApiFailure, Unit>> verifyKhaltiTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+  });
 }

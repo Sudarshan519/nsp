@@ -92,4 +92,23 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
+
+  @override
+  Future<Either<ApiFailure, Unit>> verifyKhaltiTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+  }) async {
+    try {
+      return Right(
+        await dataSource.verifyKhaltiTopup(
+          referenceId: referenceId,
+          amount: amount,
+          purpose: purpose,
+        ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
 }

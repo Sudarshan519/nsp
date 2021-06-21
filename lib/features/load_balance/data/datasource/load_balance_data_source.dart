@@ -38,6 +38,11 @@ abstract class LoadBalanceDataSource {
     required String amount,
     required String purpose,
   });
+  Future<Unit> verifyKhaltiTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+  });
 }
 
 @LazySingleton(as: LoadBalanceDataSource)
@@ -180,6 +185,32 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       endpoint: LoadBalanceApiEndpoints.verifyImepayTopup,
       params: params,
       functionName: "verifyImePayTopup",
+    );
+  }
+
+  @override
+  Future<Unit> verifyKhaltiTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+  }) async {
+    final userId = (await auth.getUserDetail()).uuid;
+
+    if (userId?.isEmpty ?? true) {
+      //TODO: user id is empty we have to redirect to login page.
+
+    }
+
+    final params = {
+      "reference_id": referenceId,
+      "product_id": userId,
+      "amount": amount,
+      "purpose": purpose,
+    };
+    return _postRequest(
+      endpoint: LoadBalanceApiEndpoints.verifyEsewaTopup,
+      params: params,
+      functionName: "verifyKhaltiTopup",
     );
   }
 
