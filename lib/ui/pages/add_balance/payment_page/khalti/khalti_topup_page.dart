@@ -177,10 +177,12 @@ class KhaltiTopupPage extends StatelessWidget {
     //  khalti test -> 9807223827 / 1627
 
     final FlutterKhalti _flutterKhalti = FlutterKhalti.configure(
-      // paymentPreferences: [KhaltiPaymentPreference.MOBILE_BANKING],
+      paymentPreferences: [
+        KhaltiPaymentPreference.KHALTI,
+      ],
       publicKey: method.secretKey!, //  method.secretKey!,
-      urlSchemeIOS:
-          "KhaltiPayFlutterExampleScheme", //TODO: url scheme info.plist iOS
+      //TODO: url scheme here and in info.plist iOS
+      urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
     );
     final product = KhaltiProduct(
       id: 'load-balance-from-khalti',
@@ -193,7 +195,7 @@ class KhaltiTopupPage extends StatelessWidget {
       onSuccess: (data) {
         context.read<VerifyKhaltiTopupBloc>().add(
               VerifyKhaltiTopupEvent.verify(
-                transactionId: data['id'] as String,
+                transactionId: data['token'] as String,
                 amount: amount,
                 purpose: purpose,
               ),

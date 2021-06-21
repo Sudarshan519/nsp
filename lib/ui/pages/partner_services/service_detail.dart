@@ -259,7 +259,7 @@ class ServicesDetailPage extends StatelessWidget {
             endIndent: 18,
           ),
           itemBuilder: (BuildContext context, int index) {
-            final item = services.servicePackages?[0];
+            final item = services.servicePackages?[index];
             return ListTile(
                 leading: Container(
                     width: 60,
