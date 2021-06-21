@@ -84,4 +84,31 @@ class SubscriptionInvoiceModel extends SubscriptionInvoice {
                 ? (json["due_amount"] as int).toDouble()
                 : json["due_amount"] as double?,
       );
+
+  Map<String, dynamic> toJson() => {
+        "plan_name": planName,
+        "insured_name": insuredName,
+        "invoice_number": invoiceNumber,
+        "payment_type": paymentType,
+        "invoice_date": invoiceDate,
+        "invoice_due_date": invoiceDueDate,
+        "total_amount": totalAmount,
+        "amount_received": amountReceived,
+        "due_amount": dueAmount,
+      };
+}
+
+extension SubscriptionInvoiceExt on SubscriptionInvoice {
+  SubscriptionInvoiceModel toSubscriptionInvoiceModel() =>
+      SubscriptionInvoiceModel(
+        insuredName: insuredName,
+        planName: planName,
+        invoiceNumber: invoiceNumber,
+        paymentType: paymentType,
+        invoiceDate: invoiceDate,
+        invoiceDueDate: invoiceDueDate,
+        totalAmount: totalAmount,
+        amountReceived: amountReceived,
+        dueAmount: dueAmount,
+      );
 }

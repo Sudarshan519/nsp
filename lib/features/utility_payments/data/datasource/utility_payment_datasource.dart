@@ -25,9 +25,9 @@ abstract class UtilityPaymentDataSource {
     required String subscriptionId,
   });
 
-  // Future<ServiceSubscriptionModel> getSubscriptionDetailForPartnerService({
-  //   required String subscriptionId,
-  // });
+  Future<Unit> paymentForPackagesPurchase({
+    required List<SubscriptionInvoiceModel> invoice,
+  });
 }
 
 @LazySingleton(as: UtilityPaymentDataSource)
@@ -154,6 +154,56 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
         errorText: "Status code: $statusCode",
         errorMessage: response.body,
       );
+      throw ServerException(
+        message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<Unit> paymentForPackagesPurchase({
+    required List<SubscriptionInvoiceModel> invoice,
+  }) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.payMiraiSubscription}";
+
+    final accessToken = (await auth.getWalletUser()).accessToken;
+
+    if (accessToken?.isEmpty ?? true) {
+      //TODO: user access token is empty we have to redirect to login page.
+    }
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    final params = {
+      "invoices": invoice.map((invoice) => invoice.toJson()).toList(),
+      "gps": getIt<GeoLocationManager>().gps,
+    };
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(params),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200 || statusCode == 201) {
+      return unit;
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "paymentForPackages()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+
       throw ServerException(
         message: errorMessageFromServer(response.body) ??
             AppConstants.someThingWentWrong,

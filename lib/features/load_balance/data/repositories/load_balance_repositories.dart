@@ -35,6 +35,7 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
     required String expMonth,
     required String amount,
     required bool saveCard,
+    required bool isSavedCard,
   }) async {
     try {
       return Right(
@@ -46,6 +47,7 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
           expMonth: expMonth,
           amount: amount,
           saveCard: saveCard,
+          isSavedCard: isSavedCard,
         ),
       );
     } on ServerException catch (ex) {

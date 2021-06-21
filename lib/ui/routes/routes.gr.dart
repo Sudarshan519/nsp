@@ -28,7 +28,7 @@ import '../pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart
     as _i27;
 import '../pages/add_balance/payment_page/stripe/stripe_new_card_payment_page.dart'
     as _i28;
-import '../pages/add_balance/payment_page/stripe/stripe_payment_page.dart'
+import '../pages/add_balance/payment_page/stripe/stripe_save_card_payment_page.dart'
     as _i29;
 import '../pages/alerts/alerts_page.dart' as _i23;
 import '../pages/alerts/alerts_tab_page.dart' as _i24;
@@ -271,7 +271,7 @@ class AppRouter extends _i1.RootStackRouter {
             builder: (data) {
               final args = data.argsAs<StripePaymentCardSelectionRouteArgs>();
               return _i27.StripePaymentCardSelectionPage(
-                  key: args.key, balance: args.balance);
+                  key: args.key, balance: args.balance, cards: args.cards);
             }),
     StripeNewCardPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -280,11 +280,12 @@ class AppRouter extends _i1.RootStackRouter {
           return _i28.StripeNewCardPaymentPage(
               key: args.key, balance: args.balance);
         }),
-    StripePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    StripeSaveCardPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<StripePaymentRouteArgs>();
-          return _i29.StripePaymentPage(key: args.key, balance: args.balance);
+          final args = data.argsAs<StripeSaveCardPaymentRouteArgs>();
+          return _i29.StripeSaveCardPaymentPage(
+              key: args.key, balance: args.balance, card: args.card);
         }),
     EsewaTopupRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -424,7 +425,8 @@ class AppRouter extends _i1.RootStackRouter {
             path: '/stripe-payment-card-selection-page'),
         _i1.RouteConfig(StripeNewCardPaymentRoute.name,
             path: '/stripe-new-card-payment-page'),
-        _i1.RouteConfig(StripePaymentRoute.name, path: '/stripe-payment-page'),
+        _i1.RouteConfig(StripeSaveCardPaymentRoute.name,
+            path: '/stripe-save-card-payment-page'),
         _i1.RouteConfig(EsewaTopupRoute.name, path: '/esewa-topup-page'),
         _i1.RouteConfig(BannerDetailRoute.name, path: '/banner-detail-page'),
         _i1.RouteConfig(PdfViewerRoute.name, path: '/pdf-viewer-page'),
@@ -918,21 +920,27 @@ class AddBalanceRouteArgs {
 
 class StripePaymentCardSelectionRoute
     extends _i1.PageRouteInfo<StripePaymentCardSelectionRouteArgs> {
-  StripePaymentCardSelectionRoute({_i2.Key? key, required String balance})
+  StripePaymentCardSelectionRoute(
+      {_i2.Key? key,
+      required String balance,
+      required List<_i53.CreditCard> cards})
       : super(name,
             path: '/stripe-payment-card-selection-page',
             args: StripePaymentCardSelectionRouteArgs(
-                key: key, balance: balance));
+                key: key, balance: balance, cards: cards));
 
   static const String name = 'StripePaymentCardSelectionRoute';
 }
 
 class StripePaymentCardSelectionRouteArgs {
-  const StripePaymentCardSelectionRouteArgs({this.key, required this.balance});
+  const StripePaymentCardSelectionRouteArgs(
+      {this.key, required this.balance, required this.cards});
 
   final _i2.Key? key;
 
   final String balance;
+
+  final List<_i53.CreditCard> cards;
 }
 
 class StripeNewCardPaymentRoute
@@ -953,21 +961,27 @@ class StripeNewCardPaymentRouteArgs {
   final String balance;
 }
 
-class StripePaymentRoute extends _i1.PageRouteInfo<StripePaymentRouteArgs> {
-  StripePaymentRoute({_i2.Key? key, required String balance})
+class StripeSaveCardPaymentRoute
+    extends _i1.PageRouteInfo<StripeSaveCardPaymentRouteArgs> {
+  StripeSaveCardPaymentRoute(
+      {_i2.Key? key, required String balance, required _i53.CreditCard card})
       : super(name,
-            path: '/stripe-payment-page',
-            args: StripePaymentRouteArgs(key: key, balance: balance));
+            path: '/stripe-save-card-payment-page',
+            args: StripeSaveCardPaymentRouteArgs(
+                key: key, balance: balance, card: card));
 
-  static const String name = 'StripePaymentRoute';
+  static const String name = 'StripeSaveCardPaymentRoute';
 }
 
-class StripePaymentRouteArgs {
-  const StripePaymentRouteArgs({this.key, required this.balance});
+class StripeSaveCardPaymentRouteArgs {
+  const StripeSaveCardPaymentRouteArgs(
+      {this.key, required this.balance, required this.card});
 
   final _i2.Key? key;
 
   final String balance;
+
+  final _i53.CreditCard card;
 }
 
 class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {

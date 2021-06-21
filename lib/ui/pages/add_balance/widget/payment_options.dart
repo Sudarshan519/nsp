@@ -10,12 +10,14 @@ class PaymentOptions extends StatelessWidget {
   const PaymentOptions({
     Key? key,
     required this.paymentMethods,
+    required this.creditCards,
     required this.balance,
     required this.conversionRate,
     required this.isVerified,
   }) : super(key: key);
 
   final List<PaymentMethod> paymentMethods;
+  final List<CreditCard> creditCards;
   final String balance;
   final double conversionRate;
   final bool isVerified;
@@ -78,7 +80,12 @@ class PaymentOptions extends StatelessWidget {
     final paymentMethod = paymentMethods[index];
     switch (paymentMethod.type) {
       case "stripe":
-        context.pushRoute(StripePaymentCardSelectionRoute(balance: balance));
+        context.pushRoute(
+          StripePaymentCardSelectionRoute(
+            balance: balance,
+            cards: creditCards,
+          ),
+        );
         break;
       case "esewa":
         showModalBottomSheet(

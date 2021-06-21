@@ -13,6 +13,7 @@ abstract class LoadBalanceRepositories {
     required String expMonth,
     required String amount,
     required bool saveCard,
+    required bool isSavedCard,
   });
 
   Future<Either<ApiFailure, Unit>> verifyImePayTopup({

@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class ServiceSubscription {
   ServiceSubscription({
     required this.status,

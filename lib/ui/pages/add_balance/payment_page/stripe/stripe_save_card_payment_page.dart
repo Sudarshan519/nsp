@@ -3,7 +3,9 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/topup_via_stripe/topup_via_stripe_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
@@ -11,16 +13,19 @@ import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_chi
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
-class StripeNewCardPaymentPage extends StatelessWidget {
+class StripeSaveCardPaymentPage extends StatelessWidget {
   final String balance;
+  final CreditCard card;
 
-  const StripeNewCardPaymentPage({
+  const StripeSaveCardPaymentPage({
     Key? key,
     required this.balance,
+    required this.card,
   }) : super(key: key);
 
   @override
@@ -83,7 +88,7 @@ class StripeNewCardPaymentPage extends StatelessWidget {
         if (state.isSubmitting) {
           return loadingPage();
         }
-        return _formPage(context);
+        return Container(key: state.key, child: _formPage(context));
       },
     );
   }
@@ -104,27 +109,40 @@ class StripeNewCardPaymentPage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    _NameWidget(),
-                    const SizedBox(height: 20),
-                    _CreditCardWidget(),
-                    const SizedBox(height: 20),
-                    _ExpiresWidget(),
-                    const SizedBox(height: 20),
-                    _CvcWidget(),
+                    // _NameWidget(),
+                    Column(
+                      children: [
+                        const Text(
+                          "We accept ",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              'assets/images/top_up/visa.svg',
+                              height: 35.0,
+                            ),
+                            const SizedBox(width: 10),
+                            SvgPicture.asset(
+                              'assets/images/top_up/master-card.svg',
+                              height: 35.0,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 20),
                     _AmountWidget(),
                     const SizedBox(height: 10),
-                    const _SaveCard(),
+                    const _AmountFromSuggestionWidget(),
                     const SizedBox(height: 10),
-                    const Text(
-                      "Debit cards are accepted at some location and for some categories",
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
+                    const _PurposeWidget(),
                     const SizedBox(height: 20),
-                    _ProceedButton(),
+                    _ProceedButton(card: card),
                     const SizedBox(height: 20),
                   ],
                 ),
@@ -135,102 +153,6 @@ class StripeNewCardPaymentPage extends StatelessWidget {
       ),
     );
   }
-}
-
-class _NameWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) =>
-      BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
-        buildWhen: (previous, current) => previous.name != current.name,
-        builder: (context, state) => TextWidetWithLabelAndChild(
-          title: "Name",
-          child: InputTextWidget(
-            hintText: "Cardholder Name",
-            textInputType: TextInputType.name,
-            value: state.name,
-            onChanged: (value) => context
-                .read<TopupViaStripeBloc>()
-                .add(TopupViaStripeEvent.changeName(value)),
-          ),
-        ),
-      );
-}
-
-class _CreditCardWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) =>
-      BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
-        buildWhen: (previous, current) =>
-            previous.cardNumber != current.cardNumber,
-        builder: (context, state) => TextWidetWithLabelAndChild(
-          title: "Credit Card Number",
-          child: InputTextWidget(
-            hintText: "XXXX XXXX XXXX XXXX",
-            textInputType: TextInputType.number,
-            inputFormatters: [
-              MaskedTextInputFormatter(
-                mask: "xxxx xxxx xxxx xxxx",
-                separator: " ",
-              ),
-            ],
-            value: state.cardNumber,
-            onChanged: (value) => context.read<TopupViaStripeBloc>().add(
-                  TopupViaStripeEvent.changeCardNumber(value),
-                ),
-          ),
-        ),
-      );
-}
-
-class _ExpiresWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) =>
-      BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
-        buildWhen: (previous, current) => previous.expYear != current.expYear,
-        builder: (context, state) {
-          return TextWidetWithLabelAndChild(
-            title: "Expires",
-            child: InputTextWidget(
-              hintText: "mm/yyyy",
-              textInputType: TextInputType.number,
-              inputFormatters: [
-                MaskedTextInputFormatter(
-                  mask: "xx/xxxx",
-                  separator: "/",
-                ),
-              ],
-              value: state.expYear,
-              onChanged: (value) => context.read<TopupViaStripeBloc>().add(
-                    TopupViaStripeEvent.changeExpYear(value),
-                  ),
-            ),
-          );
-        },
-      );
-}
-
-class _CvcWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) =>
-      BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
-        buildWhen: (previous, current) => previous.cvc != current.cvc,
-        builder: (context, state) {
-          return TextWidetWithLabelAndChild(
-            title: "CVC",
-            child: InputTextWidget(
-              hintText: "****",
-              textInputType: TextInputType.number,
-              value: state.cvc,
-              inputFormatters: [
-                LengthLimitingTextInputFormatter(4),
-              ],
-              onChanged: (value) => context.read<TopupViaStripeBloc>().add(
-                    TopupViaStripeEvent.changeCvc(value),
-                  ),
-            ),
-          );
-        },
-      );
 }
 
 class _AmountWidget extends StatelessWidget {
@@ -254,47 +176,111 @@ class _AmountWidget extends StatelessWidget {
       );
 }
 
-class _SaveCard extends StatelessWidget {
-  const _SaveCard({
+class _AmountFromSuggestionWidget extends StatelessWidget {
+  const _AmountFromSuggestionWidget({
     Key? key,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
-      builder: (context, state) {
-        return Row(
-          children: [
-            Checkbox(
-              value: state.saveCard,
-              activeColor: Palette.primary,
-              onChanged: (value) => context
-                  .read<TopupViaStripeBloc>()
-                  .add(const TopupViaStripeEvent.changeSaveCard()),
-            ),
-            const Text(
-              "Save Card",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        );
+    final prices = [
+      "100",
+      "200",
+      "500",
+      "1,000",
+      "2,000",
+      "5,000",
+      "10,000",
+      "25,000"
+    ];
+    return SizedBox(
+      height: 30,
+      child: ListView.separated(
+        itemCount: prices.length,
+        scrollDirection: Axis.horizontal,
+        separatorBuilder: (context, index) => const SizedBox(width: 10),
+        itemBuilder: (context, index) => buildPriceHelperItem(
+          context,
+          prices[index],
+        ),
+      ),
+    );
+  }
+
+  Widget buildPriceHelperItem(BuildContext context, String price) {
+    return InkWell(
+      onTap: () {
+        final formattedPrice = price.replaceAll(",", "");
+        context.read<TopupViaStripeBloc>().add(
+              TopupViaStripeEvent.changeAmountFromOptions(formattedPrice),
+            );
       },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          border: Border.all(color: Palette.primary),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Center(
+          child: Text(
+            price,
+            style: TextStyle(
+              color: Palette.primary,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
 
+class _PurposeWidget extends StatelessWidget {
+  const _PurposeWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => TextWidetWithLabelAndChild(
+        title: "Purpose",
+        child: CustomSearchableDropDownWidget(
+          hintText: "Purpose of Transfer",
+          value: '',
+          options: const [
+            "Utilities",
+            "Partner Services",
+            "Bill Payments",
+            "Travel Ticketing",
+            "Others",
+          ],
+          onChanged: (value) {},
+        ),
+      );
+}
+
 class _ProceedButton extends StatelessWidget {
+  final CreditCard card;
+
+  const _ProceedButton({
+    Key? key,
+    required this.card,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
       builder: (context, state) {
         return InkWell(
-          onTap: () => context
-              .read<TopupViaStripeBloc>()
-              .add(const TopupViaStripeEvent.topup(false)),
+          onTap: () {
+            context.read<TopupViaStripeBloc>().add(
+                TopupViaStripeEvent.changeCardNumber(card.cardNumber ?? ''));
+
+            context
+                .read<TopupViaStripeBloc>()
+                .add(TopupViaStripeEvent.changeName(card.name ?? ''));
+            context
+                .read<TopupViaStripeBloc>()
+                .add(const TopupViaStripeEvent.topup(true));
+          },
           child: Container(
             // width: 80,
             height: 40,

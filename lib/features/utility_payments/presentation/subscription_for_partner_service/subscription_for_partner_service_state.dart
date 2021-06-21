@@ -7,8 +7,8 @@ class SubscriptionForPartnerServiceState
   const factory SubscriptionForPartnerServiceState.loading() = _Loading;
   const factory SubscriptionForPartnerServiceState.failure(ApiFailure failure) =
       _Failure;
-  const factory SubscriptionForPartnerServiceState.fetchSubscriptionSuccessfully(
-      ServiceSubscription subscription) = _FetchSubscriptionSuccessfully;
+  const factory SubscriptionForPartnerServiceState.fetchSubscriptionSuccessfully() =
+      _FetchSubscriptionSuccessfully;
   const factory SubscriptionForPartnerServiceState.purchasedSuccessfully() =
       _PurchasedSuccessfully;
 }

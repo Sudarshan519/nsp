@@ -13,4 +13,8 @@ abstract class UtilityPaymentRepository {
       getSubscriptionDetailForPartnerService({
     required String subscriptionId,
   });
+
+  Future<Either<ApiFailure, Unit>> paymentForPackagesPurchase({
+    required List<SubscriptionInvoice> invoice,
+  });
 }

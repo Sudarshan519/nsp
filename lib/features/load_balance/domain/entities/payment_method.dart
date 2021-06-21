@@ -5,11 +5,13 @@ class LoadFund {
     required this.status,
     required this.paymentMethods,
     required this.balance,
+    required this.creditCards,
   });
 
   final bool? status;
   final List<PaymentMethod>? paymentMethods;
   final double? balance;
+  final List<CreditCard>? creditCards;
 
   String get formattedBalance => currencyFormatter(value: balance ?? 0.0);
 }
@@ -50,4 +52,14 @@ class PaymentMethod {
   final String? bseUrl;
   final String? merchantId;
   final String? merchantSecret;
+}
+
+class CreditCard {
+  CreditCard({
+    required this.name,
+    required this.cardNumber,
+  });
+
+  final String? name;
+  final String? cardNumber;
 }

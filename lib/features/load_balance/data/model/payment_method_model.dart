@@ -10,10 +10,12 @@ class LoadFundModel extends LoadFund {
     required bool? status,
     required List<PaymentMethod>? paymentMethods,
     required double? balance,
+    required List<CreditCardModel>? creditCards,
   }) : super(
           balance: balance,
           status: status,
           paymentMethods: paymentMethods,
+          creditCards: creditCards,
         );
 
   factory LoadFundModel.fromJson(Map<String, dynamic> json) => LoadFundModel(
@@ -28,6 +30,13 @@ class LoadFundModel extends LoadFund {
             : (json["balance"] is int?)
                 ? double.parse("${json["balance"] as int? ?? 0}")
                 : json["balance"] as double?,
+        creditCards: json["credit_cards"] == null
+            ? null
+            : List<CreditCardModel>.from(
+                (json["credit_cards"] as Iterable).map(
+                  (x) => CreditCardModel.fromJson(x as Map<String, dynamic>),
+                ),
+              ),
       );
 }
 
@@ -98,4 +107,25 @@ class PaymentMethodsModel extends PaymentMethod {
             ? null
             : json["merchant_secret"] as String?,
       );
+}
+
+class CreditCardModel extends CreditCard {
+  CreditCardModel({
+    required String? name,
+    required String? cardNumber,
+  }) : super(
+          name: name,
+          cardNumber: cardNumber,
+        );
+  factory CreditCardModel.fromJson(Map<String, dynamic> json) =>
+      CreditCardModel(
+        name: json["name"] == null ? null : json["name"] as String?,
+        cardNumber:
+            json["card_number"] == null ? null : json["card_number"] as String?,
+      );
+
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "card_number": cardNumber,
+      };
 }

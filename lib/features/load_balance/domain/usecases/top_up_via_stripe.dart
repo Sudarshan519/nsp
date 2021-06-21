@@ -24,19 +24,28 @@ class TopUpViaStripe
       return const Left(ApiFailure.noInternetConnection());
     }
 
-    if (params.name.isEmpty) {
-      return const Left(
-          ApiFailure.serverError(message: "Cardholder Name cannot be empty"));
-    }
+    final expiry = params.expYear.split("/");
 
-    if (params.cardNumber.isEmpty) {
-      return const Left(
-          ApiFailure.serverError(message: "Card number cannot be empty"));
-    }
+    if (!params.isSavedCard) {
+      if (params.name.isEmpty) {
+        return const Left(
+            ApiFailure.serverError(message: "Cardholder Name cannot be empty"));
+      }
 
-    if (params.cvc.isEmpty) {
-      return const Left(
-          ApiFailure.serverError(message: "CVC number cannot be empty"));
+      if (params.cardNumber.isEmpty) {
+        return const Left(
+            ApiFailure.serverError(message: "Card number cannot be empty"));
+      }
+
+      if (params.cvc.isEmpty) {
+        return const Left(
+            ApiFailure.serverError(message: "CVC number cannot be empty"));
+      }
+
+      if (expiry.length < 2) {
+        return const Left(
+            ApiFailure.serverError(message: "Expiry date is not valid"));
+      }
     }
 
     if (params.amount.isEmpty) {
@@ -50,13 +59,6 @@ class TopUpViaStripe
           message: "Topup amount should be greater than 100"));
     }
 
-    final expiry = params.expYear.split("/");
-
-    if (expiry.length < 2) {
-      return const Left(
-          ApiFailure.serverError(message: "Expiry date is not valid"));
-    }
-
     return repository.topupViaStripe(
       name: params.name,
       cardNumber: params.cardNumber,
@@ -65,6 +67,7 @@ class TopUpViaStripe
       expMonth: expiry.first,
       amount: params.amount,
       saveCard: params.saveCard,
+      isSavedCard: params.isSavedCard,
     );
   }
 }
@@ -77,6 +80,7 @@ class TopUpViaStripeParams {
     required this.expYear,
     required this.amount,
     required this.saveCard,
+    required this.isSavedCard,
   });
 
   final String name;
@@ -85,4 +89,5 @@ class TopUpViaStripeParams {
   final String expYear;
   final String amount;
   final bool saveCard;
+  final bool isSavedCard;
 }

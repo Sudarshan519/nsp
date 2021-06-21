@@ -8,62 +8,113 @@ import 'package:wallet_app/features/partner_services/domain/entities/service_sub
 import 'package:wallet_app/features/partner_services/domain/usecase/get_partner_services.dart';
 import 'package:wallet_app/features/partner_services/domain/usecase/purchase_package.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/get_subscription_detail_for_partner_service.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/purchase_subscription_from_partner_service.dart';
 
 part 'subscription_for_partner_service_event.dart';
 part 'subscription_for_partner_service_state.dart';
 part 'subscription_for_partner_service_bloc.freezed.dart';
 
-@injectable
+@singleton
 class SubscriptionForPartnerServiceBloc extends Bloc<
     SubscriptionForPartnerServiceEvent, SubscriptionForPartnerServiceState> {
   final GetSubscriptionDetailForPartnerService
       getSubscriptionDetailForPartnerService;
-  final PurchasePackage purchasePackage;
+
+  final PurchaseSubscriptionFromPartnerService
+      purchaseSubscriptionFromPartnerService;
 
   SubscriptionForPartnerServiceBloc({
     required this.getSubscriptionDetailForPartnerService,
-    required this.purchasePackage,
+    required this.purchaseSubscriptionFromPartnerService,
   }) : super(const _Initial());
 
   String? grandTotal;
-  List<SubscriptionInvoice> _invoices = [];
+  bool isAllSelected = false;
+  List<SubscriptionInvoice> invoices = [];
 
   @override
   Stream<SubscriptionForPartnerServiceState> mapEventToState(
     SubscriptionForPartnerServiceEvent event,
   ) async* {
-    // yield* event.map(
-    //   getSubscription: (e) async* {
-    //     yield const _Loading();
-    //     final result = await getSubscriptionDetailForPartnerService(
-    //       GetSubscriptionDetailForPartnerServiceParams(
-    //         subscriptionId: e.subscriptionId,
-    //       ),
-    //     );
-    //     yield result.fold(
-    //       (failure) => _Failure(failure, null),
-    //       (subscription) => _FetchSubscriptionSuccessfully(subscription),
-    //     );
-    //   },
-    //   purchaseSubscription: (e) async* {
-    //     yield const _Loading();
+    yield* event.map(
+      getSubscription: (e) async* {
+        yield const _Loading();
+        final result = await getSubscriptionDetailForPartnerService(
+          GetSubscriptionDetailForPartnerServiceParams(
+            subscriptionId: e.subscriptionId,
+          ),
+        );
+        yield result.fold(
+          (failure) => _Failure(failure),
+          (subscription) {
+            invoices = subscription.invoice ?? [];
+            return const _FetchSubscriptionSuccessfully();
+          },
+        );
+      },
+      purchaseSubscription: (e) async* {
+        yield const _Loading();
 
-    //     final result = await purchasePackage(
-    //       PurchasePackageParams(
-    //         customerId: e.invoice.insuredName ?? '',
-    //         remarks: 'mirai package purchase',
-    //         packageId: 0,
-    //         packageName: e.invoice.planName ?? '',
-    //         serviceId: int.parse(e.invoice.invoiceNumber ?? '0'),
-    //         amount: e.invoice.dueAmount ?? 0.0,
-    //       ),
-    //     );
+        final List<SubscriptionInvoice> newInvoices = [];
 
-    //     yield result.fold(
-    //       (failure) => _Failure(failure, null),
-    //       (subscription) => const _PurchasedSuccessfully(),
-    //     );
-    //   },
-    // );
+        for (final invoice in invoices) {
+          if (invoice.isSelected) {
+            newInvoices.add(invoice);
+          }
+        }
+
+        final result = await purchaseSubscriptionFromPartnerService(
+          PurchaseSubscriptionFromPartnerServiceParams(
+            invoice: newInvoices,
+          ),
+        );
+
+        yield result.fold(
+          (failure) => _Failure(failure),
+          (subscription) => const _PurchasedSuccessfully(),
+        );
+      },
+      selectAllSubscription: (e) async* {
+        for (final invoice in invoices) {
+          invoice.isSelected = true;
+        }
+
+        countGrandTotal();
+
+        isAllSelected = true;
+        yield const _Loading();
+        yield const _FetchSubscriptionSuccessfully();
+      },
+      selectSubscription: (e) async* {
+        final invoice = e.invoice;
+        final index = invoices.indexOf(invoice);
+        invoices[index].isSelected = !invoices[index].isSelected;
+
+        bool _isAllSelected = true;
+        for (final newInvoice in invoices) {
+          if (newInvoice.isSelected == false) {
+            _isAllSelected = false;
+            break;
+          }
+        }
+        isAllSelected = _isAllSelected;
+
+        countGrandTotal();
+
+        yield const _Loading();
+        yield const _FetchSubscriptionSuccessfully();
+      },
+    );
+  }
+
+  void countGrandTotal() {
+    double total = 0;
+    for (final invoice in invoices) {
+      if (invoice.isSelected) {
+        final amount = invoice.dueAmount ?? 0.0;
+        total = total + amount;
+      }
+    }
+    grandTotal = total.toStringAsFixed(2);
   }
 }

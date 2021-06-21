@@ -87,10 +87,12 @@ class AddBalancePage extends StatelessWidget {
         ShadowBoxWidget(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: PaymentOptions(
-              balance: loadFund?.formattedBalance ?? 'JPY XX.XX',
-              paymentMethods: loadFund?.paymentMethods ?? [],
-              conversionRate: conversionRate,
-              isVerified: isVerified),
+            balance: loadFund?.formattedBalance ?? 'JPY XX.XX',
+            paymentMethods: loadFund?.paymentMethods ?? [],
+            conversionRate: conversionRate,
+            isVerified: isVerified,
+            creditCards: loadFund?.creditCards ?? [],
+          ),
         ),
       ],
     );

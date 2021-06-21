@@ -564,11 +564,8 @@ class _$SubscriptionForPartnerServiceStateTearOff {
     );
   }
 
-  _FetchSubscriptionSuccessfully fetchSubscriptionSuccessfully(
-      ServiceSubscription subscription) {
-    return _FetchSubscriptionSuccessfully(
-      subscription,
-    );
+  _FetchSubscriptionSuccessfully fetchSubscriptionSuccessfully() {
+    return const _FetchSubscriptionSuccessfully();
   }
 
   _PurchasedSuccessfully purchasedSuccessfully() {
@@ -587,8 +584,7 @@ mixin _$SubscriptionForPartnerServiceState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ApiFailure failure) failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) =>
       throw _privateConstructorUsedError;
@@ -597,8 +593,7 @@ mixin _$SubscriptionForPartnerServiceState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ApiFailure failure)? failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) =>
@@ -686,8 +681,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ApiFailure failure) failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
     return initial();
@@ -699,8 +693,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ApiFailure failure)? failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {
@@ -787,8 +780,7 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ApiFailure failure) failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
     return loading();
@@ -800,8 +792,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ApiFailure failure)? failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {
@@ -922,8 +913,7 @@ class _$_Failure implements _Failure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ApiFailure failure) failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
     return failure(this.failure);
@@ -935,8 +925,7 @@ class _$_Failure implements _Failure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ApiFailure failure)? failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {
@@ -993,7 +982,6 @@ abstract class _$FetchSubscriptionSuccessfullyCopyWith<$Res> {
           _FetchSubscriptionSuccessfully value,
           $Res Function(_FetchSubscriptionSuccessfully) then) =
       __$FetchSubscriptionSuccessfullyCopyWithImpl<$Res>;
-  $Res call({ServiceSubscription subscription});
 }
 
 /// @nodoc
@@ -1008,52 +996,26 @@ class __$FetchSubscriptionSuccessfullyCopyWithImpl<$Res>
   @override
   _FetchSubscriptionSuccessfully get _value =>
       super._value as _FetchSubscriptionSuccessfully;
-
-  @override
-  $Res call({
-    Object? subscription = freezed,
-  }) {
-    return _then(_FetchSubscriptionSuccessfully(
-      subscription == freezed
-          ? _value.subscription
-          : subscription // ignore: cast_nullable_to_non_nullable
-              as ServiceSubscription,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_FetchSubscriptionSuccessfully
     implements _FetchSubscriptionSuccessfully {
-  const _$_FetchSubscriptionSuccessfully(this.subscription);
-
-  @override
-  final ServiceSubscription subscription;
+  const _$_FetchSubscriptionSuccessfully();
 
   @override
   String toString() {
-    return 'SubscriptionForPartnerServiceState.fetchSubscriptionSuccessfully(subscription: $subscription)';
+    return 'SubscriptionForPartnerServiceState.fetchSubscriptionSuccessfully()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _FetchSubscriptionSuccessfully &&
-            (identical(other.subscription, subscription) ||
-                const DeepCollectionEquality()
-                    .equals(other.subscription, subscription)));
+    return identical(this, other) || (other is _FetchSubscriptionSuccessfully);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(subscription);
-
-  @JsonKey(ignore: true)
-  @override
-  _$FetchSubscriptionSuccessfullyCopyWith<_FetchSubscriptionSuccessfully>
-      get copyWith => __$FetchSubscriptionSuccessfullyCopyWithImpl<
-          _FetchSubscriptionSuccessfully>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -1061,11 +1023,10 @@ class _$_FetchSubscriptionSuccessfully
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ApiFailure failure) failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
-    return fetchSubscriptionSuccessfully(subscription);
+    return fetchSubscriptionSuccessfully();
   }
 
   @override
@@ -1074,13 +1035,12 @@ class _$_FetchSubscriptionSuccessfully
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ApiFailure failure)? failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {
     if (fetchSubscriptionSuccessfully != null) {
-      return fetchSubscriptionSuccessfully(subscription);
+      return fetchSubscriptionSuccessfully();
     }
     return orElse();
   }
@@ -1119,13 +1079,8 @@ class _$_FetchSubscriptionSuccessfully
 
 abstract class _FetchSubscriptionSuccessfully
     implements SubscriptionForPartnerServiceState {
-  const factory _FetchSubscriptionSuccessfully(
-      ServiceSubscription subscription) = _$_FetchSubscriptionSuccessfully;
-
-  ServiceSubscription get subscription => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$FetchSubscriptionSuccessfullyCopyWith<_FetchSubscriptionSuccessfully>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory _FetchSubscriptionSuccessfully() =
+      _$_FetchSubscriptionSuccessfully;
 }
 
 /// @nodoc
@@ -1171,8 +1126,7 @@ class _$_PurchasedSuccessfully implements _PurchasedSuccessfully {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(ApiFailure failure) failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
     return purchasedSuccessfully();
@@ -1184,8 +1138,7 @@ class _$_PurchasedSuccessfully implements _PurchasedSuccessfully {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(ApiFailure failure)? failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {
