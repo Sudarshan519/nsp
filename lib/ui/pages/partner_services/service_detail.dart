@@ -261,57 +261,53 @@ class ServicesDetailPage extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final item = services.servicePackages?[index];
             return ListTile(
-                leading: Container(
-                    width: 60,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(8)),
-                      color: Palette.primary,
+              leading: Container(
+                  width: 60,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(8)),
+                    color: Palette.primary,
+                  ),
+                  child: SizedBox(
+                    child: SvgPicture.asset(
+                      'assets/images/services/icon-package.svg',
+                      fit: BoxFit.scaleDown,
+                      color: Colors.white,
                     ),
-                    child: SizedBox(
-                      child: SvgPicture.asset(
-                        'assets/images/services/icon-package.svg',
-                        fit: BoxFit.scaleDown,
-                        color: Colors.white,
-                      ),
-                    )),
-                title: Text(item?.packageName ?? ''),
-                subtitle: Text(
-                  "¥ ${item?.packagePrice}",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w700, color: Palette.primary),
-                ),
-                trailing:
-                    // (item.isPayable ?? false)
-                    //     ?
-                    SizedBox(
-                  height: 30,
-                  width: 70,
-                  child: InkWell(
-                    onTap: () {
-                      if (item != null) {
-                        context.pushRoute(BuyPackageRoute(package: item));
-                      }
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Palette.primary),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Buy',
-                          style: TextStyle(
-                            color: Palette.primary,
+                  )),
+              title: Text(item?.packageName ?? ''),
+              subtitle: Text(
+                "¥ ${item?.packagePrice}",
+                style: TextStyle(
+                    fontWeight: FontWeight.w700, color: Palette.primary),
+              ),
+              trailing: (item!.isPayable ?? false)
+                  ? SizedBox(
+                      height: 30,
+                      width: 70,
+                      child: InkWell(
+                        onTap: () {
+                          context.pushRoute(BuyPackageRoute(package: item));
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Palette.primary),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Buy',
+                              style: TextStyle(
+                                color: Palette.primary,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                )
-                // : const SizedBox.shrink(),
-                );
+                    )
+                  : const SizedBox.shrink(),
+            );
           },
         ),
       ],
