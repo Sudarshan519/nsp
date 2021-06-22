@@ -39,7 +39,7 @@ abstract class LoadBalanceDataSource {
     required String purpose,
   });
   Future<Unit> verifyKhaltiTopup({
-    required String referenceId,
+    required String token,
     required String amount,
     required String purpose,
   });
@@ -190,7 +190,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
 
   @override
   Future<Unit> verifyKhaltiTopup({
-    required String referenceId,
+    required String token,
     required String amount,
     required String purpose,
   }) async {
@@ -202,13 +202,13 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     }
 
     final params = {
-      "reference_id": referenceId,
+      "token": token,
       "product_id": userId,
       "amount": amount,
       "purpose": purpose,
     };
     return _postRequest(
-      endpoint: LoadBalanceApiEndpoints.verifyEsewaTopup,
+      endpoint: LoadBalanceApiEndpoints.verifyKhaltiTopup,
       params: params,
       functionName: "verifyKhaltiTopup",
     );

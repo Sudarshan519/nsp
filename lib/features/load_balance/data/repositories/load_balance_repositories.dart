@@ -102,7 +102,7 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
     try {
       return Right(
         await dataSource.verifyKhaltiTopup(
-          referenceId: referenceId,
+          token: referenceId,
           amount: amount,
           purpose: purpose,
         ),

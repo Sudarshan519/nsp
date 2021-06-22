@@ -172,22 +172,27 @@ class KhaltiTopupPage extends StatelessWidget {
       }
     }
 
-    // final khaltiTestKey = 'test_public_key_eacadfb91994475d8bebfa577b0bca68';
-    // const khaltiTestKey = 'test_public_key_dc74e0fd57cb46cd93832aee0a390234';
+    if (method.publicKey == null) {
+      FlushbarHelper.createError(message: "Error in Khalti Payment.")
+          .show(context);
+    }
+
     //  khalti test -> 9807223827 / 1627
 
     final FlutterKhalti _flutterKhalti = FlutterKhalti.configure(
       paymentPreferences: [
         KhaltiPaymentPreference.KHALTI,
       ],
-      publicKey: method.secretKey!, //  method.secretKey!,
+      publicKey: method.publicKey ?? '', //  method.secretKey!,
+
       //TODO: url scheme here and in info.plist iOS
       urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
     );
+
     final product = KhaltiProduct(
       id: 'load-balance-from-khalti',
       amount: amountDoubleInRupees *
-          100, // Multiplying by 100 bc amt should b in paisa
+          100, // Multiplying by 100 bc amt should be in paisa
       name: "Load Balance from Khalti",
     );
 
@@ -197,12 +202,10 @@ class KhaltiTopupPage extends StatelessWidget {
         context.read<VerifyKhaltiTopupBloc>().add(
               VerifyKhaltiTopupEvent.verify(
                 transactionId: data['token'] as String,
-                amount: amount,
+                amount: "$amountDoubleInRupees",
                 purpose: purpose,
               ),
             );
-        FlushbarHelper.createSuccess(message: data['message'].toString())
-            .show(context);
       },
       onFaliure: (error) {
         debugPrint(error.toString());
