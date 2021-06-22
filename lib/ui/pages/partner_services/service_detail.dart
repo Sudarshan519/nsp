@@ -281,7 +281,7 @@ class ServicesDetailPage extends StatelessWidget {
                 style: TextStyle(
                     fontWeight: FontWeight.w700, color: Palette.primary),
               ),
-              trailing: (item!.isPayable ?? false)
+              trailing: (item?.isPayable ?? false)
                   ? SizedBox(
                       height: 30,
                       width: 70,
