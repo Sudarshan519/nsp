@@ -186,7 +186,8 @@ class KhaltiTopupPage extends StatelessWidget {
     );
     final product = KhaltiProduct(
       id: 'load-balance-from-khalti',
-      amount: amountDoubleInRupees,
+      amount: amountDoubleInRupees *
+          100, // Multiplying by 100 bc amt should b in paisa
       name: "Load Balance from Khalti",
     );
 
