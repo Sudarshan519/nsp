@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/presentation/subscription_for_partner_service/subscription_for_partner_service_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
@@ -76,6 +77,8 @@ class PartnerServicePaymentPage extends StatelessWidget {
           fetchSubscriptionSuccessfully: (result) {},
           purchasedSuccessfully: (_) {
             getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+            getIt<TransactionBloc>()
+                .add(const TransactionEvent.fetchTransactionData());
             showDialog(
               context: context,
               builder: (_) => PopUpSuccessOverLay(
@@ -111,7 +114,8 @@ class PartnerServicePaymentPage extends StatelessWidget {
           return const SizedBox.shrink();
         }
 
-        final invoices = getIt<SubscriptionForPartnerServiceBloc>().invoices;
+        final invoices =
+            context.read<SubscriptionForPartnerServiceBloc>().invoices;
         if (invoices.isEmpty) {
           return const SizedBox.shrink();
         }
@@ -144,12 +148,14 @@ class PartnerServicePaymentPage extends StatelessWidget {
                           color: Palette.dividerColor,
                         ),
                         borderRadius: BorderRadius.circular(15),
-                        color: getIt<SubscriptionForPartnerServiceBloc>()
+                        color: context
+                                .read<SubscriptionForPartnerServiceBloc>()
                                 .isAllSelected
                             ? Palette.primary
                             : Palette.white,
                       ),
-                      child: getIt<SubscriptionForPartnerServiceBloc>()
+                      child: context
+                              .read<SubscriptionForPartnerServiceBloc>()
                               .isAllSelected
                           ? Icon(Icons.check, color: Palette.white)
                           : const SizedBox.shrink(),
@@ -175,7 +181,9 @@ class PartnerServicePaymentPage extends StatelessWidget {
                       ),
                       const SizedBox(width: 10),
                       Text(
-                        getIt<SubscriptionForPartnerServiceBloc>().grandTotal ??
+                        context
+                                .read<SubscriptionForPartnerServiceBloc>()
+                                .grandTotal ??
                             "",
                         style: TextStyle(
                           fontSize: 14,
@@ -213,7 +221,8 @@ class PartnerServicePaymentPage extends StatelessWidget {
             const SizedBox(height: 20),
             _SubscriptionIdTextField(),
             _TransactionDetail(
-              invoices: getIt<SubscriptionForPartnerServiceBloc>().invoices,
+              invoices:
+                  context.read<SubscriptionForPartnerServiceBloc>().invoices,
             ),
             const SizedBox(height: 20),
           ],

@@ -187,7 +187,7 @@ import '../features/transaction/domain/repository/transaction_repository.dart'
     as _i63;
 import '../features/transaction/domain/usecase/get_transaction.dart' as _i95;
 import '../features/transaction/presentation/transaction/transaction_bloc.dart'
-    as _i117;
+    as _i130;
 import '../features/utility_payments/data/datasource/utility_payment_datasource.dart'
     as _i73;
 import '../features/utility_payments/data/repository/utility_payment_repository.dart'
@@ -199,11 +199,11 @@ import '../features/utility_payments/domain/usecases/get_subscription_detail_for
 import '../features/utility_payments/domain/usecases/purchase_subscription_from_partner_service.dart'
     as _i111;
 import '../features/utility_payments/domain/usecases/topup_balance_for_mobile.dart'
-    as _i115;
-import '../features/utility_payments/presentation/subscription_for_partner_service/subscription_for_partner_service_bloc.dart'
-    as _i130;
-import '../features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart'
     as _i116;
+import '../features/utility_payments/presentation/subscription_for_partner_service/subscription_for_partner_service_bloc.dart'
+    as _i115;
+import '../features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart'
+    as _i117;
 import '../utils/config_reader.dart' as _i12;
 import 'injectable/data_connection_checker_injectable_module.dart' as _i134;
 import 'injectable/flutter_secure_storage_module.dart' as _i132;
@@ -523,15 +523,19 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.factory<_i114.SignUpFormBloc>(() => _i114.SignUpFormBloc(
       signUpWithEmailUsecase:
           get<_i58.SignUpWithEmailPasswordAndUserDetail>()));
-  gh.lazySingleton<_i115.TopUpBalanceForMobile>(() =>
-      _i115.TopUpBalanceForMobile(
+  gh.factory<_i115.SubscriptionForPartnerServiceBloc>(() =>
+      _i115.SubscriptionForPartnerServiceBloc(
+          getSubscriptionDetailForPartnerService:
+              get<_i94.GetSubscriptionDetailForPartnerService>(),
+          purchaseSubscriptionFromPartnerService:
+              get<_i111.PurchaseSubscriptionFromPartnerService>()));
+  gh.lazySingleton<_i116.TopUpBalanceForMobile>(() =>
+      _i116.TopUpBalanceForMobile(
           networkInfo: get<_i13.NetworkInfo>(),
           repository: get<_i74.UtilityPaymentRepository>()));
-  gh.factory<_i116.TopUpBalanceInMobileBloc>(() =>
-      _i116.TopUpBalanceInMobileBloc(
-          topUpBalanceForMobile: get<_i115.TopUpBalanceForMobile>()));
-  gh.factory<_i117.TransactionBloc>(
-      () => _i117.TransactionBloc(getTransaction: get<_i95.GetTransactions>()));
+  gh.factory<_i117.TopUpBalanceInMobileBloc>(() =>
+      _i117.TopUpBalanceInMobileBloc(
+          topUpBalanceForMobile: get<_i116.TopUpBalanceForMobile>()));
   gh.factory<_i118.UpdateProfileBloc>(() => _i118.UpdateProfileBloc(
       updateKycInfo: get<_i67.UpdateKycInfo>(),
       updateResumeImage: get<_i71.UpdateResumeImage>(),
@@ -567,12 +571,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i109.GetPartnerServicesCategories(
           repository: get<_i48.PartnerServicesRepository>(),
           networkInfo: get<_i13.NetworkInfo>()));
-  gh.singleton<_i130.SubscriptionForPartnerServiceBloc>(
-      _i130.SubscriptionForPartnerServiceBloc(
-          getSubscriptionDetailForPartnerService:
-              get<_i94.GetSubscriptionDetailForPartnerService>(),
-          purchaseSubscriptionFromPartnerService:
-              get<_i111.PurchaseSubscriptionFromPartnerService>()));
+  gh.singleton<_i130.TransactionBloc>(
+      _i130.TransactionBloc(getTransaction: get<_i95.GetTransactions>()));
   gh.singleton<_i123.GetJapaneseManner>(_i123.GetJapaneseManner(
       repository: get<_i97.JapaneseMannerRepository>(),
       networkInfo: get<_i13.NetworkInfo>()));

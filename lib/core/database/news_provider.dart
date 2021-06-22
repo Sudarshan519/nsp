@@ -76,9 +76,7 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
     if (sourceJson != null && sourceJson.isNotEmpty) {
       for (final sourceObject in sourceJson) {
         final source = sourceObject[NewsSourceTable.tableNewsSource] as String;
-        if (source != null) {
-          sourceList.add(source);
-        }
+        sourceList.add(source);
       }
     }
 

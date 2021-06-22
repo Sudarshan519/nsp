@@ -16,8 +16,7 @@ class VerifyUserPage extends StatelessWidget {
   const VerifyUserPage({
     Key? key,
     required this.email,
-  })  : assert(email != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

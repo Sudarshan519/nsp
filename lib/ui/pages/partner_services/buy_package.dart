@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_packages.dart';
 import 'package:wallet_app/features/partner_services/presentation/purchase_package/purchase_package_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/profile_page/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -62,6 +63,8 @@ class BuyPackagePage extends StatelessWidget {
             },
             (success) {
               getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<TransactionBloc>()
+                  .add(const TransactionEvent.fetchTransactionData());
               showDialog(
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(

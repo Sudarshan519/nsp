@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
 
@@ -18,7 +19,7 @@ class GeoLocationManager {
       // Location services are not enabled don't continue
       // accessing the position and request users of the
       // App to enable the location services.
-      print('Location services are disabled.');
+      debugPrint('Location services are disabled.');
       return;
     }
 
@@ -31,14 +32,14 @@ class GeoLocationManager {
         // Android's shouldShowRequestPermissionRationale
         // returned true. According to Android guidelines
         // your App should show an explanatory UI now.
-        print('Location permissions are denied');
+        debugPrint('Location permissions are denied');
         return;
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
       // Permissions are denied forever, handle appropriately.
-      print(
+      debugPrint(
           'Location permissions are permanently denied, we cannot request permissions.');
       return;
     }
@@ -48,9 +49,9 @@ class GeoLocationManager {
         desiredAccuracy: LocationAccuracy.high,
       );
       _latLng = '${position.latitude}:${position.longitude}';
-      print(_latLng);
+      debugPrint(_latLng);
     } catch (ex) {
-      print(ex);
+      debugPrint(ex.toString());
     }
   }
 }

@@ -7,7 +7,7 @@ class HomeData extends Equatable {
   });
 
   final String? type;
-  final dynamic? data;
+  final dynamic data;
 
   @override
   List<Object> get props => [];

@@ -22,10 +22,6 @@ class TransactionPage extends StatelessWidget {
             color: Palette.white,
           ),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
         centerTitle: true,
         backgroundColor: Palette.primary,
         elevation: 0,
@@ -34,6 +30,7 @@ class TransactionPage extends StatelessWidget {
         child: Column(
           children: [
             showBalance(),
+            const SizedBox(height: 20),
             body(),
           ],
         ),
@@ -71,22 +68,18 @@ class TransactionPage extends StatelessWidget {
 
   Widget body() {
     return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: const [
-              SizedBox(height: 20),
-              BNPJCard(),
-              SizedBox(height: 20),
-              Text(
-                'Latest Transactions',
-                style: TextStyle(fontWeight: FontWeight.w700),
-              ),
-              TransactionBlocView()
-            ],
-          ),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            BNPJCard(),
+            SizedBox(height: 20),
+            Text(
+              'Latest Transactions',
+              style: TextStyle(fontWeight: FontWeight.w700),
+            ),
+            TransactionListPage()
+          ],
         ),
       ),
     );

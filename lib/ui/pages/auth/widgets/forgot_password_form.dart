@@ -97,15 +97,17 @@ class ForgetPasswordFormWidget extends StatelessWidget {
         SizedBox(
           height: 40,
           width: double.maxFinite,
-          child: FlatButton(
+          child: TextButton(
             onPressed: () {
               context
                   .read<PasswordResetBloc>()
                   .add(PasswordResetEvent.getResetCode(_email));
             },
-            color: Palette.primary,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+            style: TextButton.styleFrom(
+              backgroundColor: Palette.primary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
             ),
             child: Text(
               "Reset Password",
@@ -205,20 +207,22 @@ class ForgetPasswordFormWidget extends StatelessWidget {
           SizedBox(
             height: 40,
             width: double.maxFinite,
-            child: FlatButton(
+            child: TextButton(
               onPressed: () {
-                context
-                    .read<PasswordResetBloc>()
-                    .add(PasswordResetEvent.resetPassword(
-                      email: _email,
-                      code: _code,
-                      password: _password,
-                      verificationPassword: _verifyPassword,
-                    ));
+                context.read<PasswordResetBloc>().add(
+                      PasswordResetEvent.resetPassword(
+                        email: _email,
+                        code: _code,
+                        password: _password,
+                        verificationPassword: _verifyPassword,
+                      ),
+                    );
               },
-              color: Palette.primary,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+              style: TextButton.styleFrom(
+                backgroundColor: Palette.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
               ),
               child: Text(
                 "Reset Password",

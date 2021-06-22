@@ -4,6 +4,7 @@ part of 'update_other_info_actor_bloc.dart';
 class UpdateOtherInfoActorEvent with _$UpdateOtherInfoActorEvent {
   const factory UpdateOtherInfoActorEvent.changeLanguages(
       List<String> languages) = _ChangeLanguages;
+  // ignore: non_constant_identifier_names
   const factory UpdateOtherInfoActorEvent.changeJLPTLevel(String JLPTLevel) =
       _ChangeJLPTLevel;
   const factory UpdateOtherInfoActorEvent.changeSelfPR(String selfPR) =

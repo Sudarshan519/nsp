@@ -7,12 +7,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/topup_via_stripe/topup_via_stripe_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -70,6 +70,8 @@ class StripeSaveCardPaymentPage extends StatelessWidget {
             },
             (success) {
               getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<TransactionBloc>()
+                  .add(const TransactionEvent.fetchTransactionData());
               showDialog(
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
@@ -240,20 +242,25 @@ class _PurposeWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => TextWidetWithLabelAndChild(
-        title: "Purpose",
-        child: CustomSearchableDropDownWidget(
-          hintText: "Purpose of Transfer",
-          value: '',
-          options: const [
-            "Utilities",
-            "Partner Services",
-            "Bill Payments",
-            "Travel Ticketing",
-            "Others",
-          ],
-          onChanged: (value) {},
-        ),
+  Widget build(BuildContext context) =>
+      BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
+        builder: (context, state) {
+          return TextWidetWithLabelAndChild(
+            title: "Purpose",
+            child: CustomSearchableDropDownWidget(
+              hintText: "Purpose of Transfer",
+              value: state.purpose,
+              options: const [
+                "Utilities",
+                "Partner Services",
+                "Bill Payments",
+                "Travel Ticketing",
+                "Others",
+              ],
+              onChanged: (value) {},
+            ),
+          );
+        },
       );
 }
 

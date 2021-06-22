@@ -18,6 +18,7 @@ class UpdateAddressInfoActorEvent with _$UpdateAddressInfoActorEvent {
       _ChangedCurrPhone;
 
   const factory UpdateAddressInfoActorEvent.changeSameAsCurrAddressInfo(
+      // ignore: avoid_positional_boolean_parameters
       bool value) = _ChangedSameAsCurrAddressInfo;
 
   const factory UpdateAddressInfoActorEvent.changeContCountry(String country) =
