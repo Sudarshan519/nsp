@@ -201,7 +201,7 @@ class BannerDetailPage extends StatelessWidget {
     );
   }
 
-  void _launchURL(String _url) async => await canLaunch(_url)
+  Future _launchURL(String _url) async => await canLaunch(_url)
       ? await launch(_url)
       : throw 'Could not launch $_url';
 }

@@ -1,4 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 
@@ -16,10 +17,20 @@ class PushNotificationManager {
     _firebaseMessaging = FirebaseMessaging.instance;
     _firebaseMessaging.requestPermission();
 
-    _token = await _firebaseMessaging.getToken() ?? '';
-    print("FirebaseMessaging token: $_token");
+    try {
+      _token = await _firebaseMessaging.getToken() ?? '';
+      debugPrint("FirebaseMessaging token: $_token");
+    } catch (ex) {
+      debugPrint(ex.toString());
+      return;
+    }
 
-    await _firebaseMessaging.subscribeToTopic('bnpjwallet');
+    try {
+      await _firebaseMessaging.subscribeToTopic('bnpjwallet');
+    } catch (ex) {
+      debugPrint(ex.toString());
+      return;
+    }
 
     _firebaseMessaging.setForegroundNotificationPresentationOptions(
         alert: true, badge: true, sound: true);

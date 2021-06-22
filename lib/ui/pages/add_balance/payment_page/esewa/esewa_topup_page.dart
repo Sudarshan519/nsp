@@ -8,6 +8,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/esewa_form/esewa_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/verify_esewa_topup/verify_esewa_topup_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
@@ -53,6 +54,8 @@ class EsewaTopupPage extends StatelessWidget {
           loading: (_) {},
           success: (_) {
             getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+            getIt<TransactionBloc>()
+                .add(const TransactionEvent.fetchTransactionData());
             showDialog(
               context: context,
               builder: (_) => PopUpSuccessOverLay(
@@ -220,7 +223,9 @@ class _ConversionRate extends StatelessWidget {
         double amountDouble = 0.0;
         try {
           amountDouble = double.parse(state.amount) * conversionRate;
-        } catch (ex) {}
+        } catch (ex) {
+          debugPrint(ex.toString());
+        }
 
         return Padding(
           padding: const EdgeInsets.only(right: 8.0, bottom: 12.0),

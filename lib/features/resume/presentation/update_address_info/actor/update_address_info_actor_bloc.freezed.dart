@@ -1652,7 +1652,7 @@ class __$ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>
 class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
   const _$_ChangedSameAsCurrAddressInfo(this.value);
 
-  @override
+  @override // ignore: avoid_positional_boolean_parameters
   final bool value;
 
   @override
@@ -1804,6 +1804,7 @@ abstract class _ChangedSameAsCurrAddressInfo
   const factory _ChangedSameAsCurrAddressInfo(bool value) =
       _$_ChangedSameAsCurrAddressInfo;
 
+// ignore: avoid_positional_boolean_parameters
   bool get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangedSameAsCurrAddressInfoCopyWith<_ChangedSameAsCurrAddressInfo>

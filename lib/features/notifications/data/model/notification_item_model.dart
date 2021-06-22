@@ -1,6 +1,5 @@
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/transaction/data/model/transaction_item_model.dart';
-import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 
 class NotificationItemModel extends NotificationItem {
   NotificationItemModel(

@@ -13,6 +13,7 @@ class PinTextWidget extends StatelessWidget {
 
   const PinTextWidget({
     Key? key,
+    // ignore: tighten_type_of_initializing_formals
     this.onChanged,
     this.value,
     this.textInputType = TextInputType.number,

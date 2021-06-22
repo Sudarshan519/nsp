@@ -109,7 +109,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     // final url =
     //     "${config.miraiLifeBaseUrl}${config.apiPath}${UtilityPaymentsApiEndpoints.getMiraiSubscription}$subscriptionId";
 
-    final url = "https://run.mocky.io/v3/33f8f6ab-1ef8-47ca-a2ca-55dbca40f62d";
+    const url = "https://run.mocky.io/v3/33f8f6ab-1ef8-47ca-a2ca-55dbca40f62d";
 
     http.Response response;
 
@@ -205,7 +205,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       );
 
       throw ServerException(
-        message: errorMessageFromServer(response.body) ??
+        message: errorMessageFromServerWithError(response.body) ??
             AppConstants.someThingWentWrong,
       );
     }

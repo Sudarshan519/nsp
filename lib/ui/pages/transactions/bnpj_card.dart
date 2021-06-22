@@ -10,13 +10,14 @@ class BNPJCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final Size size = MediaQuery.of(context).size;
-    return Stack(
-      children: [
-        SvgPicture.asset(
-          'assets/images/transaction/bnpj_card.svg',
-        ),
-        Positioned(
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: Stack(
+        children: [
+          SvgPicture.asset(
+            'assets/images/transaction/bnpj_card.svg',
+          ),
+          Positioned(
             top: 20,
             left: 20,
             child: BlocBuilder<HomePageDataBloc, HomePageDataState>(
@@ -35,13 +36,10 @@ class BNPJCard extends StatelessWidget {
                   failureWithData: (failure) => const Text(""),
                 );
               },
-            )
-            // child: Text(
-            //   'Lionel Messi',
-            //   style: TextStyle(fontWeight: FontWeight.bold),
-            // ),
-            )
-      ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

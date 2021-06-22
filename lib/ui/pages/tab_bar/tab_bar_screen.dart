@@ -5,6 +5,7 @@ import 'package:wallet_app/ui/pages/news/news_screen.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/news_tab_page.dart';
 import 'package:wallet_app/ui/pages/resume/resume_screen.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/resume_tab_page.dart';
+import 'package:wallet_app/ui/pages/transactions/transactions_page.dart';
 
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'widgets/custom_tab_bar_widget.dart';
@@ -32,6 +33,10 @@ class TabBarScreenState extends State<TabBarPage> {
     CustomTabBarData(
       title: 'News',
       image: 'assets/images/navigation_tabs/news.svg',
+    ),
+    CustomTabBarData(
+      title: 'Transaction',
+      image: 'assets/images/navigation_tabs/transaction.svg',
     ),
     CustomTabBarData(
       title: 'More',
@@ -90,6 +95,7 @@ class TabBarScreenState extends State<TabBarPage> {
       homePage!,
       const ResumePage(),
       NewsPage(),
+      const TransactionPage(),
       const MorePage(),
     ];
   }
