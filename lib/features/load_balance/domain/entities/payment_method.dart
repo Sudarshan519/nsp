@@ -31,6 +31,8 @@ class PaymentMethod {
     required this.callbackUrl,
     required this.paymentUrl,
     required this.webRedirectUrl,
+    required this.recordingUrl,
+    required this.deliveryUrl,
     required this.bseUrl,
     required this.merchantId,
     required this.merchantSecret,
@@ -49,6 +51,8 @@ class PaymentMethod {
   final String? callbackUrl;
   final String? paymentUrl;
   final String? webRedirectUrl;
+  final String? recordingUrl;
+  final String? deliveryUrl;
   final String? bseUrl;
   final String? merchantId;
   final String? merchantSecret;

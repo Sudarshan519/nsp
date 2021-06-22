@@ -58,6 +58,8 @@ class PaymentMethodsModel extends PaymentMethod {
     required String? bseUrl,
     required String? merchantId,
     required String? merchantSecret,
+    required String? recordingUrl,
+    required String? deliveryUrl,
   }) : super(
           name: name,
           type: type,
@@ -75,6 +77,8 @@ class PaymentMethodsModel extends PaymentMethod {
           bseUrl: bseUrl,
           merchantId: merchantId,
           merchantSecret: merchantSecret,
+          recordingUrl: recordingUrl,
+          deliveryUrl: deliveryUrl,
         );
 
   factory PaymentMethodsModel.fromJson(Map<String, dynamic> json) =>
@@ -97,6 +101,12 @@ class PaymentMethodsModel extends PaymentMethod {
             : json["callback_url"] as String?,
         paymentUrl:
             json["payment_url"] == null ? null : json["payment_url"] as String?,
+        recordingUrl: json["recording_url"] == null
+            ? null
+            : json["recording_url"] as String?,
+        deliveryUrl: json["delivery_url"] == null
+            ? null
+            : json["delivery_url"] as String?,
         webRedirectUrl: json["web_redirect_url"] == null
             ? null
             : json["web_redirect_url"] as String?,
