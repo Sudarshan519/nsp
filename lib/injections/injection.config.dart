@@ -193,7 +193,7 @@ import '../features/transaction/domain/repository/transaction_repository.dart'
     as _i64;
 import '../features/transaction/domain/usecase/get_transaction.dart' as _i98;
 import '../features/transaction/presentation/transaction/transaction_bloc.dart'
-    as _i130;
+    as _i133;
 import '../features/utility_payments/data/datasource/utility_payment_datasource.dart'
     as _i74;
 import '../features/utility_payments/data/repository/utility_payment_repository.dart'
@@ -205,16 +205,16 @@ import '../features/utility_payments/domain/usecases/get_subscription_detail_for
 import '../features/utility_payments/domain/usecases/purchase_subscription_from_partner_service.dart'
     as _i114;
 import '../features/utility_payments/domain/usecases/topup_balance_for_mobile.dart'
-    as _i116;
+    as _i119;
 import '../features/utility_payments/presentation/subscription_for_partner_service/subscription_for_partner_service_bloc.dart'
-    as _i115;
+    as _i118;
 import '../features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart'
-    as _i117;
-import '../utils/config_reader.dart' as _i12;
-import 'injectable/data_connection_checker_injectable_module.dart' as _i134;
-import 'injectable/flutter_secure_storage_module.dart' as _i132;
-import 'injectable/google_login_injectable_module.dart' as _i133;
-import 'injectable/http_client_injectable_module.dart' as _i131;
+    as _i120;
+import '../utils/config_reader.dart' as _i13;
+import 'injectable/data_connection_checker_injectable_module.dart' as _i137;
+import 'injectable/flutter_secure_storage_module.dart' as _i135;
+import 'injectable/google_login_injectable_module.dart' as _i136;
+import 'injectable/http_client_injectable_module.dart' as _i134;
 import 'injectable/shared_preference_module.dart'
     as _i138; // ignore_for_file: unnecessary_lambdas
 
@@ -534,64 +534,64 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       signInWithGoogle: get<_i58.SignInWithGoogle>()));
   gh.factory<_i117.SignUpFormBloc>(() => _i117.SignUpFormBloc(
       signUpWithEmailUsecase:
-          get<_i58.SignUpWithEmailPasswordAndUserDetail>()));
-  gh.factory<_i115.SubscriptionForPartnerServiceBloc>(() =>
-      _i115.SubscriptionForPartnerServiceBloc(
+          get<_i59.SignUpWithEmailPasswordAndUserDetail>()));
+  gh.factory<_i118.SubscriptionForPartnerServiceBloc>(() =>
+      _i118.SubscriptionForPartnerServiceBloc(
           getSubscriptionDetailForPartnerService:
-              get<_i94.GetSubscriptionDetailForPartnerService>(),
+              get<_i97.GetSubscriptionDetailForPartnerService>(),
           purchaseSubscriptionFromPartnerService:
-              get<_i111.PurchaseSubscriptionFromPartnerService>()));
-  gh.lazySingleton<_i116.TopUpBalanceForMobile>(() =>
-      _i116.TopUpBalanceForMobile(
-          networkInfo: get<_i13.NetworkInfo>(),
-          repository: get<_i74.UtilityPaymentRepository>()));
-  gh.factory<_i117.TopUpBalanceInMobileBloc>(() =>
-      _i117.TopUpBalanceInMobileBloc(
-          topUpBalanceForMobile: get<_i116.TopUpBalanceForMobile>()));
-  gh.factory<_i118.UpdateProfileBloc>(() => _i118.UpdateProfileBloc(
-      updateKycInfo: get<_i67.UpdateKycInfo>(),
-      updateResumeImage: get<_i71.UpdateResumeImage>(),
-      getListOfCityFromPrefectures: get<_i86.GetListOfCityFromPrefectures>()));
-  gh.factory<_i119.DownloadPdfBloc>(() => _i119.DownloadPdfBloc(
-      getDownloadablePdfLink: get<_i82.GetDownloadablePdfLink>()));
-  gh.factory<_i120.FavouriteNewsBloc>(() =>
-      _i120.FavouriteNewsBloc(getFavouriteNews: get<_i83.GetFavouriteNews>()));
-  gh.lazySingleton<_i121.GetNotifications>(() => _i121.GetNotifications(
-      repository: get<_i104.NotificationRepository>(),
-      networkInfo: get<_i13.NetworkInfo>()));
-  gh.factory<_i122.JapaneseMannerBloc>(() => _i122.JapaneseMannerBloc(
-      getJapaneseManner: get<_i123.GetJapaneseManner>()));
-  gh.factory<_i124.JapaneseMannerCategoriesBloc>(() =>
-      _i124.JapaneseMannerCategoriesBloc(
+              get<_i114.PurchaseSubscriptionFromPartnerService>()));
+  gh.lazySingleton<_i119.TopUpBalanceForMobile>(() =>
+      _i119.TopUpBalanceForMobile(
+          networkInfo: get<_i14.NetworkInfo>(),
+          repository: get<_i75.UtilityPaymentRepository>()));
+  gh.factory<_i120.TopUpBalanceInMobileBloc>(() =>
+      _i120.TopUpBalanceInMobileBloc(
+          topUpBalanceForMobile: get<_i119.TopUpBalanceForMobile>()));
+  gh.factory<_i121.UpdateProfileBloc>(() => _i121.UpdateProfileBloc(
+      updateKycInfo: get<_i68.UpdateKycInfo>(),
+      updateResumeImage: get<_i72.UpdateResumeImage>(),
+      getListOfCityFromPrefectures: get<_i89.GetListOfCityFromPrefectures>()));
+  gh.factory<_i122.DownloadPdfBloc>(() => _i122.DownloadPdfBloc(
+      getDownloadablePdfLink: get<_i85.GetDownloadablePdfLink>()));
+  gh.factory<_i123.FavouriteNewsBloc>(() =>
+      _i123.FavouriteNewsBloc(getFavouriteNews: get<_i86.GetFavouriteNews>()));
+  gh.lazySingleton<_i124.GetNotifications>(() => _i124.GetNotifications(
+      repository: get<_i107.NotificationRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
+  gh.factory<_i125.JapaneseMannerBloc>(() => _i125.JapaneseMannerBloc(
+      getJapaneseManner: get<_i126.GetJapaneseManner>()));
+  gh.factory<_i127.JapaneseMannerCategoriesBloc>(() =>
+      _i127.JapaneseMannerCategoriesBloc(
           getJapaneseMannerCategories:
-              get<_i125.GetJapaneseMannerCategories>()));
-  gh.factory<_i126.NotificationsBloc>(() =>
-      _i126.NotificationsBloc(getNotifications: get<_i121.GetNotifications>()));
-  gh.singleton<_i12.ConfigReader>(_i12.ConfigReaderImpl());
-  gh.singleton<_i127.DBProvider>(_i127.DBProviderImpl());
-  gh.singleton<_i43.NewsLocalProvider>(
-      _i43.NewsLocalProviderImpl(provider: get<_i127.DBProvider>()));
-  gh.singleton<_i128.PurchasePackage>(_i128.PurchasePackage(
-      repository: get<_i48.PartnerServicesRepository>(),
-      networkInfo: get<_i13.NetworkInfo>()));
-  gh.singleton<_i129.PurchasePackageBloc>(
-      _i129.PurchasePackageBloc(purchasePackage: get<_i128.PurchasePackage>()));
-  gh.singleton<_i107.GetPartnerServices>(_i107.GetPartnerServices(
-      repository: get<_i48.PartnerServicesRepository>(),
-      networkInfo: get<_i13.NetworkInfo>()));
-  gh.singleton<_i109.GetPartnerServicesCategories>(
-      _i109.GetPartnerServicesCategories(
-          repository: get<_i48.PartnerServicesRepository>(),
-          networkInfo: get<_i13.NetworkInfo>()));
-  gh.singleton<_i130.TransactionBloc>(
-      _i130.TransactionBloc(getTransaction: get<_i95.GetTransactions>()));
-  gh.singleton<_i123.GetJapaneseManner>(_i123.GetJapaneseManner(
-      repository: get<_i97.JapaneseMannerRepository>(),
-      networkInfo: get<_i13.NetworkInfo>()));
-  gh.singleton<_i125.GetJapaneseMannerCategories>(
-      _i125.GetJapaneseMannerCategories(
-          repository: get<_i97.JapaneseMannerRepository>(),
-          networkInfo: get<_i13.NetworkInfo>()));
+              get<_i128.GetJapaneseMannerCategories>()));
+  gh.factory<_i129.NotificationsBloc>(() =>
+      _i129.NotificationsBloc(getNotifications: get<_i124.GetNotifications>()));
+  gh.singleton<_i13.ConfigReader>(_i13.ConfigReaderImpl());
+  gh.singleton<_i130.DBProvider>(_i130.DBProviderImpl());
+  gh.singleton<_i44.NewsLocalProvider>(
+      _i44.NewsLocalProviderImpl(provider: get<_i130.DBProvider>()));
+  gh.singleton<_i131.PurchasePackage>(_i131.PurchasePackage(
+      repository: get<_i49.PartnerServicesRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
+  gh.singleton<_i132.PurchasePackageBloc>(
+      _i132.PurchasePackageBloc(purchasePackage: get<_i131.PurchasePackage>()));
+  gh.singleton<_i110.GetPartnerServices>(_i110.GetPartnerServices(
+      repository: get<_i49.PartnerServicesRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
+  gh.singleton<_i112.GetPartnerServicesCategories>(
+      _i112.GetPartnerServicesCategories(
+          repository: get<_i49.PartnerServicesRepository>(),
+          networkInfo: get<_i14.NetworkInfo>()));
+  gh.singleton<_i133.TransactionBloc>(
+      _i133.TransactionBloc(getTransaction: get<_i98.GetTransactions>()));
+  gh.singleton<_i126.GetJapaneseManner>(_i126.GetJapaneseManner(
+      repository: get<_i100.JapaneseMannerRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
+  gh.singleton<_i128.GetJapaneseMannerCategories>(
+      _i128.GetJapaneseMannerCategories(
+          repository: get<_i100.JapaneseMannerRepository>(),
+          networkInfo: get<_i14.NetworkInfo>()));
   return get;
 }
 
