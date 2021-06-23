@@ -21,6 +21,7 @@ class PaymentMethod {
     required this.name,
     required this.type,
     required this.secretKey,
+    required this.publicKey,
     required this.logo,
     required this.isActive,
     required this.baseUrl,
@@ -39,6 +40,7 @@ class PaymentMethod {
   final String? name;
   final String? type;
   final String? secretKey;
+  final String? publicKey;
   final String? logo;
   final bool? isActive;
   final String? baseUrl;

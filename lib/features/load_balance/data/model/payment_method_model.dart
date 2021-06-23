@@ -45,6 +45,7 @@ class PaymentMethodsModel extends PaymentMethod {
     required String? name,
     required String? type,
     required String? secretKey,
+    required String? publicKey,
     required String? logo,
     required bool? isActive,
     required String? baseUrl,
@@ -62,6 +63,7 @@ class PaymentMethodsModel extends PaymentMethod {
           name: name,
           type: type,
           secretKey: secretKey,
+          publicKey: publicKey,
           logo: logo,
           isActive: isActive,
           baseUrl: baseUrl,
@@ -84,6 +86,8 @@ class PaymentMethodsModel extends PaymentMethod {
         secretKey:
             json["secret_key"] == null ? null : json["secret_key"] as String?,
         logo: json["logo"] == null ? null : json["logo"] as String?,
+        publicKey:
+            json["public_key"] == null ? '' : json["public_key"] as String?,
         isActive: json["is_active"] == null ? null : json["is_active"] as bool?,
         baseUrl: json["base_url"] == null ? null : json["base_url"] as String?,
         module: json["module"] == null ? null : json["module"] as String?,
