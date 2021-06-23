@@ -11,8 +11,8 @@ class NotificationItemModel extends NotificationItem {
       required bool isPinned,
       required bool? isShow,
       required String? redirectUrl,
-      required TransactionItemModel? transactionItem,
       required String? createdAt,
+      required int? productId,
       required String? updatedAt})
       : super(
             id: id,
@@ -24,7 +24,7 @@ class NotificationItemModel extends NotificationItem {
             title: title,
             updatedAt: updatedAt,
             redirectUrl: redirectUrl,
-            transactionItem: transactionItem,
+            productId: productId,
             userId: userId);
 
   NotificationItemModel.fromJson(Map<String, dynamic> json) {
@@ -35,13 +35,9 @@ class NotificationItemModel extends NotificationItem {
     image = json['image'] as String?;
     isPinned = json['is_pinned'] as bool;
     isShow = json['is_show'] as bool?;
+    productId = json['product_id'] as int?;
     redirectUrl = json['redirect_url'] as String?;
     createdAt = json['created_at'] as String?;
     updatedAt = json['updated_at'] as String?;
-
-    if (json['transaction'] != null) {
-      transactionItem = TransactionItemModel.fromJson(
-          json['transaction'] as Map<String, dynamic>);
-    }
   }
 }

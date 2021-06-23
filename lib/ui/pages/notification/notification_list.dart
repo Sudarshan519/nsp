@@ -4,11 +4,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/presentation/notification/notifications_bloc.dart';
+import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/time_ago/time_ago.dart' as date_time;
+import 'package:auto_route/auto_route.dart';
 
 class NotificationListPage extends StatelessWidget {
   @override
@@ -39,7 +42,21 @@ class NotificationListPage extends StatelessWidget {
                   loading: (a) => loadingPage(),
                   loadingWith: (a) => loadingPage(),
                   loaded: (data) =>
-                      _NotificationListView(notifs: data.newsData),
+                      _NotificationListView(notifs: data.notificationData),
+                  onTapDetail: (data) {
+                    if (data.data != null && data.type.isNotEmpty) {
+                      switch (data.type) {
+                        case 'TXN':
+                          context.pushRoute(TransactionDetailRoute(
+                              item: data as TransactionItem));
+
+                          break;
+                        default:
+                      }
+                    }
+
+                    return _NotificationListView(notifs: data.notificationData);
+                  },
                   failure: (a) => loadingPage(), //  Text('failure'),
                   failureWithData: (a) =>
                       loadingPage() //Text('fail with data'),
@@ -124,6 +141,11 @@ class _NotificationListView extends StatelessWidget {
                   onTap: () {
                     if (item.redirectUrl != null) {
                       url_launcher.launch(item.redirectUrl!);
+                    } else if (item.productId != null) {
+                      getIt<NotificationsBloc>().add(
+                        NotificationsEvent.loadTransaction(item.productId!),
+                      );
+                      // context.pushRoute(TransactionDetailRoute(item: transaction));
                     }
                   },
                 ),

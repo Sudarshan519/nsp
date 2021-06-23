@@ -5,13 +5,13 @@ class NotificationItem {
   String? title;
   String? message;
   int? userId;
+  int? productId;
   String? image;
   bool isPinned;
   bool? isShow;
   String? redirectUrl;
   String? createdAt;
   String? updatedAt;
-  TransactionItem? transactionItem;
 
   NotificationItem(
       {this.id,
@@ -23,6 +23,6 @@ class NotificationItem {
       this.isShow,
       this.createdAt,
       this.redirectUrl,
-      this.transactionItem,
+      this.productId,
       this.updatedAt});
 }

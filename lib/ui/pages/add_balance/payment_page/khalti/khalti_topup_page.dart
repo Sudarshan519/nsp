@@ -189,10 +189,10 @@ class KhaltiTopupPage extends StatelessWidget {
       urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
     );
 
+    final khaltiAmt = double.parse(amountDoubleInRupees.toStringAsFixed(2));
     final product = KhaltiProduct(
       id: 'load-balance-from-khalti',
-      amount: amountDoubleInRupees *
-          100, // Multiplying by 100 bc amt should be in paisa
+      amount: khaltiAmt * 100, // Multiplying by 100 bc amt should be in paisa
       name: "Load Balance from Khalti",
     );
 
@@ -202,7 +202,7 @@ class KhaltiTopupPage extends StatelessWidget {
         context.read<VerifyKhaltiTopupBloc>().add(
               VerifyKhaltiTopupEvent.verify(
                 transactionId: data['token'] as String,
-                amount: "$amountDoubleInRupees",
+                amount: "$khaltiAmt",
                 purpose: purpose,
               ),
             );

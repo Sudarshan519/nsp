@@ -5,9 +5,13 @@ class NotificationsState with _$NotificationsState {
   const factory NotificationsState.loading() = _Loading;
   const factory NotificationsState.loadingWith(
       List<NotificationItem> offlinedata) = _LoadingWith;
-  const factory NotificationsState.loaded(List<NotificationItem> newsData) =
-      _Loaded;
+  const factory NotificationsState.loaded(
+      List<NotificationItem> notificationData) = _Loaded;
   const factory NotificationsState.failureWithData(
-      ApiFailure failure, List<NotificationItem> newsData) = _FailureWithData;
+          ApiFailure failure, List<NotificationItem> notificationData) =
+      _FailureWithData;
   const factory NotificationsState.failure(ApiFailure failure) = _Failure;
+  const factory NotificationsState.onTapDetail(
+          dynamic data, String type, List<NotificationItem> notificationData) =
+      _OnTapDetail;
 }
