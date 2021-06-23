@@ -85,6 +85,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: IndividualISPPage),
     AutoRoute(page: TransactionPage),
     AutoRoute(page: TransactionDetailPage),
+    AutoRoute(page: TransactionDetailFromAPi),
     AutoRoute(page: NotificationListPage),
     AutoRoute(page: BuyPackagePage),
   ],

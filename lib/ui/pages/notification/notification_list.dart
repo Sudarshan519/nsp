@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/presentation/notification/notifications_bloc.dart';
-import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
@@ -43,20 +43,6 @@ class NotificationListPage extends StatelessWidget {
                   loadingWith: (a) => loadingPage(),
                   loaded: (data) =>
                       _NotificationListView(notifs: data.notificationData),
-                  onTapDetail: (data) {
-                    if (data.data != null && data.type.isNotEmpty) {
-                      switch (data.type) {
-                        case 'TXN':
-                          context.pushRoute(TransactionDetailRoute(
-                              item: data as TransactionItem));
-
-                          break;
-                        default:
-                      }
-                    }
-
-                    return _NotificationListView(notifs: data.notificationData);
-                  },
                   failure: (a) => loadingPage(), //  Text('failure'),
                   failureWithData: (a) =>
                       loadingPage() //Text('fail with data'),
@@ -142,10 +128,14 @@ class _NotificationListView extends StatelessWidget {
                     if (item.redirectUrl != null) {
                       url_launcher.launch(item.redirectUrl!);
                     } else if (item.productId != null) {
-                      getIt<NotificationsBloc>().add(
-                        NotificationsEvent.loadTransaction(item.productId!),
-                      );
-                      // context.pushRoute(TransactionDetailRoute(item: transaction));
+                      // TODO: CHECK by type
+                      context
+                        ..read<TransactionBloc>().add(
+                          TransactionEvent.fetchIndividualTransactionData(
+                              item.productId!),
+                        )
+                        ..pushRoute(
+                            TransactionDetailFromAPi(id: item.productId!));
                     }
                   },
                 ),

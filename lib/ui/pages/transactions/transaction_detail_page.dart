@@ -1,10 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:wallet_app/features/auth/presentation/password_reset/password_reset_bloc.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/dashed_line.dart';
+import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
+
+class TransactionDetailFromAPi extends StatelessWidget {
+  final int id;
+  const TransactionDetailFromAPi({Key? key, required this.id})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<TransactionBloc, TransactionState>(
+      buildWhen: (previous, current) => previous != current,
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        TransactionItem data;
+
+        return state.map(
+            loading: (e) => Scaffold(body: loadingPage()),
+            loaded: (e) => const SizedBox(),
+            loadedIndividual: (e) => TransactionDetailPage(item: e.item!),
+            failure: (e) => const SizedBox(),
+            failureWithData: (e) => const SizedBox());
+
+        // return Scaffold(appBar: AppBar(), body: Text('demo'));
+      },
+    );
+  }
+}
 
 class TransactionDetailPage extends StatelessWidget {
   final TransactionItem item;

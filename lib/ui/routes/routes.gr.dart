@@ -370,6 +370,12 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<TransactionDetailRouteArgs>();
           return _i42.TransactionDetailPage(key: args.key, item: args.item);
         }),
+    TransactionDetailFromAPi.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<TransactionDetailFromAPiArgs>();
+          return _i42.TransactionDetailFromAPi(key: args.key, id: args.id);
+        }),
     NotificationListRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -443,6 +449,8 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(TransactionRoute.name, path: '/transaction-page'),
         _i1.RouteConfig(TransactionDetailRoute.name,
             path: '/transaction-detail-page'),
+        _i1.RouteConfig(TransactionDetailFromAPi.name,
+            path: '/transaction-detail-from-aPi'),
         _i1.RouteConfig(NotificationListRoute.name,
             path: '/notification-list-page'),
         _i1.RouteConfig(BuyPackageRoute.name, path: '/buy-package-page')
@@ -1175,6 +1183,24 @@ class TransactionDetailRouteArgs {
   final _i2.Key? key;
 
   final _i54.TransactionItem item;
+}
+
+class TransactionDetailFromAPi
+    extends _i1.PageRouteInfo<TransactionDetailFromAPiArgs> {
+  TransactionDetailFromAPi({_i2.Key? key, required int id})
+      : super(name,
+            path: '/transaction-detail-from-aPi',
+            args: TransactionDetailFromAPiArgs(key: key, id: id));
+
+  static const String name = 'TransactionDetailFromAPi';
+}
+
+class TransactionDetailFromAPiArgs {
+  const TransactionDetailFromAPiArgs({this.key, required this.id});
+
+  final _i2.Key? key;
+
+  final int id;
 }
 
 class NotificationListRoute extends _i1.PageRouteInfo {

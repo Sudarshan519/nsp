@@ -7,12 +7,12 @@ import 'package:wallet_app/features/transaction/domain/entity/transaction_item.d
 import 'package:wallet_app/features/transaction/domain/repository/transaction_repository.dart';
 
 @lazySingleton
-class GetIndividualTransaction
+class GetIndivisualTransaction
     implements Usecase<ApiFailure, TransactionItem, int> {
   final TransactionRepository repository;
   final NetworkInfo networkInfo;
 
-  GetIndividualTransaction({
+  GetIndivisualTransaction({
     required this.repository,
     required this.networkInfo,
   });

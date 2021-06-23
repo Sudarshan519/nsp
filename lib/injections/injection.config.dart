@@ -461,8 +461,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i87.GetHomePageData>(() => _i87.GetHomePageData(
       repository: get<_i33.HomeReporisitory>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.lazySingleton<_i88.GetIndividualTransaction>(() =>
-      _i88.GetIndividualTransaction(
+  gh.lazySingleton<_i88.GetIndivisualTransaction>(() =>
+      _i88.GetIndivisualTransaction(
           repository: get<_i64.TransactionRepository>(),
           networkInfo: get<_i14.NetworkInfo>()));
   gh.lazySingleton<_i89.GetLatestNews>(() => _i89.GetLatestNews(
@@ -571,9 +571,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i128.JapaneseMannerCategoriesBloc(
           getJapaneseMannerCategories:
               get<_i129.GetJapaneseMannerCategories>()));
-  gh.factory<_i130.NotificationsBloc>(() => _i130.NotificationsBloc(
-      getNotifications: get<_i125.GetNotifications>(),
-      getIndividualTransaction: get<_i88.GetIndividualTransaction>()));
+  gh.factory<_i130.NotificationsBloc>(() =>
+      _i130.NotificationsBloc(getNotifications: get<_i125.GetNotifications>()));
   gh.singleton<_i13.ConfigReader>(_i13.ConfigReaderImpl());
   gh.singleton<_i131.DBProvider>(_i131.DBProviderImpl());
   gh.singleton<_i44.NewsLocalProvider>(
@@ -590,8 +589,9 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i113.GetPartnerServicesCategories(
           repository: get<_i49.PartnerServicesRepository>(),
           networkInfo: get<_i14.NetworkInfo>()));
-  gh.singleton<_i134.TransactionBloc>(
-      _i134.TransactionBloc(getTransaction: get<_i99.GetTransactions>()));
+  gh.singleton<_i134.TransactionBloc>(_i134.TransactionBloc(
+      getTransaction: get<_i99.GetTransactions>(),
+      getIndividualTxn: get<_i88.GetIndivisualTransaction>()));
   gh.singleton<_i127.GetJapaneseManner>(_i127.GetJapaneseManner(
       repository: get<_i101.JapaneseMannerRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));

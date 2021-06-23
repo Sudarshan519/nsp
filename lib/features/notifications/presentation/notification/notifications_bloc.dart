@@ -6,7 +6,6 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/domain/usecase/get_notifications.dart';
-import 'package:wallet_app/features/transaction/domain/usecase/get_individual_transaction.dart';
 
 part 'notifications_event.dart';
 part 'notifications_state.dart';
@@ -16,11 +15,9 @@ part 'notifications_bloc.freezed.dart';
 class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   NotificationsBloc({
     required this.getNotifications,
-    required this.getIndividualTransaction,
   }) : super(const _Loading());
 
   final GetNotifications getNotifications;
-  final GetIndividualTransaction getIndividualTransaction;
 
   bool isFetching = false;
   int page = 1;
@@ -48,10 +45,6 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         data = [];
         yield const _Loading();
         yield* _mapFetchNotificationToState();
-      },
-      loadTransaction: (_LoadTransaction val) async* {
-        yield const _Loading();
-        yield* _mapFetchDataToState(val.txnId);
       },
     );
   }
@@ -89,14 +82,5 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         return _Loaded(data);
       },
     );
-  }
-
-  Stream<NotificationsState> _mapFetchDataToState(int id) async* {
-    final result = await getIndividualTransaction(id);
-    result.fold((failure) async {
-      return _Failure(failure);
-    }, (txn) {
-      return _OnTapDetail(txn, 'TXN', data);
-    });
   }
 }

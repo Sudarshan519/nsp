@@ -11,7 +11,4 @@ class NotificationsState with _$NotificationsState {
           ApiFailure failure, List<NotificationItem> notificationData) =
       _FailureWithData;
   const factory NotificationsState.failure(ApiFailure failure) = _Failure;
-  const factory NotificationsState.onTapDetail(
-          dynamic data, String type, List<NotificationItem> notificationData) =
-      _OnTapDetail;
 }
