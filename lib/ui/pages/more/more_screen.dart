@@ -63,6 +63,11 @@ class MorePage extends StatelessWidget {
         onTap: () => context.pushRoute(const ProfileRoute()),
       ),
       _ProfileData(
+        image: "icon-profile",
+        title: "Coupons",
+        onTap: () => context.pushRoute(const CouponRoute()),
+      ),
+      _ProfileData(
         image: "icon-jap-manner",
         title: "Japanese Manners",
         onTap: () => context.pushRoute(JapaneseMannerRoute()),
@@ -144,7 +149,7 @@ class _ProfileItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               "assets/images/more/$imageName.svg",
-              height: 25.0,
+              height: 30.0,
             ),
             const SizedBox(
               width: 10,

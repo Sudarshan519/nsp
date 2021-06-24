@@ -90,15 +90,25 @@ class BuyPackagePage extends StatelessWidget {
             child: Column(
               children: [
                 TextWidetWithLabelAndChild(
-                    title: 'Customer ID',
-                    isRequired: true,
-                    child: InputTextWidget(
-                      hintText: 'Customer ID',
-                      onChanged: (value) => context
-                          .read<PurchasePackageBloc>()
-                          .add(PurchasePackageEvent.changeCustomerId(value)),
-                      value: state.customerId,
-                    )),
+                  title: 'Customer Name',
+                  isRequired: true,
+                  child: InputTextWidget(
+                    hintText: 'Customer ID',
+                    onChanged: (value) {},
+                    value: '',
+                  ),
+                ),
+                TextWidetWithLabelAndChild(
+                  title: 'Customer ID/email',
+                  isRequired: true,
+                  child: InputTextWidget(
+                    hintText: 'Customer ID',
+                    onChanged: (value) => context
+                        .read<PurchasePackageBloc>()
+                        .add(PurchasePackageEvent.changeCustomerId(value)),
+                    value: state.customerId,
+                  ),
+                ),
                 TextWidetWithLabelAndChild(
                   title: 'Amount',
                   isRequired: true,

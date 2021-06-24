@@ -153,9 +153,13 @@ class KhaltiTopupPage extends StatelessWidget {
     }
 
     // TODO: change this Later
+<<<<<<< HEAD
     //Gettng only 2 digits after decimal point
     final amountDoubleInRupees =
         double.parse((doubleAmountInJpy * conversionRate).toStringAsFixed(2));
+=======
+    final amountDoubleInRupees = doubleAmount * conversionRate;
+>>>>>>> 68eb13b563473559ad01871884d365cb4d8a3b6e
 
     //checking if verified
     if (!isVerified) {
@@ -190,9 +194,14 @@ class KhaltiTopupPage extends StatelessWidget {
     final khaltiAmtinPaisa = amountDoubleInRupees *
         100; // Multiplying by 100 bc amt should be in paisa for khalti
 
+    final khaltiAmt = double.parse(amountDoubleInRupees.toStringAsFixed(2));
     final product = KhaltiProduct(
       id: 'load-balance-from-khalti',
+<<<<<<< HEAD
       amount: khaltiAmtinPaisa,
+=======
+      amount: khaltiAmt * 100, // Multiplying by 100 bc amt should be in paisa
+>>>>>>> 68eb13b563473559ad01871884d365cb4d8a3b6e
       name: "Load Balance from Khalti",
     );
 
@@ -200,11 +209,19 @@ class KhaltiTopupPage extends StatelessWidget {
       product: product,
       onSuccess: (data) {
         context.read<VerifyKhaltiTopupBloc>().add(
+<<<<<<< HEAD
               VerifyKhaltiTopupEvent.verify(VerifyKhaltiTopupParams(
                   referenceId: data['token'] as String,
                   amount: "$doubleAmountInJpy",
                   purpose: purpose,
                   verifyAmount: "${khaltiAmtinPaisa.toInt()}")),
+=======
+              VerifyKhaltiTopupEvent.verify(
+                transactionId: data['token'] as String,
+                amount: "$khaltiAmt",
+                purpose: purpose,
+              ),
+>>>>>>> 68eb13b563473559ad01871884d365cb4d8a3b6e
             );
       },
       onFaliure: (error) {

@@ -112,6 +112,7 @@ flutter:
     - assets/images/placeholders/
     - assets/images/resume/
     - assets/images/pop_up/
+    - assets/images/coupon/
     - assets/images/more/
     - assets/images/profile/
     - assets/images/alerts/
