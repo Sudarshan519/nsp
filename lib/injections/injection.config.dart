@@ -17,7 +17,7 @@ import '../core/database/local_database_provider.dart' as _i96;
 import '../core/database/news_provider.dart' as _i39;
 import '../core/file_picker/file_provider.dart' as _i4;
 import '../core/logger/logger.dart' as _i8;
-import '../core/network/newtork_info.dart' as _i9;
+import '../core/network/newtork_info.dart' as _i10;
 import '../features/alerts/data/data_source/alerts_remote_data_source.dart'
     as _i16;
 import '../features/alerts/data/repository/alert_repository.dart' as _i18;
@@ -86,7 +86,7 @@ import '../features/location_information/domain/usecases/get_prefecture_city_fro
 import '../features/location_information/presentation/bloc/location_via_postal_code_bloc.dart'
     as _i81;
 import '../features/news/data/datasource/news_local_data_source.dart' as _i38;
-import '../features/news/data/datasource/news_remote_data_source.dart' as _i10;
+import '../features/news/data/datasource/news_remote_data_source.dart' as _i11;
 import '../features/news/data/repository/news_repository.dart' as _i41;
 import '../features/news/domain/repository/news_repository.dart' as _i40;
 import '../features/news/domain/usecase/get_favourite_news.dart' as _i68;
@@ -139,7 +139,7 @@ import '../features/resume/presentation/download_pdf/download_pdf_bloc.dart'
 import '../features/resume/presentation/resume_watcher/resume_watcher_bloc.dart'
     as _i86;
 import '../features/splash/presentation/splash_bloc.dart' as _i55;
-import '../utils/config_reader.dart' as _i11;
+import '../utils/config_reader.dart' as _i9;
 import 'injectable/data_connection_checker_injectable_module.dart' as _i100;
 import 'injectable/flutter_secure_storage_module.dart' as _i98;
 import 'injectable/google_login_injectable_module.dart' as _i99;
@@ -165,18 +165,19 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => googleLoginInjectableModule.googleSignIn);
   gh.lazySingleton<_i7.InternetConnectionChecker>(
       () => dataConnectionCheckerModule.dataConnectionChecker);
-  gh.lazySingleton<_i8.Logger>(() => _i8.LoggerImpl(client: get<_i3.Client>()));
-  gh.lazySingleton<_i9.NetworkInfo>(() => _i9.NetworkInfoImpl(
+  gh.lazySingleton<_i8.Logger>(() => _i8.LoggerImpl(
+      client: get<_i3.Client>(), config: get<_i9.ConfigReader>()));
+  gh.lazySingleton<_i10.NetworkInfo>(() => _i10.NetworkInfoImpl(
       dataConnectionChecker: get<_i7.InternetConnectionChecker>()));
-  gh.lazySingleton<_i10.NewsRemoteDataSourceProtocol>(() =>
-      _i10.NewsRemoteDataSource(
+  gh.lazySingleton<_i11.NewsRemoteDataSourceProtocol>(() =>
+      _i11.NewsRemoteDataSource(
           client: get<_i3.Client>(),
-          config: get<_i11.ConfigReader>(),
+          config: get<_i9.ConfigReader>(),
           logger: get<_i8.Logger>()));
   gh.lazySingleton<_i12.PartnerServicesRemoteDataSource>(() =>
       _i12.PartnerServicesRemoteDataSourceImpl(
           client: get<_i3.Client>(),
-          config: get<_i11.ConfigReader>(),
+          config: get<_i9.ConfigReader>(),
           logger: get<_i8.Logger>()));
   gh.lazySingleton<_i13.PartnerServicesRepository>(() =>
       _i14.PartnerServicesRepositoryImpl(
@@ -189,7 +190,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i16.AlertRemoteDataSourceImpl(
           logger: get<_i8.Logger>(),
           client: get<_i3.Client>(),
-          config: get<_i11.ConfigReader>()));
+          config: get<_i9.ConfigReader>()));
   gh.lazySingleton<_i17.AlertRepository>(() => _i18.AlertRepositoryImpl(
       dataSource: get<_i16.AlertRemoteDataSource>(),
       logger: get<_i8.Logger>()));
@@ -200,7 +201,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i20.AuthRemoteDataSource>(() =>
       _i20.AuthRemoteDataSourceImpl(
           client: get<_i3.Client>(),
-          config: get<_i11.ConfigReader>(),
+          config: get<_i9.ConfigReader>(),
           logger: get<_i8.Logger>()));
   gh.lazySingleton<_i21.AuthRepository>(() => _i22.AuthRepositoryImpl(
       remoteDataSource: get<_i20.AuthRemoteDataSource>(),
@@ -209,17 +210,17 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       logger: get<_i8.Logger>()));
   gh.lazySingleton<_i23.GetAlerts>(() => _i23.GetAlerts(
       repository: get<_i17.AlertRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i24.GetAlertsBloc>(
       () => _i24.GetAlertsBloc(getAlerts: get<_i23.GetAlerts>()));
   gh.lazySingleton<_i25.GetEarthquakes>(() => _i25.GetEarthquakes(
       repository: get<_i17.AlertRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i26.GetEarthquakesBloc>(() =>
       _i26.GetEarthquakesBloc(getEarthquakes: get<_i25.GetEarthquakes>()));
   gh.lazySingleton<_i27.GetVolcanoes>(() => _i27.GetVolcanoes(
       repository: get<_i17.AlertRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i28.GetVolcanoesBloc>(
       () => _i28.GetVolcanoesBloc(getVolcanoes: get<_i27.GetVolcanoes>()));
   gh.lazySingleton<_i29.GetWalletUser>(
@@ -227,7 +228,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i30.HomePageRemoteDataSource>(() =>
       _i30.HomePageRemoteDataSourceImpl(
           client: get<_i3.Client>(),
-          config: get<_i11.ConfigReader>(),
+          config: get<_i9.ConfigReader>(),
           auth: get<_i19.AuthLocalDataSource>(),
           logger: get<_i8.Logger>()));
   gh.lazySingleton<_i31.HomeReporisitory>(() => _i32.HomeRepositoryImpl(
@@ -236,12 +237,12 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i33.JapaneseMannersRemoteDataSource>(() =>
       _i33.JapaneseMannersRemoteDataSourceImpl(
           client: get<_i3.Client>(),
-          config: get<_i11.ConfigReader>(),
+          config: get<_i9.ConfigReader>(),
           logger: get<_i8.Logger>()));
   gh.lazySingleton<_i34.LocationInformationLocalDataSourceProtocol>(() =>
       _i34.LocationInformationLocalDataSource(
           client: get<_i3.Client>(),
-          config: get<_i11.ConfigReader>(),
+          config: get<_i9.ConfigReader>(),
           logger: get<_i8.Logger>()));
   gh.lazySingleton<_i35.LocationInformationRepositoryProtocol>(() =>
       _i36.LocationInformationRepository(
@@ -255,7 +256,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
           preferences: get<_i15.SharedPreferences>(),
           logger: get<_i8.Logger>()));
   gh.lazySingleton<_i40.NewsRepositoryProtocol>(() => _i41.NewsRepository(
-      remoteDataSource: get<_i10.NewsRemoteDataSourceProtocol>(),
+      remoteDataSource: get<_i11.NewsRemoteDataSourceProtocol>(),
       localDataSource: get<_i38.NewsLocalDataSourceProtocol>(),
       logger: get<_i8.Logger>()));
   gh.factory<_i42.ParnterServicesBloc>(() => _i42.ParnterServicesBloc(
@@ -266,11 +267,11 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
               get<_i45.GetPartnerServicesCategories>()));
   gh.lazySingleton<_i46.ResetPasswordUseCase>(() => _i46.ResetPasswordUseCase(
       repository: get<_i21.AuthRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i47.ResumeRemoteDataSource>(() =>
       _i47.ResumeRemoteDataSourceImpl(
           client: get<_i3.Client>(),
-          config: get<_i11.ConfigReader>(),
+          config: get<_i9.ConfigReader>(),
           auth: get<_i19.AuthLocalDataSource>(),
           logger: get<_i8.Logger>()));
   gh.lazySingleton<_i48.ResumeRepository>(() => _i49.ResumeRepositoryImpl(
@@ -278,71 +279,71 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       logger: get<_i8.Logger>()));
   gh.lazySingleton<_i50.SignInWithApple>(() => _i50.SignInWithApple(
       repository: get<_i21.AuthRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i51.SignInWithEmailAndPassword>(() =>
       _i51.SignInWithEmailAndPassword(
           repository: get<_i21.AuthRepository>(),
-          networkInfo: get<_i9.NetworkInfo>()));
+          networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i52.SignInWithFacebook>(() => _i52.SignInWithFacebook(
       repository: get<_i21.AuthRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i53.SignInWithGoogle>(() => _i53.SignInWithGoogle(
       repository: get<_i21.AuthRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i54.SignUpWithEmailPasswordAndUserDetail>(() =>
       _i54.SignUpWithEmailPasswordAndUserDetail(
           repository: get<_i21.AuthRepository>(),
-          networkInfo: get<_i9.NetworkInfo>()));
+          networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i55.SplashBloc>(
       () => _i55.SplashBloc(getWalletUser: get<_i29.GetWalletUser>()));
   gh.factory<_i56.UpdateAcadamicInfo>(() => _i56.UpdateAcadamicInfo(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i57.UpdateAddressInfo>(() => _i57.UpdateAddressInfo(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i58.UpdateKycInfo>(() => _i58.UpdateKycInfo(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i59.UpdateOtherInfo>(() => _i59.UpdateOtherInfo(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i60.UpdatePersonalInfo>(() => _i60.UpdatePersonalInfo(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i61.UpdateQualificationInfo>(() => _i61.UpdateQualificationInfo(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i62.UpdateResumeImage>(() => _i62.UpdateResumeImage(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i63.UpdateWorkInfo>(() => _i63.UpdateWorkInfo(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i64.VerifyEmail>(() => _i64.VerifyEmail(
       repository: get<_i21.AuthRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.factory<_i65.VerifyEmailBloc>(
       () => _i65.VerifyEmailBloc(verifyEmail: get<_i64.VerifyEmail>()));
   gh.lazySingleton<_i66.GetCountries>(() => _i66.GetCountries(
       repository: get<_i35.LocationInformationRepositoryProtocol>()));
   gh.factory<_i67.GetDownloadablePdfLink>(() => _i67.GetDownloadablePdfLink(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i68.GetFavouriteNews>(() =>
       _i68.GetFavouriteNews(repository: get<_i40.NewsRepositoryProtocol>()));
   gh.lazySingleton<_i69.GetHomePageData>(() => _i69.GetHomePageData(
       repository: get<_i31.HomeReporisitory>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i70.GetLatestNews>(() => _i70.GetLatestNews(
       repository: get<_i40.NewsRepositoryProtocol>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i71.GetListOfCityFromPrefectures>(() =>
       _i71.GetListOfCityFromPrefectures(
           repository: get<_i35.LocationInformationRepositoryProtocol>()));
   gh.lazySingleton<_i72.GetNewsForYou>(() => _i72.GetNewsForYou(
       repository: get<_i40.NewsRepositoryProtocol>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i73.GetNewsGenre>(
       () => _i73.GetNewsGenre(repository: get<_i40.NewsRepositoryProtocol>()));
   gh.lazySingleton<_i74.GetNewsPreferences>(() =>
@@ -352,7 +353,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
           repository: get<_i35.LocationInformationRepositoryProtocol>()));
   gh.factory<_i76.GetResume>(() => _i76.GetResume(
       repository: get<_i48.ResumeRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.lazySingleton<_i77.HomePageDataBloc>(() =>
       _i77.HomePageDataBloc(getHomePageData: get<_i69.GetHomePageData>()));
   gh.lazySingleton<_i78.JapaneseMannerRepository>(() =>
@@ -397,24 +398,24 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i94.JapaneseMannerCategoriesBloc(
           getJapaneseMannerCategories:
               get<_i95.GetJapaneseMannerCategories>()));
-  gh.singleton<_i11.ConfigReader>(_i11.ConfigReaderImpl());
+  gh.singleton<_i9.ConfigReader>(_i9.ConfigReaderImpl());
   gh.singleton<_i96.DBProvider>(_i96.DBProviderImpl());
   gh.singleton<_i39.NewsLocalProvider>(
       _i39.NewsLocalProviderImpl(provider: get<_i96.DBProvider>()));
   gh.singleton<_i43.GetPartnerServices>(_i43.GetPartnerServices(
       repository: get<_i13.PartnerServicesRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.singleton<_i45.GetPartnerServicesCategories>(
       _i45.GetPartnerServicesCategories(
           repository: get<_i13.PartnerServicesRepository>(),
-          networkInfo: get<_i9.NetworkInfo>()));
+          networkInfo: get<_i10.NetworkInfo>()));
   gh.singleton<_i93.GetJapaneseManner>(_i93.GetJapaneseManner(
       repository: get<_i78.JapaneseMannerRepository>(),
-      networkInfo: get<_i9.NetworkInfo>()));
+      networkInfo: get<_i10.NetworkInfo>()));
   gh.singleton<_i95.GetJapaneseMannerCategories>(
       _i95.GetJapaneseMannerCategories(
           repository: get<_i78.JapaneseMannerRepository>(),
-          networkInfo: get<_i9.NetworkInfo>()));
+          networkInfo: get<_i10.NetworkInfo>()));
   return get;
 }
 
