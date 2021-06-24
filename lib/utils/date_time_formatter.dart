@@ -16,6 +16,8 @@ class DateTimeFormatter {
 
   static String formatTime(String input) {
     final DateTime time = DateTime.parse(input);
-    return _timeFormatter.format(time);
+    // var t = _timeFormatter.format(time);
+    var t = input.split(' ').last.substring(0, 5);
+    return t;
   }
 }
