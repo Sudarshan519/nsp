@@ -78,17 +78,17 @@ class CouponRemoteDataSourceImpl implements CouponRemoteDataSource {
         );
       } catch (ex) {
         logger.log(
-          className: "JapaneseMannersRemoteDataSource",
-          functionName: "getJapaneseManners()",
-          errorText: "Error casting from json to japaneseMannerList",
+          className: "CouponRemoteDataSource",
+          functionName: "getCoupons()",
+          errorText: "Error casting from json to coupon list",
           errorMessage: ex.toString(),
         );
         throw const ServerException(message: AppConstants.someThingWentWrong);
       }
     } else {
       logger.log(
-        className: "JapaneseMannersRemoteDataSource",
-        functionName: "getJapaneseManners()",
+        className: "CouponRemoteDataSource",
+        functionName: "getCoupons()",
         errorText: "Error on API status code: $statusCode",
         errorMessage: response.body,
       );
