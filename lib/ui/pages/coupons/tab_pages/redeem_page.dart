@@ -34,10 +34,9 @@ class RedeemPage extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               TextWidetWithLabelAndChild(
-                title: "Enter Amount",
+                title: "Enter Code",
                 child: InputTextWidget(
                   hintText: "XXXXXXXXXXXX",
-                  textInputType: TextInputType.phone,
                   value: '',
                   onChanged: (value) {},
                 ),
