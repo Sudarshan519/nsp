@@ -194,8 +194,10 @@ import '../features/transaction/domain/repository/transaction_repository.dart'
 import '../features/transaction/domain/usecase/get_individual_transaction.dart'
     as _i88;
 import '../features/transaction/domain/usecase/get_transaction.dart' as _i99;
-import '../features/transaction/presentation/transaction/transaction_bloc.dart'
+import '../features/transaction/presentation/individual_transaction/individual_transaction_bloc.dart'
     as _i134;
+import '../features/transaction/presentation/transaction/transaction_bloc.dart'
+    as _i135;
 import '../features/utility_payments/data/datasource/utility_payment_datasource.dart'
     as _i74;
 import '../features/utility_payments/data/repository/utility_payment_repository.dart'
@@ -213,12 +215,12 @@ import '../features/utility_payments/presentation/subscription_for_partner_servi
 import '../features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart'
     as _i121;
 import '../utils/config_reader.dart' as _i13;
-import 'injectable/data_connection_checker_injectable_module.dart' as _i138;
-import 'injectable/flutter_secure_storage_module.dart' as _i136;
-import 'injectable/google_login_injectable_module.dart' as _i137;
-import 'injectable/http_client_injectable_module.dart' as _i135;
+import 'injectable/data_connection_checker_injectable_module.dart' as _i139;
+import 'injectable/flutter_secure_storage_module.dart' as _i137;
+import 'injectable/google_login_injectable_module.dart' as _i138;
+import 'injectable/http_client_injectable_module.dart' as _i136;
 import 'injectable/shared_preference_module.dart'
-    as _i139; // ignore_for_file: unnecessary_lambdas
+    as _i140; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -589,9 +591,10 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i113.GetPartnerServicesCategories(
           repository: get<_i49.PartnerServicesRepository>(),
           networkInfo: get<_i14.NetworkInfo>()));
-  gh.singleton<_i134.TransactionBloc>(_i134.TransactionBloc(
-      getTransaction: get<_i99.GetTransactions>(),
+  gh.singleton<_i134.IndividualTransactionBloc>(_i134.IndividualTransactionBloc(
       getIndividualTxn: get<_i88.GetIndivisualTransaction>()));
+  gh.singleton<_i135.TransactionBloc>(
+      _i135.TransactionBloc(getTransaction: get<_i99.GetTransactions>()));
   gh.singleton<_i127.GetJapaneseManner>(_i127.GetJapaneseManner(
       repository: get<_i101.JapaneseMannerRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
@@ -602,12 +605,12 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   return get;
 }
 
-class _$HttpClientInjectableModule extends _i135.HttpClientInjectableModule {}
+class _$HttpClientInjectableModule extends _i136.HttpClientInjectableModule {}
 
-class _$FlutterStorageModule extends _i136.FlutterStorageModule {}
+class _$FlutterStorageModule extends _i137.FlutterStorageModule {}
 
-class _$GoogleLoginInjectableModule extends _i137.GoogleLoginInjectableModule {}
+class _$GoogleLoginInjectableModule extends _i138.GoogleLoginInjectableModule {}
 
-class _$DataConnectionCheckerModule extends _i138.DataConnectionCheckerModule {}
+class _$DataConnectionCheckerModule extends _i139.DataConnectionCheckerModule {}
 
-class _$SharedPreferenceModule extends _i139.SharedPreferenceModule {}
+class _$SharedPreferenceModule extends _i140.SharedPreferenceModule {}

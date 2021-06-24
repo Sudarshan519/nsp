@@ -6,7 +6,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
-import 'package:wallet_app/features/transaction/domain/usecase/get_individual_transaction.dart';
 import 'package:wallet_app/features/transaction/domain/usecase/get_transaction.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
 
@@ -17,7 +16,6 @@ part 'transaction_bloc.freezed.dart';
 @singleton
 class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   final GetTransactions getTransaction;
-  final GetIndivisualTransaction getIndividualTxn;
   bool isFetching = false;
   int _page = 1;
   // bool _hasReachedEnd = false;
@@ -28,7 +26,6 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
 
   TransactionBloc({
     required this.getTransaction,
-    required this.getIndividualTxn,
   }) : super(const _Loading());
 
   @override
@@ -48,21 +45,6 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         // }
       },
       pullToRefresh: (e) async* {},
-      fetchIndividualTransactionData: (e) async* {
-        yield const _Loading();
-
-        final data = _data.where((element) => element.id == e.id).toList();
-        if (data.isNotEmpty) {
-          yield _LoadedIndividual(item: data.first);
-        } else {
-          final result = await getIndividualTxn(e.id);
-          yield result.fold((l) {
-            return _Failure(l);
-          }, (r) {
-            return _LoadedIndividual(item: r);
-          });
-        }
-      },
     );
   }
 

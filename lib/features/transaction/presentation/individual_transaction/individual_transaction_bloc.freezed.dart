@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'transaction_bloc.dart';
+part of 'individual_transaction_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,167 +13,168 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$TransactionEventTearOff {
-  const _$TransactionEventTearOff();
+class _$IndividualTransactionEventTearOff {
+  const _$IndividualTransactionEventTearOff();
 
-  _FetchTransactionData fetchTransactionData(
-      {String? fromDate, String? toDate}) {
-    return _FetchTransactionData(
-      fromDate: fromDate,
-      toDate: toDate,
+  _FetchIndividualTransactionData fetchIndividualTransactionData(int id) {
+    return _FetchIndividualTransactionData(
+      id,
     );
-  }
-
-  _PullToRefresh pullToRefresh() {
-    return const _PullToRefresh();
   }
 }
 
 /// @nodoc
-const $TransactionEvent = _$TransactionEventTearOff();
+const $IndividualTransactionEvent = _$IndividualTransactionEventTearOff();
 
 /// @nodoc
-mixin _$TransactionEvent {
+mixin _$IndividualTransactionEvent {
+  int get id => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? fromDate, String? toDate)
-        fetchTransactionData,
-    required TResult Function() pullToRefresh,
+    required TResult Function(int id) fetchIndividualTransactionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? fromDate, String? toDate)? fetchTransactionData,
-    TResult Function()? pullToRefresh,
+    TResult Function(int id)? fetchIndividualTransactionData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FetchTransactionData value) fetchTransactionData,
-    required TResult Function(_PullToRefresh value) pullToRefresh,
+    required TResult Function(_FetchIndividualTransactionData value)
+        fetchIndividualTransactionData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchTransactionData value)? fetchTransactionData,
-    TResult Function(_PullToRefresh value)? pullToRefresh,
+    TResult Function(_FetchIndividualTransactionData value)?
+        fetchIndividualTransactionData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $IndividualTransactionEventCopyWith<IndividualTransactionEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TransactionEventCopyWith<$Res> {
-  factory $TransactionEventCopyWith(
-          TransactionEvent value, $Res Function(TransactionEvent) then) =
-      _$TransactionEventCopyWithImpl<$Res>;
+abstract class $IndividualTransactionEventCopyWith<$Res> {
+  factory $IndividualTransactionEventCopyWith(IndividualTransactionEvent value,
+          $Res Function(IndividualTransactionEvent) then) =
+      _$IndividualTransactionEventCopyWithImpl<$Res>;
+  $Res call({int id});
 }
 
 /// @nodoc
-class _$TransactionEventCopyWithImpl<$Res>
-    implements $TransactionEventCopyWith<$Res> {
-  _$TransactionEventCopyWithImpl(this._value, this._then);
+class _$IndividualTransactionEventCopyWithImpl<$Res>
+    implements $IndividualTransactionEventCopyWith<$Res> {
+  _$IndividualTransactionEventCopyWithImpl(this._value, this._then);
 
-  final TransactionEvent _value;
+  final IndividualTransactionEvent _value;
   // ignore: unused_field
-  final $Res Function(TransactionEvent) _then;
-}
-
-/// @nodoc
-abstract class _$FetchTransactionDataCopyWith<$Res> {
-  factory _$FetchTransactionDataCopyWith(_FetchTransactionData value,
-          $Res Function(_FetchTransactionData) then) =
-      __$FetchTransactionDataCopyWithImpl<$Res>;
-  $Res call({String? fromDate, String? toDate});
-}
-
-/// @nodoc
-class __$FetchTransactionDataCopyWithImpl<$Res>
-    extends _$TransactionEventCopyWithImpl<$Res>
-    implements _$FetchTransactionDataCopyWith<$Res> {
-  __$FetchTransactionDataCopyWithImpl(
-      _FetchTransactionData _value, $Res Function(_FetchTransactionData) _then)
-      : super(_value, (v) => _then(v as _FetchTransactionData));
-
-  @override
-  _FetchTransactionData get _value => super._value as _FetchTransactionData;
+  final $Res Function(IndividualTransactionEvent) _then;
 
   @override
   $Res call({
-    Object? fromDate = freezed,
-    Object? toDate = freezed,
+    Object? id = freezed,
   }) {
-    return _then(_FetchTransactionData(
-      fromDate: fromDate == freezed
-          ? _value.fromDate
-          : fromDate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      toDate: toDate == freezed
-          ? _value.toDate
-          : toDate // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$FetchIndividualTransactionDataCopyWith<$Res>
+    implements $IndividualTransactionEventCopyWith<$Res> {
+  factory _$FetchIndividualTransactionDataCopyWith(
+          _FetchIndividualTransactionData value,
+          $Res Function(_FetchIndividualTransactionData) then) =
+      __$FetchIndividualTransactionDataCopyWithImpl<$Res>;
+  @override
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$FetchIndividualTransactionDataCopyWithImpl<$Res>
+    extends _$IndividualTransactionEventCopyWithImpl<$Res>
+    implements _$FetchIndividualTransactionDataCopyWith<$Res> {
+  __$FetchIndividualTransactionDataCopyWithImpl(
+      _FetchIndividualTransactionData _value,
+      $Res Function(_FetchIndividualTransactionData) _then)
+      : super(_value, (v) => _then(v as _FetchIndividualTransactionData));
+
+  @override
+  _FetchIndividualTransactionData get _value =>
+      super._value as _FetchIndividualTransactionData;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_FetchIndividualTransactionData(
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_FetchTransactionData implements _FetchTransactionData {
-  const _$_FetchTransactionData({this.fromDate, this.toDate});
+class _$_FetchIndividualTransactionData
+    implements _FetchIndividualTransactionData {
+  const _$_FetchIndividualTransactionData(this.id);
 
   @override
-  final String? fromDate;
-  @override
-  final String? toDate;
+  final int id;
 
   @override
   String toString() {
-    return 'TransactionEvent.fetchTransactionData(fromDate: $fromDate, toDate: $toDate)';
+    return 'IndividualTransactionEvent.fetchIndividualTransactionData(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FetchTransactionData &&
-            (identical(other.fromDate, fromDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.fromDate, fromDate)) &&
-            (identical(other.toDate, toDate) ||
-                const DeepCollectionEquality().equals(other.toDate, toDate)));
+        (other is _FetchIndividualTransactionData &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(fromDate) ^
-      const DeepCollectionEquality().hash(toDate);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
 
   @JsonKey(ignore: true)
   @override
-  _$FetchTransactionDataCopyWith<_FetchTransactionData> get copyWith =>
-      __$FetchTransactionDataCopyWithImpl<_FetchTransactionData>(
-          this, _$identity);
+  _$FetchIndividualTransactionDataCopyWith<_FetchIndividualTransactionData>
+      get copyWith => __$FetchIndividualTransactionDataCopyWithImpl<
+          _FetchIndividualTransactionData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? fromDate, String? toDate)
-        fetchTransactionData,
-    required TResult Function() pullToRefresh,
+    required TResult Function(int id) fetchIndividualTransactionData,
   }) {
-    return fetchTransactionData(fromDate, toDate);
+    return fetchIndividualTransactionData(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? fromDate, String? toDate)? fetchTransactionData,
-    TResult Function()? pullToRefresh,
+    TResult Function(int id)? fetchIndividualTransactionData,
     required TResult orElse(),
   }) {
-    if (fetchTransactionData != null) {
-      return fetchTransactionData(fromDate, toDate);
+    if (fetchIndividualTransactionData != null) {
+      return fetchIndividualTransactionData(id);
     }
     return orElse();
   }
@@ -181,135 +182,50 @@ class _$_FetchTransactionData implements _FetchTransactionData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FetchTransactionData value) fetchTransactionData,
-    required TResult Function(_PullToRefresh value) pullToRefresh,
+    required TResult Function(_FetchIndividualTransactionData value)
+        fetchIndividualTransactionData,
   }) {
-    return fetchTransactionData(this);
+    return fetchIndividualTransactionData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchTransactionData value)? fetchTransactionData,
-    TResult Function(_PullToRefresh value)? pullToRefresh,
+    TResult Function(_FetchIndividualTransactionData value)?
+        fetchIndividualTransactionData,
     required TResult orElse(),
   }) {
-    if (fetchTransactionData != null) {
-      return fetchTransactionData(this);
+    if (fetchIndividualTransactionData != null) {
+      return fetchIndividualTransactionData(this);
     }
     return orElse();
   }
 }
 
-abstract class _FetchTransactionData implements TransactionEvent {
-  const factory _FetchTransactionData({String? fromDate, String? toDate}) =
-      _$_FetchTransactionData;
+abstract class _FetchIndividualTransactionData
+    implements IndividualTransactionEvent {
+  const factory _FetchIndividualTransactionData(int id) =
+      _$_FetchIndividualTransactionData;
 
-  String? get fromDate => throw _privateConstructorUsedError;
-  String? get toDate => throw _privateConstructorUsedError;
+  @override
+  int get id => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
-  _$FetchTransactionDataCopyWith<_FetchTransactionData> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$FetchIndividualTransactionDataCopyWith<_FetchIndividualTransactionData>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PullToRefreshCopyWith<$Res> {
-  factory _$PullToRefreshCopyWith(
-          _PullToRefresh value, $Res Function(_PullToRefresh) then) =
-      __$PullToRefreshCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$PullToRefreshCopyWithImpl<$Res>
-    extends _$TransactionEventCopyWithImpl<$Res>
-    implements _$PullToRefreshCopyWith<$Res> {
-  __$PullToRefreshCopyWithImpl(
-      _PullToRefresh _value, $Res Function(_PullToRefresh) _then)
-      : super(_value, (v) => _then(v as _PullToRefresh));
-
-  @override
-  _PullToRefresh get _value => super._value as _PullToRefresh;
-}
-
-/// @nodoc
-
-class _$_PullToRefresh implements _PullToRefresh {
-  const _$_PullToRefresh();
-
-  @override
-  String toString() {
-    return 'TransactionEvent.pullToRefresh()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PullToRefresh);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? fromDate, String? toDate)
-        fetchTransactionData,
-    required TResult Function() pullToRefresh,
-  }) {
-    return pullToRefresh();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? fromDate, String? toDate)? fetchTransactionData,
-    TResult Function()? pullToRefresh,
-    required TResult orElse(),
-  }) {
-    if (pullToRefresh != null) {
-      return pullToRefresh();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FetchTransactionData value) fetchTransactionData,
-    required TResult Function(_PullToRefresh value) pullToRefresh,
-  }) {
-    return pullToRefresh(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchTransactionData value)? fetchTransactionData,
-    TResult Function(_PullToRefresh value)? pullToRefresh,
-    required TResult orElse(),
-  }) {
-    if (pullToRefresh != null) {
-      return pullToRefresh(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PullToRefresh implements TransactionEvent {
-  const factory _PullToRefresh() = _$_PullToRefresh;
-}
-
-/// @nodoc
-class _$TransactionStateTearOff {
-  const _$TransactionStateTearOff();
+class _$IndividualTransactionStateTearOff {
+  const _$IndividualTransactionStateTearOff();
 
   _Loading loading() {
     return const _Loading();
   }
 
-  _Loaded loaded(List<TransactionItem> list) {
-    return _Loaded(
-      list,
+  _LoadedIndividual loadedIndividual(TransactionItem item) {
+    return _LoadedIndividual(
+      item,
     );
   }
 
@@ -329,14 +245,14 @@ class _$TransactionStateTearOff {
 }
 
 /// @nodoc
-const $TransactionState = _$TransactionStateTearOff();
+const $IndividualTransactionState = _$IndividualTransactionStateTearOff();
 
 /// @nodoc
-mixin _$TransactionState {
+mixin _$IndividualTransactionState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<TransactionItem> list) loaded,
+    required TResult Function(TransactionItem item) loadedIndividual,
     required TResult Function(ApiFailure failure) failure,
     required TResult Function(ApiFailure failure, List<TransactionItem> list)
         failureWithData,
@@ -345,7 +261,7 @@ mixin _$TransactionState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<TransactionItem> list)? loaded,
+    TResult Function(TransactionItem item)? loadedIndividual,
     TResult Function(ApiFailure failure)? failure,
     TResult Function(ApiFailure failure, List<TransactionItem> list)?
         failureWithData,
@@ -355,7 +271,7 @@ mixin _$TransactionState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_LoadedIndividual value) loadedIndividual,
     required TResult Function(_Failure value) failure,
     required TResult Function(_FailureWithData value) failureWithData,
   }) =>
@@ -363,7 +279,7 @@ mixin _$TransactionState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_LoadedIndividual value)? loadedIndividual,
     TResult Function(_Failure value)? failure,
     TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
@@ -372,20 +288,20 @@ mixin _$TransactionState {
 }
 
 /// @nodoc
-abstract class $TransactionStateCopyWith<$Res> {
-  factory $TransactionStateCopyWith(
-          TransactionState value, $Res Function(TransactionState) then) =
-      _$TransactionStateCopyWithImpl<$Res>;
+abstract class $IndividualTransactionStateCopyWith<$Res> {
+  factory $IndividualTransactionStateCopyWith(IndividualTransactionState value,
+          $Res Function(IndividualTransactionState) then) =
+      _$IndividualTransactionStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$TransactionStateCopyWithImpl<$Res>
-    implements $TransactionStateCopyWith<$Res> {
-  _$TransactionStateCopyWithImpl(this._value, this._then);
+class _$IndividualTransactionStateCopyWithImpl<$Res>
+    implements $IndividualTransactionStateCopyWith<$Res> {
+  _$IndividualTransactionStateCopyWithImpl(this._value, this._then);
 
-  final TransactionState _value;
+  final IndividualTransactionState _value;
   // ignore: unused_field
-  final $Res Function(TransactionState) _then;
+  final $Res Function(IndividualTransactionState) _then;
 }
 
 /// @nodoc
@@ -395,7 +311,8 @@ abstract class _$LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
+class __$LoadingCopyWithImpl<$Res>
+    extends _$IndividualTransactionStateCopyWithImpl<$Res>
     implements _$LoadingCopyWith<$Res> {
   __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
       : super(_value, (v) => _then(v as _Loading));
@@ -411,7 +328,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'TransactionState.loading()';
+    return 'IndividualTransactionState.loading()';
   }
 
   @override
@@ -426,7 +343,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<TransactionItem> list) loaded,
+    required TResult Function(TransactionItem item) loadedIndividual,
     required TResult Function(ApiFailure failure) failure,
     required TResult Function(ApiFailure failure, List<TransactionItem> list)
         failureWithData,
@@ -438,7 +355,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<TransactionItem> list)? loaded,
+    TResult Function(TransactionItem item)? loadedIndividual,
     TResult Function(ApiFailure failure)? failure,
     TResult Function(ApiFailure failure, List<TransactionItem> list)?
         failureWithData,
@@ -454,7 +371,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_LoadedIndividual value) loadedIndividual,
     required TResult Function(_Failure value) failure,
     required TResult Function(_FailureWithData value) failureWithData,
   }) {
@@ -465,7 +382,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_LoadedIndividual value)? loadedIndividual,
     TResult Function(_Failure value)? failure,
     TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
@@ -477,93 +394,96 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements TransactionState {
+abstract class _Loading implements IndividualTransactionState {
   const factory _Loading() = _$_Loading;
 }
 
 /// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
-  $Res call({List<TransactionItem> list});
+abstract class _$LoadedIndividualCopyWith<$Res> {
+  factory _$LoadedIndividualCopyWith(
+          _LoadedIndividual value, $Res Function(_LoadedIndividual) then) =
+      __$LoadedIndividualCopyWithImpl<$Res>;
+  $Res call({TransactionItem item});
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
+class __$LoadedIndividualCopyWithImpl<$Res>
+    extends _$IndividualTransactionStateCopyWithImpl<$Res>
+    implements _$LoadedIndividualCopyWith<$Res> {
+  __$LoadedIndividualCopyWithImpl(
+      _LoadedIndividual _value, $Res Function(_LoadedIndividual) _then)
+      : super(_value, (v) => _then(v as _LoadedIndividual));
 
   @override
-  _Loaded get _value => super._value as _Loaded;
+  _LoadedIndividual get _value => super._value as _LoadedIndividual;
 
   @override
   $Res call({
-    Object? list = freezed,
+    Object? item = freezed,
   }) {
-    return _then(_Loaded(
-      list == freezed
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as List<TransactionItem>,
+    return _then(_LoadedIndividual(
+      item == freezed
+          ? _value.item
+          : item // ignore: cast_nullable_to_non_nullable
+              as TransactionItem,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Loaded implements _Loaded {
-  _$_Loaded(this.list);
+class _$_LoadedIndividual implements _LoadedIndividual {
+  const _$_LoadedIndividual(this.item);
 
   @override
-  final List<TransactionItem> list;
+  final TransactionItem item;
 
   @override
   String toString() {
-    return 'TransactionState.loaded(list: $list)';
+    return 'IndividualTransactionState.loadedIndividual(item: $item)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Loaded &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+        (other is _LoadedIndividual &&
+            (identical(other.item, item) ||
+                const DeepCollectionEquality().equals(other.item, item)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(item);
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+  _$LoadedIndividualCopyWith<_LoadedIndividual> get copyWith =>
+      __$LoadedIndividualCopyWithImpl<_LoadedIndividual>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<TransactionItem> list) loaded,
+    required TResult Function(TransactionItem item) loadedIndividual,
     required TResult Function(ApiFailure failure) failure,
     required TResult Function(ApiFailure failure, List<TransactionItem> list)
         failureWithData,
   }) {
-    return loaded(list);
+    return loadedIndividual(item);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<TransactionItem> list)? loaded,
+    TResult Function(TransactionItem item)? loadedIndividual,
     TResult Function(ApiFailure failure)? failure,
     TResult Function(ApiFailure failure, List<TransactionItem> list)?
         failureWithData,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(list);
+    if (loadedIndividual != null) {
+      return loadedIndividual(item);
     }
     return orElse();
   }
@@ -572,35 +492,36 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_LoadedIndividual value) loadedIndividual,
     required TResult Function(_Failure value) failure,
     required TResult Function(_FailureWithData value) failureWithData,
   }) {
-    return loaded(this);
+    return loadedIndividual(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_LoadedIndividual value)? loadedIndividual,
     TResult Function(_Failure value)? failure,
     TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (loadedIndividual != null) {
+      return loadedIndividual(this);
     }
     return orElse();
   }
 }
 
-abstract class _Loaded implements TransactionState {
-  factory _Loaded(List<TransactionItem> list) = _$_Loaded;
+abstract class _LoadedIndividual implements IndividualTransactionState {
+  const factory _LoadedIndividual(TransactionItem item) = _$_LoadedIndividual;
 
-  List<TransactionItem> get list => throw _privateConstructorUsedError;
+  TransactionItem get item => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
+  _$LoadedIndividualCopyWith<_LoadedIndividual> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -613,7 +534,8 @@ abstract class _$FailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
+class __$FailureCopyWithImpl<$Res>
+    extends _$IndividualTransactionStateCopyWithImpl<$Res>
     implements _$FailureCopyWith<$Res> {
   __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
       : super(_value, (v) => _then(v as _Failure));
@@ -651,7 +573,7 @@ class _$_Failure implements _Failure {
 
   @override
   String toString() {
-    return 'TransactionState.failure(failure: $failure)';
+    return 'IndividualTransactionState.failure(failure: $failure)';
   }
 
   @override
@@ -675,7 +597,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<TransactionItem> list) loaded,
+    required TResult Function(TransactionItem item) loadedIndividual,
     required TResult Function(ApiFailure failure) failure,
     required TResult Function(ApiFailure failure, List<TransactionItem> list)
         failureWithData,
@@ -687,7 +609,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<TransactionItem> list)? loaded,
+    TResult Function(TransactionItem item)? loadedIndividual,
     TResult Function(ApiFailure failure)? failure,
     TResult Function(ApiFailure failure, List<TransactionItem> list)?
         failureWithData,
@@ -703,7 +625,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_LoadedIndividual value) loadedIndividual,
     required TResult Function(_Failure value) failure,
     required TResult Function(_FailureWithData value) failureWithData,
   }) {
@@ -714,7 +636,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_LoadedIndividual value)? loadedIndividual,
     TResult Function(_Failure value)? failure,
     TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
@@ -726,7 +648,7 @@ class _$_Failure implements _Failure {
   }
 }
 
-abstract class _Failure implements TransactionState {
+abstract class _Failure implements IndividualTransactionState {
   const factory _Failure(ApiFailure failure) = _$_Failure;
 
   ApiFailure get failure => throw _privateConstructorUsedError;
@@ -747,7 +669,7 @@ abstract class _$FailureWithDataCopyWith<$Res> {
 
 /// @nodoc
 class __$FailureWithDataCopyWithImpl<$Res>
-    extends _$TransactionStateCopyWithImpl<$Res>
+    extends _$IndividualTransactionStateCopyWithImpl<$Res>
     implements _$FailureWithDataCopyWith<$Res> {
   __$FailureWithDataCopyWithImpl(
       _FailureWithData _value, $Res Function(_FailureWithData) _then)
@@ -793,7 +715,7 @@ class _$_FailureWithData implements _FailureWithData {
 
   @override
   String toString() {
-    return 'TransactionState.failureWithData(failure: $failure, list: $list)';
+    return 'IndividualTransactionState.failureWithData(failure: $failure, list: $list)';
   }
 
   @override
@@ -822,7 +744,7 @@ class _$_FailureWithData implements _FailureWithData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<TransactionItem> list) loaded,
+    required TResult Function(TransactionItem item) loadedIndividual,
     required TResult Function(ApiFailure failure) failure,
     required TResult Function(ApiFailure failure, List<TransactionItem> list)
         failureWithData,
@@ -834,7 +756,7 @@ class _$_FailureWithData implements _FailureWithData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<TransactionItem> list)? loaded,
+    TResult Function(TransactionItem item)? loadedIndividual,
     TResult Function(ApiFailure failure)? failure,
     TResult Function(ApiFailure failure, List<TransactionItem> list)?
         failureWithData,
@@ -850,7 +772,7 @@ class _$_FailureWithData implements _FailureWithData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_LoadedIndividual value) loadedIndividual,
     required TResult Function(_Failure value) failure,
     required TResult Function(_FailureWithData value) failureWithData,
   }) {
@@ -861,7 +783,7 @@ class _$_FailureWithData implements _FailureWithData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_LoadedIndividual value)? loadedIndividual,
     TResult Function(_Failure value)? failure,
     TResult Function(_FailureWithData value)? failureWithData,
     required TResult orElse(),
@@ -873,7 +795,7 @@ class _$_FailureWithData implements _FailureWithData {
   }
 }
 
-abstract class _FailureWithData implements TransactionState {
+abstract class _FailureWithData implements IndividualTransactionState {
   const factory _FailureWithData(
       ApiFailure failure, List<TransactionItem> list) = _$_FailureWithData;
 

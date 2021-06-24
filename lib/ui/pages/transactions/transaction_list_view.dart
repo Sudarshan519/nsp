@@ -22,7 +22,6 @@ class TransactionListPage extends StatelessWidget {
       buildWhen: (previous, current) => previous.hashCode != current.hashCode,
       builder: (context, state) {
         return state.map(
-          loadedIndividual: (e) => const SizedBox(),
           loading: (a) => loadingPage(),
           loaded: (data) => TransactionBuilder(state: state, items: data.list),
           failure: (a) =>
