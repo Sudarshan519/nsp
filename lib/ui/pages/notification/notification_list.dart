@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/presentation/notification/notifications_bloc.dart';
-import 'package:wallet_app/features/transaction/presentation/individual_transaction/individual_transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
@@ -79,7 +78,7 @@ class _NotificationListView extends StatelessWidget {
             child: Stack(
               children: [
                 ListTile(
-                  contentPadding: EdgeInsets.all(16),
+                  contentPadding: const EdgeInsets.all(16),
                   leading: Transform.translate(
                     offset: const Offset(0, -9),
                     child: CircleAvatar(
@@ -127,10 +126,25 @@ class _NotificationListView extends StatelessWidget {
                   onTap: () {
                     if (item.redirectUrl != null) {
                       url_launcher.launch(item.redirectUrl!);
-                    } else if (item.productId != null) {
+                    } else if (item.productId != null && item.type != null) {
                       // TODO: CHECK by type
-                      context.pushRoute(
-                          TransactionDetailFromAPi(id: item.productId!));
+                      switch (item.type) {
+                        case NotificationType.transaction:
+                          context.pushRoute(
+                              TransactionDetailFromAPi(id: item.productId!));
+                          break;
+
+                        case NotificationType.partnerService:
+                          // TODO: goto partner service page
+                          break;
+
+                        case NotificationType.jpManner:
+                          // TODO: goto partner JP Manner page
+                          break;
+
+                        default:
+                          return;
+                      }
                     }
                   },
                 ),
