@@ -204,7 +204,7 @@ class KhaltiTopupPage extends StatelessWidget {
                   referenceId: data['token'] as String,
                   amount: "$doubleAmountInJpy",
                   purpose: purpose,
-                  verifyAmount: "$khaltiAmtinPaisa")),
+                  verifyAmount: "${khaltiAmtinPaisa.toInt()}")),
             );
       },
       onFaliure: (error) {
