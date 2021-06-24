@@ -26,13 +26,7 @@ class VerifyKhaltiTopupBloc
     yield* event.map(verify: (e) async* {
       yield const _Loading();
 
-      final result = await verifyKhaltiTopup(
-        VerifyKhaltiTopupParams(
-          referenceId: e.transactionId,
-          amount: e.amount,
-          purpose: e.purpose,
-        ),
-      );
+      final result = await verifyKhaltiTopup(e.params);
 
       yield result.fold(
         (failure) => _Failure(failure),

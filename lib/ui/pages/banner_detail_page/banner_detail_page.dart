@@ -11,7 +11,7 @@ class BannerDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Chyo-San",
+          "Choy-San",
           style: TextStyle(
             color: Palette.white,
           ),

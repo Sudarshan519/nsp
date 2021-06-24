@@ -7,21 +7,21 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
-import '../../features/alerts/domain/entity/alert_model.dart' as _i52;
+import '../../features/alerts/domain/entity/alert_model.dart' as _i53;
 import '../../features/japanese_manners/domain/entities/japanese_manner.dart'
-    as _i51;
+    as _i52;
 import '../../features/load_balance/domain/entities/payment_method.dart'
-    as _i53;
-import '../../features/news/domain/entity/news_item.dart' as _i49;
+    as _i54;
+import '../../features/news/domain/entity/news_item.dart' as _i50;
 import '../../features/partner_services/domain/entities/service_packages.dart'
-    as _i55;
-import '../../features/partner_services/domain/entities/services.dart' as _i50;
-import '../../features/resume/domain/entities/academic_history.dart' as _i47;
-import '../../features/resume/domain/entities/personal_info.dart' as _i45;
+    as _i56;
+import '../../features/partner_services/domain/entities/services.dart' as _i51;
+import '../../features/resume/domain/entities/academic_history.dart' as _i48;
+import '../../features/resume/domain/entities/personal_info.dart' as _i46;
 import '../../features/resume/domain/entities/qualification_history.dart'
-    as _i48;
-import '../../features/resume/domain/entities/work_history.dart' as _i46;
-import '../../features/transaction/domain/entity/transaction_item.dart' as _i54;
+    as _i49;
+import '../../features/resume/domain/entities/work_history.dart' as _i47;
+import '../../features/transaction/domain/entity/transaction_item.dart' as _i55;
 import '../pages/add_balance/add_balance.dart' as _i26;
 import '../pages/add_balance/payment_page/esewa/esewa_topup_page.dart' as _i30;
 import '../pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart'
@@ -38,6 +38,7 @@ import '../pages/auth/login_screen.dart' as _i4;
 import '../pages/auth/register_screen.dart' as _i7;
 import '../pages/auth/validate_user_screen.dart' as _i6;
 import '../pages/banner_detail_page/banner_detail_page.dart' as _i31;
+import '../pages/coupons/coupon_page.dart' as _i45;
 import '../pages/home/widgets/utility_payment/detail_pages/airlines/airlines_page.dart'
     as _i35;
 import '../pages/home/widgets/utility_payment/detail_pages/bus_ticket/bus_ticket_page.dart'
@@ -386,6 +387,11 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<BuyPackageRouteArgs>();
           return _i44.BuyPackagePage(key: args.key, package: args.package);
+        }),
+    CouponRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i45.CouponPage();
         })
   };
 
@@ -453,7 +459,8 @@ class AppRouter extends _i1.RootStackRouter {
             path: '/transaction-detail-from-aPi'),
         _i1.RouteConfig(NotificationListRoute.name,
             path: '/notification-list-page'),
-        _i1.RouteConfig(BuyPackageRoute.name, path: '/buy-package-page')
+        _i1.RouteConfig(BuyPackageRoute.name, path: '/buy-package-page'),
+        _i1.RouteConfig(CouponRoute.name, path: '/coupon-page')
       ];
 }
 
@@ -508,7 +515,7 @@ class EditBasicInfoFormRoute
     extends _i1.PageRouteInfo<EditBasicInfoFormRouteArgs> {
   EditBasicInfoFormRoute(
       {_i2.Key? key,
-      required _i45.PersonalInfo info,
+      required _i46.PersonalInfo info,
       required List<String> listOfNationality,
       required List<String> listOfProfession,
       required String lang})
@@ -534,7 +541,7 @@ class EditBasicInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i45.PersonalInfo info;
+  final _i46.PersonalInfo info;
 
   final List<String> listOfNationality;
 
@@ -547,7 +554,7 @@ class EditCurrentAddressInfoFormRoute
     extends _i1.PageRouteInfo<EditCurrentAddressInfoFormRouteArgs> {
   EditCurrentAddressInfoFormRoute(
       {_i2.Key? key,
-      required _i45.PersonalInfo info,
+      required _i46.PersonalInfo info,
       required String lang,
       required List<String> prefecture,
       required List<String> provinces})
@@ -573,7 +580,7 @@ class EditCurrentAddressInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i45.PersonalInfo info;
+  final _i46.PersonalInfo info;
 
   final String lang;
 
@@ -586,7 +593,7 @@ class EditContactAddressInfoFormRoute
     extends _i1.PageRouteInfo<EditContactAddressInfoFormRouteArgs> {
   EditContactAddressInfoFormRoute(
       {_i2.Key? key,
-      required _i45.PersonalInfo info,
+      required _i46.PersonalInfo info,
       required String lang,
       required List<String> prefecture,
       required List<String> provinces})
@@ -612,7 +619,7 @@ class EditContactAddressInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i45.PersonalInfo info;
+  final _i46.PersonalInfo info;
 
   final String lang;
 
@@ -625,7 +632,7 @@ class EditWorkInfoFormRoute
     extends _i1.PageRouteInfo<EditWorkInfoFormRouteArgs> {
   EditWorkInfoFormRoute(
       {_i2.Key? key,
-      required _i46.WorkHistory info,
+      required _i47.WorkHistory info,
       required List<String> typeOfCompanyList,
       required String lang})
       : super(name,
@@ -648,7 +655,7 @@ class EditWorkInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i46.WorkHistory info;
+  final _i47.WorkHistory info;
 
   final List<String> typeOfCompanyList;
 
@@ -659,7 +666,7 @@ class EditAcademicInfoFormRoute
     extends _i1.PageRouteInfo<EditAcademicInfoFormRouteArgs> {
   EditAcademicInfoFormRoute(
       {_i2.Key? key,
-      required _i47.AcademicHistory info,
+      required _i48.AcademicHistory info,
       required List<String> listOfSubjects,
       required String lang})
       : super(name,
@@ -682,7 +689,7 @@ class EditAcademicInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i47.AcademicHistory info;
+  final _i48.AcademicHistory info;
 
   final List<String> listOfSubjects;
 
@@ -693,7 +700,7 @@ class EditQualificationInfoFormRoute
     extends _i1.PageRouteInfo<EditQualificationInfoFormRouteArgs> {
   EditQualificationInfoFormRoute(
       {_i2.Key? key,
-      required _i48.QualificationHistory info,
+      required _i49.QualificationHistory info,
       required String lang})
       : super(name,
             path: '/edit-qualification-info-form-page',
@@ -709,7 +716,7 @@ class EditQualificationInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i48.QualificationHistory info;
+  final _i49.QualificationHistory info;
 
   final String lang;
 }
@@ -718,7 +725,7 @@ class EditOtherInfoFormRoute
     extends _i1.PageRouteInfo<EditOtherInfoFormRouteArgs> {
   EditOtherInfoFormRoute(
       {_i2.Key? key,
-      required _i45.PersonalInfo info,
+      required _i46.PersonalInfo info,
       required List<String> listOfLanguages,
       required List<String> listOfHobbies,
       required List<String> listOfSkills,
@@ -747,7 +754,7 @@ class EditOtherInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i45.PersonalInfo info;
+  final _i46.PersonalInfo info;
 
   final List<String> listOfLanguages;
 
@@ -759,7 +766,7 @@ class EditOtherInfoFormRouteArgs {
 }
 
 class NewsDetailRoute extends _i1.PageRouteInfo<NewsDetailRouteArgs> {
-  NewsDetailRoute({_i2.Key? key, required _i49.NewsItem newsItem})
+  NewsDetailRoute({_i2.Key? key, required _i50.NewsItem newsItem})
       : super(name,
             path: '/news-detail-page',
             args: NewsDetailRouteArgs(key: key, newsItem: newsItem));
@@ -772,7 +779,7 @@ class NewsDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i49.NewsItem newsItem;
+  final _i50.NewsItem newsItem;
 }
 
 class AppWebViewRoute extends _i1.PageRouteInfo<AppWebViewRouteArgs> {
@@ -819,7 +826,7 @@ class PartnerServicesRouteArgs {
 }
 
 class ServicesDetailRoute extends _i1.PageRouteInfo<ServicesDetailRouteArgs> {
-  ServicesDetailRoute({_i2.Key? key, required _i50.Services services})
+  ServicesDetailRoute({_i2.Key? key, required _i51.Services services})
       : super(name,
             path: '/services-detail-page',
             args: ServicesDetailRouteArgs(key: key, services: services));
@@ -832,7 +839,7 @@ class ServicesDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i50.Services services;
+  final _i51.Services services;
 }
 
 class JapaneseMannerRoute extends _i1.PageRouteInfo<JapaneseMannerRouteArgs> {
@@ -856,7 +863,7 @@ class JapaneseMannerRouteArgs {
 class JapaneseMannerDetailRoute
     extends _i1.PageRouteInfo<JapaneseMannerDetailRouteArgs> {
   JapaneseMannerDetailRoute(
-      {_i2.Key? key, required _i51.JapaneseManner japaneseManner})
+      {_i2.Key? key, required _i52.JapaneseManner japaneseManner})
       : super(name,
             path: '/japanese-manner-detail-page',
             args: JapaneseMannerDetailRouteArgs(
@@ -870,7 +877,7 @@ class JapaneseMannerDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i51.JapaneseManner japaneseManner;
+  final _i52.JapaneseManner japaneseManner;
 }
 
 class AlertsRoute extends _i1.PageRouteInfo {
@@ -886,7 +893,7 @@ class AlertsTabRoute extends _i1.PageRouteInfo {
 }
 
 class AlertDetailRoute extends _i1.PageRouteInfo<AlertDetailRouteArgs> {
-  AlertDetailRoute({_i2.Key? key, required _i52.Alert alert})
+  AlertDetailRoute({_i2.Key? key, required _i53.Alert alert})
       : super(name,
             path: '/alert-detail-page',
             args: AlertDetailRouteArgs(key: key, alert: alert));
@@ -899,7 +906,7 @@ class AlertDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i52.Alert alert;
+  final _i53.Alert alert;
 }
 
 class AddBalanceRoute extends _i1.PageRouteInfo<AddBalanceRouteArgs> {
@@ -931,7 +938,7 @@ class StripePaymentCardSelectionRoute
   StripePaymentCardSelectionRoute(
       {_i2.Key? key,
       required String balance,
-      required List<_i53.CreditCard> cards})
+      required List<_i54.CreditCard> cards})
       : super(name,
             path: '/stripe-payment-card-selection-page',
             args: StripePaymentCardSelectionRouteArgs(
@@ -948,7 +955,7 @@ class StripePaymentCardSelectionRouteArgs {
 
   final String balance;
 
-  final List<_i53.CreditCard> cards;
+  final List<_i54.CreditCard> cards;
 }
 
 class StripeNewCardPaymentRoute
@@ -972,7 +979,7 @@ class StripeNewCardPaymentRouteArgs {
 class StripeSaveCardPaymentRoute
     extends _i1.PageRouteInfo<StripeSaveCardPaymentRouteArgs> {
   StripeSaveCardPaymentRoute(
-      {_i2.Key? key, required String balance, required _i53.CreditCard card})
+      {_i2.Key? key, required String balance, required _i54.CreditCard card})
       : super(name,
             path: '/stripe-save-card-payment-page',
             args: StripeSaveCardPaymentRouteArgs(
@@ -989,13 +996,13 @@ class StripeSaveCardPaymentRouteArgs {
 
   final String balance;
 
-  final _i53.CreditCard card;
+  final _i54.CreditCard card;
 }
 
 class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
   EsewaTopupRoute(
       {_i2.Key? key,
-      required _i53.PaymentMethod method,
+      required _i54.PaymentMethod method,
       required double conversionRate,
       required bool isVerified,
       required double balance})
@@ -1021,7 +1028,7 @@ class EsewaTopupRouteArgs {
 
   final _i2.Key? key;
 
-  final _i53.PaymentMethod method;
+  final _i54.PaymentMethod method;
 
   final double conversionRate;
 
@@ -1169,7 +1176,7 @@ class TransactionRoute extends _i1.PageRouteInfo {
 
 class TransactionDetailRoute
     extends _i1.PageRouteInfo<TransactionDetailRouteArgs> {
-  TransactionDetailRoute({_i2.Key? key, required _i54.TransactionItem item})
+  TransactionDetailRoute({_i2.Key? key, required _i55.TransactionItem item})
       : super(name,
             path: '/transaction-detail-page',
             args: TransactionDetailRouteArgs(key: key, item: item));
@@ -1182,7 +1189,7 @@ class TransactionDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i54.TransactionItem item;
+  final _i55.TransactionItem item;
 }
 
 class TransactionDetailFromAPi
@@ -1210,7 +1217,7 @@ class NotificationListRoute extends _i1.PageRouteInfo {
 }
 
 class BuyPackageRoute extends _i1.PageRouteInfo<BuyPackageRouteArgs> {
-  BuyPackageRoute({_i2.Key? key, required _i55.ServicePackage package})
+  BuyPackageRoute({_i2.Key? key, required _i56.ServicePackage package})
       : super(name,
             path: '/buy-package-page',
             args: BuyPackageRouteArgs(key: key, package: package));
@@ -1223,5 +1230,11 @@ class BuyPackageRouteArgs {
 
   final _i2.Key? key;
 
-  final _i55.ServicePackage package;
+  final _i56.ServicePackage package;
+}
+
+class CouponRoute extends _i1.PageRouteInfo {
+  const CouponRoute() : super(name, path: '/coupon-page');
+
+  static const String name = 'CouponRoute';
 }

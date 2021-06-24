@@ -31,5 +31,6 @@ abstract class LoadBalanceRepositories {
     required String referenceId,
     required String amount,
     required String purpose,
+    required String verifyAmount,
   });
 }

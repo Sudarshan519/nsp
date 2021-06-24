@@ -42,6 +42,7 @@ abstract class LoadBalanceDataSource {
     required String token,
     required String amount,
     required String purpose,
+    required String verifyAmount,
   });
 }
 
@@ -192,6 +193,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
   Future<Unit> verifyKhaltiTopup({
     required String token,
     required String amount,
+    required String verifyAmount,
     required String purpose,
   }) async {
     final userId = (await auth.getUserDetail()).uuid;
@@ -204,8 +206,9 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     final params = {
       "token": token,
       "product_id": userId,
-      "amount": amount,
+      "amount": amount, //send in JPY
       "purpose": purpose,
+      "verify_amount": verifyAmount, // amt in nepali PAISA
     };
     return _postRequest(
       endpoint: LoadBalanceApiEndpoints.verifyKhaltiTopup,

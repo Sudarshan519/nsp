@@ -12,6 +12,7 @@ import 'package:wallet_app/ui/pages/auth/login_screen.dart';
 import 'package:wallet_app/ui/pages/auth/register_screen.dart';
 import 'package:wallet_app/ui/pages/auth/validate_user_screen.dart';
 import 'package:wallet_app/ui/pages/banner_detail_page/banner_detail_page.dart';
+import 'package:wallet_app/ui/pages/coupons/coupon_page.dart';
 import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/airlines/airlines_page.dart';
 import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/bus_ticket/bus_ticket_page.dart';
 import 'package:wallet_app/ui/pages/home/widgets/utility_payment/detail_pages/insurance/individual_insurance_page.dart';
@@ -88,6 +89,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: TransactionDetailFromAPi),
     AutoRoute(page: NotificationListPage),
     AutoRoute(page: BuyPackagePage),
+    AutoRoute(page: CouponPage),
   ],
 )
 class $AppRouter {}

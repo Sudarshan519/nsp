@@ -5,6 +5,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
+import 'package:wallet_app/features/load_balance/domain/usecases/verify_khalti_top_up.dart';
 import 'package:wallet_app/features/load_balance/presentations/khalti/khalti_form/khalti_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/khalti/verify_khalti_topup/verify_khalti_topup_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -139,9 +140,12 @@ class KhaltiTopupPage extends StatelessWidget {
       return;
     }
 
-    final doubleAmount = double.parse(amount);
+    var doubleAmountInJpy = double.parse(amount);
+    //Gettng only 2 digits after decimal point
 
-    if (doubleAmount < 100) {
+    doubleAmountInJpy = double.parse(doubleAmountInJpy.toStringAsFixed(2));
+
+    if (doubleAmountInJpy < 100) {
       FlushbarHelper.createError(
               message: "The amount cannot be smaller than 100.")
           .show(context);
@@ -149,7 +153,9 @@ class KhaltiTopupPage extends StatelessWidget {
     }
 
     // TODO: change this Later
-    final amountDoubleInRupees = doubleAmount * conversionRate;
+    //Gettng only 2 digits after decimal point
+    final amountDoubleInRupees =
+        double.parse((doubleAmountInJpy * conversionRate).toStringAsFixed(2));
 
     //checking if verified
     if (!isVerified) {
@@ -181,11 +187,12 @@ class KhaltiTopupPage extends StatelessWidget {
       //TODO: url scheme here and in info.plist iOS
       urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
     );
+    final khaltiAmtinPaisa = amountDoubleInRupees *
+        100; // Multiplying by 100 bc amt should be in paisa for khalti
 
-    final khaltiAmt = double.parse(amountDoubleInRupees.toStringAsFixed(2));
     final product = KhaltiProduct(
       id: 'load-balance-from-khalti',
-      amount: khaltiAmt * 100, // Multiplying by 100 bc amt should be in paisa
+      amount: khaltiAmtinPaisa,
       name: "Load Balance from Khalti",
     );
 
@@ -193,11 +200,11 @@ class KhaltiTopupPage extends StatelessWidget {
       product: product,
       onSuccess: (data) {
         context.read<VerifyKhaltiTopupBloc>().add(
-              VerifyKhaltiTopupEvent.verify(
-                transactionId: data['token'] as String,
-                amount: "$khaltiAmt",
-                purpose: purpose,
-              ),
+              VerifyKhaltiTopupEvent.verify(VerifyKhaltiTopupParams(
+                  referenceId: data['token'] as String,
+                  amount: "$doubleAmountInJpy",
+                  purpose: purpose,
+                  verifyAmount: "${khaltiAmtinPaisa.toInt()}")),
             );
       },
       onFaliure: (error) {
