@@ -36,7 +36,7 @@ class NotificationItemModel extends NotificationItem {
     userId = json['user_id'] as int?;
     image = json['image'] as String?;
     isPinned = json['is_pinned'] as bool;
-    type = json['type'] as String;
+    type = json['type'] as String?;
     isShow = json['is_show'] as bool?;
     productId = json['product_id'] as int?;
     redirectUrl = json['redirect_url'] as String?;
