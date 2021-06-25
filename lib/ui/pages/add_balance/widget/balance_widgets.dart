@@ -5,8 +5,8 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 
-class BalanceBlocWidget extends StatelessWidget {
-  const BalanceBlocWidget({Key? key}) : super(key: key);
+class BalanceWidget extends StatelessWidget {
+  const BalanceWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

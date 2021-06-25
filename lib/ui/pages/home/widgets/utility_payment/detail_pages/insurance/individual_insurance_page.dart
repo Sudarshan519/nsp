@@ -31,7 +31,7 @@ class IndividualInsurancePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const BalanceBlocWidget(),
+          const BalanceWidget(),
           body(),
         ],
       ),

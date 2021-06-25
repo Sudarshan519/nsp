@@ -18,15 +18,7 @@ class GetBalance implements Usecase<ApiFailure, double, GetBalanceParam> {
   @override
   Future<Either<ApiFailure, double>> call(GetBalanceParam params) async {
     if (await networkInfo.isConnected) {
-      final remoteData = await repository.getBalance();
-      return remoteData.fold(
-        (failure) {
-          return Left(failure);
-        },
-        (data) {
-          return Right(data);
-        },
-      );
+      return repository.getBalance();
     } else {
       return const Left(ApiFailure.noInternetConnection());
     }

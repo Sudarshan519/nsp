@@ -49,7 +49,7 @@ class PartnerServicePaymentPage extends StatelessWidget {
         ),
         body: Column(
           children: [
-            const BalanceBlocWidget(),
+            const BalanceWidget(),
             _blocConsumer(context),
             _showProceedButton(context),
           ],

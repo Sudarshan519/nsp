@@ -39,7 +39,7 @@ class TransactionPage extends StatelessWidget {
   }
 
   Widget showBalance() {
-    return const BalanceBlocWidget();
+    return const BalanceWidget();
     // return BlocBuilder<HomePageDataBloc, HomePageDataState>(
     //   builder: (context, state) {
     //     return state.map(

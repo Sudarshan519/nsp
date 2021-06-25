@@ -29,7 +29,7 @@ class IndividualISPPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const BalanceBlocWidget(),
+          const BalanceWidget(),
           body(),
         ],
       ),

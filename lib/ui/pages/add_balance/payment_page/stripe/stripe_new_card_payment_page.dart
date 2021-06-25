@@ -98,7 +98,7 @@ class StripeNewCardPaymentPage extends StatelessWidget {
       },
       child: Column(
         children: [
-          const BalanceBlocWidget(),
+          const BalanceWidget(),
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(16),
