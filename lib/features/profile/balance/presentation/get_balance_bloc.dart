@@ -31,15 +31,6 @@ class GetBalanceBloc extends Bloc<GetBalanceEvent, GetBalanceState> {
       }, (balance) {
         return _Loaded(balance);
       });
-    }, refreshBalance: (e) async* {
-      yield const _Loading();
-      final res = await getBalance.call(GetBalanceParam());
-
-      yield res.fold((fail) {
-        return _Failure(fail);
-      }, (balance) {
-        return _Loaded(balance);
-      });
     });
   }
 }

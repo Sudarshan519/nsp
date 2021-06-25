@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 
 class BalanceBlocWidget extends StatelessWidget {
   const BalanceBlocWidget({Key? key}) : super(key: key);
@@ -56,7 +57,7 @@ class BalanceBlocWidget extends StatelessWidget {
                     InkWell(
                       onTap: () => context
                           .read<GetBalanceBloc>()
-                          .add(const GetBalanceEvent.refreshBalance()),
+                          .add(const GetBalanceEvent.fetchBalance()),
                       child: const Icon(
                         Icons.replay_outlined,
                       ),
@@ -73,7 +74,8 @@ class BalanceBlocWidget extends StatelessWidget {
             return _balWid('XX.XX');
           },
           loaded: (e) {
-            return _balWid(e.balance.toString());
+            final formatted = currencyFormatter(value: e.balance);
+            return _balWid(formatted);
           },
           failure: (e) {
             return _balWid('XX.XX');

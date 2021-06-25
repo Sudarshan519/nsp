@@ -19,10 +19,6 @@ class _$GetBalanceEventTearOff {
   _FetchBalance fetchBalance() {
     return const _FetchBalance();
   }
-
-  _RefreshBalance refreshBalance() {
-    return const _RefreshBalance();
-  }
 }
 
 /// @nodoc
@@ -33,26 +29,22 @@ mixin _$GetBalanceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchBalance,
-    required TResult Function() refreshBalance,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchBalance,
-    TResult Function()? refreshBalance,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchBalance value) fetchBalance,
-    required TResult Function(_RefreshBalance value) refreshBalance,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchBalance value)? fetchBalance,
-    TResult Function(_RefreshBalance value)? refreshBalance,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,7 +108,6 @@ class _$_FetchBalance implements _FetchBalance {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchBalance,
-    required TResult Function() refreshBalance,
   }) {
     return fetchBalance();
   }
@@ -125,7 +116,6 @@ class _$_FetchBalance implements _FetchBalance {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchBalance,
-    TResult Function()? refreshBalance,
     required TResult orElse(),
   }) {
     if (fetchBalance != null) {
@@ -138,7 +128,6 @@ class _$_FetchBalance implements _FetchBalance {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchBalance value) fetchBalance,
-    required TResult Function(_RefreshBalance value) refreshBalance,
   }) {
     return fetchBalance(this);
   }
@@ -147,7 +136,6 @@ class _$_FetchBalance implements _FetchBalance {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchBalance value)? fetchBalance,
-    TResult Function(_RefreshBalance value)? refreshBalance,
     required TResult orElse(),
   }) {
     if (fetchBalance != null) {
@@ -159,92 +147,6 @@ class _$_FetchBalance implements _FetchBalance {
 
 abstract class _FetchBalance implements GetBalanceEvent {
   const factory _FetchBalance() = _$_FetchBalance;
-}
-
-/// @nodoc
-abstract class _$RefreshBalanceCopyWith<$Res> {
-  factory _$RefreshBalanceCopyWith(
-          _RefreshBalance value, $Res Function(_RefreshBalance) then) =
-      __$RefreshBalanceCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$RefreshBalanceCopyWithImpl<$Res>
-    extends _$GetBalanceEventCopyWithImpl<$Res>
-    implements _$RefreshBalanceCopyWith<$Res> {
-  __$RefreshBalanceCopyWithImpl(
-      _RefreshBalance _value, $Res Function(_RefreshBalance) _then)
-      : super(_value, (v) => _then(v as _RefreshBalance));
-
-  @override
-  _RefreshBalance get _value => super._value as _RefreshBalance;
-}
-
-/// @nodoc
-
-class _$_RefreshBalance implements _RefreshBalance {
-  const _$_RefreshBalance();
-
-  @override
-  String toString() {
-    return 'GetBalanceEvent.refreshBalance()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RefreshBalance);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchBalance,
-    required TResult Function() refreshBalance,
-  }) {
-    return refreshBalance();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchBalance,
-    TResult Function()? refreshBalance,
-    required TResult orElse(),
-  }) {
-    if (refreshBalance != null) {
-      return refreshBalance();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FetchBalance value) fetchBalance,
-    required TResult Function(_RefreshBalance value) refreshBalance,
-  }) {
-    return refreshBalance(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchBalance value)? fetchBalance,
-    TResult Function(_RefreshBalance value)? refreshBalance,
-    required TResult orElse(),
-  }) {
-    if (refreshBalance != null) {
-      return refreshBalance(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RefreshBalance implements GetBalanceEvent {
-  const factory _RefreshBalance() = _$_RefreshBalance;
 }
 
 /// @nodoc
