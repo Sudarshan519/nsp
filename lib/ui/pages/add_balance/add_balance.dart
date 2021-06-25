@@ -73,7 +73,7 @@ class AddBalancePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        BalanceWidget(balance: loadFund?.formattedBalance ?? 'JPY XX.XX'),
+        const BalanceBlocWidget(),
         const SizedBox(height: 20),
         const Padding(
           padding: EdgeInsets.only(left: 16.0),

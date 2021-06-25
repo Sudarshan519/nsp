@@ -71,7 +71,7 @@ class _TopUpPageState extends State<TopUpPage> {
         ),
         body: Column(
           children: [
-            BalanceWidget(balance: widget.balance),
+            const BalanceBlocWidget(),
             _blocConsumer(context),
           ],
         ),

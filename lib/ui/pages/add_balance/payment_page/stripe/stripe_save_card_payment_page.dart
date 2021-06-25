@@ -102,9 +102,7 @@ class StripeSaveCardPaymentPage extends StatelessWidget {
       },
       child: Column(
         children: [
-          BalanceWidget(
-            balance: balance,
-          ),
+          const BalanceBlocWidget(),
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(16),

@@ -39,31 +39,32 @@ class TransactionPage extends StatelessWidget {
   }
 
   Widget showBalance() {
-    return BlocBuilder<HomePageDataBloc, HomePageDataState>(
-      builder: (context, state) {
-        return state.map(
-          loading: (_) => loadingPage(),
-          loaded: (success) => BalanceWidget(
-              balance:
-                  success.data.userDetail?.formattedBalance.toString() ?? ''),
-          failure: (error) {
-            Future.delayed(Duration.zero, () {
-              FlushbarHelper.createError(
-                message: error.failure.map(
-                  noInternetConnection: (error) => AppConstants.noNetwork,
-                  serverError: (error) => error.message,
-                  invalidUser: (error) => AppConstants.someThingWentWrong,
-                ),
-              ).show(context);
-            });
-            return const Text('Error');
-          },
-          failureWithData: (value) => loadingPage(),
-          initial: (value) => loadingPage(),
-          loadingWithData: (value) => loadingPage(),
-        );
-      },
-    );
+    return const BalanceBlocWidget();
+    // return BlocBuilder<HomePageDataBloc, HomePageDataState>(
+    //   builder: (context, state) {
+    //     return state.map(
+    //       loading: (_) => loadingPage(),
+    //       loaded: (success) => BalanceWidget(
+    //           balance:
+    //               success.data.userDetail?.formattedBalance.toString() ?? ''),
+    //       failure: (error) {
+    //         Future.delayed(Duration.zero, () {
+    //           FlushbarHelper.createError(
+    //             message: error.failure.map(
+    //               noInternetConnection: (error) => AppConstants.noNetwork,
+    //               serverError: (error) => error.message,
+    //               invalidUser: (error) => AppConstants.someThingWentWrong,
+    //             ),
+    //           ).show(context);
+    //         });
+    //         return const Text('Error');
+    //       },
+    //       failureWithData: (value) => loadingPage(),
+    //       initial: (value) => loadingPage(),
+    //       loadingWithData: (value) => loadingPage(),
+    //     );
+    //   },
+    // );
   }
 
   Widget body() {
