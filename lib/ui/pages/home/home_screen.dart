@@ -161,9 +161,12 @@ class HomePage extends StatelessWidget {
         final data = List<RemitRateModel>.from((model.data as Iterable)
             .map((x) => RemitRateModel.fromJson(x as Map<String, dynamic>)));
 
-        return RemitRateWidget(
-          remitRates: data,
-        );
+        if (data.isNotEmpty) {
+          return RemitRateWidget(
+            remitRates: data,
+          );
+        }
+        return const SizedBox.shrink();
       case HomeItemType.resume:
         final data = model.data as Map<String, dynamic>;
 
