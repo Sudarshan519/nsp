@@ -216,6 +216,7 @@ class _CouponDetailState extends State<CouponDetail> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                const SizedBox(height: 5),
                 Text(
                   widget.coupon.description ?? '',
                   style: TextStyle(

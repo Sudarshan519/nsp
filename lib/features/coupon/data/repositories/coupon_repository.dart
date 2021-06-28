@@ -22,4 +22,53 @@ class CouponRepositoryImpl implements CouponRepository {
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
+
+  @override
+  Future<Either<ApiFailure, CouponCode>> verifyCoupon({
+    required String couponCode,
+    required String productType,
+    required int productId,
+  }) async {
+    try {
+      return Right(
+        await dataSource.verifyCoupon(
+          couponCode: couponCode,
+          productType: productType,
+          productId: productId,
+        ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, CouponCode>> applyCoupon({
+    required String couponCode,
+  }) async {
+    try {
+      return Right(
+        await dataSource.applyCoupon(
+          couponCode: couponCode,
+        ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> redeemCoupon({
+    required String couponCode,
+  }) async {
+    try {
+      return Right(
+        await dataSource.redeemCoupon(
+          couponCode: couponCode,
+        ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
 }

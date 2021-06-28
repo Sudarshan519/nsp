@@ -11,7 +11,7 @@ class UserDetailModel extends UserDetail {
     required String? uuid,
     required String? avatar,
     required double? balance,
-    required int? point,
+    required double? point,
     required String? dob,
     required String? gender,
     required String? nationality,
@@ -120,7 +120,9 @@ class UserDetailModel extends UserDetail {
         balance: (json["balance"] is int?)
             ? double.parse("${json["balance"] as int? ?? 0}")
             : json["balance"] as double?,
-        point: json["point"] as int?,
+        point: (json["point"] is int?)
+            ? double.parse("${json["point"] as int? ?? 0}")
+            : json["point"] as double?,
         dob: json["dob"] as String?,
         gender: json["gender"] as String?,
         nationality: json["nationality"] as String?,

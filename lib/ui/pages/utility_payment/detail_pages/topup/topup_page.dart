@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttercontactpicker/fluttercontactpicker.dart';
+import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
+import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart';
@@ -34,17 +36,28 @@ class TopUpPage extends StatefulWidget {
 
 class _TopUpPageState extends State<TopUpPage> {
   late bool _isConfirmPage;
+  late bool _hasCouponCode;
+  CouponCode? _coupon;
 
   @override
   void initState() {
     _isConfirmPage = false;
+    _hasCouponCode = false;
+    _coupon = null;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<TopUpBalanceInMobileBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<TopUpBalanceInMobileBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<VerifyCouponBloc>(),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -143,6 +156,30 @@ class _TopUpPageState extends State<TopUpPage> {
             _AmountTextField(
               conversionRate: widget.conversionRate,
             ),
+            const SizedBox(height: 20),
+            CouponCodeWidget(
+              hasCouponCode: _hasCouponCode,
+              callback: () {
+                setState(() {
+                  _hasCouponCode = !_hasCouponCode;
+                });
+              },
+              validCoupon: (couponCode) {
+                setState(() {
+                  _coupon = couponCode;
+                });
+                context.read<TopUpBalanceInMobileBloc>().add(
+                      TopUpBalanceInMobileEvent.changeCoupon(
+                          couponCode?.couponCode ?? ''),
+                    );
+              },
+            ),
+            const SizedBox(height: 20),
+            if (_coupon != null)
+              _CouponDetail(
+                coupon: _coupon!,
+              ),
+            const SizedBox(height: 20),
             _TransactionDetail(
               conversionRate: widget.conversionRate,
             ),
@@ -180,6 +217,16 @@ class _TopUpPageState extends State<TopUpPage> {
             const SizedBox(height: 5),
             _TransactionAmountInNPRField(),
             const SizedBox(height: 5),
+            _TransactionDetailRow(
+              title: 'Cashback',
+              value: '0.00',
+            ),
+            const SizedBox(height: 5),
+            _TransactionDetailRow(
+              title: 'Reward Points',
+              value: '0.00',
+            ),
+            const SizedBox(height: 5),
             _TransactionAmountInJPYField(
               conversionRate: widget.conversionRate,
             ),
@@ -188,6 +235,172 @@ class _TopUpPageState extends State<TopUpPage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class CouponCodeWidget extends StatelessWidget {
+  const CouponCodeWidget({
+    Key? key,
+    required this.hasCouponCode,
+    required this.callback,
+    required this.validCoupon,
+  }) : super(key: key);
+
+  final bool hasCouponCode;
+  final Function() callback;
+  final Function(CouponCode?) validCoupon;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        if (state.number.isEmpty || state.type.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        return _buildCoupon(context);
+      },
+    );
+  }
+
+  Widget _buildCoupon(BuildContext context) {
+    if (!hasCouponCode) {
+      return InkWell(
+        onTap: callback,
+        child: Container(
+          height: 30,
+          width: 150,
+          decoration: BoxDecoration(
+              border: Border.all(
+                color: Palette.primary,
+              ),
+              borderRadius: BorderRadius.circular(15.0)),
+          child: Center(
+            child: Text(
+              "I have a coupon",
+              style: TextStyle(
+                color: Palette.primary,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+    return _couponBlocBuilder(context);
+  }
+
+  Widget _couponBlocBuilder(BuildContext context) {
+    return BlocConsumer<VerifyCouponBloc, VerifyCouponState>(
+      listener: (context, state) {
+        state.failureOrSuccess.fold(
+          () => {},
+          (either) => either.fold(
+            (failure) {
+              validCoupon(null);
+              FlushbarHelper.createError(
+                  message: failure.map(
+                serverError: (error) => error.message,
+                invalidUser: (_) => AppConstants.someThingWentWrong,
+                noInternetConnection: (_) => AppConstants.noNetwork,
+              )).show(context);
+            },
+            (coupon) {
+              validCoupon(coupon);
+            },
+          ),
+        );
+      },
+      builder: (context, state) {
+        if (state.isSubmitting == true) {
+          return loadingPage();
+        }
+        return _couponEdit(context);
+      },
+    );
+  }
+
+  Widget _couponEdit(BuildContext context) {
+    return BlocBuilder<VerifyCouponBloc, VerifyCouponState>(
+      builder: (context, state) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+            color: Palette.dividerColor.withOpacity(0.4),
+          ),
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.centerRight,
+                child: InkWell(
+                  onTap: () {
+                    callback();
+                    validCoupon(null);
+                  },
+                  child: const Icon(
+                    Icons.clear,
+                    size: 15,
+                  ),
+                ),
+              ),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        height: 30,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Palette.dividerColor,
+                          ),
+                          borderRadius: BorderRadius.circular(15.0),
+                          color: Palette.white,
+                        ),
+                        child: InputTextWidget(
+                          hintText: "Coupon Code",
+                          value: state.couponCode,
+                          onChanged: (value) => context
+                              .read<VerifyCouponBloc>()
+                              .add(VerifyCouponEvent.changeCouponCode(value)),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                    InkWell(
+                      onTap: () {
+                        validCoupon(null);
+                        context
+                            .read<VerifyCouponBloc>()
+                            .add(const VerifyCouponEvent.verifyCoupon());
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        height: 30,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15.0),
+                          color: Palette.primary,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Check",
+                            style: TextStyle(
+                              color: Palette.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -314,7 +527,6 @@ class _AmountTextField extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(height: 20),
           ],
         );
       },
@@ -417,6 +629,50 @@ class _TransactionDetail extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Cashback',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                      Text(
+                        "0.00",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Reward Points',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                      Text(
+                        "0.00",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
                   DashedLineWidget(
                     color: Palette.white,
                   ),
@@ -453,6 +709,100 @@ class _TransactionDetail extends StatelessWidget {
   }
 }
 
+class _CouponDetail extends StatelessWidget {
+  final CouponCode coupon;
+  const _CouponDetail({
+    Key? key,
+    required this.coupon,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          // height: 30,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Palette.primary,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Coupon Code',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Palette.white,
+                    ),
+                  ),
+                  Text(
+                    coupon.couponCode ?? '',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Palette.white,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Cashback:',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Palette.white,
+                    ),
+                  ),
+                  Text(
+                    coupon.cashback ?? '',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Palette.white,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Reward Point:',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Palette.white,
+                    ),
+                  ),
+                  Text(
+                    coupon.rewardPoint ?? '',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Palette.white,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+      ],
+    );
+  }
+}
+
 class _ProceedButton extends StatelessWidget {
   // final String balance;
   // final TopUpBalanceInMobileBloc bloc;
@@ -471,10 +821,11 @@ class _ProceedButton extends StatelessWidget {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
         return InkWell(
-          // onTap: () => context
-          //     .read<TopUpBalanceInMobileBloc>()
-          //     .add(const TopUpBalanceInMobileEvent.topup()),
           onTap: () {
+            context
+                .read<TopUpBalanceInMobileBloc>()
+                .add(const TopUpBalanceInMobileEvent.validate());
+
             if (state.number.isEmpty ||
                 state.type.isEmpty ||
                 state.amount.isEmpty) {
@@ -482,12 +833,6 @@ class _ProceedButton extends StatelessWidget {
             }
 
             callback();
-            // context.pushRoute(
-            //   TopupConfirmRoute(
-            //     balance: balance,
-            //     bloc: bloc,
-            //   ),
-            // );
           },
           child: Container(
             height: 40,

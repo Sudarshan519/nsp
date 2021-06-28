@@ -79,7 +79,7 @@ class ISPItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRoute(IndividualISPRoute(ispTitle: name));
+        // context.pushRoute(IndividualISPRoute(ispTitle: name));
       },
       child: Column(
         children: [
