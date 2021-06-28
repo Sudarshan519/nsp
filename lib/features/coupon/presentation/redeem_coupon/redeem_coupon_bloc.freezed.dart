@@ -26,6 +26,10 @@ class _$RedeemCouponEventTearOff {
     return const _ApplyCoupon();
   }
 
+  _Reset reset() {
+    return const _Reset();
+  }
+
   _RedeemCoupon redeemCoupon() {
     return const _RedeemCoupon();
   }
@@ -40,6 +44,7 @@ mixin _$RedeemCouponEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String code) changeCouponCode,
     required TResult Function() applyCoupon,
+    required TResult Function() reset,
     required TResult Function() redeemCoupon,
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +52,7 @@ mixin _$RedeemCouponEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String code)? changeCouponCode,
     TResult Function()? applyCoupon,
+    TResult Function()? reset,
     TResult Function()? redeemCoupon,
     required TResult orElse(),
   }) =>
@@ -55,6 +61,7 @@ mixin _$RedeemCouponEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeCouponCode value) changeCouponCode,
     required TResult Function(_ApplyCoupon value) applyCoupon,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_RedeemCoupon value) redeemCoupon,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +69,7 @@ mixin _$RedeemCouponEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCouponCode value)? changeCouponCode,
     TResult Function(_ApplyCoupon value)? applyCoupon,
+    TResult Function(_Reset value)? reset,
     TResult Function(_RedeemCoupon value)? redeemCoupon,
     required TResult orElse(),
   }) =>
@@ -152,6 +160,7 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
   TResult when<TResult extends Object?>({
     required TResult Function(String code) changeCouponCode,
     required TResult Function() applyCoupon,
+    required TResult Function() reset,
     required TResult Function() redeemCoupon,
   }) {
     return changeCouponCode(code);
@@ -162,6 +171,7 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String code)? changeCouponCode,
     TResult Function()? applyCoupon,
+    TResult Function()? reset,
     TResult Function()? redeemCoupon,
     required TResult orElse(),
   }) {
@@ -176,6 +186,7 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeCouponCode value) changeCouponCode,
     required TResult Function(_ApplyCoupon value) applyCoupon,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_RedeemCoupon value) redeemCoupon,
   }) {
     return changeCouponCode(this);
@@ -186,6 +197,7 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCouponCode value)? changeCouponCode,
     TResult Function(_ApplyCoupon value)? applyCoupon,
+    TResult Function(_Reset value)? reset,
     TResult Function(_RedeemCoupon value)? redeemCoupon,
     required TResult orElse(),
   }) {
@@ -247,6 +259,7 @@ class _$_ApplyCoupon implements _ApplyCoupon {
   TResult when<TResult extends Object?>({
     required TResult Function(String code) changeCouponCode,
     required TResult Function() applyCoupon,
+    required TResult Function() reset,
     required TResult Function() redeemCoupon,
   }) {
     return applyCoupon();
@@ -257,6 +270,7 @@ class _$_ApplyCoupon implements _ApplyCoupon {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String code)? changeCouponCode,
     TResult Function()? applyCoupon,
+    TResult Function()? reset,
     TResult Function()? redeemCoupon,
     required TResult orElse(),
   }) {
@@ -271,6 +285,7 @@ class _$_ApplyCoupon implements _ApplyCoupon {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeCouponCode value) changeCouponCode,
     required TResult Function(_ApplyCoupon value) applyCoupon,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_RedeemCoupon value) redeemCoupon,
   }) {
     return applyCoupon(this);
@@ -281,6 +296,7 @@ class _$_ApplyCoupon implements _ApplyCoupon {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCouponCode value)? changeCouponCode,
     TResult Function(_ApplyCoupon value)? applyCoupon,
+    TResult Function(_Reset value)? reset,
     TResult Function(_RedeemCoupon value)? redeemCoupon,
     required TResult orElse(),
   }) {
@@ -293,6 +309,97 @@ class _$_ApplyCoupon implements _ApplyCoupon {
 
 abstract class _ApplyCoupon implements RedeemCouponEvent {
   const factory _ApplyCoupon() = _$_ApplyCoupon;
+}
+
+/// @nodoc
+abstract class _$ResetCopyWith<$Res> {
+  factory _$ResetCopyWith(_Reset value, $Res Function(_Reset) then) =
+      __$ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ResetCopyWithImpl<$Res> extends _$RedeemCouponEventCopyWithImpl<$Res>
+    implements _$ResetCopyWith<$Res> {
+  __$ResetCopyWithImpl(_Reset _value, $Res Function(_Reset) _then)
+      : super(_value, (v) => _then(v as _Reset));
+
+  @override
+  _Reset get _value => super._value as _Reset;
+}
+
+/// @nodoc
+
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'RedeemCouponEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String code) changeCouponCode,
+    required TResult Function() applyCoupon,
+    required TResult Function() reset,
+    required TResult Function() redeemCoupon,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String code)? changeCouponCode,
+    TResult Function()? applyCoupon,
+    TResult Function()? reset,
+    TResult Function()? redeemCoupon,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeCouponCode value) changeCouponCode,
+    required TResult Function(_ApplyCoupon value) applyCoupon,
+    required TResult Function(_Reset value) reset,
+    required TResult Function(_RedeemCoupon value) redeemCoupon,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeCouponCode value)? changeCouponCode,
+    TResult Function(_ApplyCoupon value)? applyCoupon,
+    TResult Function(_Reset value)? reset,
+    TResult Function(_RedeemCoupon value)? redeemCoupon,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements RedeemCouponEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc
@@ -337,6 +444,7 @@ class _$_RedeemCoupon implements _RedeemCoupon {
   TResult when<TResult extends Object?>({
     required TResult Function(String code) changeCouponCode,
     required TResult Function() applyCoupon,
+    required TResult Function() reset,
     required TResult Function() redeemCoupon,
   }) {
     return redeemCoupon();
@@ -347,6 +455,7 @@ class _$_RedeemCoupon implements _RedeemCoupon {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String code)? changeCouponCode,
     TResult Function()? applyCoupon,
+    TResult Function()? reset,
     TResult Function()? redeemCoupon,
     required TResult orElse(),
   }) {
@@ -361,6 +470,7 @@ class _$_RedeemCoupon implements _RedeemCoupon {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeCouponCode value) changeCouponCode,
     required TResult Function(_ApplyCoupon value) applyCoupon,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_RedeemCoupon value) redeemCoupon,
   }) {
     return redeemCoupon(this);
@@ -371,6 +481,7 @@ class _$_RedeemCoupon implements _RedeemCoupon {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCouponCode value)? changeCouponCode,
     TResult Function(_ApplyCoupon value)? applyCoupon,
+    TResult Function(_Reset value)? reset,
     TResult Function(_RedeemCoupon value)? redeemCoupon,
     required TResult orElse(),
   }) {
@@ -390,11 +501,13 @@ class _$RedeemCouponStateTearOff {
   const _$RedeemCouponStateTearOff();
 
   _VerifyCouponState call(
-      {required String couponCode,
+      {required Key key,
+      required String couponCode,
       required bool isSubmitting,
       required CouponCode? coupon,
       required Option<Either<ApiFailure, Unit>> failureOrSuccess}) {
     return _VerifyCouponState(
+      key: key,
       couponCode: couponCode,
       isSubmitting: isSubmitting,
       coupon: coupon,
@@ -408,6 +521,7 @@ const $RedeemCouponState = _$RedeemCouponStateTearOff();
 
 /// @nodoc
 mixin _$RedeemCouponState {
+  Key get key => throw _privateConstructorUsedError;
   String get couponCode => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   CouponCode? get coupon => throw _privateConstructorUsedError;
@@ -425,7 +539,8 @@ abstract class $RedeemCouponStateCopyWith<$Res> {
           RedeemCouponState value, $Res Function(RedeemCouponState) then) =
       _$RedeemCouponStateCopyWithImpl<$Res>;
   $Res call(
-      {String couponCode,
+      {Key key,
+      String couponCode,
       bool isSubmitting,
       CouponCode? coupon,
       Option<Either<ApiFailure, Unit>> failureOrSuccess});
@@ -442,12 +557,17 @@ class _$RedeemCouponStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? key = freezed,
     Object? couponCode = freezed,
     Object? isSubmitting = freezed,
     Object? coupon = freezed,
     Object? failureOrSuccess = freezed,
   }) {
     return _then(_value.copyWith(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as Key,
       couponCode: couponCode == freezed
           ? _value.couponCode
           : couponCode // ignore: cast_nullable_to_non_nullable
@@ -476,7 +596,8 @@ abstract class _$VerifyCouponStateCopyWith<$Res>
       __$VerifyCouponStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String couponCode,
+      {Key key,
+      String couponCode,
       bool isSubmitting,
       CouponCode? coupon,
       Option<Either<ApiFailure, Unit>> failureOrSuccess});
@@ -495,12 +616,17 @@ class __$VerifyCouponStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? key = freezed,
     Object? couponCode = freezed,
     Object? isSubmitting = freezed,
     Object? coupon = freezed,
     Object? failureOrSuccess = freezed,
   }) {
     return _then(_VerifyCouponState(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as Key,
       couponCode: couponCode == freezed
           ? _value.couponCode
           : couponCode // ignore: cast_nullable_to_non_nullable
@@ -525,11 +651,14 @@ class __$VerifyCouponStateCopyWithImpl<$Res>
 
 class _$_VerifyCouponState implements _VerifyCouponState {
   const _$_VerifyCouponState(
-      {required this.couponCode,
+      {required this.key,
+      required this.couponCode,
       required this.isSubmitting,
       required this.coupon,
       required this.failureOrSuccess});
 
+  @override
+  final Key key;
   @override
   final String couponCode;
   @override
@@ -541,13 +670,15 @@ class _$_VerifyCouponState implements _VerifyCouponState {
 
   @override
   String toString() {
-    return 'RedeemCouponState(couponCode: $couponCode, isSubmitting: $isSubmitting, coupon: $coupon, failureOrSuccess: $failureOrSuccess)';
+    return 'RedeemCouponState(key: $key, couponCode: $couponCode, isSubmitting: $isSubmitting, coupon: $coupon, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _VerifyCouponState &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.couponCode, couponCode) ||
                 const DeepCollectionEquality()
                     .equals(other.couponCode, couponCode)) &&
@@ -564,6 +695,7 @@ class _$_VerifyCouponState implements _VerifyCouponState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(key) ^
       const DeepCollectionEquality().hash(couponCode) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(coupon) ^
@@ -577,12 +709,15 @@ class _$_VerifyCouponState implements _VerifyCouponState {
 
 abstract class _VerifyCouponState implements RedeemCouponState {
   const factory _VerifyCouponState(
-          {required String couponCode,
+          {required Key key,
+          required String couponCode,
           required bool isSubmitting,
           required CouponCode? coupon,
           required Option<Either<ApiFailure, Unit>> failureOrSuccess}) =
       _$_VerifyCouponState;
 
+  @override
+  Key get key => throw _privateConstructorUsedError;
   @override
   String get couponCode => throw _privateConstructorUsedError;
   @override

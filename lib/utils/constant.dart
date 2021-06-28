@@ -31,4 +31,8 @@ class AppConstants {
   static const paymentSuccessTitle = "Payment completed";
   static const paymentSuccessMessage =
       "Your payment request have been successfully completed. Thank you.";
+
+  static const redeemSuccessTitle = "Redeem completed";
+  static const redeemSuccessMessage =
+      "You have successfully redeem the coupon. Thank you.";
 }
