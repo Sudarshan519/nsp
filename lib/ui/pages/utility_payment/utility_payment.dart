@@ -36,8 +36,10 @@ class UtilityPamentWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               crossAxisCount: 3,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
+
+              // mainAxisSpacing: 2,
+
+              crossAxisSpacing: 30,
               childAspectRatio: 7 / 8,
               children: paymentData
                   .map(
@@ -90,21 +92,19 @@ class GridItem extends StatelessWidget {
               child: Center(
                 child: Image.network(
                   _baseURL + utilityItem.image!,
-                  height: 50,
+                  height: 46,
                 ),
               ),
             ),
           const SizedBox(height: 3),
-          Expanded(
-            child: Text(
-              utilityItem.name ?? '',
-              textScaleFactor: 0.84,
-              style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 14,
-              ),
-              textAlign: TextAlign.center,
+          Text(
+            utilityItem.name ?? '',
+            textScaleFactor: 0.84,
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
