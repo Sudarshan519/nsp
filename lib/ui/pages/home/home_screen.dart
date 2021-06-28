@@ -153,7 +153,7 @@ class HomePage extends StatelessWidget {
     switch (type) {
       case HomeItemType.utility_payments:
         return UtilityPamentWidget(
-          balance: userDetail?.formattedBalance ?? 'JPY XX.XX',
+          balance: userDetail?.balance ?? 0.0,
           conversionRate: 1 / (userDetail?.currencyConversionRate ?? 1.067),
         );
 

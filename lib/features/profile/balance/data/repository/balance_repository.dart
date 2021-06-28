@@ -5,6 +5,7 @@ import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/profile/balance/data/datasource/balance_remote_data_source.dart';
+import 'package:wallet_app/features/profile/balance/domain/entities/user_balance.dart';
 import 'package:wallet_app/features/profile/balance/domain/repository/balance_repository.dart';
 
 @LazySingleton(as: BalanceRepository)
@@ -18,7 +19,7 @@ class BalanceRepositoryImpl implements BalanceRepository {
   });
 
   @override
-  Future<Either<ApiFailure, double>> getBalance() async {
+  Future<Either<ApiFailure, UserBalance>> getBalance() async {
     try {
       return Right(await dataSource.getBalance());
     } on ServerException catch (ex) {

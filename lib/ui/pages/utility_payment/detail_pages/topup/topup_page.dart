@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttercontactpicker/fluttercontactpicker.dart';
 import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -21,7 +21,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class TopUpPage extends StatefulWidget {
-  final String balance;
+  final double balance;
   final double conversionRate;
 
   const TopUpPage({
@@ -107,7 +107,7 @@ class _TopUpPageState extends State<TopUpPage> {
               )).show(context);
             },
             (success) {
-              getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
               getIt<TransactionBloc>()
                   .add(const TransactionEvent.fetchTransactionData());
               showDialog(
@@ -186,10 +186,8 @@ class _TopUpPageState extends State<TopUpPage> {
             const SizedBox(height: 20),
             _ProceedButton(
               callback: () {
-                final double bal = double.parse(
-                    widget.balance.split(' ').last.replaceAll(',', ''));
                 final double amt = double.parse(amount);
-                if (amt > bal) {
+                if (amt > widget.balance) {
                   FlushbarHelper.createError(message: 'Insufficient balance!')
                       .show(context);
                 } else {

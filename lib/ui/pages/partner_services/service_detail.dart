@@ -12,7 +12,6 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
 class ServicesDetailPage extends StatelessWidget {
-  // final String balance;
   final Services services;
 
   const ServicesDetailPage({
@@ -45,7 +44,6 @@ class ServicesDetailPage extends StatelessWidget {
   Widget newsBody(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final baseURL = getIt<ConfigReader>().baseURL;
-    // debugPrint("$baseURL${services.companyBannerImage}");
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,7 +151,6 @@ class ServicesDetailPage extends StatelessWidget {
                                       onTap: () {
                                         context.pushRoute(
                                           PartnerServicePaymentRoute(
-                                            balance: "JPY 16,732",
                                             title: 'Mirai Life Insurance',
                                           ),
                                         );

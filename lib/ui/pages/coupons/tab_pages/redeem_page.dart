@@ -3,6 +3,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/coupon/presentation/redeem_coupon/redeem_coupon_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -47,6 +48,8 @@ class RedeemPage extends StatelessWidget {
                 ).show(context);
               },
               (success) {
+                getIt<GetBalanceBloc>()
+                    .add(const GetBalanceEvent.fetchBalance());
                 showDialog(
                   context: context,
                   builder: (_) => PopUpSuccessOverLay(

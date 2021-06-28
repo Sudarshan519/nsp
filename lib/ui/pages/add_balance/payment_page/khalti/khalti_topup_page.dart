@@ -8,6 +8,7 @@ import 'package:wallet_app/features/load_balance/domain/entities/payment_method.
 import 'package:wallet_app/features/load_balance/domain/usecases/verify_khalti_top_up.dart';
 import 'package:wallet_app/features/load_balance/presentations/khalti/khalti_form/khalti_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/khalti/verify_khalti_topup/verify_khalti_topup_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -55,7 +56,7 @@ class KhaltiTopupPage extends StatelessWidget {
           initial: (_) {},
           loading: (_) {},
           success: (_) {
-            getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+            getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
             showDialog(
               context: context,
               builder: (_) => PopUpSuccessOverLay(

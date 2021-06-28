@@ -157,7 +157,7 @@ class _$GetBalanceStateTearOff {
     return const _Loading();
   }
 
-  _Loaded loaded(double balance) {
+  _Loaded loaded(UserBalance balance) {
     return _Loaded(
       balance,
     );
@@ -178,14 +178,14 @@ mixin _$GetBalanceState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(double balance) loaded,
+    required TResult Function(UserBalance balance) loaded,
     required TResult Function(ApiFailure failure) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(double balance)? loaded,
+    TResult Function(UserBalance balance)? loaded,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) =>
@@ -262,7 +262,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(double balance) loaded,
+    required TResult Function(UserBalance balance) loaded,
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loading();
@@ -272,7 +272,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(double balance)? loaded,
+    TResult Function(UserBalance balance)? loaded,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) {
@@ -315,7 +315,7 @@ abstract class _Loading implements GetBalanceState {
 abstract class _$LoadedCopyWith<$Res> {
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
-  $Res call({double balance});
+  $Res call({UserBalance balance});
 }
 
 /// @nodoc
@@ -335,7 +335,7 @@ class __$LoadedCopyWithImpl<$Res> extends _$GetBalanceStateCopyWithImpl<$Res>
       balance == freezed
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as double,
+              as UserBalance,
     ));
   }
 }
@@ -346,7 +346,7 @@ class _$_Loaded implements _Loaded {
   const _$_Loaded(this.balance);
 
   @override
-  final double balance;
+  final UserBalance balance;
 
   @override
   String toString() {
@@ -374,7 +374,7 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(double balance) loaded,
+    required TResult Function(UserBalance balance) loaded,
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loaded(balance);
@@ -384,7 +384,7 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(double balance)? loaded,
+    TResult Function(UserBalance balance)? loaded,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) {
@@ -420,9 +420,9 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements GetBalanceState {
-  const factory _Loaded(double balance) = _$_Loaded;
+  const factory _Loaded(UserBalance balance) = _$_Loaded;
 
-  double get balance => throw _privateConstructorUsedError;
+  UserBalance get balance => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
 }
@@ -499,7 +499,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(double balance) loaded,
+    required TResult Function(UserBalance balance) loaded,
     required TResult Function(ApiFailure failure) failure,
   }) {
     return failure(this.failure);
@@ -509,7 +509,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(double balance)? loaded,
+    TResult Function(UserBalance balance)? loaded,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) {

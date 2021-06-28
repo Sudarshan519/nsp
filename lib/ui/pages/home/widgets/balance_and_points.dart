@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
@@ -18,6 +20,27 @@ class BalanceAndPointWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<GetBalanceBloc, GetBalanceState>(
+      builder: (context, state) {
+        // return pointAndBalance(context);
+        return state.map(
+          loading: (_) => _pointAndBalance(context, 'XX.XX', 'XX.XX'),
+          loaded: (success) => _pointAndBalance(
+            context,
+            success.balance.formattedCurrency,
+            '${success.balance.point ?? 0.0}',
+          ),
+          failure: (_) => _pointAndBalance(context, 'XX.XX', 'XX.XX'),
+        );
+      },
+    );
+  }
+
+  Widget _pointAndBalance(
+    BuildContext context,
+    String balance,
+    String points,
+  ) {
     return Stack(
       children: [
         Container(
@@ -49,7 +72,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    user?.formattedBalance ?? 'JPY XX.XX',
+                    balance,
                     style: TextStyle(
                       color: Palette.black,
                       fontSize: 16,
@@ -76,7 +99,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                         width: 5,
                       ),
                       Text(
-                        "${user?.point ?? 0}",
+                        points,
                         style: TextStyle(
                           color: Palette.black,
                           fontSize: 16,

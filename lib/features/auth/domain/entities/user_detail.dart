@@ -109,8 +109,6 @@ class UserDetail extends Equatable {
   final double? currencyConversionRate;
   final int? notificationCount;
 
-  String get formattedBalance => currencyFormatter(value: balance ?? 0.0);
-
   @override
   List<Object> get props => [];
 }

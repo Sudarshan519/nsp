@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -55,6 +56,10 @@ class _LoginBody extends StatelessWidget {
                   context
                       .read<HomePageDataBloc>()
                       .add(const HomePageDataEvent.fetch());
+
+                  context.read<TransactionBloc>().add(
+                        const TransactionEvent.fetchTransactionData(),
+                      );
                   context
                       .read<ResumeWatcherBloc>()
                       .add(const ResumeWatcherEvent.getResumeData());

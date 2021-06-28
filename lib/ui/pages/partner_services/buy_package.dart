@@ -7,6 +7,7 @@ import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_cou
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_packages.dart';
 import 'package:wallet_app/features/partner_services/presentation/purchase_package/purchase_package_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/profile_page/widgets/text_widget_label_and_child.dart';
@@ -86,7 +87,7 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
               ).show(context);
             },
             (success) {
-              getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
               getIt<TransactionBloc>()
                   .add(const TransactionEvent.fetchTransactionData());
               showDialog(

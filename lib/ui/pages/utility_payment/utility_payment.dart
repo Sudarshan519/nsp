@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/ui/pages/home/widgets/category_title_text.dart';
@@ -7,7 +8,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class UtilityPamentWidget extends StatelessWidget {
-  final String balance;
+  final double balance;
   final double conversionRate;
 
   const UtilityPamentWidget({
@@ -64,7 +65,6 @@ class UtilityPamentWidget extends StatelessWidget {
                   label: 'Mirai Life Insurance',
                   imageAsset: 'mirai',
                   route: PartnerServicePaymentRoute(
-                    balance: balance,
                     title: 'Mirai Life Insurance',
                   ),
                 ),

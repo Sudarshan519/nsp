@@ -6,12 +6,13 @@ import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/profile/balance/data/app_constants/constant.dart';
+import 'package:wallet_app/features/profile/balance/data/model/user_balance_mode.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class BalanceRemoteDataSource {
-  Future<double> getBalance();
+  Future<UserBalanceModel> getBalance();
 }
 
 @LazySingleton(as: BalanceRemoteDataSource)
@@ -34,7 +35,7 @@ class BalanceRemoteDataSourceImpl implements BalanceRemoteDataSource {
   });
 
   @override
-  Future<double> getBalance() async {
+  Future<UserBalanceModel> getBalance() async {
     http.Response response;
 
     final url =
@@ -68,9 +69,8 @@ class BalanceRemoteDataSourceImpl implements BalanceRemoteDataSource {
 
     if (response.statusCode == 200) {
       final responseBody = utf8.decode(response.bodyBytes);
-      final jsonVal = json.decode(responseBody) as Map<String, dynamic>;
       try {
-        return jsonVal['balance'] as double;
+        return userBalanceModelFromJson(responseBody);
       } catch (ex) {
         logger.log(
           className: "BalanceRemoteDataSource",
