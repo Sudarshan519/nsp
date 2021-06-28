@@ -36,11 +36,9 @@ class UtilityPamentWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               crossAxisCount: 3,
-
-              // mainAxisSpacing: 2,
-
+              mainAxisSpacing: 20,
               crossAxisSpacing: 30,
-              childAspectRatio: 7 / 8,
+              childAspectRatio: 7 / 6,
               children: paymentData
                   .map(
                     (e) => GridItem(
@@ -100,6 +98,8 @@ class GridItem extends StatelessWidget {
           Text(
             utilityItem.name ?? '',
             textScaleFactor: 0.84,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 14,

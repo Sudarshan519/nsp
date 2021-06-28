@@ -142,36 +142,26 @@ class TopUpBalanceInMobileBloc
   }
 
   String getType({required String fromNumber}) {
-    if (fromNumber.length < 3) {
+    if (fromNumber.length < 9) {
       return '';
     }
-    const ntcPrefix = [
-      "984",
-      "985",
-      "986",
-    ];
-    const ncellPrefix = [
-      "980",
-      "981",
-      "982",
-    ];
-    const smartCellPrefix = [
-      "961",
-      "988",
-    ];
-    // final ntcRegx = RegExp(r'^(984|985|986|)\d{7}$', caseSensitive: false);
-    // final ncellRegx = RegExp(r'^(980|981|982)\d{7}$', caseSensitive: false);
-    // final smartCellRegx = RegExp(r'^(961|988)\d{7}$', caseSensitive: false);
-    final firstThreeNUm = fromNumber.substring(0, 3);
 
-    if (ntcPrefix.contains(firstThreeNUm)) {
+    final ntcRegx = RegExp(r'^(984|985|986|)\d{7}$', caseSensitive: false);
+    final ncellRegx = RegExp(r'^(980|981|982)\d{7}$', caseSensitive: false);
+    final smartCellRegx = RegExp(r'^(961|988)\d{7}$', caseSensitive: false);
+
+    if (ntcRegx.hasMatch(fromNumber)) {
       return 'ntc';
-    } else if (ncellPrefix.contains(firstThreeNUm)) {
-      return 'ncell';
-    } else if (smartCellPrefix.contains(firstThreeNUm)) {
-      return 'smartcell';
-    } else {
-      return '';
     }
+
+    if (ncellRegx.hasMatch(fromNumber)) {
+      return 'ncell';
+    }
+
+    if (smartCellRegx.hasMatch(fromNumber)) {
+      return 'smartcell';
+    }
+
+    return '';
   }
 }
