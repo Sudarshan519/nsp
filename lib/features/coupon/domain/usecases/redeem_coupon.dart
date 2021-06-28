@@ -3,11 +3,10 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
-import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/coupon/domain/repositories/coupon_repository.dart';
 
 @lazySingleton
-class RedeemCoupon extends Usecase<ApiFailure, CouponCode, RedeemCouponParams> {
+class RedeemCoupon extends Usecase<ApiFailure, Unit, RedeemCouponParams> {
   final NetworkInfo networkInfo;
   final CouponRepository repository;
 
@@ -17,7 +16,7 @@ class RedeemCoupon extends Usecase<ApiFailure, CouponCode, RedeemCouponParams> {
   });
 
   @override
-  Future<Either<ApiFailure, CouponCode>> call(RedeemCouponParams params) async {
+  Future<Either<ApiFailure, Unit>> call(RedeemCouponParams params) async {
     final isConnected = await networkInfo.isConnected;
 
     if (!isConnected) {
@@ -30,7 +29,7 @@ class RedeemCoupon extends Usecase<ApiFailure, CouponCode, RedeemCouponParams> {
       ));
     }
 
-    return repository.applyCoupon(couponCode: params.couponCode);
+    return repository.redeemCoupon(couponCode: params.couponCode);
   }
 }
 

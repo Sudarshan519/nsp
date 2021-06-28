@@ -15,6 +15,7 @@ class CouponCodeModel extends CouponCode {
     required String? cashback,
     required String? rewardPoint,
     required bool? isActive,
+    required bool? isReward,
     required String? createdAt,
     required String? updatedAt,
     required int? updatedBy,
@@ -32,6 +33,7 @@ class CouponCodeModel extends CouponCode {
           cashback: cashback,
           rewardPoint: rewardPoint,
           isActive: isActive,
+          isReward: isReward,
           createdAt: createdAt,
           updatedAt: updatedAt,
           updatedBy: updatedBy,
@@ -62,6 +64,7 @@ class CouponCodeModel extends CouponCode {
         rewardPoint: json["reward_point"] == null
             ? null
             : json["reward_point"] as String?,
+        isReward: json["is_reward"] == null ? null : json["is_reward"] as bool?,
         isActive: json["is_active"] == null ? null : json["is_active"] as bool?,
         createdAt:
             json["created_at"] == null ? null : json["created_at"] as String?,

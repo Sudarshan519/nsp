@@ -143,8 +143,11 @@ class CouponRemoteDataSourceImpl implements CouponRemoteDataSource {
     _headers["Authorization"] = "Bearer $accessToken";
 
     try {
-      response = await client.post(Uri.parse(url),
-          headers: _headers, body: json.encode(params));
+      response = await client.post(
+        Uri.parse(url),
+        headers: _headers,
+        body: json.encode(params),
+      );
     } catch (ex) {
       logger.log(
         className: "CouponRemoteDataSource",
@@ -210,8 +213,11 @@ class CouponRemoteDataSourceImpl implements CouponRemoteDataSource {
     _headers["Authorization"] = "Bearer $accessToken";
 
     try {
-      response = await client.post(Uri.parse(url),
-          headers: _headers, body: json.encode(params));
+      response = await client.post(
+        Uri.parse(url),
+        headers: _headers,
+        body: json.encode(params),
+      );
     } catch (ex) {
       logger.log(
         className: "CouponRemoteDataSource",
@@ -264,7 +270,7 @@ class CouponRemoteDataSourceImpl implements CouponRemoteDataSource {
     };
 
     final url =
-        "${config.baseURL}${config.apiPath}${CouponEndpoints.couponVerify}";
+        "${config.baseURL}${config.apiPath}${CouponEndpoints.redeemCoupon}";
 
     http.Response response;
 
@@ -277,8 +283,11 @@ class CouponRemoteDataSourceImpl implements CouponRemoteDataSource {
     _headers["Authorization"] = "Bearer $accessToken";
 
     try {
-      response = await client.post(Uri.parse(url),
-          headers: _headers, body: json.encode(params));
+      response = await client.post(
+        Uri.parse(url),
+        headers: _headers,
+        body: json.encode(params),
+      );
     } catch (ex) {
       logger.log(
         className: "CouponRemoteDataSource",

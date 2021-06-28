@@ -15,6 +15,7 @@ class CouponCode {
     required this.cashback,
     required this.rewardPoint,
     required this.isActive,
+    required this.isReward,
     required this.createdAt,
     required this.updatedAt,
     required this.updatedBy,
@@ -33,6 +34,7 @@ class CouponCode {
   final String? cashback;
   final String? rewardPoint;
   final bool? isActive;
+  final bool? isReward;
   final String? createdAt;
   final String? updatedAt;
   final int? updatedBy;

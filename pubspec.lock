@@ -281,7 +281,7 @@ packages:
     description:
       path: "."
       ref: null-safety
-      resolved-ref: c9502b46f4e463c02c7e3b88bef8c2a014e99670
+      resolved-ref: "607f65a6069da6c5df8954dd01d2a27af72c846f"
       url: "https://github.com/asisadh/esewa_pnp.git"
     source: git
     version: "1.0.5"

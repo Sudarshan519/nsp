@@ -62,9 +62,8 @@ class PromoCodeWidget extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 itemCount: success.coupons.length,
                 shrinkWrap: true,
-                itemBuilder: (context, index) => promoCodeItemWidget(
-                  context,
-                  success.coupons[index],
+                itemBuilder: (context, index) => PromoCodeItemWidget(
+                  coupon: success.coupons[index],
                 ),
               ),
             );
@@ -73,8 +72,18 @@ class PromoCodeWidget extends StatelessWidget {
       },
     );
   }
+}
 
-  Widget promoCodeItemWidget(BuildContext context, CouponCode coupon) {
+class PromoCodeItemWidget extends StatelessWidget {
+  const PromoCodeItemWidget({
+    Key? key,
+    required this.coupon,
+  }) : super(key: key);
+
+  final CouponCode coupon;
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Row(
