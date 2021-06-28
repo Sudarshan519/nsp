@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
+import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
@@ -22,6 +23,8 @@ part 'resume_watcher_bloc.freezed.dart';
 @lazySingleton
 class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
   final GetResume getResume;
+
+  UserDetail? _userDetails;
 
   ResumeData? _english;
   ResumeData? _japanese;
@@ -53,21 +56,21 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
           ),
           (resume) {
             final hasResume = resume.resumeData?.hasResume ?? false;
+            _userDetails = resume.userDetail;
             if (resume.resumeData?.status == false) {
-              final userDetails = resume.userDetail;
               _english = ResumeData(
                 personalInfo: PersonalInfo(
-                  firstName: userDetails?.firstName,
-                  lastName: userDetails?.lastName,
-                  email: userDetails?.email,
+                  firstName: _userDetails?.firstName,
+                  lastName: _userDetails?.lastName,
+                  email: _userDetails?.email,
                 ),
                 options: resume.resumeData?.data?.en?.options,
               );
               _japanese = ResumeData(
                 personalInfo: PersonalInfo(
-                  firstName: userDetails?.firstName,
-                  lastName: userDetails?.lastName,
-                  email: userDetails?.email,
+                  firstName: _userDetails?.firstName,
+                  lastName: _userDetails?.lastName,
+                  email: _userDetails?.email,
                 ),
                 options: resume.resumeData?.data?.jp?.options,
               );
@@ -100,9 +103,24 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
                   .toList() ??
               [];
 
+          final _personalInfo = _english?.personalInfo ?? PersonalInfo();
+          if (_personalInfo.email == null || _personalInfo.email!.isEmpty) {
+            _personalInfo.email = _userDetails?.email ?? '';
+          }
+
+          if (_personalInfo.firstName == null ||
+              _personalInfo.firstName!.isEmpty) {
+            _personalInfo.firstName = _userDetails?.firstName ?? '';
+          }
+
+          if (_personalInfo.lastName == null ||
+              _personalInfo.lastName!.isEmpty) {
+            _personalInfo.lastName = _userDetails?.lastName ?? '';
+          }
+
           yield state.copyWith(
             isLoading: false,
-            info: _english?.personalInfo ?? const PersonalInfo(),
+            info: _personalInfo,
             academics: _english?.academicHistory ?? [],
             works: _english?.workHistory ?? [],
             qualifications: _english?.qualificationHistory ?? [],
@@ -117,9 +135,25 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
                   ?.map((p) => p.provinceName ?? '')
                   .toList() ??
               [];
+
+          final _personalInfo = _japanese?.personalInfo ?? PersonalInfo();
+          if (_personalInfo.email == null || _personalInfo.email!.isEmpty) {
+            _personalInfo.email = _userDetails?.email ?? '';
+          }
+
+          if (_personalInfo.firstName == null ||
+              _personalInfo.firstName!.isEmpty) {
+            _personalInfo.firstName = _userDetails?.firstName ?? '';
+          }
+
+          if (_personalInfo.lastName == null ||
+              _personalInfo.lastName!.isEmpty) {
+            _personalInfo.lastName = _userDetails?.lastName ?? '';
+          }
+
           yield state.copyWith(
             isLoading: false,
-            info: _japanese?.personalInfo ?? const PersonalInfo(),
+            info: _personalInfo,
             academics: _japanese?.academicHistory ?? [],
             works: _japanese?.workHistory ?? [],
             qualifications: _japanese?.qualificationHistory ?? [],
