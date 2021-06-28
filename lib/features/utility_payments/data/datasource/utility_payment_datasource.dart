@@ -19,6 +19,7 @@ abstract class UtilityPaymentDataSource {
     required String amount,
     required String number,
     required String type,
+    required String coupon,
   });
 
   Future<ServiceSubscriptionModel> getSubscriptionDetailForPartnerService({
@@ -27,6 +28,7 @@ abstract class UtilityPaymentDataSource {
 
   Future<Unit> paymentForPackagesPurchase({
     required List<SubscriptionInvoiceModel> invoice,
+    required String coupon,
   });
 }
 
@@ -54,6 +56,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     required String amount,
     required String number,
     required String type,
+    required String coupon,
   }) async {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.topup}$type";
@@ -73,6 +76,10 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       "amount": amount,
       "gps": getIt<GeoLocationManager>().gps,
     };
+
+    if (coupon.isNotEmpty) {
+      params['coupon'] = coupon;
+    }
 
     try {
       response = await client.post(
@@ -164,6 +171,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
   @override
   Future<Unit> paymentForPackagesPurchase({
     required List<SubscriptionInvoiceModel> invoice,
+    required String coupon,
   }) async {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.payMiraiSubscription}";
@@ -182,6 +190,10 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       "invoices": invoice.map((invoice) => invoice.toJson()).toList(),
       "gps": getIt<GeoLocationManager>().gps,
     };
+
+    if (coupon.isNotEmpty) {
+      params['coupon'] = coupon;
+    }
 
     try {
       response = await client.post(

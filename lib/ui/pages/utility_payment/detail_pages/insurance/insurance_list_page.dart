@@ -78,7 +78,7 @@ class ISPItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRoute(IndividualInsuranceRoute(insuranceTitle: name));
+        // context.pushRoute(IndividualInsuranceRoute(insuranceTitle: name));
       },
       child: Column(
         children: [

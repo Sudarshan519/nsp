@@ -31,7 +31,7 @@ class CouponCode {
   final String? expiryDate;
   final dynamic couponType;
   final String? cashback;
-  final int? rewardPoint;
+  final String? rewardPoint;
   final bool? isActive;
   final String? createdAt;
   final String? updatedAt;

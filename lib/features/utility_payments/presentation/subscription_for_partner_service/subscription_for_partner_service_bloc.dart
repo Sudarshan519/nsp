@@ -67,6 +67,7 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
         final result = await purchaseSubscriptionFromPartnerService(
           PurchaseSubscriptionFromPartnerServiceParams(
             invoice: newInvoices,
+            coupon: '',
           ),
         );
 

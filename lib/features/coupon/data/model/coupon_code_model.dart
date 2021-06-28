@@ -13,7 +13,7 @@ class CouponCodeModel extends CouponCode {
     required String? expiryDate,
     required dynamic couponType,
     required String? cashback,
-    required int? rewardPoint,
+    required String? rewardPoint,
     required bool? isActive,
     required String? createdAt,
     required String? updatedAt,
@@ -59,8 +59,9 @@ class CouponCodeModel extends CouponCode {
             json["expiry_date"] == null ? null : json["expiry_date"] as String?,
         couponType: json["coupon_type"],
         cashback: json["cashback"] == null ? null : json["cashback"] as String?,
-        rewardPoint:
-            json["reward_point"] == null ? null : json["reward_point"] as int?,
+        rewardPoint: json["reward_point"] == null
+            ? null
+            : json["reward_point"] as String?,
         isActive: json["is_active"] == null ? null : json["is_active"] as bool?,
         createdAt:
             json["created_at"] == null ? null : json["created_at"] as String?,

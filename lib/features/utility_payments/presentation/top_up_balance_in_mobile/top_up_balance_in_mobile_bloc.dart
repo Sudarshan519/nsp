@@ -38,7 +38,12 @@ class TopUpBalanceInMobileBloc
       changeconvertedJpyAmount: (e) async* {
         yield _mapChangeconvertedJpyAmountEventToState(e);
       },
-      validate: (e) async* {},
+      changeCoupon: (e) async* {
+        yield _mapChangecCouponCodeEventToState(e);
+      },
+      validate: (e) async* {
+        yield _mapValidateEventToState(e);
+      },
       topup: (e) async* {
         yield* _mapTopupEventToState(e);
       },
@@ -84,6 +89,35 @@ class TopUpBalanceInMobileBloc
     );
   }
 
+  TopUpBalanceInMobileState _mapChangecCouponCodeEventToState(
+      _ChangeCoupon _changeCoupon) {
+    return state.copyWith(
+      coupon: _changeCoupon.coupon,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopUpBalanceInMobileState _mapValidateEventToState(_Validate _validate) {
+    final result = topUpBalanceForMobile.validate(
+      TopUpBalanceForMobileParams(
+        amount: state.convertedJpyAmount,
+        number: state.number,
+        type: state.type,
+        coupon: state.coupon,
+      ),
+    );
+
+    if (result != null) {
+      return state.copyWith(
+        failureOrSuccessOption: optionOf(Left(result)),
+      );
+    } else {
+      return state.copyWith(
+        failureOrSuccessOption: none(),
+      );
+    }
+  }
+
   Stream<TopUpBalanceInMobileState> _mapTopupEventToState(
       _Topup _topup) async* {
     Either<ApiFailure, Unit> result;
@@ -97,6 +131,7 @@ class TopUpBalanceInMobileBloc
         amount: state.convertedJpyAmount,
         number: state.number,
         type: state.type,
+        coupon: state.coupon,
       ),
     );
 
@@ -107,6 +142,10 @@ class TopUpBalanceInMobileBloc
   }
 
   String getType({required String fromNumber}) {
+    if (fromNumber.length < 9) {
+      return '';
+    }
+
     final ntcRegx = RegExp(r'^(984|985|986|)\d{7}$', caseSensitive: false);
     final ncellRegx = RegExp(r'^(980|981|982)\d{7}$', caseSensitive: false);
     final smartCellRegx = RegExp(r'^(961|988)\d{7}$', caseSensitive: false);
