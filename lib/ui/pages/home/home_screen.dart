@@ -8,6 +8,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_model.dart';
 import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
@@ -152,10 +153,19 @@ class HomePage extends StatelessWidget {
     final type = _getHomeItemTypeString(typeString);
     switch (type) {
       case HomeItemType.utility_payments:
-        return UtilityPamentWidget(
-          balance: userDetail?.balance ?? 0.0,
-          conversionRate: 1 / (userDetail?.currencyConversionRate ?? 1.067),
-        );
+        final data = List<UtilityPaymentsModel>.from((model.data as Iterable)
+            .map((x) =>
+                UtilityPaymentsModel.fromJson(x as Map<String, dynamic>)));
+
+        if (data.isNotEmpty) {
+          return UtilityPamentWidget(
+            balance: userDetail?.balance ?? 0.0,
+            conversionRate: 1 / (userDetail?.currencyConversionRate ?? 1.067),
+            paymentData: data,
+          );
+        }
+
+        return const SizedBox.shrink();
 
       case HomeItemType.remit_service:
         final data = List<RemitRateModel>.from((model.data as Iterable)

@@ -1,20 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/category_title_text.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/config_reader.dart';
 
 class UtilityPamentWidget extends StatelessWidget {
   final double balance;
   final double conversionRate;
+  final List<UtilityPaymentsModel> paymentData;
 
   const UtilityPamentWidget({
     Key? key,
     required this.balance,
     required this.conversionRate,
+    required this.paymentData,
   }) : super(key: key);
 
   @override
@@ -33,42 +37,23 @@ class UtilityPamentWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               crossAxisCount: 3,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              childAspectRatio: 7 / 8,
-              children: [
-                GridItem(
-                  label: 'NTC Topup',
-                  imageAsset: 'ntc',
-                  route: TopUpRoute(
-                    balance: balance,
-                    conversionRate: conversionRate,
-                  ),
-                ),
-                GridItem(
-                  label: 'Ncell Topup',
-                  imageAsset: 'ncell',
-                  route: TopUpRoute(
-                    balance: balance,
-                    conversionRate: conversionRate,
-                  ),
-                ),
-                GridItem(
-                  label: 'Smart Cell Topup',
-                  imageAsset: 'smartcell',
-                  route: TopUpRoute(
-                    balance: balance,
-                    conversionRate: conversionRate,
-                  ),
-                ),
-                GridItem(
-                  label: 'Mirai Life Insurance',
-                  imageAsset: 'mirai',
-                  route: PartnerServicePaymentRoute(
-                    title: 'Mirai Life Insurance',
-                  ),
-                ),
-              ],
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
+              childAspectRatio: 7 / 6,
+              children: paymentData
+                  .map(
+                    (e) => GridItem(
+                      utilityItem: e,
+                      ontap: () => context.pushRoute(
+                        TopUpRoute(
+                          balance: balance,
+                          conversionRate: conversionRate,
+                          utilPaymentData: e,
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(),
             ),
           ),
         ],
@@ -78,26 +63,23 @@ class UtilityPamentWidget extends StatelessWidget {
 }
 
 class GridItem extends StatelessWidget {
-  final String label;
-  final String? svgPath;
-  final String? imageAsset;
-  final PageRouteInfo<dynamic> route;
+  final UtilityPaymentsModel utilityItem;
+  final Function ontap;
   const GridItem({
     Key? key,
-    required this.label,
-    this.svgPath,
-    this.imageAsset,
-    required this.route,
+    required this.utilityItem,
+    required this.ontap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => context.pushRoute(route),
+    final _baseURL = getIt<ConfigReader>().baseURL;
+
+    return InkWell(
+      onTap: () => ontap(),
       child: Column(
         children: [
-          if (svgPath != null) SvgPicture.asset(svgPath!),
-          if (imageAsset != null)
+          if (utilityItem.image != null)
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
@@ -107,23 +89,23 @@ class GridItem extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Image.asset(
-                  'assets/images/home/utility-payment/${imageAsset ?? ''}.png',
-                  height: 50,
+                child: Image.network(
+                  _baseURL + utilityItem.image!,
+                  height: 46,
                 ),
               ),
             ),
           const SizedBox(height: 3),
-          Expanded(
-            child: Text(
-              label,
-              textScaleFactor: 0.84,
-              style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 14,
-              ),
-              textAlign: TextAlign.center,
+          Text(
+            utilityItem.name ?? '',
+            textScaleFactor: 0.84,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
