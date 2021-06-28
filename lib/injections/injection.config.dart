@@ -24,15 +24,15 @@ import '../features/alerts/data/data_source/alerts_remote_data_source.dart'
     as _i18;
 import '../features/alerts/data/repository/alert_repository.dart' as _i20;
 import '../features/alerts/domain/repositories/alert_repository.dart' as _i19;
-import '../features/alerts/domain/usecase/get_alerts.dart' as _i28;
-import '../features/alerts/domain/usecase/get_earthquakes.dart' as _i32;
-import '../features/alerts/domain/usecase/get_volcanoes.dart' as _i34;
+import '../features/alerts/domain/usecase/get_alerts.dart' as _i31;
+import '../features/alerts/domain/usecase/get_earthquakes.dart' as _i37;
+import '../features/alerts/domain/usecase/get_volcanoes.dart' as _i39;
 import '../features/alerts/presentation/get_alerts/get_alerts_bloc.dart'
-    as _i29;
+    as _i32;
 import '../features/alerts/presentation/get_earthquakes/get_earthquakes_bloc.dart'
-    as _i33;
+    as _i38;
 import '../features/alerts/presentation/get_volcanoes/get_volcanoes_bloc.dart'
-    as _i35;
+    as _i40;
 import '../features/auth/data/datasource/auth_local_data_source.dart' as _i21;
 import '../features/auth/data/datasource/auth_remote_data_source.dart' as _i22;
 import '../features/auth/data/repository/auth_repository.dart' as _i24;
@@ -74,7 +74,7 @@ import '../features/home/domain/usecases/get_home_page_data.dart' as _i96;
 import '../features/home/presentation/home_page_data/home_page_data_bloc.dart'
     as _i109;
 import '../features/japanese_manners/data/datasource/japanese_manners_remote_data_source.dart'
-    as _i40;
+    as _i45;
 import '../features/japanese_manners/data/repositories/japanese_manner_repository.dart'
     as _i111;
 import '../features/japanese_manners/domain/repositories/japanese_manner_repository.dart'
@@ -88,11 +88,11 @@ import '../features/japanese_manners/presentation/japanese_manner/japanese_manne
 import '../features/japanese_manners/presentation/japanese_manner_categories/japanese_manner_categories_bloc.dart'
     as _i138;
 import '../features/load_balance/data/datasource/load_balance_data_source.dart'
-    as _i41;
+    as _i46;
 import '../features/load_balance/data/repositories/load_balance_repositories.dart'
-    as _i43;
+    as _i48;
 import '../features/load_balance/domain/repositories/load_balance_repositories.dart'
-    as _i42;
+    as _i47;
 import '../features/load_balance/domain/usecases/get_list_of_payment_methods.dart'
     as _i100;
 import '../features/load_balance/domain/usecases/top_up_via_stripe.dart'
@@ -118,11 +118,11 @@ import '../features/load_balance/presentations/khalti/verify_khalti_topup/verify
 import '../features/load_balance/presentations/topup_via_stripe/topup_via_stripe_bloc.dart'
     as _i68;
 import '../features/location_information/data/datasource/location_information_local_datasource.dart'
-    as _i44;
+    as _i49;
 import '../features/location_information/data/repository/location_information_repositories.dart'
-    as _i46;
+    as _i51;
 import '../features/location_information/domain/repository/location_information_repositories.dart'
-    as _i45;
+    as _i50;
 import '../features/location_information/domain/usecases/get_countries.dart'
     as _i93;
 import '../features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart'
@@ -149,7 +149,7 @@ import '../features/news/presentation/news_genre/news_genre_bloc.dart' as _i115;
 import '../features/news/presentation/news_preference/news_preference_bloc.dart'
     as _i116;
 import '../features/notifications/data/datasource/notification_remote_data_source.dart'
-    as _i52;
+    as _i57;
 import '../features/notifications/data/repository/notification_repository.dart'
     as _i118;
 import '../features/notifications/domain/repository/notification_repository.dart'
@@ -159,11 +159,11 @@ import '../features/notifications/domain/usecase/get_notifications.dart'
 import '../features/notifications/presentation/notification/notifications_bloc.dart'
     as _i140;
 import '../features/partner_services/data/datasource/partner_services_remote_data_source.dart'
-    as _i53;
+    as _i58;
 import '../features/partner_services/data/repositories/partner_service_repository.dart'
-    as _i55;
+    as _i60;
 import '../features/partner_services/domain/repositories/partner_services_repository.dart'
-    as _i54;
+    as _i59;
 import '../features/partner_services/domain/usecase/get_partner_services.dart'
     as _i120;
 import '../features/partner_services/domain/usecase/get_partner_services_categories.dart'
@@ -294,94 +294,107 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       localDataSource: get<_i21.AuthLocalDataSource>(),
       googleSignIn: get<_i8.GoogleSignIn>(),
       logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i25.CouponRemoteDataSource>(() =>
-      _i25.CouponRemoteDataSourceImpl(
+  gh.lazySingleton<_i25.BalanceRemoteDataSource>(() =>
+      _i25.BalanceRemoteDataSourceImpl(
           client: get<_i3.Client>(),
           config: get<_i13.ConfigReader>(),
           auth: get<_i21.AuthLocalDataSource>(),
           logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i26.CouponRepository>(() => _i27.CouponRepositoryImpl(
-      dataSource: get<_i25.CouponRemoteDataSource>()));
-  gh.lazySingleton<_i28.GetAlerts>(() => _i28.GetAlerts(
-      repository: get<_i19.AlertRepository>(),
-      networkInfo: get<_i14.NetworkInfo>()));
-  gh.factory<_i29.GetAlertsBloc>(
-      () => _i29.GetAlertsBloc(getAlerts: get<_i28.GetAlerts>()));
-  gh.lazySingleton<_i30.GetCouponList>(() => _i30.GetCouponList(
-      networkInfo: get<_i14.NetworkInfo>(),
-      repository: get<_i26.CouponRepository>()));
-  gh.factory<_i31.GetCouponListBloc>(
-      () => _i31.GetCouponListBloc(getCouponList: get<_i30.GetCouponList>()));
-  gh.lazySingleton<_i32.GetEarthquakes>(() => _i32.GetEarthquakes(
-      repository: get<_i19.AlertRepository>(),
-      networkInfo: get<_i14.NetworkInfo>()));
-  gh.factory<_i33.GetEarthquakesBloc>(() =>
-      _i33.GetEarthquakesBloc(getEarthquakes: get<_i32.GetEarthquakes>()));
-  gh.lazySingleton<_i34.GetVolcanoes>(() => _i34.GetVolcanoes(
-      repository: get<_i19.AlertRepository>(),
-      networkInfo: get<_i14.NetworkInfo>()));
-  gh.factory<_i35.GetVolcanoesBloc>(
-      () => _i35.GetVolcanoesBloc(getVolcanoes: get<_i34.GetVolcanoes>()));
-  gh.lazySingleton<_i36.GetWalletUser>(
-      () => _i36.GetWalletUser(repository: get<_i23.AuthRepository>()));
-  gh.lazySingleton<_i37.HomePageRemoteDataSource>(() =>
-      _i37.HomePageRemoteDataSourceImpl(
-          client: get<_i3.Client>(),
-          config: get<_i13.ConfigReader>(),
-          auth: get<_i21.AuthLocalDataSource>(),
-          logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i38.HomeReporisitory>(() => _i39.HomeRepositoryImpl(
-      remoteDataSource: get<_i37.HomePageRemoteDataSource>(),
+  gh.lazySingleton<_i26.BalanceRepository>(() => _i27.BalanceRepositoryImpl(
+      dataSource: get<_i25.BalanceRemoteDataSource>(),
       logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i40.JapaneseMannersRemoteDataSource>(() =>
-      _i40.JapaneseMannersRemoteDataSourceImpl(
+  gh.lazySingleton<_i28.CouponRemoteDataSource>(() =>
+      _i28.CouponRemoteDataSourceImpl(
           client: get<_i3.Client>(),
           config: get<_i13.ConfigReader>(),
           logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i41.LoadBalanceDataSource>(() =>
-      _i41.LoadBalanceDataSourceImpl(
+  gh.lazySingleton<_i29.CouponRepository>(() => _i30.CouponRepositoryImpl(
+      dataSource: get<_i28.CouponRemoteDataSource>()));
+  gh.lazySingleton<_i31.GetAlerts>(() => _i31.GetAlerts(
+      repository: get<_i19.AlertRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
+  gh.factory<_i32.GetAlertsBloc>(
+      () => _i32.GetAlertsBloc(getAlerts: get<_i31.GetAlerts>()));
+  gh.lazySingleton<_i33.GetBalance>(() => _i33.GetBalance(
+      repository: get<_i26.BalanceRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
+  gh.factory<_i34.GetBalanceBloc>(
+      () => _i34.GetBalanceBloc(getBalance: get<_i33.GetBalance>()));
+  gh.lazySingleton<_i35.GetCouponList>(() => _i35.GetCouponList(
+      networkInfo: get<_i14.NetworkInfo>(),
+      repository: get<_i29.CouponRepository>()));
+  gh.factory<_i36.GetCouponListBloc>(
+      () => _i36.GetCouponListBloc(getCouponList: get<_i35.GetCouponList>()));
+  gh.lazySingleton<_i37.GetEarthquakes>(() => _i37.GetEarthquakes(
+      repository: get<_i19.AlertRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
+  gh.factory<_i38.GetEarthquakesBloc>(() =>
+      _i38.GetEarthquakesBloc(getEarthquakes: get<_i37.GetEarthquakes>()));
+  gh.lazySingleton<_i39.GetVolcanoes>(() => _i39.GetVolcanoes(
+      repository: get<_i19.AlertRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
+  gh.factory<_i40.GetVolcanoesBloc>(
+      () => _i40.GetVolcanoesBloc(getVolcanoes: get<_i39.GetVolcanoes>()));
+  gh.lazySingleton<_i41.GetWalletUser>(
+      () => _i41.GetWalletUser(repository: get<_i23.AuthRepository>()));
+  gh.lazySingleton<_i42.HomePageRemoteDataSource>(() =>
+      _i42.HomePageRemoteDataSourceImpl(
           client: get<_i3.Client>(),
           config: get<_i13.ConfigReader>(),
           auth: get<_i21.AuthLocalDataSource>(),
           logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i42.LoadBalanceRepositories>(() =>
-      _i43.LoadBalanceRepositoriesImpl(
-          dataSource: get<_i41.LoadBalanceDataSource>()));
-  gh.lazySingleton<_i44.LocationInformationLocalDataSourceProtocol>(() =>
-      _i44.LocationInformationLocalDataSource(
+  gh.lazySingleton<_i43.HomeReporisitory>(() => _i44.HomeRepositoryImpl(
+      remoteDataSource: get<_i42.HomePageRemoteDataSource>(),
+      logger: get<_i12.Logger>()));
+  gh.lazySingleton<_i45.JapaneseMannersRemoteDataSource>(() =>
+      _i45.JapaneseMannersRemoteDataSourceImpl(
           client: get<_i3.Client>(),
           config: get<_i13.ConfigReader>(),
           logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i45.LocationInformationRepositoryProtocol>(() =>
-      _i46.LocationInformationRepository(
-          dataSource: get<_i44.LocationInformationLocalDataSourceProtocol>(),
+  gh.lazySingleton<_i46.LoadBalanceDataSource>(() =>
+      _i46.LoadBalanceDataSourceImpl(
+          client: get<_i3.Client>(),
+          config: get<_i13.ConfigReader>(),
+          auth: get<_i21.AuthLocalDataSource>(),
           logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i47.LogoutUser>(
-      () => _i47.LogoutUser(repository: get<_i23.AuthRepository>()));
-  gh.lazySingleton<_i48.NewsLocalDataSourceProtocol>(() =>
-      _i48.NewsLocalDataSource(
-          localProvider: get<_i49.NewsLocalProvider>(),
+  gh.lazySingleton<_i47.LoadBalanceRepositories>(() =>
+      _i48.LoadBalanceRepositoriesImpl(
+          dataSource: get<_i46.LoadBalanceDataSource>()));
+  gh.lazySingleton<_i49.LocationInformationLocalDataSourceProtocol>(() =>
+      _i49.LocationInformationLocalDataSource(
+          client: get<_i3.Client>(),
+          config: get<_i13.ConfigReader>(),
+          logger: get<_i12.Logger>()));
+  gh.lazySingleton<_i50.LocationInformationRepositoryProtocol>(() =>
+      _i51.LocationInformationRepository(
+          dataSource: get<_i49.LocationInformationLocalDataSourceProtocol>(),
+          logger: get<_i12.Logger>()));
+  gh.lazySingleton<_i52.LogoutUser>(
+      () => _i52.LogoutUser(repository: get<_i23.AuthRepository>()));
+  gh.lazySingleton<_i53.NewsLocalDataSourceProtocol>(() =>
+      _i53.NewsLocalDataSource(
+          localProvider: get<_i54.NewsLocalProvider>(),
           preferences: get<_i17.SharedPreferences>(),
           logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i50.NewsRepositoryProtocol>(() => _i51.NewsRepository(
+  gh.lazySingleton<_i55.NewsRepositoryProtocol>(() => _i56.NewsRepository(
       remoteDataSource: get<_i15.NewsRemoteDataSourceProtocol>(),
-      localDataSource: get<_i48.NewsLocalDataSourceProtocol>(),
+      localDataSource: get<_i53.NewsLocalDataSourceProtocol>(),
       logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i52.NotificationsRemoteDataSource>(() =>
-      _i52.NotificationsRemoteDataSourceImpl(
+  gh.lazySingleton<_i57.NotificationsRemoteDataSource>(() =>
+      _i57.NotificationsRemoteDataSourceImpl(
           client: get<_i3.Client>(),
           config: get<_i13.ConfigReader>(),
           auth: get<_i21.AuthLocalDataSource>(),
           logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i53.PartnerServicesRemoteDataSource>(() =>
-      _i53.PartnerServicesRemoteDataSourceImpl(
+  gh.lazySingleton<_i58.PartnerServicesRemoteDataSource>(() =>
+      _i58.PartnerServicesRemoteDataSourceImpl(
           client: get<_i3.Client>(),
           auth: get<_i21.AuthLocalDataSource>(),
           config: get<_i13.ConfigReader>(),
           logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i54.PartnerServicesRepository>(() =>
-      _i55.PartnerServicesRepositoryImpl(
-          remoteDataSource: get<_i53.PartnerServicesRemoteDataSource>(),
+  gh.lazySingleton<_i59.PartnerServicesRepository>(() =>
+      _i60.PartnerServicesRepositoryImpl(
+          remoteDataSource: get<_i58.PartnerServicesRemoteDataSource>(),
           logger: get<_i12.Logger>()));
   gh.lazySingleton<_i56.RedeemCoupon>(() => _i56.RedeemCoupon(
       networkInfo: get<_i14.NetworkInfo>(),

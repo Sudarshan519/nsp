@@ -38,9 +38,7 @@ class StripePaymentCardSelectionPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          BalanceWidget(
-            balance: balance,
-          ),
+          const BalanceWidget(),
           InkWell(
             onTap: () =>
                 context.pushRoute(StripeNewCardPaymentRoute(balance: balance)),
