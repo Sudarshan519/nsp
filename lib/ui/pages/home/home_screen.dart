@@ -7,8 +7,10 @@ import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_model.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
@@ -51,6 +53,8 @@ class HomePage extends StatelessWidget {
                   context.read<HomePageDataBloc>().add(
                         const HomePageDataEvent.fetch(),
                       );
+                  getIt<GetBalanceBloc>()
+                      .add(const GetBalanceEvent.fetchBalance());
                   // await 2 sec for the loader to show
                   await Future.delayed(const Duration(seconds: 2), () {});
                 },
