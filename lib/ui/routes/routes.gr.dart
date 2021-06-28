@@ -14,14 +14,16 @@ import '../../features/load_balance/domain/entities/payment_method.dart'
     as _i48;
 import '../../features/news/domain/entity/news_item.dart' as _i44;
 import '../../features/partner_services/domain/entities/service_packages.dart'
-    as _i50;
+    as _i51;
 import '../../features/partner_services/domain/entities/services.dart' as _i45;
 import '../../features/resume/domain/entities/academic_history.dart' as _i42;
 import '../../features/resume/domain/entities/personal_info.dart' as _i40;
 import '../../features/resume/domain/entities/qualification_history.dart'
     as _i43;
 import '../../features/resume/domain/entities/work_history.dart' as _i41;
-import '../../features/transaction/domain/entity/transaction_item.dart' as _i49;
+import '../../features/transaction/domain/entity/transaction_item.dart' as _i50;
+import '../../features/utility_payments/data/models/utility_payments_model.dart'
+    as _i49;
 import '../pages/add_balance/add_balance.dart' as _i26;
 import '../pages/add_balance/payment_page/esewa/esewa_topup_page.dart' as _i30;
 import '../pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart'
@@ -305,7 +307,8 @@ class AppRouter extends _i1.RootStackRouter {
           return _i33.TopUpPage(
               key: args.key,
               balance: args.balance,
-              conversionRate: args.conversionRate);
+              conversionRate: args.conversionRate,
+              utilPaymentData: args.utilPaymentData);
         }),
     PartnerServicePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -1012,24 +1015,35 @@ class PdfViewerRouteArgs {
 
 class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
   TopUpRoute(
-      {_i2.Key? key, required String balance, required double conversionRate})
+      {_i2.Key? key,
+      required String balance,
+      required double conversionRate,
+      required _i49.UtilityPaymentsModel utilPaymentData})
       : super(name,
             path: '/top-up-page',
             args: TopUpRouteArgs(
-                key: key, balance: balance, conversionRate: conversionRate));
+                key: key,
+                balance: balance,
+                conversionRate: conversionRate,
+                utilPaymentData: utilPaymentData));
 
   static const String name = 'TopUpRoute';
 }
 
 class TopUpRouteArgs {
   const TopUpRouteArgs(
-      {this.key, required this.balance, required this.conversionRate});
+      {this.key,
+      required this.balance,
+      required this.conversionRate,
+      required this.utilPaymentData});
 
   final _i2.Key? key;
 
   final String balance;
 
   final double conversionRate;
+
+  final _i49.UtilityPaymentsModel utilPaymentData;
 }
 
 class PartnerServicePaymentRoute
@@ -1063,7 +1077,7 @@ class TransactionRoute extends _i1.PageRouteInfo {
 
 class TransactionDetailRoute
     extends _i1.PageRouteInfo<TransactionDetailRouteArgs> {
-  TransactionDetailRoute({_i2.Key? key, required _i49.TransactionItem item})
+  TransactionDetailRoute({_i2.Key? key, required _i50.TransactionItem item})
       : super(name,
             path: '/transaction-detail-page',
             args: TransactionDetailRouteArgs(key: key, item: item));
@@ -1076,7 +1090,7 @@ class TransactionDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i49.TransactionItem item;
+  final _i50.TransactionItem item;
 }
 
 class TransactionDetailFromAPi
@@ -1104,7 +1118,7 @@ class NotificationListRoute extends _i1.PageRouteInfo {
 }
 
 class BuyPackageRoute extends _i1.PageRouteInfo<BuyPackageRouteArgs> {
-  BuyPackageRoute({_i2.Key? key, required _i50.ServicePackage package})
+  BuyPackageRoute({_i2.Key? key, required _i51.ServicePackage package})
       : super(name,
             path: '/buy-package-page',
             args: BuyPackageRouteArgs(key: key, package: package));
@@ -1117,7 +1131,7 @@ class BuyPackageRouteArgs {
 
   final _i2.Key? key;
 
-  final _i50.ServicePackage package;
+  final _i51.ServicePackage package;
 }
 
 class CouponRoute extends _i1.PageRouteInfo {

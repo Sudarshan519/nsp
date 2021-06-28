@@ -9,6 +9,7 @@ import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
@@ -23,11 +24,13 @@ import 'package:wallet_app/utils/constant.dart';
 class TopUpPage extends StatefulWidget {
   final String balance;
   final double conversionRate;
+  final UtilityPaymentsModel utilPaymentData;
 
   const TopUpPage({
     Key? key,
     required this.balance,
     required this.conversionRate,
+    required this.utilPaymentData,
   }) : super(key: key);
 
   @override

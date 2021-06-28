@@ -8,6 +8,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_model.dart';
 import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
@@ -152,7 +153,12 @@ class HomePage extends StatelessWidget {
     final type = _getHomeItemTypeString(typeString);
     switch (type) {
       case HomeItemType.utility_payments:
+        final data = List<UtilityPaymentsModel>.from((model.data as Iterable)
+            .map((x) =>
+                UtilityPaymentsModel.fromJson(x as Map<String, dynamic>)));
+
         return UtilityPamentWidget(
+          paymentData: data,
           balance: userDetail?.formattedBalance ?? 'JPY XX.XX',
           conversionRate: 1 / (userDetail?.currencyConversionRate ?? 1.067),
         );
