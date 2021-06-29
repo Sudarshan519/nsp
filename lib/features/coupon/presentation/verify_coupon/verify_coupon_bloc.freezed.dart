@@ -26,8 +26,12 @@ class _$VerifyCouponEventTearOff {
     return const _VerifyCoupon();
   }
 
-  _SetInitialState setInitialState() {
-    return const _SetInitialState();
+  _SetInitialState setInitialState(
+      {required String productType, required int productId}) {
+    return _SetInitialState(
+      productType: productType,
+      productId: productId,
+    );
   }
 }
 
@@ -40,14 +44,15 @@ mixin _$VerifyCouponEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String code) changeCouponCode,
     required TResult Function() verifyCoupon,
-    required TResult Function() setInitialState,
+    required TResult Function(String productType, int productId)
+        setInitialState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String code)? changeCouponCode,
     TResult Function()? verifyCoupon,
-    TResult Function()? setInitialState,
+    TResult Function(String productType, int productId)? setInitialState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,7 +157,8 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
   TResult when<TResult extends Object?>({
     required TResult Function(String code) changeCouponCode,
     required TResult Function() verifyCoupon,
-    required TResult Function() setInitialState,
+    required TResult Function(String productType, int productId)
+        setInitialState,
   }) {
     return changeCouponCode(code);
   }
@@ -162,7 +168,7 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String code)? changeCouponCode,
     TResult Function()? verifyCoupon,
-    TResult Function()? setInitialState,
+    TResult Function(String productType, int productId)? setInitialState,
     required TResult orElse(),
   }) {
     if (changeCouponCode != null) {
@@ -247,7 +253,8 @@ class _$_VerifyCoupon implements _VerifyCoupon {
   TResult when<TResult extends Object?>({
     required TResult Function(String code) changeCouponCode,
     required TResult Function() verifyCoupon,
-    required TResult Function() setInitialState,
+    required TResult Function(String productType, int productId)
+        setInitialState,
   }) {
     return verifyCoupon();
   }
@@ -257,7 +264,7 @@ class _$_VerifyCoupon implements _VerifyCoupon {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String code)? changeCouponCode,
     TResult Function()? verifyCoupon,
-    TResult Function()? setInitialState,
+    TResult Function(String productType, int productId)? setInitialState,
     required TResult orElse(),
   }) {
     if (verifyCoupon != null) {
@@ -300,6 +307,7 @@ abstract class _$SetInitialStateCopyWith<$Res> {
   factory _$SetInitialStateCopyWith(
           _SetInitialState value, $Res Function(_SetInitialState) then) =
       __$SetInitialStateCopyWithImpl<$Res>;
+  $Res call({String productType, int productId});
 }
 
 /// @nodoc
@@ -312,34 +320,73 @@ class __$SetInitialStateCopyWithImpl<$Res>
 
   @override
   _SetInitialState get _value => super._value as _SetInitialState;
+
+  @override
+  $Res call({
+    Object? productType = freezed,
+    Object? productId = freezed,
+  }) {
+    return _then(_SetInitialState(
+      productType: productType == freezed
+          ? _value.productType
+          : productType // ignore: cast_nullable_to_non_nullable
+              as String,
+      productId: productId == freezed
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_SetInitialState implements _SetInitialState {
-  const _$_SetInitialState();
+  const _$_SetInitialState(
+      {required this.productType, required this.productId});
+
+  @override
+  final String productType;
+  @override
+  final int productId;
 
   @override
   String toString() {
-    return 'VerifyCouponEvent.setInitialState()';
+    return 'VerifyCouponEvent.setInitialState(productType: $productType, productId: $productId)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SetInitialState);
+    return identical(this, other) ||
+        (other is _SetInitialState &&
+            (identical(other.productType, productType) ||
+                const DeepCollectionEquality()
+                    .equals(other.productType, productType)) &&
+            (identical(other.productId, productId) ||
+                const DeepCollectionEquality()
+                    .equals(other.productId, productId)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(productType) ^
+      const DeepCollectionEquality().hash(productId);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String code) changeCouponCode,
     required TResult Function() verifyCoupon,
-    required TResult Function() setInitialState,
+    required TResult Function(String productType, int productId)
+        setInitialState,
   }) {
-    return setInitialState();
+    return setInitialState(productType, productId);
   }
 
   @override
@@ -347,11 +394,11 @@ class _$_SetInitialState implements _SetInitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String code)? changeCouponCode,
     TResult Function()? verifyCoupon,
-    TResult Function()? setInitialState,
+    TResult Function(String productType, int productId)? setInitialState,
     required TResult orElse(),
   }) {
     if (setInitialState != null) {
-      return setInitialState();
+      return setInitialState(productType, productId);
     }
     return orElse();
   }
@@ -382,7 +429,15 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements VerifyCouponEvent {
-  const factory _SetInitialState() = _$_SetInitialState;
+  const factory _SetInitialState(
+      {required String productType,
+      required int productId}) = _$_SetInitialState;
+
+  String get productType => throw _privateConstructorUsedError;
+  int get productId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -392,7 +447,7 @@ class _$VerifyCouponStateTearOff {
   _VerifyCouponState call(
       {required String couponCode,
       required String productType,
-      required String productId,
+      required int productId,
       required bool isSubmitting,
       required Option<Either<ApiFailure, CouponCode>> failureOrSuccess}) {
     return _VerifyCouponState(
@@ -412,7 +467,7 @@ const $VerifyCouponState = _$VerifyCouponStateTearOff();
 mixin _$VerifyCouponState {
   String get couponCode => throw _privateConstructorUsedError;
   String get productType => throw _privateConstructorUsedError;
-  String get productId => throw _privateConstructorUsedError;
+  int get productId => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<ApiFailure, CouponCode>> get failureOrSuccess =>
       throw _privateConstructorUsedError;
@@ -430,7 +485,7 @@ abstract class $VerifyCouponStateCopyWith<$Res> {
   $Res call(
       {String couponCode,
       String productType,
-      String productId,
+      int productId,
       bool isSubmitting,
       Option<Either<ApiFailure, CouponCode>> failureOrSuccess});
 }
@@ -464,7 +519,7 @@ class _$VerifyCouponStateCopyWithImpl<$Res>
       productId: productId == freezed
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -487,7 +542,7 @@ abstract class _$VerifyCouponStateCopyWith<$Res>
   $Res call(
       {String couponCode,
       String productType,
-      String productId,
+      int productId,
       bool isSubmitting,
       Option<Either<ApiFailure, CouponCode>> failureOrSuccess});
 }
@@ -523,7 +578,7 @@ class __$VerifyCouponStateCopyWithImpl<$Res>
       productId: productId == freezed
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -551,7 +606,7 @@ class _$_VerifyCouponState implements _VerifyCouponState {
   @override
   final String productType;
   @override
-  final String productId;
+  final int productId;
   @override
   final bool isSubmitting;
   @override
@@ -602,7 +657,7 @@ abstract class _VerifyCouponState implements VerifyCouponState {
   const factory _VerifyCouponState(
           {required String couponCode,
           required String productType,
-          required String productId,
+          required int productId,
           required bool isSubmitting,
           required Option<Either<ApiFailure, CouponCode>> failureOrSuccess}) =
       _$_VerifyCouponState;
@@ -612,7 +667,7 @@ abstract class _VerifyCouponState implements VerifyCouponState {
   @override
   String get productType => throw _privateConstructorUsedError;
   @override
-  String get productId => throw _privateConstructorUsedError;
+  int get productId => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override
