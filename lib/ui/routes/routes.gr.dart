@@ -22,7 +22,7 @@ import '../../features/resume/domain/entities/qualification_history.dart'
     as _i43;
 import '../../features/resume/domain/entities/work_history.dart' as _i41;
 import '../../features/transaction/domain/entity/transaction_item.dart' as _i50;
-import '../../features/utility_payments/data/models/utility_payments_model.dart'
+import '../../features/utility_payments/domain/entities/utility_payments.dart'
     as _i49;
 import '../pages/add_balance/add_balance.dart' as _i26;
 import '../pages/add_balance/payment_page/esewa/esewa_topup_page.dart' as _i30;
@@ -1018,7 +1018,7 @@ class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
       {_i2.Key? key,
       required double balance,
       required double conversionRate,
-      required _i49.UtilityPaymentsModel utilPaymentData})
+      required _i49.UtilityPayment utilPaymentData})
       : super(name,
             path: '/top-up-page',
             args: TopUpRouteArgs(
@@ -1043,7 +1043,7 @@ class TopUpRouteArgs {
 
   final double conversionRate;
 
-  final _i49.UtilityPaymentsModel utilPaymentData;
+  final _i49.UtilityPayment utilPaymentData;
 }
 
 class PartnerServicePaymentRoute

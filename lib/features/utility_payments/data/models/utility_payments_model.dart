@@ -8,6 +8,7 @@ class UtilityPaymentsModel extends UtilityPayment {
     required double? cashbackPer,
     required double? rewardPoint,
     required bool? isActive,
+    required String? paymentType,
     required String? createdAt,
     required String? updatedAt,
   }) : super(
@@ -17,6 +18,7 @@ class UtilityPaymentsModel extends UtilityPayment {
           cashbackPer: cashbackPer,
           rewardPoint: rewardPoint,
           isActive: isActive,
+          paymentType: paymentType,
           createdAt: createdAt,
           updatedAt: updatedAt,
         );
@@ -29,6 +31,7 @@ class UtilityPaymentsModel extends UtilityPayment {
         cashbackPer: json['cashback_per'] as double?,
         rewardPoint: json['reward_point'] as double?,
         isActive: json['is_active'] as bool?,
+        paymentType: json['payment_type'] as String?,
         createdAt: json['created_at'] as String?,
         updatedAt: json['updated_at'] as String?,
       );

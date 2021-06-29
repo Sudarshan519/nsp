@@ -41,8 +41,20 @@ class TopUpBalanceInMobileBloc
       changeCoupon: (e) async* {
         yield _mapChangecCouponCodeEventToState(e);
       },
+      setCashbackpercentage: (e) async* {
+        yield _mapSetCashbackpercentageEventToState(e);
+      },
+      setDiscountpercentage: (e) async* {
+        yield _mapSetDiscountpercentageEventToState(e);
+      },
+      setRewardPoint: (e) async* {
+        yield _mapSetRewardPointsEventToState(e);
+      },
+      setRewardPointFromCoupon: (e) async* {
+        yield _mapSetRewardPointsFromCouponEventToState(e);
+      },
       validate: (e) async* {
-        yield _mapValidateEventToState(e);
+        yield* _mapValidateEventToState(e);
       },
       topup: (e) async* {
         yield* _mapTopupEventToState(e);
@@ -97,7 +109,44 @@ class TopUpBalanceInMobileBloc
     );
   }
 
-  TopUpBalanceInMobileState _mapValidateEventToState(_Validate _validate) {
+  TopUpBalanceInMobileState _mapSetCashbackpercentageEventToState(
+      _SetCashbackpercentage _setCashbackpercentage) {
+    return state.copyWith(
+      cashbackPercentage: _setCashbackpercentage.percentage,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopUpBalanceInMobileState _mapSetDiscountpercentageEventToState(
+      _SetDiscountpercentage _setDiscountpercentage) {
+    return state.copyWith(
+      discountPercentage: _setDiscountpercentage.percentage,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopUpBalanceInMobileState _mapSetRewardPointsEventToState(
+      _SetRedeemPoint _setRedeemPoint) {
+    return state.copyWith(
+      rewardPoint: _setRedeemPoint.point,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopUpBalanceInMobileState _mapSetRewardPointsFromCouponEventToState(
+      _SetRedeemPointFromCoupon _setRedeemPoint) {
+    return state.copyWith(
+      rewardPointFromCoupon: _setRedeemPoint.point,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  Stream<TopUpBalanceInMobileState> _mapValidateEventToState(
+      _Validate _validate) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+      failureOrSuccessOption: none(),
+    );
     final result = topUpBalanceForMobile.validate(
       TopUpBalanceForMobileParams(
         amount: state.convertedJpyAmount,
@@ -108,11 +157,11 @@ class TopUpBalanceInMobileBloc
     );
 
     if (result != null) {
-      return state.copyWith(
+      yield state.copyWith(
         failureOrSuccessOption: optionOf(Left(result)),
       );
     } else {
-      return state.copyWith(
+      yield state.copyWith(
         failureOrSuccessOption: none(),
       );
     }

@@ -9,7 +9,7 @@ import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
-import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
+import 'package:wallet_app/features/utility_payments/domain/entities/utility_payments.dart';
 import 'package:wallet_app/features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
@@ -24,7 +24,7 @@ import 'package:wallet_app/utils/constant.dart';
 class TopUpPage extends StatefulWidget {
   final double balance;
   final double conversionRate;
-  final UtilityPaymentsModel utilPaymentData;
+  final UtilityPayment utilPaymentData;
 
   const TopUpPage({
     Key? key,
@@ -55,7 +55,17 @@ class _TopUpPageState extends State<TopUpPage> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<TopUpBalanceInMobileBloc>(),
+          create: (context) => getIt<TopUpBalanceInMobileBloc>()
+            ..add(
+              TopUpBalanceInMobileEvent.setCashbackpercentage(
+                widget.utilPaymentData.cashbackPer ?? 0.0,
+              ),
+            )
+            ..add(
+              TopUpBalanceInMobileEvent.setRewardPoint(
+                widget.utilPaymentData.rewardPoint ?? 0.0,
+              ),
+            ),
         ),
         BlocProvider(
           create: (context) => getIt<VerifyCouponBloc>(),
@@ -175,13 +185,18 @@ class _TopUpPageState extends State<TopUpPage> {
                       TopUpBalanceInMobileEvent.changeCoupon(
                           couponCode?.couponCode ?? ''),
                     );
+
+                context.read<TopUpBalanceInMobileBloc>().add(
+                      TopUpBalanceInMobileEvent.setDiscountpercentage(
+                          double.parse(couponCode?.cashback ?? '0.0')),
+                    );
+
+                context.read<TopUpBalanceInMobileBloc>().add(
+                      TopUpBalanceInMobileEvent.setRewardPointFromCoupon(
+                          double.parse(couponCode?.rewardPoint ?? '0.0')),
+                    );
               },
             ),
-            const SizedBox(height: 20),
-            if (_coupon != null)
-              _CouponDetail(
-                coupon: _coupon!,
-              ),
             const SizedBox(height: 20),
             _TransactionDetail(
               conversionRate: widget.conversionRate,
@@ -200,6 +215,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 }
               },
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -208,33 +224,81 @@ class _TopUpPageState extends State<TopUpPage> {
 
   Widget topupConfirmationbody(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            _MobileNumberField(),
-            const SizedBox(height: 5),
-            _TransactionAmountInNPRField(),
-            const SizedBox(height: 5),
-            _TransactionDetailRow(
-              title: 'Cashback',
-              value: '0.00',
+      child: BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+        builder: (context, state) {
+          double doubleAmount = 0.0;
+          try {
+            doubleAmount = double.parse(state.amount);
+          } catch (ex) {
+            debugPrint(ex.toString());
+            return SizedBox.fromSize();
+          }
+
+          final discountAmount =
+              doubleAmount * (state.discountPercentage / 100);
+          final cashbackAmount =
+              doubleAmount * (state.cashbackPercentage / 100);
+
+          doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
+          final conversionValue = doubleAmount * widget.conversionRate;
+          return Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                _MobileNumberField(),
+                const SizedBox(height: 5),
+                _TransactionAmountInNPRField(),
+                const SizedBox(height: 5),
+                if (state.cashbackPercentage > 0)
+                  Column(
+                    children: [
+                      _TransactionDetailRow(
+                        title: 'Cashback',
+                        value: "${state.cashbackPercentage} %",
+                      ),
+                      const SizedBox(height: 5),
+                    ],
+                  ),
+                if (state.discountPercentage > 0)
+                  Column(
+                    children: [
+                      _TransactionDetailRow(
+                        title: 'Discount cashback',
+                        value: "${state.discountPercentage} %",
+                      ),
+                      const SizedBox(height: 5),
+                    ],
+                  ),
+                if (state.rewardPoint > 0 || state.rewardPointFromCoupon > 0)
+                  Column(
+                    children: [
+                      _TransactionDetailRow(
+                        title: 'Reward Points',
+                        value:
+                            "${state.rewardPoint + state.rewardPointFromCoupon} Pts.",
+                      ),
+                      const SizedBox(height: 5),
+                    ],
+                  ),
+                const SizedBox(height: 5),
+                _TransactionDetailRow(
+                  title: 'Transaction Amount (NPR)',
+                  value: '$doubleAmount',
+                ),
+                const SizedBox(height: 5),
+                _TransactionDetailRow(
+                  title: 'Transaction Amount (JPY)',
+                  value: conversionValue.toStringAsFixed(2),
+                ),
+                const SizedBox(height: 40),
+                const _ConfirmButton(),
+                const SizedBox(height: 20),
+              ],
             ),
-            const SizedBox(height: 5),
-            _TransactionDetailRow(
-              title: 'Reward Points',
-              value: '0.00',
-            ),
-            const SizedBox(height: 5),
-            _TransactionAmountInJPYField(
-              conversionRate: widget.conversionRate,
-            ),
-            const SizedBox(height: 40),
-            const _ConfirmButton(),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
@@ -256,7 +320,9 @@ class CouponCodeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
-        if (state.number.isEmpty || state.type.isEmpty) {
+        if (state.number.isEmpty ||
+            state.type.isEmpty ||
+            state.amount.isEmpty) {
           return const SizedBox.shrink();
         }
         return _buildCoupon(context);
@@ -595,7 +661,19 @@ class _TransactionDetail extends StatelessWidget {
             state.amount.isEmpty) {
           return const SizedBox.shrink();
         }
-        final conversionValue = double.parse(state.amount) * conversionRate;
+        double doubleAmount = 0.0;
+        try {
+          doubleAmount = double.parse(state.amount);
+        } catch (ex) {
+          debugPrint(ex.toString());
+          return SizedBox.fromSize();
+        }
+
+        final discountAmount = doubleAmount * (state.discountPercentage / 100);
+        final cashbackAmount = doubleAmount * (state.cashbackPercentage / 100);
+
+        doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
+        final conversionValue = doubleAmount * conversionRate;
         return Column(
           children: [
             Container(
@@ -630,54 +708,113 @@ class _TransactionDetail extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Cashback',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
+                  if (state.cashbackPercentage > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Cashback',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                            Text(
+                              "${state.cashbackPercentage} %",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      Text(
-                        "0.00",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  if (state.discountPercentage > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Discount cashback',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                            Text(
+                              "${state.discountPercentage} %",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Reward Points',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  if (state.rewardPoint > 0 || state.rewardPointFromCoupon > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Reward Points',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                            Text(
+                              "${state.rewardPoint + state.rewardPointFromCoupon} Pts.",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      Text(
-                        "0.00",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
+                        const SizedBox(height: 10),
+                      ],
+                    ),
                   DashedLineWidget(
                     color: Palette.white,
                   ),
                   const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Total Paying Amount (NPR)',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                      Text(
+                        '$doubleAmount',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
