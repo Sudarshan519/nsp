@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:url_launcher/url_launcher.dart' as url_launcher;
+import 'package:wallet_app/core/notification/navigate_notification.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/presentation/notification/notifications_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/time_ago/time_ago.dart' as date_time;
-import 'package:auto_route/auto_route.dart';
 
 class NotificationListPage extends StatelessWidget {
   @override
@@ -100,9 +98,16 @@ class _NotificationListView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         if (item.image != null)
-                          Image.network(
-                            baseURL + item.image.toString(),
-                            scale: 0.3,
+                          Center(
+                            child: SizedBox(
+                              height: 90,
+                              child: Hero(
+                                tag: item.id.toString(),
+                                child: Image.network(
+                                  baseURL + item.image.toString(),
+                                ),
+                              ),
+                            ),
                           ),
                         const SizedBox(
                           height: 6,
@@ -110,6 +115,8 @@ class _NotificationListView extends StatelessWidget {
                         Text(
                           item.message.toString(),
                           textScaleFactor: 0.85,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: const TextStyle(fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(
@@ -123,30 +130,7 @@ class _NotificationListView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  onTap: () {
-                    if (item.redirectUrl != null) {
-                      url_launcher.launch(item.redirectUrl!);
-                    } else if (item.productId != null && item.type != null) {
-                      // TODO: CHECK by type
-                      switch (item.type) {
-                        case NotificationType.transaction:
-                          context.pushRoute(
-                              TransactionDetailFromAPi(id: item.productId!));
-                          break;
-
-                        case NotificationType.partnerService:
-                          // TODO: goto partner service page
-                          break;
-
-                        case NotificationType.jpManner:
-                          // TODO: goto partner JP Manner page
-                          break;
-
-                        default:
-                          return;
-                      }
-                    }
-                  },
+                  onTap: () => navigate(context, item),
                 ),
                 if (item.isPinned) pinWidget()
               ],
