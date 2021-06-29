@@ -1,5 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,6 +12,13 @@ class PushNotificationManager {
 
   String get fireBaseToken {
     return _token;
+  }
+
+  BuildContext? _context;
+
+  // ignore: avoid_setters_without_getters
+  set context(BuildContext context) {
+    _context = context;
   }
 
   Future initialise() async {
