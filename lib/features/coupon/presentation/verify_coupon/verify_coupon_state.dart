@@ -5,7 +5,7 @@ class VerifyCouponState with _$VerifyCouponState {
   const factory VerifyCouponState({
     required String couponCode,
     required String productType,
-    required String productId,
+    required int productId,
     required bool isSubmitting,
     required Option<Either<ApiFailure, CouponCode>> failureOrSuccess,
   }) = _VerifyCouponState;
@@ -13,7 +13,7 @@ class VerifyCouponState with _$VerifyCouponState {
   factory VerifyCouponState.initial() => VerifyCouponState(
         couponCode: '',
         productType: '',
-        productId: '',
+        productId: 0,
         isSubmitting: false,
         failureOrSuccess: none(),
       );

@@ -41,8 +41,8 @@ class VerifyCouponBloc extends Bloc<VerifyCouponEvent, VerifyCouponState> {
         final result = await verifyCoupon(
           VerifyCouponParams(
             couponCode: state.couponCode,
-            productType: 'utility',
-            productId: 1,
+            productType: state.productType,
+            productId: state.productId,
           ),
         );
 
@@ -51,7 +51,14 @@ class VerifyCouponBloc extends Bloc<VerifyCouponEvent, VerifyCouponState> {
           failureOrSuccess: optionOf(result),
         );
       },
-      setInitialState: (e) async* {},
+      setInitialState: (e) async* {
+        yield state.copyWith(
+          isSubmitting: false,
+          productType: e.productType,
+          productId: e.productId,
+          failureOrSuccess: none(),
+        );
+      },
     );
   }
 }

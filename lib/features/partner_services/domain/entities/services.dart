@@ -21,6 +21,8 @@ class Services extends Equatable {
     required this.companyAddressHeadCity,
     required this.companyAddressHeadStreet,
     required this.description,
+    required this.rewardPoints,
+    required this.cashbackPercentage,
     required this.servicePackages,
   });
 
@@ -42,6 +44,8 @@ class Services extends Equatable {
   final String? companyAddressHeadCity;
   final String? companyAddressHeadStreet;
   final String? description;
+  final double? cashbackPercentage;
+  final double? rewardPoints;
   final List<ServicePackage>? servicePackages;
 
   String get descriptionWithOutHtmlTags {

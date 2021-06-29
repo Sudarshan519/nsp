@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_packages.dart';
+import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 import 'package:wallet_app/features/partner_services/presentation/purchase_package/purchase_package_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
@@ -17,12 +17,16 @@ import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 
 class BuyPackagePage extends StatefulWidget {
   final ServicePackage package;
+  final Services services;
+
   const BuyPackagePage({
     Key? key,
     required this.package,
+    required this.services,
   }) : super(key: key);
 
   @override
@@ -53,7 +57,13 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
             ),
         ),
         BlocProvider(
-          create: (context) => getIt<VerifyCouponBloc>(),
+          create: (context) => getIt<VerifyCouponBloc>()
+            ..add(
+              VerifyCouponEvent.setInitialState(
+                productType: 'service',
+                productId: widget.package.id ?? 0,
+              ),
+            ),
         ),
       ],
       child: Scaffold(
@@ -119,16 +129,18 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                   title: 'Customer Name',
                   isRequired: true,
                   child: InputTextWidget(
-                    hintText: 'Customer ID',
-                    onChanged: (value) {},
-                    value: '',
+                    hintText: 'Customer Name',
+                    value: state.customerName,
+                    onChanged: (value) => context
+                        .read<PurchasePackageBloc>()
+                        .add(PurchasePackageEvent.changeCustomerName(value)),
                   ),
                 ),
                 TextWidetWithLabelAndChild(
                   title: 'Customer ID / email',
                   isRequired: true,
                   child: InputTextWidget(
-                    hintText: 'Customer ID',
+                    hintText: 'Customer ID / email',
                     onChanged: (value) => context
                         .read<PurchasePackageBloc>()
                         .add(PurchasePackageEvent.changeCustomerId(value)),
@@ -140,7 +152,7 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                   isRequired: true,
                   child: InputTextWidget(
                     isEnable: false,
-                    hintText: '¥ ${widget.package.packagePrice!}',
+                    hintText: '¥ ${widget.package.packagePrice ?? 0.0}',
                     onChanged: (_) {},
                     value: '¥ ${state.amount}',
                     textInputType: TextInputType.number,
@@ -148,12 +160,30 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                 ),
                 TextWidetWithLabelAndChild(
                   title: 'Remarks',
-                  child: InputTextWidget(
-                    hintText: 'Remarks',
+                  child: TextFormField(
+                    initialValue: state.remark,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      border: InputBorder.none,
+                      hintText: 'Remark',
+                      hintStyle: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w300,
+                        color: Palette.textFieldPlaceholderColor,
+                      ),
+                    ),
+                    style: TextStyle(
+                      color: Palette.blackTextColor,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14.0,
+                    ),
+                    textInputAction: TextInputAction.done,
+                    minLines: 4,
+                    maxLines: 4,
                     onChanged: (value) => context
                         .read<PurchasePackageBloc>()
                         .add(PurchasePackageEvent.changeRemark(value)),
-                    value: state.remark,
+                    onEditingComplete: () {},
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -168,18 +198,18 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                     setState(() {
                       _coupon = couponCode;
                     });
+                    context.read<PurchasePackageBloc>().add(
+                        PurchasePackageEvent.changeCoupon(
+                            couponCode?.couponCode ?? ''));
+                    context.read<PurchasePackageBloc>().add(
+                        PurchasePackageEvent.setDiscountpercentage(
+                            double.parse(couponCode?.cashback ?? '0.0')));
+                    context.read<PurchasePackageBloc>().add(
+                        PurchasePackageEvent.setRewardPoint(
+                            double.parse(couponCode?.rewardPoint ?? '0.0')));
                   },
                 ),
-                const SizedBox(height: 20),
-                if (_coupon != null)
-                  Column(
-                    children: [
-                      _CouponDetail(
-                        coupon: _coupon!,
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
+                const _TransactionDetail(),
                 InkWell(
                   onTap: () {
                     context.read<PurchasePackageBloc>().add(
@@ -366,96 +396,149 @@ class CouponCodeWidget extends StatelessWidget {
   }
 }
 
-class _CouponDetail extends StatelessWidget {
-  final CouponCode coupon;
-  const _CouponDetail({
+class _TransactionDetail extends StatelessWidget {
+  const _TransactionDetail({
     Key? key,
-    required this.coupon,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          // height: 30,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Palette.primary,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+    return BlocBuilder<PurchasePackageBloc, PurchasePackageState>(
+      builder: (context, state) {
+        if (state.cashbackPercentage > 0 ||
+            state.discountPercentage > 0 ||
+            state.rewardPoint > 0 ||
+            state.rewardPointFromCoupon > 0) {
+          final discountAmount =
+              state.amount * (state.discountPercentage / 100);
+          final cashbackAmount =
+              state.amount * (state.cashbackPercentage / 100);
+
+          final doubleAmount = state.amount - (discountAmount + cashbackAmount);
+          final payingAmount =
+              currencyFormatterString(value: doubleAmount.toStringAsFixed(2));
+
+          return Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Coupon Code',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
+              const SizedBox(height: 20),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                // height: 30,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Palette.primary,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (state.cashbackPercentage > 0)
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Cashback',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: Palette.white,
+                                ),
+                              ),
+                              Text(
+                                '${state.cashbackPercentage}%',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Palette.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                        ],
+                      ),
+                    if (state.discountPercentage > 0)
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Discount Cashback',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: Palette.white,
+                                ),
+                              ),
+                              Text(
+                                '${state.discountPercentage}%',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Palette.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                        ],
+                      ),
+                    if (state.rewardPoint > 0 ||
+                        state.rewardPointFromCoupon > 0)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Reward Points:',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.white,
+                            ),
+                          ),
+                          Text(
+                            '${state.rewardPoint + state.rewardPointFromCoupon} Pts.',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Total Paying Amount',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Palette.white,
+                          ),
+                        ),
+                        Text(
+                          payingAmount,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Palette.white,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  Text(
-                    coupon.couponCode ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Cashback:',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    coupon.cashback ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Reward Point:',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    coupon.rewardPoint ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
+              const SizedBox(height: 20),
             ],
-          ),
-        ),
-        const SizedBox(height: 20),
-      ],
+          );
+        }
+        return const SizedBox(height: 20);
+      },
     );
   }
 }

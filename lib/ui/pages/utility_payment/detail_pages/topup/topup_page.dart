@@ -68,7 +68,13 @@ class _TopUpPageState extends State<TopUpPage> {
             ),
         ),
         BlocProvider(
-          create: (context) => getIt<VerifyCouponBloc>(),
+          create: (context) => getIt<VerifyCouponBloc>()
+            ..add(
+              VerifyCouponEvent.setInitialState(
+                productType: 'utility',
+                productId: widget.utilPaymentData.id ?? 0,
+              ),
+            ),
         ),
       ],
       child: Scaffold(

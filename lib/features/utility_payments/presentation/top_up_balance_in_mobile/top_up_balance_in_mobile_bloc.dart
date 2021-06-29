@@ -149,7 +149,7 @@ class TopUpBalanceInMobileBloc
     );
     final result = topUpBalanceForMobile.validate(
       TopUpBalanceForMobileParams(
-        amount: state.convertedJpyAmount,
+        amount: state.amount,
         number: state.number,
         type: state.type,
         coupon: state.coupon,
