@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
+import 'package:wallet_app/core/notification/navigate_notification.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/presentation/notification/notifications_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -127,24 +128,7 @@ class _NotificationListView extends StatelessWidget {
                     if (item.redirectUrl != null) {
                       url_launcher.launch(item.redirectUrl!);
                     } else if (item.productId != null && item.type != null) {
-                      // TODO: CHECK by type
-                      switch (item.type) {
-                        case NotificationType.transaction:
-                          context.pushRoute(
-                              TransactionDetailFromAPi(id: item.productId!));
-                          break;
-
-                        case NotificationType.partnerService:
-                          // TODO: goto partner service page
-                          break;
-
-                        case NotificationType.jpManner:
-                          // TODO: goto partner JP Manner page
-                          break;
-
-                        default:
-                          return;
-                      }
+                      navigate(context, item.type!, item.productId!);
                     }
                   },
                 ),

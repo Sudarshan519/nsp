@@ -1,12 +1,23 @@
+import 'dart:convert';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/notification/navigate_notification.dart';
 
 @lazySingleton
 class PushNotificationManager {
   late FirebaseMessaging _firebaseMessaging;
+  late FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin;
+  final AndroidNotificationChannel _androidChannel =
+      const AndroidNotificationChannel(
+    'high_importance_channel', // id
+    'High Importance Notifications', // title
+    'This channel is used for important notifications.', // description
+    importance: Importance.max,
+  );
 
   String _token = "";
 
@@ -14,7 +25,7 @@ class PushNotificationManager {
     return _token;
   }
 
-  BuildContext? _context;
+  late BuildContext? _context;
 
   // ignore: avoid_setters_without_getters
   set context(BuildContext context) {
@@ -22,6 +33,40 @@ class PushNotificationManager {
   }
 
   Future initialise() async {
+    await _localNotificationSetup();
+    await _pushNotificationSetup();
+  }
+
+  Future _localNotificationSetup() async {
+    const AndroidInitializationSettings initializationSettingsAndroid =
+        AndroidInitializationSettings(
+      'notification_logo',
+    );
+
+    const IOSInitializationSettings initializationSettingsIOS =
+        IOSInitializationSettings(
+      requestSoundPermission: false,
+      requestBadgePermission: false,
+      requestAlertPermission: false,
+    );
+
+    const InitializationSettings initializationSettings =
+        InitializationSettings(
+      android: initializationSettingsAndroid,
+      iOS: initializationSettingsIOS,
+    );
+
+    _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+    await _flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: _selectNotification);
+
+    await _flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(_androidChannel);
+  }
+
+  Future _pushNotificationSetup() async {
     _firebaseMessaging = FirebaseMessaging.instance;
     _firebaseMessaging.requestPermission();
 
@@ -42,22 +87,6 @@ class PushNotificationManager {
 
     _firebaseMessaging.setForegroundNotificationPresentationOptions(
         alert: true, badge: true, sound: true);
-
-    const AndroidNotificationChannel channel = AndroidNotificationChannel(
-      'high_importance_channel', // id
-      'High Importance Notifications', // title
-      'This channel is used for important notifications.', // description
-      importance: Importance.max,
-    );
-
-    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-        FlutterLocalNotificationsPlugin();
-
-    await flutterLocalNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
-        ?.createNotificationChannel(channel);
-
     FirebaseMessaging.onMessage.listen(
       (message) {
         final RemoteNotification? notification = message.notification;
@@ -66,22 +95,34 @@ class PushNotificationManager {
         // If `onMessage` is triggered with a notification, construct our own
         // local notification to show to users using the created channel.
         if (notification != null && android != null) {
-          flutterLocalNotificationsPlugin.show(
-            notification.hashCode,
-            notification.title,
-            notification.body,
-            NotificationDetails(
-              android: AndroidNotificationDetails(
-                channel.id,
-                channel.name,
-                channel.description,
-                icon: android.smallIcon ?? 'notification_logo',
-                // other properties...
+          _flutterLocalNotificationsPlugin.show(
+              notification.hashCode,
+              notification.title,
+              notification.body,
+              NotificationDetails(
+                android: AndroidNotificationDetails(
+                  _androidChannel.id,
+                  _androidChannel.name,
+                  _androidChannel.description,
+                  icon: android.smallIcon ?? 'notification_logo',
+
+                  // other properties...
+                ),
               ),
-            ),
-          );
+              payload: json.encode(message.data));
         }
       },
     );
+  }
+
+  Future _selectNotification(String? payload) async {
+    if (payload == null) return;
+    final data = json.decode(payload);
+    final type = data['notification_type'] as String?;
+    final id = data['product_id'] as String?;
+    if (_context != null && type != null && id != null) {
+      //TODO: make context routeable to autoRoute
+      navigate(_context!, type, int.parse(id));
+    }
   }
 }
