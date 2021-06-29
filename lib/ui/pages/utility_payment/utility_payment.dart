@@ -39,7 +39,7 @@ class UtilityPamentWidget extends StatelessWidget {
               crossAxisCount: 3,
               mainAxisSpacing: 20,
               crossAxisSpacing: 20,
-              childAspectRatio: 7 / 6,
+              // childAspectRatio: 7 / 7,
               children: paymentData
                   .map(
                     (e) => GridItem(
