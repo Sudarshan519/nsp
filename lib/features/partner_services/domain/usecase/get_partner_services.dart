@@ -49,6 +49,7 @@ class PurchasePackageParams {
   final double amount;
   final int packageId;
   final int serviceId;
+  final String coupon;
 
   PurchasePackageParams({
     required this.customerId,
@@ -57,5 +58,6 @@ class PurchasePackageParams {
     required this.packageName,
     required this.serviceId,
     required this.amount,
+    required this.coupon,
   });
 }

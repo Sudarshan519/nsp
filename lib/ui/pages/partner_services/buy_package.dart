@@ -195,9 +195,6 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                     });
                   },
                   validCoupon: (couponCode) {
-                    setState(() {
-                      _coupon = couponCode;
-                    });
                     context.read<PurchasePackageBloc>().add(
                         PurchasePackageEvent.changeCoupon(
                             couponCode?.couponCode ?? ''));
@@ -205,8 +202,11 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                         PurchasePackageEvent.setDiscountpercentage(
                             double.parse(couponCode?.cashback ?? '0.0')));
                     context.read<PurchasePackageBloc>().add(
-                        PurchasePackageEvent.setRewardPoint(
+                        PurchasePackageEvent.setRewardPointFromCoupon(
                             double.parse(couponCode?.rewardPoint ?? '0.0')));
+                    setState(() {
+                      _coupon = couponCode;
+                    });
                   },
                 ),
                 const _TransactionDetail(),
@@ -408,12 +408,12 @@ class _TransactionDetail extends StatelessWidget {
             state.discountPercentage > 0 ||
             state.rewardPoint > 0 ||
             state.rewardPointFromCoupon > 0) {
-          final discountAmount =
-              state.amount * (state.discountPercentage / 100);
-          final cashbackAmount =
-              state.amount * (state.cashbackPercentage / 100);
+          final rewardPoint = state.amount * (state.rewardPoint / 100);
 
-          final doubleAmount = state.amount - (discountAmount + cashbackAmount);
+          final discountAmount = state.amount *
+              ((state.discountPercentage + state.cashbackPercentage) / 100);
+
+          final doubleAmount = state.amount - discountAmount;
           final payingAmount =
               currencyFormatterString(value: doubleAmount.toStringAsFixed(2));
 
@@ -499,7 +499,7 @@ class _TransactionDetail extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${state.rewardPoint + state.rewardPointFromCoupon} Pts.',
+                            '${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(2)} Pts.',
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
