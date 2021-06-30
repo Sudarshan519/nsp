@@ -17,11 +17,11 @@ class _$VerifyImePayTopupEventTearOff {
   const _$VerifyImePayTopupEventTearOff();
 
   _Verify verify(
-      {required String transactionId,
+      {required String refId,
       required String amount,
       required String purpose}) {
     return _Verify(
-      transactionId: transactionId,
+      refId: refId,
       amount: amount,
       purpose: purpose,
     );
@@ -33,21 +33,19 @@ const $VerifyImePayTopupEvent = _$VerifyImePayTopupEventTearOff();
 
 /// @nodoc
 mixin _$VerifyImePayTopupEvent {
-  String get transactionId => throw _privateConstructorUsedError;
+  String get refId => throw _privateConstructorUsedError;
   String get amount => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String transactionId, String amount, String purpose)
+    required TResult Function(String refId, String amount, String purpose)
         verify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String transactionId, String amount, String purpose)?
-        verify,
+    TResult Function(String refId, String amount, String purpose)? verify,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,7 +71,7 @@ abstract class $VerifyImePayTopupEventCopyWith<$Res> {
   factory $VerifyImePayTopupEventCopyWith(VerifyImePayTopupEvent value,
           $Res Function(VerifyImePayTopupEvent) then) =
       _$VerifyImePayTopupEventCopyWithImpl<$Res>;
-  $Res call({String transactionId, String amount, String purpose});
+  $Res call({String refId, String amount, String purpose});
 }
 
 /// @nodoc
@@ -87,14 +85,14 @@ class _$VerifyImePayTopupEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? transactionId = freezed,
+    Object? refId = freezed,
     Object? amount = freezed,
     Object? purpose = freezed,
   }) {
     return _then(_value.copyWith(
-      transactionId: transactionId == freezed
-          ? _value.transactionId
-          : transactionId // ignore: cast_nullable_to_non_nullable
+      refId: refId == freezed
+          ? _value.refId
+          : refId // ignore: cast_nullable_to_non_nullable
               as String,
       amount: amount == freezed
           ? _value.amount
@@ -114,7 +112,7 @@ abstract class _$VerifyCopyWith<$Res>
   factory _$VerifyCopyWith(_Verify value, $Res Function(_Verify) then) =
       __$VerifyCopyWithImpl<$Res>;
   @override
-  $Res call({String transactionId, String amount, String purpose});
+  $Res call({String refId, String amount, String purpose});
 }
 
 /// @nodoc
@@ -129,14 +127,14 @@ class __$VerifyCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? transactionId = freezed,
+    Object? refId = freezed,
     Object? amount = freezed,
     Object? purpose = freezed,
   }) {
     return _then(_Verify(
-      transactionId: transactionId == freezed
-          ? _value.transactionId
-          : transactionId // ignore: cast_nullable_to_non_nullable
+      refId: refId == freezed
+          ? _value.refId
+          : refId // ignore: cast_nullable_to_non_nullable
               as String,
       amount: amount == freezed
           ? _value.amount
@@ -154,12 +152,10 @@ class __$VerifyCopyWithImpl<$Res>
 
 class _$_Verify implements _Verify {
   const _$_Verify(
-      {required this.transactionId,
-      required this.amount,
-      required this.purpose});
+      {required this.refId, required this.amount, required this.purpose});
 
   @override
-  final String transactionId;
+  final String refId;
   @override
   final String amount;
   @override
@@ -167,16 +163,15 @@ class _$_Verify implements _Verify {
 
   @override
   String toString() {
-    return 'VerifyImePayTopupEvent.verify(transactionId: $transactionId, amount: $amount, purpose: $purpose)';
+    return 'VerifyImePayTopupEvent.verify(refId: $refId, amount: $amount, purpose: $purpose)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Verify &&
-            (identical(other.transactionId, transactionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.transactionId, transactionId)) &&
+            (identical(other.refId, refId) ||
+                const DeepCollectionEquality().equals(other.refId, refId)) &&
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)) &&
             (identical(other.purpose, purpose) ||
@@ -186,7 +181,7 @@ class _$_Verify implements _Verify {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(transactionId) ^
+      const DeepCollectionEquality().hash(refId) ^
       const DeepCollectionEquality().hash(amount) ^
       const DeepCollectionEquality().hash(purpose);
 
@@ -198,22 +193,20 @@ class _$_Verify implements _Verify {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String transactionId, String amount, String purpose)
+    required TResult Function(String refId, String amount, String purpose)
         verify,
   }) {
-    return verify(transactionId, amount, purpose);
+    return verify(refId, amount, purpose);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String transactionId, String amount, String purpose)?
-        verify,
+    TResult Function(String refId, String amount, String purpose)? verify,
     required TResult orElse(),
   }) {
     if (verify != null) {
-      return verify(transactionId, amount, purpose);
+      return verify(refId, amount, purpose);
     }
     return orElse();
   }
@@ -241,12 +234,12 @@ class _$_Verify implements _Verify {
 
 abstract class _Verify implements VerifyImePayTopupEvent {
   const factory _Verify(
-      {required String transactionId,
+      {required String refId,
       required String amount,
       required String purpose}) = _$_Verify;
 
   @override
-  String get transactionId => throw _privateConstructorUsedError;
+  String get refId => throw _privateConstructorUsedError;
   @override
   String get amount => throw _privateConstructorUsedError;
   @override

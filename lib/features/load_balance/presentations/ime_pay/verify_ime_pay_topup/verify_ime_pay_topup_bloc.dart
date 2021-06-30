@@ -27,7 +27,7 @@ class VerifyImePayTopupBloc
 
       final result = await verifyImePayTopup(
         VerifyImePayTopupParams(
-          referenceId: e.transactionId,
+          referenceId: e.refId,
           amount: e.amount,
           purpose: e.purpose,
         ),

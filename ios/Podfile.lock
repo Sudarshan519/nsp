@@ -84,6 +84,8 @@ PODS:
     - Flutter
   - flutter_secure_storage (3.3.1):
     - Flutter
+  - flutter_web_browser (0.14.0):
+    - Flutter
   - fluttercontactpicker (4.4.0):
     - Flutter
   - FMDB (2.7.5):
@@ -185,6 +187,7 @@ DEPENDENCIES:
   - flutter_khalti (from `.symlinks/plugins/flutter_khalti/ios`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
+  - flutter_web_browser (from `.symlinks/plugins/flutter_web_browser/ios`)
   - fluttercontactpicker (from `.symlinks/plugins/fluttercontactpicker/ios`)
   - geolocator (from `.symlinks/plugins/geolocator/ios`)
   - google_maps_flutter (from `.symlinks/plugins/google_maps_flutter/ios`)
@@ -253,6 +256,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_local_notifications/ios"
   flutter_secure_storage:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
+  flutter_web_browser:
+    :path: ".symlinks/plugins/flutter_web_browser/ios"
   fluttercontactpicker:
     :path: ".symlinks/plugins/fluttercontactpicker/ios"
   geolocator:
@@ -309,6 +314,7 @@ SPEC CHECKSUMS:
   flutter_khalti: 2fc15052ce144f35737618481743af4e47dc5632
   flutter_local_notifications: 0c0b1ae97e741e1521e4c1629a459d04b9aec743
   flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
+  flutter_web_browser: a719eca01d00bdc9a0e13e42194f86b90a5b8729
   fluttercontactpicker: 36cf7811f583f3c5aec3c53efcbf366b9cdfdf51
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   geolocator: f5e3de65e241caba7ce3e8a618803387bda73384

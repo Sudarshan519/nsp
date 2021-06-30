@@ -157,7 +157,7 @@ class ImePayTopupPage extends StatelessWidget {
       debugPrint(data.toString());
       context.read<VerifyImePayTopupBloc>().add(
             VerifyImePayTopupEvent.verify(
-              transactionId: data.transactionId.toString(),
+              refId: data.refId.toString(),
               amount: data.amount.toString(),
               purpose: purpose,
             ),

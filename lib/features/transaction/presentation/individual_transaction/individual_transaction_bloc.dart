@@ -11,7 +11,7 @@ part 'individual_transaction_event.dart';
 part 'individual_transaction_state.dart';
 part 'individual_transaction_bloc.freezed.dart';
 
-@singleton
+@injectable
 class IndividualTransactionBloc
     extends Bloc<IndividualTransactionEvent, IndividualTransactionState> {
   IndividualTransactionBloc({required this.getIndividualTxn})
