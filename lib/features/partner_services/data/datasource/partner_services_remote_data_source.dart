@@ -185,18 +185,25 @@ class PartnerServicesRemoteDataSourceImpl
     _headers["Authorization"] = "Bearer $accessToken";
 
     http.Response response;
-    final body = json.encode({
+    final jsonParams = {
       'customer_id': params.customerId,
       'package_id': params.packageId,
       'service_id': params.serviceId,
       'package_name': params.packageName,
       'amount': params.amount,
       'remarks': params.remarks,
-    });
+    };
+
+    if (params.coupon.isNotEmpty) {
+      jsonParams['coupon_code'] = params.coupon;
+    }
 
     try {
-      response =
-          await client.post(Uri.parse(url), headers: _headers, body: body);
+      response = await client.post(
+        Uri.parse(url),
+        headers: _headers,
+        body: jsonEncode(jsonParams),
+      );
     } catch (ex) {
       logger.log(
         className: "PartnerServicesRemoteDataSource",

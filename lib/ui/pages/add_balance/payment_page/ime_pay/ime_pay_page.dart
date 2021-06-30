@@ -2,13 +2,21 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ime_pay/ime_pay.dart';
+import 'package:injectable/injectable.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
-import 'package:wallet_app/features/load_balance/presentations/ime_pay_form/ime_pay_form_cubit.dart';
+import 'package:wallet_app/features/load_balance/presentations/ime_pay/ime_pay_form/ime_pay_form_cubit.dart';
+import 'package:wallet_app/features/load_balance/presentations/ime_pay/verify_ime_pay_topup/verify_ime_pay_topup_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
+import 'package:wallet_app/utils/constant.dart';
+import 'package:auto_route/auto_route.dart';
 
 class ImePayTopupPage extends StatelessWidget {
   final PaymentMethod method;
@@ -20,19 +28,56 @@ class ImePayTopupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // MultiBlocProvider(
-        //   providers: [
-        //     // BlocProvider(
-        //     //   create: (context) => getIt<VerifyEsewaTopupBloc>(),
-        //     // ),
+    return MultiBlocProvider(
+      providers: [
         BlocProvider(
-      create: (context) => getIt<ImePayFormCubit>(),
-      child: imePayFormWidget(context),
+          create: (context) => getIt<VerifyImePayTopupBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ImePayFormCubit>(),
+        ),
+      ],
+      child: blocBuilderWidget(context),
     );
-    //   ],
-    //   child: imePayFormWidget(context),
-    // );
+  }
+
+  Widget blocBuilderWidget(BuildContext context) {
+    return BlocConsumer<VerifyImePayTopupBloc, VerifyImePayTopupState>(
+      listener: (context, state) {
+        state.map(
+          initial: (_) {},
+          loading: (_) {},
+          success: (_) {
+            getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+            showDialog(
+              context: context,
+              builder: (_) => PopUpSuccessOverLay(
+                title: AppConstants.topUpSuccessTitle,
+                message: AppConstants.topUpSuccessMessage,
+                onPressed: () {
+                  context.router.navigate(const TabBarRoute());
+                },
+              ),
+            );
+          },
+          failure: (failure) {
+            FlushbarHelper.createError(
+              message: failure.failure.map(
+                noInternetConnection: (error) => AppConstants.noNetwork,
+                serverError: (error) => error.message,
+                invalidUser: (error) => AppConstants.someThingWentWrong,
+              ),
+            ).show(context);
+          },
+        );
+      },
+      builder: (context, state) {
+        if (state == const VerifyImePayTopupState.loading()) {
+          return loadingPage();
+        }
+        return imePayFormWidget(context);
+      },
+    );
   }
 
   Widget imePayFormWidget(BuildContext context) {
@@ -97,22 +142,28 @@ class ImePayTopupPage extends StatelessWidget {
     }
 
     ImePay _imePay = ImePay(
-      merchantCode: method.merchantCode ?? '',
-      module: method.module ?? '',
-      userName: 'TEST',
-      password: 'TEST',
-      amount: doubleAmount,
-      merchantName: 'TEST',
-      recordingServiceUrl: 'TEST',
-      deliveryServiceUrl: 'TEST',
-      environment: ImePayEnvironment.TEST,
-      refId: 'TEST',
-    );
+        merchantCode: method.module ?? '',
+        module: method.module ?? '',
+        userName: method.username ?? '',
+        password: method.password ?? '',
+        amount: doubleAmount,
+        merchantName: method.module ?? '',
+        recordingServiceUrl: method.recordingUrl ?? '',
+        deliveryServiceUrl: method.deliveryUrl ?? '',
+        environment: ImePayEnvironment.TEST,
+        refId: DateTime.now().millisecondsSinceEpoch.toString());
 
     _imePay.startPayment(onSuccess: (ImePaySuccessResponse data) {
-      print(data);
+      debugPrint(data.toString());
+      context.read<VerifyImePayTopupBloc>().add(
+            VerifyImePayTopupEvent.verify(
+              refId: data.refId.toString(),
+              amount: data.amount.toString(),
+              purpose: purpose,
+            ),
+          );
     }, onFailure: (error) {
-      print(error);
+      debugPrint(error);
     });
   }
 }

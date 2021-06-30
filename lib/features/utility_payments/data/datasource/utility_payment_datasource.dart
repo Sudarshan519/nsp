@@ -78,7 +78,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     };
 
     if (coupon.isNotEmpty) {
-      params['coupon'] = coupon;
+      params['coupon_code'] = coupon;
     }
 
     try {

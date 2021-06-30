@@ -240,12 +240,18 @@ class _TopUpPageState extends State<TopUpPage> {
             return SizedBox.fromSize();
           }
 
-          final discountAmount =
-              doubleAmount * (state.discountPercentage / 100);
-          final cashbackAmount =
-              doubleAmount * (state.cashbackPercentage / 100);
+          // final discountAmount =
+          //     doubleAmount * (state.discountPercentage / 100);
+          // final cashbackAmount =
+          //     doubleAmount * (state.cashbackPercentage / 100);
 
-          doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
+          final rewardPoint = doubleAmount * (state.rewardPoint / 100);
+
+          final discountAmount = doubleAmount *
+              ((state.discountPercentage + state.cashbackPercentage) / 100);
+
+          doubleAmount = doubleAmount - discountAmount;
+
           final conversionValue = doubleAmount * widget.conversionRate;
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -283,7 +289,7 @@ class _TopUpPageState extends State<TopUpPage> {
                       _TransactionDetailRow(
                         title: 'Reward Points',
                         value:
-                            "${state.rewardPoint + state.rewardPointFromCoupon} Pts.",
+                            '${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(2)} Pts.',
                       ),
                       const SizedBox(height: 5),
                     ],

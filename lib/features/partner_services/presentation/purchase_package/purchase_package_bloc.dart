@@ -154,6 +154,7 @@ class PurchasePackageBloc
         packageName: state.packageName,
         serviceId: state.serviceId,
         amount: state.amount,
+        coupon: state.coupon,
       ),
     );
 
