@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marquee/marquee.dart';
 import 'package:wallet_app/features/home/domain/entities/remit_rate.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -58,8 +59,8 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
     );
   }
 
-  List<Tab> _tabBarWidget(List<RemitRate> remitRates) {
-    final widgets = <Tab>[];
+  List<Widget> _tabBarWidget(List<RemitRate> remitRates) {
+    final widgets = <Widget>[];
 
     remitRates.asMap().forEach(
           (index, rate) => widgets.add(
@@ -72,19 +73,43 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
     return widgets;
   }
 
-  Tab _header({
+  Widget _header({
     required int index,
     required RemitRate rate,
   }) {
     final _baseurl = getIt<ConfigReader>().baseURL;
+    final text = rate.remitServiceName ?? "";
 
-    return Tab(
-      text: rate.remitServiceName ?? '',
-      icon: Image.network(
-        '$_baseurl${rate.logo ?? ' '}',
-        height: 20,
-        fit: BoxFit.fitWidth,
-      ),
+    return Column(
+      children: [
+        Image.network(
+          '$_baseurl${rate.logo ?? ' '}',
+          height: 20,
+          fit: BoxFit.fitWidth,
+        ),
+        Center(
+          child: SizedBox(
+              width: 40,
+              height: 30,
+              child: text.length > 7
+                  ? Marquee(
+                      text: text,
+                      // style: TextStyle(fontWeight: FontWeight.bold),
+                      textScaleFactor: 0.7,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      blankSpace: 20.0,
+                      velocity: 15,
+                      startPadding: 10.0,
+                      accelerationCurve: Curves.linear,
+                      decelerationCurve: Curves.easeOut,
+                    )
+                  : Text(
+                      text,
+                      textScaleFactor: 0.7,
+                      textAlign: TextAlign.center,
+                    )),
+        ),
+      ],
     );
   }
 

@@ -285,7 +285,12 @@ class ServicesDetailPage extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                           if (item != null) {
-                            context.pushRoute(BuyPackageRoute(package: item));
+                            context.pushRoute(
+                              BuyPackageRoute(
+                                package: item,
+                                services: services,
+                              ),
+                            );
                           }
                         },
                         child: Container(

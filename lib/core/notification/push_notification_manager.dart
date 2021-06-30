@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/notification/navigate_notification.dart';
+import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 
 @lazySingleton
 class PushNotificationManager {
@@ -122,7 +123,8 @@ class PushNotificationManager {
     final id = data['product_id'] as String?;
     if (_context != null && type != null && id != null) {
       //TODO: make context routeable to autoRoute
-      navigate(_context!, type, int.parse(id));
+      navigate(
+          _context!, NotificationItem(productId: int.parse(id), type: type));
     }
   }
 }

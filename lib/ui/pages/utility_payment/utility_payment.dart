@@ -39,18 +39,13 @@ class UtilityPamentWidget extends StatelessWidget {
               crossAxisCount: 3,
               mainAxisSpacing: 20,
               crossAxisSpacing: 20,
-              childAspectRatio: 7 / 6,
+              // childAspectRatio: 7 / 7,
               children: paymentData
                   .map(
                     (e) => GridItem(
                       utilityItem: e,
-                      ontap: () => context.pushRoute(
-                        TopUpRoute(
-                          balance: balance,
-                          conversionRate: conversionRate,
-                          utilPaymentData: e,
-                        ),
-                      ),
+                      balance: balance,
+                      conversionRate: conversionRate,
                     ),
                   )
                   .toList(),
@@ -64,11 +59,14 @@ class UtilityPamentWidget extends StatelessWidget {
 
 class GridItem extends StatelessWidget {
   final UtilityPaymentsModel utilityItem;
-  final Function ontap;
+  final double balance;
+  final double conversionRate;
+
   const GridItem({
     Key? key,
     required this.utilityItem,
-    required this.ontap,
+    required this.balance,
+    required this.conversionRate,
   }) : super(key: key);
 
   @override
@@ -76,7 +74,24 @@ class GridItem extends StatelessWidget {
     final _baseURL = getIt<ConfigReader>().baseURL;
 
     return InkWell(
-      onTap: () => ontap(),
+      onTap: () {
+        final type = utilityItem.paymentType ?? '';
+        if (type.toLowerCase() == 'topup_balance') {
+          context.pushRoute(
+            TopUpRoute(
+              balance: balance,
+              conversionRate: conversionRate,
+              utilPaymentData: utilityItem,
+            ),
+          );
+        }
+
+        if (type.toLowerCase() == 'mirai') {
+          context.pushRoute(
+            PartnerServicePaymentRoute(title: utilityItem.name ?? ''),
+          );
+        }
+      },
       child: Column(
         children: [
           if (utilityItem.image != null)

@@ -31,4 +31,5 @@ class NotificationType {
   static const transaction = 'transaction';
   static const jpManner = 'jp_manner';
   static const partnerService = 'partner_service';
+  static const advertisement = 'advertisement';
 }

@@ -23,12 +23,12 @@ class UserBalanceModel extends UserBalance {
         status: json["status"] == null ? null : json["status"] as bool,
         balance: json["balance"] == null
             ? null
-            : json["total_amount"] is int
+            : json["balance"] is int
                 ? (json["balance"] as int).toDouble()
                 : json["balance"] as double?,
         point: json["point"] == null
             ? null
-            : json["total_amount"] is int
+            : json["point"] is int
                 ? (json["point"] as int).toDouble()
                 : json["point"] as double?,
       );

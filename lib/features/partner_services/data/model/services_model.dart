@@ -3,27 +3,29 @@ import 'package:wallet_app/features/partner_services/domain/entities/service_pac
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 
 class ServicesModel extends Services {
-  const ServicesModel(
-      {required int? id,
-      // required List branches,
-      required String? serviceProductName,
-      required String? category,
-      required String? companyName,
-      required String? companyLogo,
-      required String? serviceUrl,
-      required String? companyBannerImage,
-      required String? salesContactEmail,
-      required String? salesContactPhone,
-      required String? supportContactEmail,
-      required String? supportContactPhone,
-      required String? companyAddressHeadCountry,
-      required String? companyAddressHeadPostCode,
-      required String? companyAddressHeadProvince,
-      required String? companyAddressHeadCity,
-      required String? companyAddressHeadStreet,
-      required String? description,
-      required List<ServicePackage>? servicePackages})
-      : super(
+  const ServicesModel({
+    required int? id,
+    // required List branches,
+    required String? serviceProductName,
+    required String? category,
+    required String? companyName,
+    required String? companyLogo,
+    required String? serviceUrl,
+    required String? companyBannerImage,
+    required String? salesContactEmail,
+    required String? salesContactPhone,
+    required String? supportContactEmail,
+    required String? supportContactPhone,
+    required String? companyAddressHeadCountry,
+    required String? companyAddressHeadPostCode,
+    required String? companyAddressHeadProvince,
+    required String? companyAddressHeadCity,
+    required String? companyAddressHeadStreet,
+    required String? description,
+    required double? cashbackPercentage,
+    required double? rewardPoints,
+    required List<ServicePackage>? servicePackages,
+  }) : super(
           id: id,
           // branches: branches,
           serviceProductName: serviceProductName,
@@ -43,6 +45,8 @@ class ServicesModel extends Services {
           companyAddressHeadStreet: companyAddressHeadStreet,
           description: description,
           servicePackages: servicePackages,
+          cashbackPercentage: cashbackPercentage,
+          rewardPoints: rewardPoints,
         );
 
   factory ServicesModel.fromJson(Map<String, dynamic> json) => ServicesModel(
@@ -69,6 +73,8 @@ class ServicesModel extends Services {
         companyAddressHeadStreet:
             json["company_address_head_street"] as String?,
         description: json["description"] as String?,
+        rewardPoints: json["reward_point"] as double?,
+        cashbackPercentage: json["cashback_per"] as double?,
         servicePackages: json["service_packages"] == null
             ? null
             : List<ServicePackageModel>.from(

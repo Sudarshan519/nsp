@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="icon-coupon" transform="translate(-25 -530)">
+    <g id="Ellipse_84" data-name="Ellipse 84" transform="translate(25 530)" fill="none" stroke="#dda601" stroke-width="1">
+      <circle cx="16" cy="16" r="16" stroke="none"/>
+      <circle cx="16" cy="16" r="15.5" fill="none"/>
+    </g>
+    <g id="coupon_2_" data-name="coupon (2)" transform="translate(32 449)">
+      <g id="Group_1467" data-name="Group 1467" transform="translate(13.781 98.383)">
+        <g id="Group_1466" data-name="Group 1466">
+          <path id="Path_1538" data-name="Path 1538" d="M392.527,301a.527.527,0,1,0,.527.527A.528.528,0,0,0,392.527,301Z" transform="translate(-392 -301)" fill="#dda601"/>
+        </g>
+      </g>
+      <g id="Group_1469" data-name="Group 1469" transform="translate(0 91)">
+        <g id="Group_1468" data-name="Group 1468">
+          <path id="Path_1539" data-name="Path 1539" d="M17.473,91H5.317v1.582a.527.527,0,0,1-1.055,0V91H.527A.527.527,0,0,0,0,91.527v3.164a.527.527,0,0,0,.527.527,1.582,1.582,0,1,1,0,3.164A.527.527,0,0,0,0,98.91v3.164a.527.527,0,0,0,.527.527H4.219V101.02a.527.527,0,0,1,1.055,0V102.6h12.2a.527.527,0,0,0,.527-.527V91.527A.527.527,0,0,0,17.473,91Zm-12.2,7.91a.527.527,0,0,1-1.055,0V97.855a.527.527,0,0,1,1.055,0Zm0-3.164a.527.527,0,0,1-1.055,0V94.691a.527.527,0,0,1,1.055,0Zm3.234-1.055a1.582,1.582,0,1,1,1.582,1.582A1.584,1.584,0,0,1,8.508,94.691ZM9.8,100.4a.527.527,0,0,1-.146-.731l4.219-6.328a.527.527,0,1,1,.878.585l-4.219,6.328A.528.528,0,0,1,9.8,100.4Zm4.511.089a1.582,1.582,0,1,1,1.582-1.582A1.584,1.584,0,0,1,14.309,100.492Z" transform="translate(0 -91)" fill="#dda601"/>
+        </g>
+      </g>
+      <g id="Group_1471" data-name="Group 1471" transform="translate(9.563 94.164)">
+        <g id="Group_1470" data-name="Group 1470">
+          <path id="Path_1540" data-name="Path 1540" d="M272.527,181a.527.527,0,1,0,.527.527A.528.528,0,0,0,272.527,181Z" transform="translate(-272 -181)" fill="#dda601"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

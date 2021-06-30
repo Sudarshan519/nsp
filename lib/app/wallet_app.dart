@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/core/notification/push_notification_manager.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/favourite_news/favourite_news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
@@ -22,7 +21,6 @@ class WalletApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    getIt<PushNotificationManager>().context = context;
     return MultiBlocProvider(
       providers: [
         BlocProvider(
