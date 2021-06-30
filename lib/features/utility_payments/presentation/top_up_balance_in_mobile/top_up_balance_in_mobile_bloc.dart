@@ -38,7 +38,24 @@ class TopUpBalanceInMobileBloc
       changeconvertedJpyAmount: (e) async* {
         yield _mapChangeconvertedJpyAmountEventToState(e);
       },
-      validate: (e) async* {},
+      changeCoupon: (e) async* {
+        yield _mapChangecCouponCodeEventToState(e);
+      },
+      setCashbackpercentage: (e) async* {
+        yield _mapSetCashbackpercentageEventToState(e);
+      },
+      setDiscountpercentage: (e) async* {
+        yield _mapSetDiscountpercentageEventToState(e);
+      },
+      setRewardPoint: (e) async* {
+        yield _mapSetRewardPointsEventToState(e);
+      },
+      setRewardPointFromCoupon: (e) async* {
+        yield _mapSetRewardPointsFromCouponEventToState(e);
+      },
+      validate: (e) async* {
+        yield* _mapValidateEventToState(e);
+      },
       topup: (e) async* {
         yield* _mapTopupEventToState(e);
       },
@@ -84,6 +101,72 @@ class TopUpBalanceInMobileBloc
     );
   }
 
+  TopUpBalanceInMobileState _mapChangecCouponCodeEventToState(
+      _ChangeCoupon _changeCoupon) {
+    return state.copyWith(
+      coupon: _changeCoupon.coupon,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopUpBalanceInMobileState _mapSetCashbackpercentageEventToState(
+      _SetCashbackpercentage _setCashbackpercentage) {
+    return state.copyWith(
+      cashbackPercentage: _setCashbackpercentage.percentage,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopUpBalanceInMobileState _mapSetDiscountpercentageEventToState(
+      _SetDiscountpercentage _setDiscountpercentage) {
+    return state.copyWith(
+      discountPercentage: _setDiscountpercentage.percentage,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopUpBalanceInMobileState _mapSetRewardPointsEventToState(
+      _SetRedeemPoint _setRedeemPoint) {
+    return state.copyWith(
+      rewardPoint: _setRedeemPoint.point,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopUpBalanceInMobileState _mapSetRewardPointsFromCouponEventToState(
+      _SetRedeemPointFromCoupon _setRedeemPoint) {
+    return state.copyWith(
+      rewardPointFromCoupon: _setRedeemPoint.point,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  Stream<TopUpBalanceInMobileState> _mapValidateEventToState(
+      _Validate _validate) async* {
+    yield state.copyWith(
+      isSubmitting: true,
+      failureOrSuccessOption: none(),
+    );
+    final result = topUpBalanceForMobile.validate(
+      TopUpBalanceForMobileParams(
+        amount: state.amount,
+        number: state.number,
+        type: state.type,
+        coupon: state.coupon,
+      ),
+    );
+
+    if (result != null) {
+      yield state.copyWith(
+        failureOrSuccessOption: optionOf(Left(result)),
+      );
+    } else {
+      yield state.copyWith(
+        failureOrSuccessOption: none(),
+      );
+    }
+  }
+
   Stream<TopUpBalanceInMobileState> _mapTopupEventToState(
       _Topup _topup) async* {
     Either<ApiFailure, Unit> result;
@@ -97,6 +180,7 @@ class TopUpBalanceInMobileBloc
         amount: state.convertedJpyAmount,
         number: state.number,
         type: state.type,
+        coupon: state.coupon,
       ),
     );
 
@@ -107,6 +191,10 @@ class TopUpBalanceInMobileBloc
   }
 
   String getType({required String fromNumber}) {
+    if (fromNumber.length < 9) {
+      return '';
+    }
+
     final ntcRegx = RegExp(r'^(984|985|986|)\d{7}$', caseSensitive: false);
     final ncellRegx = RegExp(r'^(980|981|982)\d{7}$', caseSensitive: false);
     final smartCellRegx = RegExp(r'^(961|988)\d{7}$', caseSensitive: false);

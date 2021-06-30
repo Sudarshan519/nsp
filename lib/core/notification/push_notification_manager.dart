@@ -26,7 +26,7 @@ class PushNotificationManager {
     }
 
     try {
-      await _firebaseMessaging.subscribeToTopic('bnpjwallet');
+      _firebaseMessaging.subscribeToTopic('bnpjwallet');
     } catch (ex) {
       debugPrint(ex.toString());
       return;

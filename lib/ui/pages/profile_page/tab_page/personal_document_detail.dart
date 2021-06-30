@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/core/file_picker/file_provider.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
-import 'package:wallet_app/features/profile/presentations/bloc/update_profile_bloc.dart';
+import 'package:wallet_app/features/profile/update_profile/presentations/bloc/update_profile_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/profile_page/widgets/text_widget_label_and_child.dart';
@@ -180,7 +180,6 @@ class _PersonalDocumentDetailPageState
                       title: "${state.originKycDocType} Number",
                       child: InputTextWidget(
                         hintText: "Number",
-                        textInputType: TextInputType.number,
                         value: state.originKycDocNumber,
                         onChanged: (value) => context
                             .read<UpdateProfileBloc>()
@@ -362,7 +361,6 @@ class _PersonalDocumentDetailPageState
                       title: "${state.residenceKycDocType} Number",
                       child: InputTextWidget(
                         hintText: "Number",
-                        textInputType: TextInputType.number,
                         value: state.residenceKycDocNumber,
                         onChanged: (value) => context
                             .read<UpdateProfileBloc>()

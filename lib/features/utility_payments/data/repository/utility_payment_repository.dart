@@ -20,6 +20,7 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
     required String amount,
     required String number,
     required String type,
+    required String coupon,
   }) async {
     try {
       return Right(
@@ -27,6 +28,7 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
           amount: amount,
           number: number,
           type: type,
+          coupon: coupon,
         ),
       );
     } on ServerException catch (ex) {
@@ -53,6 +55,7 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
   @override
   Future<Either<ApiFailure, Unit>> paymentForPackagesPurchase({
     required List<SubscriptionInvoice> invoice,
+    required String coupon,
   }) async {
     try {
       return Right(
@@ -60,6 +63,7 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
           invoice: invoice
               .map((invoice) => invoice.toSubscriptionInvoiceModel())
               .toList(),
+          coupon: coupon,
         ),
       );
     } on ServerException catch (ex) {

@@ -513,7 +513,7 @@ class __$LoadedCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.list);
+  _$_Loaded(this.list);
 
   @override
   final List<TransactionItem> list;
@@ -596,7 +596,7 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements TransactionState {
-  const factory _Loaded(List<TransactionItem> list) = _$_Loaded;
+  factory _Loaded(List<TransactionItem> list) = _$_Loaded;
 
   List<TransactionItem> get list => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)

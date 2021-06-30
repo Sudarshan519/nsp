@@ -3,20 +3,18 @@ import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class IndividualInsurancePage extends StatelessWidget {
-  final String insuranceTitle;
-  final TextEditingController _policyno = TextEditingController();
-  final TextEditingController _dob = TextEditingController();
+class IndividualISPPage extends StatelessWidget {
+  final String ispTitle;
+  final TextEditingController _unameController = TextEditingController();
 
-  IndividualInsurancePage({Key? key, required this.insuranceTitle})
-      : super(key: key);
+  IndividualISPPage({Key? key, required this.ispTitle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          insuranceTitle,
+          ispTitle,
           style: TextStyle(
             color: Palette.white,
           ),
@@ -31,7 +29,7 @@ class IndividualInsurancePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const BalanceWidget(balance: "1300"),
+          const BalanceWidget(),
           body(),
         ],
       ),
@@ -58,39 +56,9 @@ class IndividualInsurancePage extends StatelessWidget {
               height: 36,
               child: TextField(
                 maxLength: 20,
-                controller: _policyno,
+                controller: _unameController,
                 decoration: InputDecoration(
                   hintText: "Username",
-                  hintStyle: const TextStyle(fontSize: 13),
-                  counterText: "",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25),
-                    borderSide: const BorderSide(
-                      color: Colors.grey,
-                      width: 0.1,
-                      style: BorderStyle.none,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12.0),
-              child: Text(
-                'Date of Birth',
-                style: TextStyle(fontWeight: FontWeight.w600),
-              ),
-            ),
-            Container(
-              height: 36,
-              child: TextField(
-                maxLength: 20,
-                controller: _policyno,
-                decoration: InputDecoration(
-                  hintText: "Enter Date",
                   hintStyle: const TextStyle(fontSize: 13),
                   counterText: "",
                   border: OutlineInputBorder(
@@ -114,7 +82,7 @@ class IndividualInsurancePage extends StatelessWidget {
               onPressed: () {},
               color: Palette.primary,
               textColor: Colors.white,
-              child: const Text('Submit'),
+              child: const Text('Proceed'),
             ),
             const Spacer(),
             OutlinedButton(

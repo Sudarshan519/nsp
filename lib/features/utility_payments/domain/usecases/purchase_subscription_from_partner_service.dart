@@ -35,14 +35,17 @@ class PurchaseSubscriptionFromPartnerService
 
     return repository.paymentForPackagesPurchase(
       invoice: params.invoice,
+      coupon: params.coupon,
     );
   }
 }
 
 class PurchaseSubscriptionFromPartnerServiceParams {
   final List<SubscriptionInvoice> invoice;
+  final String coupon;
 
   PurchaseSubscriptionFromPartnerServiceParams({
     required this.invoice,
+    required this.coupon,
   });
 }

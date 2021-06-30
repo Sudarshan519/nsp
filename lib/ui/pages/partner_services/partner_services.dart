@@ -286,8 +286,11 @@ class _PartnerServicesPageList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
-                onTap: () =>
-                    context.pushRoute(ServicesDetailRoute(services: data)),
+                onTap: () => context.pushRoute(
+                  ServicesDetailRoute(
+                    services: data,
+                  ),
+                ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(width / 2.0),
                   child: Image.network(
@@ -305,8 +308,11 @@ class _PartnerServicesPageList extends StatelessWidget {
                   children: [
                     const SizedBox(height: 10),
                     InkWell(
-                      onTap: () => context
-                          .pushRoute(ServicesDetailRoute(services: data)),
+                      onTap: () => context.pushRoute(
+                        ServicesDetailRoute(
+                          services: data,
+                        ),
+                      ),
                       child: Text(
                         data.serviceProductName ?? "",
                         style: const TextStyle(

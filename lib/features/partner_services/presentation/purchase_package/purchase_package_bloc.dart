@@ -15,7 +15,7 @@ part 'purchase_package_event.dart';
 part 'purchase_package_state.dart';
 part 'purchase_package_bloc.freezed.dart';
 
-@singleton
+@injectable
 class PurchasePackageBloc
     extends Bloc<PurchasePackageEvent, PurchasePackageState> {
   final PurchasePackage purchasePackage;
@@ -28,6 +28,9 @@ class PurchasePackageBloc
     PurchasePackageEvent event,
   ) async* {
     yield* event.map(
+      changeCustomerName: (e) async* {
+        yield mapChangeCustomerNameEventToState(e);
+      },
       changeCustomerId: (e) async* {
         yield mapChangeCustomerIdEventToState(e);
       },
@@ -37,9 +40,32 @@ class PurchasePackageBloc
       setInitialState: (e) async* {
         yield mapSetInitialStateEventToState(e);
       },
+      changeCoupon: (e) async* {
+        yield _mapChangecCouponCodeEventToState(e);
+      },
+      setCashbackpercentage: (e) async* {
+        yield _mapSetCashbackpercentageEventToState(e);
+      },
+      setDiscountpercentage: (e) async* {
+        yield _mapSetDiscountpercentageEventToState(e);
+      },
+      setRewardPoint: (e) async* {
+        yield _mapSetRewardPointsEventToState(e);
+      },
+      setRewardPointFromCoupon: (e) async* {
+        yield _mapSetRewardPointsFromCouponEventToState(e);
+      },
       purchase: (e) async* {
         yield* mapPurchaseEventToState(e);
       },
+    );
+  }
+
+  PurchasePackageState mapChangeCustomerNameEventToState(
+      _ChangeCustomerName _changeCustomerName) {
+    return state.copyWith(
+      customerName: _changeCustomerName.name,
+      failureOrSuccessOption: none(),
     );
   }
 
@@ -55,6 +81,46 @@ class PurchasePackageBloc
       _ChangeRemark _changeRemark) {
     return state.copyWith(
       remark: _changeRemark.remark,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  PurchasePackageState _mapChangecCouponCodeEventToState(
+      _ChangeCoupon _changeCoupon) {
+    return state.copyWith(
+      coupon: _changeCoupon.coupon,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  PurchasePackageState _mapSetCashbackpercentageEventToState(
+      _SetCashbackpercentage _setCashbackpercentage) {
+    return state.copyWith(
+      cashbackPercentage: _setCashbackpercentage.percentage,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  PurchasePackageState _mapSetDiscountpercentageEventToState(
+      _SetDiscountpercentage _setDiscountpercentage) {
+    return state.copyWith(
+      discountPercentage: _setDiscountpercentage.percentage,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  PurchasePackageState _mapSetRewardPointsEventToState(
+      _SetRedeemPoint _setRedeemPoint) {
+    return state.copyWith(
+      rewardPoint: _setRedeemPoint.point,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  PurchasePackageState _mapSetRewardPointsFromCouponEventToState(
+      _SetRedeemPointFromCoupon _setRedeemPoint) {
+    return state.copyWith(
+      rewardPointFromCoupon: _setRedeemPoint.point,
       failureOrSuccessOption: none(),
     );
   }

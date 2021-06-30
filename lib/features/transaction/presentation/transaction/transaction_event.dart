@@ -6,5 +6,6 @@ class TransactionEvent with _$TransactionEvent {
     String? fromDate,
     String? toDate,
   }) = _FetchTransactionData;
+
   const factory TransactionEvent.pullToRefresh() = _PullToRefresh;
 }

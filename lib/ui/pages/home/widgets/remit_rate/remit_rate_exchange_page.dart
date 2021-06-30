@@ -129,13 +129,13 @@ class _RemitExchangeProceGeneratorState
       children: [
         Expanded(
           child: TextWidetWithLabelAndChild(
-            // key: UniqueKey(),
             title: "From",
             child: InputTextWidget(
               hintText: "1000",
-              textInputType: TextInputType.number,
+              textInputType:
+                  const TextInputType.numberWithOptions(signed: true),
+              textInputAction: TextInputAction.done,
               value: _fromValue,
-              // isEnable: false,
               prefixIcon: _hasSwapped
                   ? SvgPicture.asset(
                       'assets/images/remit/nepal.svg',

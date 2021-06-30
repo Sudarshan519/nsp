@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/presentation/subscription_for_partner_service/subscription_for_partner_service_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -18,11 +19,9 @@ import 'package:wallet_app/utils/constant.dart';
 class PartnerServicePaymentPage extends StatelessWidget {
   const PartnerServicePaymentPage({
     Key? key,
-    required this.balance,
     required this.title,
   }) : super(key: key);
 
-  final String balance;
   final String title;
 
   @override
@@ -49,7 +48,7 @@ class PartnerServicePaymentPage extends StatelessWidget {
         ),
         body: Column(
           children: [
-            BalanceWidget(balance: balance),
+            const BalanceWidget(),
             _blocConsumer(context),
             _showProceedButton(context),
           ],
@@ -76,7 +75,7 @@ class PartnerServicePaymentPage extends StatelessWidget {
           },
           fetchSubscriptionSuccessfully: (result) {},
           purchasedSuccessfully: (_) {
-            getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+            getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
             getIt<TransactionBloc>()
                 .add(const TransactionEvent.fetchTransactionData());
             showDialog(

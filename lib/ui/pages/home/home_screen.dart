@@ -7,11 +7,14 @@ import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_model.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
-import 'package:wallet_app/ui/pages/home/widgets/utility_payment/utility_payment.dart';
+import 'package:wallet_app/ui/pages/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -50,6 +53,8 @@ class HomePage extends StatelessWidget {
                   context.read<HomePageDataBloc>().add(
                         const HomePageDataEvent.fetch(),
                       );
+                  getIt<GetBalanceBloc>()
+                      .add(const GetBalanceEvent.fetchBalance());
                   // await 2 sec for the loader to show
                   await Future.delayed(const Duration(seconds: 2), () {});
                 },
@@ -152,18 +157,30 @@ class HomePage extends StatelessWidget {
     final type = _getHomeItemTypeString(typeString);
     switch (type) {
       case HomeItemType.utility_payments:
-        return UtilityPamentWidget(
-          balance: userDetail?.formattedBalance ?? 'JPY XX.XX',
-          conversionRate: 1 / (userDetail?.currencyConversionRate ?? 1.067),
-        );
+        final data = List<UtilityPaymentsModel>.from((model.data as Iterable)
+            .map((x) =>
+                UtilityPaymentsModel.fromJson(x as Map<String, dynamic>)));
+
+        if (data.isNotEmpty) {
+          return UtilityPamentWidget(
+            balance: userDetail?.balance ?? 0.0,
+            conversionRate: 1 / (userDetail?.currencyConversionRate ?? 1.067),
+            paymentData: data,
+          );
+        }
+
+        return const SizedBox.shrink();
 
       case HomeItemType.remit_service:
         final data = List<RemitRateModel>.from((model.data as Iterable)
             .map((x) => RemitRateModel.fromJson(x as Map<String, dynamic>)));
 
-        return RemitRateWidget(
-          remitRates: data,
-        );
+        if (data.isNotEmpty) {
+          return RemitRateWidget(
+            remitRates: data,
+          );
+        }
+        return const SizedBox.shrink();
       case HomeItemType.resume:
         final data = model.data as Map<String, dynamic>;
 

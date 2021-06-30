@@ -1,5 +1,4 @@
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
-import 'package:wallet_app/features/transaction/data/model/transaction_item_model.dart';
 
 class NotificationItemModel extends NotificationItem {
   NotificationItemModel(
@@ -11,21 +10,24 @@ class NotificationItemModel extends NotificationItem {
       required bool isPinned,
       required bool? isShow,
       required String? redirectUrl,
-      required TransactionItemModel? transactionItem,
+      required String? type,
       required String? createdAt,
+      required int? productId,
       required String? updatedAt})
       : super(
-            id: id,
-            createdAt: createdAt,
-            image: image,
-            isPinned: isPinned,
-            isShow: isShow,
-            message: message,
-            title: title,
-            updatedAt: updatedAt,
-            redirectUrl: redirectUrl,
-            transactionItem: transactionItem,
-            userId: userId);
+          id: id,
+          createdAt: createdAt,
+          image: image,
+          isPinned: isPinned,
+          isShow: isShow,
+          message: message,
+          title: title,
+          updatedAt: updatedAt,
+          redirectUrl: redirectUrl,
+          type: type,
+          productId: productId,
+          userId: userId,
+        );
 
   NotificationItemModel.fromJson(Map<String, dynamic> json) {
     id = json['id'] as int?;
@@ -34,14 +36,11 @@ class NotificationItemModel extends NotificationItem {
     userId = json['user_id'] as int?;
     image = json['image'] as String?;
     isPinned = json['is_pinned'] as bool;
+    type = json['notification_type'] as String?;
     isShow = json['is_show'] as bool?;
+    productId = json['product_id'] as int?;
     redirectUrl = json['redirect_url'] as String?;
     createdAt = json['created_at'] as String?;
     updatedAt = json['updated_at'] as String?;
-
-    if (json['transaction'] != null) {
-      transactionItem = TransactionItemModel.fromJson(
-          json['transaction'] as Map<String, dynamic>);
-    }
   }
 }

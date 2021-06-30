@@ -157,26 +157,33 @@ class UpdateAddressInfoActorBloc
   // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeCurrJapanesePrefectureToState(
       _ChangedCurJapaneserPrefecture _changedPrefecture) async* {
-    yield state.copyWith(
-      isSubmitting: true,
-      failureOrSuccessOption: none(),
-    );
-    final listOfCurrCities = await _getListOfCities(
-        country: state.currCountry,
-        prefectureName: _changedPrefecture.prefecture);
-    final List<String> listOfPrefectures = state.listOfJapanesePrefectures;
-    if (!listOfPrefectures.contains(_changedPrefecture.prefecture)) {
-      listOfPrefectures.add(_changedPrefecture.prefecture);
+    if (state.currCountry.toLowerCase() == "japan") {
+      yield state.copyWith(
+        isSubmitting: true,
+        failureOrSuccessOption: none(),
+      );
+      final listOfCurrCities = await _getListOfCities(
+          country: state.currCountry,
+          prefectureName: _changedPrefecture.prefecture);
+      final List<String> listOfPrefectures = state.listOfJapanesePrefectures;
+      if (!listOfPrefectures.contains(_changedPrefecture.prefecture)) {
+        listOfPrefectures.add(_changedPrefecture.prefecture);
+      }
+      yield state.copyWith(
+        key: UniqueKey(),
+        currPrefecture: _changedPrefecture.prefecture,
+        listOfJapanesePrefectures: listOfPrefectures,
+        listOfCurrCities: listOfCurrCities,
+        currCity: '',
+        isSubmitting: false,
+        failureOrSuccessOption: none(),
+      );
+    } else {
+      yield state.copyWith(
+        currPrefecture: _changedPrefecture.prefecture,
+        failureOrSuccessOption: none(),
+      );
     }
-    yield state.copyWith(
-      key: UniqueKey(),
-      currPrefecture: _changedPrefecture.prefecture,
-      listOfJapanesePrefectures: listOfPrefectures,
-      listOfCurrCities: listOfCurrCities,
-      currCity: '',
-      isSubmitting: false,
-      failureOrSuccessOption: none(),
-    );
   }
 
   Stream<UpdateAddressInfoActorState> _mapChangeCurrNepaliPrefectureToState(
@@ -276,21 +283,28 @@ class UpdateAddressInfoActorBloc
   // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeContJapanesePrefectureToState(
       _ChangedContJapanesePrefecture _changedPrefecture) async* {
-    yield state.copyWith(
-      isSubmitting: true,
-      failureOrSuccessOption: none(),
-    );
-    final listOfContCities = await _getListOfCities(
-        country: state.contCountry,
-        prefectureName: _changedPrefecture.prefecture);
-    yield state.copyWith(
-      key: UniqueKey(),
-      contPrefecture: _changedPrefecture.prefecture,
-      listOfContCities: listOfContCities,
-      contCity: '',
-      isSubmitting: false,
-      failureOrSuccessOption: none(),
-    );
+    if (state.contCountry.toLowerCase() == "japan") {
+      yield state.copyWith(
+        isSubmitting: true,
+        failureOrSuccessOption: none(),
+      );
+      final listOfContCities = await _getListOfCities(
+          country: state.contCountry,
+          prefectureName: _changedPrefecture.prefecture);
+      yield state.copyWith(
+        key: UniqueKey(),
+        contPrefecture: _changedPrefecture.prefecture,
+        listOfContCities: listOfContCities,
+        contCity: '',
+        isSubmitting: false,
+        failureOrSuccessOption: none(),
+      );
+    } else {
+      yield state.copyWith(
+        currPrefecture: _changedPrefecture.prefecture,
+        failureOrSuccessOption: none(),
+      );
+    }
   }
 
   Stream<UpdateAddressInfoActorState> _mapChangeContNepaliPrefectureToState(

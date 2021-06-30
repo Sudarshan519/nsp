@@ -18,7 +18,7 @@ class ResumeWatcherState with _$ResumeWatcherState {
 
   factory ResumeWatcherState.initial() => ResumeWatcherState(
         language: 'en',
-        info: const PersonalInfo(),
+        info: PersonalInfo(),
         academics: [],
         works: [],
         qualifications: [],

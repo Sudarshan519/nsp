@@ -1,7 +1,7 @@
 import '../../domain/entities/personal_info.dart';
 
 class PersonalInfoModel extends PersonalInfo {
-  const PersonalInfoModel({
+  PersonalInfoModel({
     required int? id,
     required int? jobSeekerId,
     required String? firstName,

@@ -65,7 +65,7 @@ class UserDetail extends Equatable {
   final String? uuid;
   final String? avatar;
   final double? balance;
-  final int? point;
+  final double? point;
   final String? dob;
   final String? gender;
   final String? nationality;
@@ -108,8 +108,6 @@ class UserDetail extends Equatable {
   final ResumeOptions? options;
   final double? currencyConversionRate;
   final int? notificationCount;
-
-  String get formattedBalance => currencyFormatter(value: balance ?? 0.0);
 
   @override
   List<Object> get props => [];

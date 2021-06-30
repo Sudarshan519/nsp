@@ -12,12 +12,13 @@ class TransactionModel extends Transaction {
     required List<TransactionItem>? statements,
   }) : super(statements: statements);
 
-  factory TransactionModel.fromJson(Map<String, dynamic> json) =>
-      TransactionModel(
-        statements: json["statements"] != null
-            ? List<TransactionItemModel>.from((json["statements"] as Iterable)
-                .map((x) =>
-                    TransactionItemModel.fromJson(x as Map<String, dynamic>)))
-            : null,
-      );
+  factory TransactionModel.fromJson(Map<String, dynamic> json) {
+    final key = json.containsKey('statements') ? 'statements' : 'statement';
+    return TransactionModel(
+      statements: json[key] != null
+          ? List<TransactionItemModel>.from((json[key] as Iterable).map(
+              (x) => TransactionItemModel.fromJson(x as Map<String, dynamic>)))
+          : null,
+    );
+  }
 }

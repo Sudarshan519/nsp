@@ -7,6 +7,7 @@ abstract class UtilityPaymentRepository {
     required String amount,
     required String number,
     required String type,
+    required String coupon,
   });
 
   Future<Either<ApiFailure, ServiceSubscription>>
@@ -16,5 +17,6 @@ abstract class UtilityPaymentRepository {
 
   Future<Either<ApiFailure, Unit>> paymentForPackagesPurchase({
     required List<SubscriptionInvoice> invoice,
+    required String coupon,
   });
 }

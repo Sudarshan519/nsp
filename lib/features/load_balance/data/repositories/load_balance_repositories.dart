@@ -98,14 +98,15 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
     required String referenceId,
     required String amount,
     required String purpose,
+    required String verifyAmount,
   }) async {
     try {
       return Right(
         await dataSource.verifyKhaltiTopup(
-          token: referenceId,
-          amount: amount,
-          purpose: purpose,
-        ),
+            token: referenceId,
+            amount: amount,
+            purpose: purpose,
+            verifyAmount: verifyAmount),
       );
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));

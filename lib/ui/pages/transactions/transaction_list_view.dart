@@ -352,18 +352,18 @@ class _TransactionBuilderState extends State<TransactionBuilder>
 
       default:
     }
+    final listToShow =
+        _searchController.text.isEmpty ? _activeList : _searchList;
+
     return Column(
       children: [
         _tabBar(),
         _searchWidget(),
         if (_showFilter) _dateFilterWidget(context),
         // ignore: prefer_if_elements_to_conditional_expressions
-        widget.items.isEmpty
+        listToShow.isEmpty
             ? const InfoWidget(message: 'No data available')
-            : TransactionListView(
-                items: _searchController.text.isNotEmpty
-                    ? _searchList
-                    : _activeList)
+            : TransactionListView(items: listToShow)
       ],
     );
   }

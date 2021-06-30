@@ -5,6 +5,7 @@ import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bl
 import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_genre/news_genre_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_preference/news_preference_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
@@ -71,6 +72,12 @@ class WalletApp extends StatelessWidget {
         BlocProvider(
           create: (_) => getIt<TransactionBloc>()
             ..add(const TransactionEvent.fetchTransactionData()),
+        ),
+        BlocProvider(
+          create: (_) => getIt<GetBalanceBloc>()
+            ..add(
+              const GetBalanceEvent.fetchBalance(),
+            ),
         ),
       ],
       child: MaterialApp.router(

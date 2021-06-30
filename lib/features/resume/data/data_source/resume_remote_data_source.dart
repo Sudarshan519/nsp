@@ -223,7 +223,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
         errorMessage: response.body,
       );
       throw ServerException(
-          message: errorMessageFromServerWithMessage(response.body) ??
+          message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);
     }
   }

@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/topup_via_stripe/topup_via_stripe_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
@@ -69,7 +70,7 @@ class StripeSaveCardPaymentPage extends StatelessWidget {
               ).show(context);
             },
             (success) {
-              getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+              getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
               getIt<TransactionBloc>()
                   .add(const TransactionEvent.fetchTransactionData());
               showDialog(
@@ -102,9 +103,7 @@ class StripeSaveCardPaymentPage extends StatelessWidget {
       },
       child: Column(
         children: [
-          BalanceWidget(
-            balance: balance,
-          ),
+          const BalanceWidget(),
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(16),

@@ -16,14 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$VerifyKhaltiTopupEventTearOff {
   const _$VerifyKhaltiTopupEventTearOff();
 
-  _Verify verify(
-      {required String transactionId,
-      required String amount,
-      required String purpose}) {
+  _Verify verify(VerifyKhaltiTopupParams params) {
     return _Verify(
-      transactionId: transactionId,
-      amount: amount,
-      purpose: purpose,
+      params,
     );
   }
 }
@@ -33,21 +28,16 @@ const $VerifyKhaltiTopupEvent = _$VerifyKhaltiTopupEventTearOff();
 
 /// @nodoc
 mixin _$VerifyKhaltiTopupEvent {
-  String get transactionId => throw _privateConstructorUsedError;
-  String get amount => throw _privateConstructorUsedError;
-  String get purpose => throw _privateConstructorUsedError;
+  VerifyKhaltiTopupParams get params => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String transactionId, String amount, String purpose)
-        verify,
+    required TResult Function(VerifyKhaltiTopupParams params) verify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String transactionId, String amount, String purpose)?
-        verify,
+    TResult Function(VerifyKhaltiTopupParams params)? verify,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,7 +63,7 @@ abstract class $VerifyKhaltiTopupEventCopyWith<$Res> {
   factory $VerifyKhaltiTopupEventCopyWith(VerifyKhaltiTopupEvent value,
           $Res Function(VerifyKhaltiTopupEvent) then) =
       _$VerifyKhaltiTopupEventCopyWithImpl<$Res>;
-  $Res call({String transactionId, String amount, String purpose});
+  $Res call({VerifyKhaltiTopupParams params});
 }
 
 /// @nodoc
@@ -87,23 +77,13 @@ class _$VerifyKhaltiTopupEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? transactionId = freezed,
-    Object? amount = freezed,
-    Object? purpose = freezed,
+    Object? params = freezed,
   }) {
     return _then(_value.copyWith(
-      transactionId: transactionId == freezed
-          ? _value.transactionId
-          : transactionId // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as String,
-      purpose: purpose == freezed
-          ? _value.purpose
-          : purpose // ignore: cast_nullable_to_non_nullable
-              as String,
+      params: params == freezed
+          ? _value.params
+          : params // ignore: cast_nullable_to_non_nullable
+              as VerifyKhaltiTopupParams,
     ));
   }
 }
@@ -114,7 +94,7 @@ abstract class _$VerifyCopyWith<$Res>
   factory _$VerifyCopyWith(_Verify value, $Res Function(_Verify) then) =
       __$VerifyCopyWithImpl<$Res>;
   @override
-  $Res call({String transactionId, String amount, String purpose});
+  $Res call({VerifyKhaltiTopupParams params});
 }
 
 /// @nodoc
@@ -129,23 +109,13 @@ class __$VerifyCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? transactionId = freezed,
-    Object? amount = freezed,
-    Object? purpose = freezed,
+    Object? params = freezed,
   }) {
     return _then(_Verify(
-      transactionId: transactionId == freezed
-          ? _value.transactionId
-          : transactionId // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as String,
-      purpose: purpose == freezed
-          ? _value.purpose
-          : purpose // ignore: cast_nullable_to_non_nullable
-              as String,
+      params == freezed
+          ? _value.params
+          : params // ignore: cast_nullable_to_non_nullable
+              as VerifyKhaltiTopupParams,
     ));
   }
 }
@@ -153,42 +123,27 @@ class __$VerifyCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Verify implements _Verify {
-  const _$_Verify(
-      {required this.transactionId,
-      required this.amount,
-      required this.purpose});
+  const _$_Verify(this.params);
 
   @override
-  final String transactionId;
-  @override
-  final String amount;
-  @override
-  final String purpose;
+  final VerifyKhaltiTopupParams params;
 
   @override
   String toString() {
-    return 'VerifyKhaltiTopupEvent.verify(transactionId: $transactionId, amount: $amount, purpose: $purpose)';
+    return 'VerifyKhaltiTopupEvent.verify(params: $params)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Verify &&
-            (identical(other.transactionId, transactionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.transactionId, transactionId)) &&
-            (identical(other.amount, amount) ||
-                const DeepCollectionEquality().equals(other.amount, amount)) &&
-            (identical(other.purpose, purpose) ||
-                const DeepCollectionEquality().equals(other.purpose, purpose)));
+            (identical(other.params, params) ||
+                const DeepCollectionEquality().equals(other.params, params)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(transactionId) ^
-      const DeepCollectionEquality().hash(amount) ^
-      const DeepCollectionEquality().hash(purpose);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(params);
 
   @JsonKey(ignore: true)
   @override
@@ -198,22 +153,19 @@ class _$_Verify implements _Verify {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String transactionId, String amount, String purpose)
-        verify,
+    required TResult Function(VerifyKhaltiTopupParams params) verify,
   }) {
-    return verify(transactionId, amount, purpose);
+    return verify(params);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String transactionId, String amount, String purpose)?
-        verify,
+    TResult Function(VerifyKhaltiTopupParams params)? verify,
     required TResult orElse(),
   }) {
     if (verify != null) {
-      return verify(transactionId, amount, purpose);
+      return verify(params);
     }
     return orElse();
   }
@@ -240,17 +192,10 @@ class _$_Verify implements _Verify {
 }
 
 abstract class _Verify implements VerifyKhaltiTopupEvent {
-  const factory _Verify(
-      {required String transactionId,
-      required String amount,
-      required String purpose}) = _$_Verify;
+  const factory _Verify(VerifyKhaltiTopupParams params) = _$_Verify;
 
   @override
-  String get transactionId => throw _privateConstructorUsedError;
-  @override
-  String get amount => throw _privateConstructorUsedError;
-  @override
-  String get purpose => throw _privateConstructorUsedError;
+  VerifyKhaltiTopupParams get params => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$VerifyCopyWith<_Verify> get copyWith => throw _privateConstructorUsedError;

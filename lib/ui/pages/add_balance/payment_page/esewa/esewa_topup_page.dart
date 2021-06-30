@@ -8,6 +8,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/esewa_form/esewa_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/verify_esewa_topup/verify_esewa_topup_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -53,7 +54,7 @@ class EsewaTopupPage extends StatelessWidget {
           initial: (_) {},
           loading: (_) {},
           success: (_) {
-            getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+            getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
             getIt<TransactionBloc>()
                 .add(const TransactionEvent.fetchTransactionData());
             showDialog(
@@ -151,13 +152,6 @@ class EsewaTopupPage extends StatelessWidget {
 
     // TODO: change this Later
     final amountDoubleInRupees = doubleAmount * conversionRate;
-
-    //checking sufficient balance
-    if (balance < amountDoubleInRupees) {
-      FlushbarHelper.createError(message: "You have insufficient balance")
-          .show(context);
-      return;
-    }
 
     //checking if verified
     if (!isVerified) {

@@ -18,6 +18,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   }) : super(const _Loading());
 
   final GetNotifications getNotifications;
+
   bool isFetching = false;
   int page = 1;
   bool hasReachedEnd = false;

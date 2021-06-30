@@ -13,7 +13,7 @@ part 'transaction_event.dart';
 part 'transaction_state.dart';
 part 'transaction_bloc.freezed.dart';
 
-@singleton
+@lazySingleton
 class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   final GetTransactions getTransaction;
   bool isFetching = false;

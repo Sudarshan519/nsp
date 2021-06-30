@@ -1,17 +1,16 @@
-import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
-
 class NotificationItem {
   int? id;
   String? title;
   String? message;
   int? userId;
+  int? productId;
   String? image;
   bool isPinned;
   bool? isShow;
   String? redirectUrl;
+  String? type;
   String? createdAt;
   String? updatedAt;
-  TransactionItem? transactionItem;
 
   NotificationItem(
       {this.id,
@@ -22,7 +21,15 @@ class NotificationItem {
       this.isPinned = false,
       this.isShow,
       this.createdAt,
+      this.type,
       this.redirectUrl,
-      this.transactionItem,
+      this.productId,
       this.updatedAt});
+}
+
+class NotificationType {
+  static const transaction = 'transaction';
+  static const jpManner = 'jp_manner';
+  static const partnerService = 'partner_service';
+  static const advertisement = 'advertisement';
 }
