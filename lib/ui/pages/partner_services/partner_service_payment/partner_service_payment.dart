@@ -81,8 +81,8 @@ class PartnerServicePaymentPage extends StatelessWidget {
             showDialog(
               context: context,
               builder: (_) => PopUpSuccessOverLay(
-                title: AppConstants.topUpSuccessTitle,
-                message: AppConstants.topUpSuccessMessage,
+                title: AppConstants.paymentSuccessTitle,
+                message: AppConstants.paymentSuccessMessage,
                 onPressed: () {
                   context.router.navigate(const TabBarRoute());
                 },
