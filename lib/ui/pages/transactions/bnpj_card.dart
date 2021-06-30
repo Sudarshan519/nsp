@@ -16,11 +16,6 @@ class BNPJCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 16),
       child: Stack(
         children: [
-          // SvgPicture.asset(
-          //   'assets/images/transaction/bnpj_card.svg',
-          //   width: 200,
-          //   // fit: BoxFit.fitHeight,
-          // ),
           Image.asset(
             'assets/images/transaction/bnpj_card.png',
             width: width,
