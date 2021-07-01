@@ -224,7 +224,7 @@ class _ConversionRate extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                '(NRP ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(2)})',
+                '(NPR ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(2)})',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
