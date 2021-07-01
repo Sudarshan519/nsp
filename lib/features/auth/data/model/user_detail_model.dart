@@ -52,6 +52,8 @@ class UserDetailModel extends UserDetail {
     required int? smartPitNo,
     required bool? isKycVerified,
     ResumeOptionsModel? options,
+
+    ///1  Npr -> JPY
     required double? currencyConversionRate,
     required int? notificationCount,
   }) : super(

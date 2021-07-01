@@ -206,7 +206,7 @@ class _ConversionRate extends StatelessWidget {
         }
         double amountJPYDouble = 0.0;
         try {
-          amountJPYDouble = double.parse(state.amount) / conversionRate;
+          amountJPYDouble = double.parse(state.amount) * conversionRate;
         } catch (ex) {
           debugPrint(ex.toString());
         }
