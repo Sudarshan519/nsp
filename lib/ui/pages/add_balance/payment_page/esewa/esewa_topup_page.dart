@@ -141,16 +141,14 @@ class EsewaTopupPage extends StatelessWidget {
       return;
     }
 
-    final doubleAmount = double.parse(amount);
+    final amountDoubleInRupees = double.parse(amount);
 
-    if (doubleAmount < 100) {
+    if (amountDoubleInRupees < 100) {
       FlushbarHelper.createError(
               message: "The amount cannot be smaller than 100.")
           .show(context);
       return;
     }
-
-    final amountDoubleInRupees = doubleAmount * conversionRate;
 
     //checking if verified
     if (!isVerified) {
@@ -213,9 +211,9 @@ class _ConversionRate extends StatelessWidget {
         if (state.amount.isEmpty) {
           return const SizedBox.shrink();
         }
-        double amountDouble = 0.0;
+        double amountJPYDouble = 0.0;
         try {
-          amountDouble = double.parse(state.amount) * conversionRate;
+          amountJPYDouble = double.parse(state.amount) / conversionRate;
         } catch (ex) {
           debugPrint(ex.toString());
         }
@@ -226,7 +224,7 @@ class _ConversionRate extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                '(JPY ${state.amount} = NPR ${amountDouble.toStringAsFixed(2)})',
+                '(NRP ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(2)})',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
@@ -250,7 +248,7 @@ class _AmountWidget extends StatelessWidget {
             key: state.key,
             title: "Enter Amount",
             child: InputTextWidget(
-              hintText: "¥ 1000",
+              hintText: "रू 1000",
               textInputType: TextInputType.phone,
               value: state.amount,
               onChanged: (value) =>

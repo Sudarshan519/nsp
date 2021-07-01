@@ -40,6 +40,7 @@ class VerifyImePayTopup
       referenceId: params.referenceId,
       amount: params.amount,
       purpose: params.purpose,
+      tokenId: params.tokenId,
     );
   }
 }
@@ -49,9 +50,11 @@ class VerifyImePayTopupParams {
     required this.referenceId,
     required this.amount,
     required this.purpose,
+    required this.tokenId,
   });
 
   final String referenceId;
   final String amount;
   final String purpose;
+  final String tokenId;
 }

@@ -6,5 +6,6 @@ class VerifyImePayTopupEvent with _$VerifyImePayTopupEvent {
     required String refId,
     required String amount,
     required String purpose,
+    required String tokenId,
   }) = _Verify;
 }

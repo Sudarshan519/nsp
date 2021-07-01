@@ -120,7 +120,11 @@ class PaymentOptions extends StatelessWidget {
             ),
           ),
           builder: (BuildContext context) {
-            return ImePayTopupPage(method: paymentMethod);
+            return ImePayTopupPage(
+                method: paymentMethod,
+                conversionRate: conversionRate,
+                balance: balanceParsed,
+                isVerified: isVerified);
           },
         );
         break;

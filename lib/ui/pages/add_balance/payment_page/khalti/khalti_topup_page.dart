@@ -141,12 +141,9 @@ class KhaltiTopupPage extends StatelessWidget {
       return;
     }
 
-    var doubleAmountInJpy = double.parse(amount);
-    //Gettng only 2 digits after decimal point
+    final amountDoubleInRupees = double.parse(amount);
 
-    doubleAmountInJpy = double.parse(doubleAmountInJpy.toStringAsFixed(2));
-
-    if (doubleAmountInJpy < 100) {
+    if (amountDoubleInRupees < 100) {
       FlushbarHelper.createError(
               message: "The amount cannot be smaller than 100.")
           .show(context);
@@ -154,9 +151,6 @@ class KhaltiTopupPage extends StatelessWidget {
     }
 
     // TODO: change this Later
-    //Gettng only 2 digits after decimal point
-    final amountDoubleInRupees =
-        double.parse((doubleAmountInJpy * conversionRate).toStringAsFixed(2));
 
     //checking if verified
     if (!isVerified) {
@@ -176,8 +170,6 @@ class KhaltiTopupPage extends StatelessWidget {
       FlushbarHelper.createError(message: "Error in Khalti Payment.")
           .show(context);
     }
-
-    //  khalti test -> 9807223827 / 1627
 
     final FlutterKhalti _flutterKhalti = FlutterKhalti.configure(
       paymentPreferences: [
@@ -203,7 +195,7 @@ class KhaltiTopupPage extends StatelessWidget {
         context.read<VerifyKhaltiTopupBloc>().add(
               VerifyKhaltiTopupEvent.verify(VerifyKhaltiTopupParams(
                   referenceId: data['token'] as String,
-                  amount: "$doubleAmountInJpy",
+                  amount: amount,
                   purpose: purpose,
                   verifyAmount: "${khaltiAmtinPaisa.toInt()}")),
             );
@@ -232,10 +224,12 @@ class _ConversionRate extends StatelessWidget {
         if (state.amount.isEmpty) {
           return const SizedBox.shrink();
         }
-        double amountDouble = 0.0;
+        double amountJPYDouble = 0.0;
         try {
-          amountDouble = double.parse(state.amount) * conversionRate;
-        } catch (ex) {}
+          amountJPYDouble = double.parse(state.amount) / conversionRate;
+        } catch (ex) {
+          debugPrint(ex.toString());
+        }
 
         return Padding(
           padding: const EdgeInsets.only(right: 8.0, bottom: 12.0),
@@ -243,7 +237,7 @@ class _ConversionRate extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                '(JPY ${state.amount} = NPR ${amountDouble.toStringAsFixed(2)})',
+                '(NRP ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(2)})',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
@@ -267,7 +261,7 @@ class _AmountWidget extends StatelessWidget {
             key: state.key,
             title: "Enter Amount",
             child: InputTextWidget(
-              hintText: "¥ 1000",
+              hintText: "रू 1000",
               textInputType: TextInputType.phone,
               value: state.amount,
               onChanged: (value) =>
