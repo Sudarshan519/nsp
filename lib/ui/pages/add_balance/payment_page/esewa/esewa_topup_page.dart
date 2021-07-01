@@ -150,7 +150,6 @@ class EsewaTopupPage extends StatelessWidget {
       return;
     }
 
-    // TODO: change this Later
     final amountDoubleInRupees = doubleAmount * conversionRate;
 
     //checking if verified

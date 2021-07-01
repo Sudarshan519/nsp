@@ -89,12 +89,12 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
         ),
         Center(
           child: SizedBox(
-              width: 40,
-              height: 30,
-              child: text.length > 7
-                  ? Marquee(
+            child: text.length > 16
+                ? SizedBox(
+                    width: 60,
+                    height: 30,
+                    child: Marquee(
                       text: text,
-                      // style: TextStyle(fontWeight: FontWeight.bold),
                       textScaleFactor: 0.7,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       blankSpace: 20.0,
@@ -102,12 +102,14 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
                       startPadding: 10.0,
                       accelerationCurve: Curves.linear,
                       decelerationCurve: Curves.easeOut,
-                    )
-                  : Text(
-                      text,
-                      textScaleFactor: 0.7,
-                      textAlign: TextAlign.center,
-                    )),
+                    ),
+                  )
+                : Text(
+                    text,
+                    textScaleFactor: 0.7,
+                    textAlign: TextAlign.center,
+                  ),
+          ),
         ),
       ],
     );

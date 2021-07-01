@@ -79,24 +79,24 @@ class HomeHeaderWidget extends StatelessWidget {
                 "assets/images/navigation_bar/notification.svg",
                 height: 25.0,
               ),
-              if (details != null &&
-                  details.notificationCount != null &&
-                  (details.notificationCount! > 0))
-                Positioned(
-                  right: 0.1,
-                  child: Transform.translate(
-                    offset: const Offset(5, -5),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 10,
-                      child: Text(
-                        '${details.notificationCount}',
-                        textScaleFactor: 0.65,
-                        style: const TextStyle(fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                  ),
-                )
+              // if (details != null &&
+              //     details.notificationCount != null &&
+              //     (details.notificationCount! > 0))
+              //   Positioned(
+              //     right: 0.1,
+              //     child: Transform.translate(
+              //       offset: const Offset(5, -5),
+              //       child: CircleAvatar(
+              //         backgroundColor: Colors.white,
+              //         radius: 10,
+              //         child: Text(
+              //           '${details.notificationCount}',
+              //           textScaleFactor: 0.65,
+              //           style: const TextStyle(fontWeight: FontWeight.w700),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
             ],
           ),
         ),
