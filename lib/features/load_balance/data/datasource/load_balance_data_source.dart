@@ -30,6 +30,7 @@ abstract class LoadBalanceDataSource {
 
   Future<Unit> verifyImePayTopup({
     required String referenceId,
+    required String tokenId,
     required String amount,
     required String purpose,
   });
@@ -167,6 +168,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     required String referenceId,
     required String amount,
     required String purpose,
+    required String tokenId,
   }) async {
     final userId = (await auth.getUserDetail()).uuid;
 
@@ -178,6 +180,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     final params = {
       "reference_id": referenceId,
       "product_id": userId,
+      'token_id': tokenId,
       "amount": amount,
       "purpose": purpose,
     };

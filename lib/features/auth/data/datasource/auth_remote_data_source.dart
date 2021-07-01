@@ -123,8 +123,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       "password": password,
       "password_confirmation": confirmPassword,
       "phone": "",
-      "created_gps": getIt<GeoLocationManager>().gps,
     };
+
+    final gps = getIt<GeoLocationManager>().gps;
+
+    if (gps.isNotEmpty) {
+      params['created_gps'] = gps;
+    }
+
     http.Response response;
 
     try {

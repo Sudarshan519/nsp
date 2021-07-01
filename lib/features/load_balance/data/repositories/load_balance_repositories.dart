@@ -60,11 +60,13 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
     required String referenceId,
     required String amount,
     required String purpose,
+    required String tokenId,
   }) async {
     try {
       return Right(
         await dataSource.verifyImePayTopup(
           referenceId: referenceId,
+          tokenId: tokenId,
           amount: amount,
           purpose: purpose,
         ),

@@ -27,10 +27,10 @@ class VerifyImePayTopupBloc
 
       final result = await verifyImePayTopup(
         VerifyImePayTopupParams(
-          referenceId: e.refId,
-          amount: e.amount,
-          purpose: e.purpose,
-        ),
+            referenceId: e.refId,
+            amount: e.amount,
+            purpose: e.purpose,
+            tokenId: e.tokenId),
       );
 
       yield result.fold(

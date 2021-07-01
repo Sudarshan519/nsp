@@ -88,15 +88,20 @@ class HomeHeaderWidget extends StatelessWidget {
                     offset: const Offset(5, -5),
                     child: CircleAvatar(
                       backgroundColor: Colors.white,
-                      radius: 10,
-                      child: Text(
-                        '${details.notificationCount}',
-                        textScaleFactor: 0.65,
-                        style: const TextStyle(fontWeight: FontWeight.w700),
+                      radius: 9.5,
+                      child: Center(
+                        child: Text(
+                          details.notificationCount! > 20
+                              ? '20+'
+                              : details.notificationCount!.toString(),
+                          textScaleFactor: 0.61,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(fontWeight: FontWeight.w700),
+                        ),
                       ),
                     ),
                   ),
-                )
+                ),
             ],
           ),
         ),

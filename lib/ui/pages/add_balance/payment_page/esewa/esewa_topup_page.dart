@@ -4,7 +4,6 @@ import 'package:esewa_pnp/esewa.dart';
 import 'package:esewa_pnp/esewa_pnp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/esewa_form/esewa_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/verify_esewa_topup/verify_esewa_topup_bloc.dart';
@@ -141,27 +140,22 @@ class EsewaTopupPage extends StatelessWidget {
       return;
     }
 
-    final doubleAmount = double.parse(amount);
+    final amountDoubleInRupees = double.parse(amount);
 
-    if (doubleAmount < 100) {
+    if (amountDoubleInRupees < 100) {
       FlushbarHelper.createError(
               message: "The amount cannot be smaller than 100.")
           .show(context);
       return;
     }
 
-    // TODO: change this Later
-    final amountDoubleInRupees = doubleAmount * conversionRate;
-
     //checking if verified
     if (!isVerified) {
-      //TODO: update limit from API
-      const limit = 10000;
       final sum = amountDoubleInRupees + balance;
-
-      if (sum >= limit) {
+      if (method.balanceLimit != null && sum >= method.balanceLimit!) {
         FlushbarHelper.createError(
-                message: "Unverified user cannot topup more than limit $limit.")
+                message:
+                    "Unverified user cannot topup more than limit ${method.balanceLimit}.")
             .show(context);
         return;
       }
@@ -170,7 +164,9 @@ class EsewaTopupPage extends StatelessWidget {
     final ESewaConfiguration _configuration = ESewaConfiguration(
       clientID: method.merchantId ?? '',
       secretKey: method.merchantSecret ?? '',
-      environment: ESewaConfiguration.ENVIRONMENT_TEST, //ENVIRONMENT_LIVE
+      environment: method.islive
+          ? ESewaConfiguration.ENVIRONMENT_LIVE
+          : ESewaConfiguration.ENVIRONMENT_TEST,
     );
 
     final ESewaPnp _eSewaPnp = ESewaPnp(configuration: _configuration);
@@ -214,9 +210,9 @@ class _ConversionRate extends StatelessWidget {
         if (state.amount.isEmpty) {
           return const SizedBox.shrink();
         }
-        double amountDouble = 0.0;
+        double amountJPYDouble = 0.0;
         try {
-          amountDouble = double.parse(state.amount) * conversionRate;
+          amountJPYDouble = double.parse(state.amount) * conversionRate;
         } catch (ex) {
           debugPrint(ex.toString());
         }
@@ -227,7 +223,7 @@ class _ConversionRate extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                '(JPY ${state.amount} = NPR ${amountDouble.toStringAsFixed(2)})',
+                '(NPR ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(2)})',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
@@ -251,7 +247,7 @@ class _AmountWidget extends StatelessWidget {
             key: state.key,
             title: "Enter Amount",
             child: InputTextWidget(
-              hintText: "¥ 1000",
+              hintText: "रू 1000",
               textInputType: TextInputType.phone,
               value: state.amount,
               onChanged: (value) =>

@@ -37,6 +37,8 @@ class PaymentMethod {
     required this.bseUrl,
     required this.merchantId,
     required this.merchantSecret,
+    required this.balanceLimit,
+    required this.islive,
   });
 
   final String? name;
@@ -58,6 +60,8 @@ class PaymentMethod {
   final String? bseUrl;
   final String? merchantId;
   final String? merchantSecret;
+  final int? balanceLimit;
+  final bool islive;
 }
 
 class CreditCard {

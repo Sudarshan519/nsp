@@ -20,10 +20,16 @@ import 'package:auto_route/auto_route.dart';
 
 class ImePayTopupPage extends StatelessWidget {
   final PaymentMethod method;
+  final double conversionRate;
+  final bool isVerified;
+  final double balance;
 
   const ImePayTopupPage({
     Key? key,
     required this.method,
+    required this.conversionRate,
+    required this.isVerified,
+    required this.balance,
   }) : super(key: key);
 
   @override
@@ -93,6 +99,9 @@ class ImePayTopupPage extends StatelessWidget {
             const SizedBox(height: 10),
             const _AmountWidget(),
             const SizedBox(height: 10),
+            _ConversionRate(
+              conversionRate: conversionRate,
+            ),
             const _AmountFromSuggestionWidget(),
             const SizedBox(height: 10),
             const _PurposeWidget(),
@@ -132,31 +141,44 @@ class ImePayTopupPage extends StatelessWidget {
       return;
     }
 
-    final doubleAmount = double.parse(amount);
+    final amountDoubleInRupees = double.parse(amount);
 
-    if (doubleAmount < 100) {
+    if (amountDoubleInRupees < 100) {
       FlushbarHelper.createError(
               message: "The amount cannot be smaller than 100.")
           .show(context);
       return;
     }
+    //checking if verified
+    if (!isVerified) {
+      final sum = amountDoubleInRupees + balance;
+      if (method.balanceLimit != null && sum >= method.balanceLimit!) {
+        FlushbarHelper.createError(
+                message:
+                    "Unverified user cannot topup more than limit ${method.balanceLimit}.")
+            .show(context);
+        return;
+      }
+    }
 
-    ImePay _imePay = ImePay(
+    final ImePay _imePay = ImePay(
         merchantCode: method.module ?? '',
         module: method.module ?? '',
         userName: method.username ?? '',
         password: method.password ?? '',
-        amount: doubleAmount,
+        amount: amountDoubleInRupees,
         merchantName: method.module ?? '',
         recordingServiceUrl: method.recordingUrl ?? '',
         deliveryServiceUrl: method.deliveryUrl ?? '',
-        environment: ImePayEnvironment.TEST,
+        environment:
+            method.islive ? ImePayEnvironment.LIVE : ImePayEnvironment.TEST,
         refId: DateTime.now().millisecondsSinceEpoch.toString());
 
     _imePay.startPayment(onSuccess: (ImePaySuccessResponse data) {
       debugPrint(data.toString());
       context.read<VerifyImePayTopupBloc>().add(
             VerifyImePayTopupEvent.verify(
+              tokenId: data.transactionId.toString(),
               refId: data.refId.toString(),
               amount: data.amount.toString(),
               purpose: purpose,
@@ -165,6 +187,44 @@ class ImePayTopupPage extends StatelessWidget {
     }, onFailure: (error) {
       debugPrint(error);
     });
+  }
+}
+
+class _ConversionRate extends StatelessWidget {
+  final double conversionRate;
+  const _ConversionRate({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ImePayFormCubit, ImePayFormState>(
+      builder: (context, state) {
+        if (state.amount.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        double amountJPYDouble = 0.0;
+        try {
+          amountJPYDouble = double.parse(state.amount) * conversionRate;
+        } catch (ex) {
+          debugPrint(ex.toString());
+        }
+
+        return Padding(
+          padding: const EdgeInsets.only(right: 8.0, bottom: 12.0),
+          child: Row(
+            children: [
+              const Spacer(),
+              Text(
+                '(NPR ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(2)})',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -181,7 +241,7 @@ class _AmountWidget extends StatelessWidget {
             key: state.key,
             title: "Enter Amount",
             child: InputTextWidget(
-              hintText: "¥ 1000",
+              hintText: "रू 1000",
               textInputType: TextInputType.number,
               value: state.amount,
               onChanged: (value) =>

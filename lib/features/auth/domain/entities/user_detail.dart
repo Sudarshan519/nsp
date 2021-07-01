@@ -106,6 +106,8 @@ class UserDetail extends Equatable {
   final int? smartPitNo;
   final bool? isKycVerified;
   final ResumeOptions? options;
+
+  ///1  Npr -> JPY
   final double? currencyConversionRate;
   final int? notificationCount;
 
