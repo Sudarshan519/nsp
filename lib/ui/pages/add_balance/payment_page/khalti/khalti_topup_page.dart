@@ -25,6 +25,7 @@ class KhaltiTopupPage extends StatelessWidget {
   final double conversionRate;
   final bool isVerified;
   final double balance;
+  final int transactionLimit;
 
   const KhaltiTopupPage({
     Key? key,
@@ -32,6 +33,7 @@ class KhaltiTopupPage extends StatelessWidget {
     required this.conversionRate,
     required this.isVerified,
     required this.balance,
+    required this.transactionLimit,
   }) : super(key: key);
 
   @override
@@ -154,13 +156,12 @@ class KhaltiTopupPage extends StatelessWidget {
 
     //checking if verified
     if (!isVerified) {
-      //TODO: update limit from API
-      const limit = 10000;
       final sum = amountDoubleInRupees + balance;
 
-      if (sum >= limit) {
+      if (sum >= transactionLimit) {
         FlushbarHelper.createError(
-                message: "Unverified user cannot topup more than limit $limit.")
+                message:
+                    "Unverified user cannot topup more than limit $transactionLimit.")
             .show(context);
         return;
       }

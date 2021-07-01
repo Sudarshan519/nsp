@@ -6,12 +6,14 @@ class LoadFund {
     required this.paymentMethods,
     required this.balance,
     required this.creditCards,
+    required this.transactionLimit,
   });
 
   final bool? status;
   final List<PaymentMethod>? paymentMethods;
   final double? balance;
   final List<CreditCard>? creditCards;
+  final int? transactionLimit;
 
   String get formattedBalance => currencyFormatter(value: balance ?? 0.0);
 }

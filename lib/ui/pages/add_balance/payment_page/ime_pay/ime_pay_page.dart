@@ -23,6 +23,7 @@ class ImePayTopupPage extends StatelessWidget {
   final double conversionRate;
   final bool isVerified;
   final double balance;
+  final int transactionLimit;
 
   const ImePayTopupPage({
     Key? key,
@@ -30,6 +31,7 @@ class ImePayTopupPage extends StatelessWidget {
     required this.conversionRate,
     required this.isVerified,
     required this.balance,
+    required this.transactionLimit,
   }) : super(key: key);
 
   @override
@@ -151,13 +153,12 @@ class ImePayTopupPage extends StatelessWidget {
     }
     //checking if verified
     if (!isVerified) {
-      //TODO: update limit from API
-      const limit = 10000;
       final sum = amountDoubleInRupees + balance;
 
-      if (sum >= limit) {
+      if (sum >= transactionLimit) {
         FlushbarHelper.createError(
-                message: "Unverified user cannot topup more than limit $limit.")
+                message:
+                    "Unverified user cannot topup more than limit $transactionLimit.")
             .show(context);
         return;
       }

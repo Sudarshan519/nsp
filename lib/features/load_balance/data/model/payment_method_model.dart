@@ -11,12 +11,13 @@ class LoadFundModel extends LoadFund {
     required List<PaymentMethod>? paymentMethods,
     required double? balance,
     required List<CreditCardModel>? creditCards,
+    required int? transactionLimit,
   }) : super(
-          balance: balance,
-          status: status,
-          paymentMethods: paymentMethods,
-          creditCards: creditCards,
-        );
+            balance: balance,
+            status: status,
+            paymentMethods: paymentMethods,
+            creditCards: creditCards,
+            transactionLimit: transactionLimit);
 
   factory LoadFundModel.fromJson(Map<String, dynamic> json) => LoadFundModel(
         status: json["status"] == null ? null : json["status"] as bool?,
@@ -30,6 +31,9 @@ class LoadFundModel extends LoadFund {
             : (json["balance"] is int?)
                 ? double.parse("${json["balance"] as int? ?? 0}")
                 : json["balance"] as double?,
+        transactionLimit: json["transaction_limit"] == null
+            ? null
+            : json["transaction_limit"] as int?,
         creditCards: json["credit_cards"] == null
             ? null
             : List<CreditCardModel>.from(

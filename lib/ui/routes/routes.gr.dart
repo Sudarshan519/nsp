@@ -289,7 +289,8 @@ class AppRouter extends _i1.RootStackRouter {
               method: args.method,
               conversionRate: args.conversionRate,
               isVerified: args.isVerified,
-              balance: args.balance);
+              balance: args.balance,
+              transactionLimit: args.transactionLimit);
         }),
     BannerDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -968,7 +969,8 @@ class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
       required _i49.PaymentMethod method,
       required double conversionRate,
       required bool isVerified,
-      required double balance})
+      required double balance,
+      required int transactionLimit})
       : super(name,
             path: '/esewa-topup-page',
             args: EsewaTopupRouteArgs(
@@ -976,7 +978,8 @@ class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
                 method: method,
                 conversionRate: conversionRate,
                 isVerified: isVerified,
-                balance: balance));
+                balance: balance,
+                transactionLimit: transactionLimit));
 
   static const String name = 'EsewaTopupRoute';
 }
@@ -987,7 +990,8 @@ class EsewaTopupRouteArgs {
       required this.method,
       required this.conversionRate,
       required this.isVerified,
-      required this.balance});
+      required this.balance,
+      required this.transactionLimit});
 
   final _i2.Key? key;
 
@@ -998,6 +1002,8 @@ class EsewaTopupRouteArgs {
   final bool isVerified;
 
   final double balance;
+
+  final int transactionLimit;
 }
 
 class BannerDetailRoute extends _i1.PageRouteInfo {

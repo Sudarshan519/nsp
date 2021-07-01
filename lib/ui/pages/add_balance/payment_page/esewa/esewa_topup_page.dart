@@ -4,7 +4,6 @@ import 'package:esewa_pnp/esewa.dart';
 import 'package:esewa_pnp/esewa_pnp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/esewa_form/esewa_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/verify_esewa_topup/verify_esewa_topup_bloc.dart';
@@ -23,6 +22,7 @@ class EsewaTopupPage extends StatelessWidget {
   final double conversionRate;
   final bool isVerified;
   final double balance;
+  final int transactionLimit;
 
   const EsewaTopupPage({
     Key? key,
@@ -30,6 +30,7 @@ class EsewaTopupPage extends StatelessWidget {
     required this.conversionRate,
     required this.isVerified,
     required this.balance,
+    required this.transactionLimit,
   }) : super(key: key);
 
   @override
@@ -152,13 +153,12 @@ class EsewaTopupPage extends StatelessWidget {
 
     //checking if verified
     if (!isVerified) {
-      //TODO: update limit from API
-      const limit = 10000;
       final sum = amountDoubleInRupees + balance;
 
-      if (sum >= limit) {
+      if (sum >= transactionLimit) {
         FlushbarHelper.createError(
-                message: "Unverified user cannot topup more than limit $limit.")
+                message:
+                    "Unverified user cannot topup more than limit $transactionLimit.")
             .show(context);
         return;
       }
