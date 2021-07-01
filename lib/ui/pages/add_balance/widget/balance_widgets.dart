@@ -6,6 +6,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class BalanceWidget extends StatelessWidget {
   const BalanceWidget({Key? key}) : super(key: key);
+  // ignore: avoid_field_initializers_in_const_classes
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +14,13 @@ class BalanceWidget extends StatelessWidget {
       builder: (context, state) {
         return state.map(
           loading: (_) {
-            return _balanceWidget(context, 'XX.XX');
+            return _balanceWidget(context, '');
           },
           loaded: (success) {
             return _balanceWidget(context, success.balance.formattedCurrency);
           },
           failure: (_) {
-            return _balanceWidget(context, 'XX.XX');
+            return _balanceWidget(context, '');
           },
         );
       },
@@ -57,14 +58,23 @@ class BalanceWidget extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  Text(
-                    balance,
-                    style: TextStyle(
-                      color: Palette.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                  if (balance.isEmpty)
+                    Container(
+                      padding: const EdgeInsets.only(top: 8),
+                      width: 90,
+                      child: const LinearProgressIndicator(
+                        color: Colors.black,
+                      ),
+                    )
+                  else
+                    Text(
+                      balance,
+                      style: TextStyle(
+                        color: Palette.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
                 ],
               ),
               const Spacer(),

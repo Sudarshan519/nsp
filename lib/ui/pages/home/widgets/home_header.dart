@@ -94,7 +94,7 @@ class HomeHeaderWidget extends StatelessWidget {
                           details.notificationCount! > 20
                               ? '20+'
                               : details.notificationCount!.toString(),
-                          textScaleFactor: 0.61,
+                          textScaleFactor: 0.56,
                           textAlign: TextAlign.center,
                           style: const TextStyle(fontWeight: FontWeight.w700),
                         ),
