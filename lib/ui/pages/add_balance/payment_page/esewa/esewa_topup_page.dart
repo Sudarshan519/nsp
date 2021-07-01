@@ -22,7 +22,6 @@ class EsewaTopupPage extends StatelessWidget {
   final double conversionRate;
   final bool isVerified;
   final double balance;
-  final int transactionLimit;
 
   const EsewaTopupPage({
     Key? key,
@@ -30,7 +29,6 @@ class EsewaTopupPage extends StatelessWidget {
     required this.conversionRate,
     required this.isVerified,
     required this.balance,
-    required this.transactionLimit,
   }) : super(key: key);
 
   @override
@@ -154,11 +152,10 @@ class EsewaTopupPage extends StatelessWidget {
     //checking if verified
     if (!isVerified) {
       final sum = amountDoubleInRupees + balance;
-
-      if (sum >= transactionLimit) {
+      if (method.balanceLimit != null && sum >= method.balanceLimit!) {
         FlushbarHelper.createError(
                 message:
-                    "Unverified user cannot topup more than limit $transactionLimit.")
+                    "Unverified user cannot topup more than limit ${method.balanceLimit}.")
             .show(context);
         return;
       }
@@ -167,7 +164,9 @@ class EsewaTopupPage extends StatelessWidget {
     final ESewaConfiguration _configuration = ESewaConfiguration(
       clientID: method.merchantId ?? '',
       secretKey: method.merchantSecret ?? '',
-      environment: ESewaConfiguration.ENVIRONMENT_TEST, //ENVIRONMENT_LIVE
+      environment: method.islive
+          ? ESewaConfiguration.ENVIRONMENT_LIVE
+          : ESewaConfiguration.ENVIRONMENT_TEST,
     );
 
     final ESewaPnp _eSewaPnp = ESewaPnp(configuration: _configuration);

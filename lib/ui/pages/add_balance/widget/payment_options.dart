@@ -15,7 +15,6 @@ class PaymentOptions extends StatelessWidget {
     required this.balance,
     required this.conversionRate,
     required this.isVerified,
-    required this.transactionLimit,
   }) : super(key: key);
 
   final List<PaymentMethod> paymentMethods;
@@ -23,7 +22,6 @@ class PaymentOptions extends StatelessWidget {
   final String balance;
   final double conversionRate;
   final bool isVerified;
-  final int transactionLimit;
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +105,6 @@ class PaymentOptions extends StatelessWidget {
                 method: paymentMethod,
                 conversionRate: conversionRate,
                 balance: balanceParsed,
-                transactionLimit: transactionLimit,
                 isVerified: isVerified);
           },
         );
@@ -127,7 +124,6 @@ class PaymentOptions extends StatelessWidget {
                 method: paymentMethod,
                 conversionRate: conversionRate,
                 balance: balanceParsed,
-                transactionLimit: transactionLimit,
                 isVerified: isVerified);
           },
         );
@@ -147,7 +143,6 @@ class PaymentOptions extends StatelessWidget {
                 method: paymentMethod,
                 conversionRate: conversionRate,
                 balance: balanceParsed,
-                transactionLimit: transactionLimit,
                 isVerified: isVerified);
           },
         );

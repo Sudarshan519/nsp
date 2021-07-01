@@ -23,7 +23,6 @@ class ImePayTopupPage extends StatelessWidget {
   final double conversionRate;
   final bool isVerified;
   final double balance;
-  final int transactionLimit;
 
   const ImePayTopupPage({
     Key? key,
@@ -31,7 +30,6 @@ class ImePayTopupPage extends StatelessWidget {
     required this.conversionRate,
     required this.isVerified,
     required this.balance,
-    required this.transactionLimit,
   }) : super(key: key);
 
   @override
@@ -154,11 +152,10 @@ class ImePayTopupPage extends StatelessWidget {
     //checking if verified
     if (!isVerified) {
       final sum = amountDoubleInRupees + balance;
-
-      if (sum >= transactionLimit) {
+      if (method.balanceLimit != null && sum >= method.balanceLimit!) {
         FlushbarHelper.createError(
                 message:
-                    "Unverified user cannot topup more than limit $transactionLimit.")
+                    "Unverified user cannot topup more than limit ${method.balanceLimit}.")
             .show(context);
         return;
       }
@@ -173,7 +170,8 @@ class ImePayTopupPage extends StatelessWidget {
         merchantName: method.module ?? '',
         recordingServiceUrl: method.recordingUrl ?? '',
         deliveryServiceUrl: method.deliveryUrl ?? '',
-        environment: ImePayEnvironment.TEST,
+        environment:
+            method.islive ? ImePayEnvironment.LIVE : ImePayEnvironment.TEST,
         refId: DateTime.now().millisecondsSinceEpoch.toString());
 
     _imePay.startPayment(onSuccess: (ImePaySuccessResponse data) {

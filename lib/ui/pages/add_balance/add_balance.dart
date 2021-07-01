@@ -92,7 +92,6 @@ class AddBalancePage extends StatelessWidget {
             conversionRate: conversionRate,
             isVerified: isVerified,
             creditCards: loadFund?.creditCards ?? [],
-            transactionLimit: loadFund?.transactionLimit ?? 0,
           ),
         ),
       ],
