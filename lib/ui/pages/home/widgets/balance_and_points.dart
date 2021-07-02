@@ -24,13 +24,14 @@ class BalanceAndPointWidget extends StatelessWidget {
       builder: (context, state) {
         // return pointAndBalance(context);
         return state.map(
-          loading: (_) => _pointAndBalance(context, 'XX.XX', 'XX.XX'),
+          loading: (_) => _pointAndBalance(context, '', ''),
+          // loaded: (success) => _pointAndBalance(context, '', ''),
           loaded: (success) => _pointAndBalance(
             context,
             success.balance.formattedCurrency,
             '${success.balance.point ?? 0.0}',
           ),
-          failure: (_) => _pointAndBalance(context, 'XX.XX', 'XX.XX'),
+          failure: (_) => _pointAndBalance(context, '', ''),
         );
       },
     );
@@ -71,14 +72,23 @@ class BalanceAndPointWidget extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  Text(
-                    balance,
-                    style: TextStyle(
-                      color: Palette.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                  if (balance.isEmpty)
+                    Container(
+                      padding: const EdgeInsets.only(top: 8),
+                      width: 90,
+                      child: const LinearProgressIndicator(
+                        color: Colors.black,
+                      ),
+                    )
+                  else
+                    Text(
+                      balance,
+                      style: TextStyle(
+                        color: Palette.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
                 ],
               ),
               const Spacer(),
@@ -98,14 +108,23 @@ class BalanceAndPointWidget extends StatelessWidget {
                       const SizedBox(
                         width: 5,
                       ),
-                      Text(
-                        points,
-                        style: TextStyle(
-                          color: Palette.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                      if (points.isEmpty)
+                        Container(
+                          padding: const EdgeInsets.only(top: 4),
+                          width: 55,
+                          child: const LinearProgressIndicator(
+                            color: Colors.black,
+                          ),
+                        )
+                      else
+                        Text(
+                          points,
+                          style: TextStyle(
+                            color: Palette.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
                     ],
                   ),
                   const SizedBox(

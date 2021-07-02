@@ -435,7 +435,7 @@ class TransactionViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: const EdgeInsets.all(12),
+      contentPadding: const EdgeInsets.all(8),
       onTap: () => context.pushRoute(TransactionDetailRoute(item: transaction)),
       leading: Container(
           width: 55,
@@ -452,7 +452,7 @@ class TransactionViewItem extends StatelessWidget {
           )),
       title: Text(
         transaction.transactionName.toString(),
-        textScaleFactor: 0.9,
+        textScaleFactor: 0.8,
         style: const TextStyle(fontWeight: FontWeight.w700),
       ),
       subtitle: Text(
