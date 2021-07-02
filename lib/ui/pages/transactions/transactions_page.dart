@@ -29,42 +29,13 @@ class TransactionPage extends StatelessWidget {
       body: Scrollbar(
         child: Column(
           children: [
-            showBalance(),
+            const BalanceWidget(),
             const SizedBox(height: 20),
             body(),
           ],
         ),
       ),
     );
-  }
-
-  Widget showBalance() {
-    return const BalanceWidget();
-    // return BlocBuilder<HomePageDataBloc, HomePageDataState>(
-    //   builder: (context, state) {
-    //     return state.map(
-    //       loading: (_) => loadingPage(),
-    //       loaded: (success) => BalanceWidget(
-    //           balance:
-    //               success.data.userDetail?.formattedBalance.toString() ?? ''),
-    //       failure: (error) {
-    //         Future.delayed(Duration.zero, () {
-    //           FlushbarHelper.createError(
-    //             message: error.failure.map(
-    //               noInternetConnection: (error) => AppConstants.noNetwork,
-    //               serverError: (error) => error.message,
-    //               invalidUser: (error) => AppConstants.someThingWentWrong,
-    //             ),
-    //           ).show(context);
-    //         });
-    //         return const Text('Error');
-    //       },
-    //       failureWithData: (value) => loadingPage(),
-    //       initial: (value) => loadingPage(),
-    //       loadingWithData: (value) => loadingPage(),
-    //     );
-    //   },
-    // );
   }
 
   Widget body() {
