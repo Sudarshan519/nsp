@@ -1,3 +1,5 @@
+import 'package:another_flushbar/flushbar.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/news/domain/entity/news_genre.dart';
@@ -23,7 +25,7 @@ class ForYouCategorySelectionPage extends StatelessWidget {
           initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
           loaded: (success) => _ForYouCategorySelectionPage(
-            genres: success.genre ,
+            genres: success.genre,
             editGenre: editGenre,
           ),
         );
@@ -72,8 +74,23 @@ class __ForYouCategorySelectionPageState
           const SizedBox(height: 10),
           InkWell(
             onTap: () {
-              context.read<NewsGenreBloc>().add(const NewsGenreEvent.save());
-              widget.editGenre();
+              final data = context.read<NewsGenreBloc>().genreList;
+
+              if (data != null) {
+                if (data
+                    .where((element) => element.isSelected ?? false)
+                    .toList()
+                    .isEmpty) {
+                  FlushbarHelper.createInformation(
+                          message: 'Please select at least one topic!')
+                      .show(context);
+                } else {
+                  context
+                      .read<NewsGenreBloc>()
+                      .add(const NewsGenreEvent.save());
+                  widget.editGenre();
+                }
+              }
             },
             child: Container(
               height: 40,
