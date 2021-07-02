@@ -34,6 +34,7 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
     final _child = _children(widget.remitRates);
     final _tabBar = _tabBarWidget(widget.remitRates);
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         TabBar(
           unselectedLabelColor: Palette.black,
@@ -79,7 +80,7 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
   }) {
     final _baseurl = getIt<ConfigReader>().baseURL;
     final text = rate.remitServiceName ?? "";
-
+    final size = MediaQuery.of(context).size;
     return Column(
       children: [
         Image.network(
@@ -87,30 +88,28 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
           height: 20,
           fit: BoxFit.fitWidth,
         ),
-        Center(
-          child: SizedBox(
+        const SizedBox(
+          height: 4,
+        ),
+        SizedBox(
+            width: size.width * 0.18,
+            height: size.height * 0.036,
             child: text.length > 16
-                ? SizedBox(
-                    width: 60,
-                    height: 30,
-                    child: Marquee(
-                      text: text,
-                      textScaleFactor: 0.7,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      blankSpace: 20.0,
-                      velocity: 15,
-                      startPadding: 10.0,
-                      accelerationCurve: Curves.linear,
-                      decelerationCurve: Curves.easeOut,
-                    ),
+                ? Marquee(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    text: text,
+                    textScaleFactor: 0.7,
+                    blankSpace: 20.0,
+                    velocity: 15,
+                    startPadding: 10.0,
+                    accelerationCurve: Curves.linear,
+                    decelerationCurve: Curves.easeOut,
                   )
                 : Text(
                     text,
                     textScaleFactor: 0.7,
                     textAlign: TextAlign.center,
-                  ),
-          ),
-        ),
+                  )),
       ],
     );
   }
