@@ -16,6 +16,7 @@ import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class UtilityPaymentDataSource {
   Future<Unit> topupBalance({
+    required String productId,
     required String amount,
     required String number,
     required String type,
@@ -53,6 +54,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
 
   @override
   Future<Unit> topupBalance({
+    required String productId,
     required String amount,
     required String number,
     required String type,
@@ -72,6 +74,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     http.Response response;
 
     final params = {
+      "product_id": int.parse(productId),
       "phone_number": number,
       "amount": amount,
       "gps": getIt<GeoLocationManager>().gps,

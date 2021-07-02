@@ -24,7 +24,7 @@ import '../../features/resume/domain/entities/qualification_history.dart'
     as _i44;
 import '../../features/resume/domain/entities/work_history.dart' as _i42;
 import '../../features/transaction/domain/entity/transaction_item.dart' as _i51;
-import '../../features/utility_payments/domain/entities/utility_payments.dart'
+import '../../features/utility_payments/data/models/utility_payments_model.dart'
     as _i50;
 import '../pages/add_balance/add_balance.dart' as _i26;
 import '../pages/add_balance/payment_page/esewa/esewa_topup_page.dart' as _i30;
@@ -311,7 +311,8 @@ class AppRouter extends _i1.RootStackRouter {
               key: args.key,
               balance: args.balance,
               conversionRate: args.conversionRate,
-              utilPaymentData: args.utilPaymentData);
+              index: args.index,
+              paymentData: args.paymentData);
         }),
     PartnerServicePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -1031,14 +1032,16 @@ class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
       {_i2.Key? key,
       required double balance,
       required double conversionRate,
-      required _i50.UtilityPayment utilPaymentData})
+      required int index,
+      required List<_i50.UtilityPaymentsModel> paymentData})
       : super(name,
             path: '/top-up-page',
             args: TopUpRouteArgs(
                 key: key,
                 balance: balance,
                 conversionRate: conversionRate,
-                utilPaymentData: utilPaymentData));
+                index: index,
+                paymentData: paymentData));
 
   static const String name = 'TopUpRoute';
 }
@@ -1048,7 +1051,8 @@ class TopUpRouteArgs {
       {this.key,
       required this.balance,
       required this.conversionRate,
-      required this.utilPaymentData});
+      required this.index,
+      required this.paymentData});
 
   final _i2.Key? key;
 
@@ -1056,7 +1060,9 @@ class TopUpRouteArgs {
 
   final double conversionRate;
 
-  final _i50.UtilityPayment utilPaymentData;
+  final int index;
+
+  final List<_i50.UtilityPaymentsModel> paymentData;
 }
 
 class PartnerServicePaymentRoute

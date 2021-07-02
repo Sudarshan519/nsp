@@ -43,9 +43,10 @@ class UtilityPamentWidget extends StatelessWidget {
               children: paymentData
                   .map(
                     (e) => GridItem(
-                      utilityItem: e,
+                      index: paymentData.indexOf(e),
                       balance: balance,
                       conversionRate: conversionRate,
+                      paymentData: paymentData,
                     ),
                   )
                   .toList(),
@@ -58,16 +59,18 @@ class UtilityPamentWidget extends StatelessWidget {
 }
 
 class GridItem extends StatelessWidget {
-  final UtilityPaymentsModel utilityItem;
+  final int index;
   final double balance;
   final double conversionRate;
+  final List<UtilityPaymentsModel> paymentData;
 
-  const GridItem({
-    Key? key,
-    required this.utilityItem,
-    required this.balance,
-    required this.conversionRate,
-  }) : super(key: key);
+  const GridItem(
+      {Key? key,
+      required this.index,
+      required this.balance,
+      required this.conversionRate,
+      required this.paymentData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -75,26 +78,27 @@ class GridItem extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        final type = utilityItem.paymentType ?? '';
+        final type = paymentData[index].paymentType ?? '';
         if (type.toLowerCase() == 'topup_balance') {
           context.pushRoute(
             TopUpRoute(
+              index: index,
               balance: balance,
               conversionRate: conversionRate,
-              utilPaymentData: utilityItem,
+              paymentData: paymentData,
             ),
           );
         }
 
         if (type.toLowerCase() == 'mirai') {
           context.pushRoute(
-            PartnerServicePaymentRoute(title: utilityItem.name ?? ''),
+            PartnerServicePaymentRoute(title: paymentData[index].name ?? ''),
           );
         }
       },
       child: Column(
         children: [
-          if (utilityItem.image != null)
+          if (paymentData[index].image != null)
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
@@ -105,14 +109,14 @@ class GridItem extends StatelessWidget {
               ),
               child: Center(
                 child: Image.network(
-                  _baseURL + utilityItem.image!,
+                  _baseURL + paymentData[index].image!,
                   height: 46,
                 ),
               ),
             ),
           const SizedBox(height: 3),
           Text(
-            utilityItem.name ?? '',
+            paymentData[index].name ?? '',
             textScaleFactor: 0.84,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
