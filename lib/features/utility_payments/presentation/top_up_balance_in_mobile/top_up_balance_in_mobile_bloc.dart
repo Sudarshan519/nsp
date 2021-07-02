@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/topup_balance_for_mobile.dart';
 
 part 'top_up_balance_in_mobile_event.dart';
@@ -37,6 +38,9 @@ class TopUpBalanceInMobileBloc
       },
       changeconvertedJpyAmount: (e) async* {
         yield _mapChangeconvertedJpyAmountEventToState(e);
+      },
+      setProductId: (e) async* {
+        yield _mapProductIdEventToState(e);
       },
       changeCoupon: (e) async* {
         yield _mapChangecCouponCodeEventToState(e);
@@ -81,6 +85,15 @@ class TopUpBalanceInMobileBloc
       key: UniqueKey(),
       number: _changePhoneNumberViaContact.number,
       type: type,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  //xxx
+  TopUpBalanceInMobileState _mapProductIdEventToState(
+      _SetProductId _setProductId) {
+    return state.copyWith(
+      productId: _setProductId.productId,
       failureOrSuccessOption: none(),
     );
   }
@@ -149,6 +162,7 @@ class TopUpBalanceInMobileBloc
     );
     final result = topUpBalanceForMobile.validate(
       TopUpBalanceForMobileParams(
+        productId: state.productId,
         amount: state.amount,
         number: state.number,
         type: state.type,
@@ -177,6 +191,7 @@ class TopUpBalanceInMobileBloc
 
     result = await topUpBalanceForMobile(
       TopUpBalanceForMobileParams(
+        productId: state.productId,
         amount: state.amount,
         number: state.number,
         type: state.type,
