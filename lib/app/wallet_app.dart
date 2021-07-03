@@ -11,14 +11,11 @@ import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_app/main.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
-import '../ui/routes/routes.gr.dart';
-
 class WalletApp extends StatelessWidget {
-  final _appRouter = AppRouter();
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -81,8 +78,8 @@ class WalletApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
+        routerDelegate: appRouter.delegate(),
+        routeInformationParser: appRouter.defaultRouteParser(),
         title: 'Wallet',
         theme: ThemeData(
           primaryColor: Palette.primary,

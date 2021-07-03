@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 
 import 'app/wallet_app.dart';
 import 'core/geo_location/geo_location.dart';
 import 'core/notification/push_notification_manager.dart';
 import 'utils/config_reader.dart';
+
+final appRouter = AppRouter();
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +25,7 @@ Future main() async {
 
   // Notification setup
   await Firebase.initializeApp();
-  await getIt<PushNotificationManager>().initialise();
+  await getIt<PushNotificationManager>().initialise(appRouter.navigatorKey);
   await getIt<GeoLocationManager>().initialise();
 
   runApp(WalletApp());

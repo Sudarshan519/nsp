@@ -42,8 +42,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    getIt<PushNotificationManager>().context = context;
-
     return Scaffold(
       body: Container(
         color: Palette.white,
