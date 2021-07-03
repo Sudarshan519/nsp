@@ -9,6 +9,7 @@ import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/utility_payments.dart';
 import 'package:wallet_app/features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -22,15 +23,18 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class TopUpPage extends StatefulWidget {
+  final int index;
+
   final double balance;
   final double conversionRate;
-  final UtilityPayment utilPaymentData;
+  final List<UtilityPaymentsModel> paymentData;
 
   const TopUpPage({
     Key? key,
     required this.balance,
     required this.conversionRate,
-    required this.utilPaymentData,
+    required this.index,
+    required this.paymentData,
   }) : super(key: key);
 
   @override
@@ -52,18 +56,19 @@ class _TopUpPageState extends State<TopUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    final payData = widget.paymentData[widget.index];
     return MultiBlocProvider(
       providers: [
         BlocProvider(
           create: (context) => getIt<TopUpBalanceInMobileBloc>()
             ..add(
               TopUpBalanceInMobileEvent.setCashbackpercentage(
-                widget.utilPaymentData.cashbackPer ?? 0.0,
+                payData.cashbackPer ?? 0.0,
               ),
             )
             ..add(
               TopUpBalanceInMobileEvent.setRewardPoint(
-                widget.utilPaymentData.rewardPoint ?? 0.0,
+                payData.rewardPoint ?? 0.0,
               ),
             ),
         ),
@@ -72,7 +77,7 @@ class _TopUpPageState extends State<TopUpPage> {
             ..add(
               VerifyCouponEvent.setInitialState(
                 productType: 'utility',
-                productId: widget.utilPaymentData.id ?? 0,
+                productId: payData.id ?? 0,
               ),
             ),
         ),
@@ -170,8 +175,8 @@ class _TopUpPageState extends State<TopUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            _MobileNumberTextField(),
-            _TypeOfNumber(),
+            _MobileNumberTextField(widget.paymentData),
+            _TypeOfNumber(widget.paymentData),
             _AmountTextField(
               conversionRate: widget.conversionRate,
             ),
@@ -485,6 +490,9 @@ class CouponCodeWidget extends StatelessWidget {
 }
 
 class _MobileNumberTextField extends StatelessWidget {
+  final List<UtilityPaymentsModel> paymentData;
+  const _MobileNumberTextField(this.paymentData);
+
   @override
   Widget build(BuildContext context) {
     //get phone contacts
@@ -614,12 +622,34 @@ class _AmountTextField extends StatelessWidget {
 }
 
 class _TypeOfNumber extends StatelessWidget {
+  final List<UtilityPaymentsModel> paymentData;
+  const _TypeOfNumber(this.paymentData);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
         if (state.number.isEmpty || state.type.isEmpty) {
           return const SizedBox.shrink();
+        }
+        final searchList = paymentData
+            .where((element) => element.name
+                .toString()
+                .toLowerCase()
+                .contains(state.type.toLowerCase()))
+            .toList();
+
+        if (searchList.isNotEmpty) {
+          final id = searchList.first.id ?? 0;
+          context
+              .read<TopUpBalanceInMobileBloc>()
+              .add(TopUpBalanceInMobileEvent.setProductId("$id"));
+          getIt<VerifyCouponBloc>().add(
+            VerifyCouponEvent.setInitialState(
+              productType: 'utility',
+              productId: id,
+            ),
+          );
         }
         return Column(
           children: [
@@ -685,7 +715,7 @@ class _TransactionDetail extends StatelessWidget {
         final cashbackAmount = doubleAmount * (state.cashbackPercentage / 100);
 
         doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
-        final conversionValue = doubleAmount * conversionRate;
+        final conversionValue = doubleAmount / conversionRate;
         return Column(
           children: [
             Container(
@@ -1115,9 +1145,15 @@ class _ConfirmButton extends StatelessWidget {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
         return InkWell(
-          onTap: () => context
-              .read<TopUpBalanceInMobileBloc>()
-              .add(const TopUpBalanceInMobileEvent.topup()),
+          onTap: () {
+            if (state.productId.isNotEmpty) {
+              context
+                  .read<TopUpBalanceInMobileBloc>()
+                  .add(const TopUpBalanceInMobileEvent.topup());
+            } else {
+              //TODO: show no product found or mismatch
+            }
+          },
           child: Container(
             height: 40,
             decoration: BoxDecoration(

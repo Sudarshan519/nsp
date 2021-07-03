@@ -20,6 +20,8 @@ class NewsGenreBloc extends Bloc<NewsGenreEvent, NewsGenreState> {
   final GetNewsGenre getNewsGenre;
   List<Genre>? _list;
 
+  List<Genre>? get genreList => _list;
+
   NewsGenreBloc({
     required this.getNewsGenre,
   }) : super(const _Initial());

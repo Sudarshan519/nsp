@@ -10,8 +10,12 @@ class TopUpBalanceInMobileEvent with _$TopUpBalanceInMobileEvent {
       _ChangeAmount;
   const factory TopUpBalanceInMobileEvent.changeCoupon(String coupon) =
       _ChangeCoupon;
+  const factory TopUpBalanceInMobileEvent.setProductId(String productId) =
+      _SetProductId;
+
   const factory TopUpBalanceInMobileEvent.setCashbackpercentage(
-      double percentage) = _SetCashbackpercentage;
+    double percentage,
+  ) = _SetCashbackpercentage;
   const factory TopUpBalanceInMobileEvent.setDiscountpercentage(
       double percentage) = _SetDiscountpercentage;
   const factory TopUpBalanceInMobileEvent.setRewardPoint(double point) =

@@ -21,10 +21,12 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
     required String number,
     required String type,
     required String coupon,
+    required String productId,
   }) async {
     try {
       return Right(
         await dataSource.topupBalance(
+          productId: productId,
           amount: amount,
           number: number,
           type: type,

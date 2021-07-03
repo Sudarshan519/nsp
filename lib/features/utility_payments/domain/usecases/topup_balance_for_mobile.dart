@@ -40,6 +40,7 @@ class TopUpBalanceForMobile
     }
 
     return repository.topupBalance(
+      productId: params.productId,
       amount: params.amount,
       number: params.number,
       type: params.type,
@@ -64,12 +65,14 @@ class TopUpBalanceForMobile
 }
 
 class TopUpBalanceForMobileParams {
+  final String productId;
   final String amount;
   final String number;
   final String type;
   final String coupon;
 
   TopUpBalanceForMobileParams({
+    required this.productId,
     required this.amount,
     required this.number,
     required this.type,

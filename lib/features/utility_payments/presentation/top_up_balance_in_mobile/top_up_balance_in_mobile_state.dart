@@ -5,6 +5,7 @@ class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
   const factory TopUpBalanceInMobileState({
     required Key key,
     required String number,
+    required String productId,
     required String type,
     required String amount,
     required String convertedJpyAmount,
@@ -19,6 +20,7 @@ class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
 
   factory TopUpBalanceInMobileState.initial() => TopUpBalanceInMobileState(
         key: UniqueKey(),
+        productId: '',
         number: '',
         type: '',
         amount: '',

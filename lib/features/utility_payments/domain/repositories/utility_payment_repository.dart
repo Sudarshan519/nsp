@@ -4,6 +4,7 @@ import 'package:wallet_app/features/partner_services/domain/entities/service_sub
 
 abstract class UtilityPaymentRepository {
   Future<Either<ApiFailure, Unit>> topupBalance({
+    required String productId,
     required String amount,
     required String number,
     required String type,

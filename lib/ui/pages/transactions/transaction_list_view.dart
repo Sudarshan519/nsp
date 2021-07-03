@@ -407,7 +407,7 @@ class TransactionListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShadowBoxWidget(
-      margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      margin: const EdgeInsets.symmetric(vertical: 11, horizontal: 10),
       child: ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -435,7 +435,7 @@ class TransactionViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: const EdgeInsets.all(8),
+      // contentPadding: const EdgeInsets.all(5),
       onTap: () => context.pushRoute(TransactionDetailRoute(item: transaction)),
       leading: Container(
           width: 55,
@@ -452,12 +452,12 @@ class TransactionViewItem extends StatelessWidget {
           )),
       title: Text(
         transaction.transactionName.toString(),
-        textScaleFactor: 0.8,
+        textScaleFactor: 0.74,
         style: const TextStyle(fontWeight: FontWeight.w700),
       ),
       subtitle: Text(
         '''${transaction.transactionType}\n${DateTimeFormatter.formatDate(transaction.createdAt.toString())} - ${DateTimeFormatter.formatTime(transaction.createdAt.toString())}''',
-        textScaleFactor: 0.85,
+        textScaleFactor: 0.8,
       ),
       trailing: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
