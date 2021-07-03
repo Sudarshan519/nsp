@@ -7,7 +7,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/notification/navigate_notification.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 @lazySingleton
 class PushNotificationManager {
@@ -129,7 +128,7 @@ class PushNotificationManager {
   Future _selectNotification(String? payload,
       {bool didNotificationLaunchApp = false}) async {
     if (didNotificationLaunchApp) {
-      //Wait for some time to ensure the app is initialized  well , then open notification
+      //Wait for some time to ensure the app is initialized  well, then open notification
       await Future.delayed(const Duration(seconds: 1));
     }
 
