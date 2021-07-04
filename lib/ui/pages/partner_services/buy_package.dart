@@ -61,7 +61,7 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
             ..add(
               VerifyCouponEvent.setInitialState(
                 productType: 'service',
-                productId: widget.package.id ?? 0,
+                productId: widget.services.id ?? 0,
               ),
             ),
         ),

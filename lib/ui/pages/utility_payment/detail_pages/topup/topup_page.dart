@@ -257,7 +257,7 @@ class _TopUpPageState extends State<TopUpPage> {
 
           doubleAmount = doubleAmount - discountAmount;
 
-          final conversionValue = doubleAmount * widget.conversionRate;
+          final conversionValue = doubleAmount / widget.conversionRate;
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Column(
@@ -1066,26 +1066,26 @@ class _TransactionAmountInNPRField extends StatelessWidget {
   }
 }
 
-class _TransactionAmountInJPYField extends StatelessWidget {
-  final double conversionRate;
+// class _TransactionAmountInJPYField extends StatelessWidget {
+//   final double conversionRate;
 
-  const _TransactionAmountInJPYField({
-    Key? key,
-    required this.conversionRate,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
-      builder: (context, state) {
-        final conversionValue = double.parse(state.amount) * conversionRate;
-        return _TransactionDetailRow(
-          title: 'Transaction Amount (JPY)',
-          value: conversionValue.toStringAsFixed(2),
-        );
-      },
-    );
-  }
-}
+//   const _TransactionAmountInJPYField({
+//     Key? key,
+//     required this.conversionRate,
+//   }) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+//       builder: (context, state) {
+//         final conversionValue = double.parse(state.amount) * conversionRate;
+//         return _TransactionDetailRow(
+//           title: 'Transaction Amount (JPY)',
+//           value: conversionValue.toStringAsFixed(2),
+//         );
+//       },
+//     );
+//   }
+// }
 
 class _TransactionDetailRow extends StatelessWidget {
   final String title;
