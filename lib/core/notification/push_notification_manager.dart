@@ -150,12 +150,6 @@ Future<void> handleForegroundIncomingNotification(RemoteMessage message) async {
 }
 
 Future<void> handleBackgroundIncomingNotification(RemoteMessage message) async {
-  final RemoteNotification? notification = message.notification;
-
-  // If `onMessage` is triggered with a notification, construct our own
-  // local notification to show to users using the created channel.
-  if (notification != null) {
-    _selectNotification(json.encode(message.data),
-        didNotificationLaunchApp: true);
-  }
+  _selectNotification(json.encode(message.data),
+      didNotificationLaunchApp: true);
 }
