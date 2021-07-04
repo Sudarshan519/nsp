@@ -7,29 +7,27 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/notification/navigate_notification.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
+import 'package:wallet_app/main.dart';
+
+const AndroidNotificationChannel _androidChannel = AndroidNotificationChannel(
+  'high_importance_channel', // id
+  'High Importance Notifications', // title
+  'This channel is used for important notifications.', // description
+  importance: Importance.max,
+);
+final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+
+final _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
 @lazySingleton
 class PushNotificationManager {
-  late FirebaseMessaging _firebaseMessaging;
-  late FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin;
-  final AndroidNotificationChannel _androidChannel =
-      const AndroidNotificationChannel(
-    'high_importance_channel', // id
-    'High Importance Notifications', // title
-    'This channel is used for important notifications.', // description
-    importance: Importance.max,
-  );
-
   String _token = "";
 
   String get fireBaseToken {
     return _token;
   }
 
-  late GlobalKey<NavigatorState> _key;
-
-  Future initialise(GlobalKey<NavigatorState> key) async {
-    _key = key;
+  Future initialise() async {
     await _localNotificationSetup();
     await _pushNotificationSetup();
   }
@@ -53,7 +51,6 @@ class PushNotificationManager {
       iOS: initializationSettingsIOS,
     );
 
-    _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
     await _flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onSelectNotification: _selectNotification);
 
@@ -75,11 +72,11 @@ class PushNotificationManager {
   }
 
   Future _pushNotificationSetup() async {
-    _firebaseMessaging = FirebaseMessaging.instance;
     _firebaseMessaging.requestPermission();
 
     try {
       _token = await _firebaseMessaging.getToken() ?? '';
+
       debugPrint("FirebaseMessaging token: $_token");
     } catch (ex) {
       debugPrint(ex.toString());
@@ -96,54 +93,69 @@ class PushNotificationManager {
     _firebaseMessaging.setForegroundNotificationPresentationOptions(
         alert: true, badge: true, sound: true);
 
-    FirebaseMessaging.onMessage.listen(handleIncomingNotification);
-    FirebaseMessaging.onBackgroundMessage(handleIncomingNotification);
+    FirebaseMessaging.onMessage.listen(handleForegroundIncomingNotification);
+    FirebaseMessaging.onMessageOpenedApp
+        .listen(handleForegroundIncomingNotification);
+    FirebaseMessaging.onBackgroundMessage(handleBackgroundIncomingNotification);
+  }
+}
+
+Future _selectNotification(String? payload,
+    {bool didNotificationLaunchApp = false}) async {
+  if (didNotificationLaunchApp) {
+    //if the app is started by clicking on the notification,
+    //Wait for some time to ensure the app is initialized  well, then open notification
+    await Future.delayed(const Duration(seconds: 1));
   }
 
-  Future handleIncomingNotification(RemoteMessage message) async {
-    final RemoteNotification? notification = message.notification;
-    final AndroidNotification? android = message.notification?.android;
+  try {
+    if (payload == null) return;
+    final data = json.decode(payload);
+    final type = data['notification_type'] as String?;
+    final id = data['product_id'] ?? '0';
+    final key = appRouter.navigatorKey;
+    if (key.currentContext != null && type != null) {
+      //TODO: make context routeable to autoRoute
+      navigate(key.currentContext!,
+          NotificationItem(productId: int.parse(id as String), type: type));
+    }
+  } catch (ex) {
+    debugPrint(ex.toString());
+  }
+}
 
-    // If `onMessage` is triggered with a notification, construct our own
-    // local notification to show to users using the created channel.
-    if (notification != null && android != null) {
-      _flutterLocalNotificationsPlugin.show(
-          notification.hashCode,
-          notification.title,
-          notification.body,
-          NotificationDetails(
-            android: AndroidNotificationDetails(
-              _androidChannel.id,
-              _androidChannel.name,
-              _androidChannel.description,
-              icon: android.smallIcon ?? 'notification_logo',
+Future<void> handleForegroundIncomingNotification(RemoteMessage message) async {
+  final RemoteNotification? notification = message.notification;
+  final AndroidNotification? android = message.notification?.android;
 
-              // other properties...
-            ),
+  // If `onMessage` is triggered with a notification, construct our own
+  // local notification to show to users using the created channel.
+  if (notification != null && android != null) {
+    _flutterLocalNotificationsPlugin.show(
+        notification.hashCode,
+        notification.title,
+        notification.body,
+        NotificationDetails(
+          android: AndroidNotificationDetails(
+            _androidChannel.id,
+            _androidChannel.name,
+            _androidChannel.description,
+            icon: android.smallIcon ?? 'notification_logo',
+
+            // other properties...
           ),
-          payload: json.encode(message.data));
-    }
+        ),
+        payload: json.encode(message.data));
   }
+}
 
-  Future _selectNotification(String? payload,
-      {bool didNotificationLaunchApp = false}) async {
-    if (didNotificationLaunchApp) {
-      //Wait for some time to ensure the app is initialized  well, then open notification
-      await Future.delayed(const Duration(seconds: 1));
-    }
+Future<void> handleBackgroundIncomingNotification(RemoteMessage message) async {
+  final RemoteNotification? notification = message.notification;
 
-    try {
-      if (payload == null) return;
-      final data = json.decode(payload);
-      final type = data['notification_type'] as String?;
-      final id = data['product_id'] ?? '0';
-      if (_key.currentContext != null && type != null) {
-        //TODO: make context routeable to autoRoute
-        navigate(_key.currentContext!,
-            NotificationItem(productId: int.parse(id as String), type: type));
-      }
-    } catch (ex) {
-      debugPrint(ex.toString());
-    }
+  // If `onMessage` is triggered with a notification, construct our own
+  // local notification to show to users using the created channel.
+  if (notification != null) {
+    _selectNotification(json.encode(message.data),
+        didNotificationLaunchApp: true);
   }
 }

@@ -25,7 +25,7 @@ Future main() async {
 
   // Notification setup
   await Firebase.initializeApp();
-  await getIt<PushNotificationManager>().initialise(appRouter.navigatorKey);
+  await getIt<PushNotificationManager>().initialise();
   await getIt<GeoLocationManager>().initialise();
 
   runApp(WalletApp());
