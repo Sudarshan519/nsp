@@ -78,6 +78,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                       width: 90,
                       child: const LinearProgressIndicator(
                         color: Colors.black,
+                        backgroundColor: Colors.black12,
                       ),
                     )
                   else
@@ -114,6 +115,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                           width: 55,
                           child: const LinearProgressIndicator(
                             color: Colors.black,
+                            backgroundColor: Colors.black12,
                           ),
                         )
                       else

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 
 import 'messages/en.dart';
@@ -134,11 +135,18 @@ String dateWithTimeFormat(DateTime date) {
 }
 
 DateTime? convertToDateTime(String datetime) {
+  //there maybe 2 types of date formats coming from the API
   try {
-    return DateFormat('E, d MMM yyyy HH:mm:ss').parse(datetime);
+    if (datetime.contains(',')) {
+      return DateFormat('EEE, d MMM yyyy HH:mm:ss').parse(datetime);
+    } else {
+      return DateTime.parse(datetime);
+    }
   } catch (ex) {
     // To do add Logger here
-    print(ex.toString());
+    debugPrint('error parsing to datetime:');
+
+    debugPrint(ex.toString());
     return null;
   }
 }
@@ -148,7 +156,9 @@ DateTime? convertToDate(String datetime) {
     return DateTime.parse(datetime);
   } catch (ex) {
     // To do add Logger here
-    print(ex.toString());
+    debugPrint('error parsing to time:');
+
+    debugPrint(ex.toString());
     return null;
   }
 }
