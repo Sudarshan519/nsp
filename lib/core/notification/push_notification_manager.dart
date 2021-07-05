@@ -93,9 +93,14 @@ class PushNotificationManager {
     _firebaseMessaging.setForegroundNotificationPresentationOptions(
         alert: true, badge: true, sound: true);
 
-    FirebaseMessaging.onMessage.listen(handleForegroundIncomingNotification);
-    FirebaseMessaging.onMessageOpenedApp
-        .listen(handleForegroundIncomingNotification);
+    FirebaseMessaging.onMessage.listen((m) {
+      print('onmessage');
+      handleForegroundIncomingNotification(m);
+    });
+    FirebaseMessaging.onMessageOpenedApp.listen((m) {
+      print('on message opened app');
+      handleBackgroundIncomingNotification(m);
+    });
     FirebaseMessaging.onBackgroundMessage(handleBackgroundIncomingNotification);
   }
 }
