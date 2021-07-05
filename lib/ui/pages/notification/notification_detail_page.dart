@@ -41,17 +41,21 @@ class NotificationDetailPage extends StatelessWidget {
                       height: 6,
                     ),
                     if (notification.redirectUrl != null)
-                      CustomButton(
-                          title: 'More Info',
-                          onTap: () {
-                            FlutterWebBrowser.openWebPage(
-                                url: notification.redirectUrl!,
-                                customTabsOptions: CustomTabsOptions(
-                                  colorScheme: CustomTabsColorScheme.dark,
-                                  toolbarColor: Palette.primary,
-                                  showTitle: true,
-                                ));
-                          })
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 70, vertical: 12),
+                        child: CustomButton(
+                            title: 'More Info',
+                            onTap: () {
+                              FlutterWebBrowser.openWebPage(
+                                  url: notification.redirectUrl!,
+                                  customTabsOptions: CustomTabsOptions(
+                                    colorScheme: CustomTabsColorScheme.dark,
+                                    toolbarColor: Palette.primary,
+                                    showTitle: true,
+                                  ));
+                            }),
+                      )
                   ],
                 ),
               ),

@@ -57,7 +57,7 @@ class PromoCodeWidget extends StatelessWidget {
           loaded: (success) {
             return ShadowBoxWidget(
               margin:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
+                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
               child: ListView.builder(
                 padding: EdgeInsets.zero,
                 itemCount: success.coupons.length,
@@ -113,7 +113,7 @@ class PromoCodeItemWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: size.width * 0.4,
+                    width: size.width * 0.38,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -153,7 +153,7 @@ class PromoCodeItemWidget extends StatelessWidget {
                       const Text(
                         "*Conditions Apply",
                         style: TextStyle(
-                          fontSize: 10,
+                          fontSize: 8,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
