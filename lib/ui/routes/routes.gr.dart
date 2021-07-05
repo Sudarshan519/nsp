@@ -319,7 +319,7 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<PartnerServicePaymentRouteArgs>();
           return _i34.PartnerServicePaymentPage(
-              key: args.key, title: args.title);
+              key: args.key, payData: args.payData);
         }),
     TransactionRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -1067,20 +1067,21 @@ class TopUpRouteArgs {
 
 class PartnerServicePaymentRoute
     extends _i1.PageRouteInfo<PartnerServicePaymentRouteArgs> {
-  PartnerServicePaymentRoute({_i2.Key? key, required String title})
+  PartnerServicePaymentRoute(
+      {_i2.Key? key, required _i50.UtilityPaymentsModel payData})
       : super(name,
             path: '/partner-service-payment-page',
-            args: PartnerServicePaymentRouteArgs(key: key, title: title));
+            args: PartnerServicePaymentRouteArgs(key: key, payData: payData));
 
   static const String name = 'PartnerServicePaymentRoute';
 }
 
 class PartnerServicePaymentRouteArgs {
-  const PartnerServicePaymentRouteArgs({this.key, required this.title});
+  const PartnerServicePaymentRouteArgs({this.key, required this.payData});
 
   final _i2.Key? key;
 
-  final String title;
+  final _i50.UtilityPaymentsModel payData;
 }
 
 class TransactionRoute extends _i1.PageRouteInfo {

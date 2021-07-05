@@ -30,6 +30,7 @@ abstract class UtilityPaymentDataSource {
   Future<Unit> paymentForPackagesPurchase({
     required List<SubscriptionInvoiceModel> invoice,
     required String coupon,
+    required int productId,
   });
 }
 
@@ -175,6 +176,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
   Future<Unit> paymentForPackagesPurchase({
     required List<SubscriptionInvoiceModel> invoice,
     required String coupon,
+    required int productId,
   }) async {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.payMiraiSubscription}";
@@ -190,6 +192,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     http.Response response;
 
     final params = {
+      'product_id': productId,
       "invoices": invoice.map((invoice) => invoice.toJson()).toList(),
       "gps": getIt<GeoLocationManager>().gps,
     };

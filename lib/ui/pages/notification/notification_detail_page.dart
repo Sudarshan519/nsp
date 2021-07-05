@@ -23,38 +23,40 @@ class NotificationDetailPage extends StatelessWidget {
           style: const TextStyle(color: Colors.white),
         ),
       ),
-      body: Column(
-        // padding: const EdgeInsets.all(12),
-        children: [
-          if (notification.image != null)
-            Hero(
-                tag: notification.id.toString(),
-                child: Image.network(baseURL + notification.image!)),
-          if (notification.message != null)
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: Column(
-                children: [
-                  ShadowBoxWidget(child: Text(notification.message!)),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  if (notification.redirectUrl != null)
-                    CustomButton(
-                        title: 'More Info',
-                        onTap: () {
-                          FlutterWebBrowser.openWebPage(
-                              url: notification.redirectUrl!,
-                              customTabsOptions: CustomTabsOptions(
-                                colorScheme: CustomTabsColorScheme.dark,
-                                toolbarColor: Palette.primary,
-                                showTitle: true,
-                              ));
-                        })
-                ],
+      body: SingleChildScrollView(
+        child: Column(
+          // padding: const EdgeInsets.all(12),
+          children: [
+            if (notification.image != null)
+              Hero(
+                  tag: notification.id.toString(),
+                  child: Image.network(baseURL + notification.image!)),
+            if (notification.message != null)
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  children: [
+                    ShadowBoxWidget(child: Text(notification.message!)),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    if (notification.redirectUrl != null)
+                      CustomButton(
+                          title: 'More Info',
+                          onTap: () {
+                            FlutterWebBrowser.openWebPage(
+                                url: notification.redirectUrl!,
+                                customTabsOptions: CustomTabsOptions(
+                                  colorScheme: CustomTabsColorScheme.dark,
+                                  toolbarColor: Palette.primary,
+                                  showTitle: true,
+                                ));
+                          })
+                  ],
+                ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

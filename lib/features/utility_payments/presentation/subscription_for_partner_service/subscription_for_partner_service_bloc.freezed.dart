@@ -33,8 +33,10 @@ class _$SubscriptionForPartnerServiceEventTearOff {
     return const _SelectAllSubscription();
   }
 
-  _PurchaseSubscription purchaseSubscription() {
-    return const _PurchaseSubscription();
+  _PurchaseSubscription purchaseSubscription(int productId) {
+    return _PurchaseSubscription(
+      productId,
+    );
   }
 }
 
@@ -49,7 +51,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function() selectAllSubscription,
-    required TResult Function() purchaseSubscription,
+    required TResult Function(int productId) purchaseSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,7 +59,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function()? selectAllSubscription,
-    TResult Function()? purchaseSubscription,
+    TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,7 +171,7 @@ class _$_GetSubscription implements _GetSubscription {
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function() selectAllSubscription,
-    required TResult Function() purchaseSubscription,
+    required TResult Function(int productId) purchaseSubscription,
   }) {
     return getSubscription(subscriptionId);
   }
@@ -180,7 +182,7 @@ class _$_GetSubscription implements _GetSubscription {
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function()? selectAllSubscription,
-    TResult Function()? purchaseSubscription,
+    TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {
     if (getSubscription != null) {
@@ -295,7 +297,7 @@ class _$_SelectSubscription implements _SelectSubscription {
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function() selectAllSubscription,
-    required TResult Function() purchaseSubscription,
+    required TResult Function(int productId) purchaseSubscription,
   }) {
     return selectSubscription(invoice);
   }
@@ -306,7 +308,7 @@ class _$_SelectSubscription implements _SelectSubscription {
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function()? selectAllSubscription,
-    TResult Function()? purchaseSubscription,
+    TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {
     if (selectSubscription != null) {
@@ -397,7 +399,7 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function() selectAllSubscription,
-    required TResult Function() purchaseSubscription,
+    required TResult Function(int productId) purchaseSubscription,
   }) {
     return selectAllSubscription();
   }
@@ -408,7 +410,7 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function()? selectAllSubscription,
-    TResult Function()? purchaseSubscription,
+    TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {
     if (selectAllSubscription != null) {
@@ -455,6 +457,7 @@ abstract class _$PurchaseSubscriptionCopyWith<$Res> {
   factory _$PurchaseSubscriptionCopyWith(_PurchaseSubscription value,
           $Res Function(_PurchaseSubscription) then) =
       __$PurchaseSubscriptionCopyWithImpl<$Res>;
+  $Res call({int productId});
 }
 
 /// @nodoc
@@ -467,25 +470,51 @@ class __$PurchaseSubscriptionCopyWithImpl<$Res>
 
   @override
   _PurchaseSubscription get _value => super._value as _PurchaseSubscription;
+
+  @override
+  $Res call({
+    Object? productId = freezed,
+  }) {
+    return _then(_PurchaseSubscription(
+      productId == freezed
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_PurchaseSubscription implements _PurchaseSubscription {
-  const _$_PurchaseSubscription();
+  const _$_PurchaseSubscription(this.productId);
+
+  @override
+  final int productId;
 
   @override
   String toString() {
-    return 'SubscriptionForPartnerServiceEvent.purchaseSubscription()';
+    return 'SubscriptionForPartnerServiceEvent.purchaseSubscription(productId: $productId)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PurchaseSubscription);
+    return identical(this, other) ||
+        (other is _PurchaseSubscription &&
+            (identical(other.productId, productId) ||
+                const DeepCollectionEquality()
+                    .equals(other.productId, productId)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(productId);
+
+  @JsonKey(ignore: true)
+  @override
+  _$PurchaseSubscriptionCopyWith<_PurchaseSubscription> get copyWith =>
+      __$PurchaseSubscriptionCopyWithImpl<_PurchaseSubscription>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -493,9 +522,9 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function() selectAllSubscription,
-    required TResult Function() purchaseSubscription,
+    required TResult Function(int productId) purchaseSubscription,
   }) {
-    return purchaseSubscription();
+    return purchaseSubscription(productId);
   }
 
   @override
@@ -504,11 +533,11 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function()? selectAllSubscription,
-    TResult Function()? purchaseSubscription,
+    TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {
     if (purchaseSubscription != null) {
-      return purchaseSubscription();
+      return purchaseSubscription(productId);
     }
     return orElse();
   }
@@ -543,7 +572,12 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
 
 abstract class _PurchaseSubscription
     implements SubscriptionForPartnerServiceEvent {
-  const factory _PurchaseSubscription() = _$_PurchaseSubscription;
+  const factory _PurchaseSubscription(int productId) = _$_PurchaseSubscription;
+
+  int get productId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$PurchaseSubscriptionCopyWith<_PurchaseSubscription> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

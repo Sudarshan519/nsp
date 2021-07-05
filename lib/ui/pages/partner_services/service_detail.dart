@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
@@ -151,7 +152,10 @@ class ServicesDetailPage extends StatelessWidget {
                                       onTap: () {
                                         context.pushRoute(
                                           PartnerServicePaymentRoute(
-                                            title: 'Mirai Life Insurance',
+                                            payData: UtilityPaymentsModel(
+                                              id: services.id,
+                                              name: services.companyName,
+                                            ),
                                           ),
                                         );
                                       },

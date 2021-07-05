@@ -19,5 +19,6 @@ abstract class UtilityPaymentRepository {
   Future<Either<ApiFailure, Unit>> paymentForPackagesPurchase({
     required List<SubscriptionInvoice> invoice,
     required String coupon,
+    required int productId,
   });
 }
