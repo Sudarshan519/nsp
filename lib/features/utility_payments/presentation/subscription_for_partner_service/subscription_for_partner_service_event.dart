@@ -14,6 +14,6 @@ class SubscriptionForPartnerServiceEvent
   const factory SubscriptionForPartnerServiceEvent.selectAllSubscription() =
       _SelectAllSubscription;
 
-  const factory SubscriptionForPartnerServiceEvent.purchaseSubscription() =
-      _PurchaseSubscription;
+  const factory SubscriptionForPartnerServiceEvent.purchaseSubscription(
+      int productId) = _PurchaseSubscription;
 }

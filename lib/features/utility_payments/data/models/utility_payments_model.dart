@@ -1,16 +1,16 @@
 import 'package:wallet_app/features/utility_payments/domain/entities/utility_payments.dart';
 
 class UtilityPaymentsModel extends UtilityPayment {
-  const UtilityPaymentsModel({
+  UtilityPaymentsModel({
     required int? id,
     required String? name,
-    required String? image,
-    required double? cashbackPer,
-    required double? rewardPoint,
-    required bool? isActive,
-    required String? paymentType,
-    required String? createdAt,
-    required String? updatedAt,
+    String? image,
+    double? cashbackPer,
+    double? rewardPoint,
+    bool? isActive,
+    String? paymentType,
+    String? createdAt,
+    String? updatedAt,
   }) : super(
           id: id,
           name: name,

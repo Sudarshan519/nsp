@@ -2,10 +2,10 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/features/utility_payments/presentation/subscription_for_partner_service/subscription_for_partner_service_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
@@ -19,10 +19,10 @@ import 'package:wallet_app/utils/constant.dart';
 class PartnerServicePaymentPage extends StatelessWidget {
   const PartnerServicePaymentPage({
     Key? key,
-    required this.title,
+    required this.payData,
   }) : super(key: key);
 
-  final String title;
+  final UtilityPaymentsModel payData;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class PartnerServicePaymentPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            title,
+            payData.name ?? '',
             style: TextStyle(
               color: Palette.white,
             ),
@@ -198,8 +198,8 @@ class PartnerServicePaymentPage extends StatelessWidget {
               _ProceedButton(
                 callback: () {
                   context.read<SubscriptionForPartnerServiceBloc>().add(
-                        const SubscriptionForPartnerServiceEvent
-                            .purchaseSubscription(),
+                        SubscriptionForPartnerServiceEvent.purchaseSubscription(
+                            payData.id ?? 0),
                       );
                 },
               ),

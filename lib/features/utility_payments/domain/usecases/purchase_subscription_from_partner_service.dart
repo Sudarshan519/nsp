@@ -36,6 +36,7 @@ class PurchaseSubscriptionFromPartnerService
     return repository.paymentForPackagesPurchase(
       invoice: params.invoice,
       coupon: params.coupon,
+      productId: params.productId,
     );
   }
 }
@@ -43,9 +44,11 @@ class PurchaseSubscriptionFromPartnerService
 class PurchaseSubscriptionFromPartnerServiceParams {
   final List<SubscriptionInvoice> invoice;
   final String coupon;
+  final int productId;
 
   PurchaseSubscriptionFromPartnerServiceParams({
     required this.invoice,
     required this.coupon,
+    required this.productId,
   });
 }

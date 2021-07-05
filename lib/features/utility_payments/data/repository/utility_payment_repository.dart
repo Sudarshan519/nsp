@@ -58,15 +58,16 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
   Future<Either<ApiFailure, Unit>> paymentForPackagesPurchase({
     required List<SubscriptionInvoice> invoice,
     required String coupon,
+    required int productId,
   }) async {
     try {
       return Right(
         await dataSource.paymentForPackagesPurchase(
-          invoice: invoice
-              .map((invoice) => invoice.toSubscriptionInvoiceModel())
-              .toList(),
-          coupon: coupon,
-        ),
+            invoice: invoice
+                .map((invoice) => invoice.toSubscriptionInvoiceModel())
+                .toList(),
+            coupon: coupon,
+            productId: productId),
       );
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));

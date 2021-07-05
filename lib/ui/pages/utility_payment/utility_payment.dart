@@ -92,7 +92,7 @@ class GridItem extends StatelessWidget {
 
         if (type.toLowerCase() == 'mirai') {
           context.pushRoute(
-            PartnerServicePaymentRoute(title: paymentData[index].name ?? ''),
+            PartnerServicePaymentRoute(payData: paymentData[index]),
           );
         }
       },
