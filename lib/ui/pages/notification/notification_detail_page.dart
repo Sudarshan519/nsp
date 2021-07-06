@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
@@ -18,6 +19,7 @@ class NotificationDetailPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: const BackButton(color: Colors.white),
         title: Text(
           notification.title ?? 'Notification',
           style: const TextStyle(color: Colors.white),
@@ -30,11 +32,14 @@ class NotificationDetailPage extends StatelessWidget {
             if (notification.image != null)
               Hero(
                   tag: notification.id.toString(),
-                  child: Image.network(baseURL + notification.image!)),
+                  child: Image.network(notification.image!.contains('http')
+                      ? notification.image!
+                      : baseURL + notification.image!)),
             if (notification.message != null)
               Container(
                 padding: const EdgeInsets.all(8),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ShadowBoxWidget(child: Text(notification.message!)),
                     const SizedBox(
@@ -47,13 +52,23 @@ class NotificationDetailPage extends StatelessWidget {
                         child: CustomButton(
                             title: 'More Info',
                             onTap: () {
-                              FlutterWebBrowser.openWebPage(
-                                  url: notification.redirectUrl!,
-                                  customTabsOptions: CustomTabsOptions(
-                                    colorScheme: CustomTabsColorScheme.dark,
-                                    toolbarColor: Palette.primary,
-                                    showTitle: true,
-                                  ));
+                              try {
+                                final url =
+                                    notification.redirectUrl!.startsWith('http')
+                                        ? notification.redirectUrl!
+                                        : 'http://${notification.redirectUrl!}';
+                                FlutterWebBrowser.openWebPage(
+                                    url: url,
+                                    customTabsOptions: CustomTabsOptions(
+                                      colorScheme: CustomTabsColorScheme.dark,
+                                      toolbarColor: Palette.primary,
+                                      showTitle: true,
+                                    ));
+                              } catch (e) {
+                                FlushbarHelper.createError(
+                                        message: 'Failed to launch url!')
+                                    .show(context);
+                              }
                             }),
                       )
                   ],
