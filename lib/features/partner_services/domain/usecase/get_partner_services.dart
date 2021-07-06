@@ -41,3 +41,23 @@ class GetPartnerServicesParam {
     required this.page,
   });
 }
+
+class PurchasePackageParams {
+  final String customerId;
+  final String remarks;
+  final String packageName;
+  final double amount;
+  final int packageId;
+  final int serviceId;
+  final String coupon;
+
+  PurchasePackageParams({
+    required this.customerId,
+    required this.remarks,
+    required this.packageId,
+    required this.packageName,
+    required this.serviceId,
+    required this.amount,
+    required this.coupon,
+  });
+}

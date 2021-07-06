@@ -22,9 +22,20 @@ class _$SubscriptionForPartnerServiceEventTearOff {
     );
   }
 
-  _PurchaseSubscription purchaseSubscription({required String subscriptionId}) {
+  _SelectSubscription selectSubscription(
+      {required SubscriptionInvoice invoice}) {
+    return _SelectSubscription(
+      invoice: invoice,
+    );
+  }
+
+  _SelectAllSubscription selectAllSubscription() {
+    return const _SelectAllSubscription();
+  }
+
+  _PurchaseSubscription purchaseSubscription(int productId) {
     return _PurchaseSubscription(
-      subscriptionId: subscriptionId,
+      productId,
     );
   }
 }
@@ -35,39 +46,41 @@ const $SubscriptionForPartnerServiceEvent =
 
 /// @nodoc
 mixin _$SubscriptionForPartnerServiceEvent {
-  String get subscriptionId => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
-    required TResult Function(String subscriptionId) purchaseSubscription,
+    required TResult Function(SubscriptionInvoice invoice) selectSubscription,
+    required TResult Function() selectAllSubscription,
+    required TResult Function(int productId) purchaseSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
-    TResult Function(String subscriptionId)? purchaseSubscription,
+    TResult Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult Function()? selectAllSubscription,
+    TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSubscription value) getSubscription,
+    required TResult Function(_SelectSubscription value) selectSubscription,
+    required TResult Function(_SelectAllSubscription value)
+        selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
+    TResult Function(_SelectSubscription value)? selectSubscription,
+    TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SubscriptionForPartnerServiceEventCopyWith<
-          SubscriptionForPartnerServiceEvent>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -76,7 +89,6 @@ abstract class $SubscriptionForPartnerServiceEventCopyWith<$Res> {
           SubscriptionForPartnerServiceEvent value,
           $Res Function(SubscriptionForPartnerServiceEvent) then) =
       _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>;
-  $Res call({String subscriptionId});
 }
 
 /// @nodoc
@@ -87,27 +99,13 @@ class _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
   final SubscriptionForPartnerServiceEvent _value;
   // ignore: unused_field
   final $Res Function(SubscriptionForPartnerServiceEvent) _then;
-
-  @override
-  $Res call({
-    Object? subscriptionId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      subscriptionId: subscriptionId == freezed
-          ? _value.subscriptionId
-          : subscriptionId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$GetSubscriptionCopyWith<$Res>
-    implements $SubscriptionForPartnerServiceEventCopyWith<$Res> {
+abstract class _$GetSubscriptionCopyWith<$Res> {
   factory _$GetSubscriptionCopyWith(
           _GetSubscription value, $Res Function(_GetSubscription) then) =
       __$GetSubscriptionCopyWithImpl<$Res>;
-  @override
   $Res call({String subscriptionId});
 }
 
@@ -171,7 +169,9 @@ class _$_GetSubscription implements _GetSubscription {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
-    required TResult Function(String subscriptionId) purchaseSubscription,
+    required TResult Function(SubscriptionInvoice invoice) selectSubscription,
+    required TResult Function() selectAllSubscription,
+    required TResult Function(int productId) purchaseSubscription,
   }) {
     return getSubscription(subscriptionId);
   }
@@ -180,7 +180,9 @@ class _$_GetSubscription implements _GetSubscription {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
-    TResult Function(String subscriptionId)? purchaseSubscription,
+    TResult Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult Function()? selectAllSubscription,
+    TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {
     if (getSubscription != null) {
@@ -193,6 +195,9 @@ class _$_GetSubscription implements _GetSubscription {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSubscription value) getSubscription,
+    required TResult Function(_SelectSubscription value) selectSubscription,
+    required TResult Function(_SelectAllSubscription value)
+        selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
   }) {
     return getSubscription(this);
@@ -202,6 +207,8 @@ class _$_GetSubscription implements _GetSubscription {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
+    TResult Function(_SelectSubscription value)? selectSubscription,
+    TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     required TResult orElse(),
   }) {
@@ -216,22 +223,241 @@ abstract class _GetSubscription implements SubscriptionForPartnerServiceEvent {
   const factory _GetSubscription({required String subscriptionId}) =
       _$_GetSubscription;
 
-  @override
   String get subscriptionId => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   _$GetSubscriptionCopyWith<_GetSubscription> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PurchaseSubscriptionCopyWith<$Res>
-    implements $SubscriptionForPartnerServiceEventCopyWith<$Res> {
+abstract class _$SelectSubscriptionCopyWith<$Res> {
+  factory _$SelectSubscriptionCopyWith(
+          _SelectSubscription value, $Res Function(_SelectSubscription) then) =
+      __$SelectSubscriptionCopyWithImpl<$Res>;
+  $Res call({SubscriptionInvoice invoice});
+}
+
+/// @nodoc
+class __$SelectSubscriptionCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
+    implements _$SelectSubscriptionCopyWith<$Res> {
+  __$SelectSubscriptionCopyWithImpl(
+      _SelectSubscription _value, $Res Function(_SelectSubscription) _then)
+      : super(_value, (v) => _then(v as _SelectSubscription));
+
+  @override
+  _SelectSubscription get _value => super._value as _SelectSubscription;
+
+  @override
+  $Res call({
+    Object? invoice = freezed,
+  }) {
+    return _then(_SelectSubscription(
+      invoice: invoice == freezed
+          ? _value.invoice
+          : invoice // ignore: cast_nullable_to_non_nullable
+              as SubscriptionInvoice,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectSubscription implements _SelectSubscription {
+  const _$_SelectSubscription({required this.invoice});
+
+  @override
+  final SubscriptionInvoice invoice;
+
+  @override
+  String toString() {
+    return 'SubscriptionForPartnerServiceEvent.selectSubscription(invoice: $invoice)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SelectSubscription &&
+            (identical(other.invoice, invoice) ||
+                const DeepCollectionEquality().equals(other.invoice, invoice)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(invoice);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SelectSubscriptionCopyWith<_SelectSubscription> get copyWith =>
+      __$SelectSubscriptionCopyWithImpl<_SelectSubscription>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String subscriptionId) getSubscription,
+    required TResult Function(SubscriptionInvoice invoice) selectSubscription,
+    required TResult Function() selectAllSubscription,
+    required TResult Function(int productId) purchaseSubscription,
+  }) {
+    return selectSubscription(invoice);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String subscriptionId)? getSubscription,
+    TResult Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult Function()? selectAllSubscription,
+    TResult Function(int productId)? purchaseSubscription,
+    required TResult orElse(),
+  }) {
+    if (selectSubscription != null) {
+      return selectSubscription(invoice);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetSubscription value) getSubscription,
+    required TResult Function(_SelectSubscription value) selectSubscription,
+    required TResult Function(_SelectAllSubscription value)
+        selectAllSubscription,
+    required TResult Function(_PurchaseSubscription value) purchaseSubscription,
+  }) {
+    return selectSubscription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetSubscription value)? getSubscription,
+    TResult Function(_SelectSubscription value)? selectSubscription,
+    TResult Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult Function(_PurchaseSubscription value)? purchaseSubscription,
+    required TResult orElse(),
+  }) {
+    if (selectSubscription != null) {
+      return selectSubscription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectSubscription
+    implements SubscriptionForPartnerServiceEvent {
+  const factory _SelectSubscription({required SubscriptionInvoice invoice}) =
+      _$_SelectSubscription;
+
+  SubscriptionInvoice get invoice => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SelectSubscriptionCopyWith<_SelectSubscription> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SelectAllSubscriptionCopyWith<$Res> {
+  factory _$SelectAllSubscriptionCopyWith(_SelectAllSubscription value,
+          $Res Function(_SelectAllSubscription) then) =
+      __$SelectAllSubscriptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SelectAllSubscriptionCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
+    implements _$SelectAllSubscriptionCopyWith<$Res> {
+  __$SelectAllSubscriptionCopyWithImpl(_SelectAllSubscription _value,
+      $Res Function(_SelectAllSubscription) _then)
+      : super(_value, (v) => _then(v as _SelectAllSubscription));
+
+  @override
+  _SelectAllSubscription get _value => super._value as _SelectAllSubscription;
+}
+
+/// @nodoc
+
+class _$_SelectAllSubscription implements _SelectAllSubscription {
+  const _$_SelectAllSubscription();
+
+  @override
+  String toString() {
+    return 'SubscriptionForPartnerServiceEvent.selectAllSubscription()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _SelectAllSubscription);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String subscriptionId) getSubscription,
+    required TResult Function(SubscriptionInvoice invoice) selectSubscription,
+    required TResult Function() selectAllSubscription,
+    required TResult Function(int productId) purchaseSubscription,
+  }) {
+    return selectAllSubscription();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String subscriptionId)? getSubscription,
+    TResult Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult Function()? selectAllSubscription,
+    TResult Function(int productId)? purchaseSubscription,
+    required TResult orElse(),
+  }) {
+    if (selectAllSubscription != null) {
+      return selectAllSubscription();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetSubscription value) getSubscription,
+    required TResult Function(_SelectSubscription value) selectSubscription,
+    required TResult Function(_SelectAllSubscription value)
+        selectAllSubscription,
+    required TResult Function(_PurchaseSubscription value) purchaseSubscription,
+  }) {
+    return selectAllSubscription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetSubscription value)? getSubscription,
+    TResult Function(_SelectSubscription value)? selectSubscription,
+    TResult Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult Function(_PurchaseSubscription value)? purchaseSubscription,
+    required TResult orElse(),
+  }) {
+    if (selectAllSubscription != null) {
+      return selectAllSubscription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectAllSubscription
+    implements SubscriptionForPartnerServiceEvent {
+  const factory _SelectAllSubscription() = _$_SelectAllSubscription;
+}
+
+/// @nodoc
+abstract class _$PurchaseSubscriptionCopyWith<$Res> {
   factory _$PurchaseSubscriptionCopyWith(_PurchaseSubscription value,
           $Res Function(_PurchaseSubscription) then) =
       __$PurchaseSubscriptionCopyWithImpl<$Res>;
-  @override
-  $Res call({String subscriptionId});
+  $Res call({int productId});
 }
 
 /// @nodoc
@@ -247,13 +473,13 @@ class __$PurchaseSubscriptionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? subscriptionId = freezed,
+    Object? productId = freezed,
   }) {
     return _then(_PurchaseSubscription(
-      subscriptionId: subscriptionId == freezed
-          ? _value.subscriptionId
-          : subscriptionId // ignore: cast_nullable_to_non_nullable
-              as String,
+      productId == freezed
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -261,29 +487,28 @@ class __$PurchaseSubscriptionCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PurchaseSubscription implements _PurchaseSubscription {
-  const _$_PurchaseSubscription({required this.subscriptionId});
+  const _$_PurchaseSubscription(this.productId);
 
   @override
-  final String subscriptionId;
+  final int productId;
 
   @override
   String toString() {
-    return 'SubscriptionForPartnerServiceEvent.purchaseSubscription(subscriptionId: $subscriptionId)';
+    return 'SubscriptionForPartnerServiceEvent.purchaseSubscription(productId: $productId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PurchaseSubscription &&
-            (identical(other.subscriptionId, subscriptionId) ||
+            (identical(other.productId, productId) ||
                 const DeepCollectionEquality()
-                    .equals(other.subscriptionId, subscriptionId)));
+                    .equals(other.productId, productId)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(subscriptionId);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(productId);
 
   @JsonKey(ignore: true)
   @override
@@ -295,20 +520,24 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
-    required TResult Function(String subscriptionId) purchaseSubscription,
+    required TResult Function(SubscriptionInvoice invoice) selectSubscription,
+    required TResult Function() selectAllSubscription,
+    required TResult Function(int productId) purchaseSubscription,
   }) {
-    return purchaseSubscription(subscriptionId);
+    return purchaseSubscription(productId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
-    TResult Function(String subscriptionId)? purchaseSubscription,
+    TResult Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult Function()? selectAllSubscription,
+    TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {
     if (purchaseSubscription != null) {
-      return purchaseSubscription(subscriptionId);
+      return purchaseSubscription(productId);
     }
     return orElse();
   }
@@ -317,6 +546,9 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSubscription value) getSubscription,
+    required TResult Function(_SelectSubscription value) selectSubscription,
+    required TResult Function(_SelectAllSubscription value)
+        selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
   }) {
     return purchaseSubscription(this);
@@ -326,6 +558,8 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
+    TResult Function(_SelectSubscription value)? selectSubscription,
+    TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     required TResult orElse(),
   }) {
@@ -338,12 +572,9 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
 
 abstract class _PurchaseSubscription
     implements SubscriptionForPartnerServiceEvent {
-  const factory _PurchaseSubscription({required String subscriptionId}) =
-      _$_PurchaseSubscription;
+  const factory _PurchaseSubscription(int productId) = _$_PurchaseSubscription;
 
-  @override
-  String get subscriptionId => throw _privateConstructorUsedError;
-  @override
+  int get productId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$PurchaseSubscriptionCopyWith<_PurchaseSubscription> get copyWith =>
       throw _privateConstructorUsedError;
@@ -361,18 +592,14 @@ class _$SubscriptionForPartnerServiceStateTearOff {
     return const _Loading();
   }
 
-  _Failure failure(ApiFailure failure, ServiceSubscription? subscription) {
+  _Failure failure(ApiFailure failure) {
     return _Failure(
       failure,
-      subscription,
     );
   }
 
-  _FetchSubscriptionSuccessfully fetchSubscriptionSuccessfully(
-      ServiceSubscription subscription) {
-    return _FetchSubscriptionSuccessfully(
-      subscription,
-    );
+  _FetchSubscriptionSuccessfully fetchSubscriptionSuccessfully() {
+    return const _FetchSubscriptionSuccessfully();
   }
 
   _PurchasedSuccessfully purchasedSuccessfully() {
@@ -390,11 +617,8 @@ mixin _$SubscriptionForPartnerServiceState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            ApiFailure failure, ServiceSubscription? subscription)
-        failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) =>
       throw _privateConstructorUsedError;
@@ -402,10 +626,8 @@ mixin _$SubscriptionForPartnerServiceState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ApiFailure failure, ServiceSubscription? subscription)?
-        failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) =>
@@ -492,11 +714,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            ApiFailure failure, ServiceSubscription? subscription)
-        failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
     return initial();
@@ -507,10 +726,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ApiFailure failure, ServiceSubscription? subscription)?
-        failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {
@@ -596,11 +813,8 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            ApiFailure failure, ServiceSubscription? subscription)
-        failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
     return loading();
@@ -611,10 +825,8 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ApiFailure failure, ServiceSubscription? subscription)?
-        failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {
@@ -664,7 +876,7 @@ abstract class _Loading implements SubscriptionForPartnerServiceState {
 abstract class _$FailureCopyWith<$Res> {
   factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
       __$FailureCopyWithImpl<$Res>;
-  $Res call({ApiFailure failure, ServiceSubscription? subscription});
+  $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
@@ -682,17 +894,12 @@ class __$FailureCopyWithImpl<$Res>
   @override
   $Res call({
     Object? failure = freezed,
-    Object? subscription = freezed,
   }) {
     return _then(_Failure(
       failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
-      subscription == freezed
-          ? _value.subscription
-          : subscription // ignore: cast_nullable_to_non_nullable
-              as ServiceSubscription?,
     ));
   }
 
@@ -707,16 +914,14 @@ class __$FailureCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Failure implements _Failure {
-  const _$_Failure(this.failure, this.subscription);
+  const _$_Failure(this.failure);
 
   @override
   final ApiFailure failure;
-  @override
-  final ServiceSubscription? subscription;
 
   @override
   String toString() {
-    return 'SubscriptionForPartnerServiceState.failure(failure: $failure, subscription: $subscription)';
+    return 'SubscriptionForPartnerServiceState.failure(failure: $failure)';
   }
 
   @override
@@ -724,18 +929,12 @@ class _$_Failure implements _Failure {
     return identical(this, other) ||
         (other is _Failure &&
             (identical(other.failure, failure) ||
-                const DeepCollectionEquality()
-                    .equals(other.failure, failure)) &&
-            (identical(other.subscription, subscription) ||
-                const DeepCollectionEquality()
-                    .equals(other.subscription, subscription)));
+                const DeepCollectionEquality().equals(other.failure, failure)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failure) ^
-      const DeepCollectionEquality().hash(subscription);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
 
   @JsonKey(ignore: true)
   @override
@@ -747,14 +946,11 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            ApiFailure failure, ServiceSubscription? subscription)
-        failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
-    return failure(this.failure, subscription);
+    return failure(this.failure);
   }
 
   @override
@@ -762,15 +958,13 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ApiFailure failure, ServiceSubscription? subscription)?
-        failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(this.failure, subscription);
+      return failure(this.failure);
     }
     return orElse();
   }
@@ -808,11 +1002,9 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements SubscriptionForPartnerServiceState {
-  const factory _Failure(
-      ApiFailure failure, ServiceSubscription? subscription) = _$_Failure;
+  const factory _Failure(ApiFailure failure) = _$_Failure;
 
   ApiFailure get failure => throw _privateConstructorUsedError;
-  ServiceSubscription? get subscription => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$FailureCopyWith<_Failure> get copyWith =>
       throw _privateConstructorUsedError;
@@ -824,7 +1016,6 @@ abstract class _$FetchSubscriptionSuccessfullyCopyWith<$Res> {
           _FetchSubscriptionSuccessfully value,
           $Res Function(_FetchSubscriptionSuccessfully) then) =
       __$FetchSubscriptionSuccessfullyCopyWithImpl<$Res>;
-  $Res call({ServiceSubscription subscription});
 }
 
 /// @nodoc
@@ -839,66 +1030,37 @@ class __$FetchSubscriptionSuccessfullyCopyWithImpl<$Res>
   @override
   _FetchSubscriptionSuccessfully get _value =>
       super._value as _FetchSubscriptionSuccessfully;
-
-  @override
-  $Res call({
-    Object? subscription = freezed,
-  }) {
-    return _then(_FetchSubscriptionSuccessfully(
-      subscription == freezed
-          ? _value.subscription
-          : subscription // ignore: cast_nullable_to_non_nullable
-              as ServiceSubscription,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_FetchSubscriptionSuccessfully
     implements _FetchSubscriptionSuccessfully {
-  const _$_FetchSubscriptionSuccessfully(this.subscription);
-
-  @override
-  final ServiceSubscription subscription;
+  const _$_FetchSubscriptionSuccessfully();
 
   @override
   String toString() {
-    return 'SubscriptionForPartnerServiceState.fetchSubscriptionSuccessfully(subscription: $subscription)';
+    return 'SubscriptionForPartnerServiceState.fetchSubscriptionSuccessfully()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _FetchSubscriptionSuccessfully &&
-            (identical(other.subscription, subscription) ||
-                const DeepCollectionEquality()
-                    .equals(other.subscription, subscription)));
+    return identical(this, other) || (other is _FetchSubscriptionSuccessfully);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(subscription);
-
-  @JsonKey(ignore: true)
-  @override
-  _$FetchSubscriptionSuccessfullyCopyWith<_FetchSubscriptionSuccessfully>
-      get copyWith => __$FetchSubscriptionSuccessfullyCopyWithImpl<
-          _FetchSubscriptionSuccessfully>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            ApiFailure failure, ServiceSubscription? subscription)
-        failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
-    return fetchSubscriptionSuccessfully(subscription);
+    return fetchSubscriptionSuccessfully();
   }
 
   @override
@@ -906,15 +1068,13 @@ class _$_FetchSubscriptionSuccessfully
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ApiFailure failure, ServiceSubscription? subscription)?
-        failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {
     if (fetchSubscriptionSuccessfully != null) {
-      return fetchSubscriptionSuccessfully(subscription);
+      return fetchSubscriptionSuccessfully();
     }
     return orElse();
   }
@@ -953,13 +1113,8 @@ class _$_FetchSubscriptionSuccessfully
 
 abstract class _FetchSubscriptionSuccessfully
     implements SubscriptionForPartnerServiceState {
-  const factory _FetchSubscriptionSuccessfully(
-      ServiceSubscription subscription) = _$_FetchSubscriptionSuccessfully;
-
-  ServiceSubscription get subscription => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$FetchSubscriptionSuccessfullyCopyWith<_FetchSubscriptionSuccessfully>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory _FetchSubscriptionSuccessfully() =
+      _$_FetchSubscriptionSuccessfully;
 }
 
 /// @nodoc
@@ -1004,11 +1159,8 @@ class _$_PurchasedSuccessfully implements _PurchasedSuccessfully {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            ApiFailure failure, ServiceSubscription? subscription)
-        failure,
-    required TResult Function(ServiceSubscription subscription)
-        fetchSubscriptionSuccessfully,
+    required TResult Function(ApiFailure failure) failure,
+    required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
   }) {
     return purchasedSuccessfully();
@@ -1019,10 +1171,8 @@ class _$_PurchasedSuccessfully implements _PurchasedSuccessfully {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ApiFailure failure, ServiceSubscription? subscription)?
-        failure,
-    TResult Function(ServiceSubscription subscription)?
-        fetchSubscriptionSuccessfully,
+    TResult Function(ApiFailure failure)? failure,
+    TResult Function()? fetchSubscriptionSuccessfully,
     TResult Function()? purchasedSuccessfully,
     required TResult orElse(),
   }) {

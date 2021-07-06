@@ -138,11 +138,9 @@ class AuthRepositoryImpl implements AuthRepository {
       final userInfo = await FacebookAuth.instance.getUserData();
 
       final String? id = userInfo["id"] as String?;
-      String? email = userInfo["email"] as String?;
+      final String? email = userInfo["email"] as String?;
 
       final String? photo = userInfo["picture"]["data"]["url"] as String?;
-
-      email ??= "$id@bnpy.fb.com";
 
       final fullname = userInfo["name"] as String?;
       final names = fullname?.split(" ") ?? [];
@@ -150,12 +148,15 @@ class AuthRepositoryImpl implements AuthRepository {
       final lastName = names.length > 1 ? names[1] : '';
 
       final Map<String, String> params = {
-        "email": email,
         "facebook_id": id ?? '',
-        "username": email,
+        "username": id ?? '',
         "first_name": firstName,
         "last_name": lastName,
       };
+
+      if (email != null) {
+        params["email"] = email;
+      }
 
       if (photo != null) {
         params["avatar"] = photo;

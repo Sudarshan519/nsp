@@ -22,10 +22,6 @@ class TransactionPage extends StatelessWidget {
             color: Palette.white,
           ),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
         centerTitle: true,
         backgroundColor: Palette.primary,
         elevation: 0,
@@ -33,7 +29,8 @@ class TransactionPage extends StatelessWidget {
       body: Scrollbar(
         child: Column(
           children: [
-            showBalance(),
+            const BalanceWidget(),
+            const SizedBox(height: 20),
             body(),
           ],
         ),
@@ -41,52 +38,20 @@ class TransactionPage extends StatelessWidget {
     );
   }
 
-  Widget showBalance() {
-    return BlocBuilder<HomePageDataBloc, HomePageDataState>(
-      builder: (context, state) {
-        return state.map(
-          loading: (_) => loadingPage(),
-          loaded: (success) => BalanceWidget(
-              balance:
-                  success.data.userDetail?.formattedBalance.toString() ?? ''),
-          failure: (error) {
-            Future.delayed(Duration.zero, () {
-              FlushbarHelper.createError(
-                message: error.failure.map(
-                  noInternetConnection: (error) => AppConstants.noNetwork,
-                  serverError: (error) => error.message,
-                  invalidUser: (error) => AppConstants.someThingWentWrong,
-                ),
-              ).show(context);
-            });
-            return const Text('Error');
-          },
-          failureWithData: (value) => loadingPage(),
-          initial: (value) => loadingPage(),
-          loadingWithData: (value) => loadingPage(),
-        );
-      },
-    );
-  }
-
   Widget body() {
     return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: const [
-              SizedBox(height: 20),
-              BNPJCard(),
-              SizedBox(height: 20),
-              Text(
-                'Latest Transactions',
-                style: TextStyle(fontWeight: FontWeight.w700),
-              ),
-              TransactionBlocView()
-            ],
-          ),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            BNPJCard(),
+            SizedBox(height: 20),
+            Text(
+              'Latest Transactions',
+              style: TextStyle(fontWeight: FontWeight.w700),
+            ),
+            TransactionListPage()
+          ],
         ),
       ),
     );

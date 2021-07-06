@@ -578,7 +578,7 @@ class __$DownLoadableLinkCopyWithImpl<$Res>
 class _$_DownLoadableLink implements _DownLoadableLink {
   const _$_DownLoadableLink(this.url, this.isLinkDownloaded);
 
-  @override
+  @override // ignore: avoid_positional_boolean_parameters
   final String url;
   @override
   final bool isLinkDownloaded;
@@ -676,6 +676,7 @@ abstract class _DownLoadableLink implements DownloadPdfState {
   const factory _DownLoadableLink(String url, bool isLinkDownloaded) =
       _$_DownLoadableLink;
 
+// ignore: avoid_positional_boolean_parameters
   String get url => throw _privateConstructorUsedError;
   bool get isLinkDownloaded => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)

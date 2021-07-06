@@ -40,21 +40,42 @@ class TopUpBalanceForMobile
     }
 
     return repository.topupBalance(
+      productId: params.productId,
       amount: params.amount,
       number: params.number,
       type: params.type,
+      coupon: params.coupon,
     );
+  }
+
+  ApiFailure? validate(TopUpBalanceForMobileParams params) {
+    if (params.number.length != 10) {
+      return const ApiFailure.serverError(message: "Invalid Phone Number.");
+    }
+    if (params.type.isEmpty) {
+      return const ApiFailure.serverError(message: "Invalid Phone Number.");
+    }
+
+    if (params.amount.isEmpty) {
+      return const ApiFailure.serverError(message: "Amount cannot be empty.");
+    }
+
+    return null;
   }
 }
 
 class TopUpBalanceForMobileParams {
+  final String productId;
   final String amount;
   final String number;
   final String type;
+  final String coupon;
 
   TopUpBalanceForMobileParams({
+    required this.productId,
     required this.amount,
     required this.number,
     required this.type,
+    required this.coupon,
   });
 }

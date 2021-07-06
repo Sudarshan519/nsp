@@ -80,8 +80,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
     );
     final qualificationHistory = _setInitialState.qualificationHistory;
     _lang = _setInitialState.lang;
-    if (qualificationHistory != null &&
-        qualificationHistory != _qualificationHistory) {
+    if (qualificationHistory != _qualificationHistory) {
       _qualificationHistory = qualificationHistory;
       yield state.copyWith(
         key: UniqueKey(),

@@ -49,6 +49,7 @@ class UpdateOtherInfoParams {
   UpdateOtherInfoParams({
     required this.lang,
     required this.languages,
+    // ignore: non_constant_identifier_names
     required this.JLPTLevel,
     required this.selfPR,
     required this.motivationsSpecialSkills,
@@ -65,6 +66,7 @@ class UpdateOtherInfoParams {
   final String lang;
 
   final List<String> languages;
+  // ignore: non_constant_identifier_names
   final String JLPTLevel;
   final String selfPR;
   final String motivationsSpecialSkills;

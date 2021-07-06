@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
-import 'package:wallet_app/features/profile/presentations/bloc/update_profile_bloc.dart';
+import 'package:wallet_app/features/profile/update_profile/presentations/bloc/update_profile_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/balance_and_points.dart';
 import 'package:wallet_app/ui/widgets/image_loader_view.dart';

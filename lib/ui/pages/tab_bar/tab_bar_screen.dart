@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/ui/pages/home/home_screen.dart';
 import 'package:wallet_app/ui/pages/more/more_screen.dart';
 import 'package:wallet_app/ui/pages/news/news_screen.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/news_tab_page.dart';
 import 'package:wallet_app/ui/pages/resume/resume_screen.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/resume_tab_page.dart';
-import 'package:wallet_app/ui/widgets/google_banner_ad/google_banner_ad.dart';
+import 'package:wallet_app/ui/pages/transactions/transactions_page.dart';
 
 import 'package:wallet_app/ui/widgets/widgets.dart';
-import 'widgets/custom_tab_bar_widget.dart';
 
 class TabBarPage extends StatefulWidget {
   @override
@@ -21,24 +21,43 @@ class TabBarScreenState extends State<TabBarPage> {
   int _selectedIndex = 0;
   HomePage? homePage;
 
-  final List<CustomTabBarData> _tabBarData = [
-    CustomTabBarData(
-      title: 'Home',
-      image: 'assets/images/navigation_tabs/home.svg',
-    ),
-    CustomTabBarData(
-      title: 'Resume',
-      image: 'assets/images/navigation_tabs/resume.svg',
-    ),
-    CustomTabBarData(
-      title: 'News',
-      image: 'assets/images/navigation_tabs/news.svg',
-    ),
-    CustomTabBarData(
-      title: 'More',
-      image: 'assets/images/navigation_tabs/more.svg',
-    ),
-  ];
+  List<BottomNavigationBarItem> _tabBarData(int index) => [
+        BottomNavigationBarItem(
+          label: 'Home',
+          icon: SvgPicture.asset(
+            'assets/images/navigation_tabs/home.svg',
+            color: index == 0 ? Palette.primary : null,
+          ),
+        ),
+        BottomNavigationBarItem(
+          label: 'Resume',
+          icon: SvgPicture.asset(
+            'assets/images/navigation_tabs/resume.svg',
+            color: index == 1 ? Palette.primary : null,
+          ),
+        ),
+        BottomNavigationBarItem(
+          label: 'News',
+          icon: SvgPicture.asset(
+            'assets/images/navigation_tabs/news.svg',
+            color: index == 2 ? Palette.primary : null,
+          ),
+        ),
+        BottomNavigationBarItem(
+          label: 'Transaction',
+          icon: SvgPicture.asset(
+            'assets/images/navigation_tabs/transaction.svg',
+            color: index == 3 ? Palette.primary : null,
+          ),
+        ),
+        BottomNavigationBarItem(
+          label: 'More',
+          icon: SvgPicture.asset(
+            'assets/images/navigation_tabs/more.svg',
+            color: index == 4 ? Palette.primary : null,
+          ),
+        ),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -50,29 +69,36 @@ class TabBarScreenState extends State<TabBarPage> {
           index: _selectedIndex,
           children: _children,
         ),
-        bottomNavigationBar: !Responsive.isDesktop(context)
-            ? Container(
-                color: Palette.primaryBackground,
-                child: SafeArea(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const GoogleBannerAd(),
-                      CustomTabBar(
-                        selectedIndex: _selectedIndex,
-                        onTap: _onTab,
-                        tabs: _tabBarData,
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            : const SizedBox.shrink(),
+        // bottomNavigationBar: Container(
+        //   color: Palette.white,
+        //   child: SafeArea(
+        //     child: CustomTabBar(
+        //       selectedIndex: _selectedIndex,
+        //       onTap: _onTab,
+        //       tabs: _tabBarData,
+        //     ),
+        //   ),
+        // ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedIndex,
+          onTap: _onTap,
+          items: _tabBarData(_selectedIndex),
+          selectedLabelStyle:
+              const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+          unselectedLabelStyle:
+              const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+          selectedItemColor: Palette.primary,
+          unselectedItemColor: Palette.black,
+          showUnselectedLabels: true,
+          // selectedIconTheme: IconThemeData(color: AppColors.primary),
+          // unselectedIconTheme: IconThemeData(color: AppColors.primary),
+        ),
       ),
     );
   }
 
-  void _onTab(int page) {
+  void _onTap(int page) {
     if (page == 0) {
       homePage?.scrollController.animateTo(
         0.0,
@@ -97,6 +123,7 @@ class TabBarScreenState extends State<TabBarPage> {
       homePage!,
       const ResumePage(),
       NewsPage(),
+      const TransactionPage(),
       const MorePage(),
     ];
   }

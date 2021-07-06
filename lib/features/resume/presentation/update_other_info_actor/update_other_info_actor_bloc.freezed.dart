@@ -2956,7 +2956,8 @@ const $UpdateOtherInfoActorState = _$UpdateOtherInfoActorStateTearOff();
 /// @nodoc
 mixin _$UpdateOtherInfoActorState {
   Key? get key => throw _privateConstructorUsedError;
-  List<String> get languages => throw _privateConstructorUsedError;
+  List<String> get languages =>
+      throw _privateConstructorUsedError; // ignore: non_constant_identifier_names
   String get JLPTLevel => throw _privateConstructorUsedError;
   String get selfPR => throw _privateConstructorUsedError;
   String get motivationsSpecialSkills => throw _privateConstructorUsedError;
@@ -3292,7 +3293,7 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   final Key? key;
   @override
   final List<String> languages;
-  @override
+  @override // ignore: non_constant_identifier_names
   final String JLPTLevel;
   @override
   final String selfPR;
@@ -3447,7 +3448,7 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
   Key? get key => throw _privateConstructorUsedError;
   @override
   List<String> get languages => throw _privateConstructorUsedError;
-  @override
+  @override // ignore: non_constant_identifier_names
   String get JLPTLevel => throw _privateConstructorUsedError;
   @override
   String get selfPR => throw _privateConstructorUsedError;

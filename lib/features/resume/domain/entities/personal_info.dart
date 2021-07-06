@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class PersonalInfo extends Equatable {
-  const PersonalInfo({
+class PersonalInfo {
+  PersonalInfo({
     this.id,
     this.jobSeekerId,
     this.firstName,
@@ -55,8 +55,8 @@ class PersonalInfo extends Equatable {
 
   final int? id;
   final int? jobSeekerId;
-  final String? firstName;
-  final String? lastName;
+  String? firstName;
+  String? lastName;
   final String? profession;
   final String? languageSchool;
   final String? languageSchoolPostalCode;
@@ -97,7 +97,7 @@ class PersonalInfo extends Equatable {
   final String? language;
   final String? createdAt;
   final String? updatedAt;
-  final String? email;
+  String? email;
   final int? emailVerified;
   final String? contactNumber;
   final int? phoneVerified;
@@ -122,7 +122,4 @@ class PersonalInfo extends Equatable {
     }
     return '';
   }
-
-  @override
-  List<Object> get props => [];
 }

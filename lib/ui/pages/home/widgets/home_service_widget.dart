@@ -32,6 +32,7 @@ class HomeServiceWidget extends StatelessWidget {
                     valueListenable: _positionNotifier,
                     builder: (context, position, child) {
                       return Text(
+                        // ignore: cast_nullable_to_non_nullable
                         position as String,
                         style: const TextStyle(
                           fontWeight: FontWeight.w500,

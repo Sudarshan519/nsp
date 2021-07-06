@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
@@ -39,6 +40,9 @@ class TopupViaStripeBloc
       },
       changeAmount: (e) async* {
         yield _mapChangeAmountEventToState(e);
+      },
+      changeAmountFromOptions: (e) async* {
+        yield _mapChangeAmountFromOptionsEventToState(e);
       },
       changeSaveCard: (e) async* {
         yield _mapChangeSaveCardEventToState(e);
@@ -87,6 +91,15 @@ class TopupViaStripeBloc
     );
   }
 
+  TopupViaStripeState _mapChangeAmountFromOptionsEventToState(
+      _ChangeAmountFromOptions _changeAmount) {
+    return state.copyWith(
+      key: UniqueKey(),
+      amount: _changeAmount.amount,
+      failureOrSuccessOption: none(),
+    );
+  }
+
   TopupViaStripeState _mapChangeSaveCardEventToState(
       _ChangeSaveCard _changeSaveCard) {
     final saveCard = !state.saveCard;
@@ -96,7 +109,8 @@ class TopupViaStripeBloc
     );
   }
 
-  Stream<TopupViaStripeState> _mapChangeTopupEventToState(_TopUp) async* {
+  Stream<TopupViaStripeState> _mapChangeTopupEventToState(
+      _TopUp _topUp) async* {
     Either<ApiFailure, Unit> result;
     yield state.copyWith(
       isSubmitting: true,
@@ -111,6 +125,7 @@ class TopupViaStripeBloc
         expYear: state.expYear,
         amount: state.amount,
         saveCard: state.saveCard,
+        isSavedCard: _topUp.isSavedCard,
       ),
     );
     yield state.copyWith(

@@ -25,10 +25,12 @@ abstract class LoadBalanceDataSource {
     required String expMonth,
     required String amount,
     required bool saveCard,
+    required bool isSavedCard,
   });
 
   Future<Unit> verifyImePayTopup({
     required String referenceId,
+    required String tokenId,
     required String amount,
     required String purpose,
   });
@@ -36,6 +38,12 @@ abstract class LoadBalanceDataSource {
     required String referenceId,
     required String amount,
     required String purpose,
+  });
+  Future<Unit> verifyKhaltiTopup({
+    required String token,
+    required String amount,
+    required String purpose,
+    required String verifyAmount,
   });
 }
 
@@ -81,7 +89,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     } catch (ex) {
       logger.log(
         className: "LoadBalanceDataSource",
-        functionName: "topupViaStripe()",
+        functionName: "getListOfPaymentMethod()",
         errorText: "exception throws from client",
         errorMessage: ex.toString(),
       );
@@ -95,7 +103,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       } catch (ex) {
         logger.log(
           className: "LoadBalanceDataSource",
-          functionName: "topupViaStripe()",
+          functionName: "getListOfPaymentMethod()",
           errorText: "exception throws while parsing",
           errorMessage: ex.toString(),
         );
@@ -104,7 +112,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     } else {
       logger.log(
         className: "LoadBalanceDataSource",
-        functionName: "topupViaStripe()",
+        functionName: "getListOfPaymentMethod()",
         errorText: "status code: $statusCode",
         errorMessage: response.body,
       );
@@ -123,16 +131,30 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     required String expMonth,
     required String amount,
     required bool saveCard,
+    required bool isSavedCard,
   }) async {
-    final params = {
-      "name": name,
-      "card_number": cardNumber.replaceAll(" ", ""),
-      "cvc": cvc,
-      "exp_year": expYear,
-      "exp_month": expMonth,
-      "amount": amount,
-      "save_card": saveCard,
-    };
+    Map<String, dynamic> params = {};
+
+    if (isSavedCard) {
+      params = {
+        "name": name,
+        "card_number": cardNumber,
+        "amount": amount,
+        "is_saved_card": isSavedCard,
+        "save_card": false,
+      };
+    } else {
+      params = {
+        "name": name,
+        "card_number": cardNumber.replaceAll(" ", ""),
+        "cvc": cvc,
+        "exp_year": expYear,
+        "exp_month": expMonth,
+        "amount": amount,
+        "save_card": saveCard,
+        "is_saved_card": isSavedCard,
+      };
+    }
 
     return _postRequest(
       endpoint: LoadBalanceApiEndpoints.stripeTopup,
@@ -146,6 +168,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     required String referenceId,
     required String amount,
     required String purpose,
+    required String tokenId,
   }) async {
     final userId = (await auth.getUserDetail()).uuid;
 
@@ -157,6 +180,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     final params = {
       "reference_id": referenceId,
       "product_id": userId,
+      'token_id': tokenId,
       "amount": amount,
       "purpose": purpose,
     };
@@ -165,6 +189,34 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       endpoint: LoadBalanceApiEndpoints.verifyImepayTopup,
       params: params,
       functionName: "verifyImePayTopup",
+    );
+  }
+
+  @override
+  Future<Unit> verifyKhaltiTopup({
+    required String token,
+    required String amount,
+    required String verifyAmount,
+    required String purpose,
+  }) async {
+    final userId = (await auth.getUserDetail()).uuid;
+
+    if (userId?.isEmpty ?? true) {
+      //TODO: user id is empty we have to redirect to login page.
+
+    }
+
+    final params = {
+      "token": token,
+      "product_id": userId,
+      "amount": amount, //send in JPY
+      "purpose": purpose,
+      "verify_amount": verifyAmount, // amt in nepali PAISA
+    };
+    return _postRequest(
+      endpoint: LoadBalanceApiEndpoints.verifyKhaltiTopup,
+      params: params,
+      functionName: "verifyKhaltiTopup",
     );
   }
 

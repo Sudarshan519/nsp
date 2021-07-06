@@ -1,12 +1,15 @@
 import 'dart:convert';
 
+import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/logger/logger.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/partner_services/data/app_constant/constant.dart';
 import 'package:wallet_app/features/partner_services/data/model/service_list_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_categories_model.dart';
+import 'package:wallet_app/features/partner_services/domain/usecase/get_partner_services.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -17,6 +20,7 @@ abstract class PartnerServicesRemoteDataSource {
     required String page,
   });
   Future<List<ServicesCategoryModel>> getJapaneseMannerCategories();
+  Future<Unit> purchasePackage(PurchasePackageParams params);
 }
 
 @LazySingleton(as: PartnerServicesRemoteDataSource)
@@ -24,6 +28,7 @@ class PartnerServicesRemoteDataSourceImpl
     implements PartnerServicesRemoteDataSource {
   final http.Client client;
   final ConfigReader config;
+  final AuthLocalDataSource auth;
   final Logger logger;
   final _headers = {
     'Accept': 'application/json; charset=utf-8',
@@ -32,6 +37,7 @@ class PartnerServicesRemoteDataSourceImpl
 
   PartnerServicesRemoteDataSourceImpl({
     required this.client,
+    required this.auth,
     required this.config,
     required this.logger,
   });
@@ -159,6 +165,68 @@ class PartnerServicesRemoteDataSourceImpl
         errorMessage: response.body,
       );
 
+      throw ServerException(
+          message: errorMessageFromServer(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<Unit> purchasePackage(PurchasePackageParams params) async {
+    final String url =
+        "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.purchasePackage}";
+
+    final accessToken = (await auth.getWalletUser()).accessToken;
+
+    if (accessToken == null || accessToken.isEmpty) {
+      //TODO: route user to login page as the user does not have access token
+    }
+
+    _headers["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+    final jsonParams = {
+      'customer_id': params.customerId,
+      'package_id': params.packageId,
+      'service_id': params.serviceId,
+      'package_name': params.packageName,
+      'amount': params.amount,
+      'remarks': params.remarks,
+    };
+
+    if (params.coupon.isNotEmpty) {
+      jsonParams['coupon_code'] = params.coupon;
+    }
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _headers,
+        body: jsonEncode(jsonParams),
+      );
+    } catch (ex) {
+      logger.log(
+        className: "PartnerServicesRemoteDataSource",
+        functionName: "getPartnerServices()",
+        errorText: "Error on getting partner services from API",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
+    }
+
+    final statusCode = response.statusCode;
+
+    if (statusCode == 200) {
+      return unit;
+    } else {
+      logger.log(
+        className: "PartnerServicesRemoteDataSource",
+        functionName: "getPartnerServices()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);

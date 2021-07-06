@@ -7,19 +7,21 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/features/transaction/domain/usecase/get_transaction.dart';
+import 'package:wallet_app/utils/date_time_formatter.dart';
 
 part 'transaction_event.dart';
 part 'transaction_state.dart';
 part 'transaction_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   final GetTransactions getTransaction;
   bool isFetching = false;
   int _page = 1;
   // bool _hasReachedEnd = false;
-  DateTime from = DateTime.now();
-  DateTime to = DateTime.now();
+  final String _from = DateTimeFormatter.formatDateToApi(
+      DateTime.now().subtract(const Duration(days: 7)));
+  final String _to = DateTimeFormatter.formatDateToApi(DateTime.now());
   final List<TransactionItem> _data = [];
 
   TransactionBloc({
@@ -47,12 +49,18 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   }
 
   Stream<TransactionState> _mapFetchNewsToState(
-      _FetchTransactionData d) async* {
+      _FetchTransactionData _fetchTransactionData) async* {
     if (_data.isNotEmpty) {
       yield const _Loading();
     }
 
-    final result = await getTransaction(d.params);
+    final result = await getTransaction(
+      GetTransactionParam(
+        page: '$_page',
+        fromDate: _fetchTransactionData.fromDate ?? _from,
+        toDate: _fetchTransactionData.toDate ?? _to,
+      ),
+    );
     yield result.fold(
       (failure) {
         isFetching = false;

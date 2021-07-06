@@ -16,7 +16,7 @@ class AdMobService {
 
   static BannerAd createAd() {
     return BannerAd(
-        size: AdSize.fullBanner,
+        size: AdSize.smartBanner,
         adUnitId: bannerAdUnitId,
         listener: BannerAdListener(
           onAdClosed: (ad) {},

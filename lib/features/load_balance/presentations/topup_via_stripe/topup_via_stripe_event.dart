@@ -8,6 +8,9 @@ class TopupViaStripeEvent with _$TopupViaStripeEvent {
   const factory TopupViaStripeEvent.changeCvc(String cvc) = _ChangeCvc;
   const factory TopupViaStripeEvent.changeExpYear(String year) = _ChangeExpYear;
   const factory TopupViaStripeEvent.changeAmount(String amount) = _ChangeAmount;
+  const factory TopupViaStripeEvent.changeAmountFromOptions(String amount) =
+      _ChangeAmountFromOptions;
   const factory TopupViaStripeEvent.changeSaveCard() = _ChangeSaveCard;
-  const factory TopupViaStripeEvent.topup() = _TopUp;
+  // ignore: avoid_positional_boolean_parameters
+  const factory TopupViaStripeEvent.topup(bool isSavedCard) = _TopUp;
 }

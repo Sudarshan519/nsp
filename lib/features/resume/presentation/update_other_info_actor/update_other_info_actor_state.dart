@@ -5,6 +5,7 @@ class UpdateOtherInfoActorState with _$UpdateOtherInfoActorState {
   const factory UpdateOtherInfoActorState({
     required Key? key,
     required List<String> languages,
+    // ignore: non_constant_identifier_names
     required String JLPTLevel,
     required String selfPR,
     required String motivationsSpecialSkills,

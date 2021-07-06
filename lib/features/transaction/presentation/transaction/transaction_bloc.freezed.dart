@@ -16,9 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TransactionEventTearOff {
   const _$TransactionEventTearOff();
 
-  _FetchTransactionData fetchTransactionData(GetTransactionParam params) {
+  _FetchTransactionData fetchTransactionData(
+      {String? fromDate, String? toDate}) {
     return _FetchTransactionData(
-      params,
+      fromDate: fromDate,
+      toDate: toDate,
     );
   }
 
@@ -34,13 +36,14 @@ const $TransactionEvent = _$TransactionEventTearOff();
 mixin _$TransactionEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GetTransactionParam params) fetchTransactionData,
+    required TResult Function(String? fromDate, String? toDate)
+        fetchTransactionData,
     required TResult Function() pullToRefresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GetTransactionParam params)? fetchTransactionData,
+    TResult Function(String? fromDate, String? toDate)? fetchTransactionData,
     TResult Function()? pullToRefresh,
     required TResult orElse(),
   }) =>
@@ -82,7 +85,7 @@ abstract class _$FetchTransactionDataCopyWith<$Res> {
   factory _$FetchTransactionDataCopyWith(_FetchTransactionData value,
           $Res Function(_FetchTransactionData) then) =
       __$FetchTransactionDataCopyWithImpl<$Res>;
-  $Res call({GetTransactionParam params});
+  $Res call({String? fromDate, String? toDate});
 }
 
 /// @nodoc
@@ -98,13 +101,18 @@ class __$FetchTransactionDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? params = freezed,
+    Object? fromDate = freezed,
+    Object? toDate = freezed,
   }) {
     return _then(_FetchTransactionData(
-      params == freezed
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as GetTransactionParam,
+      fromDate: fromDate == freezed
+          ? _value.fromDate
+          : fromDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      toDate: toDate == freezed
+          ? _value.toDate
+          : toDate // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -112,27 +120,34 @@ class __$FetchTransactionDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FetchTransactionData implements _FetchTransactionData {
-  const _$_FetchTransactionData(this.params);
+  const _$_FetchTransactionData({this.fromDate, this.toDate});
 
   @override
-  final GetTransactionParam params;
+  final String? fromDate;
+  @override
+  final String? toDate;
 
   @override
   String toString() {
-    return 'TransactionEvent.fetchTransactionData(params: $params)';
+    return 'TransactionEvent.fetchTransactionData(fromDate: $fromDate, toDate: $toDate)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _FetchTransactionData &&
-            (identical(other.params, params) ||
-                const DeepCollectionEquality().equals(other.params, params)));
+            (identical(other.fromDate, fromDate) ||
+                const DeepCollectionEquality()
+                    .equals(other.fromDate, fromDate)) &&
+            (identical(other.toDate, toDate) ||
+                const DeepCollectionEquality().equals(other.toDate, toDate)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(params);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate);
 
   @JsonKey(ignore: true)
   @override
@@ -143,21 +158,22 @@ class _$_FetchTransactionData implements _FetchTransactionData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GetTransactionParam params) fetchTransactionData,
+    required TResult Function(String? fromDate, String? toDate)
+        fetchTransactionData,
     required TResult Function() pullToRefresh,
   }) {
-    return fetchTransactionData(params);
+    return fetchTransactionData(fromDate, toDate);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GetTransactionParam params)? fetchTransactionData,
+    TResult Function(String? fromDate, String? toDate)? fetchTransactionData,
     TResult Function()? pullToRefresh,
     required TResult orElse(),
   }) {
     if (fetchTransactionData != null) {
-      return fetchTransactionData(params);
+      return fetchTransactionData(fromDate, toDate);
     }
     return orElse();
   }
@@ -186,10 +202,11 @@ class _$_FetchTransactionData implements _FetchTransactionData {
 }
 
 abstract class _FetchTransactionData implements TransactionEvent {
-  const factory _FetchTransactionData(GetTransactionParam params) =
+  const factory _FetchTransactionData({String? fromDate, String? toDate}) =
       _$_FetchTransactionData;
 
-  GetTransactionParam get params => throw _privateConstructorUsedError;
+  String? get fromDate => throw _privateConstructorUsedError;
+  String? get toDate => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$FetchTransactionDataCopyWith<_FetchTransactionData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -235,7 +252,8 @@ class _$_PullToRefresh implements _PullToRefresh {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GetTransactionParam params) fetchTransactionData,
+    required TResult Function(String? fromDate, String? toDate)
+        fetchTransactionData,
     required TResult Function() pullToRefresh,
   }) {
     return pullToRefresh();
@@ -244,7 +262,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GetTransactionParam params)? fetchTransactionData,
+    TResult Function(String? fromDate, String? toDate)? fetchTransactionData,
     TResult Function()? pullToRefresh,
     required TResult orElse(),
   }) {
@@ -495,7 +513,7 @@ class __$LoadedCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.list);
+  _$_Loaded(this.list);
 
   @override
   final List<TransactionItem> list;
@@ -578,7 +596,7 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements TransactionState {
-  const factory _Loaded(List<TransactionItem> list) = _$_Loaded;
+  factory _Loaded(List<TransactionItem> list) = _$_Loaded;
 
   List<TransactionItem> get list => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)

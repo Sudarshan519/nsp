@@ -27,6 +27,7 @@ class CustomTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBar(
+      labelPadding: EdgeInsets.zero,
       indicator: const BoxDecoration(),
       labelStyle: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
       unselectedLabelStyle:

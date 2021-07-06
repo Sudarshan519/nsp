@@ -11,7 +11,7 @@ class BannerDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Chyo-San",
+          "Choy-San",
           style: TextStyle(
             color: Palette.white,
           ),
@@ -201,7 +201,7 @@ class BannerDetailPage extends StatelessWidget {
     );
   }
 
-  void _launchURL(String _url) async => await canLaunch(_url)
+  Future _launchURL(String _url) async => await canLaunch(_url)
       ? await launch(_url)
       : throw 'Could not launch $_url';
 }

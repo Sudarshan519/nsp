@@ -53,6 +53,8 @@ class UserDetail extends Equatable {
     this.smartPitNo,
     this.options,
     this.isKycVerified,
+    this.currencyConversionRate,
+    this.notificationCount,
   });
 
   final String? firstName;
@@ -63,7 +65,7 @@ class UserDetail extends Equatable {
   final String? uuid;
   final String? avatar;
   final double? balance;
-  final int? point;
+  final double? point;
   final String? dob;
   final String? gender;
   final String? nationality;
@@ -105,7 +107,9 @@ class UserDetail extends Equatable {
   final bool? isKycVerified;
   final ResumeOptions? options;
 
-  String get formattedBalance => currencyFormatter(value: balance ?? 0.0);
+  ///1  Npr -> JPY
+  final double? currencyConversionRate;
+  final int? notificationCount;
 
   @override
   List<Object> get props => [];

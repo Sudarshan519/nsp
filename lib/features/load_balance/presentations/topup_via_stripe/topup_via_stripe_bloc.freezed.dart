@@ -46,12 +46,20 @@ class _$TopupViaStripeEventTearOff {
     );
   }
 
+  _ChangeAmountFromOptions changeAmountFromOptions(String amount) {
+    return _ChangeAmountFromOptions(
+      amount,
+    );
+  }
+
   _ChangeSaveCard changeSaveCard() {
     return const _ChangeSaveCard();
   }
 
-  _TopUp topup() {
-    return const _TopUp();
+  _TopUp topup(bool isSavedCard) {
+    return _TopUp(
+      isSavedCard,
+    );
   }
 }
 
@@ -67,8 +75,9 @@ mixin _$TopupViaStripeEvent {
     required TResult Function(String cvc) changeCvc,
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
     required TResult Function() changeSaveCard,
-    required TResult Function() topup,
+    required TResult Function(bool isSavedCard) topup,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,8 +87,9 @@ mixin _$TopupViaStripeEvent {
     TResult Function(String cvc)? changeCvc,
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
     TResult Function()? changeSaveCard,
-    TResult Function()? topup,
+    TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -90,6 +100,8 @@ mixin _$TopupViaStripeEvent {
     required TResult Function(_ChangeCvc value) changeCvc,
     required TResult Function(_ChangeExpYear value) changeExpYear,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) =>
@@ -101,6 +113,7 @@ mixin _$TopupViaStripeEvent {
     TResult Function(_ChangeCvc value)? changeCvc,
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -195,8 +208,9 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(String cvc) changeCvc,
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
     required TResult Function() changeSaveCard,
-    required TResult Function() topup,
+    required TResult Function(bool isSavedCard) topup,
   }) {
     return changeName(name);
   }
@@ -209,8 +223,9 @@ class _$_ChangeName implements _ChangeName {
     TResult Function(String cvc)? changeCvc,
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
     TResult Function()? changeSaveCard,
-    TResult Function()? topup,
+    TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
   }) {
     if (changeName != null) {
@@ -227,6 +242,8 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(_ChangeCvc value) changeCvc,
     required TResult Function(_ChangeExpYear value) changeExpYear,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -241,6 +258,7 @@ class _$_ChangeName implements _ChangeName {
     TResult Function(_ChangeCvc value)? changeCvc,
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -331,8 +349,9 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
     required TResult Function(String cvc) changeCvc,
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
     required TResult Function() changeSaveCard,
-    required TResult Function() topup,
+    required TResult Function(bool isSavedCard) topup,
   }) {
     return changeCardNumber(number);
   }
@@ -345,8 +364,9 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
     TResult Function(String cvc)? changeCvc,
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
     TResult Function()? changeSaveCard,
-    TResult Function()? topup,
+    TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
   }) {
     if (changeCardNumber != null) {
@@ -363,6 +383,8 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
     required TResult Function(_ChangeCvc value) changeCvc,
     required TResult Function(_ChangeExpYear value) changeExpYear,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -377,6 +399,7 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
     TResult Function(_ChangeCvc value)? changeCvc,
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -466,8 +489,9 @@ class _$_ChangeCvc implements _ChangeCvc {
     required TResult Function(String cvc) changeCvc,
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
     required TResult Function() changeSaveCard,
-    required TResult Function() topup,
+    required TResult Function(bool isSavedCard) topup,
   }) {
     return changeCvc(cvc);
   }
@@ -480,8 +504,9 @@ class _$_ChangeCvc implements _ChangeCvc {
     TResult Function(String cvc)? changeCvc,
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
     TResult Function()? changeSaveCard,
-    TResult Function()? topup,
+    TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
   }) {
     if (changeCvc != null) {
@@ -498,6 +523,8 @@ class _$_ChangeCvc implements _ChangeCvc {
     required TResult Function(_ChangeCvc value) changeCvc,
     required TResult Function(_ChangeExpYear value) changeExpYear,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -512,6 +539,7 @@ class _$_ChangeCvc implements _ChangeCvc {
     TResult Function(_ChangeCvc value)? changeCvc,
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -602,8 +630,9 @@ class _$_ChangeExpYear implements _ChangeExpYear {
     required TResult Function(String cvc) changeCvc,
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
     required TResult Function() changeSaveCard,
-    required TResult Function() topup,
+    required TResult Function(bool isSavedCard) topup,
   }) {
     return changeExpYear(year);
   }
@@ -616,8 +645,9 @@ class _$_ChangeExpYear implements _ChangeExpYear {
     TResult Function(String cvc)? changeCvc,
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
     TResult Function()? changeSaveCard,
-    TResult Function()? topup,
+    TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
   }) {
     if (changeExpYear != null) {
@@ -634,6 +664,8 @@ class _$_ChangeExpYear implements _ChangeExpYear {
     required TResult Function(_ChangeCvc value) changeCvc,
     required TResult Function(_ChangeExpYear value) changeExpYear,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -648,6 +680,7 @@ class _$_ChangeExpYear implements _ChangeExpYear {
     TResult Function(_ChangeCvc value)? changeCvc,
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -738,8 +771,9 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(String cvc) changeCvc,
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
     required TResult Function() changeSaveCard,
-    required TResult Function() topup,
+    required TResult Function(bool isSavedCard) topup,
   }) {
     return changeAmount(amount);
   }
@@ -752,8 +786,9 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult Function(String cvc)? changeCvc,
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
     TResult Function()? changeSaveCard,
-    TResult Function()? topup,
+    TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
   }) {
     if (changeAmount != null) {
@@ -770,6 +805,8 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(_ChangeCvc value) changeCvc,
     required TResult Function(_ChangeExpYear value) changeExpYear,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -784,6 +821,7 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult Function(_ChangeCvc value)? changeCvc,
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -801,6 +839,150 @@ abstract class _ChangeAmount implements TopupViaStripeEvent {
   String get amount => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeAmountCopyWith<_ChangeAmount> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeAmountFromOptionsCopyWith<$Res> {
+  factory _$ChangeAmountFromOptionsCopyWith(_ChangeAmountFromOptions value,
+          $Res Function(_ChangeAmountFromOptions) then) =
+      __$ChangeAmountFromOptionsCopyWithImpl<$Res>;
+  $Res call({String amount});
+}
+
+/// @nodoc
+class __$ChangeAmountFromOptionsCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res>
+    implements _$ChangeAmountFromOptionsCopyWith<$Res> {
+  __$ChangeAmountFromOptionsCopyWithImpl(_ChangeAmountFromOptions _value,
+      $Res Function(_ChangeAmountFromOptions) _then)
+      : super(_value, (v) => _then(v as _ChangeAmountFromOptions));
+
+  @override
+  _ChangeAmountFromOptions get _value =>
+      super._value as _ChangeAmountFromOptions;
+
+  @override
+  $Res call({
+    Object? amount = freezed,
+  }) {
+    return _then(_ChangeAmountFromOptions(
+      amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeAmountFromOptions implements _ChangeAmountFromOptions {
+  const _$_ChangeAmountFromOptions(this.amount);
+
+  @override
+  final String amount;
+
+  @override
+  String toString() {
+    return 'TopupViaStripeEvent.changeAmountFromOptions(amount: $amount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeAmountFromOptions &&
+            (identical(other.amount, amount) ||
+                const DeepCollectionEquality().equals(other.amount, amount)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(amount);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeAmountFromOptionsCopyWith<_ChangeAmountFromOptions> get copyWith =>
+      __$ChangeAmountFromOptionsCopyWithImpl<_ChangeAmountFromOptions>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) changeName,
+    required TResult Function(String number) changeCardNumber,
+    required TResult Function(String cvc) changeCvc,
+    required TResult Function(String year) changeExpYear,
+    required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function() changeSaveCard,
+    required TResult Function(bool isSavedCard) topup,
+  }) {
+    return changeAmountFromOptions(amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? changeName,
+    TResult Function(String number)? changeCardNumber,
+    TResult Function(String cvc)? changeCvc,
+    TResult Function(String year)? changeExpYear,
+    TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function()? changeSaveCard,
+    TResult Function(bool isSavedCard)? topup,
+    required TResult orElse(),
+  }) {
+    if (changeAmountFromOptions != null) {
+      return changeAmountFromOptions(amount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_ChangeCardNumber value) changeCardNumber,
+    required TResult Function(_ChangeCvc value) changeCvc,
+    required TResult Function(_ChangeExpYear value) changeExpYear,
+    required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
+    required TResult Function(_ChangeSaveCard value) changeSaveCard,
+    required TResult Function(_TopUp value) topup,
+  }) {
+    return changeAmountFromOptions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult Function(_ChangeCvc value)? changeCvc,
+    TResult Function(_ChangeExpYear value)? changeExpYear,
+    TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult Function(_TopUp value)? topup,
+    required TResult orElse(),
+  }) {
+    if (changeAmountFromOptions != null) {
+      return changeAmountFromOptions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeAmountFromOptions implements TopupViaStripeEvent {
+  const factory _ChangeAmountFromOptions(String amount) =
+      _$_ChangeAmountFromOptions;
+
+  String get amount => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeAmountFromOptionsCopyWith<_ChangeAmountFromOptions> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -849,8 +1031,9 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
     required TResult Function(String cvc) changeCvc,
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
     required TResult Function() changeSaveCard,
-    required TResult Function() topup,
+    required TResult Function(bool isSavedCard) topup,
   }) {
     return changeSaveCard();
   }
@@ -863,8 +1046,9 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
     TResult Function(String cvc)? changeCvc,
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
     TResult Function()? changeSaveCard,
-    TResult Function()? topup,
+    TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
   }) {
     if (changeSaveCard != null) {
@@ -881,6 +1065,8 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
     required TResult Function(_ChangeCvc value) changeCvc,
     required TResult Function(_ChangeExpYear value) changeExpYear,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -895,6 +1081,7 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
     TResult Function(_ChangeCvc value)? changeCvc,
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -914,6 +1101,7 @@ abstract class _ChangeSaveCard implements TopupViaStripeEvent {
 abstract class _$TopUpCopyWith<$Res> {
   factory _$TopUpCopyWith(_TopUp value, $Res Function(_TopUp) then) =
       __$TopUpCopyWithImpl<$Res>;
+  $Res call({bool isSavedCard});
 }
 
 /// @nodoc
@@ -924,25 +1112,50 @@ class __$TopUpCopyWithImpl<$Res> extends _$TopupViaStripeEventCopyWithImpl<$Res>
 
   @override
   _TopUp get _value => super._value as _TopUp;
+
+  @override
+  $Res call({
+    Object? isSavedCard = freezed,
+  }) {
+    return _then(_TopUp(
+      isSavedCard == freezed
+          ? _value.isSavedCard
+          : isSavedCard // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_TopUp implements _TopUp {
-  const _$_TopUp();
+  const _$_TopUp(this.isSavedCard);
+
+  @override
+  final bool isSavedCard;
 
   @override
   String toString() {
-    return 'TopupViaStripeEvent.topup()';
+    return 'TopupViaStripeEvent.topup(isSavedCard: $isSavedCard)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TopUp);
+    return identical(this, other) ||
+        (other is _TopUp &&
+            (identical(other.isSavedCard, isSavedCard) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSavedCard, isSavedCard)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(isSavedCard);
+
+  @JsonKey(ignore: true)
+  @override
+  _$TopUpCopyWith<_TopUp> get copyWith =>
+      __$TopUpCopyWithImpl<_TopUp>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -952,10 +1165,11 @@ class _$_TopUp implements _TopUp {
     required TResult Function(String cvc) changeCvc,
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
     required TResult Function() changeSaveCard,
-    required TResult Function() topup,
+    required TResult Function(bool isSavedCard) topup,
   }) {
-    return topup();
+    return topup(isSavedCard);
   }
 
   @override
@@ -966,12 +1180,13 @@ class _$_TopUp implements _TopUp {
     TResult Function(String cvc)? changeCvc,
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
     TResult Function()? changeSaveCard,
-    TResult Function()? topup,
+    TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
   }) {
     if (topup != null) {
-      return topup();
+      return topup(isSavedCard);
     }
     return orElse();
   }
@@ -984,6 +1199,8 @@ class _$_TopUp implements _TopUp {
     required TResult Function(_ChangeCvc value) changeCvc,
     required TResult Function(_ChangeExpYear value) changeExpYear,
     required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -998,6 +1215,7 @@ class _$_TopUp implements _TopUp {
     TResult Function(_ChangeCvc value)? changeCvc,
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -1010,7 +1228,11 @@ class _$_TopUp implements _TopUp {
 }
 
 abstract class _TopUp implements TopupViaStripeEvent {
-  const factory _TopUp() = _$_TopUp;
+  const factory _TopUp(bool isSavedCard) = _$_TopUp;
+
+  bool get isSavedCard => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$TopUpCopyWith<_TopUp> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1018,20 +1240,24 @@ class _$TopupViaStripeStateTearOff {
   const _$TopupViaStripeStateTearOff();
 
   _TopupViaStripeState call(
-      {required String name,
+      {required Key key,
+      required String name,
       required String cardNumber,
       required String cvc,
       required String expYear,
       required String amount,
+      required String purpose,
       required bool saveCard,
       required bool isSubmitting,
       required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
     return _TopupViaStripeState(
+      key: key,
       name: name,
       cardNumber: cardNumber,
       cvc: cvc,
       expYear: expYear,
       amount: amount,
+      purpose: purpose,
       saveCard: saveCard,
       isSubmitting: isSubmitting,
       failureOrSuccessOption: failureOrSuccessOption,
@@ -1044,11 +1270,13 @@ const $TopupViaStripeState = _$TopupViaStripeStateTearOff();
 
 /// @nodoc
 mixin _$TopupViaStripeState {
+  Key get key => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get cardNumber => throw _privateConstructorUsedError;
   String get cvc => throw _privateConstructorUsedError;
   String get expYear => throw _privateConstructorUsedError;
   String get amount => throw _privateConstructorUsedError;
+  String get purpose => throw _privateConstructorUsedError;
   bool get saveCard => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
@@ -1065,11 +1293,13 @@ abstract class $TopupViaStripeStateCopyWith<$Res> {
           TopupViaStripeState value, $Res Function(TopupViaStripeState) then) =
       _$TopupViaStripeStateCopyWithImpl<$Res>;
   $Res call(
-      {String name,
+      {Key key,
+      String name,
       String cardNumber,
       String cvc,
       String expYear,
       String amount,
+      String purpose,
       bool saveCard,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -1086,16 +1316,22 @@ class _$TopupViaStripeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? key = freezed,
     Object? name = freezed,
     Object? cardNumber = freezed,
     Object? cvc = freezed,
     Object? expYear = freezed,
     Object? amount = freezed,
+    Object? purpose = freezed,
     Object? saveCard = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as Key,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1115,6 +1351,10 @@ class _$TopupViaStripeStateCopyWithImpl<$Res>
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+      purpose: purpose == freezed
+          ? _value.purpose
+          : purpose // ignore: cast_nullable_to_non_nullable
               as String,
       saveCard: saveCard == freezed
           ? _value.saveCard
@@ -1140,11 +1380,13 @@ abstract class _$TopupViaStripeStateCopyWith<$Res>
       __$TopupViaStripeStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
+      {Key key,
+      String name,
       String cardNumber,
       String cvc,
       String expYear,
       String amount,
+      String purpose,
       bool saveCard,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -1163,16 +1405,22 @@ class __$TopupViaStripeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? key = freezed,
     Object? name = freezed,
     Object? cardNumber = freezed,
     Object? cvc = freezed,
     Object? expYear = freezed,
     Object? amount = freezed,
+    Object? purpose = freezed,
     Object? saveCard = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_TopupViaStripeState(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as Key,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1192,6 +1440,10 @@ class __$TopupViaStripeStateCopyWithImpl<$Res>
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+      purpose: purpose == freezed
+          ? _value.purpose
+          : purpose // ignore: cast_nullable_to_non_nullable
               as String,
       saveCard: saveCard == freezed
           ? _value.saveCard
@@ -1213,15 +1465,19 @@ class __$TopupViaStripeStateCopyWithImpl<$Res>
 
 class _$_TopupViaStripeState implements _TopupViaStripeState {
   const _$_TopupViaStripeState(
-      {required this.name,
+      {required this.key,
+      required this.name,
       required this.cardNumber,
       required this.cvc,
       required this.expYear,
       required this.amount,
+      required this.purpose,
       required this.saveCard,
       required this.isSubmitting,
       required this.failureOrSuccessOption});
 
+  @override
+  final Key key;
   @override
   final String name;
   @override
@@ -1233,6 +1489,8 @@ class _$_TopupViaStripeState implements _TopupViaStripeState {
   @override
   final String amount;
   @override
+  final String purpose;
+  @override
   final bool saveCard;
   @override
   final bool isSubmitting;
@@ -1241,13 +1499,15 @@ class _$_TopupViaStripeState implements _TopupViaStripeState {
 
   @override
   String toString() {
-    return 'TopupViaStripeState(name: $name, cardNumber: $cardNumber, cvc: $cvc, expYear: $expYear, amount: $amount, saveCard: $saveCard, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'TopupViaStripeState(key: $key, name: $name, cardNumber: $cardNumber, cvc: $cvc, expYear: $expYear, amount: $amount, purpose: $purpose, saveCard: $saveCard, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _TopupViaStripeState &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.cardNumber, cardNumber) ||
@@ -1260,6 +1520,9 @@ class _$_TopupViaStripeState implements _TopupViaStripeState {
                     .equals(other.expYear, expYear)) &&
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)) &&
+            (identical(other.purpose, purpose) ||
+                const DeepCollectionEquality()
+                    .equals(other.purpose, purpose)) &&
             (identical(other.saveCard, saveCard) ||
                 const DeepCollectionEquality()
                     .equals(other.saveCard, saveCard)) &&
@@ -1274,11 +1537,13 @@ class _$_TopupViaStripeState implements _TopupViaStripeState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(key) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(cardNumber) ^
       const DeepCollectionEquality().hash(cvc) ^
       const DeepCollectionEquality().hash(expYear) ^
       const DeepCollectionEquality().hash(amount) ^
+      const DeepCollectionEquality().hash(purpose) ^
       const DeepCollectionEquality().hash(saveCard) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(failureOrSuccessOption);
@@ -1292,16 +1557,20 @@ class _$_TopupViaStripeState implements _TopupViaStripeState {
 
 abstract class _TopupViaStripeState implements TopupViaStripeState {
   const factory _TopupViaStripeState(
-          {required String name,
+          {required Key key,
+          required String name,
           required String cardNumber,
           required String cvc,
           required String expYear,
           required String amount,
+          required String purpose,
           required bool saveCard,
           required bool isSubmitting,
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
       _$_TopupViaStripeState;
 
+  @override
+  Key get key => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
@@ -1312,6 +1581,8 @@ abstract class _TopupViaStripeState implements TopupViaStripeState {
   String get expYear => throw _privateConstructorUsedError;
   @override
   String get amount => throw _privateConstructorUsedError;
+  @override
+  String get purpose => throw _privateConstructorUsedError;
   @override
   bool get saveCard => throw _privateConstructorUsedError;
   @override

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/news/data/datasource/news_local_data_source.dart';
+import 'package:wallet_app/injections/injection.dart';
 
 import 'tabs/for_you/for_you_category_selection.dart';
 import 'tabs/for_you/for_you_tab.dart';
@@ -53,13 +55,25 @@ class TabBarScreenState extends State<NewsTabBarScreen> {
     );
   }
 
-  List<Widget> _getChildren() {
-    final forYouPage = _showForYouPreferencePage
+  Widget forYouPage() {
+    ///forcing [ForYouCategorySelectionPage] to show if News Preferences Genre is empty
+    getIt<NewsLocalDataSourceProtocol>()
+        .getNewsPreferencesGenre()
+        .then((value) {
+      if (value.isEmpty) {
+        setState(() {
+          _showForYouPreferencePage = true;
+        });
+      }
+    });
+    return _showForYouPreferencePage
         ? ForYouCategorySelectionPage(editGenre: _selectedForYouPreferencePage)
         : ForYouNewsTab(editGenre: _selectedForYouPreferencePage);
+  }
 
+  List<Widget> _getChildren() {
     return [
-      forYouPage,
+      forYouPage(),
       LatestNewsTab(),
       NewsPreferenceTab(changePage: changeSelectedIndex),
       SaveNewsTab(),

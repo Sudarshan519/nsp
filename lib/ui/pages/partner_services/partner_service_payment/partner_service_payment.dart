@@ -2,8 +2,10 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
+import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/features/utility_payments/presentation/subscription_for_partner_service/subscription_for_partner_service_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
@@ -14,29 +16,13 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
-class PartnerServicePaymentPage extends StatefulWidget {
+class PartnerServicePaymentPage extends StatelessWidget {
   const PartnerServicePaymentPage({
     Key? key,
-    required this.balance,
-    required this.title,
+    required this.payData,
   }) : super(key: key);
 
-  final String balance;
-  final String title;
-
-  @override
-  _PartnerServicePaymentState createState() => _PartnerServicePaymentState();
-}
-
-class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
-  late bool _isConfirmPage;
-  ServiceSubscription? serviceSubscription;
-
-  @override
-  void initState() {
-    _isConfirmPage = false;
-    super.initState();
-  }
+  final UtilityPaymentsModel payData;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +31,7 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            widget.title,
+            payData.name ?? '',
             style: TextStyle(
               color: Palette.white,
             ),
@@ -53,13 +39,7 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
-              if (_isConfirmPage) {
-                setState(() {
-                  _isConfirmPage = false;
-                });
-              } else {
-                context.popRoute();
-              }
+              context.popRoute();
             },
           ),
           centerTitle: true,
@@ -68,8 +48,9 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
         ),
         body: Column(
           children: [
-            BalanceWidget(balance: widget.balance),
+            const BalanceWidget(),
             _blocConsumer(context),
+            _showProceedButton(context),
           ],
         ),
       ),
@@ -84,9 +65,6 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
           initial: (_) {},
           loading: (_) {},
           failure: (failure) {
-            setState(() {
-              serviceSubscription = failure.subscription;
-            });
             FlushbarHelper.createError(
               message: failure.failure.map(
                 serverError: (error) => error.message,
@@ -95,18 +73,16 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
               ),
             ).show(context);
           },
-          fetchSubscriptionSuccessfully: (result) {
-            setState(() {
-              serviceSubscription = result.subscription;
-            });
-          },
+          fetchSubscriptionSuccessfully: (result) {},
           purchasedSuccessfully: (_) {
-            getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+            getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
+            getIt<TransactionBloc>()
+                .add(const TransactionEvent.fetchTransactionData());
             showDialog(
               context: context,
               builder: (_) => PopUpSuccessOverLay(
-                title: AppConstants.topUpSuccessTitle,
-                message: AppConstants.topUpSuccessMessage,
+                title: AppConstants.paymentSuccessTitle,
+                message: AppConstants.paymentSuccessMessage,
                 onPressed: () {
                   context.router.navigate(const TabBarRoute());
                 },
@@ -122,10 +98,114 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
           );
         }
 
-        if (_isConfirmPage) {
-          return Expanded(child: subscriptionConfirmationbody(context));
+        return Expanded(
+          child: subscriptionInformationbody(context),
+        );
+      },
+    );
+  }
+
+  Widget _showProceedButton(BuildContext context) {
+    return BlocBuilder<SubscriptionForPartnerServiceBloc,
+        SubscriptionForPartnerServiceState>(
+      builder: (context, state) {
+        if (state == const SubscriptionForPartnerServiceState.loading()) {
+          return const SizedBox.shrink();
         }
-        return Expanded(child: subscriptionInformationbody(context));
+
+        final invoices =
+            context.read<SubscriptionForPartnerServiceBloc>().invoices;
+        if (invoices.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Palette.dividerColor,
+            ),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(16.0),
+              topRight: Radius.circular(16.0),
+            ),
+          ),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () =>
+                        context.read<SubscriptionForPartnerServiceBloc>().add(
+                              const SubscriptionForPartnerServiceEvent
+                                  .selectAllSubscription(),
+                            ),
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Palette.dividerColor,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                        color: context
+                                .read<SubscriptionForPartnerServiceBloc>()
+                                .isAllSelected
+                            ? Palette.primary
+                            : Palette.white,
+                      ),
+                      child: context
+                              .read<SubscriptionForPartnerServiceBloc>()
+                              .isAllSelected
+                          ? Icon(Icons.check, color: Palette.white)
+                          : const SizedBox.shrink(),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    "All",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const Spacer(),
+                  Row(
+                    children: [
+                      const Text(
+                        "Grand Total:",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        context
+                                .read<SubscriptionForPartnerServiceBloc>()
+                                .grandTotal ??
+                            "",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: Palette.primary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              _ProceedButton(
+                callback: () {
+                  context.read<SubscriptionForPartnerServiceBloc>().add(
+                        SubscriptionForPartnerServiceEvent.purchaseSubscription(
+                            payData.id ?? 0),
+                      );
+                },
+              ),
+            ],
+          ),
+        );
       },
     );
   }
@@ -134,44 +214,14 @@ class _PartnerServicePaymentState extends State<PartnerServicePaymentPage> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: SingleChildScrollView(
-        child: Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              _SubscriptionIdTextField(),
-              if (serviceSubscription != null)
-                _TransactionDetail(
-                  subscription: serviceSubscription!,
-                ),
-              const SizedBox(height: 20),
-              if (serviceSubscription != null)
-                _ProceedButton(
-                  callback: () {
-                    setState(() {
-                      _isConfirmPage = true;
-                    });
-                  },
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget subscriptionConfirmationbody(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            _ConfirmationView(subscription: serviceSubscription!),
-            const SizedBox(height: 40),
-            _ConfirmButton(
-              callback: () {},
+            _SubscriptionIdTextField(),
+            _TransactionDetail(
+              invoices:
+                  context.read<SubscriptionForPartnerServiceBloc>().invoices,
             ),
             const SizedBox(height: 20),
           ],
@@ -196,7 +246,7 @@ class _SubscriptionIdTextField extends StatelessWidget {
               Expanded(
                 child: InputTextWidget(
                   hintText: "1212XXXXXXX",
-                  textInputType: TextInputType.number,
+                  textInputType: TextInputType.emailAddress,
                   value: "",
                   onChanged: (value) {
                     subscriptionId = value;
@@ -243,236 +293,170 @@ class _SubscriptionIdTextField extends StatelessWidget {
 }
 
 class _TransactionDetail extends StatelessWidget {
-  final ServiceSubscription subscription;
+  final List<SubscriptionInvoice> invoices;
 
   const _TransactionDetail({
     Key? key,
-    required this.subscription,
+    required this.invoices,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          // height: 30,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Palette.primary,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+      children: _getSubscriptionList(context),
+    );
+  }
+
+  List<Widget> _getSubscriptionList(BuildContext context) {
+    final widgets = <Widget>[];
+
+    for (final invoice in invoices) {
+      widgets.add(
+        InkWell(
+          onTap: () {
+            context.read<SubscriptionForPartnerServiceBloc>().add(
+                  SubscriptionForPartnerServiceEvent.selectSubscription(
+                      invoice: invoice),
+                );
+          },
+          child: Row(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Name',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
+              Container(
+                height: 30,
+                width: 30,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Palette.dividerColor,
                   ),
-                  Text(
-                    "Aashish Adhikari",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
+                  borderRadius: BorderRadius.circular(15),
+                  color: invoice.isSelected ? Palette.primary : Palette.white,
+                ),
+                child: invoice.isSelected
+                    ? Icon(Icons.check, color: Palette.white)
+                    : const SizedBox.shrink(),
               ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Invoice Number',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
+              const SizedBox(width: 10),
+              Expanded(
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Palette.dividerColor,
                     ),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  Text(
-                    subscription.invoice?.invoiceNumber ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.black,
+                            ),
+                          ),
+                          Text(
+                            invoice.insuredName ?? '',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Invoice Number',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.black,
+                            ),
+                          ),
+                          Text(
+                            invoice.invoiceNumber ?? '',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Plan',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.black,
+                            ),
+                          ),
+                          Text(
+                            invoice.planName ?? '',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      DashedLineWidget(
+                        color: Palette.black,
+                      ),
+                      const SizedBox(height: 5),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Total Paying Amount',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.black,
+                            ),
+                          ),
+                          Text(
+                            '${invoice.dueAmount ?? 0.0}',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Palette.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Plan',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    "MIRAI LIFE PREMIUM",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Terms',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    subscription.invoice?.paymentType ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Invoice date',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    subscription.invoice?.invoiceDate ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Due date',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    subscription.invoice?.invoiceDueDate ?? 'N/A',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Total Amount',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    '${subscription.invoice?.totalAmount ?? 0.0}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Amount Received',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    '${subscription.invoice?.amountReceived ?? 0.0}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              DashedLineWidget(
-                color: Palette.white,
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Total Paying Amount',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    '${subscription.invoice?.dueAmount ?? 0.0}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ],
           ),
         ),
-        const SizedBox(height: 20),
-      ],
-    );
-    //   },
-    // );
+      );
+
+      widgets.add(
+        const SizedBox(
+          height: 20,
+        ),
+      );
+    }
+
+    return widgets;
   }
 }
 
@@ -497,148 +481,6 @@ class _ProceedButton extends StatelessWidget {
         child: Center(
           child: Text(
             "Proceed",
-            style: TextStyle(
-              color: Palette.white,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-//! Conformation View
-
-class _ConfirmationView extends StatelessWidget {
-  final ServiceSubscription subscription;
-
-  const _ConfirmationView({
-    Key? key,
-    required this.subscription,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: "Name",
-          value: "Aashish Adhikari",
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: "Invoice Number",
-          value: subscription.invoice?.invoiceNumber ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Plan',
-          value: "MIRAI LIFE PREMIUM",
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Terms',
-          value: subscription.invoice?.paymentType ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Invoice date',
-          value: subscription.invoice?.invoiceDate ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Due date',
-          value: subscription.invoice?.invoiceDueDate ?? '',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Total Amount',
-          value: '${subscription.invoice?.totalAmount ?? 0.0}',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Amount Received',
-          value: '${subscription.invoice?.amountReceived ?? 0.0}',
-        ),
-        const SizedBox(height: 10),
-        _TransactionDetailRow(
-          title: 'Total Paying Amount',
-          value: '${subscription.invoice?.dueAmount ?? 0.0}',
-        ),
-      ],
-    );
-  }
-}
-
-class _TransactionDetailRow extends StatelessWidget {
-  final String title;
-  final bool isTitleBold;
-  final String value;
-  final bool isValueBold;
-
-  const _TransactionDetailRow({
-    Key? key,
-    required this.title,
-    this.isTitleBold = false,
-    required this.value,
-    this.isValueBold = false,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 10,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Palette.dividerColor.withOpacity(0.2),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: isTitleBold ? FontWeight.bold : FontWeight.normal,
-            ),
-          ),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: isValueBold ? FontWeight.bold : FontWeight.normal,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _ConfirmButton extends StatelessWidget {
-  final Function() callback;
-  const _ConfirmButton({
-    Key? key,
-    required this.callback,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: callback,
-      child: Container(
-        height: 40,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Palette.primary,
-        ),
-        child: Center(
-          child: Text(
-            "Confirm",
             style: TextStyle(
               color: Palette.white,
             ),

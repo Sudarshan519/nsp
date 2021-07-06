@@ -14,7 +14,7 @@ class DashedLineWidget extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         final boxWidth = constraints.constrainWidth();
-        const dashWidth = 4.0;
+        const dashWidth = 8.0;
         final dashHeight = height;
         final dashCount = (boxWidth / (2 * dashWidth)).floor();
         return Flex(

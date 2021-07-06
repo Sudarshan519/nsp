@@ -2,46 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
-import 'package:wallet_app/features/transaction/domain/usecase/get_transaction.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
-import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
 
-class TransactionBlocView extends StatelessWidget {
-  const TransactionBlocView({
+class TransactionListPage extends StatelessWidget {
+  const TransactionListPage({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<TransactionBloc>()
-        ..add(
-          //default from today to last 7 days
-          TransactionEvent.fetchTransactionData(GetTransactionParam(
-              page: 'page',
-              fromDate: DateTimeFormatter.formatDateToApi(
-                  DateTime.now().subtract(const Duration(days: 7))),
-              toDate: DateTimeFormatter.formatDateToApi(DateTime.now()))),
-        ),
-      child: BlocConsumer<TransactionBloc, TransactionState>(
-        listener: (context, state) {},
-        buildWhen: (previous, current) => previous.hashCode != current.hashCode,
-        builder: (context, state) {
-          return state.map(
-            loading: (a) => loadingPage(),
-            loaded: (data) =>
-                TransactionBuilder(state: state, items: data.list),
-            failure: (a) => const InfoWidget(message: 'Some error occoured'),
-            failureWithData: (a) =>
-                const InfoWidget(message: 'Some error occoured'),
-          );
-        },
-      ),
+    return BlocBuilder<TransactionBloc, TransactionState>(
+      buildWhen: (previous, current) => previous.hashCode != current.hashCode,
+      builder: (context, state) {
+        return state.map(
+          loading: (a) => loadingPage(),
+          loaded: (data) => TransactionBuilder(state: state, items: data.list),
+          failure: (a) =>
+              const InfoWidget(message: AppConstants.someThingWentWrong),
+          failureWithData: (a) =>
+              const InfoWidget(message: AppConstants.someThingWentWrong),
+        );
+      },
     );
   }
 }
@@ -78,93 +66,92 @@ class _TransactionBuilderState extends State<TransactionBuilder>
       return Container(
         margin: const EdgeInsets.only(top: 8),
         height: 32,
-        child: Row(
-          children: [
-            Expanded(
-              child: TextField(
-                  maxLength: 25,
-                  onChanged: (s) {
-                    setState(() {
-                      _searchList.clear();
-                      _searchList = _activeList
-                          .where((element) =>
-                              element.transactionName
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(s.toLowerCase()) ||
-                              element.remarks
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(s.toLowerCase()) ||
-                              element.referenceId
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(s.toLowerCase()) ||
-                              element.topupBy
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(s.toLowerCase()) ||
-                              // element.transactionFor
-                              //     .toString()
-                              //     .toLowerCase()
-                              //     .contains(s.toLowerCase()) ||
-                              element.user
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(s.toLowerCase()))
-                          .toList();
-                    });
-                  },
-                  controller: _searchController,
-                  textAlignVertical: TextAlignVertical.center,
-                  style: const TextStyle(fontSize: 12),
-                  decoration: InputDecoration(
-                      counterText: '',
-                      contentPadding: const EdgeInsets.only(left: 8),
-                      hintText: 'Search',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: const BorderSide(
-                          // color: Colors.black,
-                          width: 0.07,
-                          style: BorderStyle.none,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                    maxLength: 25,
+                    onChanged: (s) {
+                      setState(() {
+                        _searchList.clear();
+                        _searchList = _activeList
+                            .where((element) =>
+                                element.transactionName
+                                    .toString()
+                                    .toLowerCase()
+                                    .contains(s.toLowerCase()) ||
+                                element.remarks
+                                    .toString()
+                                    .toLowerCase()
+                                    .contains(s.toLowerCase()) ||
+                                element.referenceId
+                                    .toString()
+                                    .toLowerCase()
+                                    .contains(s.toLowerCase()) ||
+                                element.topupBy
+                                    .toString()
+                                    .toLowerCase()
+                                    .contains(s.toLowerCase()) ||
+                                element.user
+                                    .toString()
+                                    .toLowerCase()
+                                    .contains(s.toLowerCase()))
+                            .toList();
+                      });
+                    },
+                    controller: _searchController,
+                    textAlignVertical: TextAlignVertical.center,
+                    style: const TextStyle(fontSize: 12),
+                    decoration: InputDecoration(
+                        counterText: '',
+                        contentPadding: const EdgeInsets.only(left: 8),
+                        hintText: 'Search',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(
+                            // color: Colors.black,
+                            width: 0.07,
+                            style: BorderStyle.none,
+                          ),
                         ),
-                      ),
-                      suffixIcon: const Icon(Icons.search, size: 20),
-                      prefixIcon: _searchController.text.isEmpty
-                          ? null
-                          : IconButton(
-                              onPressed: () =>
-                                  setState(() => _searchController.clear()),
-                              icon: const Icon(Icons.close, size: 16)))),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  _showFilter = !_showFilter;
-                });
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Palette.primary,
-                onPrimary: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(32.0),
+                        suffixIcon: const Icon(Icons.search, size: 20),
+                        prefixIcon: _searchController.text.isEmpty
+                            ? null
+                            : IconButton(
+                                onPressed: () =>
+                                    setState(() => _searchController.clear()),
+                                icon: const Icon(Icons.close, size: 16)))),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _showFilter = !_showFilter;
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Palette.primary,
+                  onPrimary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(32.0),
+                  ),
+                ),
+                child: Row(
+                  children: const [
+                    Icon(
+                      Icons.filter_alt_rounded,
+                      size: 20,
+                    ),
+                    Text(" Filter")
+                  ],
                 ),
               ),
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.filter_alt_rounded,
-                    size: 20,
-                  ),
-                  Text(" Filter")
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
@@ -316,11 +303,8 @@ class _TransactionBuilderState extends State<TransactionBuilder>
                 onPressed: () async {
                   context.read<TransactionBloc>().add(
                         TransactionEvent.fetchTransactionData(
-                            GetTransactionParam(
-                                page: "page",
-                                fromDate:
-                                    DateTimeFormatter.formatDateToApi(from),
-                                toDate: DateTimeFormatter.formatDateToApi(to))),
+                            fromDate: DateTimeFormatter.formatDateToApi(from),
+                            toDate: DateTimeFormatter.formatDateToApi(to)),
                       );
                 },
                 style: ElevatedButton.styleFrom(
@@ -368,18 +352,18 @@ class _TransactionBuilderState extends State<TransactionBuilder>
 
       default:
     }
+    final listToShow =
+        _searchController.text.isEmpty ? _activeList : _searchList;
+
     return Column(
       children: [
         _tabBar(),
         _searchWidget(),
         if (_showFilter) _dateFilterWidget(context),
         // ignore: prefer_if_elements_to_conditional_expressions
-        widget.items.isEmpty
+        listToShow.isEmpty
             ? const InfoWidget(message: 'No data available')
-            : TransactionListView(
-                items: _searchController.text.isNotEmpty
-                    ? _searchList
-                    : _activeList)
+            : TransactionListView(items: listToShow)
       ],
     );
   }
@@ -422,12 +406,8 @@ class TransactionListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 20),
-      elevation: 8,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
-      ),
+    return ShadowBoxWidget(
+      margin: const EdgeInsets.symmetric(vertical: 11, horizontal: 10),
       child: ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -455,7 +435,7 @@ class TransactionViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: const EdgeInsets.all(12),
+      // contentPadding: const EdgeInsets.all(5),
       onTap: () => context.pushRoute(TransactionDetailRoute(item: transaction)),
       leading: Container(
           width: 55,
@@ -472,12 +452,12 @@ class TransactionViewItem extends StatelessWidget {
           )),
       title: Text(
         transaction.transactionName.toString(),
-        textScaleFactor: 0.9,
+        textScaleFactor: 0.74,
         style: const TextStyle(fontWeight: FontWeight.w700),
       ),
       subtitle: Text(
         '''${transaction.transactionType}\n${DateTimeFormatter.formatDate(transaction.createdAt.toString())} - ${DateTimeFormatter.formatTime(transaction.createdAt.toString())}''',
-        textScaleFactor: 0.85,
+        textScaleFactor: 0.8,
       ),
       trailing: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -490,14 +470,15 @@ class TransactionViewItem extends StatelessWidget {
           ),
           RichText(
             text: TextSpan(
-                text: 'Status: ',
-                style: const TextStyle(color: Colors.black, fontSize: 11),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: transaction.transactionStatus.toString(),
-                    style: TextStyle(color: Palette.primary, fontSize: 11),
-                  )
-                ]),
+              text: 'Status: ',
+              style: const TextStyle(color: Colors.black, fontSize: 11),
+              children: <TextSpan>[
+                TextSpan(
+                  text: transaction.transactionStatus.toString(),
+                  style: TextStyle(color: Palette.primary, fontSize: 11),
+                )
+              ],
+            ),
           )
         ],
       ),

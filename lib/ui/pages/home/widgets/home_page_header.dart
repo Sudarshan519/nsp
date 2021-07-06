@@ -17,8 +17,8 @@ class HomePageHeader extends StatelessWidget {
       buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
         return state.map(
-          initial: (_) => const UserInfoWidget(user: null),
-          loading: (_) => const UserInfoWidget(user: null),
+          initial: (_) => const UserInfoWidget(),
+          loading: (_) => const UserInfoWidget(),
           loadingWithData: (success) =>
               UserInfoWidget(user: success.data.userDetail),
           loaded: (success) => UserInfoWidget(user: success.data.userDetail),
@@ -32,7 +32,7 @@ class HomePageHeader extends StatelessWidget {
                 ),
               ).show(context);
             });
-            return const UserInfoWidget(user: null);
+            return const UserInfoWidget();
           },
           failureWithData: (failure) {
             Future.delayed(Duration.zero, () {

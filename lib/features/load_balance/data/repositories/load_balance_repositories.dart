@@ -35,6 +35,7 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
     required String expMonth,
     required String amount,
     required bool saveCard,
+    required bool isSavedCard,
   }) async {
     try {
       return Right(
@@ -46,6 +47,7 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
           expMonth: expMonth,
           amount: amount,
           saveCard: saveCard,
+          isSavedCard: isSavedCard,
         ),
       );
     } on ServerException catch (ex) {
@@ -58,11 +60,13 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
     required String referenceId,
     required String amount,
     required String purpose,
+    required String tokenId,
   }) async {
     try {
       return Right(
         await dataSource.verifyImePayTopup(
           referenceId: referenceId,
+          tokenId: tokenId,
           amount: amount,
           purpose: purpose,
         ),
@@ -85,6 +89,26 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
           amount: amount,
           purpose: purpose,
         ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> verifyKhaltiTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+    required String verifyAmount,
+  }) async {
+    try {
+      return Right(
+        await dataSource.verifyKhaltiTopup(
+            token: referenceId,
+            amount: amount,
+            purpose: purpose,
+            verifyAmount: verifyAmount),
       );
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));

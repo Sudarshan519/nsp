@@ -2,37 +2,88 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ime_pay/ime_pay.dart';
+import 'package:injectable/injectable.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
-import 'package:wallet_app/features/load_balance/presentations/ime_pay_form/ime_pay_form_cubit.dart';
+import 'package:wallet_app/features/load_balance/presentations/ime_pay/ime_pay_form/ime_pay_form_cubit.dart';
+import 'package:wallet_app/features/load_balance/presentations/ime_pay/verify_ime_pay_topup/verify_ime_pay_topup_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
+import 'package:wallet_app/utils/constant.dart';
+import 'package:auto_route/auto_route.dart';
 
 class ImePayTopupPage extends StatelessWidget {
   final PaymentMethod method;
+  final double conversionRate;
+  final bool isVerified;
+  final double balance;
 
   const ImePayTopupPage({
     Key? key,
     required this.method,
+    required this.conversionRate,
+    required this.isVerified,
+    required this.balance,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return
-        // MultiBlocProvider(
-        //   providers: [
-        //     // BlocProvider(
-        //     //   create: (context) => getIt<VerifyEsewaTopupBloc>(),
-        //     // ),
+    return MultiBlocProvider(
+      providers: [
         BlocProvider(
-      create: (context) => getIt<ImePayFormCubit>(),
-      child: imePayFormWidget(context),
+          create: (context) => getIt<VerifyImePayTopupBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ImePayFormCubit>(),
+        ),
+      ],
+      child: blocBuilderWidget(context),
     );
-    //   ],
-    //   child: imePayFormWidget(context),
-    // );
+  }
+
+  Widget blocBuilderWidget(BuildContext context) {
+    return BlocConsumer<VerifyImePayTopupBloc, VerifyImePayTopupState>(
+      listener: (context, state) {
+        state.map(
+          initial: (_) {},
+          loading: (_) {},
+          success: (_) {
+            getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+            showDialog(
+              context: context,
+              builder: (_) => PopUpSuccessOverLay(
+                title: AppConstants.topUpSuccessTitle,
+                message: AppConstants.topUpSuccessMessage,
+                onPressed: () {
+                  context.router.navigate(const TabBarRoute());
+                },
+              ),
+            );
+          },
+          failure: (failure) {
+            FlushbarHelper.createError(
+              message: failure.failure.map(
+                noInternetConnection: (error) => AppConstants.noNetwork,
+                serverError: (error) => error.message,
+                invalidUser: (error) => AppConstants.someThingWentWrong,
+              ),
+            ).show(context);
+          },
+        );
+      },
+      builder: (context, state) {
+        if (state == const VerifyImePayTopupState.loading()) {
+          return loadingPage();
+        }
+        return imePayFormWidget(context);
+      },
+    );
   }
 
   Widget imePayFormWidget(BuildContext context) {
@@ -48,6 +99,9 @@ class ImePayTopupPage extends StatelessWidget {
             const SizedBox(height: 10),
             const _AmountWidget(),
             const SizedBox(height: 10),
+            _ConversionRate(
+              conversionRate: conversionRate,
+            ),
             const _AmountFromSuggestionWidget(),
             const SizedBox(height: 10),
             const _PurposeWidget(),
@@ -87,33 +141,90 @@ class ImePayTopupPage extends StatelessWidget {
       return;
     }
 
-    final doubleAmount = double.parse(amount);
+    final amountDoubleInRupees = double.parse(amount);
 
-    if (doubleAmount < 100) {
+    if (amountDoubleInRupees < 100) {
       FlushbarHelper.createError(
               message: "The amount cannot be smaller than 100.")
           .show(context);
       return;
     }
+    //checking if verified
+    if (!isVerified) {
+      final sum = amountDoubleInRupees + balance;
+      if (method.balanceLimit != null && sum >= method.balanceLimit!) {
+        FlushbarHelper.createError(
+                message:
+                    "Unverified user cannot topup more than limit ${method.balanceLimit}.")
+            .show(context);
+        return;
+      }
+    }
 
-    ImePay _imePay = ImePay(
-      merchantCode: method.merchantCode ?? '',
-      module: method.module ?? '',
-      userName: 'TEST',
-      password: 'TEST',
-      amount: doubleAmount,
-      merchantName: 'TEST',
-      recordingServiceUrl: 'TEST',
-      deliveryServiceUrl: 'TEST',
-      environment: ImePayEnvironment.TEST,
-      refId: 'TEST',
-    );
+    final ImePay _imePay = ImePay(
+        merchantCode: method.module ?? '',
+        module: method.module ?? '',
+        userName: method.username ?? '',
+        password: method.password ?? '',
+        amount: amountDoubleInRupees,
+        merchantName: method.module ?? '',
+        recordingServiceUrl: method.recordingUrl ?? '',
+        deliveryServiceUrl: method.deliveryUrl ?? '',
+        environment:
+            method.islive ? ImePayEnvironment.LIVE : ImePayEnvironment.TEST,
+        refId: DateTime.now().millisecondsSinceEpoch.toString());
 
     _imePay.startPayment(onSuccess: (ImePaySuccessResponse data) {
-      print(data);
+      debugPrint(data.toString());
+      context.read<VerifyImePayTopupBloc>().add(
+            VerifyImePayTopupEvent.verify(
+              tokenId: data.transactionId.toString(),
+              refId: data.refId.toString(),
+              amount: data.amount.toString(),
+              purpose: purpose,
+            ),
+          );
     }, onFailure: (error) {
-      print(error);
+      debugPrint(error);
     });
+  }
+}
+
+class _ConversionRate extends StatelessWidget {
+  final double conversionRate;
+  const _ConversionRate({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ImePayFormCubit, ImePayFormState>(
+      builder: (context, state) {
+        if (state.amount.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        double amountJPYDouble = 0.0;
+        try {
+          amountJPYDouble = double.parse(state.amount) * conversionRate;
+        } catch (ex) {
+          debugPrint(ex.toString());
+        }
+
+        return Padding(
+          padding: const EdgeInsets.only(right: 8.0, bottom: 12.0),
+          child: Row(
+            children: [
+              const Spacer(),
+              Text(
+                '(NPR ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(2)})',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -130,7 +241,7 @@ class _AmountWidget extends StatelessWidget {
             key: state.key,
             title: "Enter Amount",
             child: InputTextWidget(
-              hintText: "¥ 1000",
+              hintText: "रू 1000",
               textInputType: TextInputType.number,
               value: state.amount,
               onChanged: (value) =>

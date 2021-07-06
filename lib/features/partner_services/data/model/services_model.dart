@@ -1,3 +1,5 @@
+import 'package:wallet_app/features/partner_services/data/model/service_packages_model.dart';
+import 'package:wallet_app/features/partner_services/domain/entities/service_packages.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 
 class ServicesModel extends Services {
@@ -20,6 +22,9 @@ class ServicesModel extends Services {
     required String? companyAddressHeadCity,
     required String? companyAddressHeadStreet,
     required String? description,
+    required double? cashbackPercentage,
+    required double? rewardPoints,
+    required List<ServicePackage>? servicePackages,
   }) : super(
           id: id,
           // branches: branches,
@@ -39,6 +44,9 @@ class ServicesModel extends Services {
           companyAddressHeadCity: companyAddressHeadCity,
           companyAddressHeadStreet: companyAddressHeadStreet,
           description: description,
+          servicePackages: servicePackages,
+          cashbackPercentage: cashbackPercentage,
+          rewardPoints: rewardPoints,
         );
 
   factory ServicesModel.fromJson(Map<String, dynamic> json) => ServicesModel(
@@ -65,6 +73,16 @@ class ServicesModel extends Services {
         companyAddressHeadStreet:
             json["company_address_head_street"] as String?,
         description: json["description"] as String?,
+        rewardPoints: json["reward_point"] as double?,
+        cashbackPercentage: json["cashback_per"] as double?,
+        servicePackages: json["service_packages"] == null
+            ? null
+            : List<ServicePackageModel>.from(
+                (json["service_packages"] as Iterable).map(
+                  (x) =>
+                      ServicePackageModel.fromJson(x as Map<String, dynamic>),
+                ),
+              ),
       );
 
   Map<String, dynamic> toJson() => {

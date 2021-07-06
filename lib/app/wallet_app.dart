@@ -5,18 +5,17 @@ import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bl
 import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_genre/news_genre_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_preference/news_preference_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_app/main.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
-import '../ui/routes/routes.gr.dart';
-
 class WalletApp extends StatelessWidget {
-  final _appRouter = AppRouter();
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -67,10 +66,20 @@ class WalletApp extends StatelessWidget {
               const NewsPreferenceEvent.fetch(),
             ),
         ),
+        BlocProvider(
+          create: (_) => getIt<TransactionBloc>()
+            ..add(const TransactionEvent.fetchTransactionData()),
+        ),
+        BlocProvider(
+          create: (_) => getIt<GetBalanceBloc>()
+            ..add(
+              const GetBalanceEvent.fetchBalance(),
+            ),
+        ),
       ],
       child: MaterialApp.router(
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
+        routerDelegate: appRouter.delegate(),
+        routeInformationParser: appRouter.defaultRouteParser(),
         title: 'Wallet',
         theme: ThemeData(
           primaryColor: Palette.primary,

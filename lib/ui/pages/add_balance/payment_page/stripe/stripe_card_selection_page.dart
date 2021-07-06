@@ -1,16 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class StripePaymentCardSelectionPage extends StatelessWidget {
   final String balance;
+  final List<CreditCard> cards;
 
   const StripePaymentCardSelectionPage({
     Key? key,
     required this.balance,
+    required this.cards,
   }) : super(key: key);
 
   @override
@@ -34,9 +38,7 @@ class StripePaymentCardSelectionPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          BalanceWidget(
-            balance: balance,
-          ),
+          const BalanceWidget(),
           InkWell(
             onTap: () =>
                 context.pushRoute(StripeNewCardPaymentRoute(balance: balance)),
@@ -69,6 +71,44 @@ class StripePaymentCardSelectionPage extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+          ),
+          Expanded(
+            child: ListView.separated(
+              itemCount: cards.length,
+              separatorBuilder: (context, index) => const SizedBox(height: 10),
+              itemBuilder: (context, index) {
+                final maskedCreditCard = (cards[index].cardNumber ?? '')
+                    .replaceAll(RegExp(r'[0-9](?=.*.{4})'), '*');
+                return InkWell(
+                  onTap: () => context.pushRoute(
+                    StripeSaveCardPaymentRoute(
+                      balance: balance,
+                      card: cards[index],
+                    ),
+                  ),
+                  child: ShadowBoxWidget(
+                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          'assets/images/top_up/visa.svg',
+                          height: 35.0,
+                        ),
+                        const SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(cards[index].name ?? ''),
+                            const SizedBox(height: 5),
+                            Text(maskedCreditCard),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ],

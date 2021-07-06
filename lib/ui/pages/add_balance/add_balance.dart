@@ -12,6 +12,14 @@ import 'widget/balance_widgets.dart';
 import 'widget/payment_options.dart';
 
 class AddBalancePage extends StatelessWidget {
+  final double conversionRate;
+  final bool isVerified;
+
+  const AddBalancePage({
+    Key? key,
+    required this.conversionRate,
+    required this.isVerified,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -65,7 +73,7 @@ class AddBalancePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        BalanceWidget(balance: loadFund?.formattedBalance ?? 'JPY XX.XX'),
+        const BalanceWidget(),
         const SizedBox(height: 20),
         const Padding(
           padding: EdgeInsets.only(left: 16.0),
@@ -81,6 +89,9 @@ class AddBalancePage extends StatelessWidget {
           child: PaymentOptions(
             balance: loadFund?.formattedBalance ?? 'JPY XX.XX',
             paymentMethods: loadFund?.paymentMethods ?? [],
+            conversionRate: conversionRate,
+            isVerified: isVerified,
+            creditCards: loadFund?.creditCards ?? [],
           ),
         ),
       ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/ime_pay/ime_pay_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/esewa/esewa_topup_page.dart';
+import 'package:wallet_app/ui/pages/add_balance/payment_page/khalti/khalti_topup_page.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
@@ -10,11 +11,17 @@ class PaymentOptions extends StatelessWidget {
   const PaymentOptions({
     Key? key,
     required this.paymentMethods,
+    required this.creditCards,
     required this.balance,
+    required this.conversionRate,
+    required this.isVerified,
   }) : super(key: key);
 
   final List<PaymentMethod> paymentMethods;
+  final List<CreditCard> creditCards;
   final String balance;
+  final double conversionRate;
+  final bool isVerified;
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +79,16 @@ class PaymentOptions extends StatelessWidget {
 
   Future onPaymentSelected(BuildContext context, int index) async {
     final paymentMethod = paymentMethods[index];
+    final balanceParsed =
+        double.parse(balance.split(' ').last.replaceAll(',', ""));
     switch (paymentMethod.type) {
       case "stripe":
-        context.pushRoute(StripePaymentCardSelectionRoute(balance: balance));
+        context.pushRoute(
+          StripePaymentCardSelectionRoute(
+            balance: balance,
+            cards: creditCards,
+          ),
+        );
         break;
       case "esewa":
         showModalBottomSheet(
@@ -87,7 +101,11 @@ class PaymentOptions extends StatelessWidget {
             ),
           ),
           builder: (BuildContext context) {
-            return EsewaTopupPage(method: paymentMethod);
+            return EsewaTopupPage(
+                method: paymentMethod,
+                conversionRate: conversionRate,
+                balance: balanceParsed,
+                isVerified: isVerified);
           },
         );
         break;
@@ -102,11 +120,32 @@ class PaymentOptions extends StatelessWidget {
             ),
           ),
           builder: (BuildContext context) {
-            return ImePayTopupPage(method: paymentMethod);
+            return ImePayTopupPage(
+                method: paymentMethod,
+                conversionRate: conversionRate,
+                balance: balanceParsed,
+                isVerified: isVerified);
           },
         );
         break;
       case "khalti":
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
+          ),
+          builder: (BuildContext context) {
+            return KhaltiTopupPage(
+                method: paymentMethod,
+                conversionRate: conversionRate,
+                balance: balanceParsed,
+                isVerified: isVerified);
+          },
+        );
         break;
       default:
     }

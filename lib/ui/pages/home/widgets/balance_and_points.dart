@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
@@ -18,6 +20,28 @@ class BalanceAndPointWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<GetBalanceBloc, GetBalanceState>(
+      builder: (context, state) {
+        // return pointAndBalance(context);
+        return state.map(
+          loading: (_) => _pointAndBalance(context, '', ''),
+          // loaded: (success) => _pointAndBalance(context, '', ''),
+          loaded: (success) => _pointAndBalance(
+            context,
+            success.balance.formattedCurrency,
+            '${success.balance.point ?? 0.0}',
+          ),
+          failure: (_) => _pointAndBalance(context, '', ''),
+        );
+      },
+    );
+  }
+
+  Widget _pointAndBalance(
+    BuildContext context,
+    String balance,
+    String points,
+  ) {
     return Stack(
       children: [
         Container(
@@ -48,14 +72,24 @@ class BalanceAndPointWidget extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  Text(
-                    user?.formattedBalance ?? 'JPY XX.XX',
-                    style: TextStyle(
-                      color: Palette.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                  if (balance.isEmpty)
+                    Container(
+                      padding: const EdgeInsets.only(top: 8),
+                      width: 90,
+                      child: const LinearProgressIndicator(
+                        color: Colors.black,
+                        backgroundColor: Colors.black12,
+                      ),
+                    )
+                  else
+                    Text(
+                      balance,
+                      style: TextStyle(
+                        color: Palette.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
                 ],
               ),
               const Spacer(),
@@ -75,14 +109,24 @@ class BalanceAndPointWidget extends StatelessWidget {
                       const SizedBox(
                         width: 5,
                       ),
-                      Text(
-                        "${user?.point ?? 0}",
-                        style: TextStyle(
-                          color: Palette.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                      if (points.isEmpty)
+                        Container(
+                          padding: const EdgeInsets.only(top: 4),
+                          width: 55,
+                          child: const LinearProgressIndicator(
+                            color: Colors.black,
+                            backgroundColor: Colors.black12,
+                          ),
+                        )
+                      else
+                        Text(
+                          points,
+                          style: TextStyle(
+                            color: Palette.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
                     ],
                   ),
                   const SizedBox(
@@ -91,7 +135,12 @@ class BalanceAndPointWidget extends StatelessWidget {
                   if (showAddBalanceButton)
                     CustomButton(
                       title: "+ Add Balance",
-                      onTap: () => context.pushRoute(const AddBalanceRoute()),
+                      onTap: () => context.pushRoute(
+                        AddBalanceRoute(
+                            conversionRate:
+                                user?.currencyConversionRate ?? 1.067,
+                            isVerified: user?.isKycVerified ?? false),
+                      ),
                     ),
                 ],
               )

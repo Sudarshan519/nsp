@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/get_subscription_detail_for_partner_service.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/purchase_subscription_from_partner_service.dart';
 
 part 'subscription_for_partner_service_event.dart';
 part 'subscription_for_partner_service_state.dart';
@@ -16,9 +17,18 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
     SubscriptionForPartnerServiceEvent, SubscriptionForPartnerServiceState> {
   final GetSubscriptionDetailForPartnerService
       getSubscriptionDetailForPartnerService;
-  SubscriptionForPartnerServiceBloc(
-      {required this.getSubscriptionDetailForPartnerService})
-      : super(const _Initial());
+
+  final PurchaseSubscriptionFromPartnerService
+      purchaseSubscriptionFromPartnerService;
+
+  SubscriptionForPartnerServiceBloc({
+    required this.getSubscriptionDetailForPartnerService,
+    required this.purchaseSubscriptionFromPartnerService,
+  }) : super(const _Initial());
+
+  String? grandTotal;
+  bool isAllSelected = false;
+  List<SubscriptionInvoice> invoices = [];
 
   @override
   Stream<SubscriptionForPartnerServiceState> mapEventToState(
@@ -27,17 +37,84 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
     yield* event.map(
       getSubscription: (e) async* {
         yield const _Loading();
+        invoices = [];
+        isAllSelected = false;
+        grandTotal = null;
         final result = await getSubscriptionDetailForPartnerService(
           GetSubscriptionDetailForPartnerServiceParams(
             subscriptionId: e.subscriptionId,
           ),
         );
         yield result.fold(
-          (failure) => _Failure(failure, null),
-          (subscription) => _FetchSubscriptionSuccessfully(subscription),
+          (failure) => _Failure(failure),
+          (subscription) {
+            invoices = subscription.invoice ?? [];
+            return const _FetchSubscriptionSuccessfully();
+          },
         );
       },
-      purchaseSubscription: (e) async* {},
+      purchaseSubscription: (e) async* {
+        yield const _Loading();
+
+        final List<SubscriptionInvoice> newInvoices = [];
+
+        for (final invoice in invoices) {
+          if (invoice.isSelected) {
+            newInvoices.add(invoice);
+          }
+        }
+
+        final result = await purchaseSubscriptionFromPartnerService(
+          PurchaseSubscriptionFromPartnerServiceParams(
+              invoice: newInvoices, coupon: '', productId: e.productId),
+        );
+
+        yield result.fold(
+          (failure) => _Failure(failure),
+          (subscription) => const _PurchasedSuccessfully(),
+        );
+      },
+      selectAllSubscription: (e) async* {
+        for (final invoice in invoices) {
+          invoice.isSelected = true;
+        }
+
+        countGrandTotal();
+
+        isAllSelected = true;
+        yield const _Loading();
+        yield const _FetchSubscriptionSuccessfully();
+      },
+      selectSubscription: (e) async* {
+        final invoice = e.invoice;
+        final index = invoices.indexOf(invoice);
+        invoices[index].isSelected = !invoices[index].isSelected;
+
+        bool _isAllSelected = true;
+        for (final newInvoice in invoices) {
+          if (newInvoice.isSelected == false) {
+            _isAllSelected = false;
+            break;
+          }
+        }
+        isAllSelected = _isAllSelected;
+
+        countGrandTotal();
+
+        yield const _Loading();
+        yield const _FetchSubscriptionSuccessfully();
+      },
     );
+  }
+
+  void countGrandTotal() {
+    double total = 0;
+    for (final invoice in invoices) {
+      if (invoice.isSelected) {
+        final amount = invoice.dueAmount ?? 0.0;
+        total = total + amount;
+      }
+    }
+    grandTotal = total.toStringAsFixed(2);
   }
 }

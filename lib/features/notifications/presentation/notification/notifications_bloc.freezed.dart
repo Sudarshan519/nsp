@@ -261,17 +261,17 @@ class _$NotificationsStateTearOff {
     );
   }
 
-  _Loaded loaded(List<NotificationItem> newsData) {
+  _Loaded loaded(List<NotificationItem> notificationData) {
     return _Loaded(
-      newsData,
+      notificationData,
     );
   }
 
   _FailureWithData failureWithData(
-      ApiFailure failure, List<NotificationItem> newsData) {
+      ApiFailure failure, List<NotificationItem> notificationData) {
     return _FailureWithData(
       failure,
-      newsData,
+      notificationData,
     );
   }
 
@@ -291,9 +291,9 @@ mixin _$NotificationsState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<NotificationItem> offlinedata) loadingWith,
-    required TResult Function(List<NotificationItem> newsData) loaded,
+    required TResult Function(List<NotificationItem> notificationData) loaded,
     required TResult Function(
-            ApiFailure failure, List<NotificationItem> newsData)
+            ApiFailure failure, List<NotificationItem> notificationData)
         failureWithData,
     required TResult Function(ApiFailure failure) failure,
   }) =>
@@ -302,8 +302,9 @@ mixin _$NotificationsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NotificationItem> offlinedata)? loadingWith,
-    TResult Function(List<NotificationItem> newsData)? loaded,
-    TResult Function(ApiFailure failure, List<NotificationItem> newsData)?
+    TResult Function(List<NotificationItem> notificationData)? loaded,
+    TResult Function(
+            ApiFailure failure, List<NotificationItem> notificationData)?
         failureWithData,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
@@ -387,9 +388,9 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<NotificationItem> offlinedata) loadingWith,
-    required TResult Function(List<NotificationItem> newsData) loaded,
+    required TResult Function(List<NotificationItem> notificationData) loaded,
     required TResult Function(
-            ApiFailure failure, List<NotificationItem> newsData)
+            ApiFailure failure, List<NotificationItem> notificationData)
         failureWithData,
     required TResult Function(ApiFailure failure) failure,
   }) {
@@ -401,8 +402,9 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NotificationItem> offlinedata)? loadingWith,
-    TResult Function(List<NotificationItem> newsData)? loaded,
-    TResult Function(ApiFailure failure, List<NotificationItem> newsData)?
+    TResult Function(List<NotificationItem> notificationData)? loaded,
+    TResult Function(
+            ApiFailure failure, List<NotificationItem> notificationData)?
         failureWithData,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
@@ -514,9 +516,9 @@ class _$_LoadingWith implements _LoadingWith {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<NotificationItem> offlinedata) loadingWith,
-    required TResult Function(List<NotificationItem> newsData) loaded,
+    required TResult Function(List<NotificationItem> notificationData) loaded,
     required TResult Function(
-            ApiFailure failure, List<NotificationItem> newsData)
+            ApiFailure failure, List<NotificationItem> notificationData)
         failureWithData,
     required TResult Function(ApiFailure failure) failure,
   }) {
@@ -528,8 +530,9 @@ class _$_LoadingWith implements _LoadingWith {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NotificationItem> offlinedata)? loadingWith,
-    TResult Function(List<NotificationItem> newsData)? loaded,
-    TResult Function(ApiFailure failure, List<NotificationItem> newsData)?
+    TResult Function(List<NotificationItem> notificationData)? loaded,
+    TResult Function(
+            ApiFailure failure, List<NotificationItem> notificationData)?
         failureWithData,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
@@ -583,7 +586,7 @@ abstract class _LoadingWith implements NotificationsState {
 abstract class _$LoadedCopyWith<$Res> {
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
-  $Res call({List<NotificationItem> newsData});
+  $Res call({List<NotificationItem> notificationData});
 }
 
 /// @nodoc
@@ -597,12 +600,12 @@ class __$LoadedCopyWithImpl<$Res> extends _$NotificationsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? newsData = freezed,
+    Object? notificationData = freezed,
   }) {
     return _then(_Loaded(
-      newsData == freezed
-          ? _value.newsData
-          : newsData // ignore: cast_nullable_to_non_nullable
+      notificationData == freezed
+          ? _value.notificationData
+          : notificationData // ignore: cast_nullable_to_non_nullable
               as List<NotificationItem>,
     ));
   }
@@ -611,28 +614,29 @@ class __$LoadedCopyWithImpl<$Res> extends _$NotificationsStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.newsData);
+  const _$_Loaded(this.notificationData);
 
   @override
-  final List<NotificationItem> newsData;
+  final List<NotificationItem> notificationData;
 
   @override
   String toString() {
-    return 'NotificationsState.loaded(newsData: $newsData)';
+    return 'NotificationsState.loaded(notificationData: $notificationData)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Loaded &&
-            (identical(other.newsData, newsData) ||
+            (identical(other.notificationData, notificationData) ||
                 const DeepCollectionEquality()
-                    .equals(other.newsData, newsData)));
+                    .equals(other.notificationData, notificationData)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(newsData);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(notificationData);
 
   @JsonKey(ignore: true)
   @override
@@ -644,13 +648,13 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<NotificationItem> offlinedata) loadingWith,
-    required TResult Function(List<NotificationItem> newsData) loaded,
+    required TResult Function(List<NotificationItem> notificationData) loaded,
     required TResult Function(
-            ApiFailure failure, List<NotificationItem> newsData)
+            ApiFailure failure, List<NotificationItem> notificationData)
         failureWithData,
     required TResult Function(ApiFailure failure) failure,
   }) {
-    return loaded(newsData);
+    return loaded(notificationData);
   }
 
   @override
@@ -658,14 +662,15 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NotificationItem> offlinedata)? loadingWith,
-    TResult Function(List<NotificationItem> newsData)? loaded,
-    TResult Function(ApiFailure failure, List<NotificationItem> newsData)?
+    TResult Function(List<NotificationItem> notificationData)? loaded,
+    TResult Function(
+            ApiFailure failure, List<NotificationItem> notificationData)?
         failureWithData,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(newsData);
+      return loaded(notificationData);
     }
     return orElse();
   }
@@ -700,9 +705,10 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements NotificationsState {
-  const factory _Loaded(List<NotificationItem> newsData) = _$_Loaded;
+  const factory _Loaded(List<NotificationItem> notificationData) = _$_Loaded;
 
-  List<NotificationItem> get newsData => throw _privateConstructorUsedError;
+  List<NotificationItem> get notificationData =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
 }
@@ -712,7 +718,7 @@ abstract class _$FailureWithDataCopyWith<$Res> {
   factory _$FailureWithDataCopyWith(
           _FailureWithData value, $Res Function(_FailureWithData) then) =
       __$FailureWithDataCopyWithImpl<$Res>;
-  $Res call({ApiFailure failure, List<NotificationItem> newsData});
+  $Res call({ApiFailure failure, List<NotificationItem> notificationData});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
@@ -731,16 +737,16 @@ class __$FailureWithDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? failure = freezed,
-    Object? newsData = freezed,
+    Object? notificationData = freezed,
   }) {
     return _then(_FailureWithData(
       failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
-      newsData == freezed
-          ? _value.newsData
-          : newsData // ignore: cast_nullable_to_non_nullable
+      notificationData == freezed
+          ? _value.notificationData
+          : notificationData // ignore: cast_nullable_to_non_nullable
               as List<NotificationItem>,
     ));
   }
@@ -756,16 +762,16 @@ class __$FailureWithDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FailureWithData implements _FailureWithData {
-  const _$_FailureWithData(this.failure, this.newsData);
+  const _$_FailureWithData(this.failure, this.notificationData);
 
   @override
   final ApiFailure failure;
   @override
-  final List<NotificationItem> newsData;
+  final List<NotificationItem> notificationData;
 
   @override
   String toString() {
-    return 'NotificationsState.failureWithData(failure: $failure, newsData: $newsData)';
+    return 'NotificationsState.failureWithData(failure: $failure, notificationData: $notificationData)';
   }
 
   @override
@@ -775,16 +781,16 @@ class _$_FailureWithData implements _FailureWithData {
             (identical(other.failure, failure) ||
                 const DeepCollectionEquality()
                     .equals(other.failure, failure)) &&
-            (identical(other.newsData, newsData) ||
+            (identical(other.notificationData, notificationData) ||
                 const DeepCollectionEquality()
-                    .equals(other.newsData, newsData)));
+                    .equals(other.notificationData, notificationData)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failure) ^
-      const DeepCollectionEquality().hash(newsData);
+      const DeepCollectionEquality().hash(notificationData);
 
   @JsonKey(ignore: true)
   @override
@@ -796,13 +802,13 @@ class _$_FailureWithData implements _FailureWithData {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<NotificationItem> offlinedata) loadingWith,
-    required TResult Function(List<NotificationItem> newsData) loaded,
+    required TResult Function(List<NotificationItem> notificationData) loaded,
     required TResult Function(
-            ApiFailure failure, List<NotificationItem> newsData)
+            ApiFailure failure, List<NotificationItem> notificationData)
         failureWithData,
     required TResult Function(ApiFailure failure) failure,
   }) {
-    return failureWithData(this.failure, newsData);
+    return failureWithData(this.failure, notificationData);
   }
 
   @override
@@ -810,14 +816,15 @@ class _$_FailureWithData implements _FailureWithData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NotificationItem> offlinedata)? loadingWith,
-    TResult Function(List<NotificationItem> newsData)? loaded,
-    TResult Function(ApiFailure failure, List<NotificationItem> newsData)?
+    TResult Function(List<NotificationItem> notificationData)? loaded,
+    TResult Function(
+            ApiFailure failure, List<NotificationItem> notificationData)?
         failureWithData,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (failureWithData != null) {
-      return failureWithData(this.failure, newsData);
+      return failureWithData(this.failure, notificationData);
     }
     return orElse();
   }
@@ -853,10 +860,12 @@ class _$_FailureWithData implements _FailureWithData {
 
 abstract class _FailureWithData implements NotificationsState {
   const factory _FailureWithData(
-      ApiFailure failure, List<NotificationItem> newsData) = _$_FailureWithData;
+          ApiFailure failure, List<NotificationItem> notificationData) =
+      _$_FailureWithData;
 
   ApiFailure get failure => throw _privateConstructorUsedError;
-  List<NotificationItem> get newsData => throw _privateConstructorUsedError;
+  List<NotificationItem> get notificationData =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -936,9 +945,9 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<NotificationItem> offlinedata) loadingWith,
-    required TResult Function(List<NotificationItem> newsData) loaded,
+    required TResult Function(List<NotificationItem> notificationData) loaded,
     required TResult Function(
-            ApiFailure failure, List<NotificationItem> newsData)
+            ApiFailure failure, List<NotificationItem> notificationData)
         failureWithData,
     required TResult Function(ApiFailure failure) failure,
   }) {
@@ -950,8 +959,9 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<NotificationItem> offlinedata)? loadingWith,
-    TResult Function(List<NotificationItem> newsData)? loaded,
-    TResult Function(ApiFailure failure, List<NotificationItem> newsData)?
+    TResult Function(List<NotificationItem> notificationData)? loaded,
+    TResult Function(
+            ApiFailure failure, List<NotificationItem> notificationData)?
         failureWithData,
     TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),

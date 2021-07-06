@@ -10,10 +10,12 @@ class LoadFundModel extends LoadFund {
     required bool? status,
     required List<PaymentMethod>? paymentMethods,
     required double? balance,
+    required List<CreditCardModel>? creditCards,
   }) : super(
           balance: balance,
           status: status,
           paymentMethods: paymentMethods,
+          creditCards: creditCards,
         );
 
   factory LoadFundModel.fromJson(Map<String, dynamic> json) => LoadFundModel(
@@ -28,6 +30,13 @@ class LoadFundModel extends LoadFund {
             : (json["balance"] is int?)
                 ? double.parse("${json["balance"] as int? ?? 0}")
                 : json["balance"] as double?,
+        creditCards: json["credit_cards"] == null
+            ? null
+            : List<CreditCardModel>.from(
+                (json["credit_cards"] as Iterable).map(
+                  (x) => CreditCardModel.fromJson(x as Map<String, dynamic>),
+                ),
+              ),
       );
 }
 
@@ -36,6 +45,7 @@ class PaymentMethodsModel extends PaymentMethod {
     required String? name,
     required String? type,
     required String? secretKey,
+    required String? publicKey,
     required String? logo,
     required bool? isActive,
     required String? baseUrl,
@@ -49,24 +59,32 @@ class PaymentMethodsModel extends PaymentMethod {
     required String? bseUrl,
     required String? merchantId,
     required String? merchantSecret,
+    required String? recordingUrl,
+    required String? deliveryUrl,
+    required int? balanceLimit,
+    required bool isLive,
   }) : super(
-          name: name,
-          type: type,
-          secretKey: secretKey,
-          logo: logo,
-          isActive: isActive,
-          baseUrl: baseUrl,
-          module: module,
-          merchantCode: merchantCode,
-          username: username,
-          password: password,
-          callbackUrl: callbackUrl,
-          paymentUrl: paymentUrl,
-          webRedirectUrl: webRedirectUrl,
-          bseUrl: bseUrl,
-          merchantId: merchantId,
-          merchantSecret: merchantSecret,
-        );
+            name: name,
+            type: type,
+            secretKey: secretKey,
+            publicKey: publicKey,
+            logo: logo,
+            isActive: isActive,
+            baseUrl: baseUrl,
+            module: module,
+            merchantCode: merchantCode,
+            username: username,
+            password: password,
+            callbackUrl: callbackUrl,
+            paymentUrl: paymentUrl,
+            webRedirectUrl: webRedirectUrl,
+            bseUrl: bseUrl,
+            merchantId: merchantId,
+            merchantSecret: merchantSecret,
+            recordingUrl: recordingUrl,
+            deliveryUrl: deliveryUrl,
+            islive: isLive,
+            balanceLimit: balanceLimit);
 
   factory PaymentMethodsModel.fromJson(Map<String, dynamic> json) =>
       PaymentMethodsModel(
@@ -75,6 +93,8 @@ class PaymentMethodsModel extends PaymentMethod {
         secretKey:
             json["secret_key"] == null ? null : json["secret_key"] as String?,
         logo: json["logo"] == null ? null : json["logo"] as String?,
+        publicKey:
+            json["public_key"] == null ? '' : json["public_key"] as String?,
         isActive: json["is_active"] == null ? null : json["is_active"] as bool?,
         baseUrl: json["base_url"] == null ? null : json["base_url"] as String?,
         module: json["module"] == null ? null : json["module"] as String?,
@@ -88,6 +108,12 @@ class PaymentMethodsModel extends PaymentMethod {
             : json["callback_url"] as String?,
         paymentUrl:
             json["payment_url"] == null ? null : json["payment_url"] as String?,
+        recordingUrl: json["recording_url"] == null
+            ? null
+            : json["recording_url"] as String?,
+        deliveryUrl: json["delivery_url"] == null
+            ? null
+            : json["delivery_url"] as String?,
         webRedirectUrl: json["web_redirect_url"] == null
             ? null
             : json["web_redirect_url"] as String?,
@@ -97,5 +123,30 @@ class PaymentMethodsModel extends PaymentMethod {
         merchantSecret: json["merchant_secret"] == null
             ? null
             : json["merchant_secret"] as String?,
+        // ignore: avoid_bool_literals_in_conditional_expressions
+        isLive: json['isLive'] == null ? false : json['isLive'] as bool,
+        balanceLimit:
+            json["balance_limit"] == null ? 0 : json['balance_limit'] as int,
       );
+}
+
+class CreditCardModel extends CreditCard {
+  CreditCardModel({
+    required String? name,
+    required String? cardNumber,
+  }) : super(
+          name: name,
+          cardNumber: cardNumber,
+        );
+  factory CreditCardModel.fromJson(Map<String, dynamic> json) =>
+      CreditCardModel(
+        name: json["name"] == null ? null : json["name"] as String?,
+        cardNumber:
+            json["card_number"] == null ? null : json["card_number"] as String?,
+      );
+
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "card_number": cardNumber,
+      };
 }

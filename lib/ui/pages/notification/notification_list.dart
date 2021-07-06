@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:url_launcher/url_launcher.dart' as url_launcher;
+import 'package:wallet_app/core/notification/navigate_notification.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/presentation/notification/notifications_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -39,7 +39,7 @@ class NotificationListPage extends StatelessWidget {
                   loading: (a) => loadingPage(),
                   loadingWith: (a) => loadingPage(),
                   loaded: (data) =>
-                      _NotificationListView(notifs: data.newsData),
+                      _NotificationListView(notifs: data.notificationData),
                   failure: (a) => loadingPage(), //  Text('failure'),
                   failureWithData: (a) =>
                       loadingPage() //Text('fail with data'),
@@ -76,7 +76,7 @@ class _NotificationListView extends StatelessWidget {
             child: Stack(
               children: [
                 ListTile(
-                  contentPadding: EdgeInsets.all(16),
+                  contentPadding: const EdgeInsets.all(16),
                   leading: Transform.translate(
                     offset: const Offset(0, -9),
                     child: CircleAvatar(
@@ -98,9 +98,16 @@ class _NotificationListView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         if (item.image != null)
-                          Image.network(
-                            baseURL + item.image.toString(),
-                            scale: 0.3,
+                          Center(
+                            child: SizedBox(
+                              height: 90,
+                              child: Hero(
+                                tag: item.id.toString(),
+                                child: Image.network(
+                                  baseURL + item.image.toString(),
+                                ),
+                              ),
+                            ),
                           ),
                         const SizedBox(
                           height: 6,
@@ -108,6 +115,8 @@ class _NotificationListView extends StatelessWidget {
                         Text(
                           item.message.toString(),
                           textScaleFactor: 0.85,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: const TextStyle(fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(
@@ -121,11 +130,7 @@ class _NotificationListView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  onTap: () {
-                    if (item.redirectUrl != null) {
-                      url_launcher.launch(item.redirectUrl!);
-                    }
-                  },
+                  onTap: () => navigate(context, item),
                 ),
                 if (item.isPinned) pinWidget()
               ],

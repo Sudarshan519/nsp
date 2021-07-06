@@ -11,6 +11,7 @@ class GoogleBannerAd extends StatelessWidget {
 
     return Center(
       child: SizedBox(
+        width: size.width,
         height: size.height * 0.1,
         // color: Colors.blue,
         child: AdWidget(ad: AdMobService.createAd()),

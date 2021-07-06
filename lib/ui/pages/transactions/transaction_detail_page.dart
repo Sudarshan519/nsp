@@ -1,8 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:wallet_app/features/auth/presentation/password_reset/password_reset_bloc.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
+import 'package:wallet_app/features/transaction/presentation/individual_transaction/individual_transaction_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/dashed_line.dart';
+import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
+
+class TransactionDetailFromAPi extends StatelessWidget {
+  final int id;
+  const TransactionDetailFromAPi({Key? key, required this.id})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => getIt<IndividualTransactionBloc>()
+        ..add(
+          IndividualTransactionEvent.fetchIndividualTransactionData(id),
+        ),
+      child:
+          BlocConsumer<IndividualTransactionBloc, IndividualTransactionState>(
+        buildWhen: (previous, current) => previous != current,
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return state.map(
+              loading: (e) => Scaffold(body: loadingPage()),
+              loadedIndividual: (e) => TransactionDetailPage(item: e.item),
+              failure: (e) => const SizedBox(),
+              failureWithData: (e) => const SizedBox());
+        },
+      ),
+    );
+  }
+}
 
 class TransactionDetailPage extends StatelessWidget {
   final TransactionItem item;
@@ -127,24 +165,6 @@ class TransactionDetailPage extends StatelessWidget {
             descriptionWidget(),
 
             if (item.gps != null) googleMap()
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: Center(
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       children: [
-            //         Icon(
-            //           Icons.pin_drop_sharp,
-            //           color: Palette.primary,
-            //         ),
-            //         const Text(
-            //           '  Tokyo, Japan',
-            //           style: TextStyle(fontWeight: FontWeight.w700),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),
@@ -156,10 +176,10 @@ class TransactionDetailPage extends StatelessWidget {
       padding: const EdgeInsets.all(6),
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30))),
-      child: Card(
-        elevation: 6,
+      child: ShadowBoxWidget(
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
         child: Table(
-          // border: TableBorder.all(),
           children: [
             TableRow(children: [
               _tableRowItem('Title:'),
@@ -185,16 +205,22 @@ class TransactionDetailPage extends StatelessWidget {
               _tableRowItem('User:'),
               _tableRowItem(item.user, bold: true),
             ]),
-            TableRow(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    top: BorderSide(width: 0.8, color: Colors.grey),
-                  ),
-                ),
-                children: [
-                  _tableRowItem('Total Amount:'),
-                  _tableRowItem(item.topupAmount.toString()),
-                ]),
+            const TableRow(children: [
+              SizedBox(height: 5),
+              SizedBox(height: 5),
+            ]),
+            const TableRow(children: [
+              DashedLineWidget(),
+              DashedLineWidget(),
+            ]),
+            const TableRow(children: [
+              SizedBox(height: 5),
+              SizedBox(height: 5),
+            ]),
+            TableRow(children: [
+              _tableRowItem('Total Amount:'),
+              _tableRowItem(item.topupAmount.toString()),
+            ]),
           ],
         ),
       ),

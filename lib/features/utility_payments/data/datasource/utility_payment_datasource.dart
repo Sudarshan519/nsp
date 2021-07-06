@@ -16,18 +16,22 @@ import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class UtilityPaymentDataSource {
   Future<Unit> topupBalance({
+    required String productId,
     required String amount,
     required String number,
     required String type,
+    required String coupon,
   });
 
   Future<ServiceSubscriptionModel> getSubscriptionDetailForPartnerService({
     required String subscriptionId,
   });
 
-  // Future<ServiceSubscriptionModel> getSubscriptionDetailForPartnerService({
-  //   required String subscriptionId,
-  // });
+  Future<Unit> paymentForPackagesPurchase({
+    required List<SubscriptionInvoiceModel> invoice,
+    required String coupon,
+    required int productId,
+  });
 }
 
 @LazySingleton(as: UtilityPaymentDataSource)
@@ -51,9 +55,11 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
 
   @override
   Future<Unit> topupBalance({
+    required String productId,
     required String amount,
     required String number,
     required String type,
+    required String coupon,
   }) async {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.topup}$type";
@@ -69,10 +75,15 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     http.Response response;
 
     final params = {
+      "product_id": int.parse(productId),
       "phone_number": number,
       "amount": amount,
       "gps": getIt<GeoLocationManager>().gps,
     };
+
+    if (coupon.isNotEmpty) {
+      params['coupon_code'] = coupon;
+    }
 
     try {
       response = await client.post(
@@ -106,8 +117,10 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
   Future<ServiceSubscriptionModel> getSubscriptionDetailForPartnerService({
     required String subscriptionId,
   }) async {
-    final url =
-        "${config.miraiLifeBaseUrl}${config.apiPath}${UtilityPaymentsApiEndpoints.getMiraiSubscription}$subscriptionId";
+    // final url =
+    //     "${config.miraiLifeBaseUrl}${config.apiPath}${UtilityPaymentsApiEndpoints.getMiraiSubscription}$subscriptionId";
+
+    const url = "https://run.mocky.io/v3/33f8f6ab-1ef8-47ca-a2ca-55dbca40f62d";
 
     http.Response response;
 
@@ -154,6 +167,63 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       );
       throw ServerException(
         message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<Unit> paymentForPackagesPurchase({
+    required List<SubscriptionInvoiceModel> invoice,
+    required String coupon,
+    required int productId,
+  }) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.payMiraiSubscription}";
+
+    final accessToken = (await auth.getWalletUser()).accessToken;
+
+    if (accessToken?.isEmpty ?? true) {
+      //TODO: user access token is empty we have to redirect to login page.
+    }
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    final params = {
+      'product_id': productId,
+      "invoices": invoice.map((invoice) => invoice.toJson()).toList(),
+      "gps": getIt<GeoLocationManager>().gps,
+    };
+
+    if (coupon.isNotEmpty) {
+      params['coupon'] = coupon;
+    }
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(params),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200 || statusCode == 201) {
+      return unit;
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "paymentForPackages()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+
+      throw ServerException(
+        message: errorMessageFromServerWithError(response.body) ??
             AppConstants.someThingWentWrong,
       );
     }

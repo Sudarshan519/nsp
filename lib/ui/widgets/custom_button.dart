@@ -30,6 +30,9 @@ class CustomButton extends StatelessWidget {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: svgAsset != null
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.center,
           children: [
             if (svgAsset != null)
               Row(
