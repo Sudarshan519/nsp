@@ -10,6 +10,8 @@ class TopupViaStripeEvent with _$TopupViaStripeEvent {
   const factory TopupViaStripeEvent.changeAmount(String amount) = _ChangeAmount;
   const factory TopupViaStripeEvent.changeAmountFromOptions(String amount) =
       _ChangeAmountFromOptions;
+  const factory TopupViaStripeEvent.changePurpose(String purpose) =
+      _ChangePurpose;
   const factory TopupViaStripeEvent.changeSaveCard() = _ChangeSaveCard;
   // ignore: avoid_positional_boolean_parameters
   const factory TopupViaStripeEvent.topup(bool isSavedCard) = _TopUp;
