@@ -1,16 +1,20 @@
 import 'package:intl/intl.dart';
 
-String currencyFormatter({
-  required double value,
-}) {
-  final formatter = NumberFormat.currency(locale: "en_US", symbol: "JPY ");
+String currencyFormatter(
+    {required double value, bool showSymbol = true, String symbol = "JPY"}) {
+  final formatter = NumberFormat.currency(
+      locale: "en_US", symbol: showSymbol ? "$symbol " : '');
   return formatter.format(value);
 }
 
-String currencyFormatterString({
-  required String value,
-}) {
+String currencyFormatterString(
+    {required String value, bool showSymbol = true, String symbol = "JPY"}) {
   final doubleValue = double.parse(value);
-  final formatter = NumberFormat.currency(locale: "en_US", symbol: "JPY ");
-  return formatter.format(doubleValue);
+  try {
+    final formatter = NumberFormat.currency(
+        locale: "en_US", symbol: showSymbol ? "$symbol " : '');
+    return formatter.format(doubleValue);
+  } catch (e) {
+    return '<INVALID CURRENCY>';
+  }
 }

@@ -52,6 +52,12 @@ class _$TopupViaStripeEventTearOff {
     );
   }
 
+  _ChangePurpose changePurpose(String purpose) {
+    return _ChangePurpose(
+      purpose,
+    );
+  }
+
   _ChangeSaveCard changeSaveCard() {
     return const _ChangeSaveCard();
   }
@@ -76,6 +82,7 @@ mixin _$TopupViaStripeEvent {
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
   }) =>
@@ -88,6 +95,7 @@ mixin _$TopupViaStripeEvent {
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
     TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
     TResult Function()? changeSaveCard,
     TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
@@ -102,6 +110,7 @@ mixin _$TopupViaStripeEvent {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeAmountFromOptions value)
         changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) =>
@@ -114,6 +123,7 @@ mixin _$TopupViaStripeEvent {
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -209,6 +219,7 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
   }) {
@@ -224,6 +235,7 @@ class _$_ChangeName implements _ChangeName {
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
     TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
     TResult Function()? changeSaveCard,
     TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
@@ -244,6 +256,7 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeAmountFromOptions value)
         changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -259,6 +272,7 @@ class _$_ChangeName implements _ChangeName {
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -350,6 +364,7 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
   }) {
@@ -365,6 +380,7 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
     TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
     TResult Function()? changeSaveCard,
     TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
@@ -385,6 +401,7 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeAmountFromOptions value)
         changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -400,6 +417,7 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -490,6 +508,7 @@ class _$_ChangeCvc implements _ChangeCvc {
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
   }) {
@@ -505,6 +524,7 @@ class _$_ChangeCvc implements _ChangeCvc {
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
     TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
     TResult Function()? changeSaveCard,
     TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
@@ -525,6 +545,7 @@ class _$_ChangeCvc implements _ChangeCvc {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeAmountFromOptions value)
         changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -540,6 +561,7 @@ class _$_ChangeCvc implements _ChangeCvc {
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -631,6 +653,7 @@ class _$_ChangeExpYear implements _ChangeExpYear {
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
   }) {
@@ -646,6 +669,7 @@ class _$_ChangeExpYear implements _ChangeExpYear {
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
     TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
     TResult Function()? changeSaveCard,
     TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
@@ -666,6 +690,7 @@ class _$_ChangeExpYear implements _ChangeExpYear {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeAmountFromOptions value)
         changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -681,6 +706,7 @@ class _$_ChangeExpYear implements _ChangeExpYear {
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -772,6 +798,7 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
   }) {
@@ -787,6 +814,7 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
     TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
     TResult Function()? changeSaveCard,
     TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
@@ -807,6 +835,7 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeAmountFromOptions value)
         changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -822,6 +851,7 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -915,6 +945,7 @@ class _$_ChangeAmountFromOptions implements _ChangeAmountFromOptions {
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
   }) {
@@ -930,6 +961,7 @@ class _$_ChangeAmountFromOptions implements _ChangeAmountFromOptions {
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
     TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
     TResult Function()? changeSaveCard,
     TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
@@ -950,6 +982,7 @@ class _$_ChangeAmountFromOptions implements _ChangeAmountFromOptions {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeAmountFromOptions value)
         changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -965,6 +998,7 @@ class _$_ChangeAmountFromOptions implements _ChangeAmountFromOptions {
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -983,6 +1017,151 @@ abstract class _ChangeAmountFromOptions implements TopupViaStripeEvent {
   String get amount => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeAmountFromOptionsCopyWith<_ChangeAmountFromOptions> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangePurposeCopyWith<$Res> {
+  factory _$ChangePurposeCopyWith(
+          _ChangePurpose value, $Res Function(_ChangePurpose) then) =
+      __$ChangePurposeCopyWithImpl<$Res>;
+  $Res call({String purpose});
+}
+
+/// @nodoc
+class __$ChangePurposeCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res>
+    implements _$ChangePurposeCopyWith<$Res> {
+  __$ChangePurposeCopyWithImpl(
+      _ChangePurpose _value, $Res Function(_ChangePurpose) _then)
+      : super(_value, (v) => _then(v as _ChangePurpose));
+
+  @override
+  _ChangePurpose get _value => super._value as _ChangePurpose;
+
+  @override
+  $Res call({
+    Object? purpose = freezed,
+  }) {
+    return _then(_ChangePurpose(
+      purpose == freezed
+          ? _value.purpose
+          : purpose // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangePurpose implements _ChangePurpose {
+  const _$_ChangePurpose(this.purpose);
+
+  @override
+  final String purpose;
+
+  @override
+  String toString() {
+    return 'TopupViaStripeEvent.changePurpose(purpose: $purpose)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangePurpose &&
+            (identical(other.purpose, purpose) ||
+                const DeepCollectionEquality().equals(other.purpose, purpose)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(purpose);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangePurposeCopyWith<_ChangePurpose> get copyWith =>
+      __$ChangePurposeCopyWithImpl<_ChangePurpose>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) changeName,
+    required TResult Function(String number) changeCardNumber,
+    required TResult Function(String cvc) changeCvc,
+    required TResult Function(String year) changeExpYear,
+    required TResult Function(String amount) changeAmount,
+    required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
+    required TResult Function() changeSaveCard,
+    required TResult Function(bool isSavedCard) topup,
+  }) {
+    return changePurpose(purpose);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? changeName,
+    TResult Function(String number)? changeCardNumber,
+    TResult Function(String cvc)? changeCvc,
+    TResult Function(String year)? changeExpYear,
+    TResult Function(String amount)? changeAmount,
+    TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
+    TResult Function()? changeSaveCard,
+    TResult Function(bool isSavedCard)? topup,
+    required TResult orElse(),
+  }) {
+    if (changePurpose != null) {
+      return changePurpose(purpose);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_ChangeCardNumber value) changeCardNumber,
+    required TResult Function(_ChangeCvc value) changeCvc,
+    required TResult Function(_ChangeExpYear value) changeExpYear,
+    required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_ChangeAmountFromOptions value)
+        changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
+    required TResult Function(_ChangeSaveCard value) changeSaveCard,
+    required TResult Function(_TopUp value) topup,
+  }) {
+    return changePurpose(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult Function(_ChangeCvc value)? changeCvc,
+    TResult Function(_ChangeExpYear value)? changeExpYear,
+    TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
+    TResult Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult Function(_TopUp value)? topup,
+    required TResult orElse(),
+  }) {
+    if (changePurpose != null) {
+      return changePurpose(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePurpose implements TopupViaStripeEvent {
+  const factory _ChangePurpose(String purpose) = _$_ChangePurpose;
+
+  String get purpose => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangePurposeCopyWith<_ChangePurpose> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1032,6 +1211,7 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
   }) {
@@ -1047,6 +1227,7 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
     TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
     TResult Function()? changeSaveCard,
     TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
@@ -1067,6 +1248,7 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeAmountFromOptions value)
         changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -1082,6 +1264,7 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),
@@ -1166,6 +1349,7 @@ class _$_TopUp implements _TopUp {
     required TResult Function(String year) changeExpYear,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String amount) changeAmountFromOptions,
+    required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
   }) {
@@ -1181,6 +1365,7 @@ class _$_TopUp implements _TopUp {
     TResult Function(String year)? changeExpYear,
     TResult Function(String amount)? changeAmount,
     TResult Function(String amount)? changeAmountFromOptions,
+    TResult Function(String purpose)? changePurpose,
     TResult Function()? changeSaveCard,
     TResult Function(bool isSavedCard)? topup,
     required TResult orElse(),
@@ -1201,6 +1386,7 @@ class _$_TopUp implements _TopUp {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeAmountFromOptions value)
         changeAmountFromOptions,
+    required TResult Function(_ChangePurpose value) changePurpose,
     required TResult Function(_ChangeSaveCard value) changeSaveCard,
     required TResult Function(_TopUp value) topup,
   }) {
@@ -1216,6 +1402,7 @@ class _$_TopUp implements _TopUp {
     TResult Function(_ChangeExpYear value)? changeExpYear,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult Function(_ChangePurpose value)? changePurpose,
     TResult Function(_ChangeSaveCard value)? changeSaveCard,
     TResult Function(_TopUp value)? topup,
     required TResult orElse(),

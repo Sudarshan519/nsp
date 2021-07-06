@@ -29,6 +29,9 @@ class TopupViaStripeBloc
       changeName: (e) async* {
         yield _mapChangeNameEventToState(e);
       },
+      changePurpose: (e) async* {
+        yield _mapChangePurposeEventToState(e);
+      },
       changeCardNumber: (e) async* {
         yield _mapChangeCardNumberEventToState(e);
       },
@@ -56,6 +59,14 @@ class TopupViaStripeBloc
   TopupViaStripeState _mapChangeNameEventToState(_ChangeName _changeName) {
     return state.copyWith(
       name: _changeName.name,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  TopupViaStripeState _mapChangePurposeEventToState(
+      _ChangePurpose _changePurpose) {
+    return state.copyWith(
+      purpose: _changePurpose.purpose,
       failureOrSuccessOption: none(),
     );
   }

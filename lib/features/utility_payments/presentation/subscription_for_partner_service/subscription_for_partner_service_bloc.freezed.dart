@@ -29,8 +29,10 @@ class _$SubscriptionForPartnerServiceEventTearOff {
     );
   }
 
-  _SelectAllSubscription selectAllSubscription() {
-    return const _SelectAllSubscription();
+  _SelectAllSubscription selectAllSubscription(bool selectAll) {
+    return _SelectAllSubscription(
+      selectAll,
+    );
   }
 
   _PurchaseSubscription purchaseSubscription(int productId) {
@@ -50,7 +52,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
-    required TResult Function() selectAllSubscription,
+    required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,7 +60,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
-    TResult Function()? selectAllSubscription,
+    TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) =>
@@ -170,7 +172,7 @@ class _$_GetSubscription implements _GetSubscription {
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
-    required TResult Function() selectAllSubscription,
+    required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
   }) {
     return getSubscription(subscriptionId);
@@ -181,7 +183,7 @@ class _$_GetSubscription implements _GetSubscription {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
-    TResult Function()? selectAllSubscription,
+    TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {
@@ -296,7 +298,7 @@ class _$_SelectSubscription implements _SelectSubscription {
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
-    required TResult Function() selectAllSubscription,
+    required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
   }) {
     return selectSubscription(invoice);
@@ -307,7 +309,7 @@ class _$_SelectSubscription implements _SelectSubscription {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
-    TResult Function()? selectAllSubscription,
+    TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {
@@ -361,6 +363,7 @@ abstract class _$SelectAllSubscriptionCopyWith<$Res> {
   factory _$SelectAllSubscriptionCopyWith(_SelectAllSubscription value,
           $Res Function(_SelectAllSubscription) then) =
       __$SelectAllSubscriptionCopyWithImpl<$Res>;
+  $Res call({bool selectAll});
 }
 
 /// @nodoc
@@ -373,35 +376,63 @@ class __$SelectAllSubscriptionCopyWithImpl<$Res>
 
   @override
   _SelectAllSubscription get _value => super._value as _SelectAllSubscription;
+
+  @override
+  $Res call({
+    Object? selectAll = freezed,
+  }) {
+    return _then(_SelectAllSubscription(
+      selectAll == freezed
+          ? _value.selectAll
+          : selectAll // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_SelectAllSubscription implements _SelectAllSubscription {
-  const _$_SelectAllSubscription();
+  const _$_SelectAllSubscription(this.selectAll);
+
+  @override
+
+  ///[true] to selectall and vice versa
+  final bool selectAll;
 
   @override
   String toString() {
-    return 'SubscriptionForPartnerServiceEvent.selectAllSubscription()';
+    return 'SubscriptionForPartnerServiceEvent.selectAllSubscription(selectAll: $selectAll)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SelectAllSubscription);
+    return identical(this, other) ||
+        (other is _SelectAllSubscription &&
+            (identical(other.selectAll, selectAll) ||
+                const DeepCollectionEquality()
+                    .equals(other.selectAll, selectAll)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(selectAll);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SelectAllSubscriptionCopyWith<_SelectAllSubscription> get copyWith =>
+      __$SelectAllSubscriptionCopyWithImpl<_SelectAllSubscription>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
-    required TResult Function() selectAllSubscription,
+    required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
   }) {
-    return selectAllSubscription();
+    return selectAllSubscription(selectAll);
   }
 
   @override
@@ -409,12 +440,12 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
-    TResult Function()? selectAllSubscription,
+    TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {
     if (selectAllSubscription != null) {
-      return selectAllSubscription();
+      return selectAllSubscription(selectAll);
     }
     return orElse();
   }
@@ -449,7 +480,14 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
 
 abstract class _SelectAllSubscription
     implements SubscriptionForPartnerServiceEvent {
-  const factory _SelectAllSubscription() = _$_SelectAllSubscription;
+  const factory _SelectAllSubscription(bool selectAll) =
+      _$_SelectAllSubscription;
+
+  ///[true] to selectall and vice versa
+  bool get selectAll => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SelectAllSubscriptionCopyWith<_SelectAllSubscription> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -521,7 +559,7 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
   TResult when<TResult extends Object?>({
     required TResult Function(String subscriptionId) getSubscription,
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
-    required TResult Function() selectAllSubscription,
+    required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
   }) {
     return purchaseSubscription(productId);
@@ -532,7 +570,7 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String subscriptionId)? getSubscription,
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
-    TResult Function()? selectAllSubscription,
+    TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     required TResult orElse(),
   }) {

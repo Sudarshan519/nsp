@@ -21,6 +21,7 @@ import 'package:wallet_app/ui/widgets/dashed_line.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 
 class TopUpPage extends StatefulWidget {
   final int index;
@@ -302,12 +303,15 @@ class _TopUpPageState extends State<TopUpPage> {
                 const SizedBox(height: 5),
                 _TransactionDetailRow(
                   title: 'Transaction Amount (NPR)',
-                  value: '$doubleAmount',
+                  value:
+                      currencyFormatter(value: doubleAmount, showSymbol: false),
                 ),
                 const SizedBox(height: 5),
                 _TransactionDetailRow(
                   title: 'Transaction Amount (JPY)',
-                  value: conversionValue.toStringAsFixed(2),
+                  value: currencyFormatterString(
+                      value: conversionValue.toStringAsFixed(2),
+                      showSymbol: false),
                 ),
                 const SizedBox(height: 40),
                 const _ConfirmButton(),
@@ -740,7 +744,8 @@ class _TransactionDetail extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        state.amount,
+                        currencyFormatterString(
+                            value: state.amount, showSymbol: false),
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -847,7 +852,8 @@ class _TransactionDetail extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '$doubleAmount',
+                        currencyFormatter(
+                            value: doubleAmount, showSymbol: false),
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -869,7 +875,9 @@ class _TransactionDetail extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        conversionValue.toStringAsFixed(2),
+                        currencyFormatterString(
+                            value: conversionValue.toStringAsFixed(2),
+                            showSymbol: false),
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -1059,33 +1067,13 @@ class _TransactionAmountInNPRField extends StatelessWidget {
       builder: (context, state) {
         return _TransactionDetailRow(
           title: 'Transaction Amount (NPR)',
-          value: state.amount,
+          value:
+              currencyFormatterString(value: state.amount, showSymbol: false),
         );
       },
     );
   }
 }
-
-// class _TransactionAmountInJPYField extends StatelessWidget {
-//   final double conversionRate;
-
-//   const _TransactionAmountInJPYField({
-//     Key? key,
-//     required this.conversionRate,
-//   }) : super(key: key);
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
-//       builder: (context, state) {
-//         final conversionValue = double.parse(state.amount) * conversionRate;
-//         return _TransactionDetailRow(
-//           title: 'Transaction Amount (JPY)',
-//           value: conversionValue.toStringAsFixed(2),
-//         );
-//       },
-//     );
-//   }
-// }
 
 class _TransactionDetailRow extends StatelessWidget {
   final String title;

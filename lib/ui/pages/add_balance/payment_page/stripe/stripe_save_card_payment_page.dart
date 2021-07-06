@@ -247,17 +247,20 @@ class _PurposeWidget extends StatelessWidget {
           return TextWidetWithLabelAndChild(
             title: "Purpose",
             child: CustomSearchableDropDownWidget(
-              hintText: "Purpose of Transfer",
-              value: state.purpose,
-              options: const [
-                "Utilities",
-                "Partner Services",
-                "Bill Payments",
-                "Travel Ticketing",
-                "Others",
-              ],
-              onChanged: (value) {},
-            ),
+                hintText: "Purpose of Transfer",
+                value: state.purpose,
+                options: const [
+                  "Utilities",
+                  "Partner Services",
+                  "Bill Payments",
+                  "Travel Ticketing",
+                  "Others",
+                ],
+                onChanged: (value) {
+                  context.read<TopupViaStripeBloc>().add(
+                        TopupViaStripeEvent.changePurpose(value ?? ''),
+                      );
+                }),
           );
         },
       );
