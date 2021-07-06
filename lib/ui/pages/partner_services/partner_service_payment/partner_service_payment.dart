@@ -134,11 +134,14 @@ class PartnerServicePaymentPage extends StatelessWidget {
               Row(
                 children: [
                   InkWell(
-                    onTap: () =>
-                        context.read<SubscriptionForPartnerServiceBloc>().add(
-                              const SubscriptionForPartnerServiceEvent
-                                  .selectAllSubscription(),
-                            ),
+                    onTap: () {
+                      final allselected = context
+                          .read<SubscriptionForPartnerServiceBloc>()
+                          .isAllSelected;
+                      context.read<SubscriptionForPartnerServiceBloc>().add(
+                          SubscriptionForPartnerServiceEvent
+                              .selectAllSubscription(!allselected));
+                    },
                     child: Container(
                       height: 30,
                       width: 30,

@@ -11,8 +11,10 @@ class SubscriptionForPartnerServiceEvent
     required SubscriptionInvoice invoice,
   }) = _SelectSubscription;
 
-  const factory SubscriptionForPartnerServiceEvent.selectAllSubscription() =
-      _SelectAllSubscription;
+  const factory SubscriptionForPartnerServiceEvent.selectAllSubscription(
+
+      ///[true] to selectall and vice versa
+      bool selectAll) = _SelectAllSubscription;
 
   const factory SubscriptionForPartnerServiceEvent.purchaseSubscription(
       int productId) = _PurchaseSubscription;

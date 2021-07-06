@@ -76,12 +76,12 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
       },
       selectAllSubscription: (e) async* {
         for (final invoice in invoices) {
-          invoice.isSelected = true;
+          invoice.isSelected = e.selectAll;
         }
 
         countGrandTotal();
 
-        isAllSelected = true;
+        isAllSelected = e.selectAll;
         yield const _Loading();
         yield const _FetchSubscriptionSuccessfully();
       },
