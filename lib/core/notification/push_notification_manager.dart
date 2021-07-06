@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wallet_app/core/notification/navigate_notification.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/main.dart';
@@ -93,15 +94,17 @@ class PushNotificationManager {
     _firebaseMessaging.setForegroundNotificationPresentationOptions(
         alert: true, badge: true, sound: true);
 
-    FirebaseMessaging.onMessage.listen((m) {
-      print('onmessage');
-      handleForegroundIncomingNotification(m);
-    });
-    FirebaseMessaging.onMessageOpenedApp.listen((m) {
-      print('on message opened app');
-      handleBackgroundIncomingNotification(m);
-    });
+    FirebaseMessaging.onMessage.listen(handleForegroundIncomingNotification);
+    FirebaseMessaging.onMessageOpenedApp
+        .listen(handleBackgroundIncomingNotification);
     FirebaseMessaging.onBackgroundMessage(handleBackgroundIncomingNotification);
+
+    // Get any messages which caused the application to open from a terminated state.
+    final RemoteMessage? initialMessage =
+        await FirebaseMessaging.instance.getInitialMessage();
+    if (initialMessage != null) {
+      handleBackgroundIncomingNotification(initialMessage);
+    }
   }
 }
 
@@ -118,11 +121,22 @@ Future _selectNotification(String? payload,
     final data = json.decode(payload);
     final type = data['notification_type'] as String?;
     final id = data['product_id'] ?? '0';
+    final image = data['banner'] as String?;
+    final message = data['message'] as String?;
+    final title = data['title'] as String?;
+    final redirect = data['redirect'] as String?;
     final key = appRouter.navigatorKey;
     if (key.currentContext != null && type != null) {
       //TODO: make context routeable to autoRoute
-      navigate(key.currentContext!,
-          NotificationItem(productId: int.parse(id as String), type: type));
+      navigate(
+          key.currentContext!,
+          NotificationItem(
+              productId: int.parse(id as String),
+              title: title,
+              type: type,
+              image: image,
+              message: message,
+              redirectUrl: redirect));
     }
   } catch (ex) {
     debugPrint(ex.toString());
