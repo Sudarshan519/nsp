@@ -15,6 +15,7 @@ import 'package:wallet_app/ui/widgets/dashed_line.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 
 class PartnerServicePaymentPage extends StatelessWidget {
   const PartnerServicePaymentPage({
@@ -118,6 +119,8 @@ class PartnerServicePaymentPage extends StatelessWidget {
         if (invoices.isEmpty) {
           return const SizedBox.shrink();
         }
+        final grandtotal =
+            context.read<SubscriptionForPartnerServiceBloc>().grandTotal ?? '';
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           decoration: BoxDecoration(
@@ -183,10 +186,11 @@ class PartnerServicePaymentPage extends StatelessWidget {
                       ),
                       const SizedBox(width: 10),
                       Text(
-                        context
-                                .read<SubscriptionForPartnerServiceBloc>()
-                                .grandTotal ??
-                            "",
+                        grandtotal.isEmpty
+                            ? ''
+                            : currencyFormatterString(
+                                value: grandtotal,
+                              ),
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
@@ -434,7 +438,9 @@ class _TransactionDetail extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${invoice.dueAmount ?? 0.0}',
+                            currencyFormatter(
+                              value: invoice.dueAmount ?? 0.0,
+                            ),
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,

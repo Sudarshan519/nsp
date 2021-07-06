@@ -19,6 +19,7 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_do
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:flutter_khalti/flutter_khalti.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 
 class KhaltiTopupPage extends StatelessWidget {
   final PaymentMethod method;
@@ -233,7 +234,7 @@ class _ConversionRate extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                '(NPR ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(2)})',
+                '(${currencyFormatterString(value: state.amount, symbol: 'NPR')} = JPY ${currencyFormatterString(value: amountJPYDouble.toStringAsFixed(2), symbol: 'NPR')})',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],

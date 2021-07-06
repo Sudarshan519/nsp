@@ -152,9 +152,10 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                   isRequired: true,
                   child: InputTextWidget(
                     isEnable: false,
-                    hintText: '¥ ${widget.package.packagePrice ?? 0.0}',
+                    hintText: currencyFormatter(
+                        value: widget.package.packagePrice ?? 0, symbol: '¥'),
                     onChanged: (_) {},
-                    value: '¥ ${state.amount}',
+                    value: currencyFormatter(value: state.amount, symbol: '¥'),
                     textInputType: TextInputType.number,
                   ),
                 ),

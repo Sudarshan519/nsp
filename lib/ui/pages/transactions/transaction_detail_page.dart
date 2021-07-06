@@ -10,6 +10,7 @@ import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/dashed_line.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
 
 class TransactionDetailFromAPi extends StatelessWidget {
@@ -112,7 +113,9 @@ class TransactionDetailPage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    '${item.currency} ${item.topupAmount}',
+                    currencyFormatter(
+                        value: item.topupAmount ?? 0,
+                        symbol: item.currency ?? ''),
                     style: const TextStyle(
                         fontSize: 37,
                         fontWeight: FontWeight.bold,
@@ -187,7 +190,8 @@ class TransactionDetailPage extends StatelessWidget {
             ]),
             TableRow(children: [
               _tableRowItem('Amount:'),
-              _tableRowItem(item.topupAmount.toString()),
+              _tableRowItem(currencyFormatter(
+                  value: item.topupAmount ?? 0, showSymbol: false)),
             ]),
             TableRow(children: [
               _tableRowItem('Currency:'),

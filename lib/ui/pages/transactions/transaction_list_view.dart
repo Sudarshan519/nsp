@@ -9,6 +9,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
 
 class TransactionListPage extends StatelessWidget {
@@ -464,7 +465,9 @@ class TransactionViewItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            '${transaction.currency} ${transaction.topupAmount}',
+            currencyFormatter(
+                value: transaction.topupAmount ?? 0,
+                symbol: transaction.currency ?? ''),
             style:
                 TextStyle(fontWeight: FontWeight.w700, color: Palette.primary),
           ),
