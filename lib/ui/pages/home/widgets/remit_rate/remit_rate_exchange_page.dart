@@ -205,18 +205,24 @@ class _RemitExchangeProceGeneratorState
   }
 
   void changeAmount(String amount) {
-    final doubleAmount = double.parse(amount);
-    if (!_hasSwapped) {
+    try {
+      final doubleAmount = double.parse(amount);
+      if (!_hasSwapped) {
+        setState(() {
+          _fromValue = amount;
+          final doubleFromValue = doubleAmount * _rate;
+          _toValue = doubleFromValue.toStringAsFixed(2);
+        });
+      } else {
+        setState(() {
+          _fromValue = amount;
+          final doubleFromValue = doubleAmount * _reverseRate;
+          _toValue = doubleFromValue.toStringAsFixed(2);
+        });
+      }
+    } catch (e) {
       setState(() {
-        _fromValue = amount;
-        final doubleFromValue = doubleAmount * _rate;
-        _toValue = "$doubleFromValue";
-      });
-    } else {
-      setState(() {
-        _fromValue = amount;
-        final doubleFromValue = doubleAmount * _reverseRate;
-        _toValue = "$doubleFromValue";
+        _toValue = '';
       });
     }
   }
