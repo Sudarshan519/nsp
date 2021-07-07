@@ -55,19 +55,19 @@ class _CouponPageTabbarScreenState extends State<CouponPageTabbarScreen>
 
   final List<Tab> _tabBar = [
     Tab(
+      text: "Promo Code",
+      icon: SvgPicture.asset(
+        "assets/images/coupon/promo_code.svg",
+        height: 25.0,
+      ),
+    ),
+    Tab(
       text: "Redeem",
       icon: SvgPicture.asset(
         "assets/images/coupon/redeem.svg",
         height: 25.0,
       ),
     ),
-    Tab(
-      text: "Promo Code",
-      icon: SvgPicture.asset(
-        "assets/images/coupon/promo_code.svg",
-        height: 25.0,
-      ),
-    )
   ];
 
   @override

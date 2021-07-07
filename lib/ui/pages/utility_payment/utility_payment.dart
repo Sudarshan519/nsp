@@ -31,6 +31,7 @@ class UtilityPamentWidget extends StatelessWidget {
           const CategoryTitleWidget(title: "Utility Payment"),
           const SizedBox(height: 6),
           ShadowBoxWidget(
+            padding: const EdgeInsets.all(10),
             margin: EdgeInsets.zero,
             child: GridView.count(
               padding: EdgeInsets.zero,
@@ -39,7 +40,7 @@ class UtilityPamentWidget extends StatelessWidget {
               crossAxisCount: 3,
               mainAxisSpacing: 8,
               crossAxisSpacing: 20,
-              childAspectRatio: 1 / 0.86,
+              childAspectRatio: 1 / 0.82,
               children: paymentData
                   .map(
                     (e) => GridItem(
