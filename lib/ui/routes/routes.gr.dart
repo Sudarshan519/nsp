@@ -348,7 +348,11 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<BuyPackageRouteArgs>();
           return _i38.BuyPackagePage(
-              key: args.key, package: args.package, services: args.services);
+              key: args.key,
+              package: args.package,
+              services: args.services,
+              cashBackPercent: args.cashBackPercent,
+              rewardPoint: args.rewardPoint);
         }),
     CouponRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -1136,24 +1140,38 @@ class BuyPackageRoute extends _i1.PageRouteInfo<BuyPackageRouteArgs> {
   BuyPackageRoute(
       {_i2.Key? key,
       required _i52.ServicePackage package,
-      required _i46.Services services})
+      required _i46.Services services,
+      required double cashBackPercent,
+      required double rewardPoint})
       : super(name,
             path: '/buy-package-page',
             args: BuyPackageRouteArgs(
-                key: key, package: package, services: services));
+                key: key,
+                package: package,
+                services: services,
+                cashBackPercent: cashBackPercent,
+                rewardPoint: rewardPoint));
 
   static const String name = 'BuyPackageRoute';
 }
 
 class BuyPackageRouteArgs {
   const BuyPackageRouteArgs(
-      {this.key, required this.package, required this.services});
+      {this.key,
+      required this.package,
+      required this.services,
+      required this.cashBackPercent,
+      required this.rewardPoint});
 
   final _i2.Key? key;
 
   final _i52.ServicePackage package;
 
   final _i46.Services services;
+
+  final double cashBackPercent;
+
+  final double rewardPoint;
 }
 
 class CouponRoute extends _i1.PageRouteInfo {

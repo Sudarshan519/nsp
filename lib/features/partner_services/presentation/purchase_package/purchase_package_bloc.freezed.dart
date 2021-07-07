@@ -34,9 +34,14 @@ class _$PurchasePackageEventTearOff {
     );
   }
 
-  _SetInitialState setInitialState(ServicePackage package) {
+  _SetInitialState setInitialState(
+      {required ServicePackage package,
+      required double cashBackPercent,
+      required double rewardPoint}) {
     return _SetInitialState(
-      package,
+      package: package,
+      cashBackPercent: cashBackPercent,
+      rewardPoint: rewardPoint,
     );
   }
 
@@ -85,7 +90,9 @@ mixin _$PurchasePackageEvent {
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -99,7 +106,9 @@ mixin _$PurchasePackageEvent {
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -239,7 +248,9 @@ class _$_ChangeCustomerName
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -256,7 +267,9 @@ class _$_ChangeCustomerName
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -401,7 +414,9 @@ class _$_ChangeCustomerId
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -418,7 +433,9 @@ class _$_ChangeCustomerId
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -560,7 +577,9 @@ class _$_ChangeRemark with DiagnosticableTreeMixin implements _ChangeRemark {
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -577,7 +596,9 @@ class _$_ChangeRemark with DiagnosticableTreeMixin implements _ChangeRemark {
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -648,7 +669,8 @@ abstract class _$SetInitialStateCopyWith<$Res> {
   factory _$SetInitialStateCopyWith(
           _SetInitialState value, $Res Function(_SetInitialState) then) =
       __$SetInitialStateCopyWithImpl<$Res>;
-  $Res call({ServicePackage package});
+  $Res call(
+      {ServicePackage package, double cashBackPercent, double rewardPoint});
 }
 
 /// @nodoc
@@ -665,12 +687,22 @@ class __$SetInitialStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? package = freezed,
+    Object? cashBackPercent = freezed,
+    Object? rewardPoint = freezed,
   }) {
     return _then(_SetInitialState(
-      package == freezed
+      package: package == freezed
           ? _value.package
           : package // ignore: cast_nullable_to_non_nullable
               as ServicePackage,
+      cashBackPercent: cashBackPercent == freezed
+          ? _value.cashBackPercent
+          : cashBackPercent // ignore: cast_nullable_to_non_nullable
+              as double,
+      rewardPoint: rewardPoint == freezed
+          ? _value.rewardPoint
+          : rewardPoint // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -680,14 +712,21 @@ class __$SetInitialStateCopyWithImpl<$Res>
 class _$_SetInitialState
     with DiagnosticableTreeMixin
     implements _SetInitialState {
-  const _$_SetInitialState(this.package);
+  const _$_SetInitialState(
+      {required this.package,
+      required this.cashBackPercent,
+      required this.rewardPoint});
 
   @override
   final ServicePackage package;
+  @override
+  final double cashBackPercent;
+  @override
+  final double rewardPoint;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PurchasePackageEvent.setInitialState(package: $package)';
+    return 'PurchasePackageEvent.setInitialState(package: $package, cashBackPercent: $cashBackPercent, rewardPoint: $rewardPoint)';
   }
 
   @override
@@ -695,7 +734,9 @@ class _$_SetInitialState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'PurchasePackageEvent.setInitialState'))
-      ..add(DiagnosticsProperty('package', package));
+      ..add(DiagnosticsProperty('package', package))
+      ..add(DiagnosticsProperty('cashBackPercent', cashBackPercent))
+      ..add(DiagnosticsProperty('rewardPoint', rewardPoint));
   }
 
   @override
@@ -703,12 +744,22 @@ class _$_SetInitialState
     return identical(this, other) ||
         (other is _SetInitialState &&
             (identical(other.package, package) ||
-                const DeepCollectionEquality().equals(other.package, package)));
+                const DeepCollectionEquality()
+                    .equals(other.package, package)) &&
+            (identical(other.cashBackPercent, cashBackPercent) ||
+                const DeepCollectionEquality()
+                    .equals(other.cashBackPercent, cashBackPercent)) &&
+            (identical(other.rewardPoint, rewardPoint) ||
+                const DeepCollectionEquality()
+                    .equals(other.rewardPoint, rewardPoint)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(package);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(package) ^
+      const DeepCollectionEquality().hash(cashBackPercent) ^
+      const DeepCollectionEquality().hash(rewardPoint);
 
   @JsonKey(ignore: true)
   @override
@@ -721,7 +772,9 @@ class _$_SetInitialState
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -729,7 +782,7 @@ class _$_SetInitialState
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function() purchase,
   }) {
-    return setInitialState(package);
+    return setInitialState(package, cashBackPercent, rewardPoint);
   }
 
   @override
@@ -738,7 +791,9 @@ class _$_SetInitialState
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -748,7 +803,7 @@ class _$_SetInitialState
     required TResult orElse(),
   }) {
     if (setInitialState != null) {
-      return setInitialState(package);
+      return setInitialState(package, cashBackPercent, rewardPoint);
     }
     return orElse();
   }
@@ -796,9 +851,14 @@ class _$_SetInitialState
 }
 
 abstract class _SetInitialState implements PurchasePackageEvent {
-  const factory _SetInitialState(ServicePackage package) = _$_SetInitialState;
+  const factory _SetInitialState(
+      {required ServicePackage package,
+      required double cashBackPercent,
+      required double rewardPoint}) = _$_SetInitialState;
 
   ServicePackage get package => throw _privateConstructorUsedError;
+  double get cashBackPercent => throw _privateConstructorUsedError;
+  double get rewardPoint => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -880,7 +940,9 @@ class _$_ChangeCoupon with DiagnosticableTreeMixin implements _ChangeCoupon {
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -897,7 +959,9 @@ class _$_ChangeCoupon with DiagnosticableTreeMixin implements _ChangeCoupon {
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -1044,7 +1108,9 @@ class _$_SetCashbackpercentage
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -1061,7 +1127,9 @@ class _$_SetCashbackpercentage
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -1209,7 +1277,9 @@ class _$_SetDiscountpercentage
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -1226,7 +1296,9 @@ class _$_SetDiscountpercentage
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -1371,7 +1443,9 @@ class _$_SetRedeemPoint
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -1388,7 +1462,9 @@ class _$_SetRedeemPoint
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -1535,7 +1611,9 @@ class _$_SetRedeemPointFromCoupon
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -1552,7 +1630,9 @@ class _$_SetRedeemPointFromCoupon
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
@@ -1667,7 +1747,9 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
     required TResult Function(String name) changeCustomerName,
     required TResult Function(String id) changeCustomerId,
     required TResult Function(String remark) changeRemark,
-    required TResult Function(ServicePackage package) setInitialState,
+    required TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)
+        setInitialState,
     required TResult Function(String coupon) changeCoupon,
     required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
@@ -1684,7 +1766,9 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
     TResult Function(String name)? changeCustomerName,
     TResult Function(String id)? changeCustomerId,
     TResult Function(String remark)? changeRemark,
-    TResult Function(ServicePackage package)? setInitialState,
+    TResult Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
     TResult Function(String coupon)? changeCoupon,
     TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,

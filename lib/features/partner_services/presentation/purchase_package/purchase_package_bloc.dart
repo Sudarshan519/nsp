@@ -135,6 +135,8 @@ class PurchasePackageBloc
       packageName: _setInitialState.package.packageName ?? '',
       amount: _setInitialState.package.packagePrice ?? 0,
       failureOrSuccessOption: none(),
+      cashbackPercentage: _setInitialState.cashBackPercent,
+      rewardPoint: _setInitialState.rewardPoint,
     );
   }
 

@@ -8,8 +8,10 @@ class PurchasePackageEvent with _$PurchasePackageEvent {
       _ChangeCustomerId;
   const factory PurchasePackageEvent.changeRemark(String remark) =
       _ChangeRemark;
-  const factory PurchasePackageEvent.setInitialState(ServicePackage package) =
-      _SetInitialState;
+  const factory PurchasePackageEvent.setInitialState(
+      {required ServicePackage package,
+      required double cashBackPercent,
+      required double rewardPoint}) = _SetInitialState;
   const factory PurchasePackageEvent.changeCoupon(String coupon) =
       _ChangeCoupon;
   const factory PurchasePackageEvent.setCashbackpercentage(double percentage) =
