@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/domain/usecases/verify_khalti_top_up.dart';
 import 'package:wallet_app/features/load_balance/presentations/khalti/khalti_form/khalti_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/khalti/verify_khalti_topup/verify_khalti_topup_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -58,6 +58,9 @@ class KhaltiTopupPage extends StatelessWidget {
           loading: (_) {},
           success: (_) {
             getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
+            getIt<TransactionBloc>()
+                .add(const TransactionEvent.fetchTransactionData());
+
             showDialog(
               context: context,
               builder: (_) => PopUpSuccessOverLay(

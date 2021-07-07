@@ -50,7 +50,7 @@ class LoginFormWidget extends StatelessWidget {
               context.router.push(const ForgotPasswordRoute());
             },
             child: Text(
-              "Forget Password",
+              "Forgot Password",
               style: TextStyle(
                 color: Palette.blackTextColor,
                 fontWeight: FontWeight.w500,
@@ -85,7 +85,7 @@ class _EmailInput extends StatelessWidget {
         return LoginTextFormDecoration(
           child: InputTextWidget(
             key: const Key('loginForm_passwordInput_textField'),
-            hintText: "Email/Mobile Number(977XXXXXXXXXX)",
+            hintText: "Email/Mobile Number",
             value: state.emailAddress,
             textInputType: TextInputType.emailAddress,
             prefixIcon: SvgPicture.asset(

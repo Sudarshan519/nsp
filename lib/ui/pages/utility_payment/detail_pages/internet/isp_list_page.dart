@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
-import 'package:wallet_app/ui/routes/routes.gr.dart';
-import 'package:auto_route/auto_route.dart';
 
 class ISPListPage extends StatelessWidget {
   @override

@@ -6,7 +6,6 @@ import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/transaction/data/app_constant/constant.dart';
-import 'package:wallet_app/features/transaction/data/model/transaction_item_model.dart';
 import 'package:wallet_app/features/transaction/data/model/transaction_model.dart';
 import 'package:wallet_app/features/transaction/domain/usecase/get_transaction.dart';
 import 'package:wallet_app/utils/config_reader.dart';

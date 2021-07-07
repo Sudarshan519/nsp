@@ -39,7 +39,7 @@ class UtilityPamentWidget extends StatelessWidget {
               crossAxisCount: 3,
               mainAxisSpacing: 20,
               crossAxisSpacing: 20,
-              // childAspectRatio: 7 / 7,
+              childAspectRatio: 1 / 0.85,
               children: paymentData
                   .map(
                     (e) => GridItem(
@@ -117,12 +117,12 @@ class GridItem extends StatelessWidget {
           const SizedBox(height: 3),
           Text(
             paymentData[index].name ?? '',
-            textScaleFactor: 0.84,
+            textScaleFactor: 0.82,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               fontWeight: FontWeight.w500,
-              fontSize: 14,
+              fontSize: 13,
             ),
             textAlign: TextAlign.center,
           ),
