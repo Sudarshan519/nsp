@@ -13,7 +13,7 @@ class CouponPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Promos",
+          "Coupons",
           style: TextStyle(
             color: Palette.white,
           ),
@@ -49,8 +49,8 @@ class _CouponPageTabbarScreenState extends State<CouponPageTabbarScreen>
   }
 
   final List<Widget> _children = const [
-    RedeemPage(),
     PromocodePage(),
+    RedeemPage(),
   ];
 
   final List<Tab> _tabBar = [

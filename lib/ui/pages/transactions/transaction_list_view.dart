@@ -437,7 +437,7 @@ class TransactionViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      // contentPadding: const EdgeInsets.all(5),
+      contentPadding: const EdgeInsets.all(5),
       onTap: () => context.pushRoute(TransactionDetailRoute(item: transaction)),
       leading: Container(
           width: 55,

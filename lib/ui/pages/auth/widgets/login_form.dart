@@ -85,7 +85,7 @@ class _EmailInput extends StatelessWidget {
         return LoginTextFormDecoration(
           child: InputTextWidget(
             key: const Key('loginForm_passwordInput_textField'),
-            hintText: "Email/Mobile Number",
+            hintText: "Email",
             value: state.emailAddress,
             textInputType: TextInputType.emailAddress,
             prefixIcon: SvgPicture.asset(

@@ -29,7 +29,7 @@ class UtilityPamentWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const CategoryTitleWidget(title: "Utility Payment"),
-          const SizedBox(height: 10),
+          const SizedBox(height: 6),
           ShadowBoxWidget(
             margin: EdgeInsets.zero,
             child: GridView.count(
@@ -37,9 +37,9 @@ class UtilityPamentWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               crossAxisCount: 3,
-              mainAxisSpacing: 20,
+              mainAxisSpacing: 8,
               crossAxisSpacing: 20,
-              childAspectRatio: 1 / 0.85,
+              childAspectRatio: 1 / 0.86,
               children: paymentData
                   .map(
                     (e) => GridItem(
@@ -110,7 +110,7 @@ class GridItem extends StatelessWidget {
               child: Center(
                 child: Image.network(
                   _baseURL + paymentData[index].image!,
-                  height: 46,
+                  height: 35,
                 ),
               ),
             ),
