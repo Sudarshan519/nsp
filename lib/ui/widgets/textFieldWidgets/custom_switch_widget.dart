@@ -90,7 +90,7 @@ class _SwitchButton extends StatelessWidget {
       width: 20,
       decoration: BoxDecoration(
         color:
-            isSelected ? Palette.primaryButtonColor : Palette.primaryBackground,
+            isSelected ? Palette.switchButtonColor : Palette.primaryBackground,
         borderRadius: BorderRadius.circular(10.0),
       ),
       // child: Align(

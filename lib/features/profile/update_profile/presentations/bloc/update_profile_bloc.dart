@@ -113,7 +113,7 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
                   .toList(),
           listOfNepaliOriginDistrict: originCityList,
           listOfNepaliResidenceDistrict: residenceCityList,
-          listOfKycDocType: ["Citizenship", "Passport", "Driving Liscence"],
+          listOfKycDocType: ["Citizenship ID", "Passport"],
           isSubmitting: false,
           failureOrSuccessOption: none(),
         );

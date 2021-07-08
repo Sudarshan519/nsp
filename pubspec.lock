@@ -391,9 +391,11 @@ packages:
   flutter_downloader:
     dependency: "direct main"
     description:
-      name: flutter_downloader
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "98ea85bb6ad68593133dd48c6e520677970e3f86"
+      url: "https://github.com/asisadh/flutter_downloader.git"
+    source: git
     version: "1.6.1"
   flutter_facebook_auth:
     dependency: "direct main"
