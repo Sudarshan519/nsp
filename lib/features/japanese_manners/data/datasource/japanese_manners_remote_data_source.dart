@@ -7,6 +7,7 @@ import 'package:wallet_app/features/japanese_manners/data/app_constant/constant.
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_categories_model.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_list_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -17,6 +18,7 @@ abstract class JapaneseMannersRemoteDataSource {
     required String page,
   });
   Future<List<JapaneseMannerCategoryModel>> getJapaneseMannerCategories();
+  Future<JapaneseMannerModel> getJapaneseMannerDetail(int id);
 }
 
 @LazySingleton(as: JapaneseMannersRemoteDataSource)
@@ -153,6 +155,63 @@ class JapaneseMannersRemoteDataSourceImpl
       logger.log(
         className: "JapaneseMannersRemoteDataSource",
         functionName: "getJapaneseMannerCategories()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+          message: errorMessageFromServer(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<JapaneseMannerModel> getJapaneseMannerDetail(int id) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${JapaneseMannerApiEndpoints.getJapaneseMannersDetailById}$id";
+    http.Response response;
+
+    try {
+      response = await client.get(
+        Uri.parse(url),
+        headers: _headers,
+      );
+    } catch (ex) {
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseMannerDetail()",
+        errorText: "Error fetching Japanease manners detail from API",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
+    }
+
+    final statusCode = response.statusCode;
+
+    if (statusCode == 200) {
+      final responseBody = utf8.decode(response.bodyBytes);
+      final jsonMap = json.decode(responseBody) as Map<String, dynamic>;
+      if ((jsonMap["status"] as bool) == true) {
+        try {
+          return JapaneseMannerModel.fromJson(
+              jsonMap['jp_manner'] as Map<String, dynamic>);
+        } catch (ex) {
+          logger.log(
+            className: "JapaneseMannersRemoteDataSource",
+            functionName: "getJapaneseMannerDetail()",
+            errorText: "Error casting from json to JapaneseManner",
+            errorMessage: ex.toString(),
+          );
+          throw const ServerException(message: AppConstants.someThingWentWrong);
+        }
+      } else {
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
+    } else {
+      logger.log(
+        className: "JapaneseMannersRemoteDataSource",
+        functionName: "getJapaneseMannerDetail()",
         errorText: "Error on API status code: $statusCode",
         errorMessage: response.body,
       );

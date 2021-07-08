@@ -24,6 +24,10 @@ Future navigate(BuildContext context, NotificationItem item) async {
 
     case NotificationType.jpManner:
       // TODO: goto partner JP Manner page
+
+      if (item.productId != null) {
+        context.pushRoute(JPMannerDetailFromAPi(id: item.productId!));
+      }
       break;
 
     default:

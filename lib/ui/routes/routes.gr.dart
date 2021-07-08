@@ -365,6 +365,12 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<NotificationDetailRouteArgs>();
           return _i40.NotificationDetailPage(
               key: args.key, notification: args.notification);
+        }),
+    JPMannerDetailFromAPi.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<JPMannerDetailFromAPiArgs>();
+          return _i22.JPMannerDetailFromAPi(key: args.key, id: args.id);
         })
   };
 
@@ -428,7 +434,9 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(BuyPackageRoute.name, path: '/buy-package-page'),
         _i1.RouteConfig(CouponRoute.name, path: '/coupon-page'),
         _i1.RouteConfig(NotificationDetailRoute.name,
-            path: '/notification-detail-page')
+            path: '/notification-detail-page'),
+        _i1.RouteConfig(JPMannerDetailFromAPi.name,
+            path: '/j-pmanner-detail-from-aPi')
       ];
 }
 
@@ -1198,4 +1206,22 @@ class NotificationDetailRouteArgs {
   final _i2.Key? key;
 
   final _i53.NotificationItem notification;
+}
+
+class JPMannerDetailFromAPi
+    extends _i1.PageRouteInfo<JPMannerDetailFromAPiArgs> {
+  JPMannerDetailFromAPi({_i2.Key? key, required int id})
+      : super(name,
+            path: '/j-pmanner-detail-from-aPi',
+            args: JPMannerDetailFromAPiArgs(key: key, id: id));
+
+  static const String name = 'JPMannerDetailFromAPi';
+}
+
+class JPMannerDetailFromAPiArgs {
+  const JPMannerDetailFromAPiArgs({this.key, required this.id});
+
+  final _i2.Key? key;
+
+  final int id;
 }

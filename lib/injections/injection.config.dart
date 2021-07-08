@@ -13,7 +13,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart'
     as _i10;
 import 'package:shared_preferences/shared_preferences.dart' as _i17;
 
-import '../core/database/local_database_provider.dart' as _i151;
+import '../core/database/local_database_provider.dart' as _i153;
 import '../core/database/news_provider.dart' as _i54;
 import '../core/file_picker/file_provider.dart' as _i5;
 import '../core/geo_location/geo_location.dart' as _i7;
@@ -83,10 +83,14 @@ import '../features/japanese_manners/domain/usecase/get_japanese_manner.dart'
     as _i147;
 import '../features/japanese_manners/domain/usecase/get_japanese_manner_categories.dart'
     as _i149;
+import '../features/japanese_manners/domain/usecase/get_japanese_manner_detail.dart'
+    as _i151;
 import '../features/japanese_manners/presentation/japanese_manner/japanese_manner_bloc.dart'
     as _i146;
 import '../features/japanese_manners/presentation/japanese_manner_categories/japanese_manner_categories_bloc.dart'
     as _i148;
+import '../features/japanese_manners/presentation/japanese_manner_detail_bloc/japanese_manner_detail_bloc.dart'
+    as _i150;
 import '../features/load_balance/data/datasource/load_balance_data_source.dart'
     as _i46;
 import '../features/load_balance/data/repositories/load_balance_repositories.dart'
@@ -159,7 +163,7 @@ import '../features/notifications/domain/repository/notification_repository.dart
 import '../features/notifications/domain/usecase/get_notifications.dart'
     as _i145;
 import '../features/notifications/presentation/notification/notifications_bloc.dart'
-    as _i150;
+    as _i152;
 import '../features/partner_services/data/datasource/partner_services_remote_data_source.dart'
     as _i58;
 import '../features/partner_services/data/repositories/partner_service_repository.dart'
@@ -239,12 +243,12 @@ import '../features/utility_payments/presentation/subscription_for_partner_servi
 import '../features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart'
     as _i140;
 import '../utils/config_reader.dart' as _i13;
-import 'injectable/data_connection_checker_injectable_module.dart' as _i155;
-import 'injectable/flutter_secure_storage_module.dart' as _i153;
-import 'injectable/google_login_injectable_module.dart' as _i154;
-import 'injectable/http_client_injectable_module.dart' as _i152;
+import 'injectable/data_connection_checker_injectable_module.dart' as _i157;
+import 'injectable/flutter_secure_storage_module.dart' as _i155;
+import 'injectable/google_login_injectable_module.dart' as _i156;
+import 'injectable/http_client_injectable_module.dart' as _i154;
 import 'injectable/shared_preference_module.dart'
-    as _i156; // ignore_for_file: unnecessary_lambdas
+    as _i158; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -647,12 +651,15 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i148.JapaneseMannerCategoriesBloc(
           getJapaneseMannerCategories:
               get<_i149.GetJapaneseMannerCategories>()));
-  gh.factory<_i150.NotificationsBloc>(() =>
-      _i150.NotificationsBloc(getNotifications: get<_i145.GetNotifications>()));
+  gh.factory<_i150.JapaneseMannerDetailBloc>(() =>
+      _i150.JapaneseMannerDetailBloc(
+          getJpMannerDetail: get<_i151.GetJapaneseMannerDetail>()));
+  gh.factory<_i152.NotificationsBloc>(() =>
+      _i152.NotificationsBloc(getNotifications: get<_i145.GetNotifications>()));
   gh.singleton<_i13.ConfigReader>(_i13.ConfigReaderImpl());
-  gh.singleton<_i151.DBProvider>(_i151.DBProviderImpl());
+  gh.singleton<_i153.DBProvider>(_i153.DBProviderImpl());
   gh.singleton<_i54.NewsLocalProvider>(
-      _i54.NewsLocalProviderImpl(provider: get<_i151.DBProvider>()));
+      _i54.NewsLocalProviderImpl(provider: get<_i153.DBProvider>()));
   gh.singleton<_i62.PurchasePackage>(_i62.PurchasePackage(
       repository: get<_i59.PartnerServicesRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
@@ -670,15 +677,18 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       _i149.GetJapaneseMannerCategories(
           repository: get<_i119.JapaneseMannerRepository>(),
           networkInfo: get<_i14.NetworkInfo>()));
+  gh.singleton<_i151.GetJapaneseMannerDetail>(_i151.GetJapaneseMannerDetail(
+      repository: get<_i119.JapaneseMannerRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
   return get;
 }
 
-class _$HttpClientInjectableModule extends _i152.HttpClientInjectableModule {}
+class _$HttpClientInjectableModule extends _i154.HttpClientInjectableModule {}
 
-class _$FlutterStorageModule extends _i153.FlutterStorageModule {}
+class _$FlutterStorageModule extends _i155.FlutterStorageModule {}
 
-class _$GoogleLoginInjectableModule extends _i154.GoogleLoginInjectableModule {}
+class _$GoogleLoginInjectableModule extends _i156.GoogleLoginInjectableModule {}
 
-class _$DataConnectionCheckerModule extends _i155.DataConnectionCheckerModule {}
+class _$DataConnectionCheckerModule extends _i157.DataConnectionCheckerModule {}
 
-class _$SharedPreferenceModule extends _i156.SharedPreferenceModule {}
+class _$SharedPreferenceModule extends _i158.SharedPreferenceModule {}

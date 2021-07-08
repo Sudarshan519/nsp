@@ -1,10 +1,42 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner.dart';
+import 'package:wallet_app/features/japanese_manners/presentation/japanese_manner_detail_bloc/japanese_manner_detail_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:flutter_html/flutter_html.dart';
+
+class JPMannerDetailFromAPi extends StatelessWidget {
+  final int id;
+  const JPMannerDetailFromAPi({Key? key, required this.id}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => getIt<JapaneseMannerDetailBloc>()
+        ..add(
+          JapaneseMannerDetailEvent.getJPMannerDetail(id),
+        ),
+      child: BlocConsumer<JapaneseMannerDetailBloc, JapaneseMannerDetailState>(
+        buildWhen: (previous, current) => previous != current,
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return state.map(
+            loading: (e) => Scaffold(body: loadingPage()),
+            loadedIndividual: (e) =>
+                JapaneseMannerDetailPage(japaneseManner: e.item),
+            failure: (e) => const SizedBox(),
+          );
+        },
+      ),
+    );
+  }
+}
 
 class JapaneseMannerDetailPage extends StatelessWidget {
   final JapaneseManner japaneseManner;
