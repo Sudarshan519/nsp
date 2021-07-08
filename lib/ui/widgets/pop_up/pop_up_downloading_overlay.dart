@@ -168,34 +168,6 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
                 ),
               const SizedBox(height: 10),
               const Spacer(),
-              // if (_status != null && _status == DownloadTaskStatus.complete)
-              //   SizedBox(
-              //     height: 40,
-              //     width: 120,
-              //     child: TextButton(
-              //       onPressed: () {
-              //         if (_taskId != null) {
-              //           FlutterDownloader.open(taskId: _taskId);
-              //         }
-
-              //         ExtendedNavigator.of(context).pop();
-              //       },
-              //       style: TextButton.styleFrom(
-              //         backgroundColor: Palette.primary,
-              //         shape: RoundedRectangleBorder(
-              //           borderRadius: BorderRadius.circular(18.0),
-              //         ),
-              //       ),
-              //       child: Text(
-              //         _taskId != null ? "View File" : "Return",
-              //         style: TextStyle(
-              //           fontSize: 10,
-              //           color: Palette.white,
-              //         ),
-              //       ),
-              //     ),
-              //   )
-              // else
               SizedBox(
                 height: 40,
                 width: 120,

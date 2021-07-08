@@ -40,11 +40,13 @@ class CouponPageTabbarScreen extends StatefulWidget {
 
 class _CouponPageTabbarScreenState extends State<CouponPageTabbarScreen>
     with SingleTickerProviderStateMixin {
-  TabController? _tabController;
+  late TabController _tabController;
+  late int _position;
 
   @override
   void initState() {
     _tabController = TabController(length: 2, vsync: this);
+    _position = 0;
     super.initState();
   }
 
@@ -53,39 +55,55 @@ class _CouponPageTabbarScreenState extends State<CouponPageTabbarScreen>
     RedeemPage(),
   ];
 
-  final List<Tab> _tabBar = [
-    Tab(
-      text: "Promo Code",
-      icon: SvgPicture.asset(
-        "assets/images/coupon/promo_code.svg",
-        height: 25.0,
-      ),
-    ),
-    Tab(
-      text: "Redeem",
-      icon: SvgPicture.asset(
-        "assets/images/coupon/redeem.svg",
-        height: 25.0,
-      ),
-    ),
-  ];
+  List<Tab> _getTabBar(int position) => [
+        Tab(
+          text: "Promo Code",
+          iconMargin: const EdgeInsets.only(bottom: 2),
+          icon: SvgPicture.asset(
+            "assets/images/coupon/promo_code.svg",
+            height: 25.0,
+            color: position == 0 ? Palette.primary : Palette.black,
+          ),
+        ),
+        Tab(
+          text: "Redeem",
+          iconMargin: const EdgeInsets.only(bottom: 2),
+          icon: SvgPicture.asset(
+            "assets/images/coupon/redeem.svg",
+            height: 25.0,
+            color: position == 1 ? Palette.primary : Palette.black,
+          ),
+        ),
+      ];
 
   @override
   Widget build(BuildContext context) {
+    final _tabBar = _getTabBar(_position);
     return Column(
       children: [
         TabBar(
+          labelPadding: EdgeInsets.zero,
           unselectedLabelColor: Palette.black,
+          labelStyle:
+              const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+          unselectedLabelStyle:
+              const TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
           labelColor: Palette.primary,
           tabs: _tabBar,
           controller: _tabController,
           indicatorSize: TabBarIndicatorSize.tab,
           indicatorColor: Palette.primary,
+          onTap: (page) {
+            setState(() {
+              _position = page;
+            });
+          },
         ),
         Container(
           height: 1,
           color: Palette.dividerColor,
         ),
+        const SizedBox(height: 10),
         Expanded(
           child: TabBarView(
             controller: _tabController,
@@ -98,7 +116,7 @@ class _CouponPageTabbarScreenState extends State<CouponPageTabbarScreen>
 
   @override
   void dispose() {
-    _tabController?.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 }

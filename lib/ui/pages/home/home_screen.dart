@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            const GoogleBannerAd()
+            // const GoogleBannerAd()
           ],
         ),
       ),

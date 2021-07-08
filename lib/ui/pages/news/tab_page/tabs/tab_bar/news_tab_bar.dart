@@ -43,8 +43,8 @@ class _NewsTabBarState extends State<NewsTabBar> {
         ),
       ),
       isScrollable: widget.isScrollable,
-      labelStyle: const TextStyle(fontSize: 12),
-      unselectedLabelStyle: const TextStyle(fontSize: 12),
+      labelStyle: const TextStyle(fontSize: 14),
+      unselectedLabelStyle: const TextStyle(fontSize: 14),
       labelColor: Palette.black,
       unselectedLabelColor: Palette.black,
       tabs: widget.tabs

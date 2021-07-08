@@ -5,8 +5,9 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class BalanceWidget extends StatelessWidget {
-  const BalanceWidget({Key? key}) : super(key: key);
-  // ignore: avoid_field_initializers_in_const_classes
+  const BalanceWidget({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

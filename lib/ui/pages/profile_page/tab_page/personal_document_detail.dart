@@ -111,7 +111,7 @@ class _PersonalDocumentDetailPageState
                 const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Origin/Permanent KYC Documents",
+                    "KYC for Country of Origin",
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
@@ -154,7 +154,7 @@ class _PersonalDocumentDetailPageState
                     const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Origin/Permanent Documents Details",
+                        "KYC for Country of Origin",
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
@@ -293,7 +293,7 @@ class _PersonalDocumentDetailPageState
                 const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Residence/Current KYC Documents",
+                    "KYC For Japan",
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
@@ -335,7 +335,7 @@ class _PersonalDocumentDetailPageState
                     const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Residence/Current Documents Details",
+                        "KYC For Japan",
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
@@ -348,7 +348,10 @@ class _PersonalDocumentDetailPageState
                       child: CustomDropDownWidget(
                         hintText: "Document Type",
                         value: state.residenceKycDocType,
-                        options: state.listOfKycDocType,
+                        options: const [
+                          "Japan Residence Card",
+                          "Japan Driving License"
+                        ],
                         onChanged: (value) => context
                             .read<UpdateProfileBloc>()
                             .add(UpdateProfileEvent.changeResidenceKycDocType(

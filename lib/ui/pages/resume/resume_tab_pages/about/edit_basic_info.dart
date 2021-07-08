@@ -455,7 +455,7 @@ class _EmailInputField extends StatelessWidget {
           textInputType: TextInputType.emailAddress,
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.email,
-          isEnable: false,
+          // isEnable: false,
           onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()

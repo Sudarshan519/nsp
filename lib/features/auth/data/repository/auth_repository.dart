@@ -24,7 +24,6 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({
     required this.remoteDataSource,
     required this.localDataSource,
-    // required this.facebookLogin,
     required this.googleSignIn,
     required this.logger,
   });
@@ -170,6 +169,15 @@ class AuthRepositoryImpl implements AuthRepository {
           );
         },
       );
+    } else if (result.status == LoginStatus.cancelled) {
+      logger.log(
+        className: "AuthRepository",
+        functionName: "loginWithFacebook()",
+        errorText: "Cancelled By User",
+        errorMessage: result.message ?? AppConstants.someThingWentWrong,
+      );
+      return Left(ApiFailure.serverError(
+          message: result.message ?? AppConstants.someThingWentWrong));
     } else {
       logger.log(
         className: "AuthRepository",
@@ -199,8 +207,8 @@ class AuthRepositoryImpl implements AuthRepository {
       return Left(ApiFailure.serverError(message: ex.toString()));
     }
     if (userAccount == null) {
-      return const Left(
-          ApiFailure.serverError(message: AppConstants.someThingWentWrong));
+      return const Left(ApiFailure.serverError(
+          message: "User has cancelled login with google"));
     }
 
     final names = userAccount.displayName?.split(' ') ?? [];

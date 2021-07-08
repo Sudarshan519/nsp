@@ -69,16 +69,6 @@ class TabBarScreenState extends State<TabBarPage> {
           index: _selectedIndex,
           children: _children,
         ),
-        // bottomNavigationBar: Container(
-        //   color: Palette.white,
-        //   child: SafeArea(
-        //     child: CustomTabBar(
-        //       selectedIndex: _selectedIndex,
-        //       onTap: _onTab,
-        //       tabs: _tabBarData,
-        //     ),
-        //   ),
-        // ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
@@ -91,8 +81,6 @@ class TabBarScreenState extends State<TabBarPage> {
           selectedItemColor: Palette.primary,
           unselectedItemColor: Palette.black,
           showUnselectedLabels: true,
-          // selectedIconTheme: IconThemeData(color: AppColors.primary),
-          // unselectedIconTheme: IconThemeData(color: AppColors.primary),
         ),
       ),
     );

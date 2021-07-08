@@ -79,29 +79,29 @@ class HomeHeaderWidget extends StatelessWidget {
                 "assets/images/navigation_bar/notification.svg",
                 height: 25.0,
               ),
-              if (details != null &&
-                  details.notificationCount != null &&
-                  (details.notificationCount! > 0))
-                Positioned(
-                  right: 0.1,
-                  child: Transform.translate(
-                    offset: const Offset(5, -5),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 9.5,
-                      child: Center(
-                        child: Text(
-                          details.notificationCount! > 20
-                              ? '20+'
-                              : details.notificationCount!.toString(),
-                          textScaleFactor: 0.56,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+              // if (details != null &&
+              //     details.notificationCount != null &&
+              //     (details.notificationCount! > 0))
+              //   Positioned(
+              //     right: 0.1,
+              //     child: Transform.translate(
+              //       offset: const Offset(5, -5),
+              //       child: CircleAvatar(
+              //         backgroundColor: Colors.white,
+              //         radius: 9.5,
+              //         child: Center(
+              //           child: Text(
+              //             details.notificationCount! > 20
+              //                 ? '20+'
+              //                 : details.notificationCount!.toString(),
+              //             textScaleFactor: 0.56,
+              //             textAlign: TextAlign.center,
+              //             style: const TextStyle(fontWeight: FontWeight.w700),
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
             ],
           ),
         ),
