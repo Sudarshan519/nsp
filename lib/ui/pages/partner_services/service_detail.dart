@@ -291,6 +291,9 @@ class ServicesDetailPage extends StatelessWidget {
                           if (item != null) {
                             context.pushRoute(
                               BuyPackageRoute(
+                                cashBackPercent:
+                                    services.cashbackPercentage ?? 0,
+                                rewardPoint: services.rewardPoints ?? 0,
                                 package: item,
                                 services: services,
                               ),

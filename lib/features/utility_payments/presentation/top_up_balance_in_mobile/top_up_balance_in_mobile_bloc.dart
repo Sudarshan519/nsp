@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
-import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/topup_balance_for_mobile.dart';
 
 part 'top_up_balance_in_mobile_event.dart';

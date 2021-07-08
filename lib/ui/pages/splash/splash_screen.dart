@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
-import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class SplashPage extends StatelessWidget {
   @override

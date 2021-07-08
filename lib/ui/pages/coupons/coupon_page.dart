@@ -13,7 +13,7 @@ class CouponPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Promos",
+          "Coupons",
           style: TextStyle(
             color: Palette.white,
           ),
@@ -49,11 +49,18 @@ class _CouponPageTabbarScreenState extends State<CouponPageTabbarScreen>
   }
 
   final List<Widget> _children = const [
-    RedeemPage(),
     PromocodePage(),
+    RedeemPage(),
   ];
 
   final List<Tab> _tabBar = [
+    Tab(
+      text: "Promo Code",
+      icon: SvgPicture.asset(
+        "assets/images/coupon/promo_code.svg",
+        height: 25.0,
+      ),
+    ),
     Tab(
       text: "Redeem",
       icon: SvgPicture.asset(
@@ -61,13 +68,6 @@ class _CouponPageTabbarScreenState extends State<CouponPageTabbarScreen>
         height: 25.0,
       ),
     ),
-    Tab(
-      text: "Promo Code",
-      icon: SvgPicture.asset(
-        "assets/images/coupon/promo_code.svg",
-        height: 25.0,
-      ),
-    )
   ];
 
   @override

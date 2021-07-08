@@ -139,20 +139,15 @@ class HomePage extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return Column(
-      children: [
-        ListView.builder(
-          primary: false,
-          padding: EdgeInsets.zero,
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: data.length,
-          itemBuilder: (context, index) {
-            return _listItemBuilder(context, data[index], userDetail);
-          },
-        ),
-        const GoogleBannerAd()
-      ],
+    return ListView.builder(
+      primary: false,
+      padding: EdgeInsets.zero,
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: data.length,
+      itemBuilder: (context, index) {
+        return _listItemBuilder(context, data[index], userDetail);
+      },
     );
   }
 

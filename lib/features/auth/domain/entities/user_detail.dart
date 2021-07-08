@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
-import 'package:wallet_app/utils/currency_formater.dart';
 
 class UserDetail extends Equatable {
   const UserDetail({

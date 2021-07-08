@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:wallet_app/features/auth/presentation/password_reset/password_reset_bloc.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/features/transaction/presentation/individual_transaction/individual_transaction_bloc.dart';
-import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/dashed_line.dart';

@@ -22,11 +22,15 @@ import 'package:wallet_app/utils/currency_formater.dart';
 class BuyPackagePage extends StatefulWidget {
   final ServicePackage package;
   final Services services;
+  final double cashBackPercent;
+  final double rewardPoint;
 
   const BuyPackagePage({
     Key? key,
     required this.package,
     required this.services,
+    required this.cashBackPercent,
+    required this.rewardPoint,
   }) : super(key: key);
 
   @override
@@ -52,8 +56,9 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
           create: (_) => getIt<PurchasePackageBloc>()
             ..add(
               PurchasePackageEvent.setInitialState(
-                widget.package,
-              ),
+                  package: widget.package,
+                  cashBackPercent: widget.cashBackPercent,
+                  rewardPoint: widget.rewardPoint),
             ),
         ),
         BlocProvider(

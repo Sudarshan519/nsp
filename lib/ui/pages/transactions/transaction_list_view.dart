@@ -408,6 +408,7 @@ class TransactionListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShadowBoxWidget(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
       margin: const EdgeInsets.symmetric(vertical: 11, horizontal: 10),
       child: ListView.separated(
         shrinkWrap: true,
@@ -436,7 +437,7 @@ class TransactionViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      // contentPadding: const EdgeInsets.all(5),
+      contentPadding: const EdgeInsets.all(5),
       onTap: () => context.pushRoute(TransactionDetailRoute(item: transaction)),
       leading: Container(
           width: 55,
@@ -462,7 +463,7 @@ class TransactionViewItem extends StatelessWidget {
       ),
       trailing: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
             currencyFormatter(
