@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/delete_card/delete_card_bloc.dart';
-import 'package:wallet_app/features/load_balance/presentations/get_payment_methods/get_payment_methods_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -17,11 +16,13 @@ import 'package:wallet_app/utils/constant.dart';
 class StripePaymentCardSelectionPage extends StatefulWidget {
   final String balance;
   final List<CreditCard> cards;
+  final Function(int) deleteCard;
 
   const StripePaymentCardSelectionPage({
     Key? key,
     required this.balance,
     required this.cards,
+    required this.deleteCard,
   }) : super(key: key);
 
   @override
@@ -59,12 +60,12 @@ class _StripePaymentCardSelectionPageState
           backgroundColor: Palette.primary,
           elevation: 0,
         ),
-        body: _cardList(context),
+        body: _blocConsumer(context),
       ),
     );
   }
 
-  Widget some(BuildContext context) {
+  Widget _blocConsumer(BuildContext context) {
     return BlocConsumer<DeleteCardBloc, DeleteCardState>(
       listener: (context, state) {
         state.map(
@@ -72,6 +73,8 @@ class _StripePaymentCardSelectionPageState
           loading: (_) {},
           success: (success) {
             final cardId = success.id;
+            _cards.removeWhere((element) => element.id == cardId);
+            widget.deleteCard(cardId);
           },
           failure: (failure) {
             FlushbarHelper.createError(
@@ -169,10 +172,12 @@ class _StripePaymentCardSelectionPageState
                             builder: (_) => PopUpConfirmation(
                               message: 'Are you sure to delete the card?',
                               onConfirmed: () {
-                                // getIt<GetPaymentMethodsBloc>().add(
-                                //     GetPaymentMethodsEvent.deleteCard(
-                                //         cards[index].id));
-                                // context.router.navigate(const TabBarRoute());
+                                context.read<DeleteCardBloc>().add(
+                                      DeleteCardEvent.deleteCard(
+                                        _cards[index].id,
+                                      ),
+                                    );
+                                context.popRoute();
                               },
                             ),
                           );

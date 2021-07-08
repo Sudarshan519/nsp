@@ -264,7 +264,10 @@ class AppRouter extends _i1.RootStackRouter {
             builder: (data) {
               final args = data.argsAs<StripePaymentCardSelectionRouteArgs>();
               return _i27.StripePaymentCardSelectionPage(
-                  key: args.key, balance: args.balance, cards: args.cards);
+                  key: args.key,
+                  balance: args.balance,
+                  cards: args.cards,
+                  deleteCard: args.deleteCard);
             }),
     StripeNewCardPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -906,24 +909,33 @@ class StripePaymentCardSelectionRoute
   StripePaymentCardSelectionRoute(
       {_i2.Key? key,
       required String balance,
-      required List<_i49.CreditCard> cards})
+      required List<_i49.CreditCard> cards,
+      required dynamic Function(int) deleteCard})
       : super(name,
             path: '/stripe-payment-card-selection-page',
             args: StripePaymentCardSelectionRouteArgs(
-                key: key, balance: balance, cards: cards));
+                key: key,
+                balance: balance,
+                cards: cards,
+                deleteCard: deleteCard));
 
   static const String name = 'StripePaymentCardSelectionRoute';
 }
 
 class StripePaymentCardSelectionRouteArgs {
   const StripePaymentCardSelectionRouteArgs(
-      {this.key, required this.balance, required this.cards});
+      {this.key,
+      required this.balance,
+      required this.cards,
+      required this.deleteCard});
 
   final _i2.Key? key;
 
   final String balance;
 
   final List<_i49.CreditCard> cards;
+
+  final dynamic Function(int) deleteCard;
 }
 
 class StripeNewCardPaymentRoute
