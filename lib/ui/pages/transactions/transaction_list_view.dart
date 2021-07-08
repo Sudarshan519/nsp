@@ -55,279 +55,39 @@ class _TransactionBuilderState extends State<TransactionBuilder>
   int _currentIndex = 0;
   bool _showFilter = false;
   final TextEditingController _searchController = TextEditingController();
+
   @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
     super.initState();
   }
 
+  TabBar _tabBar() {
+    return TabBar(
+      onTap: (index) {
+        setState(() {
+          _currentIndex = index;
+        });
+      },
+      tabs: const [
+        Tab(
+          child: Text("All"),
+        ),
+        Tab(
+          child: Text("Topup"),
+        ),
+        Tab(
+          child: Text("Purchase"),
+        )
+      ],
+      controller: _tabController,
+      indicatorColor: Palette.primary,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    Widget _searchWidget() {
-      return Container(
-        margin: const EdgeInsets.only(top: 8),
-        height: 32,
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                    maxLength: 25,
-                    onChanged: (s) {
-                      setState(() {
-                        _searchList.clear();
-                        _searchList = _activeList
-                            .where((element) =>
-                                element.transactionName
-                                    .toString()
-                                    .toLowerCase()
-                                    .contains(s.toLowerCase()) ||
-                                element.remarks
-                                    .toString()
-                                    .toLowerCase()
-                                    .contains(s.toLowerCase()) ||
-                                element.referenceId
-                                    .toString()
-                                    .toLowerCase()
-                                    .contains(s.toLowerCase()) ||
-                                element.topupBy
-                                    .toString()
-                                    .toLowerCase()
-                                    .contains(s.toLowerCase()) ||
-                                element.user
-                                    .toString()
-                                    .toLowerCase()
-                                    .contains(s.toLowerCase()))
-                            .toList();
-                      });
-                    },
-                    controller: _searchController,
-                    textAlignVertical: TextAlignVertical.center,
-                    style: const TextStyle(fontSize: 12),
-                    decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: const EdgeInsets.only(left: 8),
-                        hintText: 'Search',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(
-                            // color: Colors.black,
-                            width: 0.07,
-                            style: BorderStyle.none,
-                          ),
-                        ),
-                        suffixIcon: const Icon(Icons.search, size: 20),
-                        prefixIcon: _searchController.text.isEmpty
-                            ? null
-                            : IconButton(
-                                onPressed: () =>
-                                    setState(() => _searchController.clear()),
-                                icon: const Icon(Icons.close, size: 16)))),
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    _showFilter = !_showFilter;
-                  });
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Palette.primary,
-                  onPrimary: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0),
-                  ),
-                ),
-                child: Row(
-                  children: const [
-                    Icon(
-                      Icons.filter_alt_rounded,
-                      size: 20,
-                    ),
-                    Text(" Filter")
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    TabBar _tabBar() {
-      return TabBar(
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        tabs: const [
-          Tab(
-            child: Text("All"),
-          ),
-          Tab(
-            child: Text("Topup"),
-          ),
-          Tab(
-            child: Text("Purchase"),
-          )
-        ],
-        controller: _tabController,
-        indicatorColor: Palette.primary,
-      );
-    }
-
-    Widget _dateFilterWidget(BuildContext context) {
-      return Container(
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        padding: const EdgeInsets.all(8),
-        height: 60,
-        color: Palette.primary,
-        child: Row(
-          children: [
-            Expanded(
-              flex: 3,
-              child: ElevatedButton(
-                onPressed: () async {
-                  final fromPick = await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(2018),
-                      lastDate: DateTime.now());
-                  if (fromPick != null) {
-                    setState(() {
-                      from = fromPick;
-                    });
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  onPrimary: Colors.black,
-                  primary: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: const [
-                        Text(
-                          "From",
-                          textScaleFactor: 0.8,
-                        ),
-                        SizedBox(
-                          width: 6,
-                        ),
-                        Icon(
-                          Icons.calendar_today,
-                          size: 12,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 3,
-                    ),
-                    Text(
-                      DateTimeFormatter.formatDate(from.toString()),
-                      textScaleFactor: 0.8,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            Expanded(
-              flex: 3,
-              child: ElevatedButton(
-                onPressed: () async {
-                  final toPick = await showDatePicker(
-                      context: context,
-                      initialDate: from,
-                      firstDate: from,
-                      lastDate: DateTime.now());
-                  if (toPick != null) {
-                    setState(() {
-                      to = toPick;
-                    });
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  onPrimary: Colors.black,
-                  primary: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: const [
-                        Text(
-                          "To",
-                          textScaleFactor: 0.8,
-                        ),
-                        SizedBox(
-                          width: 6,
-                        ),
-                        Icon(
-                          Icons.calendar_today,
-                          size: 12,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 3,
-                    ),
-                    Text(
-                      DateTimeFormatter.formatDate(to.toString()),
-                      textScaleFactor: 0.8,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            Expanded(
-              flex: 2,
-              child: ElevatedButton(
-                onPressed: () async {
-                  context.read<TransactionBloc>().add(
-                        TransactionEvent.fetchTransactionData(
-                            fromDate: DateTimeFormatter.formatDateToApi(from),
-                            toDate: DateTimeFormatter.formatDateToApi(to)),
-                      );
-                },
-                style: ElevatedButton.styleFrom(
-                  onPrimary: Colors.black,
-                  primary: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0),
-                  ),
-                ),
-                child: const Text(
-                  "Show",
-                  textScaleFactor: 0.8,
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
     switch (_currentIndex) {
-
       //ALL
       case 0:
         _activeList = widget.items;
@@ -353,6 +113,7 @@ class _TransactionBuilderState extends State<TransactionBuilder>
 
       default:
     }
+
     final listToShow =
         _searchController.text.isEmpty ? _activeList : _searchList;
 
@@ -361,11 +122,251 @@ class _TransactionBuilderState extends State<TransactionBuilder>
         _tabBar(),
         _searchWidget(),
         if (_showFilter) _dateFilterWidget(context),
-        // ignore: prefer_if_elements_to_conditional_expressions
-        listToShow.isEmpty
-            ? const InfoWidget(message: 'No data available')
-            : TransactionListView(items: listToShow)
+        if (listToShow.isEmpty)
+          const InfoWidget(message: 'No data available')
+        else
+          TransactionListView(items: listToShow)
       ],
+    );
+  }
+
+  Widget _searchWidget() {
+    return Container(
+      margin: const EdgeInsets.only(top: 8),
+      height: 32,
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                  maxLength: 25,
+                  onChanged: (s) {
+                    setState(() {
+                      _searchList.clear();
+                      _searchList = _activeList
+                          .where((element) =>
+                              element.transactionName
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()) ||
+                              element.remarks
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()) ||
+                              element.referenceId
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()) ||
+                              element.topupBy
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()) ||
+                              element.user
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(s.toLowerCase()))
+                          .toList();
+                    });
+                  },
+                  controller: _searchController,
+                  textAlignVertical: TextAlignVertical.center,
+                  style: const TextStyle(fontSize: 12),
+                  decoration: InputDecoration(
+                      counterText: '',
+                      contentPadding: const EdgeInsets.only(left: 8),
+                      hintText: 'Search',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(
+                          // color: Colors.black,
+                          width: 0.07,
+                          style: BorderStyle.none,
+                        ),
+                      ),
+                      suffixIcon: const Icon(Icons.search, size: 20),
+                      prefixIcon: _searchController.text.isEmpty
+                          ? null
+                          : IconButton(
+                              onPressed: () =>
+                                  setState(() => _searchController.clear()),
+                              icon: const Icon(Icons.close, size: 16)))),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _showFilter = !_showFilter;
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Palette.primary,
+                onPrimary: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0),
+                ),
+              ),
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.filter_alt_rounded,
+                    size: 20,
+                  ),
+                  Text(" Filter")
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _dateFilterWidget(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.all(8),
+      height: 60,
+      color: Palette.primary,
+      child: Row(
+        children: [
+          Expanded(
+            flex: 3,
+            child: ElevatedButton(
+              onPressed: () async {
+                final fromPick = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2018),
+                    lastDate: DateTime.now());
+                if (fromPick != null) {
+                  setState(() {
+                    from = fromPick;
+                  });
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                onPrimary: Colors.black,
+                primary: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: const [
+                      Text(
+                        "From",
+                        textScaleFactor: 0.8,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Icon(
+                        Icons.calendar_today,
+                        size: 12,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    DateTimeFormatter.formatDate(from.toString()),
+                    textScaleFactor: 0.8,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 8,
+          ),
+          Expanded(
+            flex: 3,
+            child: ElevatedButton(
+              onPressed: () async {
+                final toPick = await showDatePicker(
+                    context: context,
+                    initialDate: from,
+                    firstDate: from,
+                    lastDate: DateTime.now());
+                if (toPick != null) {
+                  setState(() {
+                    to = toPick;
+                  });
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                onPrimary: Colors.black,
+                primary: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: const [
+                      Text(
+                        "To",
+                        textScaleFactor: 0.8,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Icon(
+                        Icons.calendar_today,
+                        size: 12,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    DateTimeFormatter.formatDate(to.toString()),
+                    textScaleFactor: 0.8,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 8,
+          ),
+          Expanded(
+            flex: 2,
+            child: ElevatedButton(
+              onPressed: () async {
+                context.read<TransactionBloc>().add(
+                      TransactionEvent.fetchTransactionData(
+                          fromDate: DateTimeFormatter.formatDateToApi(from),
+                          toDate: DateTimeFormatter.formatDateToApi(to)),
+                    );
+              },
+              style: ElevatedButton.styleFrom(
+                onPrimary: Colors.black,
+                primary: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0),
+                ),
+              ),
+              child: const Text(
+                "Show",
+                textScaleFactor: 0.8,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

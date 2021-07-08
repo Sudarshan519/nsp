@@ -107,16 +107,24 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: NewsTabBar(
-            onTap: (selected) {
-              setState(() {
-                _selectedIndex = selected;
-                _changedByUser = true;
-              });
-            },
-            isScrollable: true,
-            tabs: _tabBarData,
-            selectedIndex: _selectedIndex,
+          child: Column(
+            children: [
+              NewsTabBar(
+                onTap: (selected) {
+                  setState(() {
+                    _selectedIndex = selected;
+                    _changedByUser = true;
+                  });
+                },
+                isScrollable: true,
+                tabs: _tabBarData,
+                selectedIndex: _selectedIndex,
+              ),
+              Container(
+                height: 1,
+                color: Palette.dividerColor,
+              )
+            ],
           ),
         ),
         body: IndexedStack(

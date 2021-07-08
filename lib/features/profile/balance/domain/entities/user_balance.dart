@@ -13,7 +13,10 @@ class UserBalance {
 
   String get formattedCurrency {
     if (balance != null) {
-      return currencyFormatter(value: balance!);
+      return currencyFormatter(
+        value: balance!,
+        decimalDigits: 0,
+      );
     }
 
     return 'XX.XX';
