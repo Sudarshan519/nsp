@@ -2,8 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
+import 'package:wallet_app/features/load_balance/presentations/get_payment_methods/get_payment_methods_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_confirmation.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
@@ -104,6 +107,27 @@ class StripePaymentCardSelectionPage extends StatelessWidget {
                             Text(maskedCreditCard),
                           ],
                         ),
+                        const Spacer(),
+                        IconButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (_) => PopUpConfirmation(
+                                  message: 'Are you sure to delete the card?',
+                                  onConfirmed: () {
+                                    getIt<GetPaymentMethodsBloc>().add(
+                                        GetPaymentMethodsEvent.deleteCard(
+                                            cards[index].id));
+                                    context.router
+                                        .navigate(const TabBarRoute());
+                                  },
+                                ),
+                              );
+                            },
+                            icon: const Icon(
+                              Icons.delete_forever_outlined,
+                              color: Colors.red,
+                            ))
                       ],
                     ),
                   ),

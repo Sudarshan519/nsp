@@ -68,8 +68,10 @@ class CreditCard {
   CreditCard({
     required this.name,
     required this.cardNumber,
+    required this.id,
   });
 
+  final int id;
   final String? name;
   final String? cardNumber;
 }

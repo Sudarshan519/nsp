@@ -45,6 +45,7 @@ abstract class LoadBalanceDataSource {
     required String purpose,
     required String verifyAmount,
   });
+  Future<Unit> deleteCard({required int cardId});
 }
 
 @LazySingleton(as: LoadBalanceDataSource)
@@ -295,6 +296,61 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       logger.log(
         className: "LoadBalanceDataSource",
         functionName: "$functionName()",
+        errorText: "Api Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+          message: errorMessageFromServerWithError(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<Unit> deleteCard({
+    required int cardId,
+  }) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${LoadBalanceApiEndpoints.deleteCreditCard}$cardId";
+
+    final accessToken = (await auth.getWalletUser()).accessToken;
+    final userId = (await auth.getUserDetail()).uuid;
+
+    if (accessToken?.isEmpty ?? true) {
+      //TODO: user access token is empty we have to redirect to login page.
+    }
+
+    if (userId?.isEmpty ?? true) {
+      //TODO: user id is empty we have to redirect to login page.
+
+    }
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    try {
+      response = await client.get(
+        Uri.parse(url),
+        headers: _header,
+      );
+    } catch (ex) {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "deleteCard()",
+        errorText: "failed to delete card",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+
+    if (statusCode == 200) {
+      return unit;
+    } else {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "deleteCard()",
         errorText: "Api Status code: $statusCode",
         errorMessage: response.body,
       );

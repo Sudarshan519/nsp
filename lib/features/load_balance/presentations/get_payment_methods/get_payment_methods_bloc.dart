@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
+import 'package:wallet_app/features/load_balance/domain/usecases/delete_card.dart';
 import 'package:wallet_app/features/load_balance/domain/usecases/get_list_of_payment_methods.dart';
 
 part 'get_payment_methods_event.dart';
@@ -17,9 +18,12 @@ class GetPaymentMethodsBloc
     extends Bloc<GetPaymentMethodsEvent, GetPaymentMethodsState> {
   GetPaymentMethodsBloc({
     required this.getListOfPaymentMethods,
+    required this.deletecard,
   }) : super(const _Loading());
 
   final GetListOfPaymentMethods getListOfPaymentMethods;
+  final DeleteCard deletecard;
+  late LoadFund loadfund;
   @override
   Stream<GetPaymentMethodsState> mapEventToState(
     GetPaymentMethodsEvent event,
@@ -31,8 +35,22 @@ class GetPaymentMethodsBloc
 
         yield result.fold(
           (failure) => _Failure(failure),
-          (data) => _Loaded(data),
+          (data) {
+            loadfund = data;
+            return _Loaded(data);
+          },
         );
+      },
+      deleteCard: (d) async* {
+        yield const _Loading();
+        final result = await deletecard(DeleteCardParams(id: d.cardID));
+
+        // yield result.fold(
+        //   (failure) => _Failure(failure),
+        //   (data) {
+        //     return _Loaded(loadfund);
+        //   },
+        // );
       },
     );
   }

@@ -19,6 +19,12 @@ class _$GetPaymentMethodsEventTearOff {
   _GetListOfPaymentMethods getListOfPaymentMethods() {
     return const _GetListOfPaymentMethods();
   }
+
+  _DeleteCard deleteCard(int cardID) {
+    return _DeleteCard(
+      cardID,
+    );
+  }
 }
 
 /// @nodoc
@@ -29,11 +35,13 @@ mixin _$GetPaymentMethodsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getListOfPaymentMethods,
+    required TResult Function(int cardID) deleteCard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getListOfPaymentMethods,
+    TResult Function(int cardID)? deleteCard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,11 +49,13 @@ mixin _$GetPaymentMethodsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetListOfPaymentMethods value)
         getListOfPaymentMethods,
+    required TResult Function(_DeleteCard value) deleteCard,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetListOfPaymentMethods value)? getListOfPaymentMethods,
+    TResult Function(_DeleteCard value)? deleteCard,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -110,6 +120,7 @@ class _$_GetListOfPaymentMethods implements _GetListOfPaymentMethods {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getListOfPaymentMethods,
+    required TResult Function(int cardID) deleteCard,
   }) {
     return getListOfPaymentMethods();
   }
@@ -118,6 +129,7 @@ class _$_GetListOfPaymentMethods implements _GetListOfPaymentMethods {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getListOfPaymentMethods,
+    TResult Function(int cardID)? deleteCard,
     required TResult orElse(),
   }) {
     if (getListOfPaymentMethods != null) {
@@ -131,6 +143,7 @@ class _$_GetListOfPaymentMethods implements _GetListOfPaymentMethods {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetListOfPaymentMethods value)
         getListOfPaymentMethods,
+    required TResult Function(_DeleteCard value) deleteCard,
   }) {
     return getListOfPaymentMethods(this);
   }
@@ -139,6 +152,7 @@ class _$_GetListOfPaymentMethods implements _GetListOfPaymentMethods {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetListOfPaymentMethods value)? getListOfPaymentMethods,
+    TResult Function(_DeleteCard value)? deleteCard,
     required TResult orElse(),
   }) {
     if (getListOfPaymentMethods != null) {
@@ -150,6 +164,123 @@ class _$_GetListOfPaymentMethods implements _GetListOfPaymentMethods {
 
 abstract class _GetListOfPaymentMethods implements GetPaymentMethodsEvent {
   const factory _GetListOfPaymentMethods() = _$_GetListOfPaymentMethods;
+}
+
+/// @nodoc
+abstract class _$DeleteCardCopyWith<$Res> {
+  factory _$DeleteCardCopyWith(
+          _DeleteCard value, $Res Function(_DeleteCard) then) =
+      __$DeleteCardCopyWithImpl<$Res>;
+  $Res call({int cardID});
+}
+
+/// @nodoc
+class __$DeleteCardCopyWithImpl<$Res>
+    extends _$GetPaymentMethodsEventCopyWithImpl<$Res>
+    implements _$DeleteCardCopyWith<$Res> {
+  __$DeleteCardCopyWithImpl(
+      _DeleteCard _value, $Res Function(_DeleteCard) _then)
+      : super(_value, (v) => _then(v as _DeleteCard));
+
+  @override
+  _DeleteCard get _value => super._value as _DeleteCard;
+
+  @override
+  $Res call({
+    Object? cardID = freezed,
+  }) {
+    return _then(_DeleteCard(
+      cardID == freezed
+          ? _value.cardID
+          : cardID // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteCard implements _DeleteCard {
+  const _$_DeleteCard(this.cardID);
+
+  @override
+  final int cardID;
+
+  @override
+  String toString() {
+    return 'GetPaymentMethodsEvent.deleteCard(cardID: $cardID)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DeleteCard &&
+            (identical(other.cardID, cardID) ||
+                const DeepCollectionEquality().equals(other.cardID, cardID)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(cardID);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DeleteCardCopyWith<_DeleteCard> get copyWith =>
+      __$DeleteCardCopyWithImpl<_DeleteCard>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getListOfPaymentMethods,
+    required TResult Function(int cardID) deleteCard,
+  }) {
+    return deleteCard(cardID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getListOfPaymentMethods,
+    TResult Function(int cardID)? deleteCard,
+    required TResult orElse(),
+  }) {
+    if (deleteCard != null) {
+      return deleteCard(cardID);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetListOfPaymentMethods value)
+        getListOfPaymentMethods,
+    required TResult Function(_DeleteCard value) deleteCard,
+  }) {
+    return deleteCard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetListOfPaymentMethods value)? getListOfPaymentMethods,
+    TResult Function(_DeleteCard value)? deleteCard,
+    required TResult orElse(),
+  }) {
+    if (deleteCard != null) {
+      return deleteCard(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteCard implements GetPaymentMethodsEvent {
+  const factory _DeleteCard(int cardID) = _$_DeleteCard;
+
+  int get cardID => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$DeleteCardCopyWith<_DeleteCard> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
