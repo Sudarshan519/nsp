@@ -41,17 +41,6 @@ class GetPaymentMethodsBloc
           },
         );
       },
-      deleteCard: (d) async* {
-        yield const _Loading();
-        final result = await deletecard(DeleteCardParams(id: d.cardID));
-
-        // yield result.fold(
-        //   (failure) => _Failure(failure),
-        //   (data) {
-        //     return _Loaded(loadfund);
-        //   },
-        // );
-      },
     );
   }
 }
