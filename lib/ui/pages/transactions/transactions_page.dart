@@ -25,6 +25,10 @@ class TransactionPage extends StatelessWidget {
           // const BalanceWidget(),
           const BNPJCard(),
           const SizedBox(height: 10),
+          const Text(
+            'Latest Transactions',
+            style: TextStyle(fontWeight: FontWeight.w700),
+          ),
           body(),
         ],
       ),
@@ -32,18 +36,11 @@ class TransactionPage extends StatelessWidget {
   }
 
   Widget body() {
-    return Expanded(
-      child: SingleChildScrollView(
-        child: Column(
-          children: const [
-            Text(
-              'Latest Transactions',
-              style: TextStyle(fontWeight: FontWeight.w700),
-            ),
-            TransactionListPage()
-          ],
-        ),
-      ),
-    );
+    // return Expanded(
+    //   child: Container(
+    //     color: Colors.red,
+    //   ),
+    // );
+    return const TransactionListPage();
   }
 }

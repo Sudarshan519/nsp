@@ -117,16 +117,18 @@ class _TransactionBuilderState extends State<TransactionBuilder>
     final listToShow =
         _searchController.text.isEmpty ? _activeList : _searchList;
 
-    return Column(
-      children: [
-        _tabBar(),
-        _searchWidget(),
-        if (_showFilter) _dateFilterWidget(context),
-        if (listToShow.isEmpty)
-          const InfoWidget(message: 'No data available')
-        else
-          TransactionListView(items: listToShow)
-      ],
+    return Expanded(
+      child: Column(
+        children: [
+          _tabBar(),
+          _searchWidget(),
+          if (_showFilter) _dateFilterWidget(context),
+          if (listToShow.isEmpty)
+            const InfoWidget(message: 'No data available')
+          else
+            TransactionListView(items: listToShow)
+        ],
+      ),
     );
   }
 
@@ -408,21 +410,23 @@ class TransactionListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShadowBoxWidget(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
-      margin: const EdgeInsets.symmetric(vertical: 11, horizontal: 10),
-      child: ListView.separated(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: items.length,
-        separatorBuilder: (context, index) => const Divider(
-          indent: 12,
-          endIndent: 12,
+    return Expanded(
+      child: ShadowBoxWidget(
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
+        margin: const EdgeInsets.symmetric(vertical: 11, horizontal: 10),
+        child: ListView.separated(
+          shrinkWrap: true,
+          // physics: const NeverScrollableScrollPhysics(),
+          itemCount: items.length,
+          separatorBuilder: (context, index) => const Divider(
+            indent: 12,
+            endIndent: 12,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            final transaction = items[index];
+            return TransactionViewItem(transaction: transaction);
+          },
         ),
-        itemBuilder: (BuildContext context, int index) {
-          final transaction = items[index];
-          return TransactionViewItem(transaction: transaction);
-        },
       ),
     );
   }
@@ -441,8 +445,8 @@ class TransactionViewItem extends StatelessWidget {
       contentPadding: const EdgeInsets.all(5),
       onTap: () => context.pushRoute(TransactionDetailRoute(item: transaction)),
       leading: Container(
-          width: 55,
-          height: 55,
+          width: 50,
+          height: 50,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(8)),
             color: Palette.primary,
