@@ -23,12 +23,8 @@ class TransactionDetailFromAPi extends StatelessWidget {
         ..add(
           IndividualTransactionEvent.fetchIndividualTransactionData(id),
         ),
-      child:
-          BlocConsumer<IndividualTransactionBloc, IndividualTransactionState>(
+      child: BlocBuilder<IndividualTransactionBloc, IndividualTransactionState>(
         buildWhen: (previous, current) => previous != current,
-        listener: (context, state) {
-          // TODO: implement listener
-        },
         builder: (context, state) {
           return state.map(
               loading: (e) => Scaffold(body: loadingPage()),
