@@ -252,7 +252,6 @@ class _PurposeWidget extends StatelessWidget {
                   "Utilities",
                   "Partner Services",
                   "Bill Payments",
-                  "Travel Ticketing",
                   "Others",
                 ],
                 onChanged: (value) {

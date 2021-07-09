@@ -10,8 +10,7 @@ import 'package:wallet_app/utils/config_reader.dart';
 
 class HomeServiceWidget extends StatelessWidget {
   final List<Services> services;
-  final _positionNotifier = ValueNotifier<String>("1");
-  HomeServiceWidget({
+  const HomeServiceWidget({
     Key? key,
     required this.services,
   }) : super(key: key);
@@ -26,27 +25,19 @@ class HomeServiceWidget extends StatelessWidget {
             children: [
               const CategoryTitleWidget(title: "Services"),
               const Spacer(),
-              Row(
-                children: [
-                  ValueListenableBuilder(
-                    valueListenable: _positionNotifier,
-                    builder: (context, position, child) {
-                      return Text(
-                        // ignore: cast_nullable_to_non_nullable
-                        position as String,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                        ),
-                      );
-                    },
+              InkWell(
+                onTap: () {
+                  context.pushRoute(
+                    PartnerServicesRoute(categoryName: ''),
+                  );
+                },
+                child: Text(
+                  'view all',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Palette.primary,
                   ),
-                  Text(
-                    "/${services.length}",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ],
           ),
@@ -54,20 +45,13 @@ class HomeServiceWidget extends StatelessWidget {
           Container(
             color: Palette.white,
             height: 215,
-            child: NotificationListener<ScrollUpdateNotification>(
-              onNotification: (notification) {
-                final pixel = notification.metrics.pixels / 260;
-                _positionNotifier.value = "${pixel.toInt() + 1}";
-                return true;
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: services.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return getServiceItem(context, services[index]);
               },
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: services.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return getServiceItem(context, services[index]);
-                },
-              ),
             ),
           ),
         ],

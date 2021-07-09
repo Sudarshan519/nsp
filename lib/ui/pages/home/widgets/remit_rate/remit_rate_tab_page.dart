@@ -21,18 +21,29 @@ class RemitRateTabPage extends StatefulWidget {
 class _RemitRateTabPageState extends State<RemitRateTabPage>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
+  late List<RemitRate> _remitRates;
 
   @override
   void initState() {
     super.initState();
-    _tabController =
-        TabController(length: widget.remitRates.length, vsync: this);
+
+    _remitRates = [];
+
+    widget.remitRates.asMap().forEach(
+      (index, rate) {
+        if (rate.remitExchange?.isNotEmpty ?? false) {
+          _remitRates.add(rate);
+        }
+      },
+    );
+
+    _tabController = TabController(length: _remitRates.length, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
-    final _child = _children(widget.remitRates);
-    final _tabBar = _tabBarWidget(widget.remitRates);
+    final _child = _children();
+    final _tabBar = _tabBarWidget();
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -60,10 +71,10 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
     );
   }
 
-  List<Widget> _tabBarWidget(List<RemitRate> remitRates) {
+  List<Widget> _tabBarWidget() {
     final widgets = <Widget>[];
 
-    remitRates.asMap().forEach(
+    _remitRates.asMap().forEach(
           (index, rate) => widgets.add(
             _header(
               index: index,
@@ -114,9 +125,9 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
     );
   }
 
-  List<Widget> _children(List<RemitRate> remitRates) {
+  List<Widget> _children() {
     final widgets = <Widget>[];
-    for (final RemitRate rate in remitRates) {
+    for (final RemitRate rate in _remitRates) {
       widgets.add(RemitRateExchangePage(
         remitRate: rate,
       ));

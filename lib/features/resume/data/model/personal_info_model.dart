@@ -112,16 +112,6 @@ class PersonalInfoModel extends PersonalInfo {
         );
 
   factory PersonalInfoModel.fromJson(Map<String, dynamic> json) {
-    // final knownLanguage = json["known_languages"] as List;
-    // final List<String> knownLanguageData = [];
-
-    // if (knownLanguage.isNotEmpty) {
-    //   // ignore: avoid_function_literals_in_foreach_calls
-    //   knownLanguage.forEach((language) {
-    //     knownLanguageData.add(language as String);
-    //   });
-    // }
-
     return PersonalInfoModel(
       id: json["id"] as int?,
       jobSeekerId: json["job_seeker_id"] as int?,
@@ -218,7 +208,7 @@ class PersonalInfoModel extends PersonalInfo {
     }
 
     if (email != null) {
-      params["email"] = email;
+      params["resume_email"] = email;
     }
 
     if (profession != null) {

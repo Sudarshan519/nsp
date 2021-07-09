@@ -60,7 +60,7 @@ class GetVolcanoesBloc extends Bloc<GetVolcanoesEvent, GetVolcanoesState> {
           hasReachedEnd = false;
         }
         alerts.addAll(_alerts);
-        alerts = alerts.toSet().toList();
+        // alerts = alerts.toSet().toList();
         isFetching = false;
         return _Success(alerts);
       },

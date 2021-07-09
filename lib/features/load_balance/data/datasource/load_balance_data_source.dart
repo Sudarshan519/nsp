@@ -45,7 +45,9 @@ abstract class LoadBalanceDataSource {
     required String purpose,
     required String verifyAmount,
   });
-  Future<Unit> deleteCard({required int cardId});
+  Future<Unit> deleteCard({
+    required int cardId,
+  });
 }
 
 @LazySingleton(as: LoadBalanceDataSource)
@@ -313,15 +315,9 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
         "${config.baseURL}${config.apiPath}${LoadBalanceApiEndpoints.deleteCreditCard}$cardId";
 
     final accessToken = (await auth.getWalletUser()).accessToken;
-    final userId = (await auth.getUserDetail()).uuid;
 
     if (accessToken?.isEmpty ?? true) {
       //TODO: user access token is empty we have to redirect to login page.
-    }
-
-    if (userId?.isEmpty ?? true) {
-      //TODO: user id is empty we have to redirect to login page.
-
     }
 
     _header["Authorization"] = "Bearer $accessToken";
@@ -329,7 +325,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     http.Response response;
 
     try {
-      response = await client.get(
+      response = await client.delete(
         Uri.parse(url),
         headers: _header,
       );

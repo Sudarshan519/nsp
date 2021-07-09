@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/admob/admob_service.dart';
@@ -29,6 +30,11 @@ Future main() async {
   await Firebase.initializeApp();
   await getIt<PushNotificationManager>().initialise();
   await getIt<GeoLocationManager>().initialise();
+
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   runApp(WalletApp());
 }
