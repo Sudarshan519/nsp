@@ -20,11 +20,8 @@ class JPMannerDetailFromAPi extends StatelessWidget {
         ..add(
           JapaneseMannerDetailEvent.getJPMannerDetail(id),
         ),
-      child: BlocConsumer<JapaneseMannerDetailBloc, JapaneseMannerDetailState>(
+      child: BlocBuilder<JapaneseMannerDetailBloc, JapaneseMannerDetailState>(
         buildWhen: (previous, current) => previous != current,
-        listener: (context, state) {
-          // TODO: implement listener
-        },
         builder: (context, state) {
           return state.map(
             loading: (e) => Scaffold(body: loadingPage()),

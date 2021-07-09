@@ -26,11 +26,8 @@ class ServiceDetailPageFromAPI extends StatelessWidget {
         ..add(
           ParnterServicesEvent.fetch(id: id),
         ),
-      child: BlocConsumer<ParnterServicesBloc, ParnterServicesState>(
+      child: BlocBuilder<ParnterServicesBloc, ParnterServicesState>(
         buildWhen: (previous, current) => previous != current,
-        listener: (context, state) {
-          // TODO: implement listener
-        },
         builder: (context, state) {
           return state.map(
             loading: (e) => Scaffold(body: loadingPage()),
