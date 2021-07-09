@@ -34,4 +34,6 @@ abstract class LoadBalanceRepositories {
     required String purpose,
     required String verifyAmount,
   });
+
+  Future<Either<ApiFailure, Unit>> deleteCard({required int cardId});
 }

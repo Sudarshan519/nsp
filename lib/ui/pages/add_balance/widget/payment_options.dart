@@ -7,7 +7,7 @@ import 'package:wallet_app/ui/pages/add_balance/payment_page/khalti/khalti_topup
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class PaymentOptions extends StatelessWidget {
+class PaymentOptions extends StatefulWidget {
   const PaymentOptions({
     Key? key,
     required this.paymentMethods,
@@ -24,6 +24,20 @@ class PaymentOptions extends StatelessWidget {
   final bool isVerified;
 
   @override
+  _PaymentOptionsState createState() => _PaymentOptionsState();
+}
+
+class _PaymentOptionsState extends State<PaymentOptions> {
+  late List<CreditCard> _creditCards;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _creditCards = widget.creditCards;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GridView.count(
       physics: const NeverScrollableScrollPhysics(),
@@ -32,9 +46,9 @@ class PaymentOptions extends StatelessWidget {
       childAspectRatio: 1.2,
       // This creates two columns with two items in each column
       children: List.generate(
-        paymentMethods.length,
+        widget.paymentMethods.length,
         (index) {
-          if (!(paymentMethods[index].isActive ?? true)) {
+          if (!(widget.paymentMethods[index].isActive ?? true)) {
             return const SizedBox.shrink();
           }
 
@@ -59,14 +73,14 @@ class PaymentOptions extends StatelessWidget {
                       ),
                     ),
                     child: Image.network(
-                      paymentMethods[index].logo ?? '',
+                      widget.paymentMethods[index].logo ?? '',
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  paymentMethods[index].name ?? '',
+                  widget.paymentMethods[index].name ?? '',
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -78,15 +92,18 @@ class PaymentOptions extends StatelessWidget {
   }
 
   Future onPaymentSelected(BuildContext context, int index) async {
-    final paymentMethod = paymentMethods[index];
+    final paymentMethod = widget.paymentMethods[index];
     final balanceParsed =
-        double.parse(balance.split(' ').last.replaceAll(',', ""));
+        double.parse(widget.balance.split(' ').last.replaceAll(',', ""));
     switch (paymentMethod.type) {
       case "stripe":
         context.pushRoute(
           StripePaymentCardSelectionRoute(
-            balance: balance,
-            cards: creditCards,
+            balance: widget.balance,
+            cards: _creditCards,
+            deleteCard: (id) {
+              _creditCards.removeWhere((element) => element.id == id);
+            },
           ),
         );
         break;
@@ -103,9 +120,9 @@ class PaymentOptions extends StatelessWidget {
           builder: (BuildContext context) {
             return EsewaTopupPage(
                 method: paymentMethod,
-                conversionRate: conversionRate,
+                conversionRate: widget.conversionRate,
                 balance: balanceParsed,
-                isVerified: isVerified);
+                isVerified: widget.isVerified);
           },
         );
         break;
@@ -122,9 +139,9 @@ class PaymentOptions extends StatelessWidget {
           builder: (BuildContext context) {
             return ImePayTopupPage(
                 method: paymentMethod,
-                conversionRate: conversionRate,
+                conversionRate: widget.conversionRate,
                 balance: balanceParsed,
-                isVerified: isVerified);
+                isVerified: widget.isVerified);
           },
         );
         break;
@@ -141,9 +158,9 @@ class PaymentOptions extends StatelessWidget {
           builder: (BuildContext context) {
             return KhaltiTopupPage(
                 method: paymentMethod,
-                conversionRate: conversionRate,
+                conversionRate: widget.conversionRate,
                 balance: balanceParsed,
-                isVerified: isVerified);
+                isVerified: widget.isVerified);
           },
         );
         break;

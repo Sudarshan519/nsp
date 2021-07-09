@@ -114,4 +114,15 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
+
+  @override
+  Future<Either<ApiFailure, Unit>> deleteCard({required int cardId}) async {
+    try {
+      return Right(
+        await dataSource.deleteCard(cardId: cardId),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
 }

@@ -132,14 +132,17 @@ class PaymentMethodsModel extends PaymentMethod {
 
 class CreditCardModel extends CreditCard {
   CreditCardModel({
+    required int id,
     required String? name,
     required String? cardNumber,
   }) : super(
+          id: id,
           name: name,
           cardNumber: cardNumber,
         );
   factory CreditCardModel.fromJson(Map<String, dynamic> json) =>
       CreditCardModel(
+        id: json["id"] as int,
         name: json["name"] == null ? null : json["name"] as String?,
         cardNumber:
             json["card_number"] == null ? null : json["card_number"] as String?,
