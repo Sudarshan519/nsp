@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ParnterServicesEventTearOff {
   const _$ParnterServicesEventTearOff();
 
-  _Fetch fetch(ServicesCategory category) {
+  _Fetch fetch({ServicesCategory? category, int? id}) {
     return _Fetch(
-      category,
+      category: category,
+      id: id,
     );
   }
 
@@ -34,17 +35,15 @@ const $ParnterServicesEvent = _$ParnterServicesEventTearOff();
 
 /// @nodoc
 mixin _$ParnterServicesEvent {
-  ServicesCategory get category => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ServicesCategory category) fetch,
+    required TResult Function(ServicesCategory? category, int? id) fetch,
     required TResult Function(ServicesCategory category) pullToRefresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ServicesCategory category)? fetch,
+    TResult Function(ServicesCategory? category, int? id)? fetch,
     TResult Function(ServicesCategory category)? pullToRefresh,
     required TResult orElse(),
   }) =>
@@ -62,10 +61,6 @@ mixin _$ParnterServicesEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ParnterServicesEventCopyWith<ParnterServicesEvent> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -73,7 +68,6 @@ abstract class $ParnterServicesEventCopyWith<$Res> {
   factory $ParnterServicesEventCopyWith(ParnterServicesEvent value,
           $Res Function(ParnterServicesEvent) then) =
       _$ParnterServicesEventCopyWithImpl<$Res>;
-  $Res call({ServicesCategory category});
 }
 
 /// @nodoc
@@ -84,27 +78,13 @@ class _$ParnterServicesEventCopyWithImpl<$Res>
   final ParnterServicesEvent _value;
   // ignore: unused_field
   final $Res Function(ParnterServicesEvent) _then;
-
-  @override
-  $Res call({
-    Object? category = freezed,
-  }) {
-    return _then(_value.copyWith(
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as ServicesCategory,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$FetchCopyWith<$Res>
-    implements $ParnterServicesEventCopyWith<$Res> {
+abstract class _$FetchCopyWith<$Res> {
   factory _$FetchCopyWith(_Fetch value, $Res Function(_Fetch) then) =
       __$FetchCopyWithImpl<$Res>;
-  @override
-  $Res call({ServicesCategory category});
+  $Res call({ServicesCategory? category, int? id});
 }
 
 /// @nodoc
@@ -120,12 +100,17 @@ class __$FetchCopyWithImpl<$Res>
   @override
   $Res call({
     Object? category = freezed,
+    Object? id = freezed,
   }) {
     return _then(_Fetch(
-      category == freezed
+      category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as ServicesCategory,
+              as ServicesCategory?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -133,14 +118,16 @@ class __$FetchCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Fetch implements _Fetch {
-  const _$_Fetch(this.category);
+  const _$_Fetch({this.category, this.id});
 
   @override
-  final ServicesCategory category;
+  final ServicesCategory? category;
+  @override
+  final int? id;
 
   @override
   String toString() {
-    return 'ParnterServicesEvent.fetch(category: $category)';
+    return 'ParnterServicesEvent.fetch(category: $category, id: $id)';
   }
 
   @override
@@ -149,12 +136,16 @@ class _$_Fetch implements _Fetch {
         (other is _Fetch &&
             (identical(other.category, category) ||
                 const DeepCollectionEquality()
-                    .equals(other.category, category)));
+                    .equals(other.category, category)) &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(category);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(category) ^
+      const DeepCollectionEquality().hash(id);
 
   @JsonKey(ignore: true)
   @override
@@ -164,21 +155,21 @@ class _$_Fetch implements _Fetch {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ServicesCategory category) fetch,
+    required TResult Function(ServicesCategory? category, int? id) fetch,
     required TResult Function(ServicesCategory category) pullToRefresh,
   }) {
-    return fetch(category);
+    return fetch(category, id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ServicesCategory category)? fetch,
+    TResult Function(ServicesCategory? category, int? id)? fetch,
     TResult Function(ServicesCategory category)? pullToRefresh,
     required TResult orElse(),
   }) {
     if (fetch != null) {
-      return fetch(category);
+      return fetch(category, id);
     }
     return orElse();
   }
@@ -207,22 +198,19 @@ class _$_Fetch implements _Fetch {
 }
 
 abstract class _Fetch implements ParnterServicesEvent {
-  const factory _Fetch(ServicesCategory category) = _$_Fetch;
+  const factory _Fetch({ServicesCategory? category, int? id}) = _$_Fetch;
 
-  @override
-  ServicesCategory get category => throw _privateConstructorUsedError;
-  @override
+  ServicesCategory? get category => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$FetchCopyWith<_Fetch> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PullToRefreshCopyWith<$Res>
-    implements $ParnterServicesEventCopyWith<$Res> {
+abstract class _$PullToRefreshCopyWith<$Res> {
   factory _$PullToRefreshCopyWith(
           _PullToRefresh value, $Res Function(_PullToRefresh) then) =
       __$PullToRefreshCopyWithImpl<$Res>;
-  @override
   $Res call({ServicesCategory category});
 }
 
@@ -284,7 +272,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ServicesCategory category) fetch,
+    required TResult Function(ServicesCategory? category, int? id) fetch,
     required TResult Function(ServicesCategory category) pullToRefresh,
   }) {
     return pullToRefresh(category);
@@ -293,7 +281,7 @@ class _$_PullToRefresh implements _PullToRefresh {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ServicesCategory category)? fetch,
+    TResult Function(ServicesCategory? category, int? id)? fetch,
     TResult Function(ServicesCategory category)? pullToRefresh,
     required TResult orElse(),
   }) {
@@ -329,9 +317,7 @@ class _$_PullToRefresh implements _PullToRefresh {
 abstract class _PullToRefresh implements ParnterServicesEvent {
   const factory _PullToRefresh(ServicesCategory category) = _$_PullToRefresh;
 
-  @override
   ServicesCategory get category => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   _$PullToRefreshCopyWith<_PullToRefresh> get copyWith =>
       throw _privateConstructorUsedError;

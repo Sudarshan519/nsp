@@ -23,9 +23,7 @@ class GetPartnerServices
       GetPartnerServicesParam params) async {
     if (await networkInfo.isConnected) {
       return repository.getPartnerServices(
-        category: params.category,
-        page: params.page,
-      );
+          category: params.category, page: params.page, id: params.id);
     } else {
       return const Left(ApiFailure.noInternetConnection());
     }
@@ -33,13 +31,11 @@ class GetPartnerServices
 }
 
 class GetPartnerServicesParam {
-  final ServicesCategory category;
-  final String page;
+  final ServicesCategory? category;
+  final String? page;
+  final int? id;
 
-  GetPartnerServicesParam({
-    required this.category,
-    required this.page,
-  });
+  GetPartnerServicesParam({this.category, this.page, this.id});
 }
 
 class PurchasePackageParams {

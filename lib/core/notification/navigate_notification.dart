@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 
-Future navigate(BuildContext context, NotificationItem item) async {
+void navigate(BuildContext context, NotificationItem item) {
   if (item.type == null) {
     return;
   }
@@ -19,12 +19,13 @@ Future navigate(BuildContext context, NotificationItem item) async {
       context.pushRoute(NotificationDetailRoute(notification: item));
       break;
     case NotificationType.partnerService:
-      // TODO: goto partner service page
+      // TODO: goto partner service page ServiceDetailPageFromAPI
+      if (item.productId != null) {
+        context.pushRoute(ServiceDetailRouteFromAPI(id: item.productId!));
+      }
       break;
 
     case NotificationType.jpManner:
-      // TODO: goto partner JP Manner page
-
       if (item.productId != null) {
         context.pushRoute(JPMannerDetailFromAPi(id: item.productId!));
       }

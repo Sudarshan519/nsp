@@ -52,6 +52,7 @@ class ParnterServicesBloc
     final result = await getPartnerServices(GetPartnerServicesParam(
       category: _fetch.category,
       page: "$_page",
+      id: _fetch.id,
     ));
     yield result.fold(
       (failure) {

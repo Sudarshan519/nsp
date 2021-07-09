@@ -20,15 +20,11 @@ class PartnerServicesRepositoryImpl implements PartnerServicesRepository {
   });
 
   @override
-  Future<Either<ApiFailure, PartnerServicesList>> getPartnerServices({
-    required ServicesCategory category,
-    required String page,
-  }) async {
+  Future<Either<ApiFailure, PartnerServicesList>> getPartnerServices(
+      {ServicesCategory? category, String? page, int? id}) async {
     try {
       return Right(await remoteDataSource.getPartnerServices(
-        name: category.categoryName ?? '',
-        page: page,
-      ));
+          name: category?.categoryName ?? '', page: page, id: id));
     } on ServerException catch (ex) {
       logger.log(
         className: "PartnerServicesRepository",

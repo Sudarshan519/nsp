@@ -16,8 +16,9 @@ import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
 abstract class PartnerServicesRemoteDataSource {
   Future<PartnerServicesListModel> getPartnerServices({
-    required String name,
-    required String page,
+    String? name,
+    String? page,
+    int? id,
   });
   Future<List<ServicesCategoryModel>> getJapaneseMannerCategories();
   Future<Unit> purchasePackage(PurchasePackageParams params);
@@ -43,18 +44,22 @@ class PartnerServicesRemoteDataSourceImpl
   });
 
   @override
-  Future<PartnerServicesListModel> getPartnerServices({
-    required String name,
-    required String page,
-  }) async {
+  Future<PartnerServicesListModel> getPartnerServices(
+      {String? name, String? page, int? id}) async {
     String url = "";
 
-    if (name.isEmpty || name.toLowerCase() == "all") {
+    // If ID is not null, fetch individual detail
+    if (id != null) {
       url =
-          "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getPartnerServices}?page=$page";
-    } else {
-      url =
-          "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getPartnerServicesViaName}$name?page=$page";
+          "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getIndividualPartnerService}$id";
+    } else if (name != null && page != null) {
+      if (name.isEmpty || name.toLowerCase() == "all") {
+        url =
+            "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getPartnerServices}?page=$page";
+      } else {
+        url =
+            "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getPartnerServicesViaName}$name?page=$page";
+      }
     }
 
     http.Response response;

@@ -183,7 +183,7 @@ class _PartnerServicesPageList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<ParnterServicesBloc>()
-        ..add(ParnterServicesEvent.fetch(category)),
+        ..add(ParnterServicesEvent.fetch(category: category)),
       child: buildBody(context),
     );
   }
@@ -253,7 +253,7 @@ class _PartnerServicesPageList extends StatelessWidget {
                 !context.read<ParnterServicesBloc>().isFetching) {
               debugPrint("reached end");
               context.read<ParnterServicesBloc>().add(
-                    ParnterServicesEvent.fetch(category),
+                    ParnterServicesEvent.fetch(category: category),
                   );
             }
           },

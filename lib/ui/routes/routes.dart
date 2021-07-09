@@ -81,6 +81,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: CouponPage),
     AutoRoute(page: NotificationDetailPage),
     AutoRoute(page: JPMannerDetailFromAPi),
+    AutoRoute(page: ServiceDetailPageFromAPI),
   ],
 )
 class $AppRouter {}

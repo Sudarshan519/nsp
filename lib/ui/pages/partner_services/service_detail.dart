@@ -1,8 +1,10 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
+import 'package:wallet_app/features/partner_services/presentation/partner_services/parnter_services_bloc.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
@@ -11,6 +13,37 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:wallet_app/utils/config_reader.dart';
+
+class ServiceDetailPageFromAPI extends StatelessWidget {
+  final int id;
+  const ServiceDetailPageFromAPI({Key? key, required this.id})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => getIt<ParnterServicesBloc>()
+        ..add(
+          ParnterServicesEvent.fetch(id: id),
+        ),
+      child: BlocConsumer<ParnterServicesBloc, ParnterServicesState>(
+        buildWhen: (previous, current) => previous != current,
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return state.map(
+            loading: (e) => Scaffold(body: loadingPage()),
+            failureWithData: (e) => Scaffold(body: loadingPage()),
+            loadingWithData: (e) => Scaffold(body: loadingPage()),
+            loaded: (e) => ServicesDetailPage(services: e.list.first),
+            failure: (e) => const SizedBox(),
+          );
+        },
+      ),
+    );
+  }
+}
 
 class ServicesDetailPage extends StatelessWidget {
   final Services services;
