@@ -19,7 +19,6 @@ void navigate(BuildContext context, NotificationItem item) {
       context.pushRoute(NotificationDetailRoute(notification: item));
       break;
     case NotificationType.partnerService:
-      // TODO: goto partner service page ServiceDetailPageFromAPI
       if (item.productId != null) {
         context.pushRoute(ServiceDetailRouteFromAPI(id: item.productId!));
       }
