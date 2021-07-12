@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 
 class BNPJCard extends StatelessWidget {
@@ -101,9 +102,13 @@ class BNPJCard extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () => context
-                    .read<GetBalanceBloc>()
-                    .add(const GetBalanceEvent.fetchBalance()),
+                onTap: () {
+                  context
+                    ..read<GetBalanceBloc>()
+                        .add(const GetBalanceEvent.fetchBalance())
+                    ..read<TransactionBloc>()
+                        .add(const TransactionEvent.fetchTransactionData());
+                },
                 child: Icon(
                   Icons.replay_outlined,
                   color: Palette.white,
@@ -111,13 +116,23 @@ class BNPJCard extends StatelessWidget {
               ),
             ],
           ),
-          Text(
-            balance,
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
+          if (balance.isEmpty)
+            Container(
+              padding: const EdgeInsets.only(top: 9),
+              width: 90,
+              child: const LinearProgressIndicator(
+                color: Colors.black,
+                backgroundColor: Colors.black12,
+              ),
+            )
+          else
+            Text(
+              balance,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
           const SizedBox(height: 30),
           Text(
             "${userDetail?.firstName ?? ""} ${userDetail?.lastName ?? ""}",
