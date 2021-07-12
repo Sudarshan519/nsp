@@ -190,25 +190,111 @@ class UpdateOtherInfoActorBloc
     );
     final userInfo = _setInitialState.info;
     _lang = _setInitialState.lang;
+
+    List<String> _listOfJLPTLevel = const [
+      "N1",
+      "N2",
+      "N3",
+      "N4",
+      "N5",
+      "NOT AVAILABLE",
+    ];
+    String _JLPTLeven = userInfo.jlpt ?? "";
+
+    List<String> _listOfHourRate = const [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "Full-time",
+    ];
+    String _hourRate = userInfo.workingHoursOnly;
+
+    List<String> _listOfYesNoOption = const [
+      "Yes",
+      "No",
+    ];
+    String _isSopuse = userInfo.spouse ?? "";
+    String _spouseSupportObligation = userInfo.spouseSupportObligation ?? "";
+
+    if (_lang == "jp") {
+      _listOfJLPTLevel = const [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "利用不可",
+      ];
+
+      if (_JLPTLeven.toUpperCase() == "NOT AVAILABLE") {
+        _JLPTLeven = "利用不可";
+      }
+
+      _listOfHourRate = const [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "フルタイム",
+      ];
+      if (_hourRate.toLowerCase() == "full-time") {
+        _hourRate = "フルタイム";
+      }
+
+      _listOfYesNoOption = const [
+        "はい",
+        "いいえ",
+      ];
+      if (_isSopuse.toLowerCase() == "yes") {
+        _isSopuse = "はい";
+      }
+
+      if (_isSopuse.toLowerCase() == "no") {
+        _isSopuse = "いいえ";
+      }
+
+      if (_spouseSupportObligation.toLowerCase() == "yes") {
+        _spouseSupportObligation = "はい";
+      }
+
+      if (_spouseSupportObligation.toLowerCase() == "no") {
+        _spouseSupportObligation = "いいえ";
+      }
+    }
+
     if (userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
         key: UniqueKey(),
         languages: userInfo.knownLanguages ?? [],
-        JLPTLevel: userInfo.jlpt ?? "",
+        JLPTLevel: _JLPTLeven,
         selfPR: userInfo.selfPr ?? "",
         motivationsSpecialSkills: userInfo.extraPoint ?? "",
         hobbies: userInfo.hobbies ?? [],
         skills: userInfo.skills ?? [],
-        workinHours: userInfo.workingHoursOnly,
+        workinHours: _hourRate,
         workingMinutes: userInfo.workingMinutesOnly,
         numberOfDependent: userInfo.dependentsExceptSpouse ?? "",
-        isSpouse: userInfo.spouse ?? "",
-        isSpouseSupportObligation: userInfo.spouseSupportObligation ?? "",
+        isSpouse: _isSopuse,
+        isSpouseSupportObligation: _spouseSupportObligation,
         specialConditions: userInfo.specialConditions ?? "",
         knownLanguages: _setInitialState.listOfLanguages,
         listOfHobbies: _setInitialState.listOHobbies,
         listOfSkills: _setInitialState.listOfSkills,
+        listOfJLPTLevel: _listOfJLPTLevel,
+        listOfHourRate: _listOfHourRate,
+        listOfYesNoOption: _listOfYesNoOption,
         hasSetInitialData: true,
         isSubmitting: false,
         failureOrSuccessOption: none(),

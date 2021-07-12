@@ -66,7 +66,6 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
     return Container(
       height: 40,
       width: 250,
-      // margin: const EdgeInsets.symmetric(horizontal: 80),
       decoration: BoxDecoration(
         color: Palette.primaryBackground,
         borderRadius: BorderRadius.circular(20),

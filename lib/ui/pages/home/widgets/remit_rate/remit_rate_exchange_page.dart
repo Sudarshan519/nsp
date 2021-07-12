@@ -38,10 +38,10 @@ class RemitRateExchangePage extends StatelessWidget {
             );
           },
         ),
-        const SizedBox(height: 10),
-        ServiceChargeWidget(
-          remitRate: remitRate,
-        ),
+        const SizedBox(height: 5),
+        // ServiceChargeWidget(
+        //   remitRate: remitRate,
+        // ),
         const SizedBox(height: 10),
         ViewMoreRate(remitRate: remitRate),
       ],
@@ -78,7 +78,7 @@ class ViewMoreRate extends StatelessWidget {
         );
       },
       child: Text(
-        "View More",
+        "Service Charge",
         textAlign: TextAlign.left,
         style: TextStyle(
           fontSize: 12,
@@ -290,52 +290,64 @@ class RateAndViewGraphWidget extends StatelessWidget {
 
     final exchangeRate = remitRate.remitExchange?.first;
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: Wrap(
-            children: [
-              Text(
-                "1 JPY = ${exchangeRate?.exchangeRate ?? 0.0} NPR.",
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Wrap(
+                children: [
+                  Text(
+                    "1 JPY = ${exchangeRate?.exchangeRate ?? 0.0} NPR.",
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    "1 NPR = ${exchangeRate?.exchangeReverseRate ?? 0.0} JPY",
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(width: 5),
-              Text(
-                "1 NPR = ${exchangeRate?.exchangeReverseRate ?? 0.0} JPY",
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
-        CustomButton(
-          title: "View Graph",
-          onTap: () {
-            showModalBottomSheet(
-              context: context,
-              isScrollControlled: true,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(16),
-                  topRight: Radius.circular(16),
-                ),
-              ),
-              builder: (BuildContext context) {
-                return RemitGraphPage(
-                  remitExchanges: remitRate.remitExchange ?? [],
-                  logoUrl: remitRate.logo ?? '',
-                  updatedAt: remitRate.formattedDate,
-                  hasSwapped: hasSwapped,
+            ),
+            CustomButton(
+              title: "View Graph",
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(16),
+                    ),
+                  ),
+                  builder: (BuildContext context) {
+                    return RemitGraphPage(
+                      remitExchanges: remitRate.remitExchange ?? [],
+                      logoUrl: remitRate.logo ?? '',
+                      updatedAt: remitRate.formattedDate,
+                      hasSwapped: hasSwapped,
+                    );
+                  },
                 );
               },
-            );
-          },
+            ),
+          ],
+        ),
+        Text(
+          "( ${exchangeRate?.formattedDateWithYear ?? ''} )",
+          style: const TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w300,
+          ),
         ),
       ],
     );

@@ -18,7 +18,7 @@ class HomeServiceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5.0),
       child: Column(
         children: [
           Row(

@@ -10,8 +10,7 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class JapaneseMannerWidget extends StatelessWidget {
   final List<JapaneseManner> data;
-  final _positionNotifier = ValueNotifier<String>("1");
-  JapaneseMannerWidget({
+  const JapaneseMannerWidget({
     Key? key,
     required this.data,
   }) : super(key: key);
@@ -20,7 +19,7 @@ class JapaneseMannerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5.0),
         child: Column(
           children: [
             Row(
@@ -46,7 +45,7 @@ class JapaneseMannerWidget extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               color: Palette.white,
-              height: 240,
+              height: 230,
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: data.length,

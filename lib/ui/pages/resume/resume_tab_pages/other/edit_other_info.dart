@@ -244,14 +244,7 @@ class _JLPTLevelField extends StatelessWidget {
         child: CustomSearchableDropDownWidget(
           hintText: "N3",
           value: state.JLPTLevel,
-          options: const [
-            "N1",
-            "N2",
-            "N3",
-            "N4",
-            "N5",
-            "NOT AVAILABLE",
-          ],
+          options: state.listOfJLPTLevel,
           onChanged: (value) => context
               .read<UpdateOtherInfoActorBloc>()
               .add(UpdateOtherInfoActorEvent.changeJLPTLevel(value ?? '')),
@@ -404,7 +397,8 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                   width: 120,
                   child: Center(child: Text("Hours")),
                 ),
-                if (state.workinHours.toLowerCase() != "full-time")
+                if (state.workinHours.toLowerCase() != "full-time" &&
+                    state.workinHours != "フルタイム")
                   const SizedBox(
                     width: 120,
                     child: Center(child: Text("Minutes")),
@@ -418,18 +412,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                   child: CustomDropDownWidget(
                     hintText: "Select hours",
                     value: state.workinHours,
-                    options: const [
-                      "0",
-                      "1",
-                      "2",
-                      "3",
-                      "4",
-                      "5",
-                      "6",
-                      "7",
-                      "8",
-                      "Full-time",
-                    ],
+                    options: state.listOfHourRate,
                     alignment: Alignment.topCenter,
                     onChanged: (value) => context
                         .read<UpdateOtherInfoActorBloc>()
@@ -438,7 +421,8 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-                if (state.workinHours.toLowerCase() != "full-time")
+                if (state.workinHours.toLowerCase() != "full-time" &&
+                    state.workinHours != "フルタイム")
                   SizedBox(
                     width: 125,
                     child: CustomDropDownWidget(
@@ -514,10 +498,7 @@ class _SpouseInputField extends StatelessWidget {
         child: CustomDropDownWidget(
           hintText: "select from the options",
           value: state.isSpouse,
-          options: const [
-            "Yes",
-            "No",
-          ],
+          options: state.listOfYesNoOption,
           onChanged: (value) => context
               .read<UpdateOtherInfoActorBloc>()
               .add(UpdateOtherInfoActorEvent.changeIsSpouse(value)),
@@ -541,7 +522,7 @@ class _SpouseSupportObligationInputField extends StatelessWidget {
               current.isSpouseSupportObligation,
       builder: (context, state) => Column(
         children: [
-          if (state.isSpouse == "Yes")
+          if (state.isSpouse == "Yes" || state.isSpouse == "はい")
             Column(
               children: [
                 TextWidetWithLabelAndChild(
@@ -549,10 +530,7 @@ class _SpouseSupportObligationInputField extends StatelessWidget {
                   child: CustomDropDownWidget(
                     hintText: "select from the options",
                     value: state.isSpouseSupportObligation,
-                    options: const [
-                      "Yes",
-                      "No",
-                    ],
+                    options: state.listOfYesNoOption,
                     onChanged: (value) => context
                         .read<UpdateOtherInfoActorBloc>()
                         .add(UpdateOtherInfoActorEvent
@@ -578,7 +556,6 @@ class _SpecialConditionInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
     return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
       buildWhen: (previous, current) =>
           previous.workinHours != current.workinHours,
@@ -589,6 +566,10 @@ class _SpecialConditionInputField extends StatelessWidget {
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.specialConditions,
           onEditingCompleted: callBack,
+          maxLines: 4,
+          minLines: 4,
+          textInputType: TextInputType.multiline,
+          textInputAction: TextInputAction.done,
           onChanged: (value) => context
               .read<UpdateOtherInfoActorBloc>()
               .add(UpdateOtherInfoActorEvent.changeSpecialConditions(value)),

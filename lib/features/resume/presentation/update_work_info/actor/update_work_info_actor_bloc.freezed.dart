@@ -1510,6 +1510,8 @@ class _$UpdateWorkInfoActorStateTearOff {
       required String endMonth,
       required String purposeOfResign,
       required List<String> typeOfCompanyList,
+      required List<String> listOfYear,
+      required List<String> listOfYearWithRunning,
       required bool isSubmitting,
       required bool hasSetInitialData,
       required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
@@ -1523,6 +1525,8 @@ class _$UpdateWorkInfoActorStateTearOff {
       endMonth: endMonth,
       purposeOfResign: purposeOfResign,
       typeOfCompanyList: typeOfCompanyList,
+      listOfYear: listOfYear,
+      listOfYearWithRunning: listOfYearWithRunning,
       isSubmitting: isSubmitting,
       hasSetInitialData: hasSetInitialData,
       failureOrSuccessOption: failureOrSuccessOption,
@@ -1544,6 +1548,8 @@ mixin _$UpdateWorkInfoActorState {
   String get endMonth => throw _privateConstructorUsedError;
   String get purposeOfResign => throw _privateConstructorUsedError;
   List<String> get typeOfCompanyList => throw _privateConstructorUsedError;
+  List<String> get listOfYear => throw _privateConstructorUsedError;
+  List<String> get listOfYearWithRunning => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get hasSetInitialData => throw _privateConstructorUsedError;
   Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
@@ -1569,6 +1575,8 @@ abstract class $UpdateWorkInfoActorStateCopyWith<$Res> {
       String endMonth,
       String purposeOfResign,
       List<String> typeOfCompanyList,
+      List<String> listOfYear,
+      List<String> listOfYearWithRunning,
       bool isSubmitting,
       bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -1594,6 +1602,8 @@ class _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
     Object? endMonth = freezed,
     Object? purposeOfResign = freezed,
     Object? typeOfCompanyList = freezed,
+    Object? listOfYear = freezed,
+    Object? listOfYearWithRunning = freezed,
     Object? isSubmitting = freezed,
     Object? hasSetInitialData = freezed,
     Object? failureOrSuccessOption = freezed,
@@ -1635,6 +1645,14 @@ class _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
           ? _value.typeOfCompanyList
           : typeOfCompanyList // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      listOfYear: listOfYear == freezed
+          ? _value.listOfYear
+          : listOfYear // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfYearWithRunning: listOfYearWithRunning == freezed
+          ? _value.listOfYearWithRunning
+          : listOfYearWithRunning // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -1668,6 +1686,8 @@ abstract class _$UpdateWorkInfoActorStateCopyWith<$Res>
       String endMonth,
       String purposeOfResign,
       List<String> typeOfCompanyList,
+      List<String> listOfYear,
+      List<String> listOfYearWithRunning,
       bool isSubmitting,
       bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -1696,6 +1716,8 @@ class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
     Object? endMonth = freezed,
     Object? purposeOfResign = freezed,
     Object? typeOfCompanyList = freezed,
+    Object? listOfYear = freezed,
+    Object? listOfYearWithRunning = freezed,
     Object? isSubmitting = freezed,
     Object? hasSetInitialData = freezed,
     Object? failureOrSuccessOption = freezed,
@@ -1737,6 +1759,14 @@ class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
           ? _value.typeOfCompanyList
           : typeOfCompanyList // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      listOfYear: listOfYear == freezed
+          ? _value.listOfYear
+          : listOfYear // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfYearWithRunning: listOfYearWithRunning == freezed
+          ? _value.listOfYearWithRunning
+          : listOfYearWithRunning // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -1766,6 +1796,8 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
       required this.endMonth,
       required this.purposeOfResign,
       required this.typeOfCompanyList,
+      required this.listOfYear,
+      required this.listOfYearWithRunning,
       required this.isSubmitting,
       required this.hasSetInitialData,
       required this.failureOrSuccessOption});
@@ -1789,6 +1821,10 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
   @override
   final List<String> typeOfCompanyList;
   @override
+  final List<String> listOfYear;
+  @override
+  final List<String> listOfYearWithRunning;
+  @override
   final bool isSubmitting;
   @override
   final bool hasSetInitialData;
@@ -1797,7 +1833,7 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
 
   @override
   String toString() {
-    return 'UpdateWorkInfoActorState(key: $key, nameOfComapny: $nameOfComapny, companyType: $companyType, startedYear: $startedYear, startedMonth: $startedMonth, endYear: $endYear, endMonth: $endMonth, purposeOfResign: $purposeOfResign, typeOfCompanyList: $typeOfCompanyList, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'UpdateWorkInfoActorState(key: $key, nameOfComapny: $nameOfComapny, companyType: $companyType, startedYear: $startedYear, startedMonth: $startedMonth, endYear: $endYear, endMonth: $endMonth, purposeOfResign: $purposeOfResign, typeOfCompanyList: $typeOfCompanyList, listOfYear: $listOfYear, listOfYearWithRunning: $listOfYearWithRunning, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -1830,6 +1866,12 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
             (identical(other.typeOfCompanyList, typeOfCompanyList) ||
                 const DeepCollectionEquality()
                     .equals(other.typeOfCompanyList, typeOfCompanyList)) &&
+            (identical(other.listOfYear, listOfYear) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfYear, listOfYear)) &&
+            (identical(other.listOfYearWithRunning, listOfYearWithRunning) ||
+                const DeepCollectionEquality().equals(
+                    other.listOfYearWithRunning, listOfYearWithRunning)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
@@ -1853,6 +1895,8 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
       const DeepCollectionEquality().hash(endMonth) ^
       const DeepCollectionEquality().hash(purposeOfResign) ^
       const DeepCollectionEquality().hash(typeOfCompanyList) ^
+      const DeepCollectionEquality().hash(listOfYear) ^
+      const DeepCollectionEquality().hash(listOfYearWithRunning) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(failureOrSuccessOption);
@@ -1875,6 +1919,8 @@ abstract class _UpdateWorkInfoActorState implements UpdateWorkInfoActorState {
           required String endMonth,
           required String purposeOfResign,
           required List<String> typeOfCompanyList,
+          required List<String> listOfYear,
+          required List<String> listOfYearWithRunning,
           required bool isSubmitting,
           required bool hasSetInitialData,
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
@@ -1898,6 +1944,10 @@ abstract class _UpdateWorkInfoActorState implements UpdateWorkInfoActorState {
   String get purposeOfResign => throw _privateConstructorUsedError;
   @override
   List<String> get typeOfCompanyList => throw _privateConstructorUsedError;
+  @override
+  List<String> get listOfYear => throw _privateConstructorUsedError;
+  @override
+  List<String> get listOfYearWithRunning => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override

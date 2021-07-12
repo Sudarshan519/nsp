@@ -16,6 +16,8 @@ class InputTextWidget extends StatelessWidget {
   final Function()? onEditingCompleted;
   final TextAlign? textAlign;
   final List<TextInputFormatter>? inputFormatters;
+  final int maxLines;
+  final int minLines;
 
   const InputTextWidget({
     Key? key,
@@ -32,6 +34,8 @@ class InputTextWidget extends StatelessWidget {
     this.validator,
     this.textAlign,
     this.inputFormatters,
+    this.maxLines = 1,
+    this.minLines = 1,
   }) : super(key: key);
 
   @override
@@ -73,6 +77,8 @@ class InputTextWidget extends StatelessWidget {
             onChanged: onChanged,
             onEditingComplete: onEditingCompleted,
             textAlign: textAlign ?? TextAlign.start,
+            maxLines: maxLines,
+            minLines: minLines,
           ),
         ),
         if (suffixIcon != null)

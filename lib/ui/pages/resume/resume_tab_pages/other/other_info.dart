@@ -195,14 +195,7 @@ class _JLPTLevelField extends StatelessWidget {
           value: state.JLPTLevel,
           alignment: Alignment.centerRight,
           isEnable: false,
-          options: const [
-            "N1",
-            "N2",
-            "N3",
-            "N4",
-            "N5",
-            "NOT AVAILABLE",
-          ],
+          options: state.listOfJLPTLevel,
         ),
       ),
     );
@@ -339,18 +332,6 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
         title: "Available Working hours",
         child: Column(
           children: [
-            // const SizedBox(height: 10),
-            // Row(
-            //   children: [
-            //     const Expanded(
-            //       child: Center(child: Text("Hours")),
-            //     ),
-            //     if (state.workinHours.toLowerCase() != "full-time")
-            //       const Expanded(
-            //         child: Center(child: Text("Minutes")),
-            //       ),
-            //   ],
-            // ),
             Row(
               children: [
                 Flexible(
@@ -359,22 +340,12 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                     value: state.workinHours,
                     alignment: Alignment.centerRight,
                     isEnable: false,
-                    options: const [
-                      "0",
-                      "1",
-                      "2",
-                      "3",
-                      "4",
-                      "5",
-                      "6",
-                      "7",
-                      "8",
-                      "Full-time"
-                    ],
+                    options: state.listOfHourRate,
                   ),
                 ),
                 const SizedBox(width: 10),
-                if (state.workinHours.toLowerCase() != "full-time")
+                if (state.workinHours.toLowerCase() != "full-time" &&
+                    state.workinHours != "フルタイム")
                   Flexible(
                     child: CustomSearchableDropDownWidget(
                       hintText: "Select minutes",
@@ -447,10 +418,7 @@ class _SpouseInputField extends StatelessWidget {
           value: state.isSpouse,
           alignment: Alignment.centerRight,
           isEnable: false,
-          options: const [
-            "Yes",
-            "No",
-          ],
+          options: state.listOfYesNoOption,
         ),
       ),
     );
@@ -471,7 +439,7 @@ class _SpouseSupportObligationInputField extends StatelessWidget {
               current.isSpouseSupportObligation,
       builder: (context, state) => Column(
         children: [
-          if (state.isSpouse == "Yes")
+          if (state.isSpouse == "Yes" || state.isSpouse == "はい")
             Column(
               children: [
                 FormFieldDecoration(
@@ -481,10 +449,7 @@ class _SpouseSupportObligationInputField extends StatelessWidget {
                     value: state.isSpouseSupportObligation,
                     alignment: Alignment.centerRight,
                     isEnable: false,
-                    options: const [
-                      "Yes",
-                      "No",
-                    ],
+                    options: state.listOfYesNoOption,
                   ),
                 ),
                 const SizedBox(height: 10),

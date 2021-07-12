@@ -76,6 +76,22 @@ class UpdatePersonalInfoActorBloc
 
     final userInfo = _setInitialState.info;
     _lang = _setInitialState.lang;
+
+    List<String> _listOfGender = ["Male", "Female"];
+    String _gender = userInfo.gender ?? '';
+
+    if (_lang == "jp") {
+      _listOfGender = ["男性", "女性"];
+
+      if (_gender.toLowerCase() == "male") {
+        _gender = "男性";
+      }
+
+      if (_gender.toLowerCase() == "female") {
+        _gender = "女性";
+      }
+    }
+
     if (userInfo != _personalInfo) {
       _personalInfo = userInfo;
       yield state.copyWith(
@@ -92,6 +108,7 @@ class UpdatePersonalInfoActorBloc
         phone: userInfo.contPhone ?? "",
         listOfNationality: _setInitialState.listOfNationality,
         listOfProfession: _setInitialState.listOfProfession,
+        listOfGender: _listOfGender,
         isSubmitting: false,
         hasSetInitialData: true,
         failureOrSuccessOption: none(),

@@ -395,7 +395,7 @@ class _GenderInputField extends StatelessWidget {
         child: CustomDropDownWidget(
           hintText: "Gender",
           value: state.gender,
-          options: const ["Male", "Female"],
+          options: state.listOfGender,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
               .add(UpdatePersonalInfoActorEvent.changeGender(value)),

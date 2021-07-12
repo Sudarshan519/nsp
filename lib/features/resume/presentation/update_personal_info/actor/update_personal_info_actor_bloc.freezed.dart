@@ -2143,6 +2143,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
       required String phone,
       required List<String> listOfNationality,
       required List<String> listOfProfession,
+      required List<String> listOfGender,
       required bool hasSetInitialData,
       required bool isSubmitting,
       required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
@@ -2160,6 +2161,7 @@ class _$UpdatePersonalInfoActorStateTearOff {
       phone: phone,
       listOfNationality: listOfNationality,
       listOfProfession: listOfProfession,
+      listOfGender: listOfGender,
       hasSetInitialData: hasSetInitialData,
       isSubmitting: isSubmitting,
       failureOrSuccessOption: failureOrSuccessOption,
@@ -2185,6 +2187,7 @@ mixin _$UpdatePersonalInfoActorState {
   String get phone => throw _privateConstructorUsedError;
   List<String> get listOfNationality => throw _privateConstructorUsedError;
   List<String> get listOfProfession => throw _privateConstructorUsedError;
+  List<String> get listOfGender => throw _privateConstructorUsedError;
   bool get hasSetInitialData => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
@@ -2215,6 +2218,7 @@ abstract class $UpdatePersonalInfoActorStateCopyWith<$Res> {
       String phone,
       List<String> listOfNationality,
       List<String> listOfProfession,
+      List<String> listOfGender,
       bool hasSetInitialData,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -2244,6 +2248,7 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? listOfNationality = freezed,
     Object? listOfProfession = freezed,
+    Object? listOfGender = freezed,
     Object? hasSetInitialData = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrSuccessOption = freezed,
@@ -2301,6 +2306,10 @@ class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
           ? _value.listOfProfession
           : listOfProfession // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      listOfGender: listOfGender == freezed
+          ? _value.listOfGender
+          : listOfGender // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       hasSetInitialData: hasSetInitialData == freezed
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
@@ -2339,6 +2348,7 @@ abstract class _$UpdatePersonalInfoActorStateCopyWith<$Res>
       String phone,
       List<String> listOfNationality,
       List<String> listOfProfession,
+      List<String> listOfGender,
       bool hasSetInitialData,
       bool isSubmitting,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -2372,6 +2382,7 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? listOfNationality = freezed,
     Object? listOfProfession = freezed,
+    Object? listOfGender = freezed,
     Object? hasSetInitialData = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrSuccessOption = freezed,
@@ -2429,6 +2440,10 @@ class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
           ? _value.listOfProfession
           : listOfProfession // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      listOfGender: listOfGender == freezed
+          ? _value.listOfGender
+          : listOfGender // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       hasSetInitialData: hasSetInitialData == freezed
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
@@ -2462,6 +2477,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       required this.phone,
       required this.listOfNationality,
       required this.listOfProfession,
+      required this.listOfGender,
       required this.hasSetInitialData,
       required this.isSubmitting,
       required this.failureOrSuccessOption});
@@ -2493,6 +2509,8 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
   @override
   final List<String> listOfProfession;
   @override
+  final List<String> listOfGender;
+  @override
   final bool hasSetInitialData;
   @override
   final bool isSubmitting;
@@ -2501,7 +2519,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
 
   @override
   String toString() {
-    return 'UpdatePersonalInfoActorState(key: $key, firstName: $firstName, lastName: $lastName, furigana: $furigana, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, hasSetInitialData: $hasSetInitialData, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'UpdatePersonalInfoActorState(key: $key, firstName: $firstName, lastName: $lastName, furigana: $furigana, profession: $profession, dob: $dob, age: $age, gender: $gender, nationality: $nationality, email: $email, phone: $phone, listOfNationality: $listOfNationality, listOfProfession: $listOfProfession, listOfGender: $listOfGender, hasSetInitialData: $hasSetInitialData, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -2541,6 +2559,9 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
             (identical(other.listOfProfession, listOfProfession) ||
                 const DeepCollectionEquality()
                     .equals(other.listOfProfession, listOfProfession)) &&
+            (identical(other.listOfGender, listOfGender) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfGender, listOfGender)) &&
             (identical(other.hasSetInitialData, hasSetInitialData) ||
                 const DeepCollectionEquality()
                     .equals(other.hasSetInitialData, hasSetInitialData)) &&
@@ -2568,6 +2589,7 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(listOfNationality) ^
       const DeepCollectionEquality().hash(listOfProfession) ^
+      const DeepCollectionEquality().hash(listOfGender) ^
       const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(failureOrSuccessOption);
@@ -2595,6 +2617,7 @@ abstract class _UpdatePersonalInfoActorState
           required String phone,
           required List<String> listOfNationality,
           required List<String> listOfProfession,
+          required List<String> listOfGender,
           required bool hasSetInitialData,
           required bool isSubmitting,
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
@@ -2626,6 +2649,8 @@ abstract class _UpdatePersonalInfoActorState
   List<String> get listOfNationality => throw _privateConstructorUsedError;
   @override
   List<String> get listOfProfession => throw _privateConstructorUsedError;
+  @override
+  List<String> get listOfGender => throw _privateConstructorUsedError;
   @override
   bool get hasSetInitialData => throw _privateConstructorUsedError;
   @override

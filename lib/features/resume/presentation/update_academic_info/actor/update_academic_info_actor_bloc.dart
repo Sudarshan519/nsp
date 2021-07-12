@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_academics_info.dart';
+import 'package:wallet_app/utils/get_years.dart';
 
 part 'update_academic_info_actor_event.dart';
 part 'update_academic_info_actor_state.dart';
@@ -119,15 +120,30 @@ class UpdateAcademicInfoActorBloc
 
     _academicHistory = acadimicInfo;
     _lang = _setInitialState.lang;
+
+    final _listOfYear = getYears();
+    List<String> _listOfYearWithRunning = getYearsWithOption("Running");
+    String _yearOfCompletion = acadimicInfo.completionYear ?? "";
+
+    if (_lang == "jp") {
+      _listOfYearWithRunning = getYearsWithOption("在学中");
+
+      if (_yearOfCompletion.toLowerCase() == "running") {
+        _yearOfCompletion = "在学中";
+      }
+    }
+
     yield state.copyWith(
       key: UniqueKey(),
       nameOfInstitute: acadimicInfo.institute ?? "",
       yearOFEnroll: acadimicInfo.startYear ?? "",
       monthOfEnroll: acadimicInfo.startMonth ?? "",
       majorSubject: acadimicInfo.majorSubject ?? "",
-      yearOfCpmpletion: acadimicInfo.completionYear ?? "",
+      yearOfCpmpletion: _yearOfCompletion,
       monthOfCompletion: acadimicInfo.completionMonth ?? "",
       majorSubjectList: _setInitialState.listOfMajorSubject,
+      listOfYear: _listOfYear,
+      listOfYearWithRunning: _listOfYearWithRunning,
       isSubmitting: false,
       hasSetInitialData: true,
       failureOrSuccessOption: none(),

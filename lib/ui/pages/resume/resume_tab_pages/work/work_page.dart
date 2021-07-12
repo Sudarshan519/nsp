@@ -246,40 +246,7 @@ class _StartedYearField extends StatelessWidget {
           hintText: "Select Year",
           value: state.startedYear,
           isEnable: false,
-          options: const [
-            "1990",
-            "1991",
-            "1992",
-            "1993",
-            "1994",
-            "1995",
-            "1996",
-            "1997",
-            "1998",
-            "1999",
-            "2000",
-            "2001",
-            "2002",
-            "2003",
-            "2004",
-            "2005",
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-          ],
+          options: state.listOfYear,
           alignment: Alignment.centerRight,
         ),
       ),
@@ -339,41 +306,7 @@ class _EndYearField extends StatelessWidget {
           hintText: "Select Year",
           value: state.endYear,
           isEnable: false,
-          options: const [
-            "1990",
-            "1991",
-            "1992",
-            "1993",
-            "1994",
-            "1995",
-            "1996",
-            "1997",
-            "1998",
-            "1999",
-            "2000",
-            "2001",
-            "2002",
-            "2003",
-            "2004",
-            "2005",
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "Running",
-          ],
+          options: state.listOfYearWithRunning,
           alignment: Alignment.centerRight,
         ),
       ),
@@ -389,31 +322,32 @@ class _EndMonthField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      builder: (context, state) => state.endYear.toLowerCase() != "running"
-          ? FormFieldDecoration(
-              title: "End Month",
-              child: CustomSearchableDropDownWidget(
-                hintText: "Select Month",
-                value: state.endMonth,
-                isEnable: false,
-                alignment: Alignment.centerRight,
-                options: const [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ],
-              ),
-            )
-          : const SizedBox.shrink(),
+      builder: (context, state) =>
+          (state.endYear.toLowerCase() != "running" || state.endYear != "在学中")
+              ? FormFieldDecoration(
+                  title: "End Month",
+                  child: CustomSearchableDropDownWidget(
+                    hintText: "Select Month",
+                    value: state.endMonth,
+                    isEnable: false,
+                    alignment: Alignment.centerRight,
+                    options: const [
+                      "Jan",
+                      "Feb",
+                      "Mar",
+                      "Apr",
+                      "May",
+                      "Jun",
+                      "July",
+                      "Aug",
+                      "Sep",
+                      "Oct",
+                      "Nov",
+                      "Dec",
+                    ],
+                  ),
+                )
+              : const SizedBox.shrink(),
     );
   }
 }
@@ -426,18 +360,19 @@ class _PurposeOfResignField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      builder: (context, state) => state.endYear.toLowerCase() != "running"
-          ? FormFieldDecoration(
-              title: "Purpose of Resign",
-              child: InputTextWidget(
-                hintText: "Purpose of Resign",
-                value: state.purposeOfResign,
-                textAlign: TextAlign.end,
-                isEnable: false,
-                onChanged: (value) {},
-              ),
-            )
-          : const SizedBox.shrink(),
+      builder: (context, state) =>
+          (state.endYear.toLowerCase() != "running" && state.endYear != "在学中")
+              ? FormFieldDecoration(
+                  title: "Purpose of Resign",
+                  child: InputTextWidget(
+                    hintText: "Purpose of Resign",
+                    value: state.purposeOfResign,
+                    textAlign: TextAlign.end,
+                    isEnable: false,
+                    onChanged: (value) {},
+                  ),
+                )
+              : const SizedBox.shrink(),
     );
   }
 }

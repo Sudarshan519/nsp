@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_work_info.dart';
+import 'package:wallet_app/utils/get_years.dart';
 
 part 'update_work_info_actor_event.dart';
 part 'update_work_info_actor_state.dart';
@@ -128,6 +129,19 @@ class UpdateWorkInfoActorBloc
     );
     final workHistory = _setInitialState.workHistory;
     _lang = _setInitialState.lang;
+
+    final _listOfYear = getYears();
+    List<String> _listOfYearWithRunning = getYearsWithOption("Running");
+    String _endYear = workHistory.endYear ?? "";
+
+    if (_lang == "jp") {
+      _listOfYearWithRunning = getYearsWithOption("在学中");
+
+      if (_endYear.toLowerCase() == "running") {
+        _endYear = "在学中";
+      }
+    }
+
     if (workHistory != _workHistory) {
       _workHistory = workHistory;
       yield state.copyWith(
@@ -136,10 +150,12 @@ class UpdateWorkInfoActorBloc
         companyType: workHistory.companyType ?? "",
         startedYear: workHistory.startYear ?? "",
         startedMonth: workHistory.startMonth ?? "",
-        endYear: workHistory.endYear ?? "",
+        endYear: _endYear,
         endMonth: workHistory.endMonth ?? "",
         typeOfCompanyList: _setInitialState.typeOfCompanyList,
         purposeOfResign: workHistory.purposeOfResign ?? "",
+        listOfYear: _listOfYear,
+        listOfYearWithRunning: _listOfYearWithRunning,
         isSubmitting: false,
         hasSetInitialData: true,
         failureOrSuccessOption: none(),

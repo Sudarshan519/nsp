@@ -1349,6 +1349,8 @@ class _$UpdateAcademicInfoActorStateTearOff {
       required String monthOfEnroll,
       required String monthOfCompletion,
       required List<String> majorSubjectList,
+      required List<String> listOfYear,
+      required List<String> listOfYearWithRunning,
       required bool isSubmitting,
       required bool hasSetInitialData,
       required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
@@ -1361,6 +1363,8 @@ class _$UpdateAcademicInfoActorStateTearOff {
       monthOfEnroll: monthOfEnroll,
       monthOfCompletion: monthOfCompletion,
       majorSubjectList: majorSubjectList,
+      listOfYear: listOfYear,
+      listOfYearWithRunning: listOfYearWithRunning,
       isSubmitting: isSubmitting,
       hasSetInitialData: hasSetInitialData,
       failureOrSuccessOption: failureOrSuccessOption,
@@ -1381,6 +1385,8 @@ mixin _$UpdateAcademicInfoActorState {
   String get monthOfEnroll => throw _privateConstructorUsedError;
   String get monthOfCompletion => throw _privateConstructorUsedError;
   List<String> get majorSubjectList => throw _privateConstructorUsedError;
+  List<String> get listOfYear => throw _privateConstructorUsedError;
+  List<String> get listOfYearWithRunning => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get hasSetInitialData => throw _privateConstructorUsedError;
   Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
@@ -1406,6 +1412,8 @@ abstract class $UpdateAcademicInfoActorStateCopyWith<$Res> {
       String monthOfEnroll,
       String monthOfCompletion,
       List<String> majorSubjectList,
+      List<String> listOfYear,
+      List<String> listOfYearWithRunning,
       bool isSubmitting,
       bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -1430,6 +1438,8 @@ class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
     Object? monthOfEnroll = freezed,
     Object? monthOfCompletion = freezed,
     Object? majorSubjectList = freezed,
+    Object? listOfYear = freezed,
+    Object? listOfYearWithRunning = freezed,
     Object? isSubmitting = freezed,
     Object? hasSetInitialData = freezed,
     Object? failureOrSuccessOption = freezed,
@@ -1467,6 +1477,14 @@ class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
           ? _value.majorSubjectList
           : majorSubjectList // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      listOfYear: listOfYear == freezed
+          ? _value.listOfYear
+          : listOfYear // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfYearWithRunning: listOfYearWithRunning == freezed
+          ? _value.listOfYearWithRunning
+          : listOfYearWithRunning // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -1500,6 +1518,8 @@ abstract class _$UpdateAcademicInfoActorStateCopyWith<$Res>
       String monthOfEnroll,
       String monthOfCompletion,
       List<String> majorSubjectList,
+      List<String> listOfYear,
+      List<String> listOfYearWithRunning,
       bool isSubmitting,
       bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -1528,6 +1548,8 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
     Object? monthOfEnroll = freezed,
     Object? monthOfCompletion = freezed,
     Object? majorSubjectList = freezed,
+    Object? listOfYear = freezed,
+    Object? listOfYearWithRunning = freezed,
     Object? isSubmitting = freezed,
     Object? hasSetInitialData = freezed,
     Object? failureOrSuccessOption = freezed,
@@ -1565,6 +1587,14 @@ class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
           ? _value.majorSubjectList
           : majorSubjectList // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      listOfYear: listOfYear == freezed
+          ? _value.listOfYear
+          : listOfYear // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfYearWithRunning: listOfYearWithRunning == freezed
+          ? _value.listOfYearWithRunning
+          : listOfYearWithRunning // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -1593,6 +1623,8 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
       required this.monthOfEnroll,
       required this.monthOfCompletion,
       required this.majorSubjectList,
+      required this.listOfYear,
+      required this.listOfYearWithRunning,
       required this.isSubmitting,
       required this.hasSetInitialData,
       required this.failureOrSuccessOption});
@@ -1614,6 +1646,10 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
   @override
   final List<String> majorSubjectList;
   @override
+  final List<String> listOfYear;
+  @override
+  final List<String> listOfYearWithRunning;
+  @override
   final bool isSubmitting;
   @override
   final bool hasSetInitialData;
@@ -1622,7 +1658,7 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
 
   @override
   String toString() {
-    return 'UpdateAcademicInfoActorState(key: $key, nameOfInstitute: $nameOfInstitute, majorSubject: $majorSubject, yearOFEnroll: $yearOFEnroll, yearOfCpmpletion: $yearOfCpmpletion, monthOfEnroll: $monthOfEnroll, monthOfCompletion: $monthOfCompletion, majorSubjectList: $majorSubjectList, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'UpdateAcademicInfoActorState(key: $key, nameOfInstitute: $nameOfInstitute, majorSubject: $majorSubject, yearOFEnroll: $yearOFEnroll, yearOfCpmpletion: $yearOfCpmpletion, monthOfEnroll: $monthOfEnroll, monthOfCompletion: $monthOfCompletion, majorSubjectList: $majorSubjectList, listOfYear: $listOfYear, listOfYearWithRunning: $listOfYearWithRunning, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -1652,6 +1688,12 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
             (identical(other.majorSubjectList, majorSubjectList) ||
                 const DeepCollectionEquality()
                     .equals(other.majorSubjectList, majorSubjectList)) &&
+            (identical(other.listOfYear, listOfYear) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfYear, listOfYear)) &&
+            (identical(other.listOfYearWithRunning, listOfYearWithRunning) ||
+                const DeepCollectionEquality().equals(
+                    other.listOfYearWithRunning, listOfYearWithRunning)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
@@ -1674,6 +1716,8 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
       const DeepCollectionEquality().hash(monthOfEnroll) ^
       const DeepCollectionEquality().hash(monthOfCompletion) ^
       const DeepCollectionEquality().hash(majorSubjectList) ^
+      const DeepCollectionEquality().hash(listOfYear) ^
+      const DeepCollectionEquality().hash(listOfYearWithRunning) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(failureOrSuccessOption);
@@ -1696,6 +1740,8 @@ abstract class _UpdateAcademicInfoActorState
           required String monthOfEnroll,
           required String monthOfCompletion,
           required List<String> majorSubjectList,
+          required List<String> listOfYear,
+          required List<String> listOfYearWithRunning,
           required bool isSubmitting,
           required bool hasSetInitialData,
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
@@ -1717,6 +1763,10 @@ abstract class _UpdateAcademicInfoActorState
   String get monthOfCompletion => throw _privateConstructorUsedError;
   @override
   List<String> get majorSubjectList => throw _privateConstructorUsedError;
+  @override
+  List<String> get listOfYear => throw _privateConstructorUsedError;
+  @override
+  List<String> get listOfYearWithRunning => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override

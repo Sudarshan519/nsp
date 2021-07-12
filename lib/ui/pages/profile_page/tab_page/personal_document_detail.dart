@@ -178,7 +178,7 @@ class _PersonalDocumentDetailPageState
                     TextWidetWithLabelAndChild(
                       title: "${state.originKycDocType} Number",
                       child: InputTextWidget(
-                        hintText: "Number",
+                        hintText: "${state.originKycDocType} Number",
                         value: state.originKycDocNumber,
                         onChanged: (value) => context
                             .read<UpdateProfileBloc>()
@@ -362,7 +362,7 @@ class _PersonalDocumentDetailPageState
                     TextWidetWithLabelAndChild(
                       title: "${state.residenceKycDocType} Number",
                       child: InputTextWidget(
-                        hintText: "Number",
+                        hintText: "${state.residenceKycDocType} Number",
                         value: state.residenceKycDocNumber,
                         onChanged: (value) => context
                             .read<UpdateProfileBloc>()

@@ -258,40 +258,7 @@ class _StartedYearField extends StatelessWidget {
               child: CustomDropDownWidget(
                 hintText: "Select Year",
                 value: state.startedYear,
-                options: const [
-                  "1990",
-                  "1991",
-                  "1992",
-                  "1993",
-                  "1994",
-                  "1995",
-                  "1996",
-                  "1997",
-                  "1998",
-                  "1999",
-                  "2000",
-                  "2001",
-                  "2002",
-                  "2003",
-                  "2004",
-                  "2005",
-                  "2006",
-                  "2007",
-                  "2008",
-                  "2009",
-                  "2010",
-                  "2011",
-                  "2012",
-                  "2013",
-                  "2014",
-                  "2015",
-                  "2016",
-                  "2017",
-                  "2018",
-                  "2019",
-                  "2020",
-                  "2021",
-                ],
+                options: state.listOfYear,
                 alignment: Alignment.topCenter,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
@@ -351,41 +318,7 @@ class _EndYearField extends StatelessWidget {
               child: CustomDropDownWidget(
                 hintText: "Select Year",
                 value: state.endYear,
-                options: const [
-                  "1990",
-                  "1991",
-                  "1992",
-                  "1993",
-                  "1994",
-                  "1995",
-                  "1996",
-                  "1997",
-                  "1998",
-                  "1999",
-                  "2000",
-                  "2001",
-                  "2002",
-                  "2003",
-                  "2004",
-                  "2005",
-                  "2006",
-                  "2007",
-                  "2008",
-                  "2009",
-                  "2010",
-                  "2011",
-                  "2012",
-                  "2013",
-                  "2014",
-                  "2015",
-                  "2016",
-                  "2017",
-                  "2018",
-                  "2019",
-                  "2020",
-                  "2021",
-                  "Running",
-                ],
+                options: state.listOfYearWithRunning,
                 alignment: Alignment.topCenter,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
@@ -393,7 +326,8 @@ class _EndYearField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            if (state.endYear.toLowerCase() != "running")
+            if (state.endYear.toLowerCase() != "running" &&
+                state.endYear != "在学中")
               SizedBox(
                 width: 120,
                 child: CustomDropDownWidget(
@@ -434,7 +368,8 @@ class _PurposeOfResignField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
-      builder: (context, state) => state.endYear.toLowerCase() != "running"
+      builder: (context, state) => (state.endYear.toLowerCase() != "running" &&
+              state.endYear != "在学中")
           ? TextWidetWithLabelAndChild(
               title: "Purpose of Resign",
               child: InputTextWidget(

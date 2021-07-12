@@ -2923,6 +2923,9 @@ class _$UpdateOtherInfoActorStateTearOff {
       required List<String> knownLanguages,
       required List<String> listOfHobbies,
       required List<String> listOfSkills,
+      required List<String> listOfJLPTLevel,
+      required List<String> listOfHourRate,
+      required List<String> listOfYesNoOption,
       required bool isSubmitting,
       required bool hasSetInitialData,
       required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
@@ -2943,6 +2946,9 @@ class _$UpdateOtherInfoActorStateTearOff {
       knownLanguages: knownLanguages,
       listOfHobbies: listOfHobbies,
       listOfSkills: listOfSkills,
+      listOfJLPTLevel: listOfJLPTLevel,
+      listOfHourRate: listOfHourRate,
+      listOfYesNoOption: listOfYesNoOption,
       isSubmitting: isSubmitting,
       hasSetInitialData: hasSetInitialData,
       failureOrSuccessOption: failureOrSuccessOption,
@@ -2972,6 +2978,9 @@ mixin _$UpdateOtherInfoActorState {
   List<String> get knownLanguages => throw _privateConstructorUsedError;
   List<String> get listOfHobbies => throw _privateConstructorUsedError;
   List<String> get listOfSkills => throw _privateConstructorUsedError;
+  List<String> get listOfJLPTLevel => throw _privateConstructorUsedError;
+  List<String> get listOfHourRate => throw _privateConstructorUsedError;
+  List<String> get listOfYesNoOption => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get hasSetInitialData => throw _privateConstructorUsedError;
   Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
@@ -3004,6 +3013,9 @@ abstract class $UpdateOtherInfoActorStateCopyWith<$Res> {
       List<String> knownLanguages,
       List<String> listOfHobbies,
       List<String> listOfSkills,
+      List<String> listOfJLPTLevel,
+      List<String> listOfHourRate,
+      List<String> listOfYesNoOption,
       bool isSubmitting,
       bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -3036,6 +3048,9 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
     Object? knownLanguages = freezed,
     Object? listOfHobbies = freezed,
     Object? listOfSkills = freezed,
+    Object? listOfJLPTLevel = freezed,
+    Object? listOfHourRate = freezed,
+    Object? listOfYesNoOption = freezed,
     Object? isSubmitting = freezed,
     Object? hasSetInitialData = freezed,
     Object? failureOrSuccessOption = freezed,
@@ -3105,6 +3120,18 @@ class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
           ? _value.listOfSkills
           : listOfSkills // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      listOfJLPTLevel: listOfJLPTLevel == freezed
+          ? _value.listOfJLPTLevel
+          : listOfJLPTLevel // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfHourRate: listOfHourRate == freezed
+          ? _value.listOfHourRate
+          : listOfHourRate // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfYesNoOption: listOfYesNoOption == freezed
+          ? _value.listOfYesNoOption
+          : listOfYesNoOption // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -3145,6 +3172,9 @@ abstract class _$UpdateOtherInfoActorStateCopyWith<$Res>
       List<String> knownLanguages,
       List<String> listOfHobbies,
       List<String> listOfSkills,
+      List<String> listOfJLPTLevel,
+      List<String> listOfHourRate,
+      List<String> listOfYesNoOption,
       bool isSubmitting,
       bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
@@ -3180,6 +3210,9 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
     Object? knownLanguages = freezed,
     Object? listOfHobbies = freezed,
     Object? listOfSkills = freezed,
+    Object? listOfJLPTLevel = freezed,
+    Object? listOfHourRate = freezed,
+    Object? listOfYesNoOption = freezed,
     Object? isSubmitting = freezed,
     Object? hasSetInitialData = freezed,
     Object? failureOrSuccessOption = freezed,
@@ -3249,6 +3282,18 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
           ? _value.listOfSkills
           : listOfSkills // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      listOfJLPTLevel: listOfJLPTLevel == freezed
+          ? _value.listOfJLPTLevel
+          : listOfJLPTLevel // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfHourRate: listOfHourRate == freezed
+          ? _value.listOfHourRate
+          : listOfHourRate // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfYesNoOption: listOfYesNoOption == freezed
+          ? _value.listOfYesNoOption
+          : listOfYesNoOption // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -3285,6 +3330,9 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
       required this.knownLanguages,
       required this.listOfHobbies,
       required this.listOfSkills,
+      required this.listOfJLPTLevel,
+      required this.listOfHourRate,
+      required this.listOfYesNoOption,
       required this.isSubmitting,
       required this.hasSetInitialData,
       required this.failureOrSuccessOption});
@@ -3322,6 +3370,12 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   @override
   final List<String> listOfSkills;
   @override
+  final List<String> listOfJLPTLevel;
+  @override
+  final List<String> listOfHourRate;
+  @override
+  final List<String> listOfYesNoOption;
+  @override
   final bool isSubmitting;
   @override
   final bool hasSetInitialData;
@@ -3330,7 +3384,7 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
 
   @override
   String toString() {
-    return 'UpdateOtherInfoActorState(key: $key, languages: $languages, JLPTLevel: $JLPTLevel, selfPR: $selfPR, motivationsSpecialSkills: $motivationsSpecialSkills, hobbies: $hobbies, skills: $skills, workinHours: $workinHours, workingMinutes: $workingMinutes, numberOfDependent: $numberOfDependent, isSpouse: $isSpouse, isSpouseSupportObligation: $isSpouseSupportObligation, specialConditions: $specialConditions, knownLanguages: $knownLanguages, listOfHobbies: $listOfHobbies, listOfSkills: $listOfSkills, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'UpdateOtherInfoActorState(key: $key, languages: $languages, JLPTLevel: $JLPTLevel, selfPR: $selfPR, motivationsSpecialSkills: $motivationsSpecialSkills, hobbies: $hobbies, skills: $skills, workinHours: $workinHours, workingMinutes: $workingMinutes, numberOfDependent: $numberOfDependent, isSpouse: $isSpouse, isSpouseSupportObligation: $isSpouseSupportObligation, specialConditions: $specialConditions, knownLanguages: $knownLanguages, listOfHobbies: $listOfHobbies, listOfSkills: $listOfSkills, listOfJLPTLevel: $listOfJLPTLevel, listOfHourRate: $listOfHourRate, listOfYesNoOption: $listOfYesNoOption, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -3384,8 +3438,11 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
             (identical(other.listOfSkills, listOfSkills) ||
                 const DeepCollectionEquality()
                     .equals(other.listOfSkills, listOfSkills)) &&
-            (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality().equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.listOfJLPTLevel, listOfJLPTLevel) ||
+                const DeepCollectionEquality().equals(other.listOfJLPTLevel, listOfJLPTLevel)) &&
+            (identical(other.listOfHourRate, listOfHourRate) || const DeepCollectionEquality().equals(other.listOfHourRate, listOfHourRate)) &&
+            (identical(other.listOfYesNoOption, listOfYesNoOption) || const DeepCollectionEquality().equals(other.listOfYesNoOption, listOfYesNoOption)) &&
+            (identical(other.isSubmitting, isSubmitting) || const DeepCollectionEquality().equals(other.isSubmitting, isSubmitting)) &&
             (identical(other.hasSetInitialData, hasSetInitialData) || const DeepCollectionEquality().equals(other.hasSetInitialData, hasSetInitialData)) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) || const DeepCollectionEquality().equals(other.failureOrSuccessOption, failureOrSuccessOption)));
   }
@@ -3409,6 +3466,9 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
       const DeepCollectionEquality().hash(knownLanguages) ^
       const DeepCollectionEquality().hash(listOfHobbies) ^
       const DeepCollectionEquality().hash(listOfSkills) ^
+      const DeepCollectionEquality().hash(listOfJLPTLevel) ^
+      const DeepCollectionEquality().hash(listOfHourRate) ^
+      const DeepCollectionEquality().hash(listOfYesNoOption) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(failureOrSuccessOption);
@@ -3439,6 +3499,9 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
           required List<String> knownLanguages,
           required List<String> listOfHobbies,
           required List<String> listOfSkills,
+          required List<String> listOfJLPTLevel,
+          required List<String> listOfHourRate,
+          required List<String> listOfYesNoOption,
           required bool isSubmitting,
           required bool hasSetInitialData,
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
@@ -3476,6 +3539,12 @@ abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
   List<String> get listOfHobbies => throw _privateConstructorUsedError;
   @override
   List<String> get listOfSkills => throw _privateConstructorUsedError;
+  @override
+  List<String> get listOfJLPTLevel => throw _privateConstructorUsedError;
+  @override
+  List<String> get listOfHourRate => throw _privateConstructorUsedError;
+  @override
+  List<String> get listOfYesNoOption => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override

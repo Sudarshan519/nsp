@@ -339,7 +339,7 @@ class _GenderInputField extends StatelessWidget {
           hintText: "Gender",
           value: state.gender,
           isEnable: false,
-          options: const ["Male", "Female"],
+          options: state.listOfGender,
           alignment: Alignment.centerRight,
         ),
       ),
