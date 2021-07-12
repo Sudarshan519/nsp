@@ -123,14 +123,23 @@ final months = [
 ];
 
 String dateFormat(DateTime date) {
+  if (date.isUtc) {
+    date.toLocal();
+  }
   return "${date.day} ${months[date.month - 1]}, ${date.year}";
 }
 
 String dateMonthFormat(DateTime date) {
+  if (date.isUtc) {
+    date.toLocal();
+  }
   return "${date.day} ${months[date.month - 1]}";
 }
 
 String dateWithTimeFormat(DateTime date) {
+  if (date.isUtc) {
+    date.toLocal();
+  }
   return "${date.day} ${months[date.month - 1]}, ${date.hour}:${date.minute}";
 }
 

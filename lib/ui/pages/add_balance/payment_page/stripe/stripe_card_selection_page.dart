@@ -72,6 +72,8 @@ class _StripePaymentCardSelectionPageState
           initial: (_) {},
           loading: (_) {},
           success: (success) {
+            FlushbarHelper.createSuccess(message: 'Successfully deleted card.')
+                .show(context);
             final cardId = success.id;
             _cards.removeWhere((element) => element.id == cardId);
             widget.deleteCard(cardId);
