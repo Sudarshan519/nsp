@@ -14,6 +14,7 @@ import 'package:wallet_app/ui/pages/profile_page/widgets/text_widget_label_and_c
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_confirmation.dart';
 import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -218,9 +219,18 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                 const _TransactionDetail(),
                 InkWell(
                   onTap: () {
-                    context.read<PurchasePackageBloc>().add(
-                          const PurchasePackageEvent.purchase(),
-                        );
+                    showDialog(
+                      context: context,
+                      builder: (_) => PopUpConfirmation(
+                        message: 'Are you sure to make the purchase?',
+                        onConfirmed: () {
+                          context.read<PurchasePackageBloc>().add(
+                                const PurchasePackageEvent.purchase(),
+                              );
+                          context.popRoute();
+                        },
+                      ),
+                    );
                   },
                   child: Container(
                     height: 40,

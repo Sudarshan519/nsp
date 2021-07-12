@@ -115,7 +115,7 @@ class _NotificationListView extends StatelessWidget {
                         Text(
                           item.message.toString(),
                           textScaleFactor: 0.85,
-                          maxLines: 1,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(fontWeight: FontWeight.w500),
                         ),
