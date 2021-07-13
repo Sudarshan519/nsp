@@ -4,6 +4,8 @@ class AlertApiEndpoints {
   static const getVolcanoes = "/api/v1/portable-news/eruptions";
   static const getEarthquakesAndVolcanoes =
       "/api/v1/portable-news/earthquakes-eruptions";
+  static const getWeathers = "/api/v1/portable-news/warnings";
+  // static const getSetting = "/api/v1/settings";
 }
 
 class AlertAppConstant {

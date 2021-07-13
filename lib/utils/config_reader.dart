@@ -10,6 +10,7 @@ abstract class ConfigReader {
   String get miraiLifeBaseUrl;
   String get resumeBaseUrl;
   String get alertBaseUrl;
+  String get weatherBaseUrl;
   String get apiPath;
   bool get isDebugApp;
 }
@@ -48,6 +49,14 @@ class ConfigReaderImpl implements ConfigReader {
       return "";
     }
     return _config?['alert_base_url'] as String? ?? "";
+  }
+
+  @override
+  String get weatherBaseUrl {
+    if (_config == null) {
+      return "";
+    }
+    return _config?['weather_base_url'] as String? ?? "";
   }
 
   @override
