@@ -179,6 +179,12 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
       final jsonResponse = json.decode(responseBody) as Iterable?;
 
       if (jsonResponse == null) {
+        logger.log(
+          className: "AlertRemoteDataSource",
+          functionName: "getWeather()",
+          errorText: "Error casting from json to weather model",
+          errorMessage: "json response is empty or not parsable",
+        );
         return [];
       }
       try {
