@@ -40,7 +40,6 @@ class EarthquakeListPage extends StatelessWidget {
             if (_scrollController.offset ==
                     _scrollController.position.maxScrollExtent &&
                 !context.read<GetEarthquakesBloc>().isFetching) {
-              debugPrint("reached end");
               context.read<GetEarthquakesBloc>().add(
                     const GetEarthquakesEvent.paginate(),
                   );

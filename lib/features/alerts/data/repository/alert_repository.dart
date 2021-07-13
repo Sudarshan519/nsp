@@ -6,6 +6,7 @@ import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/alerts/data/constants/constant.dart';
 import 'package:wallet_app/features/alerts/data/data_source/alerts_remote_data_source.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
+import 'package:wallet_app/features/alerts/domain/entity/weather_info.dart';
 import 'package:wallet_app/features/alerts/domain/repositories/alert_repository.dart';
 
 @LazySingleton(as: AlertRepository)
@@ -68,6 +69,21 @@ class AlertRepositoryImpl implements AlertRepository {
         className: "AlertRepository",
         functionName: "getAlerts()",
         errorText: "Error on getting alerts",
+        errorMessage: ex.toString(),
+      );
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, List<WeatherInfo>>> getWeather() async {
+    try {
+      return Right(await dataSource.getWeather());
+    } on ServerException catch (ex) {
+      logger.log(
+        className: "AlertRepository",
+        functionName: "getWeather()",
+        errorText: "Error on getting weather",
         errorMessage: ex.toString(),
       );
       return Left(ApiFailure.serverError(message: ex.message));

@@ -22,8 +22,20 @@ The repo is missing the config/app_config.json which content is simillar to
 
 {
     "is_debug": true,
-    "base_url": "base_url",
-    "api_path": "api_path"
+    "base_url": "https://nspdev.truestreamz.com",
+    "api_path": "/api/v1",
+    "resume_base_url": "https://nspresume.truestreamz.com",
+    "alert_base_url": "https://news.nettvnepal.com.np",
+    "mirai_life_base_url" : "https://app.mirailifecare.com"
+}
+
+{
+    "is_debug": false,
+    "base_url": "https://app.bnpj.jp",
+    "api_path": "/api/v1",
+    "resume_base_url": "https://resume.bnpj.jp",
+    "alert_base_url": "https://news.nettvnepal.com.np",
+    "mirai_life_base_url" : "https://app.mirailifecare.com"
 }
 
 This json is injected at the build time from CI/CD. Thus the url consistancy is maintained at the buildtime.
