@@ -82,33 +82,34 @@ class ServicesDetailPage extends StatelessWidget {
           ColumnSuper(
             innerDistance: -50,
             children: [
-              Image.network(
-                "$baseURL${services.companyBannerImage}",
-                width: width,
-                fit: BoxFit.fitWidth,
-                loadingBuilder: (BuildContext context, Widget child,
-                    ImageChunkEvent? loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return Container(
-                    color: Palette.primaryBackground,
-                    height: 200,
-                    child: Center(
-                      child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                            ? loadingProgress.cumulativeBytesLoaded /
-                                (loadingProgress.expectedTotalBytes ?? 1)
-                            : null,
+              if (services.companyBannerImage != null)
+                Image.network(
+                  "$baseURL${services.companyBannerImage}",
+                  width: width,
+                  fit: BoxFit.fitWidth,
+                  loadingBuilder: (BuildContext context, Widget child,
+                      ImageChunkEvent? loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return Container(
+                      color: Palette.primaryBackground,
+                      height: 200,
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  (loadingProgress.expectedTotalBytes ?? 1)
+                              : null,
+                        ),
                       ),
-                    ),
-                  );
-                },
-                errorBuilder: (_, __, ___) {
-                  return Image.asset(
-                    'assets/images/navigation_bar/u1.png',
-                    fit: BoxFit.cover,
-                  );
-                },
-              ),
+                    );
+                  },
+                  errorBuilder: (_, __, ___) {
+                    return Image.asset(
+                      'assets/images/navigation_bar/u1.png',
+                      fit: BoxFit.cover,
+                    );
+                  },
+                ),
               ShadowBoxWidget(
                 margin: const EdgeInsets.all(16),
                 child: Column(

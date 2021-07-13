@@ -293,22 +293,23 @@ class _PartnerServicesPageList extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              InkWell(
-                onTap: () => context.pushRoute(
-                  ServicesDetailRoute(
-                    services: data,
+              if (data.companyLogo != null)
+                InkWell(
+                  onTap: () => context.pushRoute(
+                    ServicesDetailRoute(
+                      services: data,
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(width / 2.0),
+                    child: Image.network(
+                      "$baseURL${data.companyLogo ?? ""}",
+                      width: width,
+                      height: width,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(width / 2.0),
-                  child: Image.network(
-                    "$baseURL${data.companyLogo ?? ""}",
-                    width: width,
-                    height: width,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
               const SizedBox(width: 20),
               Expanded(
                 child: Column(

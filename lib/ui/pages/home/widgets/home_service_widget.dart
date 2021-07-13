@@ -76,19 +76,20 @@ class HomeServiceWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                InkWell(
-                  onTap: () => context
-                      .pushRoute(ServicesDetailRoute(services: services)),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.network(
-                      "$baseURL${services.companyLogo}",
-                      height: 76,
-                      width: 90,
-                      fit: BoxFit.cover,
+                if (services.companyLogo != null)
+                  InkWell(
+                    onTap: () => context
+                        .pushRoute(ServicesDetailRoute(services: services)),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.network(
+                        "$baseURL${services.companyLogo}",
+                        height: 76,
+                        width: 90,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Column(

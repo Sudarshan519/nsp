@@ -75,56 +75,57 @@ class JapaneseMannerWidget extends StatelessWidget {
         right: 8,
         left: 8,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          InkWell(
-            onTap: () => context
-                .pushRoute(JapaneseMannerDetailRoute(japaneseManner: data)),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                "$baseURL${data.image}",
-                height: 130,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            data.title ?? "",
-            style: const TextStyle(
-              fontWeight: FontWeight.w500,
-            ),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(height: 10),
-          InkWell(
-            onTap: () => context.pushRoute(JapaneseMannerRoute(
-                categoryName: data.category?.categoryName ?? '')),
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 4,
-                vertical: 2,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: Palette.black.withOpacity(0.3),
+      child: InkWell(
+        onTap: () =>
+            context.pushRoute(JapaneseMannerDetailRoute(japaneseManner: data)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (data.image != null)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.network(
+                  "$baseURL${data.image}",
+                  height: 130,
+                  fit: BoxFit.cover,
                 ),
               ),
-              child: Text(
-                data.category?.categoryName ?? "",
-                style: TextStyle(
-                  color: Palette.black.withOpacity(0.7),
-                  fontSize: 10,
+            const SizedBox(height: 10),
+            Text(
+              data.title ?? "",
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 10),
+            InkWell(
+              onTap: () => context.pushRoute(JapaneseMannerRoute(
+                  categoryName: data.category?.categoryName ?? '')),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 4,
+                  vertical: 2,
                 ),
-                overflow: TextOverflow.clip,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: Palette.black.withOpacity(0.3),
+                  ),
+                ),
+                child: Text(
+                  data.category?.categoryName ?? "",
+                  style: TextStyle(
+                    color: Palette.black.withOpacity(0.7),
+                    fontSize: 10,
+                  ),
+                  overflow: TextOverflow.clip,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

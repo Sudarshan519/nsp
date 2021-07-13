@@ -35,64 +35,65 @@ class JapaneseMannerWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              InkWell(
-                onTap: () => context
-                    .pushRoute(JapaneseMannerDetailRoute(japaneseManner: data)),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.network(
-                    "$baseURL${data.image ?? ""}",
-                    // height: 120,
-                    width: width,
-                    fit: BoxFit.fitWidth,
+          InkWell(
+            onTap: () => context
+                .pushRoute(JapaneseMannerDetailRoute(japaneseManner: data)),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (data.image != null)
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.network(
+                      "$baseURL${data.image ?? ""}",
+                      // height: 120,
+                      width: width,
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      InkWell(
+                        onTap: () => context.pushRoute(
+                            JapaneseMannerDetailRoute(japaneseManner: data)),
+                        child: Text(
+                          data.title ?? "",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                          ),
+                          // maxLines: 2,
+                          // overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 4,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: Palette.black.withOpacity(0.3),
+                          ),
+                        ),
+                        child: Text(
+                          data.category?.categoryName ?? "",
+                          style: TextStyle(
+                            color: Palette.black.withOpacity(0.7),
+                            fontSize: 10,
+                          ),
+                          overflow: TextOverflow.clip,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    InkWell(
-                      onTap: () => context.pushRoute(
-                          JapaneseMannerDetailRoute(japaneseManner: data)),
-                      child: Text(
-                        data.title ?? "",
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                        ),
-                        // maxLines: 2,
-                        // overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 4,
-                        vertical: 2,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Palette.black.withOpacity(0.3),
-                        ),
-                      ),
-                      child: Text(
-                        data.category?.categoryName ?? "",
-                        style: TextStyle(
-                          color: Palette.black.withOpacity(0.7),
-                          fontSize: 10,
-                        ),
-                        overflow: TextOverflow.clip,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
           const SizedBox(height: 10),
           Container(
