@@ -69,7 +69,7 @@ class AlertModel extends Alert {
         );
 
   factory AlertModel.fromJson(Map<String, dynamic> json) => AlertModel(
-        label: json["label"] as String,
+        label: json["label"] as String?,
         advisoryTitle: json["advisory_title"] == null
             ? null
             : json["advisory_title"] as String?,

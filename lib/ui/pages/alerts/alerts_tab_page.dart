@@ -4,7 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/alerts/presentation/get_volcanoes/get_volcanoes_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_earthquakes/get_earthquakes_bloc.dart';
+import 'package:wallet_app/features/alerts/presentation/get_weathers/get_weathers_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/alerts/tabs/weather_list_page.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 import 'tabs/alert_list_page.dart';
@@ -24,7 +26,7 @@ class _AlertsTabPageState extends State<AlertsTabPage>
     AlertListPage(),
     EarthquakeListPage(),
     VolcanoListPage(),
-    Container(),
+    WeatherListPage(),
   ];
 
   final List<Tab> _tabBarData = [
@@ -116,6 +118,12 @@ class _AlertsTabPageState extends State<AlertsTabPage>
             create: (_) => getIt<GetVolcanoesBloc>()
               ..add(
                 const GetVolcanoesEvent.fetch(),
+              ),
+          ),
+          BlocProvider(
+            create: (context) => getIt<GetWeathersBloc>()
+              ..add(
+                const GetWeathersEvent.fetchWeather(),
               ),
           ),
         ],
