@@ -61,6 +61,10 @@ class HomeServiceWidget extends StatelessWidget {
 
   Widget getServiceItem(BuildContext context, Services services) {
     final baseURL = getIt<ConfigReader>().baseURL;
+    if (services.companyLogo == null) {
+      return const SizedBox.shrink();
+    }
+
     return Container(
       color: Palette.white,
       width: MediaQuery.of(context).size.width * 0.7,
@@ -76,20 +80,19 @@ class HomeServiceWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                if (services.companyLogo != null)
-                  InkWell(
-                    onTap: () => context
-                        .pushRoute(ServicesDetailRoute(services: services)),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: Image.network(
-                        "$baseURL${services.companyLogo}",
-                        height: 76,
-                        width: 90,
-                        fit: BoxFit.cover,
-                      ),
+                InkWell(
+                  onTap: () => context
+                      .pushRoute(ServicesDetailRoute(services: services)),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.network(
+                      "$baseURL${services.companyLogo}",
+                      height: 76,
+                      width: 90,
+                      fit: BoxFit.cover,
                     ),
                   ),
+                ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Column(
