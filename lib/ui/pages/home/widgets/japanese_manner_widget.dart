@@ -66,6 +66,9 @@ class JapaneseMannerWidget extends StatelessWidget {
 
   Widget _getServiceItem(BuildContext context, JapaneseManner data) {
     final baseURL = getIt<ConfigReader>().baseURL;
+    if (data.image == null ||
+        data.description == null ||
+        data.description!.isEmpty) return const SizedBox.shrink();
     return Container(
       color: Palette.white,
       width: MediaQuery.of(context).size.width * 0.45,
@@ -81,15 +84,14 @@ class JapaneseMannerWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (data.image != null)
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.network(
-                  "$baseURL${data.image}",
-                  height: 130,
-                  fit: BoxFit.cover,
-                ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.network(
+                "$baseURL${data.image}",
+                height: 130,
+                fit: BoxFit.cover,
               ),
+            ),
             const SizedBox(height: 10),
             Text(
               data.title ?? "",
