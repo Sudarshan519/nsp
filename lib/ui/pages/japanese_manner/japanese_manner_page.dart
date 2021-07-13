@@ -123,7 +123,7 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
               Container(
                 height: 1,
                 color: Palette.dividerColor,
-              )
+              ),
             ],
           ),
         ),
@@ -170,6 +170,7 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
 class _JapaneseMannerPageList extends StatelessWidget {
   final JapaneseMannerCategory category;
   final ScrollController _scrollController = ScrollController();
+  final TextEditingController _searchController = TextEditingController();
 
   _JapaneseMannerPageList({
     Key? key,
@@ -233,37 +234,91 @@ class _JapaneseMannerPageList extends StatelessWidget {
         child: Text("No data availabe for this section"),
       );
     }
-    return SingleChildScrollView(
-      controller: _scrollController
-        ..addListener(
-          () {
-            if (_scrollController.offset ==
-                    _scrollController.position.maxScrollExtent &&
-                !context.read<JapaneseMannerBloc>().isFetching) {
-              debugPrint("reached end");
-              context.read<JapaneseMannerBloc>().add(
-                    JapaneseMannerEvent.fetch(category),
-                  );
-            }
-          },
-        ),
-      child: Column(
-        children: [
-          ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: manners.length,
-            itemBuilder: (context, index) {
-              return JapaneseMannerWidget(data: manners[index]);
-            },
-          ),
-          if (isLoading)
-            SizedBox(
-              height: 70,
-              child: loadingPage(),
+    List<JapaneseManner> searchList = [];
+
+    return StatefulBuilder(
+      builder: (context, setstate) {
+        return SingleChildScrollView(
+          controller: _scrollController
+            ..addListener(
+              () {
+                if (_scrollController.offset ==
+                        _scrollController.position.maxScrollExtent &&
+                    !context.read<JapaneseMannerBloc>().isFetching) {
+                  debugPrint("reached end");
+                  context.read<JapaneseMannerBloc>().add(
+                        JapaneseMannerEvent.fetch(category),
+                      );
+                }
+              },
             ),
-        ],
-      ),
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                height: MediaQuery.of(context).size.height * 0.04,
+                child: TextField(
+                    controller: _searchController,
+                    maxLength: 25,
+                    onChanged: (s) {
+                      setstate(() {
+                        searchList.clear();
+                        searchList = manners.where((element) {
+                          if (element.title != null) {
+                            return element.title!
+                                .toLowerCase()
+                                .contains(s.toLowerCase());
+                          }
+                          return false;
+                        }).toList();
+                      });
+                    },
+                    // controller: _searchController,
+                    textAlignVertical: TextAlignVertical.center,
+                    style: const TextStyle(fontSize: 12),
+                    decoration: InputDecoration(
+                        counterText: '',
+                        contentPadding: const EdgeInsets.only(left: 8),
+                        hintText: 'Search',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(
+                            // color: Colors.black,
+                            width: 0.07,
+                            style: BorderStyle.none,
+                          ),
+                        ),
+                        prefixIcon: const Icon(Icons.search, size: 20),
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              setstate(() {
+                                _searchController.clear();
+                              });
+                            },
+                            icon: const Icon(Icons.close, size: 16)))),
+              ),
+              ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: _searchController.text.isNotEmpty
+                    ? searchList.length
+                    : manners.length,
+                itemBuilder: (context, index) {
+                  return JapaneseMannerWidget(
+                      data: _searchController.text.isNotEmpty
+                          ? searchList[index]
+                          : manners[index]);
+                },
+              ),
+              if (isLoading)
+                SizedBox(
+                  height: 70,
+                  child: loadingPage(),
+                ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
