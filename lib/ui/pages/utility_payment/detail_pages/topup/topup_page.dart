@@ -215,8 +215,14 @@ class _TopUpPageState extends State<TopUpPage> {
             const SizedBox(height: 20),
             _ProceedButton(
               callback: () {
-                final double amt = double.parse(amount);
-                if (amt > widget.balance) {
+                final int amt = int.parse(amount);
+
+                if (amt < 10) {
+                  FlushbarHelper.createError(
+                          message: 'Amount be at least NPR 10')
+                      .show(context);
+                  return;
+                } else if (amt > widget.balance) {
                   FlushbarHelper.createError(message: 'Insufficient balance!')
                       .show(context);
                 } else {
@@ -565,10 +571,11 @@ class _MobileNumberTextField extends StatelessWidget {
       final String? number = contact.phoneNumber?.number;
       final String formattedNumber = number
           .toString()
+          .replaceAll('+977', '')
+          .replaceAll('+', '')
           .replaceAll('(', '')
           .replaceAll(')', '')
           .replaceAll('-', '')
-          .replaceAll('977', '')
           .replaceAll(' ', '');
 
       return formattedNumber;
