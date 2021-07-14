@@ -44,6 +44,7 @@ class ServiceDetailPageFromAPI extends StatelessWidget {
 
 class ServicesDetailPage extends StatelessWidget {
   final Services services;
+  static const double buttonHeight = 47;
 
   const ServicesDetailPage({
     Key? key,
@@ -75,198 +76,236 @@ class ServicesDetailPage extends StatelessWidget {
   Widget newsBody(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final baseURL = getIt<ConfigReader>().baseURL;
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ColumnSuper(
-            innerDistance: -50,
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (services.companyBannerImage != null)
-                Image.network(
-                  "$baseURL${services.companyBannerImage}",
-                  width: width,
-                  fit: BoxFit.fitWidth,
-                  loadingBuilder: (BuildContext context, Widget child,
-                      ImageChunkEvent? loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return Container(
-                      color: Palette.primaryBackground,
-                      height: 200,
-                      child: Center(
-                        child: CircularProgressIndicator(
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  (loadingProgress.expectedTotalBytes ?? 1)
-                              : null,
-                        ),
-                      ),
-                    );
-                  },
-                  errorBuilder: (_, __, ___) {
-                    return Image.asset(
-                      'assets/images/navigation_bar/u1.png',
-                      fit: BoxFit.cover,
-                    );
-                  },
-                ),
-              ShadowBoxWidget(
-                margin: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(16),
-                          child: FadeInImage.assetNetwork(
-                            image: "$baseURL${services.companyLogo}",
-                            height: 76,
-                            width: 90,
-                            fit: BoxFit.cover,
-                            placeholder: "",
+              ColumnSuper(
+                innerDistance: -50,
+                children: [
+                  if (services.companyBannerImage != null)
+                    Image.network(
+                      "$baseURL${services.companyBannerImage}",
+                      width: width,
+                      fit: BoxFit.fitWidth,
+                      loadingBuilder: (BuildContext context, Widget child,
+                          ImageChunkEvent? loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Container(
+                          color: Palette.primaryBackground,
+                          height: 200,
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              value: loadingProgress.expectedTotalBytes != null
+                                  ? loadingProgress.cumulativeBytesLoaded /
+                                      (loadingProgress.expectedTotalBytes ?? 1)
+                                  : null,
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                services.serviceProductName ?? "",
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.justify,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
+                        );
+                      },
+                      errorBuilder: (_, __, ___) {
+                        return Image.asset(
+                          'assets/images/navigation_bar/u1.png',
+                          fit: BoxFit.cover,
+                        );
+                      },
+                    ),
+                  ShadowBoxWidget(
+                    margin: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: FadeInImage.assetNetwork(
+                                image: "$baseURL${services.companyLogo}",
+                                height: 76,
+                                width: 90,
+                                fit: BoxFit.cover,
+                                placeholder: "",
                               ),
-                              const SizedBox(height: 5),
-                              Text(
-                                "${services.companyAddressHeadStreet ?? ""}, ${services.companyAddressHeadCity ?? ""}, ${services.companyAddressHeadProvince ?? ""}, ${services.companyAddressHeadCountry ?? ""}",
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                ),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(height: 5),
-                              Row(
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 4,
-                                      vertical: 2,
+                                  Text(
+                                    services.serviceProductName ?? "",
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                        color: Palette.black.withOpacity(0.3),
-                                      ),
-                                    ),
-                                    child: Text(
-                                      services.category ?? "",
-                                      style: TextStyle(
-                                        color: Palette.black.withOpacity(0.7),
-                                        fontSize: 10,
-                                      ),
-                                      overflow: TextOverflow.clip,
-                                    ),
+                                    textAlign: TextAlign.justify,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                  const SizedBox(
-                                    width: 10,
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    "${services.companyAddressHeadStreet ?? ""}, ${services.companyAddressHeadCity ?? ""}, ${services.companyAddressHeadProvince ?? ""}, ${services.companyAddressHeadCountry ?? ""}",
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12,
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                  if (services.companyName != null &&
-                                      services.companyName!.contains("Mirai"))
-                                    InkWell(
-                                      onTap: () {
-                                        context.pushRoute(
-                                          PartnerServicePaymentRoute(
-                                            payData: UtilityPaymentsModel(
-                                              id: services.id,
-                                              name: services.companyName,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      child: Container(
+                                  const SizedBox(height: 5),
+                                  Row(
+                                    children: [
+                                      Container(
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 4,
                                           vertical: 2,
                                         ),
                                         decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            // border: Border.all(
-                                            //   color: Palette.black.withOpacity(0.3),
-                                            // ),
-                                            color: Palette.primary),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          border: Border.all(
+                                            color:
+                                                Palette.black.withOpacity(0.3),
+                                          ),
+                                        ),
                                         child: Text(
-                                          "View/Pay Bills",
+                                          services.category ?? "",
                                           style: TextStyle(
-                                            color: Palette.white,
+                                            color:
+                                                Palette.black.withOpacity(0.7),
                                             fontSize: 10,
                                           ),
                                           overflow: TextOverflow.clip,
                                         ),
                                       ),
-                                    ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      if (services.companyName != null &&
+                                          services.companyName!
+                                              .contains("Mirai"))
+                                        InkWell(
+                                          onTap: () {
+                                            context.pushRoute(
+                                              PartnerServicePaymentRoute(
+                                                payData: UtilityPaymentsModel(
+                                                  id: services.id,
+                                                  name: services.companyName,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 4,
+                                              vertical: 2,
+                                            ),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                // border: Border.all(
+                                                //   color: Palette.black.withOpacity(0.3),
+                                                // ),
+                                                color: Palette.primary),
+                                            child: Text(
+                                              "View/Pay Bills",
+                                              style: TextStyle(
+                                                color: Palette.white,
+                                                fontSize: 10,
+                                              ),
+                                              overflow: TextOverflow.clip,
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
                                 ],
                               ),
+                            ),
+                          ],
+                        ),
+                        // ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Container(
+                          height: 1,
+                          color: Palette.dividerColor,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Html(
+                          data: services.description,
+                          onLinkTap: (link, _, __, ___) {
+                            context.pushRoute(
+                                AppWebViewRoute(url: link ?? '', title: ""));
+                          },
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        if (services.serviceUrl != null)
+                          Column(
+                            children: [
+                              Center(
+                                child: CustomButton(
+                                  title: "Load More",
+                                  textStyle: TextStyle(
+                                    color: Palette.white,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  onTap: () => context.pushRoute(
+                                      AppWebViewRoute(
+                                          url: services.serviceUrl ?? "",
+                                          title: services.companyName ?? "")),
+                                ),
+                              ),
+                              const SizedBox(height: 20),
                             ],
                           ),
-                        ),
                       ],
                     ),
-                    // ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Container(
-                      height: 1,
-                      color: Palette.dividerColor,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Html(
-                      data: services.description,
-                      onLinkTap: (link, _, __, ___) {
-                        context.pushRoute(
-                            AppWebViewRoute(url: link ?? '', title: ""));
-                      },
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    if (services.serviceUrl != null)
-                      Column(
-                        children: [
-                          Center(
-                            child: CustomButton(
-                              title: "Load More",
-                              textStyle: TextStyle(
-                                color: Palette.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              onTap: () => context.pushRoute(AppWebViewRoute(
-                                  url: services.serviceUrl ?? "",
-                                  title: services.companyName ?? "")),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                        ],
-                      ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+              if (services.servicePackages?.isNotEmpty ?? false) packageList(),
+              const SizedBox(height: buttonHeight)
             ],
           ),
-          if (services.servicePackages?.isNotEmpty ?? false) packageList()
-        ],
-      ),
+        ),
+        Align(
+            alignment: Alignment.bottomCenter,
+            child: (services.companyName != null &&
+                    services.companyName!.contains("Mirai"))
+                ? InkWell(
+                    onTap: () {
+                      context.pushRoute(
+                        PartnerServicePaymentRoute(
+                          payData: UtilityPaymentsModel(
+                            id: services.id,
+                            name: services.companyName,
+                          ),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      height: buttonHeight,
+                      color: Palette.primary,
+                      child: const Text(
+                        'Apply Now',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  )
+                : const SizedBox())
+      ],
     );
   }
 
