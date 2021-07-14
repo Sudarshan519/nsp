@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/get_subscription_detail_for_partner_service.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/purchase_subscription_from_partner_service.dart';
@@ -29,6 +30,7 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
   String? grandTotal;
   bool isAllSelected = false;
   List<SubscriptionInvoice> invoices = [];
+  CouponCode? couponCode;
 
   @override
   Stream<SubscriptionForPartnerServiceState> mapEventToState(
@@ -66,7 +68,9 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
 
         final result = await purchaseSubscriptionFromPartnerService(
           PurchaseSubscriptionFromPartnerServiceParams(
-              invoice: newInvoices, coupon: '', productId: e.productId),
+              invoice: newInvoices,
+              coupon: couponCode?.couponCode ?? '',
+              productId: e.productId),
         );
 
         yield result.fold(
@@ -104,6 +108,13 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
         yield const _Loading();
         yield const _FetchSubscriptionSuccessfully();
       },
+      setCoupon: (e) async* {
+        couponCode = e.coupounCode;
+        countGrandTotal();
+        yield const _Loading();
+
+        yield const _FetchSubscriptionSuccessfully();
+      },
     );
   }
 
@@ -114,6 +125,11 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
         final amount = invoice.dueAmount ?? 0.0;
         total = total + amount;
       }
+    }
+    //if couponcode is there
+    if (couponCode != null) {
+      final double discountPer = double.parse(couponCode!.cashback ?? '0.0');
+      total = total - discountPer / 100 * total;
     }
     grandTotal = total.toStringAsFixed(0);
   }
