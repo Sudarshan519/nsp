@@ -431,7 +431,7 @@ class _TransactionDetail extends StatelessWidget {
 
           final doubleAmount = state.amount - discountAmount;
           final payingAmount =
-              currencyFormatterString(value: doubleAmount.toStringAsFixed(2));
+              currencyFormatterString(value: doubleAmount.toStringAsFixed(0));
 
           return Column(
             children: [
@@ -515,7 +515,7 @@ class _TransactionDetail extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(2)} Pts.',
+                            '${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(0)} Pts.',
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,

@@ -7,6 +7,7 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_page_header.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_confirmation.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class MorePage extends StatelessWidget {
@@ -119,8 +120,17 @@ class MorePage extends StatelessWidget {
         image: "icon-logout",
         title: "Logout",
         onTap: () {
-          getIt<LogoutUser>().call(NoParams());
-          context.router.replace(const LoginRoute());
+          showDialog(
+            context: context,
+            builder: (_) => PopUpConfirmation(
+              message: 'Are you sure to Logout?',
+              onConfirmed: () {
+                getIt<LogoutUser>().call(NoParams());
+                context.popRoute();
+                context.router.replace(const LoginRoute());
+              },
+            ),
+          );
         },
       ),
     ];

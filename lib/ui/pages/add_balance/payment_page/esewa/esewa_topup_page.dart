@@ -224,8 +224,8 @@ class _ConversionRate extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                // '(NPR ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(2)})',
-                '(${currencyFormatterString(value: state.amount, symbol: 'NPR')} = JPY ${currencyFormatterString(value: amountJPYDouble.toStringAsFixed(2), symbol: 'NPR')})',
+                // '(NPR ${state.amount} = JPY ${amountJPYDouble.toStringAsFixed(0)})',
+                '(${currencyFormatterString(value: state.amount, symbol: 'NPR')} = JPY ${currencyFormatterString(value: amountJPYDouble.toStringAsFixed(0), symbol: 'NPR')})',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],

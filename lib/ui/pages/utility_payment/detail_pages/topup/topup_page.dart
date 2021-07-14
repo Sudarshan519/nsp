@@ -294,7 +294,7 @@ class _TopUpPageState extends State<TopUpPage> {
                       _TransactionDetailRow(
                         title: 'Reward Points',
                         value:
-                            '${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(2)} Pts.',
+                            '${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(0)} Pts.',
                       ),
                       const SizedBox(height: 5),
                     ],
@@ -309,7 +309,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 _TransactionDetailRow(
                   title: 'Transaction Amount (JPY)',
                   value: currencyFormatterString(
-                      value: conversionValue.toStringAsFixed(2),
+                      value: conversionValue.toStringAsFixed(0),
                       showSymbol: false),
                 ),
                 const SizedBox(height: 40),
@@ -608,7 +608,7 @@ class _AmountTextField extends StatelessWidget {
                         double.parse(value) * conversionRate;
                     context.read<TopUpBalanceInMobileBloc>().add(
                         TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
-                            conversionValue.toStringAsFixed(2)));
+                            conversionValue.toStringAsFixed(0)));
                   } else {
                     context.read<TopUpBalanceInMobileBloc>().add(
                         TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
@@ -875,7 +875,7 @@ class _TransactionDetail extends StatelessWidget {
                       ),
                       Text(
                         currencyFormatterString(
-                            value: conversionValue.toStringAsFixed(2),
+                            value: conversionValue.toStringAsFixed(0),
                             showSymbol: false),
                         style: TextStyle(
                           fontSize: 12,

@@ -211,13 +211,13 @@ class _RemitExchangeProceGeneratorState
         setState(() {
           _fromValue = amount;
           final doubleFromValue = doubleAmount * _rate;
-          _toValue = doubleFromValue.toStringAsFixed(2);
+          _toValue = doubleFromValue.toStringAsFixed(0);
         });
       } else {
         setState(() {
           _fromValue = amount;
           final doubleFromValue = doubleAmount * _reverseRate;
-          _toValue = doubleFromValue.toStringAsFixed(2);
+          _toValue = doubleFromValue.toStringAsFixed(0);
         });
       }
     } catch (e) {

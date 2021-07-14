@@ -115,6 +115,6 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
         total = total + amount;
       }
     }
-    grandTotal = total.toStringAsFixed(2);
+    grandTotal = total.toStringAsFixed(0);
   }
 }
