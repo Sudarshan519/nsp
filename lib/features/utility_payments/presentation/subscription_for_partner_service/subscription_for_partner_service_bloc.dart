@@ -69,8 +69,7 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
         final result = await purchaseSubscriptionFromPartnerService(
           PurchaseSubscriptionFromPartnerServiceParams(
               invoice: newInvoices,
-              coupon:
-                  couponCode != null ? couponCode!.couponCode.toString() : '',
+              coupon: couponCode?.couponCode ?? '',
               productId: e.productId),
         );
 
