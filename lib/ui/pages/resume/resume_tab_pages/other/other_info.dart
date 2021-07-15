@@ -191,7 +191,7 @@ class _JLPTLevelField extends StatelessWidget {
       builder: (context, state) => FormFieldDecoration(
         title: "Japanese Language\nCompletence\n(JLPT Level)",
         child: CustomSearchableDropDownWidget(
-          hintText: "N3",
+          hintText: "Select your option",
           value: state.JLPTLevel,
           alignment: Alignment.centerRight,
           isEnable: false,

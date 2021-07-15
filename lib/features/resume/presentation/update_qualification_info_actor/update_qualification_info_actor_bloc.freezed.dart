@@ -783,6 +783,7 @@ class _$UpdateQualificationInfoActorStateTearOff {
       required String certifiedYear,
       required String certifiedMonth,
       required bool isSubmitting,
+      required List<String> listOfYear,
       required bool hasSetInitialData,
       required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
     return _UpdateQualificationInfoActorState(
@@ -791,6 +792,7 @@ class _$UpdateQualificationInfoActorStateTearOff {
       certifiedYear: certifiedYear,
       certifiedMonth: certifiedMonth,
       isSubmitting: isSubmitting,
+      listOfYear: listOfYear,
       hasSetInitialData: hasSetInitialData,
       failureOrSuccessOption: failureOrSuccessOption,
     );
@@ -808,6 +810,7 @@ mixin _$UpdateQualificationInfoActorState {
   String get certifiedYear => throw _privateConstructorUsedError;
   String get certifiedMonth => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
+  List<String> get listOfYear => throw _privateConstructorUsedError;
   bool get hasSetInitialData => throw _privateConstructorUsedError;
   Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -829,6 +832,7 @@ abstract class $UpdateQualificationInfoActorStateCopyWith<$Res> {
       String certifiedYear,
       String certifiedMonth,
       bool isSubmitting,
+      List<String> listOfYear,
       bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
 }
@@ -849,6 +853,7 @@ class _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
     Object? certifiedYear = freezed,
     Object? certifiedMonth = freezed,
     Object? isSubmitting = freezed,
+    Object? listOfYear = freezed,
     Object? hasSetInitialData = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
@@ -873,6 +878,10 @@ class _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      listOfYear: listOfYear == freezed
+          ? _value.listOfYear
+          : listOfYear // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       hasSetInitialData: hasSetInitialData == freezed
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
@@ -899,6 +908,7 @@ abstract class _$UpdateQualificationInfoActorStateCopyWith<$Res>
       String certifiedYear,
       String certifiedMonth,
       bool isSubmitting,
+      List<String> listOfYear,
       bool hasSetInitialData,
       Option<Either<ApiFailure, Unit>> failureOrSuccessOption});
 }
@@ -923,6 +933,7 @@ class __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
     Object? certifiedYear = freezed,
     Object? certifiedMonth = freezed,
     Object? isSubmitting = freezed,
+    Object? listOfYear = freezed,
     Object? hasSetInitialData = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
@@ -947,6 +958,10 @@ class __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      listOfYear: listOfYear == freezed
+          ? _value.listOfYear
+          : listOfYear // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       hasSetInitialData: hasSetInitialData == freezed
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
@@ -969,6 +984,7 @@ class _$_UpdateQualificationInfoActorState
       required this.certifiedYear,
       required this.certifiedMonth,
       required this.isSubmitting,
+      required this.listOfYear,
       required this.hasSetInitialData,
       required this.failureOrSuccessOption});
 
@@ -983,13 +999,15 @@ class _$_UpdateQualificationInfoActorState
   @override
   final bool isSubmitting;
   @override
+  final List<String> listOfYear;
+  @override
   final bool hasSetInitialData;
   @override
   final Option<Either<ApiFailure, Unit>> failureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UpdateQualificationInfoActorState(key: $key, qualificationName: $qualificationName, certifiedYear: $certifiedYear, certifiedMonth: $certifiedMonth, isSubmitting: $isSubmitting, hasSetInitialData: $hasSetInitialData, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'UpdateQualificationInfoActorState(key: $key, qualificationName: $qualificationName, certifiedYear: $certifiedYear, certifiedMonth: $certifiedMonth, isSubmitting: $isSubmitting, listOfYear: $listOfYear, hasSetInitialData: $hasSetInitialData, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -1010,6 +1028,9 @@ class _$_UpdateQualificationInfoActorState
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.listOfYear, listOfYear) ||
+                const DeepCollectionEquality()
+                    .equals(other.listOfYear, listOfYear)) &&
             (identical(other.hasSetInitialData, hasSetInitialData) ||
                 const DeepCollectionEquality()
                     .equals(other.hasSetInitialData, hasSetInitialData)) &&
@@ -1026,6 +1047,7 @@ class _$_UpdateQualificationInfoActorState
       const DeepCollectionEquality().hash(certifiedYear) ^
       const DeepCollectionEquality().hash(certifiedMonth) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(listOfYear) ^
       const DeepCollectionEquality().hash(hasSetInitialData) ^
       const DeepCollectionEquality().hash(failureOrSuccessOption);
 
@@ -1045,6 +1067,7 @@ abstract class _UpdateQualificationInfoActorState
           required String certifiedYear,
           required String certifiedMonth,
           required bool isSubmitting,
+          required List<String> listOfYear,
           required bool hasSetInitialData,
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
       _$_UpdateQualificationInfoActorState;
@@ -1059,6 +1082,8 @@ abstract class _UpdateQualificationInfoActorState
   String get certifiedMonth => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
+  @override
+  List<String> get listOfYear => throw _privateConstructorUsedError;
   @override
   bool get hasSetInitialData => throw _privateConstructorUsedError;
   @override

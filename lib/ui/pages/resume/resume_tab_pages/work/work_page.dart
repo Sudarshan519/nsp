@@ -323,7 +323,7 @@ class _EndMonthField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       builder: (context, state) =>
-          (state.endYear.toLowerCase() != "running" || state.endYear != "在学中")
+          (state.endYear.toLowerCase() != "running" || state.endYear != "在職中")
               ? FormFieldDecoration(
                   title: "End Month",
                   child: CustomSearchableDropDownWidget(
@@ -361,7 +361,7 @@ class _PurposeOfResignField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       builder: (context, state) =>
-          (state.endYear.toLowerCase() != "running" && state.endYear != "在学中")
+          (state.endYear.toLowerCase() != "running" && state.endYear != "在職中")
               ? FormFieldDecoration(
                   title: "Purpose of Resign",
                   child: InputTextWidget(

@@ -282,31 +282,59 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/resume/flag-US.svg",
-                    height: 20.0,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  _languageSwitch(),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  SvgPicture.asset(
-                    "assets/images/resume/flag-japan.svg",
-                    height: 20.0,
-                  ),
-                ],
-              ),
+              _languageSwitchWidget(context),
               const SizedBox(
                 height: 15,
               ),
             ],
           ),
+        );
+      },
+    );
+  }
+
+  Widget _languageSwitchWidget(BuildContext context) {
+    return BlocBuilder<ResumeWatcherBloc, ResumeWatcherState>(
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Opacity(
+              opacity: context
+                          .read<ResumeWatcherBloc>()
+                          .state
+                          .language
+                          .toLowerCase() ==
+                      "en"
+                  ? 1.0
+                  : 0.5,
+              child: SvgPicture.asset(
+                "assets/images/resume/flag-US.svg",
+                height: 20.0,
+              ),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            _languageSwitch(),
+            const SizedBox(
+              width: 5,
+            ),
+            Opacity(
+              opacity: context
+                          .read<ResumeWatcherBloc>()
+                          .state
+                          .language
+                          .toLowerCase() ==
+                      "jp"
+                  ? 1.0
+                  : 0.5,
+              child: SvgPicture.asset(
+                "assets/images/resume/flag-japan.svg",
+                height: 20.0,
+              ),
+            ),
+          ],
         );
       },
     );

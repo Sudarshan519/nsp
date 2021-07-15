@@ -5,9 +5,11 @@ import 'package:dartz/dartz.dart';
 
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
+import 'package:wallet_app/utils/get_age.dart';
 
 part 'update_personal_info_actor_event.dart';
 part 'update_personal_info_actor_state.dart';
@@ -77,6 +79,8 @@ class UpdatePersonalInfoActorBloc
     final userInfo = _setInitialState.info;
     _lang = _setInitialState.lang;
 
+    String _age = getAge(userInfo.dob ?? '');
+
     List<String> _listOfGender = ["Male", "Female"];
     String _gender = userInfo.gender ?? '';
 
@@ -101,7 +105,7 @@ class UpdatePersonalInfoActorBloc
         furigana: userInfo.furigana ?? "",
         profession: userInfo.profession ?? "",
         dob: userInfo.dob ?? "",
-        age: userInfo.age ?? "",
+        age: _age,
         gender: userInfo.gender ?? "",
         nationality: userInfo.nationality ?? "",
         email: userInfo.email ?? "",

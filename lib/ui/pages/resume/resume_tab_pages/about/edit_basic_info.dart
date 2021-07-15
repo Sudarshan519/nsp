@@ -154,6 +154,9 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             _NationalityInputField(callBack: () {}),
             const SizedBox(height: 20),
             _EmailInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            _SaveFormButton(),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -462,6 +465,37 @@ class _EmailInputField extends StatelessWidget {
               .add(UpdatePersonalInfoActorEvent.changeEmail(value)),
         ),
       ),
+    );
+  }
+}
+
+class _SaveFormButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdatePersonalInfoActorBloc,
+        UpdatePersonalInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context
+              .read<UpdatePersonalInfoActorBloc>()
+              .add(const UpdatePersonalInfoActorEvent.save()),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_qualification_info.dart';
+import 'package:wallet_app/utils/get_years.dart';
 
 part 'update_qualification_info_actor_event.dart';
 part 'update_qualification_info_actor_state.dart';
@@ -78,6 +79,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
       isSubmitting: true,
       failureOrSuccessOption: none(),
     );
+    final _listOfYear = getYears();
     final qualificationHistory = _setInitialState.qualificationHistory;
     _lang = _setInitialState.lang;
     if (qualificationHistory != _qualificationHistory) {
@@ -87,6 +89,7 @@ class UpdateQualificationInfoActorBloc extends Bloc<
         qualificationName: qualificationHistory.qualificationName ?? "",
         certifiedYear: qualificationHistory.certifiedYear ?? "",
         certifiedMonth: qualificationHistory.certifiedMonth ?? "",
+        listOfYear: _listOfYear,
         isSubmitting: false,
         hasSetInitialData: true,
         failureOrSuccessOption: none(),

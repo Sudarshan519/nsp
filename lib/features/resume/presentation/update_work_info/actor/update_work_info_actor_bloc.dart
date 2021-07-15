@@ -135,10 +135,10 @@ class UpdateWorkInfoActorBloc
     String _endYear = workHistory.endYear ?? "";
 
     if (_lang == "jp") {
-      _listOfYearWithRunning = getYearsWithOption("在学中");
+      _listOfYearWithRunning = getYearsWithOption("在職中");
 
       if (_endYear.toLowerCase() == "running") {
-        _endYear = "在学中";
+        _endYear = "在職中";
       }
     }
 

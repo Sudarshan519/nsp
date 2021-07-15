@@ -242,7 +242,7 @@ class _JLPTLevelField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Japanese Language Completence (JLPT Level)",
         child: CustomSearchableDropDownWidget(
-          hintText: "N3",
+          hintText: "Select your option",
           value: state.JLPTLevel,
           options: state.listOfJLPTLevel,
           onChanged: (value) => context
@@ -272,6 +272,8 @@ class _SelfPrInputField extends StatelessWidget {
           hintText: "Self PR",
           validator: Validator.isNotEmptyAndMinimum3CharacterLong,
           value: state.selfPR,
+          maxLines: 4,
+          textInputType: TextInputType.multiline,
           onEditingCompleted: callBack,
           onChanged: (value) => context
               .read<UpdateOtherInfoActorBloc>()

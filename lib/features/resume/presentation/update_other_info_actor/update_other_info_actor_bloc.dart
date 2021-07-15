@@ -191,15 +191,16 @@ class UpdateOtherInfoActorBloc
     final userInfo = _setInitialState.info;
     _lang = _setInitialState.lang;
 
-    List<String> _listOfJLPTLevel = const [
+    const _listOfJLPTLevel = [
       "N1",
       "N2",
       "N3",
       "N4",
       "N5",
-      "NOT AVAILABLE",
+      "N/A",
     ];
-    String _JLPTLeven = userInfo.jlpt ?? "";
+
+    final _JLPTLeven = userInfo.jlpt ?? "";
 
     List<String> _listOfHourRate = const [
       "0",
@@ -223,19 +224,6 @@ class UpdateOtherInfoActorBloc
     String _spouseSupportObligation = userInfo.spouseSupportObligation ?? "";
 
     if (_lang == "jp") {
-      _listOfJLPTLevel = const [
-        "N1",
-        "N2",
-        "N3",
-        "N4",
-        "N5",
-        "利用不可",
-      ];
-
-      if (_JLPTLeven.toUpperCase() == "NOT AVAILABLE") {
-        _JLPTLeven = "利用不可";
-      }
-
       _listOfHourRate = const [
         "0",
         "1",

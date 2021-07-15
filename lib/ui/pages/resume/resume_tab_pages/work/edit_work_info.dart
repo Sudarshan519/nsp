@@ -327,7 +327,7 @@ class _EndYearField extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             if (state.endYear.toLowerCase() != "running" &&
-                state.endYear != "在学中")
+                state.endYear != "在職中")
               SizedBox(
                 width: 120,
                 child: CustomDropDownWidget(
@@ -369,7 +369,7 @@ class _PurposeOfResignField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
       builder: (context, state) => (state.endYear.toLowerCase() != "running" &&
-              state.endYear != "在学中")
+              state.endYear != "在職中")
           ? TextWidetWithLabelAndChild(
               title: "Purpose of Resign",
               child: InputTextWidget(
