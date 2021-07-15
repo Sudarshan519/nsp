@@ -255,20 +255,21 @@ class _StartedYearField extends StatelessWidget {
           children: [
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.startedYear,
                 options: state.listOfYear,
                 alignment: Alignment.topCenter,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
-                    .add(UpdateWorkInfoActorEvent.changedStartedYear(value)),
+                    .add(UpdateWorkInfoActorEvent.changedStartedYear(
+                        value ?? '')),
               ),
             ),
             const SizedBox(width: 10),
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.startedMonth,
                 alignment: Alignment.topCenter,
@@ -288,7 +289,8 @@ class _StartedYearField extends StatelessWidget {
                 ],
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
-                    .add(UpdateWorkInfoActorEvent.changedStartedMonth(value)),
+                    .add(UpdateWorkInfoActorEvent.changedStartedMonth(
+                        value ?? '')),
               ),
             ),
           ],
@@ -315,14 +317,14 @@ class _EndYearField extends StatelessWidget {
           children: [
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.endYear,
                 options: state.listOfYearWithRunning,
                 alignment: Alignment.topCenter,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
-                    .add(UpdateWorkInfoActorEvent.changedEndYear(value)),
+                    .add(UpdateWorkInfoActorEvent.changedEndYear(value ?? '')),
               ),
             ),
             const SizedBox(width: 10),
@@ -330,7 +332,7 @@ class _EndYearField extends StatelessWidget {
                 state.endYear != "在職中")
               SizedBox(
                 width: 120,
-                child: CustomDropDownWidget(
+                child: CustomSearchableDropDownWidget(
                   hintText: "Select Month",
                   value: state.endMonth,
                   alignment: Alignment.topCenter,
@@ -350,7 +352,8 @@ class _EndYearField extends StatelessWidget {
                   ],
                   onChanged: (value) => context
                       .read<UpdateWorkInfoActorBloc>()
-                      .add(UpdateWorkInfoActorEvent.changedEndMonth(value)),
+                      .add(UpdateWorkInfoActorEvent.changedEndMonth(
+                          value ?? '')),
                 ),
               ),
           ],

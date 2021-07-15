@@ -217,9 +217,10 @@ class _TopUpPageState extends State<TopUpPage> {
               callback: () {
                 final int amt = int.parse(amount);
 
-                if (amt < 10) {
+                if (amt < Values.MIN_RECHARGE || amt > Values.MAX_RECHARGE) {
                   FlushbarHelper.createError(
-                          message: 'Amount be at least NPR 10')
+                          message:
+                              'Amount be at least NPR ${Values.MIN_RECHARGE} and less than ${Values.MAX_RECHARGE}')
                       .show(context);
                   return;
                 } else if (amt > widget.balance) {
@@ -569,14 +570,17 @@ class _MobileNumberTextField extends StatelessWidget {
     final PhoneContact contact = await FlutterContactPicker.pickPhoneContact();
     if (contact.phoneNumber != null) {
       final String? number = contact.phoneNumber?.number;
-      final String formattedNumber = number
+
+      String formattedNumber = number
           .toString()
-          .replaceAll('+977', '')
           .replaceAll('+', '')
           .replaceAll('(', '')
           .replaceAll(')', '')
           .replaceAll('-', '')
           .replaceAll(' ', '');
+      if (formattedNumber.startsWith('977')) {
+        formattedNumber = formattedNumber.substring(3);
+      }
 
       return formattedNumber;
     }

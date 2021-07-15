@@ -801,6 +801,10 @@ class _SearchChoicesState<T> extends State<SearchChoices<T>> {
     });
     if (list.isEmpty && hintIndex != null) {
       innerItemsWidget = items[hintIndex];
+    } else if (list.length == 1) {
+      final data = list.first as DropdownMenuItem;
+      innerItemsWidget = DefaultTextStyle(
+          style: _textStyle, child: Text(data.value.toString()));
     } else {
       innerItemsWidget = widget.selectedAggregateWidgetFn != null
           ? widget.selectedAggregateWidgetFn!(list) as Widget
@@ -814,32 +818,37 @@ class _SearchChoicesState<T> extends State<SearchChoices<T>> {
     Widget? clickable = !_enabled &&
             prepareWidget(widget.disabledHint, parameter: updateParent) != null
         ? prepareWidget(widget.disabledHint, parameter: updateParent)
-        : InkWell(
-            key: Key(
-                "clickableResultPlaceHolder"), //this key is used for running automated tests
-            onTap: widget.readOnly || !_enabled
-                ? null
-                : () async {
-                    await showDialogOrMenu("");
-                  },
-            child: Row(
-              textDirection:
-                  widget.rightToLeft ? TextDirection.rtl : TextDirection.ltr,
-              children: <Widget>[
-                widget.isExpanded
-                    ? Expanded(child: innerItemsWidget)
-                    : innerItemsWidget,
-                IconTheme(
-                  data: IconThemeData(
-                    color: _iconColor,
-                    size: widget.iconSize,
-                  ),
-                  child:
-                      prepareWidget(widget.icon, parameter: selectedResult) ??
+        : SizedBox(
+            //Height of dropdown button
+            height: 34,
+            child: InkWell(
+                key: Key(
+                    "clickableResultPlaceHolder"), //this key is used for running automated tests
+                onTap: widget.readOnly || !_enabled
+                    ? null
+                    : () async {
+                        await showDialogOrMenu("");
+                      },
+                child: Row(
+                  textDirection: widget.rightToLeft
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
+                  children: <Widget>[
+                    widget.isExpanded
+                        ? Expanded(child: innerItemsWidget)
+                        : innerItemsWidget,
+                    IconTheme(
+                      data: IconThemeData(
+                        color: _iconColor,
+                        size: widget.iconSize,
+                      ),
+                      child: prepareWidget(widget.icon,
+                              parameter: selectedResult) ??
                           SizedBox.shrink(),
-                ),
-              ],
-            ));
+                    ),
+                  ],
+                )),
+          );
 
     Widget result = DefaultTextStyle(
       style: _textStyle,

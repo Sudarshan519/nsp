@@ -372,13 +372,13 @@ class _GenderWidget extends StatelessWidget {
         builder: (context, state) {
           return TextWidetWithLabelAndChild(
             title: "Gender",
-            child: CustomDropDownWidget(
+            child: CustomSearchableDropDownWidget(
               hintText: "Gender",
               value: state.gender,
-              options: const ["Male", "Female"],
+              options: Values.GENDER,
               onChanged: (value) => context
                   .read<UpdateProfileBloc>()
-                  .add(UpdateProfileEvent.changeGender(value)),
+                  .add(UpdateProfileEvent.changeGender(value ?? '')),
             ),
           );
         },
@@ -394,19 +394,13 @@ class _MaritalStatusWidget extends StatelessWidget {
         builder: (context, state) {
           return TextWidetWithLabelAndChild(
             title: "Marital Status",
-            child: CustomDropDownWidget(
+            child: CustomSearchableDropDownWidget(
               hintText: "Marital Status",
               value: state.maritalStatus,
-              options: const [
-                "Married",
-                "Unmarried",
-                "Divorced",
-                "Single",
-                "Widow"
-              ],
+              options: Values.MARITIAL_STATUS,
               onChanged: (value) => context
                   .read<UpdateProfileBloc>()
-                  .add(UpdateProfileEvent.changeMaritalStatus(value)),
+                  .add(UpdateProfileEvent.changeMaritalStatus(value ?? '')),
             ),
           );
         },

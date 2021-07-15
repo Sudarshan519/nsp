@@ -395,13 +395,13 @@ class _GenderInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.gender != current.gender,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Gender",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "Gender",
           value: state.gender,
           options: state.listOfGender,
           onChanged: (value) => context
               .read<UpdatePersonalInfoActorBloc>()
-              .add(UpdatePersonalInfoActorEvent.changeGender(value)),
+              .add(UpdatePersonalInfoActorEvent.changeGender(value ?? '')),
         ),
       ),
     );

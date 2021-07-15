@@ -248,12 +248,7 @@ class _PurposeWidget extends StatelessWidget {
             child: CustomSearchableDropDownWidget(
                 hintText: "Purpose of Transfer",
                 value: state.purpose,
-                options: const [
-                  "Utilities",
-                  "Partner Services",
-                  "Bill Payments",
-                  "Others",
-                ],
+                options: Values.PAYMENT_PURPOSE,
                 onChanged: (value) {
                   context.read<TopupViaStripeBloc>().add(
                         TopupViaStripeEvent.changePurpose(value ?? ''),

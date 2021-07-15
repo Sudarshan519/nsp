@@ -36,3 +36,36 @@ class AppConstants {
   static const redeemSuccessMessage =
       "You have successfully redeem the coupon. Thank you.";
 }
+
+class Values {
+  static const int MIN_RECHARGE = 10; //NPR
+  static const int MAX_RECHARGE = 5000; //NPR
+  static const List<String> GENDER = ['Male', 'Female'];
+  static const List<String> PAYMENT_PURPOSE = [
+    'Utilities',
+    'Partner Services',
+    'Bill Payments',
+    'Others',
+  ];
+  static const List<String> MARITIAL_STATUS = [
+    'Married',
+    'Unmarried',
+    'Divorced',
+    'Single',
+    'Widow'
+  ];
+  static const List<String> MONTHS = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+}

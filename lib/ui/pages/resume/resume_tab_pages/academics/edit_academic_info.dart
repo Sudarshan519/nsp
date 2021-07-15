@@ -257,7 +257,7 @@ class _YearOfEnrollField extends StatelessWidget {
           children: [
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.yearOFEnroll,
                 options: state.listOfYear,
@@ -265,34 +265,21 @@ class _YearOfEnrollField extends StatelessWidget {
                 onChanged: (value) => context
                     .read<UpdateAcademicInfoActorBloc>()
                     .add(UpdateAcademicInfoActorEvent.changedYearOfEnroll(
-                        value)),
+                        value ?? '')),
               ),
             ),
             const SizedBox(width: 10),
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.monthOfEnroll,
                 alignment: Alignment.topCenter,
-                options: const [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ],
+                options: Values.MONTHS,
                 onChanged: (value) => context
                     .read<UpdateAcademicInfoActorBloc>()
                     .add(UpdateAcademicInfoActorEvent.changedMonthOfEnroll(
-                        value)),
+                        value ?? '')),
               ),
             ),
           ],
@@ -319,7 +306,7 @@ class _YearOfCompletionField extends StatelessWidget {
           children: [
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.yearOfCpmpletion,
                 options: state.listOfYearWithRunning,
@@ -327,7 +314,7 @@ class _YearOfCompletionField extends StatelessWidget {
                 onChanged: (value) => context
                     .read<UpdateAcademicInfoActorBloc>()
                     .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(
-                        value)),
+                        value ?? '')),
               ),
             ),
             const SizedBox(width: 10),
@@ -335,29 +322,16 @@ class _YearOfCompletionField extends StatelessWidget {
                 state.yearOfCpmpletion != "在学中")
               SizedBox(
                 width: 120,
-                child: CustomDropDownWidget(
+                child: CustomSearchableDropDownWidget(
                   hintText: "Select Month",
                   value: state.monthOfCompletion,
                   alignment: Alignment.topCenter,
-                  options: const [
-                    "Jan",
-                    "Feb",
-                    "Mar",
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "July",
-                    "Aug",
-                    "Sep",
-                    "Oct",
-                    "Nov",
-                    "Dec",
-                  ],
+                  options: Values.MONTHS,
                   onChanged: (value) => context
                       .read<UpdateAcademicInfoActorBloc>()
                       .add(
                           UpdateAcademicInfoActorEvent.changedMonthOfCompletion(
-                              value)),
+                              value ?? '')),
                 ),
               ),
           ],

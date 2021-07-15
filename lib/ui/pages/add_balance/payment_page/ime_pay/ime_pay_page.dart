@@ -2,10 +2,10 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ime_pay/ime_pay.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/ime_pay/ime_pay_form/ime_pay_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/ime_pay/verify_ime_pay_topup/verify_ime_pay_topup_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
@@ -55,7 +55,7 @@ class ImePayTopupPage extends StatelessWidget {
           initial: (_) {},
           loading: (_) {},
           success: (_) {
-            getIt<HomePageDataBloc>().add(const HomePageDataEvent.fetch());
+            getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
 
             getIt<TransactionBloc>()
                 .add(const TransactionEvent.fetchTransactionData());
@@ -329,12 +329,7 @@ class _PurposeWidget extends StatelessWidget {
             child: CustomSearchableDropDownWidget(
               hintText: "Purpose of Transfer",
               value: state.purpose,
-              options: const [
-                "Utilities",
-                "Partner Services",
-                "Bill Payments",
-                "Others",
-              ],
+              options: Values.PAYMENT_PURPOSE,
               onChanged: (value) =>
                   context.read<ImePayFormCubit>().setPurpose(value ?? ''),
             ),
