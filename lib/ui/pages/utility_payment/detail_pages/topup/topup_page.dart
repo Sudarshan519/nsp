@@ -215,8 +215,14 @@ class _TopUpPageState extends State<TopUpPage> {
             const SizedBox(height: 20),
             _ProceedButton(
               callback: () {
-                final double amt = double.parse(amount);
-                if (amt > widget.balance) {
+                final int amt = int.parse(amount);
+
+                if (amt < 10) {
+                  FlushbarHelper.createError(
+                          message: 'Amount be at least NPR 10')
+                      .show(context);
+                  return;
+                } else if (amt > widget.balance) {
                   FlushbarHelper.createError(message: 'Insufficient balance!')
                       .show(context);
                 } else {
@@ -294,7 +300,7 @@ class _TopUpPageState extends State<TopUpPage> {
                       _TransactionDetailRow(
                         title: 'Reward Points',
                         value:
-                            '${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(2)} Pts.',
+                            '${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(0)} Pts.',
                       ),
                       const SizedBox(height: 5),
                     ],
@@ -309,7 +315,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 _TransactionDetailRow(
                   title: 'Transaction Amount (JPY)',
                   value: currencyFormatterString(
-                      value: conversionValue.toStringAsFixed(2),
+                      value: conversionValue.toStringAsFixed(0),
                       showSymbol: false),
                 ),
                 const SizedBox(height: 40),
@@ -565,10 +571,11 @@ class _MobileNumberTextField extends StatelessWidget {
       final String? number = contact.phoneNumber?.number;
       final String formattedNumber = number
           .toString()
+          .replaceAll('+977', '')
+          .replaceAll('+', '')
           .replaceAll('(', '')
           .replaceAll(')', '')
           .replaceAll('-', '')
-          .replaceAll('977', '')
           .replaceAll(' ', '');
 
       return formattedNumber;
@@ -608,7 +615,7 @@ class _AmountTextField extends StatelessWidget {
                         double.parse(value) * conversionRate;
                     context.read<TopUpBalanceInMobileBloc>().add(
                         TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
-                            conversionValue.toStringAsFixed(2)));
+                            conversionValue.toStringAsFixed(0)));
                   } else {
                     context.read<TopUpBalanceInMobileBloc>().add(
                         TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
@@ -875,7 +882,7 @@ class _TransactionDetail extends StatelessWidget {
                       ),
                       Text(
                         currencyFormatterString(
-                            value: conversionValue.toStringAsFixed(2),
+                            value: conversionValue.toStringAsFixed(0),
                             showSymbol: false),
                         style: TextStyle(
                           fontSize: 12,

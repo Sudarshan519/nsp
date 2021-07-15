@@ -58,7 +58,6 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
     _headers["Authorization"] = "Bearer $accessToken";
 
     try {
-      //nikkon
       response = await client.get(
         Uri.parse(requestUrl),
         headers: _headers,

@@ -29,7 +29,8 @@ class NotificationDetailPage extends StatelessWidget {
         child: Column(
           // padding: const EdgeInsets.all(12),
           children: [
-            if (notification.image != null)
+            if (notification.image != null &&
+                notification.image.toString().isNotEmpty)
               Hero(
                   tag: notification.id.toString(),
                   child: Image.network(notification.image!.contains('http')

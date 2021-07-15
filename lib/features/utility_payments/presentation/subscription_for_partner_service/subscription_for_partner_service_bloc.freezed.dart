@@ -40,6 +40,12 @@ class _$SubscriptionForPartnerServiceEventTearOff {
       productId,
     );
   }
+
+  _SetCoupon setCoupon(CouponCode coupounCode) {
+    return _SetCoupon(
+      coupounCode,
+    );
+  }
 }
 
 /// @nodoc
@@ -54,6 +60,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
+    required TResult Function(CouponCode coupounCode) setCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +69,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
+    TResult Function(CouponCode coupounCode)? setCoupon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +80,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
     required TResult Function(_SelectAllSubscription value)
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
+    required TResult Function(_SetCoupon value) setCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +89,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
     TResult Function(_SelectSubscription value)? selectSubscription,
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult Function(_SetCoupon value)? setCoupon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,6 +184,7 @@ class _$_GetSubscription implements _GetSubscription {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
+    required TResult Function(CouponCode coupounCode) setCoupon,
   }) {
     return getSubscription(subscriptionId);
   }
@@ -185,6 +196,7 @@ class _$_GetSubscription implements _GetSubscription {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
+    TResult Function(CouponCode coupounCode)? setCoupon,
     required TResult orElse(),
   }) {
     if (getSubscription != null) {
@@ -201,6 +213,7 @@ class _$_GetSubscription implements _GetSubscription {
     required TResult Function(_SelectAllSubscription value)
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
+    required TResult Function(_SetCoupon value) setCoupon,
   }) {
     return getSubscription(this);
   }
@@ -212,6 +225,7 @@ class _$_GetSubscription implements _GetSubscription {
     TResult Function(_SelectSubscription value)? selectSubscription,
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult Function(_SetCoupon value)? setCoupon,
     required TResult orElse(),
   }) {
     if (getSubscription != null) {
@@ -300,6 +314,7 @@ class _$_SelectSubscription implements _SelectSubscription {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
+    required TResult Function(CouponCode coupounCode) setCoupon,
   }) {
     return selectSubscription(invoice);
   }
@@ -311,6 +326,7 @@ class _$_SelectSubscription implements _SelectSubscription {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
+    TResult Function(CouponCode coupounCode)? setCoupon,
     required TResult orElse(),
   }) {
     if (selectSubscription != null) {
@@ -327,6 +343,7 @@ class _$_SelectSubscription implements _SelectSubscription {
     required TResult Function(_SelectAllSubscription value)
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
+    required TResult Function(_SetCoupon value) setCoupon,
   }) {
     return selectSubscription(this);
   }
@@ -338,6 +355,7 @@ class _$_SelectSubscription implements _SelectSubscription {
     TResult Function(_SelectSubscription value)? selectSubscription,
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult Function(_SetCoupon value)? setCoupon,
     required TResult orElse(),
   }) {
     if (selectSubscription != null) {
@@ -431,6 +449,7 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
+    required TResult Function(CouponCode coupounCode) setCoupon,
   }) {
     return selectAllSubscription(selectAll);
   }
@@ -442,6 +461,7 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
+    TResult Function(CouponCode coupounCode)? setCoupon,
     required TResult orElse(),
   }) {
     if (selectAllSubscription != null) {
@@ -458,6 +478,7 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     required TResult Function(_SelectAllSubscription value)
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
+    required TResult Function(_SetCoupon value) setCoupon,
   }) {
     return selectAllSubscription(this);
   }
@@ -469,6 +490,7 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     TResult Function(_SelectSubscription value)? selectSubscription,
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult Function(_SetCoupon value)? setCoupon,
     required TResult orElse(),
   }) {
     if (selectAllSubscription != null) {
@@ -561,6 +583,7 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
+    required TResult Function(CouponCode coupounCode) setCoupon,
   }) {
     return purchaseSubscription(productId);
   }
@@ -572,6 +595,7 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
+    TResult Function(CouponCode coupounCode)? setCoupon,
     required TResult orElse(),
   }) {
     if (purchaseSubscription != null) {
@@ -588,6 +612,7 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     required TResult Function(_SelectAllSubscription value)
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
+    required TResult Function(_SetCoupon value) setCoupon,
   }) {
     return purchaseSubscription(this);
   }
@@ -599,6 +624,7 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     TResult Function(_SelectSubscription value)? selectSubscription,
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult Function(_SetCoupon value)? setCoupon,
     required TResult orElse(),
   }) {
     if (purchaseSubscription != null) {
@@ -615,6 +641,135 @@ abstract class _PurchaseSubscription
   int get productId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$PurchaseSubscriptionCopyWith<_PurchaseSubscription> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SetCouponCopyWith<$Res> {
+  factory _$SetCouponCopyWith(
+          _SetCoupon value, $Res Function(_SetCoupon) then) =
+      __$SetCouponCopyWithImpl<$Res>;
+  $Res call({CouponCode coupounCode});
+}
+
+/// @nodoc
+class __$SetCouponCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
+    implements _$SetCouponCopyWith<$Res> {
+  __$SetCouponCopyWithImpl(_SetCoupon _value, $Res Function(_SetCoupon) _then)
+      : super(_value, (v) => _then(v as _SetCoupon));
+
+  @override
+  _SetCoupon get _value => super._value as _SetCoupon;
+
+  @override
+  $Res call({
+    Object? coupounCode = freezed,
+  }) {
+    return _then(_SetCoupon(
+      coupounCode == freezed
+          ? _value.coupounCode
+          : coupounCode // ignore: cast_nullable_to_non_nullable
+              as CouponCode,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetCoupon implements _SetCoupon {
+  const _$_SetCoupon(this.coupounCode);
+
+  @override
+  final CouponCode coupounCode;
+
+  @override
+  String toString() {
+    return 'SubscriptionForPartnerServiceEvent.setCoupon(coupounCode: $coupounCode)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SetCoupon &&
+            (identical(other.coupounCode, coupounCode) ||
+                const DeepCollectionEquality()
+                    .equals(other.coupounCode, coupounCode)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(coupounCode);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SetCouponCopyWith<_SetCoupon> get copyWith =>
+      __$SetCouponCopyWithImpl<_SetCoupon>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String subscriptionId) getSubscription,
+    required TResult Function(SubscriptionInvoice invoice) selectSubscription,
+    required TResult Function(bool selectAll) selectAllSubscription,
+    required TResult Function(int productId) purchaseSubscription,
+    required TResult Function(CouponCode coupounCode) setCoupon,
+  }) {
+    return setCoupon(coupounCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String subscriptionId)? getSubscription,
+    TResult Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult Function(bool selectAll)? selectAllSubscription,
+    TResult Function(int productId)? purchaseSubscription,
+    TResult Function(CouponCode coupounCode)? setCoupon,
+    required TResult orElse(),
+  }) {
+    if (setCoupon != null) {
+      return setCoupon(coupounCode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetSubscription value) getSubscription,
+    required TResult Function(_SelectSubscription value) selectSubscription,
+    required TResult Function(_SelectAllSubscription value)
+        selectAllSubscription,
+    required TResult Function(_PurchaseSubscription value) purchaseSubscription,
+    required TResult Function(_SetCoupon value) setCoupon,
+  }) {
+    return setCoupon(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetSubscription value)? getSubscription,
+    TResult Function(_SelectSubscription value)? selectSubscription,
+    TResult Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult Function(_SetCoupon value)? setCoupon,
+    required TResult orElse(),
+  }) {
+    if (setCoupon != null) {
+      return setCoupon(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetCoupon implements SubscriptionForPartnerServiceEvent {
+  const factory _SetCoupon(CouponCode coupounCode) = _$_SetCoupon;
+
+  CouponCode get coupounCode => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SetCouponCopyWith<_SetCoupon> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

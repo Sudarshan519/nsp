@@ -18,4 +18,7 @@ class SubscriptionForPartnerServiceEvent
 
   const factory SubscriptionForPartnerServiceEvent.purchaseSubscription(
       int productId) = _PurchaseSubscription;
+
+  const factory SubscriptionForPartnerServiceEvent.setCoupon(
+      CouponCode coupounCode) = _SetCoupon;
 }

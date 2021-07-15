@@ -97,14 +97,15 @@ class _NotificationListView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (item.image != null)
+                        if (item.image != null &&
+                            item.image.toString().isNotEmpty)
                           Center(
                             child: SizedBox(
                               height: 90,
                               child: Hero(
                                 tag: item.id.toString(),
                                 child: Image.network(
-                                  baseURL + item.image.toString(),
+                                  item.image.toString(),
                                 ),
                               ),
                             ),

@@ -184,8 +184,8 @@ class TransactionDetailPage extends StatelessWidget {
             ]),
             TableRow(children: [
               _tableRowItem('Amount:'),
-              _tableRowItem(currencyFormatter(
-                  value: item.topupAmount ?? 0, showSymbol: false)),
+              _tableRowItem(
+                  currencyFormatter(value: item.topupAmount ?? 0, symbol: '¥')),
             ]),
             TableRow(children: [
               _tableRowItem('Currency:'),

@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 
 String currencyFormatter({
   required double value,
-  int decimalDigits = 2,
+  int decimalDigits = 0,
   bool showSymbol = true,
   String symbol = "JPY",
 }) {
@@ -16,7 +16,7 @@ String currencyFormatter({
 
 String currencyFormatterString({
   required String value,
-  int decimalDigits = 2,
+  int decimalDigits = 0,
   bool showSymbol = true,
   String symbol = "JPY",
 }) {
@@ -29,6 +29,6 @@ String currencyFormatterString({
     );
     return formatter.format(doubleValue);
   } catch (e) {
-    return '<INVALID CURRENCY>';
+    return '<INVALID>';
   }
 }
