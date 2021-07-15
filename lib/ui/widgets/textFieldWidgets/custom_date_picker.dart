@@ -31,7 +31,7 @@ class CustomDatePicker extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: 40,
+          height: 30,
           width: double.infinity,
           alignment: Alignment.center,
           child: Stack(
