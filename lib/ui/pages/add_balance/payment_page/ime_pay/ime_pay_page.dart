@@ -74,7 +74,9 @@ class ImePayTopupPage extends StatelessWidget {
             FlushbarHelper.createError(
               message: failure.failure.map(
                 noInternetConnection: (error) => AppConstants.noNetwork,
-                serverError: (error) => error.message,
+                serverError: (error) => error.message.isNotEmpty
+                    ? error.message
+                    : AppConstants.someThingWentWrong,
                 invalidUser: (error) => AppConstants.someThingWentWrong,
               ),
             ).show(context);
