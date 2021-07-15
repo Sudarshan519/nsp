@@ -165,14 +165,14 @@ class _PersonalDocumentDetailPageState
                     const SizedBox(height: 10),
                     TextWidetWithLabelAndChild(
                       title: "Document Type",
-                      child: CustomSearchableDropDownWidget(
+                      child: CustomDropDownWidget(
                         hintText: "Document Type",
                         value: state.originKycDocType,
                         options: state.listOfKycDocType,
                         onChanged: (value) => context
                             .read<UpdateProfileBloc>()
                             .add(UpdateProfileEvent.changeOriginKycDocType(
-                                value ?? '')),
+                                value)),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -346,7 +346,7 @@ class _PersonalDocumentDetailPageState
                     const SizedBox(height: 10),
                     TextWidetWithLabelAndChild(
                       title: "Document Type",
-                      child: CustomSearchableDropDownWidget(
+                      child: CustomDropDownWidget(
                         hintText: "Document Type",
                         value: state.residenceKycDocType,
                         options: const [
@@ -356,7 +356,7 @@ class _PersonalDocumentDetailPageState
                         onChanged: (value) => context
                             .read<UpdateProfileBloc>()
                             .add(UpdateProfileEvent.changeResidenceKycDocType(
-                                value ?? '')),
+                                value)),
                       ),
                     ),
                     const SizedBox(height: 10),

@@ -126,6 +126,8 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             _NameOfQualificationField(),
             SizedBox(height: 20),
             _CertifiedYearField(),
+            SizedBox(height: 20),
+            _SaveFormButton(),
           ],
         ),
       ),
@@ -252,6 +254,41 @@ class _CertifiedYearField extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _SaveFormButton extends StatelessWidget {
+  const _SaveFormButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateQualificationInfoActorBloc,
+        UpdateQualificationInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context
+              .read<UpdateQualificationInfoActorBloc>()
+              .add(const UpdateQualificationInfoActorEvent.save()),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

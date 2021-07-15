@@ -136,6 +136,8 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             _EndYearField(),
             SizedBox(height: 20),
             _PurposeOfResignField(),
+            SizedBox(height: 20),
+            _SaveFormButton(),
           ],
         ),
       ),
@@ -385,6 +387,40 @@ class _PurposeOfResignField extends StatelessWidget {
               ),
             )
           : const SizedBox.shrink(),
+    );
+  }
+}
+
+class _SaveFormButton extends StatelessWidget {
+  const _SaveFormButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context
+              .read<UpdateWorkInfoActorBloc>()
+              .add(const UpdateWorkInfoActorEvent.save()),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

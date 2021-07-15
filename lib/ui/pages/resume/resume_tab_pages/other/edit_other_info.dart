@@ -153,6 +153,8 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             const SizedBox(height: 20),
             const _SpouseSupportObligationInputField(),
             _SpecialConditionInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            const _SaveFormButton(),
           ],
         ),
       ),
@@ -576,6 +578,40 @@ class _SpecialConditionInputField extends StatelessWidget {
               .add(UpdateOtherInfoActorEvent.changeSpecialConditions(value)),
         ),
       ),
+    );
+  }
+}
+
+class _SaveFormButton extends StatelessWidget {
+  const _SaveFormButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context
+              .read<UpdateOtherInfoActorBloc>()
+              .add(const UpdateOtherInfoActorEvent.save()),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

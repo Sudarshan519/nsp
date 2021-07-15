@@ -803,8 +803,21 @@ class _SearchChoicesState<T> extends State<SearchChoices<T>> {
       innerItemsWidget = items[hintIndex];
     } else if (list.length == 1) {
       final data = list.first as DropdownMenuItem;
-      innerItemsWidget = DefaultTextStyle(
-          style: _textStyle, child: Text(data.value.toString()));
+      AlignmentGeometry align = Alignment.center;
+      TextStyle? style;
+      if (data.child is Align) {
+        var alignData = data.child as Align;
+        align = alignData.alignment;
+
+        if (alignData.child is Text) {
+          style = (alignData.child as Text).style ?? _textStyle;
+        }
+      }
+      innerItemsWidget = Container(
+        alignment: align,
+        child: DefaultTextStyle(
+            style: style ?? _textStyle, child: Text(data.value.toString())),
+      );
     } else {
       innerItemsWidget = widget.selectedAggregateWidgetFn != null
           ? widget.selectedAggregateWidgetFn!(list) as Widget

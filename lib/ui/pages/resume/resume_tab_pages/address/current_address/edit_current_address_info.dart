@@ -151,6 +151,8 @@ class _EditBasicInfoFormBody extends StatelessWidget {
             const _AddressInputField(),
             const SizedBox(height: 20),
             const _PhoneInputField(),
+            const SizedBox(height: 20),
+            const _SaveFormButton(),
           ],
         ),
       ),
@@ -543,6 +545,40 @@ class _PhoneInputField extends StatelessWidget {
           },
         ),
       ),
+    );
+  }
+}
+
+class _SaveFormButton extends StatelessWidget {
+  const _SaveFormButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context.read<UpdateAddressInfoActorBloc>().add(
+                const UpdateAddressInfoActorEvent.save(),
+              ),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
