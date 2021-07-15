@@ -74,7 +74,11 @@ class PartnerServicePaymentPage extends StatelessWidget {
         SubscriptionForPartnerServiceState>(
       listener: (context, state) {
         state.map(
-          initial: (_) {},
+          initial: (_) {
+            context.read<SubscriptionForPartnerServiceBloc>().add(
+                SubscriptionForPartnerServiceEvent.SetCashback(
+                    payData.cashbackPer ?? 0));
+          },
           loading: (_) {},
           failure: (failure) {
             FlushbarHelper.createError(
@@ -665,107 +669,90 @@ class __TransactionDetailState extends State<_TransactionDetail> {
           },
         ),
       );
-    }
-    final cp = context.read<SubscriptionForPartnerServiceBloc>().couponCode;
-    if (cp != null) {
-      // final rewardPoint = state.amount * (state.rewardPoint / 100);
 
-      widgets.add(Column(
-        children: [
-          const SizedBox(height: 20),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            // height: 30,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Palette.primary,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if ((widget.payData.cashbackPer ?? 0) > 0)
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Cashback',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                              color: Palette.white,
+      final cp = context.read<SubscriptionForPartnerServiceBloc>().couponCode;
+
+      double casbackPer;
+      double rewardPoint;
+
+      if (cp != null) {
+        casbackPer = double.parse(cp.cashback ?? '0.0');
+        rewardPoint = double.parse(cp.rewardPoint ?? '0.0');
+      } else {
+        casbackPer = widget.payData.cashbackPer ?? 0.0;
+        rewardPoint = widget.payData.rewardPoint ?? 0.0;
+      }
+      if (casbackPer > 0 || rewardPoint > 0) {
+        widgets.add(Column(
+          children: [
+            const SizedBox(height: 20),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              // height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Palette.primary,
+              ),
+              // ignore: sort_child_properties_last
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (casbackPer > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Discount Cashback',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
                             ),
-                          ),
-                          Text(
-                            '${widget.payData.cashbackPer ?? 0}%',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.white,
+                            Text(
+                              '$casbackPer%',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Palette.white,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
-                if ((double.parse(cp.cashback ?? '0.0')) > 0)
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Discount Cashback',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                              color: Palette.white,
-                            ),
-                          ),
-                          Text(
-                            '${cp.cashback ?? '0'}%',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
-                if ((widget.payData.rewardPoint ?? 0) > 0 ||
-                    double.parse(cp.rewardPoint ?? '0.0') > 0)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Reward Points:',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
+                          ],
                         ),
-                      ),
-                      Text(
-                        '${(double.parse(cp.rewardPoint ?? '0.0')).toStringAsFixed(0)} Pts.',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  if (rewardPoint > 0)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Reward Points:',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Palette.white,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-              ],
+                        Text(
+                          '${rewardPoint.toStringAsFixed(0)} Pts.',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Palette.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-        ],
-      ));
+            const SizedBox(height: 20),
+          ],
+        ));
+      }
     }
 
     return widgets;

@@ -21,4 +21,7 @@ class SubscriptionForPartnerServiceEvent
 
   const factory SubscriptionForPartnerServiceEvent.setCoupon(
       CouponCode coupounCode) = _SetCoupon;
+
+  const factory SubscriptionForPartnerServiceEvent.SetCashback(
+      double cashBack) = _SetCashback;
 }

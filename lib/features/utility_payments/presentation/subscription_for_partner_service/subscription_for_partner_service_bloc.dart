@@ -31,6 +31,7 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
   bool isAllSelected = false;
   List<SubscriptionInvoice> invoices = [];
   CouponCode? couponCode;
+  double initialCashback = 0;
 
   @override
   Stream<SubscriptionForPartnerServiceState> mapEventToState(
@@ -54,6 +55,11 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
             return const _FetchSubscriptionSuccessfully();
           },
         );
+      },
+      SetCashback: (e) async* {
+        yield const _Loading();
+        initialCashback = e.cashBack;
+        yield const _FetchSubscriptionSuccessfully();
       },
       purchaseSubscription: (e) async* {
         yield const _Loading();
@@ -130,6 +136,10 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
     if (couponCode != null) {
       final double discountPer = double.parse(couponCode!.cashback ?? '0.0');
       total = total - discountPer / 100 * total;
+    }
+    //if already the is cashback
+    else if (initialCashback > 0) {
+      total = total - initialCashback / 100 * total;
     }
     grandTotal = total.toStringAsFixed(0);
   }
