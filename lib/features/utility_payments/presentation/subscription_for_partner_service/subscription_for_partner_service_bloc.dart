@@ -32,6 +32,7 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
   List<SubscriptionInvoice> invoices = [];
   CouponCode? couponCode;
   double initialCashback = 0;
+  double initialRewardPoint = 0;
 
   @override
   Stream<SubscriptionForPartnerServiceState> mapEventToState(
@@ -56,9 +57,14 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
           },
         );
       },
-      SetCashback: (e) async* {
+      setInitialCashback: (e) async* {
         yield const _Loading();
-        initialCashback = e.cashBack;
+        initialCashback = e.initCashback;
+        yield const _FetchSubscriptionSuccessfully();
+      },
+      setInitialRewardPoint: (e) async* {
+        yield const _Loading();
+        initialRewardPoint = e.initReward;
         yield const _FetchSubscriptionSuccessfully();
       },
       purchaseSubscription: (e) async* {
@@ -132,15 +138,15 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
         total = total + amount;
       }
     }
+
     //if couponcode is there
+    double cashbackFromCoupon = 0.0;
     if (couponCode != null) {
-      final double discountPer = double.parse(couponCode!.cashback ?? '0.0');
-      total = total - discountPer / 100 * total;
+      cashbackFromCoupon = double.parse(couponCode!.cashback ?? '0.0');
     }
-    //if already the is cashback
-    else if (initialCashback > 0) {
-      total = total - initialCashback / 100 * total;
-    }
+
+    total = total - (initialCashback + cashbackFromCoupon) / 100 * total;
+
     grandTotal = total.toStringAsFixed(0);
   }
 }

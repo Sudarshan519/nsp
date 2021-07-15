@@ -30,7 +30,11 @@ class PartnerServicePaymentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<SubscriptionForPartnerServiceBloc>(),
+      create: (context) => getIt<SubscriptionForPartnerServiceBloc>()
+        ..add(SubscriptionForPartnerServiceEvent.setInitialCashback(
+            payData.cashbackPer ?? 0))
+        ..add(SubscriptionForPartnerServiceEvent.setInitialRewardPoint(
+            payData.rewardPoint ?? 0)),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -74,11 +78,7 @@ class PartnerServicePaymentPage extends StatelessWidget {
         SubscriptionForPartnerServiceState>(
       listener: (context, state) {
         state.map(
-          initial: (_) {
-            context.read<SubscriptionForPartnerServiceBloc>().add(
-                SubscriptionForPartnerServiceEvent.SetCashback(
-                    payData.cashbackPer ?? 0));
-          },
+          initial: (_) {},
           loading: (_) {},
           failure: (failure) {
             FlushbarHelper.createError(
@@ -122,8 +122,9 @@ class PartnerServicePaymentPage extends StatelessWidget {
   }
 
   Widget _showProceedButton(BuildContext context) {
-    return BlocBuilder<SubscriptionForPartnerServiceBloc,
+    return BlocConsumer<SubscriptionForPartnerServiceBloc,
         SubscriptionForPartnerServiceState>(
+      listener: (context, state) {},
       builder: (context, state) {
         if (state == const SubscriptionForPartnerServiceState.loading()) {
           return const SizedBox.shrink();
@@ -244,7 +245,6 @@ class PartnerServicePaymentPage extends StatelessWidget {
             _TransactionDetail(
               invoices:
                   context.read<SubscriptionForPartnerServiceBloc>().invoices,
-              payData: payData,
             ),
             const SizedBox(height: 20),
           ],
@@ -472,10 +472,8 @@ class CouponCodeWidget extends StatelessWidget {
 
 class _TransactionDetail extends StatefulWidget {
   final List<SubscriptionInvoice> invoices;
-  final UtilityPaymentsModel payData;
 
-  const _TransactionDetail(
-      {Key? key, required this.invoices, required this.payData})
+  const _TransactionDetail({Key? key, required this.invoices})
       : super(key: key);
 
   @override
@@ -672,17 +670,25 @@ class __TransactionDetailState extends State<_TransactionDetail> {
 
       final cp = context.read<SubscriptionForPartnerServiceBloc>().couponCode;
 
-      double casbackPer;
-      double rewardPoint;
+      final initialCashback =
+          context.read<SubscriptionForPartnerServiceBloc>().initialCashback;
+      final initialReward =
+          context.read<SubscriptionForPartnerServiceBloc>().initialRewardPoint;
+
+      double cashBackfromCoupon = 0.0;
+
+      double rewardfromCoupon = 0.0;
 
       if (cp != null) {
-        casbackPer = double.parse(cp.cashback ?? '0.0');
-        rewardPoint = double.parse(cp.rewardPoint ?? '0.0');
-      } else {
-        casbackPer = widget.payData.cashbackPer ?? 0.0;
-        rewardPoint = widget.payData.rewardPoint ?? 0.0;
+        cashBackfromCoupon = double.parse(cp.cashback ?? '0.0');
+        rewardfromCoupon = double.parse(cp.rewardPoint ?? '0.0');
       }
-      if (casbackPer > 0 || rewardPoint > 0) {
+
+      if (initialCashback +
+              initialReward +
+              cashBackfromCoupon +
+              rewardfromCoupon >
+          0) {
         widgets.add(Column(
           children: [
             const SizedBox(height: 20),
@@ -697,7 +703,61 @@ class __TransactionDetailState extends State<_TransactionDetail> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (casbackPer > 0)
+                  if (initialCashback > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Cashback',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                            Text(
+                              '$initialCashback%',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Palette.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  if (initialReward > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Reward Points:',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                            Text(
+                              '${initialReward.toStringAsFixed(0)} Pts.',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  if (cashBackfromCoupon > 0)
                     Column(
                       children: [
                         Row(
@@ -712,7 +772,7 @@ class __TransactionDetailState extends State<_TransactionDetail> {
                               ),
                             ),
                             Text(
-                              '$casbackPer%',
+                              '$cashBackfromCoupon%',
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
@@ -724,12 +784,12 @@ class __TransactionDetailState extends State<_TransactionDetail> {
                         const SizedBox(height: 10),
                       ],
                     ),
-                  if (rewardPoint > 0)
+                  if (rewardfromCoupon > 0)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Reward Points:',
+                          'Additional Reward points',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
@@ -737,10 +797,10 @@ class __TransactionDetailState extends State<_TransactionDetail> {
                           ),
                         ),
                         Text(
-                          '${rewardPoint.toStringAsFixed(0)} Pts.',
+                          '$rewardfromCoupon Pts.',
                           style: TextStyle(
                             fontSize: 12,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.bold,
                             color: Palette.white,
                           ),
                         ),

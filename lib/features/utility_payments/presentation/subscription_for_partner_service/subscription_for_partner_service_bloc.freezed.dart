@@ -47,9 +47,15 @@ class _$SubscriptionForPartnerServiceEventTearOff {
     );
   }
 
-  _SetCashback SetCashback(double cashBack) {
-    return _SetCashback(
-      cashBack,
+  _SetInitialCashback setInitialCashback(double initCashback) {
+    return _SetInitialCashback(
+      initCashback,
+    );
+  }
+
+  _setInitialRewardPoint setInitialRewardPoint(double initReward) {
+    return _setInitialRewardPoint(
+      initReward,
     );
   }
 }
@@ -67,7 +73,8 @@ mixin _$SubscriptionForPartnerServiceEvent {
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
     required TResult Function(CouponCode coupounCode) setCoupon,
-    required TResult Function(double cashBack) SetCashback,
+    required TResult Function(double initCashback) setInitialCashback,
+    required TResult Function(double initReward) setInitialRewardPoint,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,7 +84,8 @@ mixin _$SubscriptionForPartnerServiceEvent {
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     TResult Function(CouponCode coupounCode)? setCoupon,
-    TResult Function(double cashBack)? SetCashback,
+    TResult Function(double initCashback)? setInitialCashback,
+    TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,7 +97,9 @@ mixin _$SubscriptionForPartnerServiceEvent {
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
     required TResult Function(_SetCoupon value) setCoupon,
-    required TResult Function(_SetCashback value) SetCashback,
+    required TResult Function(_SetInitialCashback value) setInitialCashback,
+    required TResult Function(_setInitialRewardPoint value)
+        setInitialRewardPoint,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,7 +109,8 @@ mixin _$SubscriptionForPartnerServiceEvent {
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     TResult Function(_SetCoupon value)? setCoupon,
-    TResult Function(_SetCashback value)? SetCashback,
+    TResult Function(_SetInitialCashback value)? setInitialCashback,
+    TResult Function(_setInitialRewardPoint value)? setInitialRewardPoint,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -195,7 +206,8 @@ class _$_GetSubscription implements _GetSubscription {
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
     required TResult Function(CouponCode coupounCode) setCoupon,
-    required TResult Function(double cashBack) SetCashback,
+    required TResult Function(double initCashback) setInitialCashback,
+    required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return getSubscription(subscriptionId);
   }
@@ -208,7 +220,8 @@ class _$_GetSubscription implements _GetSubscription {
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     TResult Function(CouponCode coupounCode)? setCoupon,
-    TResult Function(double cashBack)? SetCashback,
+    TResult Function(double initCashback)? setInitialCashback,
+    TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (getSubscription != null) {
@@ -226,7 +239,9 @@ class _$_GetSubscription implements _GetSubscription {
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
     required TResult Function(_SetCoupon value) setCoupon,
-    required TResult Function(_SetCashback value) SetCashback,
+    required TResult Function(_SetInitialCashback value) setInitialCashback,
+    required TResult Function(_setInitialRewardPoint value)
+        setInitialRewardPoint,
   }) {
     return getSubscription(this);
   }
@@ -239,7 +254,8 @@ class _$_GetSubscription implements _GetSubscription {
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     TResult Function(_SetCoupon value)? setCoupon,
-    TResult Function(_SetCashback value)? SetCashback,
+    TResult Function(_SetInitialCashback value)? setInitialCashback,
+    TResult Function(_setInitialRewardPoint value)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (getSubscription != null) {
@@ -329,7 +345,8 @@ class _$_SelectSubscription implements _SelectSubscription {
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
     required TResult Function(CouponCode coupounCode) setCoupon,
-    required TResult Function(double cashBack) SetCashback,
+    required TResult Function(double initCashback) setInitialCashback,
+    required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return selectSubscription(invoice);
   }
@@ -342,7 +359,8 @@ class _$_SelectSubscription implements _SelectSubscription {
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     TResult Function(CouponCode coupounCode)? setCoupon,
-    TResult Function(double cashBack)? SetCashback,
+    TResult Function(double initCashback)? setInitialCashback,
+    TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (selectSubscription != null) {
@@ -360,7 +378,9 @@ class _$_SelectSubscription implements _SelectSubscription {
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
     required TResult Function(_SetCoupon value) setCoupon,
-    required TResult Function(_SetCashback value) SetCashback,
+    required TResult Function(_SetInitialCashback value) setInitialCashback,
+    required TResult Function(_setInitialRewardPoint value)
+        setInitialRewardPoint,
   }) {
     return selectSubscription(this);
   }
@@ -373,7 +393,8 @@ class _$_SelectSubscription implements _SelectSubscription {
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     TResult Function(_SetCoupon value)? setCoupon,
-    TResult Function(_SetCashback value)? SetCashback,
+    TResult Function(_SetInitialCashback value)? setInitialCashback,
+    TResult Function(_setInitialRewardPoint value)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (selectSubscription != null) {
@@ -468,7 +489,8 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
     required TResult Function(CouponCode coupounCode) setCoupon,
-    required TResult Function(double cashBack) SetCashback,
+    required TResult Function(double initCashback) setInitialCashback,
+    required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return selectAllSubscription(selectAll);
   }
@@ -481,7 +503,8 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     TResult Function(CouponCode coupounCode)? setCoupon,
-    TResult Function(double cashBack)? SetCashback,
+    TResult Function(double initCashback)? setInitialCashback,
+    TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (selectAllSubscription != null) {
@@ -499,7 +522,9 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
     required TResult Function(_SetCoupon value) setCoupon,
-    required TResult Function(_SetCashback value) SetCashback,
+    required TResult Function(_SetInitialCashback value) setInitialCashback,
+    required TResult Function(_setInitialRewardPoint value)
+        setInitialRewardPoint,
   }) {
     return selectAllSubscription(this);
   }
@@ -512,7 +537,8 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     TResult Function(_SetCoupon value)? setCoupon,
-    TResult Function(_SetCashback value)? SetCashback,
+    TResult Function(_SetInitialCashback value)? setInitialCashback,
+    TResult Function(_setInitialRewardPoint value)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (selectAllSubscription != null) {
@@ -606,7 +632,8 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
     required TResult Function(CouponCode coupounCode) setCoupon,
-    required TResult Function(double cashBack) SetCashback,
+    required TResult Function(double initCashback) setInitialCashback,
+    required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return purchaseSubscription(productId);
   }
@@ -619,7 +646,8 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     TResult Function(CouponCode coupounCode)? setCoupon,
-    TResult Function(double cashBack)? SetCashback,
+    TResult Function(double initCashback)? setInitialCashback,
+    TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (purchaseSubscription != null) {
@@ -637,7 +665,9 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
     required TResult Function(_SetCoupon value) setCoupon,
-    required TResult Function(_SetCashback value) SetCashback,
+    required TResult Function(_SetInitialCashback value) setInitialCashback,
+    required TResult Function(_setInitialRewardPoint value)
+        setInitialRewardPoint,
   }) {
     return purchaseSubscription(this);
   }
@@ -650,7 +680,8 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     TResult Function(_SetCoupon value)? setCoupon,
-    TResult Function(_SetCashback value)? SetCashback,
+    TResult Function(_SetInitialCashback value)? setInitialCashback,
+    TResult Function(_setInitialRewardPoint value)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (purchaseSubscription != null) {
@@ -740,7 +771,8 @@ class _$_SetCoupon implements _SetCoupon {
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
     required TResult Function(CouponCode coupounCode) setCoupon,
-    required TResult Function(double cashBack) SetCashback,
+    required TResult Function(double initCashback) setInitialCashback,
+    required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return setCoupon(coupounCode);
   }
@@ -753,7 +785,8 @@ class _$_SetCoupon implements _SetCoupon {
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     TResult Function(CouponCode coupounCode)? setCoupon,
-    TResult Function(double cashBack)? SetCashback,
+    TResult Function(double initCashback)? setInitialCashback,
+    TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (setCoupon != null) {
@@ -771,7 +804,9 @@ class _$_SetCoupon implements _SetCoupon {
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
     required TResult Function(_SetCoupon value) setCoupon,
-    required TResult Function(_SetCashback value) SetCashback,
+    required TResult Function(_SetInitialCashback value) setInitialCashback,
+    required TResult Function(_setInitialRewardPoint value)
+        setInitialRewardPoint,
   }) {
     return setCoupon(this);
   }
@@ -784,7 +819,8 @@ class _$_SetCoupon implements _SetCoupon {
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     TResult Function(_SetCoupon value)? setCoupon,
-    TResult Function(_SetCashback value)? SetCashback,
+    TResult Function(_SetInitialCashback value)? setInitialCashback,
+    TResult Function(_setInitialRewardPoint value)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
     if (setCoupon != null) {
@@ -804,32 +840,32 @@ abstract class _SetCoupon implements SubscriptionForPartnerServiceEvent {
 }
 
 /// @nodoc
-abstract class _$SetCashbackCopyWith<$Res> {
-  factory _$SetCashbackCopyWith(
-          _SetCashback value, $Res Function(_SetCashback) then) =
-      __$SetCashbackCopyWithImpl<$Res>;
-  $Res call({double cashBack});
+abstract class _$SetInitialCashbackCopyWith<$Res> {
+  factory _$SetInitialCashbackCopyWith(
+          _SetInitialCashback value, $Res Function(_SetInitialCashback) then) =
+      __$SetInitialCashbackCopyWithImpl<$Res>;
+  $Res call({double initCashback});
 }
 
 /// @nodoc
-class __$SetCashbackCopyWithImpl<$Res>
+class __$SetInitialCashbackCopyWithImpl<$Res>
     extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
-    implements _$SetCashbackCopyWith<$Res> {
-  __$SetCashbackCopyWithImpl(
-      _SetCashback _value, $Res Function(_SetCashback) _then)
-      : super(_value, (v) => _then(v as _SetCashback));
+    implements _$SetInitialCashbackCopyWith<$Res> {
+  __$SetInitialCashbackCopyWithImpl(
+      _SetInitialCashback _value, $Res Function(_SetInitialCashback) _then)
+      : super(_value, (v) => _then(v as _SetInitialCashback));
 
   @override
-  _SetCashback get _value => super._value as _SetCashback;
+  _SetInitialCashback get _value => super._value as _SetInitialCashback;
 
   @override
   $Res call({
-    Object? cashBack = freezed,
+    Object? initCashback = freezed,
   }) {
-    return _then(_SetCashback(
-      cashBack == freezed
-          ? _value.cashBack
-          : cashBack // ignore: cast_nullable_to_non_nullable
+    return _then(_SetInitialCashback(
+      initCashback == freezed
+          ? _value.initCashback
+          : initCashback // ignore: cast_nullable_to_non_nullable
               as double,
     ));
   }
@@ -837,34 +873,34 @@ class __$SetCashbackCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SetCashback implements _SetCashback {
-  const _$_SetCashback(this.cashBack);
+class _$_SetInitialCashback implements _SetInitialCashback {
+  const _$_SetInitialCashback(this.initCashback);
 
   @override
-  final double cashBack;
+  final double initCashback;
 
   @override
   String toString() {
-    return 'SubscriptionForPartnerServiceEvent.SetCashback(cashBack: $cashBack)';
+    return 'SubscriptionForPartnerServiceEvent.setInitialCashback(initCashback: $initCashback)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetCashback &&
-            (identical(other.cashBack, cashBack) ||
+        (other is _SetInitialCashback &&
+            (identical(other.initCashback, initCashback) ||
                 const DeepCollectionEquality()
-                    .equals(other.cashBack, cashBack)));
+                    .equals(other.initCashback, initCashback)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(cashBack);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(initCashback);
 
   @JsonKey(ignore: true)
   @override
-  _$SetCashbackCopyWith<_SetCashback> get copyWith =>
-      __$SetCashbackCopyWithImpl<_SetCashback>(this, _$identity);
+  _$SetInitialCashbackCopyWith<_SetInitialCashback> get copyWith =>
+      __$SetInitialCashbackCopyWithImpl<_SetInitialCashback>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -874,9 +910,10 @@ class _$_SetCashback implements _SetCashback {
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
     required TResult Function(CouponCode coupounCode) setCoupon,
-    required TResult Function(double cashBack) SetCashback,
+    required TResult Function(double initCashback) setInitialCashback,
+    required TResult Function(double initReward) setInitialRewardPoint,
   }) {
-    return SetCashback(cashBack);
+    return setInitialCashback(initCashback);
   }
 
   @override
@@ -887,11 +924,12 @@ class _$_SetCashback implements _SetCashback {
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
     TResult Function(CouponCode coupounCode)? setCoupon,
-    TResult Function(double cashBack)? SetCashback,
+    TResult Function(double initCashback)? setInitialCashback,
+    TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
-    if (SetCashback != null) {
-      return SetCashback(cashBack);
+    if (setInitialCashback != null) {
+      return setInitialCashback(initCashback);
     }
     return orElse();
   }
@@ -905,9 +943,11 @@ class _$_SetCashback implements _SetCashback {
         selectAllSubscription,
     required TResult Function(_PurchaseSubscription value) purchaseSubscription,
     required TResult Function(_SetCoupon value) setCoupon,
-    required TResult Function(_SetCashback value) SetCashback,
+    required TResult Function(_SetInitialCashback value) setInitialCashback,
+    required TResult Function(_setInitialRewardPoint value)
+        setInitialRewardPoint,
   }) {
-    return SetCashback(this);
+    return setInitialCashback(this);
   }
 
   @override
@@ -918,22 +958,167 @@ class _$_SetCashback implements _SetCashback {
     TResult Function(_SelectAllSubscription value)? selectAllSubscription,
     TResult Function(_PurchaseSubscription value)? purchaseSubscription,
     TResult Function(_SetCoupon value)? setCoupon,
-    TResult Function(_SetCashback value)? SetCashback,
+    TResult Function(_SetInitialCashback value)? setInitialCashback,
+    TResult Function(_setInitialRewardPoint value)? setInitialRewardPoint,
     required TResult orElse(),
   }) {
-    if (SetCashback != null) {
-      return SetCashback(this);
+    if (setInitialCashback != null) {
+      return setInitialCashback(this);
     }
     return orElse();
   }
 }
 
-abstract class _SetCashback implements SubscriptionForPartnerServiceEvent {
-  const factory _SetCashback(double cashBack) = _$_SetCashback;
+abstract class _SetInitialCashback
+    implements SubscriptionForPartnerServiceEvent {
+  const factory _SetInitialCashback(double initCashback) =
+      _$_SetInitialCashback;
 
-  double get cashBack => throw _privateConstructorUsedError;
+  double get initCashback => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SetCashbackCopyWith<_SetCashback> get copyWith =>
+  _$SetInitialCashbackCopyWith<_SetInitialCashback> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$setInitialRewardPointCopyWith<$Res> {
+  factory _$setInitialRewardPointCopyWith(_setInitialRewardPoint value,
+          $Res Function(_setInitialRewardPoint) then) =
+      __$setInitialRewardPointCopyWithImpl<$Res>;
+  $Res call({double initReward});
+}
+
+/// @nodoc
+class __$setInitialRewardPointCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
+    implements _$setInitialRewardPointCopyWith<$Res> {
+  __$setInitialRewardPointCopyWithImpl(_setInitialRewardPoint _value,
+      $Res Function(_setInitialRewardPoint) _then)
+      : super(_value, (v) => _then(v as _setInitialRewardPoint));
+
+  @override
+  _setInitialRewardPoint get _value => super._value as _setInitialRewardPoint;
+
+  @override
+  $Res call({
+    Object? initReward = freezed,
+  }) {
+    return _then(_setInitialRewardPoint(
+      initReward == freezed
+          ? _value.initReward
+          : initReward // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_setInitialRewardPoint implements _setInitialRewardPoint {
+  const _$_setInitialRewardPoint(this.initReward);
+
+  @override
+  final double initReward;
+
+  @override
+  String toString() {
+    return 'SubscriptionForPartnerServiceEvent.setInitialRewardPoint(initReward: $initReward)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _setInitialRewardPoint &&
+            (identical(other.initReward, initReward) ||
+                const DeepCollectionEquality()
+                    .equals(other.initReward, initReward)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(initReward);
+
+  @JsonKey(ignore: true)
+  @override
+  _$setInitialRewardPointCopyWith<_setInitialRewardPoint> get copyWith =>
+      __$setInitialRewardPointCopyWithImpl<_setInitialRewardPoint>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String subscriptionId) getSubscription,
+    required TResult Function(SubscriptionInvoice invoice) selectSubscription,
+    required TResult Function(bool selectAll) selectAllSubscription,
+    required TResult Function(int productId) purchaseSubscription,
+    required TResult Function(CouponCode coupounCode) setCoupon,
+    required TResult Function(double initCashback) setInitialCashback,
+    required TResult Function(double initReward) setInitialRewardPoint,
+  }) {
+    return setInitialRewardPoint(initReward);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String subscriptionId)? getSubscription,
+    TResult Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult Function(bool selectAll)? selectAllSubscription,
+    TResult Function(int productId)? purchaseSubscription,
+    TResult Function(CouponCode coupounCode)? setCoupon,
+    TResult Function(double initCashback)? setInitialCashback,
+    TResult Function(double initReward)? setInitialRewardPoint,
+    required TResult orElse(),
+  }) {
+    if (setInitialRewardPoint != null) {
+      return setInitialRewardPoint(initReward);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetSubscription value) getSubscription,
+    required TResult Function(_SelectSubscription value) selectSubscription,
+    required TResult Function(_SelectAllSubscription value)
+        selectAllSubscription,
+    required TResult Function(_PurchaseSubscription value) purchaseSubscription,
+    required TResult Function(_SetCoupon value) setCoupon,
+    required TResult Function(_SetInitialCashback value) setInitialCashback,
+    required TResult Function(_setInitialRewardPoint value)
+        setInitialRewardPoint,
+  }) {
+    return setInitialRewardPoint(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetSubscription value)? getSubscription,
+    TResult Function(_SelectSubscription value)? selectSubscription,
+    TResult Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult Function(_SetCoupon value)? setCoupon,
+    TResult Function(_SetInitialCashback value)? setInitialCashback,
+    TResult Function(_setInitialRewardPoint value)? setInitialRewardPoint,
+    required TResult orElse(),
+  }) {
+    if (setInitialRewardPoint != null) {
+      return setInitialRewardPoint(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _setInitialRewardPoint
+    implements SubscriptionForPartnerServiceEvent {
+  const factory _setInitialRewardPoint(double initReward) =
+      _$_setInitialRewardPoint;
+
+  double get initReward => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$setInitialRewardPointCopyWith<_setInitialRewardPoint> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
