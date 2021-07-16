@@ -328,6 +328,7 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
       margin: const EdgeInsets.only(right: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        
         children: [
           const SizedBox(height: 2),
           Row(
@@ -366,42 +367,46 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
-          Container(
-            width: double.maxFinite,
-            padding: const EdgeInsets.all(12.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: Palette.primaryBackground,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  color: Palette.primaryBackground,
-                  height: 100,
-                  child: child,
-                ),
-                InkWell(
-                  onTap: () {
-                    DefaultTabController.of(context)?.animateTo(1);
-                    changeTabPage(1);
+          const SizedBox(height: 6),
+          Expanded(
+            child: Container(
+              width: double.maxFinite,
+              padding: const EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: Palette.primaryBackground,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    color: Palette.primaryBackground,
+                    height: 100,
+                    child: child,
+                  ),
+                  const Spacer(),
 
-                    if (changeResumeTabPage != null) {
-                      changeResumeTabPage!(index);
-                    }
-                  },
-                  child: Text(
-                    "View Details",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Palette.primary,
-                      fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.underline,
+                  InkWell(
+                    onTap: () {
+                      DefaultTabController.of(context)?.animateTo(1);
+                      changeTabPage(1);
+          
+                      if (changeResumeTabPage != null) {
+                        changeResumeTabPage!(index);
+                      }
+                    },
+                    child: Text(
+                      "View Details",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Palette.primary,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
@@ -444,6 +449,7 @@ class _ResumeInformationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.topRight,
       width: 180,
       margin: const EdgeInsets.only(right: 10),
       child: Column(
@@ -486,44 +492,49 @@ class _ResumeInformationWidget extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
-          Container(
-            width: double.maxFinite,
-            padding: const EdgeInsets.all(12.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: Palette.primaryBackground,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _ResumeDescriptionItem(
-                  containerTitle: containerTitle,
-                  infoText1Icon: infoText1Icon,
-                  infoText1: infoText1,
-                  infoText2Icon: infoText2Icon,
-                  infoText2: infoText2,
-                  infoText3Icon: infoText3Icon,
-                  infoText3: infoText3,
-                  infoText4Icon: infoText4Icon,
-                  infoText4: infoText4,
-                ),
-                InkWell(
-                  onTap: () {
-                    DefaultTabController.of(context)?.animateTo(1);
-                    changeTabPage(1);
-                  },
-                  child: Text(
-                    "View Details",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Palette.primary,
-                      fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.underline,
+          const SizedBox(height: 6),
+          Expanded(
+            child: Container(
+              width: double.maxFinite,
+              padding: const EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: Palette.primaryBackground,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Text('asd'),
+                  _ResumeDescriptionItem(
+                    containerTitle: containerTitle,
+                    infoText1Icon: infoText1Icon,
+                    infoText1: infoText1,
+                    infoText2Icon: infoText2Icon,
+                    infoText2: infoText2,
+                    infoText3Icon: infoText3Icon,
+                    infoText3: infoText3,
+                    infoText4Icon: infoText4Icon,
+                    infoText4: infoText4,
+                  ),
+                  const Spacer(),
+                 
+                  InkWell(
+                    onTap: () {
+                      DefaultTabController.of(context)?.animateTo(1);
+                      changeTabPage(1);
+                    },
+                    child: Text(
+                      "View Details",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Palette.primary,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
@@ -560,6 +571,7 @@ class _ResumeDescriptionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(
           containerTitle,

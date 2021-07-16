@@ -25,6 +25,12 @@ class UpdateQualificationInfo
     if (!isConnected) {
       return const Left(ApiFailure.noInternetConnection());
     }
+     if(params.qualificationName.isEmpty){
+            return const Left(ApiFailure.serverError(message: 'Please enter Qualification Name!'));
+    }
+      if(params.certifiedYear.isEmpty){
+            return const Left(ApiFailure.serverError(message: 'Please enter Certified year!'));
+    }
 
     final qualificationData = QualificationHistory(
       id: params.id,

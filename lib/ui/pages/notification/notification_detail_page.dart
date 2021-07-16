@@ -35,7 +35,26 @@ class NotificationDetailPage extends StatelessWidget {
                   tag: notification.id.toString(),
                   child: Image.network(notification.image!.contains('http')
                       ? notification.image!
-                      : baseURL + notification.image!)),
+                      : baseURL + notification.image!,
+                      
+                                                    loadingBuilder: (BuildContext context, Widget child,
+              ImageChunkEvent? loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Container(
+              color: Palette.primaryBackground,
+              height: 100,
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: Palette.primary,
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          (loadingProgress.expectedTotalBytes ?? 1)
+                      : null,
+                ),
+              ),
+            );
+          },
+                      )),
             if (notification.message != null)
               Container(
                 padding: const EdgeInsets.all(8),
