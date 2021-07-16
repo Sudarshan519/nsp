@@ -261,7 +261,7 @@ class _StartedYearField extends StatelessWidget {
                 hintText: "Select Year",
                 value: state.startedYear,
                 options: state.listOfYear,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.center,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
                     .add(UpdateWorkInfoActorEvent.changedStartedYear(
@@ -274,21 +274,8 @@ class _StartedYearField extends StatelessWidget {
               child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.startedMonth,
-                alignment: Alignment.topCenter,
-                options: const [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ],
+                alignment: Alignment.center,
+                options: Values.MONTHS,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
                     .add(UpdateWorkInfoActorEvent.changedStartedMonth(
@@ -323,7 +310,7 @@ class _EndYearField extends StatelessWidget {
                 hintText: "Select Year",
                 value: state.endYear,
                 options: state.listOfYearWithRunning,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.center,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
                     .add(UpdateWorkInfoActorEvent.changedEndYear(value ?? '')),
@@ -337,21 +324,8 @@ class _EndYearField extends StatelessWidget {
                 child: CustomSearchableDropDownWidget(
                   hintText: "Select Month",
                   value: state.endMonth,
-                  alignment: Alignment.topCenter,
-                  options: const [
-                    "Jan",
-                    "Feb",
-                    "Mar",
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "July",
-                    "Aug",
-                    "Sep",
-                    "Oct",
-                    "Nov",
-                    "Dec",
-                  ],
+                  alignment: Alignment.center,
+                  options: Values.MONTHS,
                   onChanged: (value) => context
                       .read<UpdateWorkInfoActorBloc>()
                       .add(UpdateWorkInfoActorEvent.changedEndMonth(

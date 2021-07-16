@@ -12,6 +12,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 class WorkPage extends StatelessWidget {
   final List<WorkHistory> works;
@@ -271,20 +272,7 @@ class _StartedMonthField extends StatelessWidget {
           value: state.startedMonth,
           isEnable: false,
           alignment: Alignment.centerRight,
-          options: const [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "July",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
+          options: Values.MONTHS,
         ),
       ),
     );
@@ -331,20 +319,7 @@ class _EndMonthField extends StatelessWidget {
                     value: state.endMonth,
                     isEnable: false,
                     alignment: Alignment.centerRight,
-                    options: const [
-                      "Jan",
-                      "Feb",
-                      "Mar",
-                      "Apr",
-                      "May",
-                      "Jun",
-                      "July",
-                      "Aug",
-                      "Sep",
-                      "Oct",
-                      "Nov",
-                      "Dec",
-                    ],
+                    options: Values.MONTHS,
                   ),
                 )
               : const SizedBox.shrink(),

@@ -262,7 +262,7 @@ class _YearOfEnrollField extends StatelessWidget {
                 hintText: "Select Year",
                 value: state.yearOFEnroll,
                 options: state.listOfYear,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.center,
                 onChanged: (value) => context
                     .read<UpdateAcademicInfoActorBloc>()
                     .add(UpdateAcademicInfoActorEvent.changedYearOfEnroll(
@@ -275,7 +275,7 @@ class _YearOfEnrollField extends StatelessWidget {
               child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.monthOfEnroll,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.center,
                 options: Values.MONTHS,
                 onChanged: (value) => context
                     .read<UpdateAcademicInfoActorBloc>()
@@ -311,7 +311,7 @@ class _YearOfCompletionField extends StatelessWidget {
                 hintText: "Select Year",
                 value: state.yearOfCpmpletion,
                 options: state.listOfYearWithRunning,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.center,
                 onChanged: (value) => context
                     .read<UpdateAcademicInfoActorBloc>()
                     .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(
@@ -326,7 +326,7 @@ class _YearOfCompletionField extends StatelessWidget {
                 child: CustomSearchableDropDownWidget(
                   hintText: "Select Month",
                   value: state.monthOfCompletion,
-                  alignment: Alignment.topCenter,
+                  alignment: Alignment.center,
                   options: Values.MONTHS,
                   onChanged: (value) => context
                       .read<UpdateAcademicInfoActorBloc>()

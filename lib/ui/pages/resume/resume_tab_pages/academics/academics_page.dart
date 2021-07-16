@@ -13,6 +13,7 @@ import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 class AcademicsPage extends StatelessWidget {
   final List<AcademicHistory> academics;
@@ -290,20 +291,7 @@ class _MonthOfEnrollField extends StatelessWidget {
           value: state.monthOfEnroll,
           alignment: Alignment.centerRight,
           isEnable: false,
-          options: const [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "July",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
+          options: Values.MONTHS,
         ),
       ),
     );
@@ -329,20 +317,7 @@ class _MonthOfCompletionField extends StatelessWidget {
                     value: state.monthOfCompletion,
                     alignment: Alignment.centerRight,
                     isEnable: false,
-                    options: const [
-                      "Jan",
-                      "Feb",
-                      "Mar",
-                      "Apr",
-                      "May",
-                      "Jun",
-                      "July",
-                      "Aug",
-                      "Sep",
-                      "Oct",
-                      "Nov",
-                      "Dec",
-                    ],
+                    options: Values.MONTHS,
                   ),
                 )
               : const SizedBox.shrink(),
