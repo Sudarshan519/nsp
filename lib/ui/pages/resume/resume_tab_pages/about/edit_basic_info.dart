@@ -13,7 +13,6 @@ import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_date_picker.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';

@@ -15,7 +15,6 @@ class UserBalance {
     if (balance != null) {
       return currencyFormatter(
         value: balance!,
-        decimalDigits: 0,
       );
     }
 

@@ -8,7 +8,6 @@ import 'package:wallet_app/features/ads/data/models/ad_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
-import 'package:wallet_app/features/coupon/data/model/coupon_code_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';

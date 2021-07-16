@@ -11,7 +11,6 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';

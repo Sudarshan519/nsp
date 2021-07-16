@@ -14,7 +14,6 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/image_loader_view.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';

@@ -14,7 +14,6 @@ import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_date_picker.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';

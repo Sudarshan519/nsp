@@ -5,7 +5,6 @@ import 'package:dartz/dartz.dart';
 
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:intl/intl.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
