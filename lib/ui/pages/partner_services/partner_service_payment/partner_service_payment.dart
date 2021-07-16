@@ -30,7 +30,11 @@ class PartnerServicePaymentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<SubscriptionForPartnerServiceBloc>(),
+      create: (context) => getIt<SubscriptionForPartnerServiceBloc>()
+        ..add(SubscriptionForPartnerServiceEvent.setInitialCashback(
+            payData.cashbackPer ?? 0))
+        ..add(SubscriptionForPartnerServiceEvent.setInitialRewardPoint(
+            payData.rewardPoint ?? 0)),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -118,8 +122,9 @@ class PartnerServicePaymentPage extends StatelessWidget {
   }
 
   Widget _showProceedButton(BuildContext context) {
-    return BlocBuilder<SubscriptionForPartnerServiceBloc,
+    return BlocConsumer<SubscriptionForPartnerServiceBloc,
         SubscriptionForPartnerServiceState>(
+      listener: (context, state) {},
       builder: (context, state) {
         if (state == const SubscriptionForPartnerServiceState.loading()) {
           return const SizedBox.shrink();
@@ -240,7 +245,6 @@ class PartnerServicePaymentPage extends StatelessWidget {
             _TransactionDetail(
               invoices:
                   context.read<SubscriptionForPartnerServiceBloc>().invoices,
-              payData: payData,
             ),
             const SizedBox(height: 20),
           ],
@@ -252,10 +256,10 @@ class PartnerServicePaymentPage extends StatelessWidget {
 
 // ignore: must_be_immutable
 class _SubscriptionIdTextField extends StatelessWidget {
-  String subscriptionId = "";
-
   @override
   Widget build(BuildContext context) {
+    String subscriptionId =
+        context.read<SubscriptionForPartnerServiceBloc>().subId;
     return Column(
       children: [
         TextWidetWithLabelAndChild(
@@ -266,7 +270,7 @@ class _SubscriptionIdTextField extends StatelessWidget {
                 child: InputTextWidget(
                   hintText: "1212XXXXXXX",
                   textInputType: TextInputType.emailAddress,
-                  value: "",
+                  value: subscriptionId,
                   onChanged: (value) {
                     subscriptionId = value;
                   },
@@ -468,10 +472,8 @@ class CouponCodeWidget extends StatelessWidget {
 
 class _TransactionDetail extends StatefulWidget {
   final List<SubscriptionInvoice> invoices;
-  final UtilityPaymentsModel payData;
 
-  const _TransactionDetail(
-      {Key? key, required this.invoices, required this.payData})
+  const _TransactionDetail({Key? key, required this.invoices})
       : super(key: key);
 
   @override
@@ -656,116 +658,134 @@ class __TransactionDetailState extends State<_TransactionDetail> {
               _hasCouponCode = !_hasCouponCode;
             });
           },
-          validCoupon: (couponCode) {
-            if (couponCode != null) {
-              context.read<SubscriptionForPartnerServiceBloc>().add(
-                  SubscriptionForPartnerServiceEvent.setCoupon(couponCode));
-              setState(() {});
-            }
+          validCoupon: (coupon) {
+            // if coupon is null then it will also discard any previous coupon implemented
+            context
+                .read<SubscriptionForPartnerServiceBloc>()
+                .add(SubscriptionForPartnerServiceEvent.setCoupon(coupon));
+            setState(() {});
           },
         ),
       );
-    }
-    final cp = context.read<SubscriptionForPartnerServiceBloc>().couponCode;
-    if (cp != null) {
-      // final rewardPoint = state.amount * (state.rewardPoint / 100);
 
-      widgets.add(Column(
-        children: [
-          const SizedBox(height: 20),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            // height: 30,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Palette.primary,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if ((widget.payData.cashbackPer ?? 0) > 0)
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Cashback',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                              color: Palette.white,
+      final cp = context.read<SubscriptionForPartnerServiceBloc>().couponCode;
+
+      final initialCashback =
+          context.read<SubscriptionForPartnerServiceBloc>().initialCashback;
+      final initialRewardPoint =
+          context.read<SubscriptionForPartnerServiceBloc>().initialRewardPoint;
+
+      double cashBackfromCoupon = 0.0;
+
+      double rewardPointfromCoupon = 0.0;
+
+      if (cp != null) {
+        cashBackfromCoupon = double.parse(cp.cashback ?? '0.0');
+        rewardPointfromCoupon = double.parse(cp.rewardPoint ?? '0.0');
+      }
+
+      if (initialCashback +
+              initialRewardPoint +
+              cashBackfromCoupon +
+              rewardPointfromCoupon >
+          0) {
+        widgets.add(Column(
+          children: [
+            const SizedBox(height: 20),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              // height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Palette.primary,
+              ),
+              // ignore: sort_child_properties_last
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (initialCashback > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Cashback',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
                             ),
-                          ),
-                          Text(
-                            '${widget.payData.cashbackPer ?? 0}%',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.white,
+                            Text(
+                              '$initialCashback%',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Palette.white,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
-                if ((double.parse(cp.cashback ?? '0.0')) > 0)
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Discount Cashback',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                              color: Palette.white,
-                            ),
-                          ),
-                          Text(
-                            '${cp.cashback ?? '0'}%',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
-                if ((widget.payData.rewardPoint ?? 0) > 0 ||
-                    double.parse(cp.rewardPoint ?? '0.0') > 0)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Reward Points:',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
+                          ],
                         ),
-                      ),
-                      Text(
-                        '${(double.parse(cp.rewardPoint ?? '0.0')).toStringAsFixed(0)} Pts.',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  if (cashBackfromCoupon > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Discount Cashback',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                            Text(
+                              '$cashBackfromCoupon%',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Palette.white,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-              ],
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  if (rewardPointfromCoupon + initialRewardPoint > 0)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Reward points',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Palette.white,
+                          ),
+                        ),
+                        Text(
+                          '${rewardPointfromCoupon + initialRewardPoint} Pts.',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Palette.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-        ],
-      ));
+            const SizedBox(height: 20),
+          ],
+        ));
+      }
     }
 
     return widgets;

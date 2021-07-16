@@ -72,7 +72,9 @@ class EsewaTopupPage extends StatelessWidget {
             FlushbarHelper.createError(
               message: failure.failure.map(
                 noInternetConnection: (error) => AppConstants.noNetwork,
-                serverError: (error) => error.message,
+                serverError: (error) => error.message.isNotEmpty
+                    ? error.message
+                    : AppConstants.someThingWentWrong,
                 invalidUser: (error) => AppConstants.someThingWentWrong,
               ),
             ).show(context);
@@ -192,7 +194,10 @@ class EsewaTopupPage extends StatelessWidget {
           );
     } on ESewaPaymentException catch (e) {
       // TODO: add Log here too.
-      FlushbarHelper.createError(message: e.message).show(context);
+      FlushbarHelper.createError(
+        message:
+            e.message.isNotEmpty ? e.message : AppConstants.someThingWentWrong,
+      ).show(context);
     }
   }
 }
@@ -332,12 +337,7 @@ class _PurposeWidget extends StatelessWidget {
             child: CustomSearchableDropDownWidget(
               hintText: "Purpose of Transfer",
               value: state.purpose,
-              options: const [
-                "Utilities",
-                "Partner Services",
-                "Bill Payments",
-                "Others",
-              ],
+              options: Values.PAYMENT_PURPOSE,
               onChanged: (value) =>
                   context.read<EsewaFormCubit>().setPurpose(value ?? ''),
             ),

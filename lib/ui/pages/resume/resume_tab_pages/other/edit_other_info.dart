@@ -12,7 +12,6 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_multi_select_drop_down.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -153,6 +152,8 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             const SizedBox(height: 20),
             const _SpouseSupportObligationInputField(),
             _SpecialConditionInputField(callBack: () {}),
+            const SizedBox(height: 20),
+            const _SaveFormButton(),
           ],
         ),
       ),
@@ -411,15 +412,15 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
               children: [
                 SizedBox(
                   width: 120,
-                  child: CustomDropDownWidget(
+                  child: CustomSearchableDropDownWidget(
                     hintText: "Select hours",
                     value: state.workinHours,
                     options: state.listOfHourRate,
                     alignment: Alignment.topCenter,
                     onChanged: (value) => context
                         .read<UpdateOtherInfoActorBloc>()
-                        .add(
-                            UpdateOtherInfoActorEvent.changeWorkinHours(value)),
+                        .add(UpdateOtherInfoActorEvent.changeWorkinHours(
+                            value ?? '')),
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -427,7 +428,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                     state.workinHours != "フルタイム")
                   SizedBox(
                     width: 125,
-                    child: CustomDropDownWidget(
+                    child: CustomSearchableDropDownWidget(
                       hintText: "Select minutes",
                       value: state.workingMinutes,
                       alignment: Alignment.topCenter,
@@ -438,7 +439,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                       onChanged: (value) => context
                           .read<UpdateOtherInfoActorBloc>()
                           .add(UpdateOtherInfoActorEvent.changeWorkingMinutes(
-                              value)),
+                              value ?? '')),
                     ),
                   ),
               ],
@@ -462,7 +463,7 @@ class _NumberOfDependentInputField extends StatelessWidget {
           previous.numberOfDependent != current.numberOfDependent,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Number Of Dependent(Excluding Spouse)",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "select from the options",
           value: state.numberOfDependent,
           options: const [
@@ -477,9 +478,8 @@ class _NumberOfDependentInputField extends StatelessWidget {
             "8",
             "9",
           ],
-          onChanged: (value) => context
-              .read<UpdateOtherInfoActorBloc>()
-              .add(UpdateOtherInfoActorEvent.changeNumberOfDependent(value)),
+          onChanged: (value) => context.read<UpdateOtherInfoActorBloc>().add(
+              UpdateOtherInfoActorEvent.changeNumberOfDependent(value ?? '')),
         ),
       ),
     );
@@ -497,13 +497,13 @@ class _SpouseInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.isSpouse != current.isSpouse,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Spouse",
-        child: CustomDropDownWidget(
+        child: CustomSearchableDropDownWidget(
           hintText: "select from the options",
           value: state.isSpouse,
           options: state.listOfYesNoOption,
           onChanged: (value) => context
               .read<UpdateOtherInfoActorBloc>()
-              .add(UpdateOtherInfoActorEvent.changeIsSpouse(value)),
+              .add(UpdateOtherInfoActorEvent.changeIsSpouse(value ?? '')),
         ),
       ),
     );
@@ -529,14 +529,14 @@ class _SpouseSupportObligationInputField extends StatelessWidget {
               children: [
                 TextWidetWithLabelAndChild(
                   title: "Spouse Support Obligation",
-                  child: CustomDropDownWidget(
+                  child: CustomSearchableDropDownWidget(
                     hintText: "select from the options",
                     value: state.isSpouseSupportObligation,
                     options: state.listOfYesNoOption,
                     onChanged: (value) => context
                         .read<UpdateOtherInfoActorBloc>()
                         .add(UpdateOtherInfoActorEvent
-                            .changeIsSpouseSupportObligation(value)),
+                            .changeIsSpouseSupportObligation(value ?? '')),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -577,6 +577,40 @@ class _SpecialConditionInputField extends StatelessWidget {
               .add(UpdateOtherInfoActorEvent.changeSpecialConditions(value)),
         ),
       ),
+    );
+  }
+}
+
+class _SaveFormButton extends StatelessWidget {
+  const _SaveFormButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateOtherInfoActorBloc, UpdateOtherInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context
+              .read<UpdateOtherInfoActorBloc>()
+              .add(const UpdateOtherInfoActorEvent.save()),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

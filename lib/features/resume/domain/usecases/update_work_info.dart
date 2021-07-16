@@ -24,6 +24,13 @@ class UpdateWorkInfo extends Usecase<ApiFailure, Unit, UpdateWorkInfoParams> {
       return const Left(ApiFailure.noInternetConnection());
     }
 
+    if(params.companyName.isEmpty){
+            return const Left(ApiFailure.serverError(message: 'Please enter company name!'));
+    }
+    if(params.companyType.isEmpty){
+            return const Left(ApiFailure.serverError(message: 'Please enter company Type!'));
+    }
+
     final qualificationData = WorkHistory(
       id: params.id,
       companyName: params.companyName,

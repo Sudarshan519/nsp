@@ -20,5 +20,9 @@ class SubscriptionForPartnerServiceEvent
       int productId) = _PurchaseSubscription;
 
   const factory SubscriptionForPartnerServiceEvent.setCoupon(
-      CouponCode coupounCode) = _SetCoupon;
+      CouponCode? coupounCode) = _SetCoupon;
+  const factory SubscriptionForPartnerServiceEvent.setInitialCashback(
+      double initCashback) = _SetInitialCashback;
+  const factory SubscriptionForPartnerServiceEvent.setInitialRewardPoint(
+      double initReward) = _setInitialRewardPoint;
 }

@@ -11,7 +11,6 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -136,6 +135,8 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             _EndYearField(),
             SizedBox(height: 20),
             _PurposeOfResignField(),
+            SizedBox(height: 20),
+            _SaveFormButton(),
           ],
         ),
       ),
@@ -255,40 +256,29 @@ class _StartedYearField extends StatelessWidget {
           children: [
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.startedYear,
                 options: state.listOfYear,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.centerLeft,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
-                    .add(UpdateWorkInfoActorEvent.changedStartedYear(value)),
+                    .add(UpdateWorkInfoActorEvent.changedStartedYear(
+                        value ?? '')),
               ),
             ),
             const SizedBox(width: 10),
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.startedMonth,
-                alignment: Alignment.topCenter,
-                options: const [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ],
+                alignment: Alignment.centerLeft,
+                options: Values.MONTHS,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
-                    .add(UpdateWorkInfoActorEvent.changedStartedMonth(value)),
+                    .add(UpdateWorkInfoActorEvent.changedStartedMonth(
+                        value ?? '')),
               ),
             ),
           ],
@@ -315,14 +305,14 @@ class _EndYearField extends StatelessWidget {
           children: [
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.endYear,
                 options: state.listOfYearWithRunning,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.centerLeft,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
-                    .add(UpdateWorkInfoActorEvent.changedEndYear(value)),
+                    .add(UpdateWorkInfoActorEvent.changedEndYear(value ?? '')),
               ),
             ),
             const SizedBox(width: 10),
@@ -330,27 +320,15 @@ class _EndYearField extends StatelessWidget {
                 state.endYear != "在職中")
               SizedBox(
                 width: 120,
-                child: CustomDropDownWidget(
+                child: CustomSearchableDropDownWidget(
                   hintText: "Select Month",
                   value: state.endMonth,
-                  alignment: Alignment.topCenter,
-                  options: const [
-                    "Jan",
-                    "Feb",
-                    "Mar",
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "July",
-                    "Aug",
-                    "Sep",
-                    "Oct",
-                    "Nov",
-                    "Dec",
-                  ],
+                  alignment: Alignment.centerLeft,
+                  options: Values.MONTHS,
                   onChanged: (value) => context
                       .read<UpdateWorkInfoActorBloc>()
-                      .add(UpdateWorkInfoActorEvent.changedEndMonth(value)),
+                      .add(UpdateWorkInfoActorEvent.changedEndMonth(
+                          value ?? '')),
                 ),
               ),
           ],
@@ -382,6 +360,40 @@ class _PurposeOfResignField extends StatelessWidget {
               ),
             )
           : const SizedBox.shrink(),
+    );
+  }
+}
+
+class _SaveFormButton extends StatelessWidget {
+  const _SaveFormButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateWorkInfoActorBloc, UpdateWorkInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context
+              .read<UpdateWorkInfoActorBloc>()
+              .add(const UpdateWorkInfoActorEvent.save()),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

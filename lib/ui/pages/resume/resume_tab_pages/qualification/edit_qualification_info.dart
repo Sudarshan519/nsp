@@ -8,11 +8,11 @@ import 'package:wallet_app/features/resume/domain/usecases/update_qualification_
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_qualification_info_actor/update_qualification_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -126,6 +126,8 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
             _NameOfQualificationField(),
             SizedBox(height: 20),
             _CertifiedYearField(),
+            SizedBox(height: 20),
+            _SaveFormButton(),
           ],
         ),
       ),
@@ -223,48 +225,70 @@ class _CertifiedYearField extends StatelessWidget {
           children: [
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.certifiedYear,
                 options: state.listOfYear,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.centerLeft,
                 onChanged: (value) => context
                     .read<UpdateQualificationInfoActorBloc>()
                     .add(UpdateQualificationInfoActorEvent.changedCertifiedYear(
-                        value)),
+                        value ?? '')),
               ),
             ),
             const SizedBox(width: 10),
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.certifiedMonth,
-                alignment: Alignment.topCenter,
-                options: const [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ],
+                alignment: Alignment.centerLeft,
+                options: Values.MONTHS,
                 onChanged: (value) => context
                     .read<UpdateQualificationInfoActorBloc>()
                     .add(
                         UpdateQualificationInfoActorEvent.changedCertifiedMonth(
-                            value)),
+                            value ?? '')),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _SaveFormButton extends StatelessWidget {
+  const _SaveFormButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateQualificationInfoActorBloc,
+        UpdateQualificationInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context
+              .read<UpdateQualificationInfoActorBloc>()
+              .add(const UpdateQualificationInfoActorEvent.save()),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

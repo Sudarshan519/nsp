@@ -12,7 +12,6 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -126,14 +125,16 @@ class _EditBasicInfoFormBodyState extends State<_EditBasicInfoFormBody> {
       padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
         child: Column(
-          children: const [
-            _NameOfInstituteField(),
-            SizedBox(height: 20),
-            _MajorSubjectField(),
-            SizedBox(height: 20),
-            _YearOfEnrollField(),
-            SizedBox(height: 20),
-            _YearOfCompletionField(),
+          children: [
+            const _NameOfInstituteField(),
+            const SizedBox(height: 20),
+            const _MajorSubjectField(),
+            const SizedBox(height: 20),
+            const _YearOfEnrollField(),
+            const SizedBox(height: 20),
+            const _YearOfCompletionField(),
+            const SizedBox(height: 20),
+            _SaveFormButton(),
           ],
         ),
       ),
@@ -257,42 +258,29 @@ class _YearOfEnrollField extends StatelessWidget {
           children: [
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.yearOFEnroll,
                 options: state.listOfYear,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.centerLeft,
                 onChanged: (value) => context
                     .read<UpdateAcademicInfoActorBloc>()
                     .add(UpdateAcademicInfoActorEvent.changedYearOfEnroll(
-                        value)),
+                        value ?? '')),
               ),
             ),
             const SizedBox(width: 10),
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.monthOfEnroll,
-                alignment: Alignment.topCenter,
-                options: const [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ],
+                alignment: Alignment.centerLeft,
+                options: Values.MONTHS,
                 onChanged: (value) => context
                     .read<UpdateAcademicInfoActorBloc>()
                     .add(UpdateAcademicInfoActorEvent.changedMonthOfEnroll(
-                        value)),
+                        value ?? '')),
               ),
             ),
           ],
@@ -319,15 +307,15 @@ class _YearOfCompletionField extends StatelessWidget {
           children: [
             SizedBox(
               width: 120,
-              child: CustomDropDownWidget(
+              child: CustomSearchableDropDownWidget(
                 hintText: "Select Year",
                 value: state.yearOfCpmpletion,
                 options: state.listOfYearWithRunning,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.centerLeft,
                 onChanged: (value) => context
                     .read<UpdateAcademicInfoActorBloc>()
                     .add(UpdateAcademicInfoActorEvent.changedYearOfCompletion(
-                        value)),
+                        value ?? '')),
               ),
             ),
             const SizedBox(width: 10),
@@ -335,34 +323,52 @@ class _YearOfCompletionField extends StatelessWidget {
                 state.yearOfCpmpletion != "在学中")
               SizedBox(
                 width: 120,
-                child: CustomDropDownWidget(
+                child: CustomSearchableDropDownWidget(
                   hintText: "Select Month",
                   value: state.monthOfCompletion,
-                  alignment: Alignment.topCenter,
-                  options: const [
-                    "Jan",
-                    "Feb",
-                    "Mar",
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "July",
-                    "Aug",
-                    "Sep",
-                    "Oct",
-                    "Nov",
-                    "Dec",
-                  ],
+                  alignment: Alignment.centerLeft,
+                  options: Values.MONTHS,
                   onChanged: (value) => context
                       .read<UpdateAcademicInfoActorBloc>()
                       .add(
                           UpdateAcademicInfoActorEvent.changedMonthOfCompletion(
-                              value)),
+                              value ?? '')),
                 ),
               ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _SaveFormButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UpdateAcademicInfoActorBloc,
+        UpdateAcademicInfoActorState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () => context
+              .read<UpdateAcademicInfoActorBloc>()
+              .add(const UpdateAcademicInfoActorEvent.save()),
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -19,6 +19,7 @@ import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/dashed_line.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 
@@ -217,9 +218,10 @@ class _TopUpPageState extends State<TopUpPage> {
               callback: () {
                 final int amt = int.parse(amount);
 
-                if (amt < 10) {
+                if (amt < Values.MIN_RECHARGE || amt > Values.MAX_RECHARGE) {
                   FlushbarHelper.createError(
-                          message: 'Amount be at least NPR 10')
+                          message:
+                              'Amount be at least NPR ${Values.MIN_RECHARGE} and less than ${Values.MAX_RECHARGE}')
                       .show(context);
                   return;
                 } else if (amt > widget.balance) {
@@ -569,14 +571,17 @@ class _MobileNumberTextField extends StatelessWidget {
     final PhoneContact contact = await FlutterContactPicker.pickPhoneContact();
     if (contact.phoneNumber != null) {
       final String? number = contact.phoneNumber?.number;
-      final String formattedNumber = number
+
+      String formattedNumber = number
           .toString()
-          .replaceAll('+977', '')
           .replaceAll('+', '')
           .replaceAll('(', '')
           .replaceAll(')', '')
           .replaceAll('-', '')
           .replaceAll(' ', '');
+      if (formattedNumber.startsWith('977')) {
+        formattedNumber = formattedNumber.substring(3);
+      }
 
       return formattedNumber;
     }
@@ -649,8 +654,14 @@ class _TypeOfNumber extends StatelessWidget {
                 .contains(state.type.toLowerCase()))
             .toList();
 
+        var imgUrl = '';
+
         if (searchList.isNotEmpty) {
           final id = searchList.first.id ?? 0;
+          if (searchList.first.image != null) {
+            imgUrl = getIt<ConfigReader>().baseURL + searchList.first.image!;
+          }
+
           context
               .read<TopUpBalanceInMobileBloc>()
               .add(TopUpBalanceInMobileEvent.setProductId("$id"));
@@ -661,6 +672,8 @@ class _TypeOfNumber extends StatelessWidget {
             ),
           );
         }
+        // print(imgUrl);
+
         return Column(
           children: [
             Container(
@@ -668,22 +681,21 @@ class _TypeOfNumber extends StatelessWidget {
               height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Palette.primary,
+                color: Colors.grey.shade200,
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Image.asset(
-                  //   'assets/images/home/utility-payment/${state.type}.png',
-                  //   fit: BoxFit.fitWidth,
-                  // ),
-
+                  if (imgUrl.isNotEmpty)
+                    Image.network(
+                      imgUrl,
+                      fit: BoxFit.fitWidth,
+                    ),
                   Text(
                     state.type.toUpperCase(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
-                      color: Palette.white,
                     ),
                   ),
                 ],

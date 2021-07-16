@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 import 'messages/en.dart';
 import 'messages/look_up_message.dart';
@@ -107,20 +108,7 @@ String timeSince(
       .join(messages.wordSeparator());
 }
 
-final months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec"
-];
+const months = Values.MONTHS;
 
 String dateFormat(DateTime date) {
   if (date.isUtc) {

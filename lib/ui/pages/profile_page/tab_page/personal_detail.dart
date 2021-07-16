@@ -14,7 +14,6 @@ import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_date_picker.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
-import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -329,13 +328,13 @@ class _ProfessionWidget extends StatelessWidget {
         builder: (context, state) {
           return TextWidetWithLabelAndChild(
             title: "Profession",
-            child: CustomSearchableDropDownWidget(
+            child: CustomDropDownWidget(
               hintText: "Profession",
               options: state.listOfProfession,
               value: state.profession,
               onChanged: (value) => context
                   .read<UpdateProfileBloc>()
-                  .add(UpdateProfileEvent.changeProfession(value ?? '')),
+                  .add(UpdateProfileEvent.changeProfession(value)),
             ),
           );
         },
@@ -351,13 +350,13 @@ class _NationalityWidget extends StatelessWidget {
         builder: (context, state) {
           return TextWidetWithLabelAndChild(
             title: "Nationality",
-            child: CustomSearchableDropDownWidget(
+            child: CustomDropDownWidget(
               hintText: "Nationality",
               value: state.nationality,
               options: state.listOfCountry,
               onChanged: (value) => context
                   .read<UpdateProfileBloc>()
-                  .add(UpdateProfileEvent.changeNationality(value ?? '')),
+                  .add(UpdateProfileEvent.changeNationality(value)),
             ),
           );
         },
@@ -375,7 +374,7 @@ class _GenderWidget extends StatelessWidget {
             child: CustomDropDownWidget(
               hintText: "Gender",
               value: state.gender,
-              options: const ["Male", "Female"],
+              options: Values.GENDER,
               onChanged: (value) => context
                   .read<UpdateProfileBloc>()
                   .add(UpdateProfileEvent.changeGender(value)),
@@ -397,13 +396,7 @@ class _MaritalStatusWidget extends StatelessWidget {
             child: CustomDropDownWidget(
               hintText: "Marital Status",
               value: state.maritalStatus,
-              options: const [
-                "Married",
-                "Unmarried",
-                "Divorced",
-                "Single",
-                "Widow"
-              ],
+              options: Values.MARITIAL_STATUS,
               onChanged: (value) => context
                   .read<UpdateProfileBloc>()
                   .add(UpdateProfileEvent.changeMaritalStatus(value)),
@@ -539,13 +532,13 @@ class _OriginCountryInputField extends StatelessWidget {
           previous.listOfCountry != current.listOfCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Country",
-        child: CustomSearchableDropDownWidget(
+        child: CustomDropDownWidget(
           hintText: "Country",
           value: state.originCountry,
           options: state.listOfCountry,
           onChanged: (value) => context
               .read<UpdateProfileBloc>()
-              .add(UpdateProfileEvent.changeOriginCountry(value ?? '')),
+              .add(UpdateProfileEvent.changeOriginCountry(value)),
         ),
       ),
     );
@@ -711,24 +704,24 @@ class _OriginPrefectureInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
         child: state.originCountry.toLowerCase() == "japan"
-            ? CustomSearchableDropDownWidget(
+            ? CustomDropDownWidget(
                 hintText: "Prefecture",
                 value: state.originProvince,
                 options: state.listOfJapaneseProvince,
                 onChanged: (value) {
-                  context.read<UpdateProfileBloc>().add(
-                      UpdateProfileEvent.changeOriginProvince(value ?? ''));
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeOriginProvince(value));
                 },
               )
             : state.originCountry.toLowerCase() == "nepal"
-                ? CustomSearchableDropDownWidget(
+                ? CustomDropDownWidget(
                     hintText: "Provinces",
                     value: state.originProvince,
                     options: state.listOfNepaliProvince,
                     onChanged: (value) {
                       context.read<UpdateProfileBloc>().add(
-                            UpdateProfileEvent.changeOriginProvince(
-                                value ?? ''),
+                            UpdateProfileEvent.changeOriginProvince(value),
                           );
                     },
                   )
@@ -757,7 +750,7 @@ class _OriginCityInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City/District",
         child: state.originCountry.toLowerCase() == "japan"
-            ? CustomSearchableDropDownWidget(
+            ? CustomDropDownWidget(
                 key: UniqueKey(),
                 hintText: "City",
                 value: state.originCity,
@@ -765,18 +758,19 @@ class _OriginCityInputField extends StatelessWidget {
                 onChanged: (value) {
                   context
                       .read<UpdateProfileBloc>()
-                      .add(UpdateProfileEvent.changeOriginCity(value ?? ''));
+                      .add(UpdateProfileEvent.changeOriginCity(value));
                 },
               )
             : state.originCountry.toLowerCase() == "nepal"
-                ? CustomSearchableDropDownWidget(
+                ? CustomDropDownWidget(
                     key: UniqueKey(),
                     hintText: "City",
                     value: state.originCity,
                     options: state.listOfJapaneseOriginCities,
                     onChanged: (value) {
-                      context.read<UpdateProfileBloc>().add(
-                          UpdateProfileEvent.changeOriginCity(value ?? ''));
+                      context
+                          .read<UpdateProfileBloc>()
+                          .add(UpdateProfileEvent.changeOriginCity(value));
                     },
                   )
                 : InputTextWidget(
@@ -862,13 +856,13 @@ class _ResidenceCountryInputField extends StatelessWidget {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Country",
-        child: CustomSearchableDropDownWidget(
+        child: CustomDropDownWidget(
           hintText: "Country",
           value: state.residenceCountry,
           options: state.listOfCountry,
           onChanged: (value) => context
               .read<UpdateProfileBloc>()
-              .add(UpdateProfileEvent.changeResidenceCountry(value ?? '')),
+              .add(UpdateProfileEvent.changeResidenceCountry(value)),
         ),
       ),
     );
@@ -1031,24 +1025,24 @@ class _ResidencePrefectureInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
         child: state.residenceCountry.toLowerCase() == "japan"
-            ? CustomSearchableDropDownWidget(
+            ? CustomDropDownWidget(
                 hintText: "Prefecture",
                 value: state.residenceProvince,
                 options: state.listOfJapaneseProvince,
                 onChanged: (value) {
-                  context.read<UpdateProfileBloc>().add(
-                      UpdateProfileEvent.changeResidenceProvince(value ?? ''));
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeResidenceProvince(value));
                 },
               )
             : state.residenceCountry.toLowerCase() == "nepal"
-                ? CustomSearchableDropDownWidget(
+                ? CustomDropDownWidget(
                     hintText: "Provinces",
                     value: state.residenceProvince,
                     options: state.listOfNepaliProvince,
                     onChanged: (value) {
                       context.read<UpdateProfileBloc>().add(
-                            UpdateProfileEvent.changeResidenceProvince(
-                                value ?? ''),
+                            UpdateProfileEvent.changeResidenceProvince(value),
                           );
                     },
                   )
@@ -1076,7 +1070,7 @@ class _ResidenceCityInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
         child: state.residenceCountry.toLowerCase() == "japan"
-            ? CustomSearchableDropDownWidget(
+            ? CustomDropDownWidget(
                 key: UniqueKey(),
                 hintText: "City",
                 value: state.residenceCity,
@@ -1084,7 +1078,7 @@ class _ResidenceCityInputField extends StatelessWidget {
                 onChanged: (value) {
                   context
                       .read<UpdateProfileBloc>()
-                      .add(UpdateProfileEvent.changeResidenceCity(value ?? ''));
+                      .add(UpdateProfileEvent.changeResidenceCity(value));
                 },
               )
             : state.originCountry.toLowerCase() == "nepal"
