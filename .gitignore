@@ -50,3 +50,4 @@ coverage/
 coverage/lcov.info
 /lib/**/*.g.dart
 /lib/**/*.freezed.dart
+pubspec.lock

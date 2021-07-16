@@ -24,7 +24,6 @@ class AdsBloc extends Bloc<AdsEvent, AdsState> {
     AdsEvent event,
   ) async* {
     yield* event.map(fetchAds: (e) async* {
-      print("===fetching ads====");
       yield const _Loading();
       final result = await getAds(NoParams());
         yield result.fold(
