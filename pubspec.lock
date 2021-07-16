@@ -285,6 +285,13 @@ packages:
       url: "https://github.com/asisadh/esewa_pnp.git"
     source: git
     version: "1.0.5"
+  facebook_audience_network:
+    dependency: "direct main"
+    description:
+      name: facebook_audience_network
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.0"
   fading_edge_scrollview:
     dependency: transitive
     description:

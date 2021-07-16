@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/features/ads/presentation/get_ads/ads_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/data/model/remit_rate_mode.dart';
 import 'package:wallet_app/features/home/domain/entities/home_data.dart';
@@ -56,6 +57,9 @@ class HomePage extends StatelessWidget {
                       );
                   getIt<GetBalanceBloc>()
                       .add(const GetBalanceEvent.fetchBalance());
+                    getIt<AdsBloc>().add(
+                        const AdsEvent.fetchAds(),
+                      );
                   // await 2 sec for the loader to show
                   await Future.delayed(const Duration(seconds: 2), () {});
                 },

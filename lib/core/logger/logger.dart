@@ -43,6 +43,8 @@ class LoggerImpl implements Logger {
       "function_name": "$className -> $functionName",
       "log": errorMessage
     };
+    debugPrint(params.toString());
+
 
     try {
       await client.post(
