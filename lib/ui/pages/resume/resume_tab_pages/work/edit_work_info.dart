@@ -260,7 +260,7 @@ class _StartedYearField extends StatelessWidget {
                 hintText: "Select Year",
                 value: state.startedYear,
                 options: state.listOfYear,
-                alignment: Alignment.center,
+                alignment: Alignment.centerLeft,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
                     .add(UpdateWorkInfoActorEvent.changedStartedYear(
@@ -273,7 +273,7 @@ class _StartedYearField extends StatelessWidget {
               child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.startedMonth,
-                alignment: Alignment.center,
+                alignment: Alignment.centerLeft,
                 options: Values.MONTHS,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
@@ -309,7 +309,7 @@ class _EndYearField extends StatelessWidget {
                 hintText: "Select Year",
                 value: state.endYear,
                 options: state.listOfYearWithRunning,
-                alignment: Alignment.center,
+                alignment: Alignment.centerLeft,
                 onChanged: (value) => context
                     .read<UpdateWorkInfoActorBloc>()
                     .add(UpdateWorkInfoActorEvent.changedEndYear(value ?? '')),
@@ -323,7 +323,7 @@ class _EndYearField extends StatelessWidget {
                 child: CustomSearchableDropDownWidget(
                   hintText: "Select Month",
                   value: state.endMonth,
-                  alignment: Alignment.center,
+                  alignment: Alignment.centerLeft,
                   options: Values.MONTHS,
                   onChanged: (value) => context
                       .read<UpdateWorkInfoActorBloc>()

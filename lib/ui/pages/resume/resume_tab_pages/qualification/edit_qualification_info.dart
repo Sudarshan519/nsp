@@ -229,7 +229,7 @@ class _CertifiedYearField extends StatelessWidget {
                 hintText: "Select Year",
                 value: state.certifiedYear,
                 options: state.listOfYear,
-                alignment: Alignment.center,
+                alignment: Alignment.centerLeft,
                 onChanged: (value) => context
                     .read<UpdateQualificationInfoActorBloc>()
                     .add(UpdateQualificationInfoActorEvent.changedCertifiedYear(
@@ -242,7 +242,7 @@ class _CertifiedYearField extends StatelessWidget {
               child: CustomSearchableDropDownWidget(
                 hintText: "Select Month",
                 value: state.certifiedMonth,
-                alignment: Alignment.center,
+                alignment: Alignment.centerLeft,
                 options: Values.MONTHS,
                 onChanged: (value) => context
                     .read<UpdateQualificationInfoActorBloc>()
