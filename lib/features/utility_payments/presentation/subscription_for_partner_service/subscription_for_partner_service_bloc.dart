@@ -32,7 +32,9 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
   List<SubscriptionInvoice> invoices = [];
   CouponCode? couponCode;
   double initialCashback = 0;
+  double initialRewardPercent = 0;
   double initialRewardPoint = 0;
+  String subId = '';
 
   @override
   Stream<SubscriptionForPartnerServiceState> mapEventToState(
@@ -49,6 +51,7 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
             subscriptionId: e.subscriptionId,
           ),
         );
+        subId = e.subscriptionId;
         yield result.fold(
           (failure) => _Failure(failure),
           (subscription) {
@@ -64,7 +67,8 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
       },
       setInitialRewardPoint: (e) async* {
         yield const _Loading();
-        initialRewardPoint = e.initReward;
+
+        initialRewardPercent = e.initReward;
         yield const _FetchSubscriptionSuccessfully();
       },
       purchaseSubscription: (e) async* {
@@ -138,6 +142,7 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
         total = total + amount;
       }
     }
+    initialRewardPoint = total * (initialRewardPercent / 100);
 
     //if couponcode is there
     double cashbackFromCoupon = 0.0;

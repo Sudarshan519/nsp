@@ -41,7 +41,7 @@ class _$SubscriptionForPartnerServiceEventTearOff {
     );
   }
 
-  _SetCoupon setCoupon(CouponCode coupounCode) {
+  _SetCoupon setCoupon(CouponCode? coupounCode) {
     return _SetCoupon(
       coupounCode,
     );
@@ -72,7 +72,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
-    required TResult Function(CouponCode coupounCode) setCoupon,
+    required TResult Function(CouponCode? coupounCode) setCoupon,
     required TResult Function(double initCashback) setInitialCashback,
     required TResult Function(double initReward) setInitialRewardPoint,
   }) =>
@@ -83,7 +83,7 @@ mixin _$SubscriptionForPartnerServiceEvent {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
-    TResult Function(CouponCode coupounCode)? setCoupon,
+    TResult Function(CouponCode? coupounCode)? setCoupon,
     TResult Function(double initCashback)? setInitialCashback,
     TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
@@ -205,7 +205,7 @@ class _$_GetSubscription implements _GetSubscription {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
-    required TResult Function(CouponCode coupounCode) setCoupon,
+    required TResult Function(CouponCode? coupounCode) setCoupon,
     required TResult Function(double initCashback) setInitialCashback,
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
@@ -219,7 +219,7 @@ class _$_GetSubscription implements _GetSubscription {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
-    TResult Function(CouponCode coupounCode)? setCoupon,
+    TResult Function(CouponCode? coupounCode)? setCoupon,
     TResult Function(double initCashback)? setInitialCashback,
     TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
@@ -344,7 +344,7 @@ class _$_SelectSubscription implements _SelectSubscription {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
-    required TResult Function(CouponCode coupounCode) setCoupon,
+    required TResult Function(CouponCode? coupounCode) setCoupon,
     required TResult Function(double initCashback) setInitialCashback,
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
@@ -358,7 +358,7 @@ class _$_SelectSubscription implements _SelectSubscription {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
-    TResult Function(CouponCode coupounCode)? setCoupon,
+    TResult Function(CouponCode? coupounCode)? setCoupon,
     TResult Function(double initCashback)? setInitialCashback,
     TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
@@ -488,7 +488,7 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
-    required TResult Function(CouponCode coupounCode) setCoupon,
+    required TResult Function(CouponCode? coupounCode) setCoupon,
     required TResult Function(double initCashback) setInitialCashback,
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
@@ -502,7 +502,7 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
-    TResult Function(CouponCode coupounCode)? setCoupon,
+    TResult Function(CouponCode? coupounCode)? setCoupon,
     TResult Function(double initCashback)? setInitialCashback,
     TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
@@ -631,7 +631,7 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
-    required TResult Function(CouponCode coupounCode) setCoupon,
+    required TResult Function(CouponCode? coupounCode) setCoupon,
     required TResult Function(double initCashback) setInitialCashback,
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
@@ -645,7 +645,7 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
-    TResult Function(CouponCode coupounCode)? setCoupon,
+    TResult Function(CouponCode? coupounCode)? setCoupon,
     TResult Function(double initCashback)? setInitialCashback,
     TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
@@ -706,7 +706,7 @@ abstract class _$SetCouponCopyWith<$Res> {
   factory _$SetCouponCopyWith(
           _SetCoupon value, $Res Function(_SetCoupon) then) =
       __$SetCouponCopyWithImpl<$Res>;
-  $Res call({CouponCode coupounCode});
+  $Res call({CouponCode? coupounCode});
 }
 
 /// @nodoc
@@ -727,7 +727,7 @@ class __$SetCouponCopyWithImpl<$Res>
       coupounCode == freezed
           ? _value.coupounCode
           : coupounCode // ignore: cast_nullable_to_non_nullable
-              as CouponCode,
+              as CouponCode?,
     ));
   }
 }
@@ -738,7 +738,7 @@ class _$_SetCoupon implements _SetCoupon {
   const _$_SetCoupon(this.coupounCode);
 
   @override
-  final CouponCode coupounCode;
+  final CouponCode? coupounCode;
 
   @override
   String toString() {
@@ -770,7 +770,7 @@ class _$_SetCoupon implements _SetCoupon {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
-    required TResult Function(CouponCode coupounCode) setCoupon,
+    required TResult Function(CouponCode? coupounCode) setCoupon,
     required TResult Function(double initCashback) setInitialCashback,
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
@@ -784,7 +784,7 @@ class _$_SetCoupon implements _SetCoupon {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
-    TResult Function(CouponCode coupounCode)? setCoupon,
+    TResult Function(CouponCode? coupounCode)? setCoupon,
     TResult Function(double initCashback)? setInitialCashback,
     TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
@@ -831,9 +831,9 @@ class _$_SetCoupon implements _SetCoupon {
 }
 
 abstract class _SetCoupon implements SubscriptionForPartnerServiceEvent {
-  const factory _SetCoupon(CouponCode coupounCode) = _$_SetCoupon;
+  const factory _SetCoupon(CouponCode? coupounCode) = _$_SetCoupon;
 
-  CouponCode get coupounCode => throw _privateConstructorUsedError;
+  CouponCode? get coupounCode => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SetCouponCopyWith<_SetCoupon> get copyWith =>
       throw _privateConstructorUsedError;
@@ -909,7 +909,7 @@ class _$_SetInitialCashback implements _SetInitialCashback {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
-    required TResult Function(CouponCode coupounCode) setCoupon,
+    required TResult Function(CouponCode? coupounCode) setCoupon,
     required TResult Function(double initCashback) setInitialCashback,
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
@@ -923,7 +923,7 @@ class _$_SetInitialCashback implements _SetInitialCashback {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
-    TResult Function(CouponCode coupounCode)? setCoupon,
+    TResult Function(CouponCode? coupounCode)? setCoupon,
     TResult Function(double initCashback)? setInitialCashback,
     TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),
@@ -1051,7 +1051,7 @@ class _$_setInitialRewardPoint implements _setInitialRewardPoint {
     required TResult Function(SubscriptionInvoice invoice) selectSubscription,
     required TResult Function(bool selectAll) selectAllSubscription,
     required TResult Function(int productId) purchaseSubscription,
-    required TResult Function(CouponCode coupounCode) setCoupon,
+    required TResult Function(CouponCode? coupounCode) setCoupon,
     required TResult Function(double initCashback) setInitialCashback,
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
@@ -1065,7 +1065,7 @@ class _$_setInitialRewardPoint implements _setInitialRewardPoint {
     TResult Function(SubscriptionInvoice invoice)? selectSubscription,
     TResult Function(bool selectAll)? selectAllSubscription,
     TResult Function(int productId)? purchaseSubscription,
-    TResult Function(CouponCode coupounCode)? setCoupon,
+    TResult Function(CouponCode? coupounCode)? setCoupon,
     TResult Function(double initCashback)? setInitialCashback,
     TResult Function(double initReward)? setInitialRewardPoint,
     required TResult orElse(),

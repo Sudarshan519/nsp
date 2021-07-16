@@ -260,6 +260,7 @@ class _SubscriptionIdTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final subId = context.read<SubscriptionForPartnerServiceBloc>().subId;
     return Column(
       children: [
         TextWidetWithLabelAndChild(
@@ -270,7 +271,7 @@ class _SubscriptionIdTextField extends StatelessWidget {
                 child: InputTextWidget(
                   hintText: "1212XXXXXXX",
                   textInputType: TextInputType.emailAddress,
-                  value: "",
+                  value: subId,
                   onChanged: (value) {
                     subscriptionId = value;
                   },
@@ -658,12 +659,12 @@ class __TransactionDetailState extends State<_TransactionDetail> {
               _hasCouponCode = !_hasCouponCode;
             });
           },
-          validCoupon: (couponCode) {
-            if (couponCode != null) {
-              context.read<SubscriptionForPartnerServiceBloc>().add(
-                  SubscriptionForPartnerServiceEvent.setCoupon(couponCode));
-              setState(() {});
-            }
+          validCoupon: (coupon) {
+            // if coupon is null then it will also discard any previous coupon implemented
+            context
+                .read<SubscriptionForPartnerServiceBloc>()
+                .add(SubscriptionForPartnerServiceEvent.setCoupon(coupon));
+            setState(() {});
           },
         ),
       );
@@ -672,22 +673,22 @@ class __TransactionDetailState extends State<_TransactionDetail> {
 
       final initialCashback =
           context.read<SubscriptionForPartnerServiceBloc>().initialCashback;
-      final initialReward =
+      final initialRewardPoint =
           context.read<SubscriptionForPartnerServiceBloc>().initialRewardPoint;
 
       double cashBackfromCoupon = 0.0;
 
-      double rewardfromCoupon = 0.0;
+      double rewardPointfromCoupon = 0.0;
 
       if (cp != null) {
         cashBackfromCoupon = double.parse(cp.cashback ?? '0.0');
-        rewardfromCoupon = double.parse(cp.rewardPoint ?? '0.0');
+        rewardPointfromCoupon = double.parse(cp.rewardPoint ?? '0.0');
       }
 
       if (initialCashback +
-              initialReward +
+              initialRewardPoint +
               cashBackfromCoupon +
-              rewardfromCoupon >
+              rewardPointfromCoupon >
           0) {
         widgets.add(Column(
           children: [
@@ -730,33 +731,6 @@ class __TransactionDetailState extends State<_TransactionDetail> {
                         const SizedBox(height: 10),
                       ],
                     ),
-                  if (initialReward > 0)
-                    Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Reward Points:',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: Palette.white,
-                              ),
-                            ),
-                            Text(
-                              '${initialReward.toStringAsFixed(0)} Pts.',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: Palette.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                      ],
-                    ),
                   if (cashBackfromCoupon > 0)
                     Column(
                       children: [
@@ -784,12 +758,12 @@ class __TransactionDetailState extends State<_TransactionDetail> {
                         const SizedBox(height: 10),
                       ],
                     ),
-                  if (rewardfromCoupon > 0)
+                  if (rewardPointfromCoupon + initialRewardPoint > 0)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Additional Reward points',
+                          'Reward points',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
@@ -797,7 +771,7 @@ class __TransactionDetailState extends State<_TransactionDetail> {
                           ),
                         ),
                         Text(
-                          '$rewardfromCoupon Pts.',
+                          '${rewardPointfromCoupon + initialRewardPoint} Pts.',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
