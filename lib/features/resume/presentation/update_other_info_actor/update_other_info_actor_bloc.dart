@@ -223,6 +223,16 @@ class UpdateOtherInfoActorBloc
     String _isSopuse = userInfo.spouse ?? "";
     String _spouseSupportObligation = userInfo.spouseSupportObligation ?? "";
 
+    String _specialConditions = userInfo.specialConditions ?? '';
+    if (_lang == "en") {
+      _specialConditions = _specialConditions.isNotEmpty
+          ? _specialConditions
+          : "Follow as per company rules and regulations";
+    } else {
+      _specialConditions =
+          _specialConditions.isNotEmpty ? _specialConditions : "貴社の規定に従います";
+    }
+
     if (_lang == "jp") {
       _listOfHourRate = const [
         "0",
@@ -276,7 +286,7 @@ class UpdateOtherInfoActorBloc
         numberOfDependent: userInfo.dependentsExceptSpouse ?? "",
         isSpouse: _isSopuse,
         isSpouseSupportObligation: _spouseSupportObligation,
-        specialConditions: userInfo.specialConditions ?? "",
+        specialConditions: _specialConditions,
         knownLanguages: _setInitialState.listOfLanguages,
         listOfHobbies: _setInitialState.listOHobbies,
         listOfSkills: _setInitialState.listOfSkills,

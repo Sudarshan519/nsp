@@ -1,4 +1,4 @@
-import 'dart:io' show Directory, Platform;
+import 'dart:io' show Directory, File, Platform;
 import 'dart:isolate';
 import 'dart:ui';
 
@@ -208,6 +208,17 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
       }
 
       final String fileName = url.split('/').last;
+
+      if (Platform.isAndroid) {
+        if (externalDir != null) {
+          final path = '${externalDir.path}/$fileName';
+          final file = File(path);
+          final exists = await file.exists();
+          if (exists) {
+            await file.delete();
+          }
+        }
+      }
 
       if (externalDir != null) {
         final _ = await FlutterDownloader.enqueue(

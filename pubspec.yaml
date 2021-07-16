@@ -47,10 +47,7 @@ dependencies:
   fl_chart: ^0.36.1                           
   flutter_bloc: ^7.0.0  
   fluttercontactpicker: ^4.4.0              
-  flutter_downloader: 
-    git:
-      url: https://github.com/asisadh/flutter_downloader.git    
-      ref: master          
+  flutter_downloader: ^1.6.1      
   flutter_facebook_auth: ^3.3.3+1              
   flutter_html: ^2.0.0  
   flutter_local_notifications: ^6.0.0              

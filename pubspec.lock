@@ -279,9 +279,11 @@ packages:
   esewa_pnp:
     dependency: "direct main"
     description:
-      path: "../sdk/esewa_pnp"
-      relative: true
-    source: path
+      path: "."
+      ref: null-safety
+      resolved-ref: "607f65a6069da6c5df8954dd01d2a27af72c846f"
+      url: "https://github.com/asisadh/esewa_pnp.git"
+    source: git
     version: "1.0.5"
   fading_edge_scrollview:
     dependency: transitive
@@ -389,11 +391,9 @@ packages:
   flutter_downloader:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: "98ea85bb6ad68593133dd48c6e520677970e3f86"
-      url: "https://github.com/asisadh/flutter_downloader.git"
-    source: git
+      name: flutter_downloader
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "1.6.1"
   flutter_facebook_auth:
     dependency: "direct main"

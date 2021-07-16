@@ -1087,15 +1087,26 @@ class _ResidenceCityInputField extends StatelessWidget {
                       .add(UpdateProfileEvent.changeResidenceCity(value ?? ''));
                 },
               )
-            : InputTextWidget(
-                hintText: "City",
-                value: state.residenceCity,
-                onChanged: (value) {
-                  context
-                      .read<UpdateProfileBloc>()
-                      .add(UpdateProfileEvent.changeResidenceCity(value));
-                },
-              ),
+            : state.originCountry.toLowerCase() == "nepal"
+                ? CustomSearchableDropDownWidget(
+                    key: UniqueKey(),
+                    hintText: "City",
+                    value: state.residenceCity,
+                    options: state.listOfNepaliResidenceDistrict,
+                    onChanged: (value) {
+                      context.read<UpdateProfileBloc>().add(
+                          UpdateProfileEvent.changeResidenceCity(value ?? ''));
+                    },
+                  )
+                : InputTextWidget(
+                    hintText: "City",
+                    value: state.residenceCity,
+                    onChanged: (value) {
+                      context
+                          .read<UpdateProfileBloc>()
+                          .add(UpdateProfileEvent.changeResidenceCity(value));
+                    },
+                  ),
       ),
     );
   }
