@@ -256,11 +256,10 @@ class PartnerServicePaymentPage extends StatelessWidget {
 
 // ignore: must_be_immutable
 class _SubscriptionIdTextField extends StatelessWidget {
-  String subscriptionId = "";
-
   @override
   Widget build(BuildContext context) {
-    final subId = context.read<SubscriptionForPartnerServiceBloc>().subId;
+    String subscriptionId =
+        context.read<SubscriptionForPartnerServiceBloc>().subId;
     return Column(
       children: [
         TextWidetWithLabelAndChild(
@@ -271,7 +270,7 @@ class _SubscriptionIdTextField extends StatelessWidget {
                 child: InputTextWidget(
                   hintText: "1212XXXXXXX",
                   textInputType: TextInputType.emailAddress,
-                  value: subId,
+                  value: subscriptionId,
                   onChanged: (value) {
                     subscriptionId = value;
                   },
