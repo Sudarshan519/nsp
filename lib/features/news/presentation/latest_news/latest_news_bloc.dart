@@ -29,6 +29,20 @@ class LatestNewsBloc extends Bloc<LatestNewsEvent, LatestNewsState> {
   ) async* {
     yield* event.map(
       fetchNewsData: (e) async* {
+        if (_page == 1) {
+          if (_newsData.isEmpty) {
+            final localData = await getNews.getLocalLatestNews();
+            yield localData.fold(
+              (_) {
+                return const _Loading();
+              },
+              (_news) {
+                _newsData.addAll(_news);
+                return _Loaded(_news);
+              },
+            );
+          }
+        }
         if (_hasReachedEnd) {
           yield _Loaded(_newsData);
         } else {
@@ -57,13 +71,16 @@ class LatestNewsBloc extends Bloc<LatestNewsEvent, LatestNewsState> {
     yield result.fold(
       (failure) {
         isFetching = false;
-        if (_newsData.isEmpty) {
+        if (_newsData.isNotEmpty) {
           return _FailureWithData(failure, _newsData);
         } else {
           return _Failure(failure);
         }
       },
       (newsData) {
+        if (_page == 1) {
+          _newsData = [];
+        }
         isFetching = false;
         if (newsData.isEmpty) {
           _hasReachedEnd = true;
