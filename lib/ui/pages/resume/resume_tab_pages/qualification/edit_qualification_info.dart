@@ -218,7 +218,8 @@ class _CertifiedYearField extends StatelessWidget {
     return BlocBuilder<UpdateQualificationInfoActorBloc,
         UpdateQualificationInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.certifiedYear != current.certifiedYear,
+          previous.certifiedYear != current.certifiedYear ||
+          previous.certifiedMonth != current.certifiedMonth,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Certified Year",
         child: Row(
@@ -226,6 +227,7 @@ class _CertifiedYearField extends StatelessWidget {
             SizedBox(
               width: 120,
               child: CustomSearchableDropDownWidget(
+                key: UniqueKey(),
                 hintText: "Select Year",
                 value: state.certifiedYear,
                 options: state.listOfYear,
@@ -240,6 +242,7 @@ class _CertifiedYearField extends StatelessWidget {
             SizedBox(
               width: 120,
               child: CustomSearchableDropDownWidget(
+                key: UniqueKey(),
                 hintText: "Select Month",
                 value: state.certifiedMonth,
                 alignment: Alignment.centerLeft,

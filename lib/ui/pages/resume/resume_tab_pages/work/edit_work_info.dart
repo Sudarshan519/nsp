@@ -227,6 +227,7 @@ class _MajorSubjectField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Type of company",
         child: CustomSearchableDropDownWidget(
+          key: UniqueKey(),
           hintText: "Select a type of company.",
           value: state.companyType,
           options: state.typeOfCompanyList,
@@ -257,6 +258,7 @@ class _StartedYearField extends StatelessWidget {
             SizedBox(
               width: 120,
               child: CustomSearchableDropDownWidget(
+                key: UniqueKey(),
                 hintText: "Select Year",
                 value: state.startedYear,
                 options: state.listOfYear,
@@ -271,6 +273,7 @@ class _StartedYearField extends StatelessWidget {
             SizedBox(
               width: 120,
               child: CustomSearchableDropDownWidget(
+                key: UniqueKey(),
                 hintText: "Select Month",
                 value: state.startedMonth,
                 alignment: Alignment.centerLeft,
@@ -306,6 +309,7 @@ class _EndYearField extends StatelessWidget {
             SizedBox(
               width: 120,
               child: CustomSearchableDropDownWidget(
+                key: UniqueKey(),
                 hintText: "Select Year",
                 value: state.endYear,
                 options: state.listOfYearWithRunning,
@@ -321,6 +325,7 @@ class _EndYearField extends StatelessWidget {
               SizedBox(
                 width: 120,
                 child: CustomSearchableDropDownWidget(
+                  key: UniqueKey(),
                   hintText: "Select Month",
                   value: state.endMonth,
                   alignment: Alignment.centerLeft,

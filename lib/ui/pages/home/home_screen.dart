@@ -57,9 +57,9 @@ class HomePage extends StatelessWidget {
                       );
                   getIt<GetBalanceBloc>()
                       .add(const GetBalanceEvent.fetchBalance());
-                    getIt<AdsBloc>().add(
-                        const AdsEvent.fetchAds(),
-                      );
+                  getIt<AdsBloc>().add(
+                    const AdsEvent.fetchAds(),
+                  );
                   // await 2 sec for the loader to show
                   await Future.delayed(const Duration(seconds: 2), () {});
                 },

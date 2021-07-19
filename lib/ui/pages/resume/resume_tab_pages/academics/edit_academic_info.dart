@@ -251,7 +251,8 @@ class _YearOfEnrollField extends StatelessWidget {
     return BlocBuilder<UpdateAcademicInfoActorBloc,
         UpdateAcademicInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.yearOFEnroll != current.yearOFEnroll,
+          previous.yearOFEnroll != current.yearOFEnroll ||
+          previous.monthOfEnroll != current.monthOfEnroll,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Year of Enroll",
         child: Row(
@@ -259,6 +260,7 @@ class _YearOfEnrollField extends StatelessWidget {
             SizedBox(
               width: 120,
               child: CustomSearchableDropDownWidget(
+                key: UniqueKey(),
                 hintText: "Select Year",
                 value: state.yearOFEnroll,
                 options: state.listOfYear,
@@ -273,6 +275,7 @@ class _YearOfEnrollField extends StatelessWidget {
             SizedBox(
               width: 120,
               child: CustomSearchableDropDownWidget(
+                key: UniqueKey(),
                 hintText: "Select Month",
                 value: state.monthOfEnroll,
                 alignment: Alignment.centerLeft,
@@ -300,7 +303,8 @@ class _YearOfCompletionField extends StatelessWidget {
     return BlocBuilder<UpdateAcademicInfoActorBloc,
         UpdateAcademicInfoActorState>(
       buildWhen: (previous, current) =>
-          previous.yearOfCpmpletion != current.yearOfCpmpletion,
+          previous.yearOfCpmpletion != current.yearOfCpmpletion ||
+          previous.monthOfCompletion != current.monthOfCompletion,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Year of Completion",
         child: Row(
@@ -308,6 +312,7 @@ class _YearOfCompletionField extends StatelessWidget {
             SizedBox(
               width: 120,
               child: CustomSearchableDropDownWidget(
+                key: UniqueKey(),
                 hintText: "Select Year",
                 value: state.yearOfCpmpletion,
                 options: state.listOfYearWithRunning,

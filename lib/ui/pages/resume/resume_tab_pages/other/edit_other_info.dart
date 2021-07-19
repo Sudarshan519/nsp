@@ -243,6 +243,7 @@ class _JLPTLevelField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Japanese Language Completence (JLPT Level)",
         child: CustomSearchableDropDownWidget(
+          key: UniqueKey(),
           hintText: "Select your option",
           value: state.JLPTLevel,
           options: state.listOfJLPTLevel,
@@ -413,6 +414,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                 SizedBox(
                   width: 120,
                   child: CustomSearchableDropDownWidget(
+                    key: UniqueKey(),
                     hintText: "Select hours",
                     value: state.workinHours,
                     options: state.listOfHourRate,
@@ -429,6 +431,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                   SizedBox(
                     width: 125,
                     child: CustomSearchableDropDownWidget(
+                      key: UniqueKey(),
                       hintText: "Select minutes",
                       value: state.workingMinutes,
                       alignment: Alignment.topCenter,
