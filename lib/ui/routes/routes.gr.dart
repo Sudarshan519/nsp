@@ -131,7 +131,8 @@ class AppRouter extends _i1.RootStackRouter {
                   info: args.info,
                   lang: args.lang,
                   prefecture: args.prefecture,
-                  provinces: args.provinces);
+                  provinces: args.provinces,
+                  countries: args.countries);
             }),
     EditContactAddressInfoFormRoute.name: (routeData) =>
         _i1.MaterialPageX<dynamic>(
@@ -143,7 +144,8 @@ class AppRouter extends _i1.RootStackRouter {
                   info: args.info,
                   lang: args.lang,
                   prefecture: args.prefecture,
-                  provinces: args.provinces);
+                  provinces: args.provinces,
+                  countries: args.countries);
             }),
     EditWorkInfoFormRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -544,7 +546,8 @@ class EditCurrentAddressInfoFormRoute
       required _i41.PersonalInfo info,
       required String lang,
       required List<String> prefecture,
-      required List<String> provinces})
+      required List<String> provinces,
+      required List<String> countries})
       : super(name,
             path: '/edit-current-address-info-form-page',
             args: EditCurrentAddressInfoFormRouteArgs(
@@ -552,7 +555,8 @@ class EditCurrentAddressInfoFormRoute
                 info: info,
                 lang: lang,
                 prefecture: prefecture,
-                provinces: provinces));
+                provinces: provinces,
+                countries: countries));
 
   static const String name = 'EditCurrentAddressInfoFormRoute';
 }
@@ -563,7 +567,8 @@ class EditCurrentAddressInfoFormRouteArgs {
       required this.info,
       required this.lang,
       required this.prefecture,
-      required this.provinces});
+      required this.provinces,
+      required this.countries});
 
   final _i2.Key? key;
 
@@ -574,6 +579,8 @@ class EditCurrentAddressInfoFormRouteArgs {
   final List<String> prefecture;
 
   final List<String> provinces;
+
+  final List<String> countries;
 }
 
 class EditContactAddressInfoFormRoute
@@ -583,7 +590,8 @@ class EditContactAddressInfoFormRoute
       required _i41.PersonalInfo info,
       required String lang,
       required List<String> prefecture,
-      required List<String> provinces})
+      required List<String> provinces,
+      required List<String> countries})
       : super(name,
             path: '/edit-contact-address-info-form-page',
             args: EditContactAddressInfoFormRouteArgs(
@@ -591,7 +599,8 @@ class EditContactAddressInfoFormRoute
                 info: info,
                 lang: lang,
                 prefecture: prefecture,
-                provinces: provinces));
+                provinces: provinces,
+                countries: countries));
 
   static const String name = 'EditContactAddressInfoFormRoute';
 }
@@ -602,7 +611,8 @@ class EditContactAddressInfoFormRouteArgs {
       required this.info,
       required this.lang,
       required this.prefecture,
-      required this.provinces});
+      required this.provinces,
+      required this.countries});
 
   final _i2.Key? key;
 
@@ -613,6 +623,8 @@ class EditContactAddressInfoFormRouteArgs {
   final List<String> prefecture;
 
   final List<String> provinces;
+
+  final List<String> countries;
 }
 
 class EditWorkInfoFormRoute

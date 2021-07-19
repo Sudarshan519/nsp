@@ -130,14 +130,14 @@ class UserDetailModel extends UserDetail {
         nationality: json["nationality"] as String?,
         passportCitizenshipNumber:
             json["passport_citizenship_number"] as String?,
-        postalCode: json["curr_postal_code"] as String?,
-        province: json["curr_prefecture"] as String?,
-        city: json["curr_city"] as String?,
-        streetAddress: json["curr_address"] as String?,
-        originProvince: json["cont_prefecture"] as String?,
-        originPostalCode: json["cont_postal_code"] as String?,
-        originCityDistrict: json["cont_city"] as String?,
-        originStreetAddress: json["cont_address"] as String?,
+        postalCode: json["postal_code"] as String?,
+        province: json["province"] as String?,
+        city: json["city"] as String?,
+        streetAddress: json["street_address"] as String?,
+        originProvince: json["origin_province"] as String?,
+        originPostalCode: json["origin_postal_code"] as String?,
+        originCityDistrict: json["origin_city_district"] as String?,
+        originStreetAddress: json["origin_street_address"] as String?,
         profession: json["profession"] as String?,
         occupation: json["occupation"] as String?,
         originKycDocType: json["origin_kyc_doc_type"] as String?,
@@ -158,8 +158,8 @@ class UserDetailModel extends UserDetail {
         company: json["company"] as String?,
         maritalStatus: json["marital_status"] as String?,
         community: json["community"] as String?,
-        countryOfResidence: json["curr_country"] as String?,
-        countryOfOrigin: json["cont_country"] as String?,
+        countryOfResidence: json["country_of_residence"] as String?,
+        countryOfOrigin: json["country_of_origin"] as String?,
         buildingName: json["building_name"] as String?,
         remarks: json["remarks"] as String?,
         otherPhone: json["other_phone"] as String?,
@@ -282,44 +282,44 @@ class UserDetailModel extends UserDetail {
 
     // Orign address
     if (countryOfOrigin != null) {
-      params["cont_country"] = countryOfOrigin;
+      params["country_of_origin"] = countryOfOrigin;
     }
 
     if (originProvince != null) {
-      params["cont_prefecture"] = originProvince;
+      params["origin_province"] = originProvince;
     }
 
     if (originPostalCode != null) {
-      params["cont_postal_code"] = originPostalCode;
+      params["origin_postal_code"] = originPostalCode;
     }
 
     if (originCityDistrict != null) {
-      params["cont_city"] = originCityDistrict;
+      params["origin_city_district"] = originCityDistrict;
     }
 
     if (originStreetAddress != null) {
-      params["cont_address"] = originStreetAddress;
+      params["origin_street_address"] = originStreetAddress;
     }
 
     // Residence address
     if (countryOfResidence != null) {
-      params["curr_country"] = countryOfResidence;
+      params["country_of_residence"] = countryOfResidence;
     }
 
     if (province != null) {
-      params["curr_prefecture"] = province;
+      params["province"] = province;
     }
 
     if (postalCode != null) {
-      params["curr_postal_code"] = postalCode;
+      params["postal_code"] = postalCode;
     }
 
     if (city != null) {
-      params["curr_city"] = city;
+      params["city"] = city;
     }
 
     if (streetAddress != null) {
-      params["curr_address"] = streetAddress;
+      params["street_address"] = streetAddress;
     }
 
     return params;

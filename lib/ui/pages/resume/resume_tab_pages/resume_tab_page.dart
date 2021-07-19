@@ -144,6 +144,7 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
         info: state.info,
         prefecture: state.prefectures,
         provinces: state.provinces,
+        countries: state.options.nationalities ?? [],
         lang: state.language,
       ),
       AcademicsPage(

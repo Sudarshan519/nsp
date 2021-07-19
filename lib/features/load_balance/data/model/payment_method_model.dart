@@ -62,29 +62,34 @@ class PaymentMethodsModel extends PaymentMethod {
     required String? recordingUrl,
     required String? deliveryUrl,
     required int? balanceLimit,
-    required bool isLive,
+    required int? upperLimit,
+    required int? lowerLimit,
+    required bool? isLive,
   }) : super(
-            name: name,
-            type: type,
-            secretKey: secretKey,
-            publicKey: publicKey,
-            logo: logo,
-            isActive: isActive,
-            baseUrl: baseUrl,
-            module: module,
-            merchantCode: merchantCode,
-            username: username,
-            password: password,
-            callbackUrl: callbackUrl,
-            paymentUrl: paymentUrl,
-            webRedirectUrl: webRedirectUrl,
-            bseUrl: bseUrl,
-            merchantId: merchantId,
-            merchantSecret: merchantSecret,
-            recordingUrl: recordingUrl,
-            deliveryUrl: deliveryUrl,
-            islive: isLive,
-            balanceLimit: balanceLimit);
+          name: name,
+          type: type,
+          secretKey: secretKey,
+          publicKey: publicKey,
+          logo: logo,
+          isActive: isActive,
+          baseUrl: baseUrl,
+          module: module,
+          merchantCode: merchantCode,
+          username: username,
+          password: password,
+          callbackUrl: callbackUrl,
+          paymentUrl: paymentUrl,
+          webRedirectUrl: webRedirectUrl,
+          bseUrl: bseUrl,
+          merchantId: merchantId,
+          merchantSecret: merchantSecret,
+          recordingUrl: recordingUrl,
+          deliveryUrl: deliveryUrl,
+          islive: isLive,
+          balanceLimit: balanceLimit,
+          upperLimit: upperLimit,
+          lowerLimit: lowerLimit,
+        );
 
   factory PaymentMethodsModel.fromJson(Map<String, dynamic> json) =>
       PaymentMethodsModel(
@@ -123,10 +128,11 @@ class PaymentMethodsModel extends PaymentMethod {
         merchantSecret: json["merchant_secret"] == null
             ? null
             : json["merchant_secret"] as String?,
-        // ignore: avoid_bool_literals_in_conditional_expressions
-        isLive: json['isLive'] == null ? false : json['isLive'] as bool,
+        isLive: json['isLive'] == null ? false : json['isLive'] as bool?,
         balanceLimit:
-            json["balance_limit"] == null ? 0 : json['balance_limit'] as int,
+            json["balance_limit"] == null ? 0 : json['balance_limit'] as int?,
+        upperLimit: json['txn_upper_limit'] as int?,
+        lowerLimit: json['txn_lower_limit'] as int?,
       );
 }
 

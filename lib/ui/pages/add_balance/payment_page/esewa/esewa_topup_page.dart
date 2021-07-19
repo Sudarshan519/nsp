@@ -145,9 +145,18 @@ class EsewaTopupPage extends StatelessWidget {
 
     final amountDoubleInRupees = double.parse(amount);
 
-    if (amountDoubleInRupees < 100) {
+    if (amountDoubleInRupees < (method.lowerLimit ?? 100)) {
       FlushbarHelper.createError(
-              message: "The amount cannot be smaller than 100.")
+              message:
+                  "The amount cannot be smaller than ${method.lowerLimit ?? 100}.")
+          .show(context);
+      return;
+    }
+
+    if (amountDoubleInRupees > (method.upperLimit ?? 100)) {
+      FlushbarHelper.createError(
+              message:
+                  "The amount cannot be greater than ${method.upperLimit ?? 100}.")
           .show(context);
       return;
     }
@@ -167,7 +176,7 @@ class EsewaTopupPage extends StatelessWidget {
     final ESewaConfiguration _configuration = ESewaConfiguration(
       clientID: method.merchantId ?? '',
       secretKey: method.merchantSecret ?? '',
-      environment: method.islive
+      environment: (method.islive ?? false)
           ? ESewaConfiguration.ENVIRONMENT_LIVE
           : ESewaConfiguration.ENVIRONMENT_TEST,
     );
@@ -177,7 +186,7 @@ class EsewaTopupPage extends StatelessWidget {
     final ESewaPayment _payment = ESewaPayment(
       productPrice: amountDoubleInRupees,
       productName: "Load Balance from Esewa",
-      productID: "load-balance-from-esewa",
+      productID: "BNPJ_TOPUP_U12_",
       callBackURL: method.callbackUrl ?? '',
     );
 

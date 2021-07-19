@@ -39,6 +39,8 @@ class PaymentMethod {
     required this.merchantSecret,
     required this.balanceLimit,
     required this.islive,
+    required this.upperLimit,
+    required this.lowerLimit,
   });
 
   final String? name;
@@ -61,7 +63,9 @@ class PaymentMethod {
   final String? merchantId;
   final String? merchantSecret;
   final int? balanceLimit;
-  final bool islive;
+  final bool? islive;
+  final int? upperLimit;
+  final int? lowerLimit;
 }
 
 class CreditCard {
