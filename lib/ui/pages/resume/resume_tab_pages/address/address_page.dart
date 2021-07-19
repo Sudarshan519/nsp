@@ -22,6 +22,7 @@ class AddressPage extends StatelessWidget {
   final PersonalInfo info;
   final List<String> prefecture;
   final List<String> provinces;
+  final List<String> countries;
   final String lang;
 
   const AddressPage({
@@ -30,13 +31,13 @@ class AddressPage extends StatelessWidget {
     required this.prefecture,
     required this.provinces,
     required this.lang,
+    required this.countries,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
-      getCountries: getIt<GetCountries>(),
       getListOfCityFromPrefectures: getIt<GetListOfCityFromPrefectures>(),
     );
     return BlocProvider(
@@ -46,6 +47,7 @@ class AddressPage extends StatelessWidget {
             info: info,
             prefectures: prefecture,
             provinces: provinces,
+            countries: countries,
             lang: lang,
           ),
         ),
@@ -107,11 +109,14 @@ class AddressPage extends StatelessWidget {
                     const Spacer(),
                     InkWell(
                       onTap: () => context.pushRoute(
-                          EditCurrentAddressInfoFormRoute(
-                              info: info,
-                              lang: lang,
-                              prefecture: prefecture,
-                              provinces: provinces)),
+                        EditCurrentAddressInfoFormRoute(
+                          info: info,
+                          lang: lang,
+                          prefecture: prefecture,
+                          provinces: provinces,
+                          countries: countries,
+                        ),
+                      ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
                         color: Palette.primary,
@@ -154,11 +159,14 @@ class AddressPage extends StatelessWidget {
                     const Spacer(),
                     InkWell(
                       onTap: () => context.pushRoute(
-                          EditContactAddressInfoFormRoute(
-                              info: info,
-                              lang: lang,
-                              prefecture: prefecture,
-                              provinces: provinces)),
+                        EditContactAddressInfoFormRoute(
+                          info: info,
+                          lang: lang,
+                          prefecture: prefecture,
+                          provinces: provinces,
+                          countries: countries,
+                        ),
+                      ),
                       child: SvgPicture.asset(
                         "assets/images/resume/edit.svg",
                         color: Palette.primary,

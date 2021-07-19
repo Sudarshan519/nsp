@@ -149,9 +149,18 @@ class KhaltiTopupPage extends StatelessWidget {
 
     final amountDoubleInRupees = double.parse(amount);
 
-    if (amountDoubleInRupees < 100) {
+    if (amountDoubleInRupees < (method.lowerLimit ?? 100)) {
       FlushbarHelper.createError(
-              message: "The amount cannot be smaller than 100.")
+              message:
+                  "The amount cannot be smaller than ${method.lowerLimit ?? 100}.")
+          .show(context);
+      return;
+    }
+
+    if (amountDoubleInRupees > (method.upperLimit ?? 100)) {
+      FlushbarHelper.createError(
+              message:
+                  "The amount cannot be greater than ${method.upperLimit ?? 100}.")
           .show(context);
       return;
     }

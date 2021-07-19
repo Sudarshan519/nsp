@@ -40,7 +40,9 @@ class UpdateAddressInfoActorEvent with _$UpdateAddressInfoActorEvent {
     required PersonalInfo info,
     required List<String> prefectures,
     required List<String> provinces,
+    required List<String> countries,
     required String lang,
   }) = _SetInitialState;
+
   const factory UpdateAddressInfoActorEvent.save() = _Save;
 }

@@ -26,6 +26,7 @@ class EditCurrentAddressInfoFormPage extends StatelessWidget {
   final PersonalInfo info;
   final List<String> prefecture;
   final List<String> provinces;
+  final List<String> countries;
   final String lang;
 
   const EditCurrentAddressInfoFormPage({
@@ -34,15 +35,14 @@ class EditCurrentAddressInfoFormPage extends StatelessWidget {
     required this.lang,
     required this.prefecture,
     required this.provinces,
-  })  : assert(info != null),
-        super(key: key);
+    required this.countries,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     EditCurrentAddressInfoFormPage.language = lang;
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
-      getCountries: getIt<GetCountries>(),
       getListOfCityFromPrefectures: getIt<GetListOfCityFromPrefectures>(),
     );
     return BlocProvider(
@@ -51,6 +51,7 @@ class EditCurrentAddressInfoFormPage extends StatelessWidget {
           info: info,
           prefectures: prefecture,
           provinces: provinces,
+          countries: countries,
           lang: lang,
         )),
       child: Scaffold(
@@ -260,7 +261,8 @@ class _PostalCodeInputField extends StatelessWidget {
                 },
               ),
             ),
-            if (state.currCountry.toLowerCase() == "japan")
+            if (state.currCountry.toLowerCase() == "japan" ||
+                state.currCountry.toLowerCase() == "日本")
               BlocProvider(
                 create: (context) => getIt<LocationViaPostalCodeBloc>(),
                 child: _SearchAddressViaPostalCode(
@@ -406,7 +408,8 @@ class _PrefectureInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
-        child: state.currCountry.toLowerCase() == "japan"
+        child: (state.currCountry.toLowerCase() == "japan" ||
+                state.currCountry.toLowerCase() == "日本")
             ? CustomSearchableDropDownWidget(
                 hintText: "Prefecture",
                 value: state.currPrefecture,
@@ -418,7 +421,8 @@ class _PrefectureInputField extends StatelessWidget {
                       );
                 },
               )
-            : state.currCountry.toLowerCase() == "nepal"
+            : (state.currCountry.toLowerCase() == "nepal" ||
+                    state.currCountry.toLowerCase() == "ネパール")
                 ? CustomSearchableDropDownWidget(
                     hintText: "Prefecture",
                     value: state.currPrefecture,
@@ -454,7 +458,8 @@ class _CityInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
-        child: state.currCountry.toLowerCase() == "japan"
+        child: (state.currCountry.toLowerCase() == "japan" ||
+                state.currCountry.toLowerCase() == "日本")
             ? CustomSearchableDropDownWidget(
                 hintText: "City",
                 value: state.currCity,
@@ -464,7 +469,8 @@ class _CityInputField extends StatelessWidget {
                       UpdateAddressInfoActorEvent.changedCurrCity(value ?? ''));
                 },
               )
-            : state.currCountry.toLowerCase() == "nepal"
+            : (state.currCountry.toLowerCase() == "nepal" ||
+                    state.currCountry.toLowerCase() == "ネパール")
                 ? CustomSearchableDropDownWidget(
                     hintText: "City",
                     value: state.currCity,

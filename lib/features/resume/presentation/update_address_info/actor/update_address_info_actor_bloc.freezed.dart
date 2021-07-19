@@ -112,11 +112,13 @@ class _$UpdateAddressInfoActorEventTearOff {
       {required PersonalInfo info,
       required List<String> prefectures,
       required List<String> provinces,
+      required List<String> countries,
       required String lang}) {
     return _SetInitialState(
       info: info,
       prefectures: prefectures,
       provinces: provinces,
+      countries: countries,
       lang: lang,
     );
   }
@@ -149,7 +151,7 @@ mixin _$UpdateAddressInfoActorEvent {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) =>
@@ -172,7 +174,7 @@ mixin _$UpdateAddressInfoActorEvent {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -334,7 +336,7 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -360,7 +362,7 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -527,7 +529,7 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -553,7 +555,7 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -725,7 +727,7 @@ class _$_ChangedCurJapaneserPrefecture
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -751,7 +753,7 @@ class _$_ChangedCurJapaneserPrefecture
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -923,7 +925,7 @@ class _$_ChangedCurrNepaliProvince implements _ChangedCurrNepaliProvince {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -949,7 +951,7 @@ class _$_ChangedCurrNepaliProvince implements _ChangedCurrNepaliProvince {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -1117,7 +1119,7 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -1143,7 +1145,7 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -1309,7 +1311,7 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -1335,7 +1337,7 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -1501,7 +1503,7 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -1527,7 +1529,7 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -1697,7 +1699,7 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -1723,7 +1725,7 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -1892,7 +1894,7 @@ class _$_ChangedContCountry implements _ChangedContCountry {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -1918,7 +1920,7 @@ class _$_ChangedContCountry implements _ChangedContCountry {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -2085,7 +2087,7 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -2111,7 +2113,7 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -2283,7 +2285,7 @@ class _$_ChangedContJapanesePrefecture
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -2309,7 +2311,7 @@ class _$_ChangedContJapanesePrefecture
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -2481,7 +2483,7 @@ class _$_ChangedContNepaliProvince implements _ChangedContNepaliProvince {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -2507,7 +2509,7 @@ class _$_ChangedContNepaliProvince implements _ChangedContNepaliProvince {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -2675,7 +2677,7 @@ class _$_ChangedContCity implements _ChangedContCity {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -2701,7 +2703,7 @@ class _$_ChangedContCity implements _ChangedContCity {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -2867,7 +2869,7 @@ class _$_ChangedContAddress implements _ChangedContAddress {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -2893,7 +2895,7 @@ class _$_ChangedContAddress implements _ChangedContAddress {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -3059,7 +3061,7 @@ class _$_ChangedContPhone implements _ChangedContPhone {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -3085,7 +3087,7 @@ class _$_ChangedContPhone implements _ChangedContPhone {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
@@ -3179,6 +3181,7 @@ abstract class _$SetInitialStateCopyWith<$Res> {
       {PersonalInfo info,
       List<String> prefectures,
       List<String> provinces,
+      List<String> countries,
       String lang});
 }
 
@@ -3198,6 +3201,7 @@ class __$SetInitialStateCopyWithImpl<$Res>
     Object? info = freezed,
     Object? prefectures = freezed,
     Object? provinces = freezed,
+    Object? countries = freezed,
     Object? lang = freezed,
   }) {
     return _then(_SetInitialState(
@@ -3212,6 +3216,10 @@ class __$SetInitialStateCopyWithImpl<$Res>
       provinces: provinces == freezed
           ? _value.provinces
           : provinces // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      countries: countries == freezed
+          ? _value.countries
+          : countries // ignore: cast_nullable_to_non_nullable
               as List<String>,
       lang: lang == freezed
           ? _value.lang
@@ -3228,6 +3236,7 @@ class _$_SetInitialState implements _SetInitialState {
       {required this.info,
       required this.prefectures,
       required this.provinces,
+      required this.countries,
       required this.lang});
 
   @override
@@ -3237,11 +3246,13 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   final List<String> provinces;
   @override
+  final List<String> countries;
+  @override
   final String lang;
 
   @override
   String toString() {
-    return 'UpdateAddressInfoActorEvent.setInitialState(info: $info, prefectures: $prefectures, provinces: $provinces, lang: $lang)';
+    return 'UpdateAddressInfoActorEvent.setInitialState(info: $info, prefectures: $prefectures, provinces: $provinces, countries: $countries, lang: $lang)';
   }
 
   @override
@@ -3256,6 +3267,9 @@ class _$_SetInitialState implements _SetInitialState {
             (identical(other.provinces, provinces) ||
                 const DeepCollectionEquality()
                     .equals(other.provinces, provinces)) &&
+            (identical(other.countries, countries) ||
+                const DeepCollectionEquality()
+                    .equals(other.countries, countries)) &&
             (identical(other.lang, lang) ||
                 const DeepCollectionEquality().equals(other.lang, lang)));
   }
@@ -3266,6 +3280,7 @@ class _$_SetInitialState implements _SetInitialState {
       const DeepCollectionEquality().hash(info) ^
       const DeepCollectionEquality().hash(prefectures) ^
       const DeepCollectionEquality().hash(provinces) ^
+      const DeepCollectionEquality().hash(countries) ^
       const DeepCollectionEquality().hash(lang);
 
   @JsonKey(ignore: true)
@@ -3292,11 +3307,11 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
-    return setInitialState(info, prefectures, provinces, lang);
+    return setInitialState(info, prefectures, provinces, countries, lang);
   }
 
   @override
@@ -3318,13 +3333,13 @@ class _$_SetInitialState implements _SetInitialState {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),
   }) {
     if (setInitialState != null) {
-      return setInitialState(info, prefectures, provinces, lang);
+      return setInitialState(info, prefectures, provinces, countries, lang);
     }
     return orElse();
   }
@@ -3399,11 +3414,13 @@ abstract class _SetInitialState implements UpdateAddressInfoActorEvent {
       {required PersonalInfo info,
       required List<String> prefectures,
       required List<String> provinces,
+      required List<String> countries,
       required String lang}) = _$_SetInitialState;
 
   PersonalInfo get info => throw _privateConstructorUsedError;
   List<String> get prefectures => throw _privateConstructorUsedError;
   List<String> get provinces => throw _privateConstructorUsedError;
+  List<String> get countries => throw _privateConstructorUsedError;
   String get lang => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
@@ -3464,7 +3481,7 @@ class _$_Save implements _Save {
     required TResult Function(String address) changedContAddress,
     required TResult Function(String phone) changedContPhone,
     required TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)
+            List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
   }) {
@@ -3490,7 +3507,7 @@ class _$_Save implements _Save {
     TResult Function(String address)? changedContAddress,
     TResult Function(String phone)? changedContPhone,
     TResult Function(PersonalInfo info, List<String> prefectures,
-            List<String> provinces, String lang)?
+            List<String> provinces, List<String> countries, String lang)?
         setInitialState,
     TResult Function()? save,
     required TResult orElse(),

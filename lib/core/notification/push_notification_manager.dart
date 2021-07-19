@@ -32,6 +32,10 @@ class PushNotificationManager {
     await _pushNotificationSetup();
   }
 
+  Future removeToken() async {
+    await _firebaseMessaging.deleteToken();
+  }
+
   Future _localNotificationSetup() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings(

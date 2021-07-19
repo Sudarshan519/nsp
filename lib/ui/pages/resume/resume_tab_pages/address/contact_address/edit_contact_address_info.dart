@@ -26,6 +26,7 @@ class EditContactAddressInfoFormPage extends StatelessWidget {
   final PersonalInfo info;
   final List<String> prefecture;
   final List<String> provinces;
+  final List<String> countries;
   final String lang;
 
   const EditContactAddressInfoFormPage({
@@ -34,6 +35,7 @@ class EditContactAddressInfoFormPage extends StatelessWidget {
     required this.lang,
     required this.prefecture,
     required this.provinces,
+    required this.countries,
   }) : super(key: key);
 
   @override
@@ -41,7 +43,6 @@ class EditContactAddressInfoFormPage extends StatelessWidget {
     EditContactAddressInfoFormPage.language = lang;
     final addressInfoActorBloc = UpdateAddressInfoActorBloc(
       updateAddressInfo: getIt<UpdateAddressInfo>(),
-      getCountries: getIt<GetCountries>(),
       getListOfCityFromPrefectures: getIt<GetListOfCityFromPrefectures>(),
     );
     return BlocProvider(
@@ -51,6 +52,7 @@ class EditContactAddressInfoFormPage extends StatelessWidget {
             info: info,
             prefectures: prefecture,
             provinces: provinces,
+            countries: countries,
             lang: lang,
           ),
         ),

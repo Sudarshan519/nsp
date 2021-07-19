@@ -17,14 +17,14 @@ part 'update_address_info_actor_bloc.freezed.dart';
 class UpdateAddressInfoActorBloc
     extends Bloc<UpdateAddressInfoActorEvent, UpdateAddressInfoActorState> {
   final UpdateAddressInfo updateAddressInfo;
-  final GetCountries getCountries;
+  // final GetCountries getCountries;
   final GetListOfCityFromPrefectures getListOfCityFromPrefectures;
   PersonalInfo? _personalInfo;
   String? _lang;
 
   UpdateAddressInfoActorBloc({
     required this.updateAddressInfo,
-    required this.getCountries,
+    // required this.getCountries,
     required this.getListOfCityFromPrefectures,
   }) : super(UpdateAddressInfoActorState.initial());
 
@@ -94,7 +94,7 @@ class UpdateAddressInfoActorBloc
       failureOrSuccessOption: none(),
     );
     final userInfo = _setInitialState.info;
-    final listOfCountry = await getCountries();
+    // final listOfCountry = await getCountries();
 
     _lang = _setInitialState.lang;
 
@@ -123,7 +123,7 @@ class UpdateAddressInfoActorBloc
         contCity: userInfo.contCity ?? "",
         contAddress: userInfo.contAddress ?? "",
         contPhone: userInfo.contPhone ?? "",
-        listOfCountries: listOfCountry,
+        listOfCountries: _setInitialState.countries,
         listOfJapanesePrefectures: _setInitialState.prefectures,
         listOfNepaliProvinces: _setInitialState.provinces,
         listOfCurrCities: _currCityArray,
@@ -157,7 +157,8 @@ class UpdateAddressInfoActorBloc
   // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeCurrJapanesePrefectureToState(
       _ChangedCurJapaneserPrefecture _changedPrefecture) async* {
-    if (state.currCountry.toLowerCase() == "japan") {
+    if (state.currCountry.toLowerCase() == "japan" ||
+        state.currCountry.toLowerCase() == "日本") {
       yield state.copyWith(
         isSubmitting: true,
         failureOrSuccessOption: none(),
@@ -283,7 +284,8 @@ class UpdateAddressInfoActorBloc
   // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeContJapanesePrefectureToState(
       _ChangedContJapanesePrefecture _changedPrefecture) async* {
-    if (state.contCountry.toLowerCase() == "japan") {
+    if (state.contCountry.toLowerCase() == "japan" ||
+        state.currCountry.toLowerCase() == "日本") {
       yield state.copyWith(
         isSubmitting: true,
         failureOrSuccessOption: none(),
