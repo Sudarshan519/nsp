@@ -59,7 +59,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     required int id,
   }) async {
     http.Response response;
-    final resumeType = type.toString().split('.').first;
+    final resumeType = type.toString().split('.').last;
     final url =
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.deleteResumeData}$id/$resumeType";
     final accessToken = (await auth.getWalletUser()).accessToken;
@@ -71,7 +71,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     _headers["Authorization"] = "Bearer $accessToken";
 
     try {
-      response = await client.get(
+      response = await client.delete(
         Uri.parse(url),
         headers: _headers,
       );

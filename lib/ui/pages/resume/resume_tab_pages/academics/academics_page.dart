@@ -2,11 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/resume/data/app_constant/constant.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
+import 'package:wallet_app/features/resume/domain/usecases/delete_resume_data.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_academics_info.dart';
+import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
+import 'package:wallet_app/ui/widgets/delete_remute_info_buton.dart';
 import 'package:wallet_app/ui/widgets/pop_up/pop_up_confirmation.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -148,24 +152,11 @@ class _CreateAcademicInfoBox extends StatelessWidget {
                   width: 15,
                 ),
               ),
-              IconButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (_) => PopUpConfirmation(
-                        message: 'Are you sure to delete the resume item?',
-                        onConfirmed: () {
-                          // context.read<DeleteCardBloc>().add(
-                          //       DeleteCardEvent.deleteCard(
-                          //         _cards[index].id,
-                          //       ),
-                          //     );
-                          context.popRoute();
-                        },
-                      ),
-                    );
-                  },
-                  icon: Icon(Icons.delete_forever_outlined, color: Colors.red))
+              DeleteResumeItemButton(
+                cntx: context,
+                id: academicHistory.id ?? 0,
+                type: ResumeType.education,
+              )
             ],
           ),
           const SizedBox(

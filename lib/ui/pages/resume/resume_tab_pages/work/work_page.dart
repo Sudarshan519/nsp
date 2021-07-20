@@ -2,11 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/resume/data/app_constant/constant.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_work_info.dart';
 import 'package:wallet_app/features/resume/presentation/update_work_info/actor/update_work_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
+import 'package:wallet_app/ui/widgets/delete_remute_info_buton.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
@@ -153,6 +155,11 @@ class _CreateWorkInfoBox extends StatelessWidget {
                   width: 15,
                 ),
               ),
+              DeleteResumeItemButton(
+                cntx: context,
+                id: work.id ?? 0,
+                type: ResumeType.experience,
+              )
             ],
           ),
           const SizedBox(

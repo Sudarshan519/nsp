@@ -56,22 +56,28 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
             failureOrSuccessOption: optionOf(fail),
           );
         }, (success) {
+          final toModify = (state.language == "en") ? _english : _japanese;
+
           switch (e.params.type) {
             case ResumeType.education:
-              _english?.academicHistory
+              toModify?.academicHistory
                   ?.removeWhere((element) => element.id == e.params.id);
               break;
             case ResumeType.experience:
-              _english?.workHistory
+              toModify?.workHistory
                   ?.removeWhere((element) => element.id == e.params.id);
               break;
             case ResumeType.qualification:
-              _english?.qualificationHistory
+              toModify?.qualificationHistory
                   ?.removeWhere((element) => element.id == e.params.id);
               break;
           }
           return state.copyWith(
-            isLoading: true,
+            isLoading: false,
+            academics: toModify?.academicHistory ?? state.academics,
+            qualifications:
+                toModify?.qualificationHistory ?? state.qualifications,
+            works: toModify?.workHistory ?? state.works,
             failureOrSuccessOption: none(),
           );
         });
