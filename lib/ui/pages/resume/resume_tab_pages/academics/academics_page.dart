@@ -153,7 +153,6 @@ class _CreateAcademicInfoBox extends StatelessWidget {
                 ),
               ),
               DeleteResumeItemButton(
-                cntx: context,
                 id: academicHistory.id ?? 0,
                 type: ResumeType.education,
               )

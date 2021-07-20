@@ -7,13 +7,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DeleteResumeItemButton extends StatelessWidget {
-  final BuildContext cntx;
   final int id;
   final ResumeType type;
   const DeleteResumeItemButton({
     required this.id,
     required this.type,
-    required this.cntx,
   });
 
   @override
@@ -26,7 +24,7 @@ class DeleteResumeItemButton extends StatelessWidget {
               message: 'Are you sure to delete the resume item?',
               onConfirmed: () {
                 // getIt<ResumeWatcherBloc>().add(
-                cntx.read<ResumeWatcherBloc>().add(
+                context.read<ResumeWatcherBloc>().add(
                     ResumeWatcherEvent.deleteResumeData(
                         DeleteResumeDataParams(type: type, id: id)));
                 context.popRoute();

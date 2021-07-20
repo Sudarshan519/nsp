@@ -156,7 +156,6 @@ class _CreateWorkInfoBox extends StatelessWidget {
                 ),
               ),
               DeleteResumeItemButton(
-                cntx: context,
                 id: work.id ?? 0,
                 type: ResumeType.experience,
               )

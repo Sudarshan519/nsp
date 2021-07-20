@@ -153,7 +153,6 @@ class _CreateQualificationInfoBox extends StatelessWidget {
                 ),
               ),
               DeleteResumeItemButton(
-                cntx: context,
                 id: qualification.id ?? 0,
                 type: ResumeType.qualification,
               )
