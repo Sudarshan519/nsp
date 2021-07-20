@@ -1,6 +1,8 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 import 'package:wallet_app/features/ads/presentation/get_ads/ads_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/data/model/remit_rate_mode.dart';
@@ -44,52 +46,68 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Palette.white,
-        child: Column(
-          children: [
-            HomeHeaderWidget(),
-            Expanded(
-              child: RefreshIndicator(
-                onRefresh: () async {
-                  context.read<HomePageDataBloc>().add(
-                        const HomePageDataEvent.fetch(),
-                      );
-                  getIt<GetBalanceBloc>()
-                      .add(const GetBalanceEvent.fetchBalance());
-                    getIt<AdsBloc>().add(
-                        const AdsEvent.fetchAds(),
-                      );
-                  // await 2 sec for the loader to show
-                  await Future.delayed(const Duration(seconds: 2), () {});
-                },
-                child: SingleChildScrollView(
-                  controller: scrollController,
-                  child: Column(
-                    children: [
-                      const HomePageHeader(),
-                      _homePageBody(),
-                    ],
-                  ),
-                ),
-              ),
+      appBar: AppBar(
+        leading: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          width: 36,
+          height: 36,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(18.0),
+            child: Image.asset(
+              'assets/images/navigation_bar/u1.png',
+              fit: BoxFit.cover,
             ),
-            // const GoogleBannerAd()
-          ],
+          ),
         ),
+        actions: [
+          SvgPicture.asset(
+            "assets/images/navigation_bar/notification.svg",
+            height: 25.0,
+          ),
+          const SizedBox(width: 16),
+        ],
+        elevation: 0,
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: Palette.white,
-      //   onPressed: () {},
-      //   child: SvgPicture.asset(
-      //     "assets/images/home/chat.svg",
-      //     height: 30.0,
+      body: _homePageBody(context),
+
+      // body: Container(
+      //   color: Palette.white,
+      //   child: Column(
+      //     children: [
+      //       // HomeHeaderWidget(),
+      //       Expanded(
+      //         child: RefreshIndicator(
+      //           onRefresh: () async {
+      //             context.read<HomePageDataBloc>().add(
+      //                   const HomePageDataEvent.fetch(),
+      //                 );
+      //             getIt<GetBalanceBloc>()
+      //                 .add(const GetBalanceEvent.fetchBalance());
+      //             getIt<AdsBloc>().add(
+      //               const AdsEvent.fetchAds(),
+      //             );
+      //             // await 2 sec for the loader to show
+      //             await Future.delayed(const Duration(seconds: 2), () {});
+      //           },
+      //           child: SingleChildScrollView(
+      //             controller: scrollController,
+      //             child: Column(
+      //               children: [
+      // const HomePageHeader(),
+      // _homePageBody(),
+      //               ],
+      //             ),
+      //           ),
+      //         ),
+      //       ),
+      //       // const GoogleBannerAd()
+      //     ],
       //   ),
       // ),
     );
   }
 
-  Widget _homePageBody() {
+  Widget _homePageBody(BuildContext context) {
     return BlocBuilder<HomePageDataBloc, HomePageDataState>(
       buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
@@ -99,23 +117,26 @@ class HomePage extends StatelessWidget {
             // also load watcher for Resume bloc
             return loadingPage();
           },
-          loadingWithData: (success) => _homePageBodyContent(
+          loadingWithData: (success) => _homePageSilver(
             context,
             success.data.homeData,
             success.data.userDetail,
           ),
-          loaded: (success) => _homePageBodyContent(
+          loaded: (success) => _homePageSilver(
               context, success.data.homeData, success.data.userDetail),
           failure: (error) {
-            Future.delayed(Duration.zero, () {
-              FlushbarHelper.createError(
-                message: error.failure.map(
-                  noInternetConnection: (error) => AppConstants.noNetwork,
-                  serverError: (error) => error.message,
-                  invalidUser: (error) => AppConstants.someThingWentWrong,
-                ),
-              ).show(context);
-            });
+            Future.delayed(
+              Duration.zero,
+              () {
+                FlushbarHelper.createError(
+                  message: error.failure.map(
+                    noInternetConnection: (error) => AppConstants.noNetwork,
+                    serverError: (error) => error.message,
+                    invalidUser: (error) => AppConstants.someThingWentWrong,
+                  ),
+                ).show(context);
+              },
+            );
             return const SizedBox.shrink();
           },
           failureWithData: (failure) {
@@ -128,11 +149,26 @@ class HomePage extends StatelessWidget {
                 ),
               ).show(context);
             });
-            return _homePageBodyContent(
+            return _homePageSilver(
                 context, failure.data.homeData, failure.data.userDetail);
           },
         );
       },
+    );
+  }
+
+  Widget _homePageSilver(
+      BuildContext context, List? data, UserDetail? userDetail) {
+    return CustomScrollView(
+      slivers: [
+        const SliverToBoxAdapter(child: HomePageHeader()),
+        _homePageBodyContent(context, data, userDetail),
+        SegmentedNewViewWidget(
+          key: UniqueKey(),
+          changeTabPage: changeTabPage,
+          changeNewsTabPage: changeNewsTabPage,
+        ),
+      ],
     );
   }
 
@@ -143,15 +179,13 @@ class HomePage extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return ListView.builder(
-      primary: false,
-      padding: EdgeInsets.zero,
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: data.length,
-      itemBuilder: (context, index) {
-        return _listItemBuilder(context, data[index], userDetail);
-      },
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return _listItemBuilder(context, data[index], userDetail);
+        },
+        childCount: data.length,
+      ),
     );
   }
 
@@ -218,12 +252,12 @@ class HomePage extends StatelessWidget {
           bannerUrl: banner,
         );
 
-      case HomeItemType.news:
-        return SegmentedNewViewWidget(
-          key: UniqueKey(),
-          changeTabPage: changeTabPage,
-          changeNewsTabPage: changeNewsTabPage,
-        );
+      // case HomeItemType.news:
+      //   return SegmentedNewViewWidget(
+      //     key: UniqueKey(),
+      //     changeTabPage: changeTabPage,
+      //     changeNewsTabPage: changeNewsTabPage,
+      //   );
 
       case HomeItemType.disaster_alert:
         return const SizedBox.shrink();

@@ -21,12 +21,8 @@ class UserInfoWidget extends StatelessWidget {
           color: Palette.primary,
           child: Column(
             children: [
-              const SizedBox(
-                height: 5,
-              ),
               Text(
                 "${user?.firstName ?? ""} ${user?.lastName ?? ""}",
-                // "Siraj Ashikarisadasd",
                 style: TextStyle(
                   color: Palette.white,
                   fontSize: 16,

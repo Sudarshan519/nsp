@@ -51,7 +51,7 @@ dependencies:
   flutter_facebook_auth: ^3.3.3+1              
   flutter_html: ^2.0.0  
   flutter_local_notifications: ^6.0.0              
-  flutter_secure_storage: ^4.2.0           
+  flutter_secure_storage: ^4.2.0 
   flutter_svg: ^0.22.0               
   form_validator: ^1.0.0-nullsafety.1   
   freezed_annotation: ^0.14.2               
@@ -70,7 +70,8 @@ dependencies:
   permission_handler: ^7.1.0                
   share: ^2.0.1                
   shared_preferences: ^2.0.5                
-  sign_in_with_apple: ^3.0.0                
+  sign_in_with_apple: ^3.0.0  
+  sliver_tools: ^0.2.5              
   sms_autofill: ^2.0.0                
   sqflite: ^2.0.0+3    
   syncfusion_flutter_charts: ^19.1.66+1          
