@@ -10,6 +10,10 @@ String? errorMessageFromServer(String message) {
 // convert the response body to a json map
     final data = json.decode(message) as Map<String, dynamic>;
 
+    if (data['error'] is String) {
+      return data['error'] as String;
+    }
+
     // search for a error key which is another json object
     final errorJson = data["error"] as Map<String, dynamic>;
 
