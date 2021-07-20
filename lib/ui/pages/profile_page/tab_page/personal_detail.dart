@@ -877,6 +877,9 @@ class _ResidencePostalCodeInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
+      buildWhen: (previous, current) =>
+          previous.residencePostalCode != current.residencePostalCode ||
+          previous.residenceCountry != current.residenceCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Postal Code",
         child: Row(
@@ -900,7 +903,7 @@ class _ResidencePostalCodeInputField extends StatelessWidget {
                 },
               ),
             ),
-            if (state.originCountry.toLowerCase() == "japan")
+            if (state.residenceCountry.toLowerCase() == "japan")
               BlocProvider(
                 create: (context) => getIt<LocationViaPostalCodeBloc>(),
                 child: _SearchResidenceAddressViaPostalCode(
