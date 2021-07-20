@@ -20,38 +20,51 @@ class MorePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _profileData = _getProfileList(context);
     return Scaffold(
-      body: Container(
-        color: Palette.white,
-        child: Column(
-          children: [
-            HomeHeaderWidget(),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const HomePageHeader(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: ListView.builder(
-                        padding: const EdgeInsets.all(0),
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: _profileData.length,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return _ProfileItem(
-                            imageName: _profileData[index].image,
-                            title: _profileData[index].title,
-                            onTap: _profileData[index].onTap,
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+      appBar: AppBar(
+        leading: HomeUserProfileWidget(),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () => context.pushRoute(const NotificationListRoute()),
+              child: Stack(
+                children: [
+                  SvgPicture.asset(
+                    "assets/images/navigation_bar/notification.svg",
+                    height: 25.0,
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
+        ],
+        elevation: 0,
+      ),
+      body: Container(
+        color: Palette.white,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const HomePageHeader(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(0),
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: _profileData.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return _ProfileItem(
+                      imageName: _profileData[index].image,
+                      title: _profileData[index].title,
+                      onTap: _profileData[index].onTap,
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -64,6 +77,7 @@ class MorePage extends StatelessWidget {
         title: "Profile",
         onTap: () => context.pushRoute(const ProfileRoute()),
       ),
+
       _ProfileData(
         image: "icon-coupon",
         title: "Coupons",

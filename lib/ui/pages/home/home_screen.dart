@@ -1,6 +1,8 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/ads/presentation/get_ads/ads_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/data/model/remit_rate_mode.dart';
@@ -19,6 +21,7 @@ import 'package:wallet_app/ui/pages/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/google_banner_ad/google_banner_ad.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 
 import 'widgets/banner_widget.dart';
 import 'widgets/build_resume.dart';
@@ -44,52 +47,31 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Palette.white,
-        child: Column(
-          children: [
-            HomeHeaderWidget(),
-            Expanded(
-              child: RefreshIndicator(
-                onRefresh: () async {
-                  context.read<HomePageDataBloc>().add(
-                        const HomePageDataEvent.fetch(),
-                      );
-                  getIt<GetBalanceBloc>()
-                      .add(const GetBalanceEvent.fetchBalance());
-                  getIt<AdsBloc>().add(
-                    const AdsEvent.fetchAds(),
-                  );
-                  // await 2 sec for the loader to show
-                  await Future.delayed(const Duration(seconds: 2), () {});
-                },
-                child: SingleChildScrollView(
-                  controller: scrollController,
-                  child: Column(
-                    children: [
-                      const HomePageHeader(),
-                      _homePageBody(),
-                    ],
+      appBar: AppBar(
+        leading: HomeUserProfileWidget(),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () => context.pushRoute(const NotificationListRoute()),
+              child: Stack(
+                children: [
+                  SvgPicture.asset(
+                    "assets/images/navigation_bar/notification.svg",
+                    height: 25.0,
                   ),
-                ),
+                ],
               ),
             ),
-            // const GoogleBannerAd()
-          ],
-        ),
+          ),
+        ],
+        elevation: 0,
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: Palette.white,
-      //   onPressed: () {},
-      //   child: SvgPicture.asset(
-      //     "assets/images/home/chat.svg",
-      //     height: 30.0,
-      //   ),
-      // ),
+      body: _homePageBody(context),
     );
   }
 
-  Widget _homePageBody() {
+  Widget _homePageBody(BuildContext context) {
     return BlocBuilder<HomePageDataBloc, HomePageDataState>(
       buildWhen: (previous, next) => previous.hashCode != next.hashCode,
       builder: (context, state) {
@@ -99,23 +81,26 @@ class HomePage extends StatelessWidget {
             // also load watcher for Resume bloc
             return loadingPage();
           },
-          loadingWithData: (success) => _homePageBodyContent(
+          loadingWithData: (success) => _homePageSilver(
             context,
             success.data.homeData,
             success.data.userDetail,
           ),
-          loaded: (success) => _homePageBodyContent(
+          loaded: (success) => _homePageSilver(
               context, success.data.homeData, success.data.userDetail),
           failure: (error) {
-            Future.delayed(Duration.zero, () {
-              FlushbarHelper.createError(
-                message: error.failure.map(
-                  noInternetConnection: (error) => AppConstants.noNetwork,
-                  serverError: (error) => error.message,
-                  invalidUser: (error) => AppConstants.someThingWentWrong,
-                ),
-              ).show(context);
-            });
+            Future.delayed(
+              Duration.zero,
+              () {
+                FlushbarHelper.createError(
+                  message: error.failure.map(
+                    noInternetConnection: (error) => AppConstants.noNetwork,
+                    serverError: (error) => error.message,
+                    invalidUser: (error) => AppConstants.someThingWentWrong,
+                  ),
+                ).show(context);
+              },
+            );
             return const SizedBox.shrink();
           },
           failureWithData: (failure) {
@@ -128,11 +113,40 @@ class HomePage extends StatelessWidget {
                 ),
               ).show(context);
             });
-            return _homePageBodyContent(
+            return _homePageSilver(
                 context, failure.data.homeData, failure.data.userDetail);
           },
         );
       },
+    );
+  }
+
+  Widget _homePageSilver(
+      BuildContext context, List? data, UserDetail? userDetail) {
+    return RefreshIndicator(
+      onRefresh: () async {
+        context.read<HomePageDataBloc>().add(
+              const HomePageDataEvent.fetch(),
+            );
+        getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
+        getIt<AdsBloc>().add(
+          const AdsEvent.fetchAds(),
+        );
+        // await 2 sec for the loader to show
+        await Future.delayed(const Duration(seconds: 2), () {});
+      },
+      child: CustomScrollView(
+        controller: scrollController,
+        slivers: [
+          const SliverToBoxAdapter(child: HomePageHeader()),
+          _homePageBodyContent(context, data, userDetail),
+          SegmentedNewsViewWidget(
+            key: UniqueKey(),
+            changeTabPage: changeTabPage,
+            changeNewsTabPage: changeNewsTabPage,
+          ),
+        ],
+      ),
     );
   }
 
@@ -143,15 +157,13 @@ class HomePage extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return ListView.builder(
-      primary: false,
-      padding: EdgeInsets.zero,
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: data.length,
-      itemBuilder: (context, index) {
-        return _listItemBuilder(context, data[index], userDetail);
-      },
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return _listItemBuilder(context, data[index], userDetail);
+        },
+        childCount: data.length,
+      ),
     );
   }
 
@@ -218,12 +230,12 @@ class HomePage extends StatelessWidget {
           bannerUrl: banner,
         );
 
-      case HomeItemType.news:
-        return SegmentedNewViewWidget(
-          key: UniqueKey(),
-          changeTabPage: changeTabPage,
-          changeNewsTabPage: changeNewsTabPage,
-        );
+      // case HomeItemType.news:
+      //   return SegmentedNewViewWidget(
+      //     key: UniqueKey(),
+      //     changeTabPage: changeTabPage,
+      //     changeNewsTabPage: changeNewsTabPage,
+      //   );
 
       case HomeItemType.disaster_alert:
         return const SizedBox.shrink();

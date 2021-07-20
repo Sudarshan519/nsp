@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bloc.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
@@ -14,8 +15,8 @@ import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class SegmentedNewViewWidget extends StatefulWidget {
-  const SegmentedNewViewWidget({
+class SegmentedNewsViewWidget extends StatefulWidget {
+  const SegmentedNewsViewWidget({
     Key? key,
     required this.changeTabPage,
     required this.changeNewsTabPage,
@@ -25,10 +26,11 @@ class SegmentedNewViewWidget extends StatefulWidget {
   final Function(int) changeNewsTabPage;
 
   @override
-  _SegmentedNewViewWidgetState createState() => _SegmentedNewViewWidgetState();
+  _SegmentedNewsViewWidgetState createState() =>
+      _SegmentedNewsViewWidgetState();
 }
 
-class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
+class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   late int _selectedIndex;
 
   @override
@@ -45,109 +47,120 @@ class _SegmentedNewViewWidgetState extends State<SegmentedNewViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<GetAlertsBloc>()
-        ..add(
-          const GetAlertsEvent.fetch(),
+    return MultiSliver(
+      children: [
+        _header(context),
+        const SizedBox(
+          height: 10,
         ),
-      child: Column(
-        children: [
-          _header(context),
-          const SizedBox(
-            height: 10,
-          ),
-          _body(context),
-        ],
-      ),
+        BlocProvider(
+          create: (_) => getIt<GetAlertsBloc>()
+            ..add(
+              const GetAlertsEvent.fetch(),
+            ),
+          child: _body(context),
+        ),
+      ],
     );
   }
 
   Widget _header(BuildContext context) {
-    return Container(
-      height: 40,
-      width: 250,
-      decoration: BoxDecoration(
-        color: Palette.primaryBackground,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          InkWell(
-            onTap: () {
-              setSelectedIndex(0);
-            },
-            child: Container(
-              height: 40,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: _selectedIndex == 0
-                    ? Palette.primaryButtonColor
-                    : Palette.primaryBackground,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Center(
-                child: Text(
-                  "For You",
-                  style: TextStyle(
-                    color: _selectedIndex == 0 ? Palette.white : Palette.black,
-                    fontWeight: FontWeight.bold,
+    return SliverPinnedHeader(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10.0),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Container(
+          width: 250,
+          decoration: BoxDecoration(
+            color: Palette.primaryBackground,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              InkWell(
+                onTap: () {
+                  setSelectedIndex(0);
+                },
+                child: Container(
+                  height: 40,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    color: _selectedIndex == 0
+                        ? Palette.primaryButtonColor
+                        : Palette.primaryBackground,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "For You",
+                      style: TextStyle(
+                        color:
+                            _selectedIndex == 0 ? Palette.white : Palette.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          const Spacer(),
-          InkWell(
-            onTap: () {
-              setSelectedIndex(1);
-            },
-            child: Container(
-              height: 40,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: _selectedIndex == 1
-                    ? Palette.primaryButtonColor
-                    : Palette.primaryBackground,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Center(
-                child: Text(
-                  "News",
-                  style: TextStyle(
-                    color: _selectedIndex == 1 ? Palette.white : Palette.black,
-                    fontWeight: FontWeight.bold,
+              const Spacer(),
+              InkWell(
+                onTap: () {
+                  setSelectedIndex(1);
+                },
+                child: Container(
+                  height: 40,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    color: _selectedIndex == 1
+                        ? Palette.primaryButtonColor
+                        : Palette.primaryBackground,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "News",
+                      style: TextStyle(
+                        color:
+                            _selectedIndex == 1 ? Palette.white : Palette.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          const Spacer(),
-          InkWell(
-            onTap: () {
-              setSelectedIndex(2);
-            },
-            child: Container(
-              height: 40,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: _selectedIndex == 2
-                    ? Palette.primaryButtonColor
-                    : Palette.primaryBackground,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Center(
-                child: Text(
-                  "Alert",
-                  style: TextStyle(
-                      color:
-                          _selectedIndex == 2 ? Palette.white : Palette.black,
-                      fontWeight: FontWeight.bold),
+              const Spacer(),
+              InkWell(
+                onTap: () {
+                  setSelectedIndex(2);
+                },
+                child: Container(
+                  height: 40,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    color: _selectedIndex == 2
+                        ? Palette.primaryButtonColor
+                        : Palette.primaryBackground,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Alert",
+                      style: TextStyle(
+                          color: _selectedIndex == 2
+                              ? Palette.white
+                              : Palette.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
