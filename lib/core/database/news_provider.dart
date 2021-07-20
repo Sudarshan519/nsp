@@ -9,6 +9,9 @@ abstract class NewsLocalProvider {
   Future insertNewsForYou(NewsModel newsModel);
   Future<NewsModel?> getNewsForYou();
 
+  Future insertLatestNews(NewsModel newsModel);
+  Future<NewsModel?> getLatestNews();
+
   Future insertFavouriteNews(NewsItemModel newsModel);
   Future<List<NewsItemModel>?> getFavouriteNews();
 }
@@ -21,7 +24,11 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
 
   @override
   Future insertNewsForYou(NewsModel newsModel) async {
-    await provider.open();
+    if (!provider.isOpen) {
+      await provider.open();
+    }
+
+    await provider.deleteAll(tableName: NewsItemTable.tableNewsForYou);
 
     final newsData = newsModel.data;
     final newsSource = newsModel.source;
@@ -44,23 +51,19 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
       }
     }
 
-    await provider.close();
+    // await provider.close();
   }
 
   @override
   Future<NewsModel?> getNewsForYou() async {
-    await provider.open();
+    if (!provider.isOpen) {
+      await provider.open();
+    }
 
     final newsJson =
         await provider.getAllFrom(tableName: NewsItemTable.tableNewsForYou);
 
-    final sourceJson =
-        await provider.getAllFrom(tableName: NewsSourceTable.tableNewsSource);
-
-    await provider.close();
-
     final List<NewsItemModel> newsList = [];
-    final List<String> sourceList = [];
 
     if (newsJson != null && newsJson.isNotEmpty) {
       for (final newsItemJson in newsJson) {
@@ -73,10 +76,70 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
       }
     }
 
-    if (sourceJson != null && sourceJson.isNotEmpty) {
-      for (final sourceObject in sourceJson) {
-        final source = sourceObject[NewsSourceTable.tableNewsSource] as String;
-        sourceList.add(source);
+    if (newsList.isEmpty) {
+      return null;
+    }
+
+    return NewsModel(
+      page: "1",
+      source: [],
+      total: newsList.length,
+      data: newsList.isEmpty ? null : newsList,
+      error: null,
+    );
+  }
+
+  @override
+  Future insertLatestNews(NewsModel newsModel) async {
+    if (!provider.isOpen) {
+      await provider.open();
+    }
+
+    await provider.deleteAll(tableName: NewsItemTable.tableNewsLatest);
+
+    final newsData = newsModel.data;
+    final newsSource = newsModel.source;
+
+    if (newsData != null) {
+      for (final news in newsData) {
+        await provider.insert(
+          tableName: NewsItemTable.tableNewsLatest,
+          values: (news as NewsItemModel).toJson(),
+        );
+      }
+    }
+
+    if (newsSource != null) {
+      for (final source in newsSource) {
+        final _ = await provider.insert(
+          tableName: NewsSourceTable.tableNewsSource,
+          values: {NewsSourceTable.newsSourceColumnSource: source},
+        );
+      }
+    }
+
+    // await provider.close();
+  }
+
+  @override
+  Future<NewsModel?> getLatestNews() async {
+    if (!provider.isOpen) {
+      await provider.open();
+    }
+
+    final newsJson =
+        await provider.getAllFrom(tableName: NewsItemTable.tableNewsLatest);
+
+    final List<NewsItemModel> newsList = [];
+
+    if (newsJson != null && newsJson.isNotEmpty) {
+      for (final newsItemJson in newsJson) {
+        final newsItemModel = NewsItemModel.fromJson(newsItemJson);
+        if (newsItemModel.title != null &&
+            newsItemModel.image != null &&
+            newsItemModel.description != null) {
+          newsList.add(newsItemModel);
+        }
       }
     }
 
@@ -86,7 +149,7 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
 
     return NewsModel(
       page: "1",
-      source: sourceList,
+      source: [],
       total: newsList.length,
       data: newsList.isEmpty ? null : newsList,
       error: null,
@@ -95,7 +158,9 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
 
   @override
   Future insertFavouriteNews(NewsItemModel newsModel) async {
-    await provider.open();
+    if (!provider.isOpen) {
+      await provider.open();
+    }
 
     // check if news already in database,
     // if present then delete
@@ -119,7 +184,7 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
       );
     }
 
-    await provider.close();
+    // await provider.close();
   }
 
   Future removeFavouriteNews(NewsItemModel newsModel) async {
@@ -136,7 +201,7 @@ class NewsLocalProviderImpl implements NewsLocalProvider {
     final newsJson =
         await provider.getAllFrom(tableName: NewsItemTable.tableNewsLocalSaved);
 
-    await provider.close();
+    // await provider.close();
 
     final List<NewsItemModel> newsList = [];
 

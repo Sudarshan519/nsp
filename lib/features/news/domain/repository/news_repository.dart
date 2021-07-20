@@ -9,6 +9,8 @@ abstract class NewsRepositoryProtocol {
   Future<Either<ApiFailure, News>> getNewsForYou({
     required String page,
   });
+  Future<Either<ApiFailure, News>> getLocalNewsForYou();
+  Future<Either<ApiFailure, News>> getLocalLatestNews();
 
   Future<Either<ApiFailure, News>> getLatestNews({
     required String page,
@@ -21,6 +23,7 @@ abstract class NewsRepositoryProtocol {
 
   Future<Either<ApiFailure, List<Genre>>> getGenreList();
   Future<Either<ApiFailure, List<NewsPreference>>> getPreferenceList();
+
   Future saveGenreList({
     required List<Genre> genre,
   });
