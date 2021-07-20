@@ -6,6 +6,7 @@ import 'package:wallet_app/injections/injection.dart';
 import 'database_table_constant/table_constant.dart';
 
 abstract class DBProvider {
+  bool get isOpen;
   Future open();
   Future<void> close();
 
@@ -26,15 +27,23 @@ abstract class DBProvider {
     required Map<String, dynamic> values,
   });
 
+  Future deleteAll({
+    required String tableName,
+  });
+
   Future<List<Map<String, dynamic>>>? getAllFrom({required String tableName});
 }
 
 @Singleton(as: DBProvider)
 class DBProviderImpl implements DBProvider {
-  static const int _version = 1;
+  static const int _version = 2;
   Database? _database;
 
   final _logger = getIt<Logger>();
+
+  // @override
+  @override
+  bool get isOpen => _database?.isOpen ?? false;
 
   @override
   Future open() async {
@@ -48,12 +57,16 @@ class DBProviderImpl implements DBProvider {
         dbBatch.execute(_createNewsForYouTable());
         dbBatch.execute(_createFavouriteNewsTable());
         dbBatch.execute(_createNewsSourceTable());
+        dbBatch.execute(_createNewsLatestTable());
         await dbBatch.commit(noResult: true);
       }, onUpgrade: (Database db, currentVersion, newVersion) async {
         final upgradeCalls = {
-          0: (Database db, Batch dbBatch) async {
+          1: (Database db, Batch dbBatch) async {
             dbBatch.execute(_createNewsForYouTable());
             dbBatch.execute(_createFavouriteNewsTable());
+          },
+          2: (Database db, Batch dbBatch) async {
+            dbBatch.execute(_createNewsLatestTable());
           },
         };
         final dbBatch = db.batch();
@@ -90,6 +103,24 @@ class DBProviderImpl implements DBProvider {
   String _createNewsForYouTable() {
     return '''
     CREATE TABLE ${NewsItemTable.tableNewsForYou}
+     ( 
+      ${NewsItemTable.newsItemColumnId} INT PRIMARY KEY,
+      ${NewsItemTable.newsItemColumnTitle} TEXT,
+      ${NewsItemTable.newsItemColumnLink} TEXT,
+      ${NewsItemTable.newsItemColumnCategory} TEXT,
+      ${NewsItemTable.newsItemColumnPublishedDate} TEXT,
+      ${NewsItemTable.newsItemColumnGuid} TEXT,
+      ${NewsItemTable.newsItemColumnSource} TEXT,
+      ${NewsItemTable.newsItemColumnDescription} TEXT, 
+      ${NewsItemTable.newsItemColumnImageUrl} TEXT,
+      ${NewsItemTable.newsItemColumnImageLogo} TEXT 
+      )
+    ''';
+  }
+
+  String _createNewsLatestTable() {
+    return '''
+    CREATE TABLE ${NewsItemTable.tableNewsLatest}
      ( 
       ${NewsItemTable.newsItemColumnId} INT PRIMARY KEY,
       ${NewsItemTable.newsItemColumnTitle} TEXT,
@@ -162,5 +193,14 @@ class DBProviderImpl implements DBProvider {
     await _database?.delete(tableName,
         where: '${NewsItemTable.newsItemColumnGuid} = ?',
         whereArgs: [values[NewsItemTable.newsItemColumnGuid]]);
+  }
+
+  @override
+  Future deleteAll({
+    required String tableName,
+  }) async {
+    await _database?.delete(
+      tableName,
+    );
   }
 }

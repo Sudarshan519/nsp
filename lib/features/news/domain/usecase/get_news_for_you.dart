@@ -34,6 +34,18 @@ class GetNewsForYou
       return const Left(ApiFailure.noInternetConnection());
     }
   }
+
+  Future<Either<ApiFailure, List<NewsItem>>> getLocalForYouNews() async {
+    final localData = await repository.getLocalNewsForYou();
+    return localData.fold(
+      (failure) {
+        return Left(failure);
+      },
+      (news) async {
+        return Right(news.data ?? []);
+      },
+    );
+  }
 }
 
 class GetNewsForYouParams {

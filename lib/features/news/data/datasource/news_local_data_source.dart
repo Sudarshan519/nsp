@@ -18,6 +18,9 @@ abstract class NewsLocalDataSourceProtocol {
   /// Throws [CacheException] for all error codes.
   ///
   Future<NewsModel> getNewsForYou();
+  Future saveNewsForYou(NewsModel newsModel);
+  Future<NewsModel> getLatestNews();
+  Future saveLatestNews(NewsModel newsModel);
 
   /// Return [NewsModel] From Database if available.
   ///
@@ -38,6 +41,7 @@ abstract class NewsLocalDataSourceProtocol {
   Future saveNewsGenre({
     required List<Genre> genres,
   });
+
   Future<List<String>> getNewsPreferencesSources();
   Future<List<String>> getNewsPreferencesLanguages();
   Future<List<String>> getNewsPreferencesGenre();
@@ -57,10 +61,29 @@ class NewsLocalDataSource implements NewsLocalDataSourceProtocol {
 
   @override
   Future<NewsModel> getNewsForYou() async {
-    // final news = await localProvider.getNews();
-    // if (news != null) {
-    //   return news;
-    // }
+    final news = await localProvider.getNewsForYou();
+    if (news != null) {
+      return news;
+    }
+    throw CacheException();
+  }
+
+  @override
+  Future saveNewsForYou(NewsModel newsModel) async {
+    await localProvider.insertNewsForYou(newsModel);
+  }
+
+  @override
+  Future saveLatestNews(NewsModel newsModel) async {
+    await localProvider.insertLatestNews(newsModel);
+  }
+
+  @override
+  Future<NewsModel> getLatestNews() async {
+    final news = await localProvider.getLatestNews();
+    if (news != null) {
+      return news;
+    }
     throw CacheException();
   }
 

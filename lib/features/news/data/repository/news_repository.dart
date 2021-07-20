@@ -32,14 +32,27 @@ class NewsRepository implements NewsRepositoryProtocol {
     required String page,
   }) async {
     return _getNews(request: () async {
-      return remoteDataSource.getNewsForYou(
+      final news = await remoteDataSource.getNewsForYou(
         page: page,
         limit: NewsConstant.limit,
         sources: await localDataSource.getNewsPreferencesSources(),
         lang: await localDataSource.getNewsPreferencesLanguages(),
         genre: await localDataSource.getNewsPreferencesGenre(),
       );
+      if (page == "1") {
+        localDataSource.saveNewsForYou(news);
+      }
+      return news;
     });
+  }
+
+  @override
+  Future<Either<ApiFailure, News>> getLocalNewsForYou() async {
+    try {
+      return Right(await localDataSource.getNewsForYou());
+    } catch (ex) {
+      return const Left(ApiFailure.serverError(message: ""));
+    }
   }
 
   @override
@@ -47,13 +60,26 @@ class NewsRepository implements NewsRepositoryProtocol {
     required String page,
   }) async {
     return _getNews(request: () async {
-      return remoteDataSource.getLatestNews(
+      final news = await remoteDataSource.getLatestNews(
         page: page,
         limit: NewsConstant.limit,
         sources: await localDataSource.getNewsPreferencesSources(),
         lang: await localDataSource.getNewsPreferencesLanguages(),
       );
+      if (page == "1") {
+        localDataSource.saveLatestNews(news);
+      }
+      return news;
     });
+  }
+
+  @override
+  Future<Either<ApiFailure, News>> getLocalLatestNews() async {
+    try {
+      return Right(await localDataSource.getLatestNews());
+    } catch (ex) {
+      return const Left(ApiFailure.serverError(message: ""));
+    }
   }
 
   Future<Either<ApiFailure, News>> _getNews({
