@@ -399,13 +399,13 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
               children: [
                 const SizedBox(
                   width: 120,
-                  child: Center(child: Text("Hours")),
+                  child: Text("Hours"),
                 ),
                 if (state.workinHours.toLowerCase() != "full-time" &&
                     state.workinHours != "フルタイム")
                   const SizedBox(
                     width: 120,
-                    child: Center(child: Text("Minutes")),
+                    child: Text("Minutes"),
                   ),
               ],
             ),
@@ -418,7 +418,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                     hintText: "Select hours",
                     value: state.workinHours,
                     options: state.listOfHourRate,
-                    alignment: Alignment.topCenter,
+                    alignment: Alignment.centerLeft,
                     onChanged: (value) => context
                         .read<UpdateOtherInfoActorBloc>()
                         .add(UpdateOtherInfoActorEvent.changeWorkinHours(
@@ -434,7 +434,7 @@ class _AvailableWorkingHoursInputField extends StatelessWidget {
                       key: UniqueKey(),
                       hintText: "Select minutes",
                       value: state.workingMinutes,
-                      alignment: Alignment.topCenter,
+                      alignment: Alignment.centerLeft,
                       options: const [
                         "00",
                         "30",
