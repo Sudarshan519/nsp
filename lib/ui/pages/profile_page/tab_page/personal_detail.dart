@@ -983,7 +983,10 @@ class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
               return;
             }
             context.read<LocationViaPostalCodeBloc>().add(
-                LocationViaPostalCodeEvent.fetch(parentState.originPostalCode));
+                  LocationViaPostalCodeEvent.fetch(
+                    parentState.residencePostalCode,
+                  ),
+                );
           },
           child: Container(
             width: 30,

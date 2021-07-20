@@ -116,7 +116,7 @@ class UserDetailModel extends UserDetail {
         lastName: json["last_name"] as String?,
         furigana: json["furigana"] as String?,
         email: json["email"] as String?,
-        mobile: json["mobile"] as String?,
+        mobile: json["mobile_phone"] as String?,
         uuid: json["uuid"] as String?,
         avatar: json["avatar"] as String?,
         balance: (json["balance"] is int?)
