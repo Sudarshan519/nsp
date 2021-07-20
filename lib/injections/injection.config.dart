@@ -13,7 +13,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart'
     as _i10;
 import 'package:shared_preferences/shared_preferences.dart' as _i17;
 
-import '../core/database/local_database_provider.dart' as _i162;
+import '../core/database/local_database_provider.dart' as _i163;
 import '../core/database/news_provider.dart' as _i56;
 import '../core/file_picker/file_provider.dart' as _i5;
 import '../core/geo_location/geo_location.dart' as _i7;
@@ -23,8 +23,8 @@ import '../core/notification/push_notification_manager.dart' as _i16;
 import '../features/ads/data/data_source/ads_remote_datasource.dart' as _i102;
 import '../features/ads/data/repository/ads_repository.dart' as _i104;
 import '../features/ads/domain/repositories/ads_repository.dart' as _i103;
-import '../features/ads/domain/use_case/get_ads.dart' as _i108;
-import '../features/ads/presentation/get_ads/ads_bloc.dart' as _i151;
+import '../features/ads/domain/use_case/get_ads.dart' as _i109;
+import '../features/ads/presentation/get_ads/ads_bloc.dart' as _i152;
 import '../features/alerts/data/data_source/alerts_remote_data_source.dart'
     as _i18;
 import '../features/alerts/data/repository/alert_repository.dart' as _i20;
@@ -55,10 +55,10 @@ import '../features/auth/domain/usecase/sign_in_with_google.dart' as _i73;
 import '../features/auth/domain/usecase/sign_up_user.dart' as _i74;
 import '../features/auth/domain/usecase/verify_email.dart' as _i94;
 import '../features/auth/presentation/password_reset/password_reset_bloc.dart'
-    as _i140;
+    as _i141;
 import '../features/auth/presentation/sign_in_form/sign_in_form_bloc.dart'
-    as _i144;
-import '../features/auth/presentation/sign_up/sign_up_form_bloc.dart' as _i145;
+    as _i145;
+import '../features/auth/presentation/sign_up/sign_up_form_bloc.dart' as _i146;
 import '../features/auth/presentation/verify_email/verify_email_bloc.dart'
     as _i95;
 import '../features/coupon/data/datasource/coupon_remote_datasource.dart'
@@ -72,33 +72,33 @@ import '../features/coupon/domain/usecases/verify_coupon.dart' as _i92;
 import '../features/coupon/presentation/get_coupon_list/get_coupon_list_bloc.dart'
     as _i36;
 import '../features/coupon/presentation/redeem_coupon/redeem_coupon_bloc.dart'
-    as _i142;
+    as _i143;
 import '../features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart'
     as _i93;
 import '../features/home/data/datasource/home_remote_data_source.dart' as _i44;
 import '../features/home/data/repositories/home_repository.dart' as _i46;
 import '../features/home/domain/repositories/home_repository.dart' as _i45;
-import '../features/home/domain/usecases/get_home_page_data.dart' as _i112;
+import '../features/home/domain/usecases/get_home_page_data.dart' as _i113;
 import '../features/home/presentation/home_page_data/home_page_data_bloc.dart'
-    as _i125;
+    as _i126;
 import '../features/japanese_manners/data/datasource/japanese_manners_remote_data_source.dart'
     as _i47;
 import '../features/japanese_manners/data/repositories/japanese_manner_repository.dart'
-    as _i128;
+    as _i129;
 import '../features/japanese_manners/domain/repositories/japanese_manner_repository.dart'
-    as _i127;
+    as _i128;
 import '../features/japanese_manners/domain/usecase/get_japanese_manner.dart'
-    as _i156;
-import '../features/japanese_manners/domain/usecase/get_japanese_manner_categories.dart'
-    as _i158;
-import '../features/japanese_manners/domain/usecase/get_japanese_manner_detail.dart'
-    as _i160;
-import '../features/japanese_manners/presentation/japanese_manner/japanese_manner_bloc.dart'
-    as _i155;
-import '../features/japanese_manners/presentation/japanese_manner_categories/japanese_manner_categories_bloc.dart'
     as _i157;
-import '../features/japanese_manners/presentation/japanese_manner_detail_bloc/japanese_manner_detail_bloc.dart'
+import '../features/japanese_manners/domain/usecase/get_japanese_manner_categories.dart'
     as _i159;
+import '../features/japanese_manners/domain/usecase/get_japanese_manner_detail.dart'
+    as _i161;
+import '../features/japanese_manners/presentation/japanese_manner/japanese_manner_bloc.dart'
+    as _i156;
+import '../features/japanese_manners/presentation/japanese_manner_categories/japanese_manner_categories_bloc.dart'
+    as _i158;
+import '../features/japanese_manners/presentation/japanese_manner_detail_bloc/japanese_manner_detail_bloc.dart'
+    as _i160;
 import '../features/load_balance/data/datasource/load_balance_data_source.dart'
     as _i48;
 import '../features/load_balance/data/repositories/load_balance_repositories.dart'
@@ -107,7 +107,7 @@ import '../features/load_balance/domain/repositories/load_balance_repositories.d
     as _i49;
 import '../features/load_balance/domain/usecases/delete_card.dart' as _i106;
 import '../features/load_balance/domain/usecases/get_list_of_payment_methods.dart'
-    as _i116;
+    as _i117;
 import '../features/load_balance/domain/usecases/top_up_via_stripe.dart'
     as _i76;
 import '../features/load_balance/domain/usecases/verify_esewa_top_up.dart'
@@ -123,7 +123,7 @@ import '../features/load_balance/presentations/esewa/esewa_form/esewa_form_cubit
 import '../features/load_balance/presentations/esewa/verify_esewa_topup/verify_esewa_topup_bloc.dart'
     as _i97;
 import '../features/load_balance/presentations/get_payment_methods/get_payment_methods_bloc.dart'
-    as _i120;
+    as _i121;
 import '../features/load_balance/presentations/ime_pay/ime_pay_form/ime_pay_form_cubit.dart'
     as _i9;
 import '../features/load_balance/presentations/ime_pay/verify_ime_pay_topup/verify_ime_pay_topup_bloc.dart'
@@ -141,40 +141,40 @@ import '../features/location_information/data/repository/location_information_re
 import '../features/location_information/domain/repository/location_information_repositories.dart'
     as _i52;
 import '../features/location_information/domain/usecases/get_countries.dart'
-    as _i109;
+    as _i110;
 import '../features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart'
-    as _i115;
+    as _i116;
 import '../features/location_information/domain/usecases/get_prefecture_city_from_postalcode.dart'
-    as _i121;
+    as _i122;
 import '../features/location_information/presentation/bloc/location_via_postal_code_bloc.dart'
-    as _i130;
+    as _i131;
 import '../features/news/data/datasource/news_local_data_source.dart' as _i55;
 import '../features/news/data/datasource/news_remote_data_source.dart' as _i15;
 import '../features/news/data/repository/news_repository.dart' as _i58;
 import '../features/news/domain/repository/news_repository.dart' as _i57;
-import '../features/news/domain/usecase/get_favourite_news.dart' as _i111;
-import '../features/news/domain/usecase/get_latest_news.dart' as _i114;
-import '../features/news/domain/usecase/get_news_for_you.dart' as _i117;
-import '../features/news/domain/usecase/get_news_genre.dart' as _i118;
-import '../features/news/domain/usecase/get_news_preferences.dart' as _i119;
+import '../features/news/domain/usecase/get_favourite_news.dart' as _i112;
+import '../features/news/domain/usecase/get_latest_news.dart' as _i115;
+import '../features/news/domain/usecase/get_news_for_you.dart' as _i118;
+import '../features/news/domain/usecase/get_news_genre.dart' as _i119;
+import '../features/news/domain/usecase/get_news_preferences.dart' as _i120;
 import '../features/news/presentation/favourite_news/favourite_news_bloc.dart'
-    as _i153;
+    as _i154;
 import '../features/news/presentation/latest_news/latest_news_bloc.dart'
-    as _i129;
-import '../features/news/presentation/news_for_you/news_bloc.dart' as _i131;
-import '../features/news/presentation/news_genre/news_genre_bloc.dart' as _i132;
+    as _i130;
+import '../features/news/presentation/news_for_you/news_bloc.dart' as _i132;
+import '../features/news/presentation/news_genre/news_genre_bloc.dart' as _i133;
 import '../features/news/presentation/news_preference/news_preference_bloc.dart'
-    as _i133;
+    as _i134;
 import '../features/notifications/data/datasource/notification_remote_data_source.dart'
     as _i59;
 import '../features/notifications/data/repository/notification_repository.dart'
-    as _i135;
+    as _i136;
 import '../features/notifications/domain/repository/notification_repository.dart'
-    as _i134;
+    as _i135;
 import '../features/notifications/domain/usecase/get_notifications.dart'
-    as _i154;
+    as _i155;
 import '../features/notifications/presentation/notification/notifications_bloc.dart'
-    as _i161;
+    as _i162;
 import '../features/partner_services/data/datasource/partner_services_remote_data_source.dart'
     as _i60;
 import '../features/partner_services/data/repositories/partner_service_repository.dart'
@@ -182,15 +182,15 @@ import '../features/partner_services/data/repositories/partner_service_repositor
 import '../features/partner_services/domain/repositories/partner_services_repository.dart'
     as _i61;
 import '../features/partner_services/domain/usecase/get_partner_services.dart'
-    as _i137;
+    as _i138;
 import '../features/partner_services/domain/usecase/get_partner_services_categories.dart'
-    as _i139;
+    as _i140;
 import '../features/partner_services/domain/usecase/purchase_package.dart'
     as _i64;
 import '../features/partner_services/presentation/partner_services/parnter_services_bloc.dart'
-    as _i136;
+    as _i137;
 import '../features/partner_services/presentation/partner_services_categories/partner_service_categories_bloc.dart'
-    as _i138;
+    as _i139;
 import '../features/partner_services/presentation/purchase_package/purchase_package_bloc.dart'
     as _i63;
 import '../features/profile/balance/data/datasource/balance_remote_data_source.dart'
@@ -202,14 +202,15 @@ import '../features/profile/balance/domain/repository/balance_repository.dart'
 import '../features/profile/balance/domain/usecase/get_balance.dart' as _i33;
 import '../features/profile/balance/presentation/get_balance_bloc.dart' as _i34;
 import '../features/profile/update_profile/presentations/bloc/update_profile_bloc.dart'
-    as _i150;
+    as _i151;
 import '../features/resume/data/data_source/resume_remote_data_source.dart'
     as _i67;
 import '../features/resume/data/repository/resume_repository.dart' as _i69;
 import '../features/resume/domain/repository/resume_repository.dart' as _i68;
+import '../features/resume/domain/usecases/delete_resume_data.dart' as _i108;
 import '../features/resume/domain/usecases/get_downloadable_pdf_link.dart'
-    as _i110;
-import '../features/resume/domain/usecases/get_resume.dart' as _i122;
+    as _i111;
+import '../features/resume/domain/usecases/get_resume.dart' as _i123;
 import '../features/resume/domain/usecases/update_academics_info.dart' as _i81;
 import '../features/resume/domain/usecases/update_address_info.dart' as _i82;
 import '../features/resume/domain/usecases/update_kyc_info.dart' as _i83;
@@ -220,9 +221,9 @@ import '../features/resume/domain/usecases/update_qualification_info.dart'
 import '../features/resume/domain/usecases/update_resume_image.dart' as _i87;
 import '../features/resume/domain/usecases/update_work_info.dart' as _i88;
 import '../features/resume/presentation/download_pdf/download_pdf_bloc.dart'
-    as _i152;
+    as _i153;
 import '../features/resume/presentation/resume_watcher/resume_watcher_bloc.dart'
-    as _i143;
+    as _i144;
 import '../features/splash/presentation/splash_bloc.dart' as _i75;
 import '../features/transaction/data/datasource/transaction_remote_data_source.dart'
     as _i78;
@@ -231,12 +232,12 @@ import '../features/transaction/data/repository/transaction_repository.dart'
 import '../features/transaction/domain/repository/transaction_repository.dart'
     as _i79;
 import '../features/transaction/domain/usecase/get_individual_transaction.dart'
-    as _i113;
-import '../features/transaction/domain/usecase/get_transaction.dart' as _i124;
+    as _i114;
+import '../features/transaction/domain/usecase/get_transaction.dart' as _i125;
 import '../features/transaction/presentation/individual_transaction/individual_transaction_bloc.dart'
-    as _i126;
+    as _i127;
 import '../features/transaction/presentation/transaction/transaction_bloc.dart'
-    as _i149;
+    as _i150;
 import '../features/utility_payments/data/datasource/utility_payment_datasource.dart'
     as _i89;
 import '../features/utility_payments/data/repository/utility_payment_repository.dart'
@@ -244,22 +245,22 @@ import '../features/utility_payments/data/repository/utility_payment_repository.
 import '../features/utility_payments/domain/repositories/utility_payment_repository.dart'
     as _i90;
 import '../features/utility_payments/domain/usecases/get_subscription_detail_for_partner_service.dart'
-    as _i123;
+    as _i124;
 import '../features/utility_payments/domain/usecases/purchase_subscription_from_partner_service.dart'
-    as _i141;
+    as _i142;
 import '../features/utility_payments/domain/usecases/topup_balance_for_mobile.dart'
-    as _i147;
-import '../features/utility_payments/presentation/subscription_for_partner_service/subscription_for_partner_service_bloc.dart'
-    as _i146;
-import '../features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart'
     as _i148;
+import '../features/utility_payments/presentation/subscription_for_partner_service/subscription_for_partner_service_bloc.dart'
+    as _i147;
+import '../features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart'
+    as _i149;
 import '../utils/config_reader.dart' as _i13;
-import 'injectable/data_connection_checker_injectable_module.dart' as _i166;
-import 'injectable/flutter_secure_storage_module.dart' as _i164;
-import 'injectable/google_login_injectable_module.dart' as _i165;
-import 'injectable/http_client_injectable_module.dart' as _i163;
+import 'injectable/data_connection_checker_injectable_module.dart' as _i167;
+import 'injectable/flutter_secure_storage_module.dart' as _i165;
+import 'injectable/google_login_injectable_module.dart' as _i166;
+import 'injectable/http_client_injectable_module.dart' as _i164;
 import 'injectable/shared_preference_module.dart'
-    as _i167; // ignore_for_file: unnecessary_lambdas
+    as _i168; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -552,178 +553,182 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       repository: get<_i49.LoadBalanceRepositories>()));
   gh.factory<_i107.DeleteCardBloc>(
       () => _i107.DeleteCardBloc(deleteCard: get<_i106.DeleteCard>()));
-  gh.lazySingleton<_i108.GetAds>(() => _i108.GetAds(
+  gh.factory<_i108.DeleteResumeData>(() => _i108.DeleteResumeData(
+      repository: get<_i68.ResumeRepository>(),
+      networkInfo: get<_i14.NetworkInfo>()));
+  gh.lazySingleton<_i109.GetAds>(() => _i109.GetAds(
       networkInfo: get<_i14.NetworkInfo>(),
       repository: get<_i103.AdsRepository>()));
-  gh.lazySingleton<_i109.GetCountries>(() => _i109.GetCountries(
+  gh.lazySingleton<_i110.GetCountries>(() => _i110.GetCountries(
       repository: get<_i52.LocationInformationRepositoryProtocol>()));
-  gh.factory<_i110.GetDownloadablePdfLink>(() => _i110.GetDownloadablePdfLink(
+  gh.factory<_i111.GetDownloadablePdfLink>(() => _i111.GetDownloadablePdfLink(
       repository: get<_i68.ResumeRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.lazySingleton<_i111.GetFavouriteNews>(() =>
-      _i111.GetFavouriteNews(repository: get<_i57.NewsRepositoryProtocol>()));
-  gh.lazySingleton<_i112.GetHomePageData>(() => _i112.GetHomePageData(
+  gh.lazySingleton<_i112.GetFavouriteNews>(() =>
+      _i112.GetFavouriteNews(repository: get<_i57.NewsRepositoryProtocol>()));
+  gh.lazySingleton<_i113.GetHomePageData>(() => _i113.GetHomePageData(
       repository: get<_i45.HomeReporisitory>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.lazySingleton<_i113.GetIndivisualTransaction>(() =>
-      _i113.GetIndivisualTransaction(
+  gh.lazySingleton<_i114.GetIndivisualTransaction>(() =>
+      _i114.GetIndivisualTransaction(
           repository: get<_i79.TransactionRepository>(),
           networkInfo: get<_i14.NetworkInfo>()));
-  gh.lazySingleton<_i114.GetLatestNews>(() => _i114.GetLatestNews(
+  gh.lazySingleton<_i115.GetLatestNews>(() => _i115.GetLatestNews(
       repository: get<_i57.NewsRepositoryProtocol>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.lazySingleton<_i115.GetListOfCityFromPrefectures>(() =>
-      _i115.GetListOfCityFromPrefectures(
+  gh.lazySingleton<_i116.GetListOfCityFromPrefectures>(() =>
+      _i116.GetListOfCityFromPrefectures(
           repository: get<_i52.LocationInformationRepositoryProtocol>()));
-  gh.lazySingleton<_i116.GetListOfPaymentMethods>(() =>
-      _i116.GetListOfPaymentMethods(
+  gh.lazySingleton<_i117.GetListOfPaymentMethods>(() =>
+      _i117.GetListOfPaymentMethods(
           networkInfo: get<_i14.NetworkInfo>(),
           repository: get<_i49.LoadBalanceRepositories>()));
-  gh.lazySingleton<_i117.GetNewsForYou>(() => _i117.GetNewsForYou(
+  gh.lazySingleton<_i118.GetNewsForYou>(() => _i118.GetNewsForYou(
       repository: get<_i57.NewsRepositoryProtocol>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.lazySingleton<_i118.GetNewsGenre>(
-      () => _i118.GetNewsGenre(repository: get<_i57.NewsRepositoryProtocol>()));
-  gh.lazySingleton<_i119.GetNewsPreferences>(() =>
-      _i119.GetNewsPreferences(repository: get<_i57.NewsRepositoryProtocol>()));
-  gh.factory<_i120.GetPaymentMethodsBloc>(() => _i120.GetPaymentMethodsBloc(
-      getListOfPaymentMethods: get<_i116.GetListOfPaymentMethods>(),
+  gh.lazySingleton<_i119.GetNewsGenre>(
+      () => _i119.GetNewsGenre(repository: get<_i57.NewsRepositoryProtocol>()));
+  gh.lazySingleton<_i120.GetNewsPreferences>(() =>
+      _i120.GetNewsPreferences(repository: get<_i57.NewsRepositoryProtocol>()));
+  gh.factory<_i121.GetPaymentMethodsBloc>(() => _i121.GetPaymentMethodsBloc(
+      getListOfPaymentMethods: get<_i117.GetListOfPaymentMethods>(),
       deletecard: get<_i106.DeleteCard>()));
-  gh.lazySingleton<_i121.GetPrefectureCityFromPostalCode>(() =>
-      _i121.GetPrefectureCityFromPostalCode(
+  gh.lazySingleton<_i122.GetPrefectureCityFromPostalCode>(() =>
+      _i122.GetPrefectureCityFromPostalCode(
           repository: get<_i52.LocationInformationRepositoryProtocol>()));
-  gh.factory<_i122.GetResume>(() => _i122.GetResume(
+  gh.factory<_i123.GetResume>(() => _i123.GetResume(
       repository: get<_i68.ResumeRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.lazySingleton<_i123.GetSubscriptionDetailForPartnerService>(() =>
-      _i123.GetSubscriptionDetailForPartnerService(
+  gh.lazySingleton<_i124.GetSubscriptionDetailForPartnerService>(() =>
+      _i124.GetSubscriptionDetailForPartnerService(
           networkInfo: get<_i14.NetworkInfo>(),
           repository: get<_i90.UtilityPaymentRepository>()));
-  gh.lazySingleton<_i124.GetTransactions>(() => _i124.GetTransactions(
+  gh.lazySingleton<_i125.GetTransactions>(() => _i125.GetTransactions(
       repository: get<_i79.TransactionRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.lazySingleton<_i125.HomePageDataBloc>(() =>
-      _i125.HomePageDataBloc(getHomePageData: get<_i112.GetHomePageData>()));
-  gh.factory<_i126.IndividualTransactionBloc>(() =>
-      _i126.IndividualTransactionBloc(
-          getIndividualTxn: get<_i113.GetIndivisualTransaction>()));
-  gh.lazySingleton<_i127.JapaneseMannerRepository>(() =>
-      _i128.JapaneseMannerRepositoryImpl(
+  gh.lazySingleton<_i126.HomePageDataBloc>(() =>
+      _i126.HomePageDataBloc(getHomePageData: get<_i113.GetHomePageData>()));
+  gh.factory<_i127.IndividualTransactionBloc>(() =>
+      _i127.IndividualTransactionBloc(
+          getIndividualTxn: get<_i114.GetIndivisualTransaction>()));
+  gh.lazySingleton<_i128.JapaneseMannerRepository>(() =>
+      _i129.JapaneseMannerRepositoryImpl(
           remoteDataSource: get<_i47.JapaneseMannersRemoteDataSource>(),
           logger: get<_i12.Logger>()));
-  gh.lazySingleton<_i129.LatestNewsBloc>(
-      () => _i129.LatestNewsBloc(getNews: get<_i114.GetLatestNews>()));
-  gh.factory<_i130.LocationViaPostalCodeBloc>(() =>
-      _i130.LocationViaPostalCodeBloc(
+  gh.lazySingleton<_i130.LatestNewsBloc>(
+      () => _i130.LatestNewsBloc(getNews: get<_i115.GetLatestNews>()));
+  gh.factory<_i131.LocationViaPostalCodeBloc>(() =>
+      _i131.LocationViaPostalCodeBloc(
           getPrefectureCityFromPostalCode:
-              get<_i121.GetPrefectureCityFromPostalCode>()));
-  gh.lazySingleton<_i131.NewsBloc>(
-      () => _i131.NewsBloc(getNews: get<_i117.GetNewsForYou>()));
-  gh.factory<_i132.NewsGenreBloc>(
-      () => _i132.NewsGenreBloc(getNewsGenre: get<_i118.GetNewsGenre>()));
-  gh.factory<_i133.NewsPreferenceBloc>(() => _i133.NewsPreferenceBloc(
-      getNewsPreferences: get<_i119.GetNewsPreferences>()));
-  gh.lazySingleton<_i134.NotificationRepository>(() =>
-      _i135.NotificationRepositoryImpl(
+              get<_i122.GetPrefectureCityFromPostalCode>()));
+  gh.lazySingleton<_i132.NewsBloc>(
+      () => _i132.NewsBloc(getNews: get<_i118.GetNewsForYou>()));
+  gh.factory<_i133.NewsGenreBloc>(
+      () => _i133.NewsGenreBloc(getNewsGenre: get<_i119.GetNewsGenre>()));
+  gh.factory<_i134.NewsPreferenceBloc>(() => _i134.NewsPreferenceBloc(
+      getNewsPreferences: get<_i120.GetNewsPreferences>()));
+  gh.lazySingleton<_i135.NotificationRepository>(() =>
+      _i136.NotificationRepositoryImpl(
           dataSource: get<_i59.NotificationsRemoteDataSource>(),
           logger: get<_i12.Logger>()));
-  gh.factory<_i136.ParnterServicesBloc>(() => _i136.ParnterServicesBloc(
-      getPartnerServices: get<_i137.GetPartnerServices>()));
-  gh.factory<_i138.PartnerServiceCategoriesBloc>(() =>
-      _i138.PartnerServiceCategoriesBloc(
+  gh.factory<_i137.ParnterServicesBloc>(() => _i137.ParnterServicesBloc(
+      getPartnerServices: get<_i138.GetPartnerServices>()));
+  gh.factory<_i139.PartnerServiceCategoriesBloc>(() =>
+      _i139.PartnerServiceCategoriesBloc(
           getPartnerServicesCategories:
-              get<_i139.GetPartnerServicesCategories>()));
-  gh.factory<_i140.PasswordResetBloc>(() => _i140.PasswordResetBloc(
+              get<_i140.GetPartnerServicesCategories>()));
+  gh.factory<_i141.PasswordResetBloc>(() => _i141.PasswordResetBloc(
       resetPasswordUseCase: get<_i66.ResetPasswordUseCase>()));
-  gh.lazySingleton<_i141.PurchaseSubscriptionFromPartnerService>(() =>
-      _i141.PurchaseSubscriptionFromPartnerService(
+  gh.lazySingleton<_i142.PurchaseSubscriptionFromPartnerService>(() =>
+      _i142.PurchaseSubscriptionFromPartnerService(
           networkInfo: get<_i14.NetworkInfo>(),
           repository: get<_i90.UtilityPaymentRepository>()));
-  gh.factory<_i142.RedeemCouponBloc>(() => _i142.RedeemCouponBloc(
+  gh.factory<_i143.RedeemCouponBloc>(() => _i143.RedeemCouponBloc(
       applyCoupon: get<_i105.ApplyCoupon>(),
       redeemCoupon: get<_i65.RedeemCoupon>()));
-  gh.lazySingleton<_i143.ResumeWatcherBloc>(
-      () => _i143.ResumeWatcherBloc(getResume: get<_i122.GetResume>()));
-  gh.factory<_i144.SignInFormBloc>(() => _i144.SignInFormBloc(
+  gh.lazySingleton<_i144.ResumeWatcherBloc>(() => _i144.ResumeWatcherBloc(
+      getResume: get<_i123.GetResume>(),
+      deleteResumeData: get<_i108.DeleteResumeData>()));
+  gh.factory<_i145.SignInFormBloc>(() => _i145.SignInFormBloc(
       signInWithEmailUsecase: get<_i71.SignInWithEmailAndPassword>(),
       signInWithApple: get<_i70.SignInWithApple>(),
       signInWithFacebook: get<_i72.SignInWithFacebook>(),
       signInWithGoogle: get<_i73.SignInWithGoogle>()));
-  gh.factory<_i145.SignUpFormBloc>(() => _i145.SignUpFormBloc(
+  gh.factory<_i146.SignUpFormBloc>(() => _i146.SignUpFormBloc(
       signUpWithEmailUsecase:
           get<_i74.SignUpWithEmailPasswordAndUserDetail>()));
-  gh.factory<_i146.SubscriptionForPartnerServiceBloc>(() =>
-      _i146.SubscriptionForPartnerServiceBloc(
+  gh.factory<_i147.SubscriptionForPartnerServiceBloc>(() =>
+      _i147.SubscriptionForPartnerServiceBloc(
           getSubscriptionDetailForPartnerService:
-              get<_i123.GetSubscriptionDetailForPartnerService>(),
+              get<_i124.GetSubscriptionDetailForPartnerService>(),
           purchaseSubscriptionFromPartnerService:
-              get<_i141.PurchaseSubscriptionFromPartnerService>()));
-  gh.lazySingleton<_i147.TopUpBalanceForMobile>(() =>
-      _i147.TopUpBalanceForMobile(
+              get<_i142.PurchaseSubscriptionFromPartnerService>()));
+  gh.lazySingleton<_i148.TopUpBalanceForMobile>(() =>
+      _i148.TopUpBalanceForMobile(
           networkInfo: get<_i14.NetworkInfo>(),
           repository: get<_i90.UtilityPaymentRepository>()));
-  gh.factory<_i148.TopUpBalanceInMobileBloc>(() =>
-      _i148.TopUpBalanceInMobileBloc(
-          topUpBalanceForMobile: get<_i147.TopUpBalanceForMobile>()));
-  gh.lazySingleton<_i149.TransactionBloc>(() =>
-      _i149.TransactionBloc(getTransaction: get<_i124.GetTransactions>()));
-  gh.factory<_i150.UpdateProfileBloc>(() => _i150.UpdateProfileBloc(
+  gh.factory<_i149.TopUpBalanceInMobileBloc>(() =>
+      _i149.TopUpBalanceInMobileBloc(
+          topUpBalanceForMobile: get<_i148.TopUpBalanceForMobile>()));
+  gh.lazySingleton<_i150.TransactionBloc>(() =>
+      _i150.TransactionBloc(getTransaction: get<_i125.GetTransactions>()));
+  gh.factory<_i151.UpdateProfileBloc>(() => _i151.UpdateProfileBloc(
       updateKycInfo: get<_i83.UpdateKycInfo>(),
       updateResumeImage: get<_i87.UpdateResumeImage>(),
-      getListOfCityFromPrefectures: get<_i115.GetListOfCityFromPrefectures>()));
-  gh.factory<_i151.AdsBloc>(() =>
-      _i151.AdsBloc(get<_i108.GetAds>(), get<_i102.AdsRemoteDataSource>()));
-  gh.factory<_i152.DownloadPdfBloc>(() => _i152.DownloadPdfBloc(
-      getDownloadablePdfLink: get<_i110.GetDownloadablePdfLink>()));
-  gh.factory<_i153.FavouriteNewsBloc>(() =>
-      _i153.FavouriteNewsBloc(getFavouriteNews: get<_i111.GetFavouriteNews>()));
-  gh.lazySingleton<_i154.GetNotifications>(() => _i154.GetNotifications(
-      repository: get<_i134.NotificationRepository>(),
+      getListOfCityFromPrefectures: get<_i116.GetListOfCityFromPrefectures>()));
+  gh.factory<_i152.AdsBloc>(() =>
+      _i152.AdsBloc(get<_i109.GetAds>(), get<_i102.AdsRemoteDataSource>()));
+  gh.factory<_i153.DownloadPdfBloc>(() => _i153.DownloadPdfBloc(
+      getDownloadablePdfLink: get<_i111.GetDownloadablePdfLink>()));
+  gh.factory<_i154.FavouriteNewsBloc>(() =>
+      _i154.FavouriteNewsBloc(getFavouriteNews: get<_i112.GetFavouriteNews>()));
+  gh.lazySingleton<_i155.GetNotifications>(() => _i155.GetNotifications(
+      repository: get<_i135.NotificationRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.factory<_i155.JapaneseMannerBloc>(() => _i155.JapaneseMannerBloc(
-      getJapaneseManner: get<_i156.GetJapaneseManner>()));
-  gh.factory<_i157.JapaneseMannerCategoriesBloc>(() =>
-      _i157.JapaneseMannerCategoriesBloc(
+  gh.factory<_i156.JapaneseMannerBloc>(() => _i156.JapaneseMannerBloc(
+      getJapaneseManner: get<_i157.GetJapaneseManner>()));
+  gh.factory<_i158.JapaneseMannerCategoriesBloc>(() =>
+      _i158.JapaneseMannerCategoriesBloc(
           getJapaneseMannerCategories:
-              get<_i158.GetJapaneseMannerCategories>()));
-  gh.factory<_i159.JapaneseMannerDetailBloc>(() =>
-      _i159.JapaneseMannerDetailBloc(
-          getJpMannerDetail: get<_i160.GetJapaneseMannerDetail>()));
-  gh.factory<_i161.NotificationsBloc>(() =>
-      _i161.NotificationsBloc(getNotifications: get<_i154.GetNotifications>()));
+              get<_i159.GetJapaneseMannerCategories>()));
+  gh.factory<_i160.JapaneseMannerDetailBloc>(() =>
+      _i160.JapaneseMannerDetailBloc(
+          getJpMannerDetail: get<_i161.GetJapaneseMannerDetail>()));
+  gh.factory<_i162.NotificationsBloc>(() =>
+      _i162.NotificationsBloc(getNotifications: get<_i155.GetNotifications>()));
   gh.singleton<_i13.ConfigReader>(_i13.ConfigReaderImpl());
-  gh.singleton<_i162.DBProvider>(_i162.DBProviderImpl());
+  gh.singleton<_i163.DBProvider>(_i163.DBProviderImpl());
   gh.singleton<_i56.NewsLocalProvider>(
-      _i56.NewsLocalProviderImpl(provider: get<_i162.DBProvider>()));
+      _i56.NewsLocalProviderImpl(provider: get<_i163.DBProvider>()));
   gh.singleton<_i64.PurchasePackage>(_i64.PurchasePackage(
       repository: get<_i61.PartnerServicesRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.singleton<_i137.GetPartnerServices>(_i137.GetPartnerServices(
+  gh.singleton<_i138.GetPartnerServices>(_i138.GetPartnerServices(
       repository: get<_i61.PartnerServicesRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.singleton<_i139.GetPartnerServicesCategories>(
-      _i139.GetPartnerServicesCategories(
+  gh.singleton<_i140.GetPartnerServicesCategories>(
+      _i140.GetPartnerServicesCategories(
           repository: get<_i61.PartnerServicesRepository>(),
           networkInfo: get<_i14.NetworkInfo>()));
-  gh.singleton<_i156.GetJapaneseManner>(_i156.GetJapaneseManner(
-      repository: get<_i127.JapaneseMannerRepository>(),
+  gh.singleton<_i157.GetJapaneseManner>(_i157.GetJapaneseManner(
+      repository: get<_i128.JapaneseMannerRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
-  gh.singleton<_i158.GetJapaneseMannerCategories>(
-      _i158.GetJapaneseMannerCategories(
-          repository: get<_i127.JapaneseMannerRepository>(),
+  gh.singleton<_i159.GetJapaneseMannerCategories>(
+      _i159.GetJapaneseMannerCategories(
+          repository: get<_i128.JapaneseMannerRepository>(),
           networkInfo: get<_i14.NetworkInfo>()));
-  gh.singleton<_i160.GetJapaneseMannerDetail>(_i160.GetJapaneseMannerDetail(
-      repository: get<_i127.JapaneseMannerRepository>(),
+  gh.singleton<_i161.GetJapaneseMannerDetail>(_i161.GetJapaneseMannerDetail(
+      repository: get<_i128.JapaneseMannerRepository>(),
       networkInfo: get<_i14.NetworkInfo>()));
   return get;
 }
 
-class _$HttpClientInjectableModule extends _i163.HttpClientInjectableModule {}
+class _$HttpClientInjectableModule extends _i164.HttpClientInjectableModule {}
 
-class _$FlutterStorageModule extends _i164.FlutterStorageModule {}
+class _$FlutterStorageModule extends _i165.FlutterStorageModule {}
 
-class _$GoogleLoginInjectableModule extends _i165.GoogleLoginInjectableModule {}
+class _$GoogleLoginInjectableModule extends _i166.GoogleLoginInjectableModule {}
 
-class _$DataConnectionCheckerModule extends _i166.DataConnectionCheckerModule {}
+class _$DataConnectionCheckerModule extends _i167.DataConnectionCheckerModule {}
 
-class _$SharedPreferenceModule extends _i167.SharedPreferenceModule {}
+class _$SharedPreferenceModule extends _i168.SharedPreferenceModule {}

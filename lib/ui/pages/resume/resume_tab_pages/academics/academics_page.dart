@@ -7,6 +7,7 @@ import 'package:wallet_app/features/resume/domain/usecases/update_academics_info
 import 'package:wallet_app/features/resume/presentation/update_academic_info/actor/update_academic_info_actor_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/widgets/form_field_decoration.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_confirmation.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
@@ -147,6 +148,24 @@ class _CreateAcademicInfoBox extends StatelessWidget {
                   width: 15,
                 ),
               ),
+              IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => PopUpConfirmation(
+                        message: 'Are you sure to delete the resume item?',
+                        onConfirmed: () {
+                          // context.read<DeleteCardBloc>().add(
+                          //       DeleteCardEvent.deleteCard(
+                          //         _cards[index].id,
+                          //       ),
+                          //     );
+                          context.popRoute();
+                        },
+                      ),
+                    );
+                  },
+                  icon: Icon(Icons.delete_forever_outlined, color: Colors.red))
             ],
           ),
           const SizedBox(

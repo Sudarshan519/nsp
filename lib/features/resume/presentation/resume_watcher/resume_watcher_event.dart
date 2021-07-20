@@ -6,4 +6,6 @@ class ResumeWatcherEvent with _$ResumeWatcherEvent {
   const factory ResumeWatcherEvent.setResumeData() = _SetResumeData;
   const factory ResumeWatcherEvent.changeLanguage(String language) =
       _ChangeLanguage;
+  const factory ResumeWatcherEvent.deleteResumeData(
+      DeleteResumeDataParams params) = _DeleteResumeData;
 }

@@ -28,6 +28,10 @@ abstract class ResumeRemoteDataSource {
   Future<Unit> updateKyc({
     required Map<String, dynamic> body,
   });
+  Future<Unit> deleteResumeValue({
+    required ResumeType type,
+    required int id,
+  });
 }
 
 @LazySingleton(as: ResumeRemoteDataSource)
@@ -48,6 +52,56 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     required this.auth,
     required this.logger,
   });
+
+  @override
+  Future<Unit> deleteResumeValue({
+    required ResumeType type,
+    required int id,
+  }) async {
+    http.Response response;
+    final resumeType = type.toString().split('.').first;
+    final url =
+        "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.deleteResumeData}$id/$resumeType";
+    final accessToken = (await auth.getWalletUser()).accessToken;
+
+    if (accessToken == null || accessToken.isEmpty) {
+      //TODO: route user to login page as the user does not have access token
+    }
+
+    _headers["Authorization"] = "Bearer $accessToken";
+
+    try {
+      response = await client.get(
+        Uri.parse(url),
+        headers: _headers,
+      );
+    } catch (ex) {
+      logger.log(
+        className: "ResumeRemoteDataSource",
+        functionName: "deleteResumeValue()",
+        errorText: "Error deleting $resumeType",
+        errorMessage: ex.toString(),
+      );
+
+      throw ServerException(
+        message: ex.toString(),
+      );
+    }
+
+    if (response.statusCode == 200) {
+      return unit;
+    } else {
+      logger.log(
+        className: "ResumeRemoteDataSource",
+        functionName: "deleteResumeValue()",
+        errorText: "Error on API status code: ${response.statusCode}",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+          message: errorMessageFromServerWithMessage(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
 
   @override
   Future<Resume> getResumeData() async {

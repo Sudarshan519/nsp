@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
+import 'package:wallet_app/features/resume/data/app_constant/constant.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
@@ -55,5 +56,9 @@ abstract class ResumeRepository {
 
   Future<Either<ApiFailure, String>> getResumePdfLink({
     required String lang,
+  });
+  Future<Either<ApiFailure, Unit>> deleteResumeValue({
+    required ResumeType type,
+    required int id,
   });
 }

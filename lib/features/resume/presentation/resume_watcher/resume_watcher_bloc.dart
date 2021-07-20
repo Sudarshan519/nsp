@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
+import 'package:wallet_app/features/resume/data/app_constant/constant.dart';
 import 'package:wallet_app/features/resume/domain/entities/academic_history.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/entities/qualification_history.dart';
@@ -14,6 +15,7 @@ import 'package:wallet_app/features/resume/domain/entities/resume_data.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_model.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_options.dart';
 import 'package:wallet_app/features/resume/domain/entities/work_history.dart';
+import 'package:wallet_app/features/resume/domain/usecases/delete_resume_data.dart';
 import 'package:wallet_app/features/resume/domain/usecases/get_resume.dart';
 
 part 'resume_watcher_event.dart';
@@ -23,6 +25,7 @@ part 'resume_watcher_bloc.freezed.dart';
 @lazySingleton
 class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
   final GetResume getResume;
+  final DeleteResumeData deleteResumeData;
 
   UserDetail? _userDetails;
 
@@ -34,6 +37,7 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
 
   ResumeWatcherBloc({
     required this.getResume,
+    required this.deleteResumeData,
   }) : super(ResumeWatcherState.initial());
 
   @override
@@ -41,9 +45,40 @@ class ResumeWatcherBloc extends Bloc<ResumeWatcherEvent, ResumeWatcherState> {
     ResumeWatcherEvent event,
   ) async* {
     yield* event.map(
-      getResumeData: (e) async* {
+      deleteResumeData: (e) async* {
         yield state.copyWith(
           isLoading: true,
+        );
+        final result = await deleteResumeData(e.params);
+        yield result.fold((fail) {
+          return state.copyWith(
+            isLoading: false,
+            failureOrSuccessOption: optionOf(fail),
+          );
+        }, (success) {
+          switch (e.params.type) {
+            case ResumeType.education:
+              _english?.academicHistory
+                  ?.removeWhere((element) => element.id == e.params.id);
+              break;
+            case ResumeType.experience:
+              _english?.workHistory
+                  ?.removeWhere((element) => element.id == e.params.id);
+              break;
+            case ResumeType.qualification:
+              _english?.qualificationHistory
+                  ?.removeWhere((element) => element.id == e.params.id);
+              break;
+          }
+          return state.copyWith(
+            isLoading: true,
+            failureOrSuccessOption: none(),
+          );
+        });
+      },
+      getResumeData: (e) async* {
+        yield state.copyWith(
+          isLoading: false,
           failureOrSuccessOption: none(),
         );
 

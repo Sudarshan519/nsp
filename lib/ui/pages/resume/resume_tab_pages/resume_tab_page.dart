@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -5,6 +6,7 @@ import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_wa
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/qualification/qualification_page.dart';
 import 'package:wallet_app/ui/pages/resume/resume_tab_pages/work/work_page.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 import 'about/about_page.dart';
 import 'academics/academics_page.dart';
@@ -42,6 +44,16 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
         if (state.isLoading) {
           return loadingPage();
         }
+        state.failureOrSuccessOption.fold(
+            () {},
+            (fail) => {
+                  FlushbarHelper.createError(
+                      message: fail.map(
+                    serverError: (error) => error.message,
+                    invalidUser: (_) => AppConstants.someThingWentWrong,
+                    noInternetConnection: (_) => AppConstants.noNetwork,
+                  )).show(context)
+                });
         return _resumeTabBody(context, state);
       },
     );

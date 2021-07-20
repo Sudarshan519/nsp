@@ -6,6 +6,7 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
+import 'package:wallet_app/features/resume/data/app_constant/constant.dart';
 import 'package:wallet_app/features/resume/data/data_source/resume_remote_data_source.dart';
 import 'package:wallet_app/features/resume/data/model/academic_history_model.dart';
 import 'package:wallet_app/features/resume/data/model/personal_info_model.dart';
@@ -37,6 +38,24 @@ class ResumeRepositoryImpl implements ResumeRepository {
         className: "ResumeRepository",
         functionName: "getResumeData()",
         errorText: "Error on getting resume data from data source",
+        errorMessage: ex.toString(),
+      );
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> deleteResumeValue({
+    required ResumeType type,
+    required int id,
+  }) async {
+    try {
+      return Right(await dataSource.deleteResumeValue(id: id, type: type));
+    } on ServerException catch (ex) {
+      logger.log(
+        className: "ResumeRepository",
+        functionName: "deleteResumeValue()",
+        errorText: "Error on deleting resume data from data source ",
         errorMessage: ex.toString(),
       );
       return Left(ApiFailure.serverError(message: ex.message));

@@ -29,6 +29,12 @@ class _$ResumeWatcherEventTearOff {
       language,
     );
   }
+
+  _DeleteResumeData deleteResumeData(DeleteResumeDataParams params) {
+    return _DeleteResumeData(
+      params,
+    );
+  }
 }
 
 /// @nodoc
@@ -41,6 +47,7 @@ mixin _$ResumeWatcherEvent {
     required TResult Function() getResumeData,
     required TResult Function() setResumeData,
     required TResult Function(String language) changeLanguage,
+    required TResult Function(DeleteResumeDataParams params) deleteResumeData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +55,7 @@ mixin _$ResumeWatcherEvent {
     TResult Function()? getResumeData,
     TResult Function()? setResumeData,
     TResult Function(String language)? changeLanguage,
+    TResult Function(DeleteResumeDataParams params)? deleteResumeData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +64,7 @@ mixin _$ResumeWatcherEvent {
     required TResult Function(_GetResumeData value) getResumeData,
     required TResult Function(_SetResumeData value) setResumeData,
     required TResult Function(_ChangeLanguage value) changeLanguage,
+    required TResult Function(_DeleteResumeData value) deleteResumeData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +72,7 @@ mixin _$ResumeWatcherEvent {
     TResult Function(_GetResumeData value)? getResumeData,
     TResult Function(_SetResumeData value)? setResumeData,
     TResult Function(_ChangeLanguage value)? changeLanguage,
+    TResult Function(_DeleteResumeData value)? deleteResumeData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +138,7 @@ class _$_GetResumeData implements _GetResumeData {
     required TResult Function() getResumeData,
     required TResult Function() setResumeData,
     required TResult Function(String language) changeLanguage,
+    required TResult Function(DeleteResumeDataParams params) deleteResumeData,
   }) {
     return getResumeData();
   }
@@ -138,6 +149,7 @@ class _$_GetResumeData implements _GetResumeData {
     TResult Function()? getResumeData,
     TResult Function()? setResumeData,
     TResult Function(String language)? changeLanguage,
+    TResult Function(DeleteResumeDataParams params)? deleteResumeData,
     required TResult orElse(),
   }) {
     if (getResumeData != null) {
@@ -152,6 +164,7 @@ class _$_GetResumeData implements _GetResumeData {
     required TResult Function(_GetResumeData value) getResumeData,
     required TResult Function(_SetResumeData value) setResumeData,
     required TResult Function(_ChangeLanguage value) changeLanguage,
+    required TResult Function(_DeleteResumeData value) deleteResumeData,
   }) {
     return getResumeData(this);
   }
@@ -162,6 +175,7 @@ class _$_GetResumeData implements _GetResumeData {
     TResult Function(_GetResumeData value)? getResumeData,
     TResult Function(_SetResumeData value)? setResumeData,
     TResult Function(_ChangeLanguage value)? changeLanguage,
+    TResult Function(_DeleteResumeData value)? deleteResumeData,
     required TResult orElse(),
   }) {
     if (getResumeData != null) {
@@ -218,6 +232,7 @@ class _$_SetResumeData implements _SetResumeData {
     required TResult Function() getResumeData,
     required TResult Function() setResumeData,
     required TResult Function(String language) changeLanguage,
+    required TResult Function(DeleteResumeDataParams params) deleteResumeData,
   }) {
     return setResumeData();
   }
@@ -228,6 +243,7 @@ class _$_SetResumeData implements _SetResumeData {
     TResult Function()? getResumeData,
     TResult Function()? setResumeData,
     TResult Function(String language)? changeLanguage,
+    TResult Function(DeleteResumeDataParams params)? deleteResumeData,
     required TResult orElse(),
   }) {
     if (setResumeData != null) {
@@ -242,6 +258,7 @@ class _$_SetResumeData implements _SetResumeData {
     required TResult Function(_GetResumeData value) getResumeData,
     required TResult Function(_SetResumeData value) setResumeData,
     required TResult Function(_ChangeLanguage value) changeLanguage,
+    required TResult Function(_DeleteResumeData value) deleteResumeData,
   }) {
     return setResumeData(this);
   }
@@ -252,6 +269,7 @@ class _$_SetResumeData implements _SetResumeData {
     TResult Function(_GetResumeData value)? getResumeData,
     TResult Function(_SetResumeData value)? setResumeData,
     TResult Function(_ChangeLanguage value)? changeLanguage,
+    TResult Function(_DeleteResumeData value)? deleteResumeData,
     required TResult orElse(),
   }) {
     if (setResumeData != null) {
@@ -334,6 +352,7 @@ class _$_ChangeLanguage implements _ChangeLanguage {
     required TResult Function() getResumeData,
     required TResult Function() setResumeData,
     required TResult Function(String language) changeLanguage,
+    required TResult Function(DeleteResumeDataParams params) deleteResumeData,
   }) {
     return changeLanguage(language);
   }
@@ -344,6 +363,7 @@ class _$_ChangeLanguage implements _ChangeLanguage {
     TResult Function()? getResumeData,
     TResult Function()? setResumeData,
     TResult Function(String language)? changeLanguage,
+    TResult Function(DeleteResumeDataParams params)? deleteResumeData,
     required TResult orElse(),
   }) {
     if (changeLanguage != null) {
@@ -358,6 +378,7 @@ class _$_ChangeLanguage implements _ChangeLanguage {
     required TResult Function(_GetResumeData value) getResumeData,
     required TResult Function(_SetResumeData value) setResumeData,
     required TResult Function(_ChangeLanguage value) changeLanguage,
+    required TResult Function(_DeleteResumeData value) deleteResumeData,
   }) {
     return changeLanguage(this);
   }
@@ -368,6 +389,7 @@ class _$_ChangeLanguage implements _ChangeLanguage {
     TResult Function(_GetResumeData value)? getResumeData,
     TResult Function(_SetResumeData value)? setResumeData,
     TResult Function(_ChangeLanguage value)? changeLanguage,
+    TResult Function(_DeleteResumeData value)? deleteResumeData,
     required TResult orElse(),
   }) {
     if (changeLanguage != null) {
@@ -383,6 +405,131 @@ abstract class _ChangeLanguage implements ResumeWatcherEvent {
   String get language => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeLanguageCopyWith<_ChangeLanguage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$DeleteResumeDataCopyWith<$Res> {
+  factory _$DeleteResumeDataCopyWith(
+          _DeleteResumeData value, $Res Function(_DeleteResumeData) then) =
+      __$DeleteResumeDataCopyWithImpl<$Res>;
+  $Res call({DeleteResumeDataParams params});
+}
+
+/// @nodoc
+class __$DeleteResumeDataCopyWithImpl<$Res>
+    extends _$ResumeWatcherEventCopyWithImpl<$Res>
+    implements _$DeleteResumeDataCopyWith<$Res> {
+  __$DeleteResumeDataCopyWithImpl(
+      _DeleteResumeData _value, $Res Function(_DeleteResumeData) _then)
+      : super(_value, (v) => _then(v as _DeleteResumeData));
+
+  @override
+  _DeleteResumeData get _value => super._value as _DeleteResumeData;
+
+  @override
+  $Res call({
+    Object? params = freezed,
+  }) {
+    return _then(_DeleteResumeData(
+      params == freezed
+          ? _value.params
+          : params // ignore: cast_nullable_to_non_nullable
+              as DeleteResumeDataParams,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteResumeData implements _DeleteResumeData {
+  const _$_DeleteResumeData(this.params);
+
+  @override
+  final DeleteResumeDataParams params;
+
+  @override
+  String toString() {
+    return 'ResumeWatcherEvent.deleteResumeData(params: $params)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DeleteResumeData &&
+            (identical(other.params, params) ||
+                const DeepCollectionEquality().equals(other.params, params)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(params);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DeleteResumeDataCopyWith<_DeleteResumeData> get copyWith =>
+      __$DeleteResumeDataCopyWithImpl<_DeleteResumeData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getResumeData,
+    required TResult Function() setResumeData,
+    required TResult Function(String language) changeLanguage,
+    required TResult Function(DeleteResumeDataParams params) deleteResumeData,
+  }) {
+    return deleteResumeData(params);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getResumeData,
+    TResult Function()? setResumeData,
+    TResult Function(String language)? changeLanguage,
+    TResult Function(DeleteResumeDataParams params)? deleteResumeData,
+    required TResult orElse(),
+  }) {
+    if (deleteResumeData != null) {
+      return deleteResumeData(params);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetResumeData value) getResumeData,
+    required TResult Function(_SetResumeData value) setResumeData,
+    required TResult Function(_ChangeLanguage value) changeLanguage,
+    required TResult Function(_DeleteResumeData value) deleteResumeData,
+  }) {
+    return deleteResumeData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetResumeData value)? getResumeData,
+    TResult Function(_SetResumeData value)? setResumeData,
+    TResult Function(_ChangeLanguage value)? changeLanguage,
+    TResult Function(_DeleteResumeData value)? deleteResumeData,
+    required TResult orElse(),
+  }) {
+    if (deleteResumeData != null) {
+      return deleteResumeData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteResumeData implements ResumeWatcherEvent {
+  const factory _DeleteResumeData(DeleteResumeDataParams params) =
+      _$_DeleteResumeData;
+
+  DeleteResumeDataParams get params => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$DeleteResumeDataCopyWith<_DeleteResumeData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
