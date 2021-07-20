@@ -136,7 +136,7 @@ class LocationInformationLocalDataSource
       final responseBody = utf8.decode(response.bodyBytes);
       final list = List.from(json.decode(responseBody) as Iterable);
 
-      if (country.toLowerCase() == "nepal") {
+      if (country.toLowerCase() == Values.EN_NEPAL) {
         final listOfCities = list.map((value) {
           final valueMap = value as Map<String, dynamic>;
           return valueMap["district"] as String;

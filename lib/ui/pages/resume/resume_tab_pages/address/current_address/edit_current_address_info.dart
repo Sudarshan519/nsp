@@ -261,8 +261,8 @@ class _PostalCodeInputField extends StatelessWidget {
                 },
               ),
             ),
-            if (state.currCountry.toLowerCase() == "japan" ||
-                state.currCountry.toLowerCase() == "日本")
+            if (state.currCountry.toLowerCase() == Values.EN_JAPAN ||
+                state.currCountry.toLowerCase() == Values.JP_JAPAN)
               BlocProvider(
                 create: (context) => getIt<LocationViaPostalCodeBloc>(),
                 child: _SearchAddressViaPostalCode(
@@ -408,8 +408,8 @@ class _PrefectureInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
-        child: (state.currCountry.toLowerCase() == "japan" ||
-                state.currCountry.toLowerCase() == "日本")
+        child: (state.currCountry.toLowerCase() == Values.EN_JAPAN ||
+                state.currCountry.toLowerCase() == Values.JP_JAPAN)
             ? CustomSearchableDropDownWidget(
                 hintText: "Prefecture",
                 value: state.currPrefecture,
@@ -421,8 +421,8 @@ class _PrefectureInputField extends StatelessWidget {
                       );
                 },
               )
-            : (state.currCountry.toLowerCase() == "nepal" ||
-                    state.currCountry.toLowerCase() == "ネパール")
+            : (state.currCountry.toLowerCase() == Values.EN_NEPAL ||
+                    state.currCountry.toLowerCase() == Values.JP_NEPAL)
                 ? CustomSearchableDropDownWidget(
                     hintText: "Prefecture",
                     value: state.currPrefecture,
@@ -458,8 +458,8 @@ class _CityInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
-        child: (state.currCountry.toLowerCase() == "japan" ||
-                state.currCountry.toLowerCase() == "日本")
+        child: (state.currCountry.toLowerCase() == Values.EN_JAPAN ||
+                state.currCountry.toLowerCase() == Values.JP_JAPAN)
             ? CustomSearchableDropDownWidget(
                 hintText: "City",
                 value: state.currCity,
@@ -469,8 +469,8 @@ class _CityInputField extends StatelessWidget {
                       UpdateAddressInfoActorEvent.changedCurrCity(value ?? ''));
                 },
               )
-            : (state.currCountry.toLowerCase() == "nepal" ||
-                    state.currCountry.toLowerCase() == "ネパール")
+            : (state.currCountry.toLowerCase() == Values.EN_NEPAL ||
+                    state.currCountry.toLowerCase() == Values.JP_NEPAL)
                 ? CustomSearchableDropDownWidget(
                     hintText: "City",
                     value: state.currCity,

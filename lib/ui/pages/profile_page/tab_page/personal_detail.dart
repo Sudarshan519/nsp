@@ -580,7 +580,7 @@ class _OriginPostalCodeInputField extends StatelessWidget {
                 },
               ),
             ),
-            if (state.originCountry.toLowerCase() == "japan")
+            if (state.originCountry.toLowerCase() == Values.EN_JAPAN)
               BlocProvider(
                 create: (context) => getIt<LocationViaPostalCodeBloc>(),
                 child: _SearchOriginAddressViaPostalCode(
@@ -704,7 +704,7 @@ class _OriginPrefectureInputField extends StatelessWidget {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
-        child: state.originCountry.toLowerCase() == "japan"
+        child: state.originCountry.toLowerCase() == Values.EN_JAPAN
             ? CustomSearchableDropDownWidget(
                 hintText: "Prefecture",
                 value: state.originProvince,
@@ -714,7 +714,7 @@ class _OriginPrefectureInputField extends StatelessWidget {
                       UpdateProfileEvent.changeOriginProvince(value ?? ''));
                 },
               )
-            : state.originCountry.toLowerCase() == "nepal"
+            : state.originCountry.toLowerCase() == Values.EN_NEPAL
                 ? CustomSearchableDropDownWidget(
                     hintText: "Provinces",
                     value: state.originProvince,
@@ -750,7 +750,7 @@ class _OriginCityInputField extends StatelessWidget {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City/District",
-        child: state.originCountry.toLowerCase() == "japan"
+        child: state.originCountry.toLowerCase() == Values.EN_JAPAN
             ? CustomSearchableDropDownWidget(
                 key: UniqueKey(),
                 hintText: "City",
@@ -762,7 +762,7 @@ class _OriginCityInputField extends StatelessWidget {
                       .add(UpdateProfileEvent.changeOriginCity(value ?? ''));
                 },
               )
-            : state.originCountry.toLowerCase() == "nepal"
+            : state.originCountry.toLowerCase() == Values.EN_NEPAL
                 ? CustomSearchableDropDownWidget(
                     key: UniqueKey(),
                     hintText: "City",
@@ -903,7 +903,7 @@ class _ResidencePostalCodeInputField extends StatelessWidget {
                 },
               ),
             ),
-            if (state.residenceCountry.toLowerCase() == "japan")
+            if (state.residenceCountry.toLowerCase() == Values.EN_JAPAN)
               BlocProvider(
                 create: (context) => getIt<LocationViaPostalCodeBloc>(),
                 child: _SearchResidenceAddressViaPostalCode(
@@ -1030,7 +1030,7 @@ class _ResidencePrefectureInputField extends StatelessWidget {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
-        child: state.residenceCountry.toLowerCase() == "japan"
+        child: state.residenceCountry.toLowerCase() == Values.EN_JAPAN
             ? CustomSearchableDropDownWidget(
                 hintText: "Prefecture",
                 value: state.residenceProvince,
@@ -1040,7 +1040,7 @@ class _ResidencePrefectureInputField extends StatelessWidget {
                       UpdateProfileEvent.changeResidenceProvince(value ?? ''));
                 },
               )
-            : state.residenceCountry.toLowerCase() == "nepal"
+            : state.residenceCountry.toLowerCase() == Values.EN_NEPAL
                 ? CustomSearchableDropDownWidget(
                     hintText: "Provinces",
                     value: state.residenceProvince,
@@ -1073,9 +1073,11 @@ class _ResidenceCityInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
+      buildWhen: (previous, current) =>
+          previous.residenceCountry != current.residenceCountry,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
-        child: state.residenceCountry.toLowerCase() == "japan"
+        child: state.residenceCountry.toLowerCase() == Values.EN_JAPAN
             ? CustomSearchableDropDownWidget(
                 key: UniqueKey(),
                 hintText: "City",
@@ -1087,7 +1089,7 @@ class _ResidenceCityInputField extends StatelessWidget {
                       .add(UpdateProfileEvent.changeResidenceCity(value ?? ''));
                 },
               )
-            : state.originCountry.toLowerCase() == "nepal"
+            : state.residenceCountry.toLowerCase() == Values.EN_NEPAL
                 ? CustomSearchableDropDownWidget(
                     key: UniqueKey(),
                     hintText: "City",

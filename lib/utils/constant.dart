@@ -38,8 +38,17 @@ class AppConstants {
 }
 
 class Values {
+  //int constants
   static const int MIN_RECHARGE = 10; //NPR
   static const int MAX_RECHARGE = 5000; //NPR
+
+  //String constants
+  static const EN_JAPAN = 'japan';
+  static const EN_NEPAL = 'nepal';
+  static const JP_JAPAN = '日本';
+  static const JP_NEPAL = 'ネパール';
+
+  //List constants
   static const List<String> GENDER = ['Male', 'Female'];
   static const List<String> PAYMENT_PURPOSE = [
     'Utilities',

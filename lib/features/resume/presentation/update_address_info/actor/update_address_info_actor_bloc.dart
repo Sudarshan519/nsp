@@ -9,6 +9,7 @@ import 'package:wallet_app/features/location_information/domain/usecases/get_cou
 import 'package:wallet_app/features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_address_info.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 part 'update_address_info_actor_event.dart';
 part 'update_address_info_actor_state.dart';
@@ -157,8 +158,8 @@ class UpdateAddressInfoActorBloc
   // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeCurrJapanesePrefectureToState(
       _ChangedCurJapaneserPrefecture _changedPrefecture) async* {
-    if (state.currCountry.toLowerCase() == "japan" ||
-        state.currCountry.toLowerCase() == "日本") {
+    if (state.currCountry.toLowerCase() == Values.EN_JAPAN ||
+        state.currCountry.toLowerCase() == Values.JP_JAPAN) {
       yield state.copyWith(
         isSubmitting: true,
         failureOrSuccessOption: none(),
@@ -284,8 +285,8 @@ class UpdateAddressInfoActorBloc
   // may need to remove later
   Stream<UpdateAddressInfoActorState> _mapChangeContJapanesePrefectureToState(
       _ChangedContJapanesePrefecture _changedPrefecture) async* {
-    if (state.contCountry.toLowerCase() == "japan" ||
-        state.currCountry.toLowerCase() == "日本") {
+    if (state.contCountry.toLowerCase() == Values.EN_JAPAN ||
+        state.currCountry.toLowerCase() == Values.JP_JAPAN) {
       yield state.copyWith(
         isSubmitting: true,
         failureOrSuccessOption: none(),

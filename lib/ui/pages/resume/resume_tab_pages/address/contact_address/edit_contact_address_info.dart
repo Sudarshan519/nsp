@@ -292,7 +292,7 @@ class _PostalCodeInputField extends StatelessWidget {
                 },
               ),
             ),
-            if (state.contCountry.toLowerCase() == "japan")
+            if (state.contCountry.toLowerCase() == Values.EN_JAPAN)
               BlocProvider(
                 create: (context) => getIt<LocationViaPostalCodeBloc>(),
                 child: _SearchAddressViaPostalCode(
@@ -434,7 +434,7 @@ class _PrefectureInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Prefecture",
-        child: state.contCountry.toLowerCase() == "japan"
+        child: state.contCountry.toLowerCase() == Values.EN_JAPAN
             ? CustomSearchableDropDownWidget(
                 hintText: "Prefecture",
                 value: state.contPrefecture,
@@ -445,7 +445,7 @@ class _PrefectureInputField extends StatelessWidget {
                           value ?? ''));
                 },
               )
-            : state.contCountry.toLowerCase() == "nepal"
+            : state.contCountry.toLowerCase() == Values.EN_NEPAL
                 ? CustomSearchableDropDownWidget(
                     hintText: "Prefecture",
                     value: state.contPrefecture,
@@ -481,7 +481,7 @@ class _CityInputField extends StatelessWidget {
     return BlocBuilder<UpdateAddressInfoActorBloc, UpdateAddressInfoActorState>(
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
-        child: state.contCountry.toLowerCase() == "japan"
+        child: state.contCountry.toLowerCase() == Values.EN_JAPAN
             ? CustomSearchableDropDownWidget(
                 hintText: "City",
                 value: state.contCity,
@@ -491,7 +491,7 @@ class _CityInputField extends StatelessWidget {
                       UpdateAddressInfoActorEvent.changedContCity(value ?? ''));
                 },
               )
-            : state.contCountry.toLowerCase() == "nepal"
+            : state.contCountry.toLowerCase() == Values.EN_NEPAL
                 ? CustomSearchableDropDownWidget(
                     hintText: "City",
                     value: state.contCity,
