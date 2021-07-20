@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';
 import 'package:wallet_app/features/resume/domain/usecases/update_personal_info.dart';
+import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/get_age.dart';
 
 part 'update_personal_info_actor_event.dart';
@@ -80,7 +81,7 @@ class UpdatePersonalInfoActorBloc
 
     String _age = getAge(userInfo.dob ?? '');
 
-    List<String> _listOfGender = ["Male", "Female"];
+    List<String> _listOfGender = Values.GENDER;
     String _gender = userInfo.gender ?? '';
 
     if (_lang == "jp") {
@@ -105,7 +106,7 @@ class UpdatePersonalInfoActorBloc
         profession: userInfo.profession ?? "",
         dob: userInfo.dob ?? "",
         age: _age,
-        gender: userInfo.gender ?? "",
+        gender: _gender,
         nationality: userInfo.nationality ?? "",
         email: userInfo.email ?? "",
         phone: userInfo.contPhone ?? "",
