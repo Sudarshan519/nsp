@@ -7,7 +7,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class HomeHeaderWidget extends StatelessWidget {
+class HomeUserProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,93 +19,22 @@ class HomeHeaderWidget extends StatelessWidget {
 
   Container _headerInfo(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
         color: Palette.primary,
       ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 5),
-            // _navigationBar(context),
-            BlocBuilder<HomePageDataBloc, HomePageDataState>(
-              builder: (context, state) {
-                return state.map(
-                  initial: (_) => _navigationBar(context, null),
-                  failure: (_) => _navigationBar(context, null),
-                  failureWithData: (_) => _navigationBar(context, null),
-                  loading: (_) => _navigationBar(context, null),
-                  loaded: (success) =>
-                      _navigationBar(context, success.data.userDetail),
-                  loadingWithData: (_) => _navigationBar(context, null),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-          ],
-        ),
+      child: BlocBuilder<HomePageDataBloc, HomePageDataState>(
+        builder: (context, state) {
+          return state.map(
+            initial: (_) => _userImage(context, null),
+            failure: (_) => _userImage(context, null),
+            failureWithData: (_) => _userImage(context, null),
+            loading: (_) => _userImage(context, null),
+            loaded: (success) => _userImage(context, success.data.userDetail),
+            loadingWithData: (_) => _userImage(context, null),
+          );
+        },
       ),
-    );
-  }
-
-  Widget _navigationBar(BuildContext context, UserDetail? details) {
-    return Row(
-      children: [
-        _userImage(context, details),
-        const Spacer(),
-        // SvgPicture.asset(
-        //   "assets/images/navigation_bar/search.svg",
-        //   height: 25.0,
-        // ),
-        // const SizedBox(
-        //   width: 10,
-        // ),
-        // SvgPicture.asset(
-        //   "assets/images/navigation_bar/globe.svg",
-        //   height: 25.0,
-        // ),
-        // const SizedBox(
-        //   width: 10,
-        // ),
-
-        ///unread notification count
-        InkWell(
-          onTap: () => context.pushRoute(const NotificationListRoute()),
-          child: Stack(
-            children: [
-              SvgPicture.asset(
-                "assets/images/navigation_bar/notification.svg",
-                height: 25.0,
-              ),
-              // if (details != null &&
-              //     details.notificationCount != null &&
-              //     (details.notificationCount! > 0))
-              //   Positioned(
-              //     right: 0.1,
-              //     child: Transform.translate(
-              //       offset: const Offset(5, -5),
-              //       child: CircleAvatar(
-              //         backgroundColor: Colors.white,
-              //         radius: 9.5,
-              //         child: Center(
-              //           child: Text(
-              //             details.notificationCount! > 20
-              //                 ? '20+'
-              //                 : details.notificationCount!.toString(),
-              //             textScaleFactor: 0.56,
-              //             textAlign: TextAlign.center,
-              //             style: const TextStyle(fontWeight: FontWeight.w700),
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-            ],
-          ),
-        ),
-      ],
     );
   }
 

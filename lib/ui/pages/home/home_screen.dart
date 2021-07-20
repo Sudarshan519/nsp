@@ -1,8 +1,8 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sliver_tools/sliver_tools.dart';
 import 'package:wallet_app/features/ads/presentation/get_ads/ads_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/data/model/remit_rate_mode.dart';
@@ -21,6 +21,7 @@ import 'package:wallet_app/ui/pages/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/google_banner_ad/google_banner_ad.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 
 import 'widgets/banner_widget.dart';
 import 'widgets/build_resume.dart';
@@ -47,63 +48,26 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          width: 36,
-          height: 36,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(18.0),
-            child: Image.asset(
-              'assets/images/navigation_bar/u1.png',
-              fit: BoxFit.cover,
+        leading: HomeUserProfileWidget(),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () => context.pushRoute(const NotificationListRoute()),
+              child: Stack(
+                children: [
+                  SvgPicture.asset(
+                    "assets/images/navigation_bar/notification.svg",
+                    height: 25.0,
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        actions: [
-          SvgPicture.asset(
-            "assets/images/navigation_bar/notification.svg",
-            height: 25.0,
-          ),
-          const SizedBox(width: 16),
         ],
         elevation: 0,
       ),
       body: _homePageBody(context),
-
-      // body: Container(
-      //   color: Palette.white,
-      //   child: Column(
-      //     children: [
-      //       // HomeHeaderWidget(),
-      //       Expanded(
-      //         child: RefreshIndicator(
-      //           onRefresh: () async {
-      //             context.read<HomePageDataBloc>().add(
-      //                   const HomePageDataEvent.fetch(),
-      //                 );
-      //             getIt<GetBalanceBloc>()
-      //                 .add(const GetBalanceEvent.fetchBalance());
-      //             getIt<AdsBloc>().add(
-      //               const AdsEvent.fetchAds(),
-      //             );
-      //             // await 2 sec for the loader to show
-      //             await Future.delayed(const Duration(seconds: 2), () {});
-      //           },
-      //           child: SingleChildScrollView(
-      //             controller: scrollController,
-      //             child: Column(
-      //               children: [
-      // const HomePageHeader(),
-      // _homePageBody(),
-      //               ],
-      //             ),
-      //           ),
-      //         ),
-      //       ),
-      //       // const GoogleBannerAd()
-      //     ],
-      //   ),
-      // ),
     );
   }
 
@@ -159,16 +123,30 @@ class HomePage extends StatelessWidget {
 
   Widget _homePageSilver(
       BuildContext context, List? data, UserDetail? userDetail) {
-    return CustomScrollView(
-      slivers: [
-        const SliverToBoxAdapter(child: HomePageHeader()),
-        _homePageBodyContent(context, data, userDetail),
-        SegmentedNewViewWidget(
-          key: UniqueKey(),
-          changeTabPage: changeTabPage,
-          changeNewsTabPage: changeNewsTabPage,
-        ),
-      ],
+    return RefreshIndicator(
+      onRefresh: () async {
+        context.read<HomePageDataBloc>().add(
+              const HomePageDataEvent.fetch(),
+            );
+        getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
+        getIt<AdsBloc>().add(
+          const AdsEvent.fetchAds(),
+        );
+        // await 2 sec for the loader to show
+        await Future.delayed(const Duration(seconds: 2), () {});
+      },
+      child: CustomScrollView(
+        controller: scrollController,
+        slivers: [
+          const SliverToBoxAdapter(child: HomePageHeader()),
+          _homePageBodyContent(context, data, userDetail),
+          SegmentedNewViewWidget(
+            key: UniqueKey(),
+            changeTabPage: changeTabPage,
+            changeNewsTabPage: changeNewsTabPage,
+          ),
+        ],
+      ),
     );
   }
 
