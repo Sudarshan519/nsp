@@ -17,6 +17,7 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
+import 'package:wallet_app/ui/pages/search/search_home.dart';
 import 'package:wallet_app/ui/pages/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/google_banner_ad/google_banner_ad.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -50,6 +51,22 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         leading: HomeUserProfileWidget(),
         actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SearchPage(),
+              )),
+              child: Stack(
+                children: [
+                  SvgPicture.asset(
+                    "assets/images/navigation_bar/search.svg",
+                    height: 25.0,
+                  ),
+                ],
+              ),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: InkWell(
