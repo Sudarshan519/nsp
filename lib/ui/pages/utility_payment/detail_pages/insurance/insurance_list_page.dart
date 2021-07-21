@@ -27,42 +27,39 @@ class InsuranceListPage extends StatelessWidget {
         ),
         body: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ShadowBoxWidget(
-                      padding: const EdgeInsets.all(12),
-                      margin: const EdgeInsets.all(1),
-                      child: Container(
-                        height: size.height * 0.34,
-                        color: Colors.white30,
-                        child: GridView.count(crossAxisCount: 3,
-                            // childAspectRatio: 1,
-                            children: const [
-                              ISPItem(
-                                  name: 'Nepal Life Insurance',
-                                  imageURL:
-                                      "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
-                              ISPItem(
-                                  name: 'Sanima Life Insurance',
-                                  imageURL:
-                                      "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
-                              ISPItem(
-                                  name: 'Himalayan General Insurance',
-                                  imageURL:
-                                      "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
-                              ISPItem(
-                                  name: 'Jyoti Life Insurance',
-                                  imageURL:
-                                      "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
-                              ISPItem(
-                                  name: 'Sagarmatha Insurance',
-                                  imageURL:
-                                      "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
-                            ]),
-                      ))
-                ])));
+            child: SingleChildScrollView(
+              child: ShadowBoxWidget(
+                  padding: const EdgeInsets.all(12),
+                  margin: const EdgeInsets.all(1),
+                  child: Container(
+                    height: size.height * 0.34,
+                    color: Colors.white30,
+                    child: GridView.count(crossAxisCount: 3,
+                        // childAspectRatio: 1,
+                        children: const [
+                          ISPItem(
+                              name: 'Nepal Life Insurance',
+                              imageURL:
+                                  "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
+                          ISPItem(
+                              name: 'Sanima Life Insurance',
+                              imageURL:
+                                  "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
+                          ISPItem(
+                              name: 'Himalayan General Insurance',
+                              imageURL:
+                                  "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
+                          ISPItem(
+                              name: 'Jyoti Life Insurance',
+                              imageURL:
+                                  "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
+                          ISPItem(
+                              name: 'Sagarmatha Insurance',
+                              imageURL:
+                                  "https://pbs.twimg.com/profile_images/3027265948/29288fe2494bf461f7fb15177d28f14a.jpeg"),
+                        ]),
+                  )),
+            )));
   }
 }
 

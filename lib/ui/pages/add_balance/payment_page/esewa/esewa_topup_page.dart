@@ -97,26 +97,28 @@ class EsewaTopupPage extends StatelessWidget {
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 10),
-            titleWidget(),
-            const SizedBox(height: 10),
-            const _AmountWidget(),
-            const SizedBox(height: 10),
-            _ConversionRate(
-              conversionRate: conversionRate,
-            ),
-            const _AmountFromSuggestionWidget(),
-            const SizedBox(height: 10),
-            const _PurposeWidget(),
-            const SizedBox(height: 10),
-            _ProceedButton(
-              onTap: () => _esewaPay(context),
-            ),
-            const SizedBox(height: 10),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 10),
+              titleWidget(),
+              const SizedBox(height: 10),
+              const _AmountWidget(),
+              const SizedBox(height: 10),
+              _ConversionRate(
+                conversionRate: conversionRate,
+              ),
+              const _AmountFromSuggestionWidget(),
+              const SizedBox(height: 10),
+              const _PurposeWidget(),
+              const SizedBox(height: 10),
+              _ProceedButton(
+                onTap: () => _esewaPay(context),
+              ),
+              const SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );
