@@ -15,6 +15,7 @@ class PaymentOptions extends StatefulWidget {
     required this.balance,
     required this.conversionRate,
     required this.isVerified,
+    required this.userId,
   }) : super(key: key);
 
   final List<PaymentMethod> paymentMethods;
@@ -22,6 +23,7 @@ class PaymentOptions extends StatefulWidget {
   final String balance;
   final double conversionRate;
   final bool isVerified;
+  final String userId;
 
   @override
   _PaymentOptionsState createState() => _PaymentOptionsState();
@@ -120,6 +122,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
           builder: (BuildContext context) {
             return EsewaTopupPage(
                 method: paymentMethod,
+                userId: widget.userId,
                 conversionRate: widget.conversionRate,
                 balance: balanceParsed,
                 isVerified: widget.isVerified);
@@ -139,6 +142,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
           builder: (BuildContext context) {
             return ImePayTopupPage(
                 method: paymentMethod,
+                userId: widget.userId,
                 conversionRate: widget.conversionRate,
                 balance: balanceParsed,
                 isVerified: widget.isVerified);
@@ -157,6 +161,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
           ),
           builder: (BuildContext context) {
             return KhaltiTopupPage(
+                userId: widget.userId,
                 method: paymentMethod,
                 conversionRate: widget.conversionRate,
                 balance: balanceParsed,

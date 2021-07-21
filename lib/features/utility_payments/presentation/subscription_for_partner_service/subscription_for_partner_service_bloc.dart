@@ -84,9 +84,10 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
 
         final result = await purchaseSubscriptionFromPartnerService(
           PurchaseSubscriptionFromPartnerServiceParams(
-              invoice: newInvoices,
-              coupon: couponCode?.couponCode ?? '',
-              productId: e.productId),
+            invoice: newInvoices,
+            coupon: couponCode?.couponCode ?? '',
+            productId: e.productId,
+          ),
         );
 
         yield result.fold(

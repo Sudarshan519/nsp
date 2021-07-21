@@ -11,11 +11,13 @@ class LoadFundModel extends LoadFund {
     required List<PaymentMethod>? paymentMethods,
     required double? balance,
     required List<CreditCardModel>? creditCards,
+    required int? userId,
   }) : super(
           balance: balance,
           status: status,
           paymentMethods: paymentMethods,
           creditCards: creditCards,
+          userId: userId,
         );
 
   factory LoadFundModel.fromJson(Map<String, dynamic> json) => LoadFundModel(
@@ -37,6 +39,7 @@ class LoadFundModel extends LoadFund {
                   (x) => CreditCardModel.fromJson(x as Map<String, dynamic>),
                 ),
               ),
+        userId: json["user_id"] == null ? null : json["user_id"] as int?,
       );
 }
 

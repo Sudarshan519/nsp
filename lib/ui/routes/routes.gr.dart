@@ -292,6 +292,7 @@ class AppRouter extends _i1.RootStackRouter {
           return _i30.EsewaTopupPage(
               key: args.key,
               method: args.method,
+              userId: args.userId,
               conversionRate: args.conversionRate,
               isVerified: args.isVerified,
               balance: args.balance);
@@ -1011,6 +1012,7 @@ class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
   EsewaTopupRoute(
       {_i2.Key? key,
       required _i49.PaymentMethod method,
+      required String userId,
       required double conversionRate,
       required bool isVerified,
       required double balance})
@@ -1019,6 +1021,7 @@ class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
             args: EsewaTopupRouteArgs(
                 key: key,
                 method: method,
+                userId: userId,
                 conversionRate: conversionRate,
                 isVerified: isVerified,
                 balance: balance));
@@ -1030,6 +1033,7 @@ class EsewaTopupRouteArgs {
   const EsewaTopupRouteArgs(
       {this.key,
       required this.method,
+      required this.userId,
       required this.conversionRate,
       required this.isVerified,
       required this.balance});
@@ -1037,6 +1041,8 @@ class EsewaTopupRouteArgs {
   final _i2.Key? key;
 
   final _i49.PaymentMethod method;
+
+  final String userId;
 
   final double conversionRate;
 

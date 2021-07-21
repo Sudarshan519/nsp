@@ -638,7 +638,7 @@ class _SearchOriginAddressViaPostalCode extends StatelessWidget {
                   .read<UpdateProfileBloc>()
                   .add(UpdateProfileEvent.changeOriginCity(city));
               parentContext.read<UpdateProfileBloc>().add(
-                  UpdateProfileEvent.changeOriginStreetAddress(
+                  UpdateProfileEvent.changeOriginStreetAddressFromPostalCode(
                       addressData.street ?? ''));
             }
 
@@ -961,8 +961,10 @@ class _SearchResidenceAddressViaPostalCode extends StatelessWidget {
                   .read<UpdateProfileBloc>()
                   .add(UpdateProfileEvent.changeResidenceCity(city));
               parentContext.read<UpdateProfileBloc>().add(
-                  UpdateProfileEvent.changeResidenceStreetAddress(
-                      addressData.street ?? ''));
+                    UpdateProfileEvent
+                        .changeResidenceStreetAddressFromPostalCode(
+                            addressData.street ?? ''),
+                  );
             }
 
             return _buildSearchBoxWithLoading(context: context);
@@ -1074,7 +1076,9 @@ class _ResidenceCityInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       buildWhen: (previous, current) =>
-          previous.residenceCountry != current.residenceCountry,
+          previous.residenceCountry != current.residenceCountry ||
+          previous.residenceProvince != current.residenceProvince ||
+          previous.residenceCity != current.residenceCity,
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "City",
         child: state.residenceCountry.toLowerCase() == Values.EN_JAPAN

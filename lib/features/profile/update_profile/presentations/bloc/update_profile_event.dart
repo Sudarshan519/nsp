@@ -43,6 +43,8 @@ class UpdateProfileEvent with _$UpdateProfileEvent {
       _ChangeOriginCity;
   const factory UpdateProfileEvent.changeOriginStreetAddress(
       String streetAddress) = _ChangeOriginStreetAddress;
+  const factory UpdateProfileEvent.changeOriginStreetAddressFromPostalCode(
+      String address) = _ChangeOriginStreetAddressFromPostalCode;
   const factory UpdateProfileEvent.changeSameAsOriginAddress() =
       _ChangeSameAsOriginAddress;
   const factory UpdateProfileEvent.changeResidenceCountry(String country) =
@@ -55,6 +57,8 @@ class UpdateProfileEvent with _$UpdateProfileEvent {
       _ChangeResidenceCity;
   const factory UpdateProfileEvent.changeResidenceStreetAddress(
       String address) = _ChangeResidenceStreetAddress;
+  const factory UpdateProfileEvent.changeResidenceStreetAddressFromPostalCode(
+      String address) = _ChangeResidenceStreetAddressFromPostalCode;
   const factory UpdateProfileEvent.changeProfilePicture(File profilePicture) =
       _ChangeProfilePicture;
   const factory UpdateProfileEvent.changeOriginKycDocType(String docType) =

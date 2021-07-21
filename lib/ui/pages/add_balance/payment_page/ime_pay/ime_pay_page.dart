@@ -21,6 +21,7 @@ import 'package:wallet_app/utils/currency_formater.dart';
 
 class ImePayTopupPage extends StatelessWidget {
   final PaymentMethod method;
+  final String userId;
   final double conversionRate;
   final bool isVerified;
   final double balance;
@@ -28,6 +29,7 @@ class ImePayTopupPage extends StatelessWidget {
   const ImePayTopupPage({
     Key? key,
     required this.method,
+    required this.userId,
     required this.conversionRate,
     required this.isVerified,
     required this.balance,
@@ -178,18 +180,20 @@ class ImePayTopupPage extends StatelessWidget {
     }
 
     final ImePay _imePay = ImePay(
-        merchantCode: method.module ?? '',
-        module: method.module ?? '',
-        userName: method.username ?? '',
-        password: method.password ?? '',
-        amount: amountDoubleInRupees,
-        merchantName: method.module ?? '',
-        recordingServiceUrl: method.recordingUrl ?? '',
-        deliveryServiceUrl: method.deliveryUrl ?? '',
-        environment: (method.islive ?? false)
-            ? ImePayEnvironment.LIVE
-            : ImePayEnvironment.TEST,
-        refId: DateTime.now().millisecondsSinceEpoch.toString());
+      merchantCode: method.module ?? '',
+      module: method.module ?? '',
+      userName: method.username ?? '',
+      password: method.password ?? '',
+      amount: amountDoubleInRupees,
+      merchantName: method.module ?? '',
+      recordingServiceUrl: method.recordingUrl ?? '',
+      deliveryServiceUrl: method.deliveryUrl ?? '',
+      environment: (method.islive ?? false)
+          ? ImePayEnvironment.LIVE
+          : ImePayEnvironment.TEST,
+      refId:
+          "BNPJ_TOPUP_${userId}_${DateTime.now().millisecondsSinceEpoch.toString()}",
+    );
 
     _imePay.startPayment(onSuccess: (ImePaySuccessResponse data) {
       debugPrint(data.toString());
