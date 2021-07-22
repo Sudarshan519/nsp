@@ -20,6 +20,7 @@ import 'package:wallet_app/utils/currency_formater.dart';
 
 class EsewaTopupPage extends StatelessWidget {
   final PaymentMethod method;
+  final String userId;
   final double conversionRate;
   final bool isVerified;
   final double balance;
@@ -27,6 +28,7 @@ class EsewaTopupPage extends StatelessWidget {
   const EsewaTopupPage({
     Key? key,
     required this.method,
+    required this.userId,
     required this.conversionRate,
     required this.isVerified,
     required this.balance,
@@ -95,26 +97,28 @@ class EsewaTopupPage extends StatelessWidget {
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 10),
-            titleWidget(),
-            const SizedBox(height: 10),
-            const _AmountWidget(),
-            const SizedBox(height: 10),
-            _ConversionRate(
-              conversionRate: conversionRate,
-            ),
-            const _AmountFromSuggestionWidget(),
-            const SizedBox(height: 10),
-            const _PurposeWidget(),
-            const SizedBox(height: 10),
-            _ProceedButton(
-              onTap: () => _esewaPay(context),
-            ),
-            const SizedBox(height: 10),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 10),
+              titleWidget(),
+              const SizedBox(height: 10),
+              const _AmountWidget(),
+              const SizedBox(height: 10),
+              _ConversionRate(
+                conversionRate: conversionRate,
+              ),
+              const _AmountFromSuggestionWidget(),
+              const SizedBox(height: 10),
+              const _PurposeWidget(),
+              const SizedBox(height: 10),
+              _ProceedButton(
+                onTap: () => _esewaPay(context),
+              ),
+              const SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );
@@ -186,7 +190,8 @@ class EsewaTopupPage extends StatelessWidget {
     final ESewaPayment _payment = ESewaPayment(
       productPrice: amountDoubleInRupees,
       productName: "Load Balance from Esewa",
-      productID: "BNPJ_TOPUP_U12_",
+      productID:
+          "BNPJ_TOPUP_${userId}_${DateTime.now().millisecondsSinceEpoch.toString()}",
       callBackURL: method.callbackUrl ?? '',
     );
 

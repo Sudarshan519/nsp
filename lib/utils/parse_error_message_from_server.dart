@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 final logger = getIt<Logger>();
 
@@ -10,12 +11,16 @@ String? errorMessageFromServer(String message) {
 // convert the response body to a json map
     final data = json.decode(message) as Map<String, dynamic>;
 
-    if (data['error'] is String) {
-      return data['error'] as String;
+    if (data['error'] is String?) {
+      final err = data['error'] as String?;
+      if (err != null && err.isNotEmpty) {
+        return err;
+      }
+      return AppConstants.someThingWentWrong;
     }
 
     // search for a error key which is another json object
-    final errorJson = data["error"] as Map<String, dynamic>;
+    final errorJson = data['error'] as Map<String, dynamic>;
 
     // get first key of the json error
     final errorKey = errorJson.keys.toList()[0];
@@ -41,7 +46,13 @@ String? errorMessageFromServerWithError(String message) {
 // convert the response body to a json map
     final data = json.decode(message) as Map<String, dynamic>;
     // search for a error key which is another json object
-    return data["error"] as String;
+    if (data['error'] is String?) {
+      final err = data['error'] as String?;
+      if (err != null && err.isNotEmpty) {
+        return err;
+      }
+    }
+    return AppConstants.someThingWentWrong;
   } catch (ex) {
     logger.log(
       className: "Parse Message From Server",

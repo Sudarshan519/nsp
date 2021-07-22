@@ -184,8 +184,11 @@ class UpdateProfileBloc extends Bloc<UpdateProfileEvent, UpdateProfileState> {
       changeOriginStreetAddress: (e) async* {
         yield _mapChangeOriginStreetAddressToState(e);
       },
-      changeSameAsOriginAddress:(e) async*{
-yield _mapChangeSameAsOriginAddressInfoToState(e);
+      changeOriginStreetAddressFromPostalCode: (e) async* {
+        yield _mapChangeOriginStreetAddressFromPostalCodeToState(e);
+      },
+      changeSameAsOriginAddress: (e) async* {
+        yield _mapChangeSameAsOriginAddressInfoToState(e);
       },
       changeResidenceCountry: (e) async* {
         yield _mapChangeResidenceCountryToState(e);
@@ -201,6 +204,9 @@ yield _mapChangeSameAsOriginAddressInfoToState(e);
       },
       changeResidenceStreetAddress: (e) async* {
         yield _mapChangeResidenceStreetAddressToState(e);
+      },
+      changeResidenceStreetAddressFromPostalCode: (e) async* {
+        yield _mapChangeResidenceStreetAddressFromPostalCodeToState(e);
       },
       changeProfilePicture: (e) async* {
         yield _mapChangeProfilePictureToState(e);
@@ -417,7 +423,8 @@ yield _mapChangeSameAsOriginAddressInfoToState(e);
   Stream<UpdateProfileState> _mapChangeOriginProvinceToState(
       _ChangeProvince _changeOriginProvince) async* {
     final listOfCities = await _getListOfCities(
-        country: state.originCountry, prefectureName: _changeOriginProvince.province);
+        country: state.originCountry,
+        prefectureName: _changeOriginProvince.province);
 
     yield state.copyWith(
       originProvince: _changeOriginProvince.province,
@@ -444,6 +451,16 @@ yield _mapChangeSameAsOriginAddressInfoToState(e);
     );
   }
 
+  UpdateProfileState _mapChangeOriginStreetAddressFromPostalCodeToState(
+      _ChangeOriginStreetAddressFromPostalCode
+          _changeOriginStreetAddressFromPostalCode) {
+    return state.copyWith(
+      key: UniqueKey(),
+      originStreetAddress: _changeOriginStreetAddressFromPostalCode.address,
+      failureOrSuccessOption: none(),
+    );
+  }
+
   UpdateProfileState _mapChangeSameAsOriginAddressInfoToState(
       _ChangeSameAsOriginAddress _changedSameAsOriginAddress) {
     final sameAsCurrAddressInfo = !state.isSameAsOriginAddress;
@@ -455,8 +472,9 @@ yield _mapChangeSameAsOriginAddressInfoToState(e);
       residencePostalCode: sameAsCurrAddressInfo ? state.originPostalCode : "",
       residenceProvince: sameAsCurrAddressInfo ? state.originProvince : "",
       residenceCity: sameAsCurrAddressInfo ? state.originCity : "",
-      residenceStreetAddress: sameAsCurrAddressInfo ? state.originStreetAddress : "",
-      listOfJapaneseResidenceCities: state.listOfJapaneseOriginCities ,
+      residenceStreetAddress:
+          sameAsCurrAddressInfo ? state.originStreetAddress : "",
+      listOfJapaneseResidenceCities: state.listOfJapaneseOriginCities,
       listOfNepaliResidenceDistrict: state.listOfNepaliOriginDistrict,
       isSubmitting: false,
       failureOrSuccessOption: none(),
@@ -507,6 +525,17 @@ yield _mapChangeSameAsOriginAddressInfoToState(e);
       _ChangeResidenceStreetAddress _changeResidenceStreetAddress) {
     return state.copyWith(
       residenceStreetAddress: _changeResidenceStreetAddress.address,
+      failureOrSuccessOption: none(),
+    );
+  }
+
+  UpdateProfileState _mapChangeResidenceStreetAddressFromPostalCodeToState(
+      _ChangeResidenceStreetAddressFromPostalCode
+          _changeResidenceStreetAddressFromPostalCode) {
+    return state.copyWith(
+      key: UniqueKey(),
+      residenceStreetAddress:
+          _changeResidenceStreetAddressFromPostalCode.address,
       failureOrSuccessOption: none(),
     );
   }

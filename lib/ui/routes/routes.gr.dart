@@ -267,23 +267,19 @@ class AppRouter extends _i1.RootStackRouter {
               final args = data.argsAs<StripePaymentCardSelectionRouteArgs>();
               return _i27.StripePaymentCardSelectionPage(
                   key: args.key,
-                  balance: args.balance,
                   cards: args.cards,
                   deleteCard: args.deleteCard);
             }),
     StripeNewCardPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (data) {
-          final args = data.argsAs<StripeNewCardPaymentRouteArgs>();
-          return _i28.StripeNewCardPaymentPage(
-              key: args.key, balance: args.balance);
+        builder: (_) {
+          return const _i28.StripeNewCardPaymentPage();
         }),
     StripeSaveCardPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<StripeSaveCardPaymentRouteArgs>();
-          return _i29.StripeSaveCardPaymentPage(
-              key: args.key, balance: args.balance, card: args.card);
+          return _i29.StripeSaveCardPaymentPage(key: args.key, card: args.card);
         }),
     EsewaTopupRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -292,6 +288,7 @@ class AppRouter extends _i1.RootStackRouter {
           return _i30.EsewaTopupPage(
               key: args.key,
               method: args.method,
+              userId: args.userId,
               conversionRate: args.conversionRate,
               isVerified: args.isVerified,
               balance: args.balance);
@@ -314,7 +311,6 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<TopUpRouteArgs>();
           return _i33.TopUpPage(
               key: args.key,
-              balance: args.balance,
               conversionRate: args.conversionRate,
               index: args.index,
               paymentData: args.paymentData);
@@ -936,73 +932,48 @@ class StripePaymentCardSelectionRoute
     extends _i1.PageRouteInfo<StripePaymentCardSelectionRouteArgs> {
   StripePaymentCardSelectionRoute(
       {_i2.Key? key,
-      required String balance,
       required List<_i49.CreditCard> cards,
       required dynamic Function(int) deleteCard})
       : super(name,
             path: '/stripe-payment-card-selection-page',
             args: StripePaymentCardSelectionRouteArgs(
-                key: key,
-                balance: balance,
-                cards: cards,
-                deleteCard: deleteCard));
+                key: key, cards: cards, deleteCard: deleteCard));
 
   static const String name = 'StripePaymentCardSelectionRoute';
 }
 
 class StripePaymentCardSelectionRouteArgs {
   const StripePaymentCardSelectionRouteArgs(
-      {this.key,
-      required this.balance,
-      required this.cards,
-      required this.deleteCard});
+      {this.key, required this.cards, required this.deleteCard});
 
   final _i2.Key? key;
-
-  final String balance;
 
   final List<_i49.CreditCard> cards;
 
   final dynamic Function(int) deleteCard;
 }
 
-class StripeNewCardPaymentRoute
-    extends _i1.PageRouteInfo<StripeNewCardPaymentRouteArgs> {
-  StripeNewCardPaymentRoute({_i2.Key? key, required String balance})
-      : super(name,
-            path: '/stripe-new-card-payment-page',
-            args: StripeNewCardPaymentRouteArgs(key: key, balance: balance));
+class StripeNewCardPaymentRoute extends _i1.PageRouteInfo {
+  const StripeNewCardPaymentRoute()
+      : super(name, path: '/stripe-new-card-payment-page');
 
   static const String name = 'StripeNewCardPaymentRoute';
 }
 
-class StripeNewCardPaymentRouteArgs {
-  const StripeNewCardPaymentRouteArgs({this.key, required this.balance});
-
-  final _i2.Key? key;
-
-  final String balance;
-}
-
 class StripeSaveCardPaymentRoute
     extends _i1.PageRouteInfo<StripeSaveCardPaymentRouteArgs> {
-  StripeSaveCardPaymentRoute(
-      {_i2.Key? key, required String balance, required _i49.CreditCard card})
+  StripeSaveCardPaymentRoute({_i2.Key? key, required _i49.CreditCard card})
       : super(name,
             path: '/stripe-save-card-payment-page',
-            args: StripeSaveCardPaymentRouteArgs(
-                key: key, balance: balance, card: card));
+            args: StripeSaveCardPaymentRouteArgs(key: key, card: card));
 
   static const String name = 'StripeSaveCardPaymentRoute';
 }
 
 class StripeSaveCardPaymentRouteArgs {
-  const StripeSaveCardPaymentRouteArgs(
-      {this.key, required this.balance, required this.card});
+  const StripeSaveCardPaymentRouteArgs({this.key, required this.card});
 
   final _i2.Key? key;
-
-  final String balance;
 
   final _i49.CreditCard card;
 }
@@ -1011,6 +982,7 @@ class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
   EsewaTopupRoute(
       {_i2.Key? key,
       required _i49.PaymentMethod method,
+      required String userId,
       required double conversionRate,
       required bool isVerified,
       required double balance})
@@ -1019,6 +991,7 @@ class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
             args: EsewaTopupRouteArgs(
                 key: key,
                 method: method,
+                userId: userId,
                 conversionRate: conversionRate,
                 isVerified: isVerified,
                 balance: balance));
@@ -1030,6 +1003,7 @@ class EsewaTopupRouteArgs {
   const EsewaTopupRouteArgs(
       {this.key,
       required this.method,
+      required this.userId,
       required this.conversionRate,
       required this.isVerified,
       required this.balance});
@@ -1037,6 +1011,8 @@ class EsewaTopupRouteArgs {
   final _i2.Key? key;
 
   final _i49.PaymentMethod method;
+
+  final String userId;
 
   final double conversionRate;
 
@@ -1074,7 +1050,6 @@ class PdfViewerRouteArgs {
 class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
   TopUpRoute(
       {_i2.Key? key,
-      required double balance,
       required double conversionRate,
       required int index,
       required List<_i50.UtilityPaymentsModel> paymentData})
@@ -1082,7 +1057,6 @@ class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
             path: '/top-up-page',
             args: TopUpRouteArgs(
                 key: key,
-                balance: balance,
                 conversionRate: conversionRate,
                 index: index,
                 paymentData: paymentData));
@@ -1093,14 +1067,11 @@ class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
 class TopUpRouteArgs {
   const TopUpRouteArgs(
       {this.key,
-      required this.balance,
       required this.conversionRate,
       required this.index,
       required this.paymentData});
 
   final _i2.Key? key;
-
-  final double balance;
 
   final double conversionRate;
 

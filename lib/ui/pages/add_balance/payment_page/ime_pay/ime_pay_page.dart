@@ -21,6 +21,7 @@ import 'package:wallet_app/utils/currency_formater.dart';
 
 class ImePayTopupPage extends StatelessWidget {
   final PaymentMethod method;
+  final String userId;
   final double conversionRate;
   final bool isVerified;
   final double balance;
@@ -28,6 +29,7 @@ class ImePayTopupPage extends StatelessWidget {
   const ImePayTopupPage({
     Key? key,
     required this.method,
+    required this.userId,
     required this.conversionRate,
     required this.isVerified,
     required this.balance,
@@ -97,28 +99,30 @@ class ImePayTopupPage extends StatelessWidget {
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 10),
-            titleWidget(),
-            const SizedBox(height: 10),
-            const _AmountWidget(),
-            const SizedBox(height: 10),
-            _ConversionRate(
-              conversionRate: conversionRate,
-            ),
-            const _AmountFromSuggestionWidget(),
-            const SizedBox(height: 10),
-            const _PurposeWidget(),
-            const SizedBox(height: 10),
-            _ProceedButton(
-              onTap: () {
-                _imePay(context);
-              },
-            ),
-            const SizedBox(height: 10),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 10),
+              titleWidget(),
+              const SizedBox(height: 10),
+              const _AmountWidget(),
+              const SizedBox(height: 10),
+              _ConversionRate(
+                conversionRate: conversionRate,
+              ),
+              const _AmountFromSuggestionWidget(),
+              const SizedBox(height: 10),
+              const _PurposeWidget(),
+              const SizedBox(height: 10),
+              _ProceedButton(
+                onTap: () {
+                  _imePay(context);
+                },
+              ),
+              const SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );
@@ -178,18 +182,20 @@ class ImePayTopupPage extends StatelessWidget {
     }
 
     final ImePay _imePay = ImePay(
-        merchantCode: method.module ?? '',
-        module: method.module ?? '',
-        userName: method.username ?? '',
-        password: method.password ?? '',
-        amount: amountDoubleInRupees,
-        merchantName: method.module ?? '',
-        recordingServiceUrl: method.recordingUrl ?? '',
-        deliveryServiceUrl: method.deliveryUrl ?? '',
-        environment: (method.islive ?? false)
-            ? ImePayEnvironment.LIVE
-            : ImePayEnvironment.TEST,
-        refId: DateTime.now().millisecondsSinceEpoch.toString());
+      merchantCode: method.module ?? '',
+      module: method.module ?? '',
+      userName: method.username ?? '',
+      password: method.password ?? '',
+      amount: amountDoubleInRupees,
+      merchantName: method.module ?? '',
+      recordingServiceUrl: method.recordingUrl ?? '',
+      deliveryServiceUrl: method.deliveryUrl ?? '',
+      environment: (method.islive ?? false)
+          ? ImePayEnvironment.LIVE
+          : ImePayEnvironment.TEST,
+      refId:
+          "BNPJ_TOPUP_${userId}_${DateTime.now().millisecondsSinceEpoch.toString()}",
+    );
 
     _imePay.startPayment(onSuccess: (ImePaySuccessResponse data) {
       debugPrint(data.toString());

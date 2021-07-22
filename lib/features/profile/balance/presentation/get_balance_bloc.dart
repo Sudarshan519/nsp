@@ -20,6 +20,10 @@ class GetBalanceBloc extends Bloc<GetBalanceEvent, GetBalanceState> {
 
   final GetBalance getBalance;
 
+  UserBalance? _userbalance;
+
+  double get userbalance => _userbalance?.balance ?? 0;
+
   @override
   Stream<GetBalanceState> mapEventToState(
     GetBalanceEvent event,
@@ -32,6 +36,7 @@ class GetBalanceBloc extends Bloc<GetBalanceEvent, GetBalanceState> {
         yield res.fold((fail) {
           return _Failure(fail);
         }, (balance) {
+          _userbalance = balance;
           return _Loaded(balance);
         });
       },

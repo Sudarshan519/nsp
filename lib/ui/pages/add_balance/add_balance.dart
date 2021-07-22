@@ -1,8 +1,10 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/get_payment_methods/get_payment_methods_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -51,7 +53,7 @@ class AddBalancePage extends StatelessWidget {
       builder: (context, state) {
         return state.map(
           loading: (_) => loadingPage(),
-          loaded: (success) => body(success.data),
+          loaded: (success) => body(success.data, context),
           failure: (error) {
             Future.delayed(Duration.zero, () {
               FlushbarHelper.createError(
@@ -62,14 +64,15 @@ class AddBalancePage extends StatelessWidget {
                 ),
               ).show(context);
             });
-            return body(null);
+            return body(null, context);
           },
         );
       },
     );
   }
 
-  Widget body(LoadFund? loadFund) {
+  Widget body(LoadFund? loadFund, BuildContext context) {
+    final balance = context.read<GetBalanceBloc>().userbalance;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -87,7 +90,10 @@ class AddBalancePage extends StatelessWidget {
         ShadowBoxWidget(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: PaymentOptions(
-            balance: loadFund?.formattedBalance ?? 'JPY XX.XX',
+            userId: loadFund?.userId == null
+                ? 'COULD_NOT_FETCH'
+                : '${loadFund?.userId ?? 0}',
+            balance: balance,
             paymentMethods: loadFund?.paymentMethods ?? [],
             conversionRate: conversionRate,
             isVerified: isVerified,

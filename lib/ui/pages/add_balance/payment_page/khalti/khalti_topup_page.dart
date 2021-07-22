@@ -22,6 +22,7 @@ import 'package:flutter_khalti/flutter_khalti.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 
 class KhaltiTopupPage extends StatelessWidget {
+  final String userId;
   final PaymentMethod method;
   final double conversionRate;
   final bool isVerified;
@@ -29,6 +30,7 @@ class KhaltiTopupPage extends StatelessWidget {
 
   const KhaltiTopupPage({
     Key? key,
+    required this.userId,
     required this.method,
     required this.conversionRate,
     required this.isVerified,
@@ -99,26 +101,28 @@ class KhaltiTopupPage extends StatelessWidget {
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 10),
-            titleWidget(),
-            const SizedBox(height: 10),
-            const _AmountWidget(),
-            const SizedBox(height: 10),
-            _ConversionRate(
-              conversionRate: conversionRate,
-            ),
-            const _AmountFromSuggestionWidget(),
-            const SizedBox(height: 10),
-            const _PurposeWidget(),
-            const SizedBox(height: 10),
-            _ProceedButton(
-              onTap: () => _khaltiPay(context),
-            ),
-            const SizedBox(height: 10),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 10),
+              titleWidget(),
+              const SizedBox(height: 10),
+              const _AmountWidget(),
+              const SizedBox(height: 10),
+              _ConversionRate(
+                conversionRate: conversionRate,
+              ),
+              const _AmountFromSuggestionWidget(),
+              const SizedBox(height: 10),
+              const _PurposeWidget(),
+              const SizedBox(height: 10),
+              _ProceedButton(
+                onTap: () => _khaltiPay(context),
+              ),
+              const SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );
@@ -195,7 +199,7 @@ class KhaltiTopupPage extends StatelessWidget {
         100; // Multiplying by 100 bc amt should be in paisa for khalti
 
     final product = KhaltiProduct(
-      id: 'load-balance-from-khalti',
+      id: "BNPJ_TOPUP_${userId}_${DateTime.now().millisecondsSinceEpoch.toString()}",
       amount: khaltiAmtinPaisa,
       name: "Load Balance from Khalti",
     );

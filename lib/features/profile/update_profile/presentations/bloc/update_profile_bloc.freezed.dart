@@ -149,6 +149,13 @@ class _$UpdateProfileEventTearOff {
     );
   }
 
+  _ChangeOriginStreetAddressFromPostalCode
+      changeOriginStreetAddressFromPostalCode(String address) {
+    return _ChangeOriginStreetAddressFromPostalCode(
+      address,
+    );
+  }
+
   _ChangeSameAsOriginAddress changeSameAsOriginAddress() {
     return const _ChangeSameAsOriginAddress();
   }
@@ -179,6 +186,13 @@ class _$UpdateProfileEventTearOff {
 
   _ChangeResidenceStreetAddress changeResidenceStreetAddress(String address) {
     return _ChangeResidenceStreetAddress(
+      address,
+    );
+  }
+
+  _ChangeResidenceStreetAddressFromPostalCode
+      changeResidenceStreetAddressFromPostalCode(String address) {
+    return _ChangeResidenceStreetAddressFromPostalCode(
       address,
     );
   }
@@ -299,12 +313,16 @@ mixin _$UpdateProfileEvent {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -346,12 +364,15 @@ mixin _$UpdateProfileEvent {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -398,6 +419,8 @@ mixin _$UpdateProfileEvent {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -409,6 +432,8 @@ mixin _$UpdateProfileEvent {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -462,6 +487,8 @@ mixin _$UpdateProfileEvent {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -471,6 +498,8 @@ mixin _$UpdateProfileEvent {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -601,12 +630,16 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -651,12 +684,15 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -709,6 +745,8 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -720,6 +758,8 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -776,6 +816,8 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -785,6 +827,8 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -911,12 +955,16 @@ class _$_ChangeLastName implements _ChangeLastName {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -961,12 +1009,15 @@ class _$_ChangeLastName implements _ChangeLastName {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -1019,6 +1070,8 @@ class _$_ChangeLastName implements _ChangeLastName {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -1030,6 +1083,8 @@ class _$_ChangeLastName implements _ChangeLastName {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -1086,6 +1141,8 @@ class _$_ChangeLastName implements _ChangeLastName {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -1095,6 +1152,8 @@ class _$_ChangeLastName implements _ChangeLastName {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -1221,12 +1280,16 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -1271,12 +1334,15 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -1329,6 +1395,8 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -1340,6 +1408,8 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -1396,6 +1466,8 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -1405,6 +1477,8 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -1531,12 +1605,16 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -1581,12 +1659,15 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -1639,6 +1720,8 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -1650,6 +1733,8 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -1706,6 +1791,8 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -1715,6 +1802,8 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -1841,12 +1930,16 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -1891,12 +1984,15 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -1949,6 +2045,8 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -1960,6 +2058,8 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -2016,6 +2116,8 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -2025,6 +2127,8 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -2152,12 +2256,16 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -2202,12 +2310,15 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -2260,6 +2371,8 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -2271,6 +2384,8 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -2327,6 +2442,8 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -2336,6 +2453,8 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -2462,12 +2581,16 @@ class _$_ChangeCompany implements _ChangeCompany {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -2512,12 +2635,15 @@ class _$_ChangeCompany implements _ChangeCompany {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -2570,6 +2696,8 @@ class _$_ChangeCompany implements _ChangeCompany {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -2581,6 +2709,8 @@ class _$_ChangeCompany implements _ChangeCompany {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -2637,6 +2767,8 @@ class _$_ChangeCompany implements _ChangeCompany {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -2646,6 +2778,8 @@ class _$_ChangeCompany implements _ChangeCompany {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -2773,12 +2907,16 @@ class _$_ChangeProfession implements _ChangeProfession {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -2823,12 +2961,15 @@ class _$_ChangeProfession implements _ChangeProfession {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -2881,6 +3022,8 @@ class _$_ChangeProfession implements _ChangeProfession {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -2892,6 +3035,8 @@ class _$_ChangeProfession implements _ChangeProfession {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -2948,6 +3093,8 @@ class _$_ChangeProfession implements _ChangeProfession {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -2957,6 +3104,8 @@ class _$_ChangeProfession implements _ChangeProfession {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -3084,12 +3233,16 @@ class _$_ChangeNationality implements _ChangeNationality {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -3134,12 +3287,15 @@ class _$_ChangeNationality implements _ChangeNationality {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -3192,6 +3348,8 @@ class _$_ChangeNationality implements _ChangeNationality {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -3203,6 +3361,8 @@ class _$_ChangeNationality implements _ChangeNationality {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -3259,6 +3419,8 @@ class _$_ChangeNationality implements _ChangeNationality {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -3268,6 +3430,8 @@ class _$_ChangeNationality implements _ChangeNationality {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -3400,12 +3564,16 @@ class _$_ChangeDocumentIdentificationNumber
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -3450,12 +3618,15 @@ class _$_ChangeDocumentIdentificationNumber
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -3508,6 +3679,8 @@ class _$_ChangeDocumentIdentificationNumber
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -3519,6 +3692,8 @@ class _$_ChangeDocumentIdentificationNumber
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -3575,6 +3750,8 @@ class _$_ChangeDocumentIdentificationNumber
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -3584,6 +3761,8 @@ class _$_ChangeDocumentIdentificationNumber
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -3713,12 +3892,16 @@ class _$_ChangeGender implements _ChangeGender {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -3763,12 +3946,15 @@ class _$_ChangeGender implements _ChangeGender {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -3821,6 +4007,8 @@ class _$_ChangeGender implements _ChangeGender {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -3832,6 +4020,8 @@ class _$_ChangeGender implements _ChangeGender {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -3888,6 +4078,8 @@ class _$_ChangeGender implements _ChangeGender {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -3897,6 +4089,8 @@ class _$_ChangeGender implements _ChangeGender {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -4024,12 +4218,16 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -4074,12 +4272,15 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -4132,6 +4333,8 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -4143,6 +4346,8 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -4199,6 +4404,8 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -4208,6 +4415,8 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -4333,12 +4542,16 @@ class _$_ChangeDob implements _ChangeDob {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -4383,12 +4596,15 @@ class _$_ChangeDob implements _ChangeDob {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -4441,6 +4657,8 @@ class _$_ChangeDob implements _ChangeDob {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -4452,6 +4670,8 @@ class _$_ChangeDob implements _ChangeDob {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -4508,6 +4728,8 @@ class _$_ChangeDob implements _ChangeDob {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -4517,6 +4739,8 @@ class _$_ChangeDob implements _ChangeDob {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -4644,12 +4868,16 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -4694,12 +4922,15 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -4752,6 +4983,8 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -4763,6 +4996,8 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -4819,6 +5054,8 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -4828,6 +5065,8 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -4954,12 +5193,16 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -5004,12 +5247,15 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -5062,6 +5308,8 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -5073,6 +5321,8 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -5129,6 +5379,8 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -5138,6 +5390,8 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -5264,12 +5518,16 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -5314,12 +5572,15 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -5372,6 +5633,8 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -5383,6 +5646,8 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -5439,6 +5704,8 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -5448,6 +5715,8 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -5574,12 +5843,16 @@ class _$_ChangeEmail implements _ChangeEmail {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -5624,12 +5897,15 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -5682,6 +5958,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -5693,6 +5971,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -5749,6 +6029,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -5758,6 +6040,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -5885,12 +6169,16 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -5935,12 +6223,15 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -5993,6 +6284,8 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -6004,6 +6297,8 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -6060,6 +6355,8 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -6069,6 +6366,8 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -6197,12 +6496,16 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -6247,12 +6550,15 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -6305,6 +6611,8 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -6316,6 +6624,8 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -6372,6 +6682,8 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -6381,6 +6693,8 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -6509,12 +6823,16 @@ class _$_ChangeProvince implements _ChangeProvince {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -6559,12 +6877,15 @@ class _$_ChangeProvince implements _ChangeProvince {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -6617,6 +6938,8 @@ class _$_ChangeProvince implements _ChangeProvince {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -6628,6 +6951,8 @@ class _$_ChangeProvince implements _ChangeProvince {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -6684,6 +7009,8 @@ class _$_ChangeProvince implements _ChangeProvince {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -6693,6 +7020,8 @@ class _$_ChangeProvince implements _ChangeProvince {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -6819,12 +7148,16 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -6869,12 +7202,15 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -6927,6 +7263,8 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -6938,6 +7276,8 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -6994,6 +7334,8 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -7003,6 +7345,8 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -7133,12 +7477,16 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -7183,12 +7531,15 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -7241,6 +7592,8 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -7252,6 +7605,8 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -7308,6 +7663,8 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -7317,6 +7674,8 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -7354,6 +7713,341 @@ abstract class _ChangeOriginStreetAddress implements UpdateProfileEvent {
   String get streetAddress => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeOriginStreetAddressCopyWith<_ChangeOriginStreetAddress>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeOriginStreetAddressFromPostalCodeCopyWith<$Res> {
+  factory _$ChangeOriginStreetAddressFromPostalCodeCopyWith(
+          _ChangeOriginStreetAddressFromPostalCode value,
+          $Res Function(_ChangeOriginStreetAddressFromPostalCode) then) =
+      __$ChangeOriginStreetAddressFromPostalCodeCopyWithImpl<$Res>;
+  $Res call({String address});
+}
+
+/// @nodoc
+class __$ChangeOriginStreetAddressFromPostalCodeCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res>
+    implements _$ChangeOriginStreetAddressFromPostalCodeCopyWith<$Res> {
+  __$ChangeOriginStreetAddressFromPostalCodeCopyWithImpl(
+      _ChangeOriginStreetAddressFromPostalCode _value,
+      $Res Function(_ChangeOriginStreetAddressFromPostalCode) _then)
+      : super(_value,
+            (v) => _then(v as _ChangeOriginStreetAddressFromPostalCode));
+
+  @override
+  _ChangeOriginStreetAddressFromPostalCode get _value =>
+      super._value as _ChangeOriginStreetAddressFromPostalCode;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+  }) {
+    return _then(_ChangeOriginStreetAddressFromPostalCode(
+      address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeOriginStreetAddressFromPostalCode
+    implements _ChangeOriginStreetAddressFromPostalCode {
+  const _$_ChangeOriginStreetAddressFromPostalCode(this.address);
+
+  @override
+  final String address;
+
+  @override
+  String toString() {
+    return 'UpdateProfileEvent.changeOriginStreetAddressFromPostalCode(address: $address)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeOriginStreetAddressFromPostalCode &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(other.address, address)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(address);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeOriginStreetAddressFromPostalCodeCopyWith<
+          _ChangeOriginStreetAddressFromPostalCode>
+      get copyWith => __$ChangeOriginStreetAddressFromPostalCodeCopyWithImpl<
+          _ChangeOriginStreetAddressFromPostalCode>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) changeFirstName,
+    required TResult Function(String name) changeLastName,
+    required TResult Function(String name) changeFuriganaName,
+    required TResult Function(String name) changeFatherName,
+    required TResult Function(String name) changeMotherName,
+    required TResult Function(String name) changeGrandFatherName,
+    required TResult Function(String company) changeCompany,
+    required TResult Function(String profession) changeProfession,
+    required TResult Function(String nationality) changeNationality,
+    required TResult Function(String number) changeDocumentIdentificationNumber,
+    required TResult Function(String gender) changeGender,
+    required TResult Function(String status) changeMaritalStatus,
+    required TResult Function(String dob) changeDob,
+    required TResult Function(String community) changeCommunity,
+    required TResult Function(String number) changeMobileNumber,
+    required TResult Function(String phone) changeOtherPhone,
+    required TResult Function(String email) changeEmail,
+    required TResult Function(String country) changeOriginCountry,
+    required TResult Function(String postalCode) changeOriginPostalCode,
+    required TResult Function(String province) changeOriginProvince,
+    required TResult Function(String city) changeOriginCity,
+    required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
+    required TResult Function() changeSameAsOriginAddress,
+    required TResult Function(String country) changeResidenceCountry,
+    required TResult Function(String postalCode) changeResidencePostalCode,
+    required TResult Function(String province) changeResidenceProvince,
+    required TResult Function(String city) changeResidenceCity,
+    required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
+    required TResult Function(File profilePicture) changeProfilePicture,
+    required TResult Function(String docType) changeOriginKycDocType,
+    required TResult Function(String docNumber) changeOriginKycDocNumber,
+    required TResult Function(File docFront) changeOriginKycDocFront,
+    required TResult Function(File docback) changeOriginKycDocBack,
+    required TResult Function(String inssuedFrom) changeOriginDocIssuedFrom,
+    required TResult Function(String issuedDate) changeOriginDocIssuedDate,
+    required TResult Function(String docType) changeResidenceKycDocType,
+    required TResult Function(String docNumber) changeResidenceKycDocNumber,
+    required TResult Function(File docFront) changeResidenceKycDocFront,
+    required TResult Function(File docBack) changeResidenceKycDocBack,
+    required TResult Function(UserDetail userDetail) setInitialState,
+    required TResult Function() saveUserInfo,
+    required TResult Function() saveDocumentInfo,
+    required TResult Function(File image) saveUserImage,
+  }) {
+    return changeOriginStreetAddressFromPostalCode(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? changeFirstName,
+    TResult Function(String name)? changeLastName,
+    TResult Function(String name)? changeFuriganaName,
+    TResult Function(String name)? changeFatherName,
+    TResult Function(String name)? changeMotherName,
+    TResult Function(String name)? changeGrandFatherName,
+    TResult Function(String company)? changeCompany,
+    TResult Function(String profession)? changeProfession,
+    TResult Function(String nationality)? changeNationality,
+    TResult Function(String number)? changeDocumentIdentificationNumber,
+    TResult Function(String gender)? changeGender,
+    TResult Function(String status)? changeMaritalStatus,
+    TResult Function(String dob)? changeDob,
+    TResult Function(String community)? changeCommunity,
+    TResult Function(String number)? changeMobileNumber,
+    TResult Function(String phone)? changeOtherPhone,
+    TResult Function(String email)? changeEmail,
+    TResult Function(String country)? changeOriginCountry,
+    TResult Function(String postalCode)? changeOriginPostalCode,
+    TResult Function(String province)? changeOriginProvince,
+    TResult Function(String city)? changeOriginCity,
+    TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult Function()? changeSameAsOriginAddress,
+    TResult Function(String country)? changeResidenceCountry,
+    TResult Function(String postalCode)? changeResidencePostalCode,
+    TResult Function(String province)? changeResidenceProvince,
+    TResult Function(String city)? changeResidenceCity,
+    TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult Function(File profilePicture)? changeProfilePicture,
+    TResult Function(String docType)? changeOriginKycDocType,
+    TResult Function(String docNumber)? changeOriginKycDocNumber,
+    TResult Function(File docFront)? changeOriginKycDocFront,
+    TResult Function(File docback)? changeOriginKycDocBack,
+    TResult Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult Function(String docType)? changeResidenceKycDocType,
+    TResult Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult Function(File docFront)? changeResidenceKycDocFront,
+    TResult Function(File docBack)? changeResidenceKycDocBack,
+    TResult Function(UserDetail userDetail)? setInitialState,
+    TResult Function()? saveUserInfo,
+    TResult Function()? saveDocumentInfo,
+    TResult Function(File image)? saveUserImage,
+    required TResult orElse(),
+  }) {
+    if (changeOriginStreetAddressFromPostalCode != null) {
+      return changeOriginStreetAddressFromPostalCode(address);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeFirstName value) changeFirstName,
+    required TResult Function(_ChangeLastName value) changeLastName,
+    required TResult Function(_ChangeFuriganaName value) changeFuriganaName,
+    required TResult Function(_ChangeFatherName value) changeFatherName,
+    required TResult Function(_ChangeMotherName value) changeMotherName,
+    required TResult Function(_ChangeGrandFatherName value)
+        changeGrandFatherName,
+    required TResult Function(_ChangeCompany value) changeCompany,
+    required TResult Function(_ChangeProfession value) changeProfession,
+    required TResult Function(_ChangeNationality value) changeNationality,
+    required TResult Function(_ChangeDocumentIdentificationNumber value)
+        changeDocumentIdentificationNumber,
+    required TResult Function(_ChangeGender value) changeGender,
+    required TResult Function(_ChangeMaritalStatus value) changeMaritalStatus,
+    required TResult Function(_ChangeDob value) changeDob,
+    required TResult Function(_ChangeCommunity value) changeCommunity,
+    required TResult Function(_ChangeMobileNumber value) changeMobileNumber,
+    required TResult Function(_ChangeOtherPhone value) changeOtherPhone,
+    required TResult Function(_ChangeEmail value) changeEmail,
+    required TResult Function(_ChangeOriginCountry value) changeOriginCountry,
+    required TResult Function(_ChangeOriginPostalCode value)
+        changeOriginPostalCode,
+    required TResult Function(_ChangeProvince value) changeOriginProvince,
+    required TResult Function(_ChangeOriginCity value) changeOriginCity,
+    required TResult Function(_ChangeOriginStreetAddress value)
+        changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
+    required TResult Function(_ChangeSameAsOriginAddress value)
+        changeSameAsOriginAddress,
+    required TResult Function(_ChangeResidenceCountry value)
+        changeResidenceCountry,
+    required TResult Function(_ChangeResidencePostalCode value)
+        changeResidencePostalCode,
+    required TResult Function(_ChangeResidenceProvince value)
+        changeResidenceProvince,
+    required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
+    required TResult Function(_ChangeResidenceStreetAddress value)
+        changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
+    required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
+    required TResult Function(_ChangeOriginKycDocType value)
+        changeOriginKycDocType,
+    required TResult Function(_ChangeOriginKycDocNumber value)
+        changeOriginKycDocNumber,
+    required TResult Function(_ChangeOriginKycDocFront value)
+        changeOriginKycDocFront,
+    required TResult Function(_ChangeOriginKycDocBack value)
+        changeOriginKycDocBack,
+    required TResult Function(_ChangeOriginDocIssuedFrom value)
+        changeOriginDocIssuedFrom,
+    required TResult Function(_ChangeOriginDocIssuedDate value)
+        changeOriginDocIssuedDate,
+    required TResult Function(_ChangeResidenceKycDocType value)
+        changeResidenceKycDocType,
+    required TResult Function(_ChangeResidenceKycDocNumber value)
+        changeResidenceKycDocNumber,
+    required TResult Function(_ChangeResidenceKycDocFront value)
+        changeResidenceKycDocFront,
+    required TResult Function(_ChangeResidenceKycDocBack value)
+        changeResidenceKycDocBack,
+    required TResult Function(_SetInitialState value) setInitialState,
+    required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_SaveDocumentInfo value) saveDocumentInfo,
+    required TResult Function(_SaveUserImage value) saveUserImage,
+  }) {
+    return changeOriginStreetAddressFromPostalCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeFirstName value)? changeFirstName,
+    TResult Function(_ChangeLastName value)? changeLastName,
+    TResult Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult Function(_ChangeFatherName value)? changeFatherName,
+    TResult Function(_ChangeMotherName value)? changeMotherName,
+    TResult Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult Function(_ChangeCompany value)? changeCompany,
+    TResult Function(_ChangeProfession value)? changeProfession,
+    TResult Function(_ChangeNationality value)? changeNationality,
+    TResult Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult Function(_ChangeGender value)? changeGender,
+    TResult Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult Function(_ChangeDob value)? changeDob,
+    TResult Function(_ChangeCommunity value)? changeCommunity,
+    TResult Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult Function(_ChangeEmail value)? changeEmail,
+    TResult Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult Function(_ChangeProvince value)? changeOriginProvince,
+    TResult Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
+    TResult Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult Function(_SetInitialState value)? setInitialState,
+    TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult Function(_SaveUserImage value)? saveUserImage,
+    required TResult orElse(),
+  }) {
+    if (changeOriginStreetAddressFromPostalCode != null) {
+      return changeOriginStreetAddressFromPostalCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeOriginStreetAddressFromPostalCode
+    implements UpdateProfileEvent {
+  const factory _ChangeOriginStreetAddressFromPostalCode(String address) =
+      _$_ChangeOriginStreetAddressFromPostalCode;
+
+  String get address => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeOriginStreetAddressFromPostalCodeCopyWith<
+          _ChangeOriginStreetAddressFromPostalCode>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -7420,12 +8114,16 @@ class _$_ChangeSameAsOriginAddress implements _ChangeSameAsOriginAddress {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -7470,12 +8168,15 @@ class _$_ChangeSameAsOriginAddress implements _ChangeSameAsOriginAddress {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -7528,6 +8229,8 @@ class _$_ChangeSameAsOriginAddress implements _ChangeSameAsOriginAddress {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -7539,6 +8242,8 @@ class _$_ChangeSameAsOriginAddress implements _ChangeSameAsOriginAddress {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -7595,6 +8300,8 @@ class _$_ChangeSameAsOriginAddress implements _ChangeSameAsOriginAddress {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -7604,6 +8311,8 @@ class _$_ChangeSameAsOriginAddress implements _ChangeSameAsOriginAddress {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -7726,12 +8435,16 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -7776,12 +8489,15 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -7834,6 +8550,8 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -7845,6 +8563,8 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -7901,6 +8621,8 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -7910,6 +8632,8 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -8041,12 +8765,16 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -8091,12 +8819,15 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -8149,6 +8880,8 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -8160,6 +8893,8 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -8216,6 +8951,8 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -8225,6 +8962,8 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -8355,12 +9094,16 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -8405,12 +9148,15 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -8463,6 +9209,8 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -8474,6 +9222,8 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -8530,6 +9280,8 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -8539,6 +9291,8 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -8667,12 +9421,16 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -8717,12 +9475,15 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -8775,6 +9536,8 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -8786,6 +9549,8 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -8842,6 +9607,8 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -8851,6 +9618,8 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -8981,12 +9750,16 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -9031,12 +9804,15 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -9089,6 +9865,8 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -9100,6 +9878,8 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -9156,6 +9936,8 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -9165,6 +9947,8 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -9202,6 +9986,341 @@ abstract class _ChangeResidenceStreetAddress implements UpdateProfileEvent {
   String get address => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeResidenceStreetAddressCopyWith<_ChangeResidenceStreetAddress>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeResidenceStreetAddressFromPostalCodeCopyWith<$Res> {
+  factory _$ChangeResidenceStreetAddressFromPostalCodeCopyWith(
+          _ChangeResidenceStreetAddressFromPostalCode value,
+          $Res Function(_ChangeResidenceStreetAddressFromPostalCode) then) =
+      __$ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl<$Res>;
+  $Res call({String address});
+}
+
+/// @nodoc
+class __$ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res>
+    implements _$ChangeResidenceStreetAddressFromPostalCodeCopyWith<$Res> {
+  __$ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl(
+      _ChangeResidenceStreetAddressFromPostalCode _value,
+      $Res Function(_ChangeResidenceStreetAddressFromPostalCode) _then)
+      : super(_value,
+            (v) => _then(v as _ChangeResidenceStreetAddressFromPostalCode));
+
+  @override
+  _ChangeResidenceStreetAddressFromPostalCode get _value =>
+      super._value as _ChangeResidenceStreetAddressFromPostalCode;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+  }) {
+    return _then(_ChangeResidenceStreetAddressFromPostalCode(
+      address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeResidenceStreetAddressFromPostalCode
+    implements _ChangeResidenceStreetAddressFromPostalCode {
+  const _$_ChangeResidenceStreetAddressFromPostalCode(this.address);
+
+  @override
+  final String address;
+
+  @override
+  String toString() {
+    return 'UpdateProfileEvent.changeResidenceStreetAddressFromPostalCode(address: $address)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeResidenceStreetAddressFromPostalCode &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(other.address, address)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(address);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeResidenceStreetAddressFromPostalCodeCopyWith<
+          _ChangeResidenceStreetAddressFromPostalCode>
+      get copyWith => __$ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl<
+          _ChangeResidenceStreetAddressFromPostalCode>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) changeFirstName,
+    required TResult Function(String name) changeLastName,
+    required TResult Function(String name) changeFuriganaName,
+    required TResult Function(String name) changeFatherName,
+    required TResult Function(String name) changeMotherName,
+    required TResult Function(String name) changeGrandFatherName,
+    required TResult Function(String company) changeCompany,
+    required TResult Function(String profession) changeProfession,
+    required TResult Function(String nationality) changeNationality,
+    required TResult Function(String number) changeDocumentIdentificationNumber,
+    required TResult Function(String gender) changeGender,
+    required TResult Function(String status) changeMaritalStatus,
+    required TResult Function(String dob) changeDob,
+    required TResult Function(String community) changeCommunity,
+    required TResult Function(String number) changeMobileNumber,
+    required TResult Function(String phone) changeOtherPhone,
+    required TResult Function(String email) changeEmail,
+    required TResult Function(String country) changeOriginCountry,
+    required TResult Function(String postalCode) changeOriginPostalCode,
+    required TResult Function(String province) changeOriginProvince,
+    required TResult Function(String city) changeOriginCity,
+    required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
+    required TResult Function() changeSameAsOriginAddress,
+    required TResult Function(String country) changeResidenceCountry,
+    required TResult Function(String postalCode) changeResidencePostalCode,
+    required TResult Function(String province) changeResidenceProvince,
+    required TResult Function(String city) changeResidenceCity,
+    required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
+    required TResult Function(File profilePicture) changeProfilePicture,
+    required TResult Function(String docType) changeOriginKycDocType,
+    required TResult Function(String docNumber) changeOriginKycDocNumber,
+    required TResult Function(File docFront) changeOriginKycDocFront,
+    required TResult Function(File docback) changeOriginKycDocBack,
+    required TResult Function(String inssuedFrom) changeOriginDocIssuedFrom,
+    required TResult Function(String issuedDate) changeOriginDocIssuedDate,
+    required TResult Function(String docType) changeResidenceKycDocType,
+    required TResult Function(String docNumber) changeResidenceKycDocNumber,
+    required TResult Function(File docFront) changeResidenceKycDocFront,
+    required TResult Function(File docBack) changeResidenceKycDocBack,
+    required TResult Function(UserDetail userDetail) setInitialState,
+    required TResult Function() saveUserInfo,
+    required TResult Function() saveDocumentInfo,
+    required TResult Function(File image) saveUserImage,
+  }) {
+    return changeResidenceStreetAddressFromPostalCode(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? changeFirstName,
+    TResult Function(String name)? changeLastName,
+    TResult Function(String name)? changeFuriganaName,
+    TResult Function(String name)? changeFatherName,
+    TResult Function(String name)? changeMotherName,
+    TResult Function(String name)? changeGrandFatherName,
+    TResult Function(String company)? changeCompany,
+    TResult Function(String profession)? changeProfession,
+    TResult Function(String nationality)? changeNationality,
+    TResult Function(String number)? changeDocumentIdentificationNumber,
+    TResult Function(String gender)? changeGender,
+    TResult Function(String status)? changeMaritalStatus,
+    TResult Function(String dob)? changeDob,
+    TResult Function(String community)? changeCommunity,
+    TResult Function(String number)? changeMobileNumber,
+    TResult Function(String phone)? changeOtherPhone,
+    TResult Function(String email)? changeEmail,
+    TResult Function(String country)? changeOriginCountry,
+    TResult Function(String postalCode)? changeOriginPostalCode,
+    TResult Function(String province)? changeOriginProvince,
+    TResult Function(String city)? changeOriginCity,
+    TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult Function()? changeSameAsOriginAddress,
+    TResult Function(String country)? changeResidenceCountry,
+    TResult Function(String postalCode)? changeResidencePostalCode,
+    TResult Function(String province)? changeResidenceProvince,
+    TResult Function(String city)? changeResidenceCity,
+    TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult Function(File profilePicture)? changeProfilePicture,
+    TResult Function(String docType)? changeOriginKycDocType,
+    TResult Function(String docNumber)? changeOriginKycDocNumber,
+    TResult Function(File docFront)? changeOriginKycDocFront,
+    TResult Function(File docback)? changeOriginKycDocBack,
+    TResult Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult Function(String docType)? changeResidenceKycDocType,
+    TResult Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult Function(File docFront)? changeResidenceKycDocFront,
+    TResult Function(File docBack)? changeResidenceKycDocBack,
+    TResult Function(UserDetail userDetail)? setInitialState,
+    TResult Function()? saveUserInfo,
+    TResult Function()? saveDocumentInfo,
+    TResult Function(File image)? saveUserImage,
+    required TResult orElse(),
+  }) {
+    if (changeResidenceStreetAddressFromPostalCode != null) {
+      return changeResidenceStreetAddressFromPostalCode(address);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeFirstName value) changeFirstName,
+    required TResult Function(_ChangeLastName value) changeLastName,
+    required TResult Function(_ChangeFuriganaName value) changeFuriganaName,
+    required TResult Function(_ChangeFatherName value) changeFatherName,
+    required TResult Function(_ChangeMotherName value) changeMotherName,
+    required TResult Function(_ChangeGrandFatherName value)
+        changeGrandFatherName,
+    required TResult Function(_ChangeCompany value) changeCompany,
+    required TResult Function(_ChangeProfession value) changeProfession,
+    required TResult Function(_ChangeNationality value) changeNationality,
+    required TResult Function(_ChangeDocumentIdentificationNumber value)
+        changeDocumentIdentificationNumber,
+    required TResult Function(_ChangeGender value) changeGender,
+    required TResult Function(_ChangeMaritalStatus value) changeMaritalStatus,
+    required TResult Function(_ChangeDob value) changeDob,
+    required TResult Function(_ChangeCommunity value) changeCommunity,
+    required TResult Function(_ChangeMobileNumber value) changeMobileNumber,
+    required TResult Function(_ChangeOtherPhone value) changeOtherPhone,
+    required TResult Function(_ChangeEmail value) changeEmail,
+    required TResult Function(_ChangeOriginCountry value) changeOriginCountry,
+    required TResult Function(_ChangeOriginPostalCode value)
+        changeOriginPostalCode,
+    required TResult Function(_ChangeProvince value) changeOriginProvince,
+    required TResult Function(_ChangeOriginCity value) changeOriginCity,
+    required TResult Function(_ChangeOriginStreetAddress value)
+        changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
+    required TResult Function(_ChangeSameAsOriginAddress value)
+        changeSameAsOriginAddress,
+    required TResult Function(_ChangeResidenceCountry value)
+        changeResidenceCountry,
+    required TResult Function(_ChangeResidencePostalCode value)
+        changeResidencePostalCode,
+    required TResult Function(_ChangeResidenceProvince value)
+        changeResidenceProvince,
+    required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
+    required TResult Function(_ChangeResidenceStreetAddress value)
+        changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
+    required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
+    required TResult Function(_ChangeOriginKycDocType value)
+        changeOriginKycDocType,
+    required TResult Function(_ChangeOriginKycDocNumber value)
+        changeOriginKycDocNumber,
+    required TResult Function(_ChangeOriginKycDocFront value)
+        changeOriginKycDocFront,
+    required TResult Function(_ChangeOriginKycDocBack value)
+        changeOriginKycDocBack,
+    required TResult Function(_ChangeOriginDocIssuedFrom value)
+        changeOriginDocIssuedFrom,
+    required TResult Function(_ChangeOriginDocIssuedDate value)
+        changeOriginDocIssuedDate,
+    required TResult Function(_ChangeResidenceKycDocType value)
+        changeResidenceKycDocType,
+    required TResult Function(_ChangeResidenceKycDocNumber value)
+        changeResidenceKycDocNumber,
+    required TResult Function(_ChangeResidenceKycDocFront value)
+        changeResidenceKycDocFront,
+    required TResult Function(_ChangeResidenceKycDocBack value)
+        changeResidenceKycDocBack,
+    required TResult Function(_SetInitialState value) setInitialState,
+    required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_SaveDocumentInfo value) saveDocumentInfo,
+    required TResult Function(_SaveUserImage value) saveUserImage,
+  }) {
+    return changeResidenceStreetAddressFromPostalCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeFirstName value)? changeFirstName,
+    TResult Function(_ChangeLastName value)? changeLastName,
+    TResult Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult Function(_ChangeFatherName value)? changeFatherName,
+    TResult Function(_ChangeMotherName value)? changeMotherName,
+    TResult Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult Function(_ChangeCompany value)? changeCompany,
+    TResult Function(_ChangeProfession value)? changeProfession,
+    TResult Function(_ChangeNationality value)? changeNationality,
+    TResult Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult Function(_ChangeGender value)? changeGender,
+    TResult Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult Function(_ChangeDob value)? changeDob,
+    TResult Function(_ChangeCommunity value)? changeCommunity,
+    TResult Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult Function(_ChangeEmail value)? changeEmail,
+    TResult Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult Function(_ChangeProvince value)? changeOriginProvince,
+    TResult Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
+    TResult Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult Function(_SetInitialState value)? setInitialState,
+    TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult Function(_SaveUserImage value)? saveUserImage,
+    required TResult orElse(),
+  }) {
+    if (changeResidenceStreetAddressFromPostalCode != null) {
+      return changeResidenceStreetAddressFromPostalCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeResidenceStreetAddressFromPostalCode
+    implements UpdateProfileEvent {
+  const factory _ChangeResidenceStreetAddressFromPostalCode(String address) =
+      _$_ChangeResidenceStreetAddressFromPostalCode;
+
+  String get address => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeResidenceStreetAddressFromPostalCodeCopyWith<
+          _ChangeResidenceStreetAddressFromPostalCode>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -9295,12 +10414,16 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -9345,12 +10468,15 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -9403,6 +10529,8 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -9414,6 +10542,8 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -9470,6 +10600,8 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -9479,6 +10611,8 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -9607,12 +10741,16 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -9657,12 +10795,15 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -9715,6 +10856,8 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -9726,6 +10869,8 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -9782,6 +10927,8 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -9791,6 +10938,8 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -9921,12 +11070,16 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -9971,12 +11124,15 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -10029,6 +11185,8 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -10040,6 +11198,8 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -10096,6 +11256,8 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -10105,6 +11267,8 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -10235,12 +11399,16 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -10285,12 +11453,15 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -10343,6 +11514,8 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -10354,6 +11527,8 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -10410,6 +11585,8 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -10419,6 +11596,8 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -10547,12 +11726,16 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -10597,12 +11780,15 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -10655,6 +11841,8 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -10666,6 +11854,8 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -10722,6 +11912,8 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -10731,6 +11923,8 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -10862,12 +12056,16 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -10912,12 +12110,15 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -10970,6 +12171,8 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -10981,6 +12184,8 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -11037,6 +12242,8 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -11046,6 +12253,8 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -11177,12 +12386,16 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -11227,12 +12440,15 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -11285,6 +12501,8 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -11296,6 +12514,8 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -11352,6 +12572,8 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -11361,6 +12583,8 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -11491,12 +12715,16 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -11541,12 +12769,15 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -11599,6 +12830,8 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -11610,6 +12843,8 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -11666,6 +12901,8 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -11675,6 +12912,8 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -11807,12 +13046,16 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -11857,12 +13100,15 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -11915,6 +13161,8 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -11926,6 +13174,8 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -11982,6 +13232,8 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -11991,6 +13243,8 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -12122,12 +13376,16 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -12172,12 +13430,15 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -12230,6 +13491,8 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -12241,6 +13504,8 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -12297,6 +13562,8 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -12306,6 +13573,8 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -12436,12 +13705,16 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -12486,12 +13759,15 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -12544,6 +13820,8 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -12555,6 +13833,8 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -12611,6 +13891,8 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -12620,6 +13902,8 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -12748,12 +14032,16 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -12798,12 +14086,15 @@ class _$_SetInitialState implements _SetInitialState {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -12856,6 +14147,8 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -12867,6 +14160,8 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -12923,6 +14218,8 @@ class _$_SetInitialState implements _SetInitialState {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -12932,6 +14229,8 @@ class _$_SetInitialState implements _SetInitialState {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -13033,12 +14332,16 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -13083,12 +14386,15 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -13141,6 +14447,8 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -13152,6 +14460,8 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -13208,6 +14518,8 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -13217,6 +14529,8 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -13313,12 +14627,16 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -13363,12 +14681,15 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -13421,6 +14742,8 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -13432,6 +14755,8 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -13488,6 +14813,8 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -13497,6 +14824,8 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,
@@ -13618,12 +14947,16 @@ class _$_SaveUserImage implements _SaveUserImage {
     required TResult Function(String province) changeOriginProvince,
     required TResult Function(String city) changeOriginCity,
     required TResult Function(String streetAddress) changeOriginStreetAddress,
+    required TResult Function(String address)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function() changeSameAsOriginAddress,
     required TResult Function(String country) changeResidenceCountry,
     required TResult Function(String postalCode) changeResidencePostalCode,
     required TResult Function(String province) changeResidenceProvince,
     required TResult Function(String city) changeResidenceCity,
     required TResult Function(String address) changeResidenceStreetAddress,
+    required TResult Function(String address)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(File profilePicture) changeProfilePicture,
     required TResult Function(String docType) changeOriginKycDocType,
     required TResult Function(String docNumber) changeOriginKycDocNumber,
@@ -13668,12 +15001,15 @@ class _$_SaveUserImage implements _SaveUserImage {
     TResult Function(String province)? changeOriginProvince,
     TResult Function(String city)? changeOriginCity,
     TResult Function(String streetAddress)? changeOriginStreetAddress,
+    TResult Function(String address)? changeOriginStreetAddressFromPostalCode,
     TResult Function()? changeSameAsOriginAddress,
     TResult Function(String country)? changeResidenceCountry,
     TResult Function(String postalCode)? changeResidencePostalCode,
     TResult Function(String province)? changeResidenceProvince,
     TResult Function(String city)? changeResidenceCity,
     TResult Function(String address)? changeResidenceStreetAddress,
+    TResult Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(File profilePicture)? changeProfilePicture,
     TResult Function(String docType)? changeOriginKycDocType,
     TResult Function(String docNumber)? changeOriginKycDocNumber,
@@ -13726,6 +15062,8 @@ class _$_SaveUserImage implements _SaveUserImage {
     required TResult Function(_ChangeOriginCity value) changeOriginCity,
     required TResult Function(_ChangeOriginStreetAddress value)
         changeOriginStreetAddress,
+    required TResult Function(_ChangeOriginStreetAddressFromPostalCode value)
+        changeOriginStreetAddressFromPostalCode,
     required TResult Function(_ChangeSameAsOriginAddress value)
         changeSameAsOriginAddress,
     required TResult Function(_ChangeResidenceCountry value)
@@ -13737,6 +15075,8 @@ class _$_SaveUserImage implements _SaveUserImage {
     required TResult Function(_ChangeResidenceCity value) changeResidenceCity,
     required TResult Function(_ChangeResidenceStreetAddress value)
         changeResidenceStreetAddress,
+    required TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)
+        changeResidenceStreetAddressFromPostalCode,
     required TResult Function(_ChangeProfilePicture value) changeProfilePicture,
     required TResult Function(_ChangeOriginKycDocType value)
         changeOriginKycDocType,
@@ -13793,6 +15133,8 @@ class _$_SaveUserImage implements _SaveUserImage {
     TResult Function(_ChangeOriginCity value)? changeOriginCity,
     TResult Function(_ChangeOriginStreetAddress value)?
         changeOriginStreetAddress,
+    TResult Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
     TResult Function(_ChangeSameAsOriginAddress value)?
         changeSameAsOriginAddress,
     TResult Function(_ChangeResidenceCountry value)? changeResidenceCountry,
@@ -13802,6 +15144,8 @@ class _$_SaveUserImage implements _SaveUserImage {
     TResult Function(_ChangeResidenceCity value)? changeResidenceCity,
     TResult Function(_ChangeResidenceStreetAddress value)?
         changeResidenceStreetAddress,
+    TResult Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
     TResult Function(_ChangeProfilePicture value)? changeProfilePicture,
     TResult Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
     TResult Function(_ChangeOriginKycDocNumber value)? changeOriginKycDocNumber,

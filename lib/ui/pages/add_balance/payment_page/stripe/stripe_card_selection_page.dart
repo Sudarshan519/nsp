@@ -14,13 +14,11 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class StripePaymentCardSelectionPage extends StatefulWidget {
-  final String balance;
   final List<CreditCard> cards;
   final Function(int) deleteCard;
 
   const StripePaymentCardSelectionPage({
     Key? key,
-    required this.balance,
     required this.cards,
     required this.deleteCard,
   }) : super(key: key);
@@ -102,8 +100,7 @@ class _StripePaymentCardSelectionPageState
       children: [
         const BalanceWidget(),
         InkWell(
-          onTap: () => context
-              .pushRoute(StripeNewCardPaymentRoute(balance: widget.balance)),
+          onTap: () => context.pushRoute(StripeNewCardPaymentRoute()),
           child: Container(
             margin: const EdgeInsets.symmetric(
               horizontal: 16.0,
@@ -145,7 +142,6 @@ class _StripePaymentCardSelectionPageState
               return InkWell(
                 onTap: () => context.pushRoute(
                   StripeSaveCardPaymentRoute(
-                    balance: widget.balance,
                     card: _cards[index],
                   ),
                 ),

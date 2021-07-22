@@ -109,6 +109,16 @@ class MorePage extends StatelessWidget {
       //   onTap: () {},
       // ),
       _ProfileData(
+        image: "icon-terms",
+        title: "Refund Policy",
+        onTap: () {
+          context.pushRoute(
+            AppWebViewRoute(
+                url: "https://bnpj.jp/refund-policy", title: "Refund Policy"),
+          );
+        },
+      ),
+      _ProfileData(
         image: "icon-privacy-policy",
         title: "Privacy Policy",
         onTap: () {

@@ -19,12 +19,10 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class StripeSaveCardPaymentPage extends StatelessWidget {
-  final String balance;
   final CreditCard card;
 
   const StripeSaveCardPaymentPage({
     Key? key,
-    required this.balance,
     required this.card,
   }) : super(key: key);
 
