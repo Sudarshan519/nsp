@@ -26,13 +26,11 @@ import 'package:wallet_app/utils/currency_formater.dart';
 class TopUpPage extends StatefulWidget {
   final int index;
 
-  final double balance;
   final double conversionRate;
   final List<UtilityPaymentsModel> paymentData;
 
   const TopUpPage({
     Key? key,
-    required this.balance,
     required this.conversionRate,
     required this.index,
     required this.paymentData,
@@ -45,6 +43,7 @@ class TopUpPage extends StatefulWidget {
 class _TopUpPageState extends State<TopUpPage> {
   late bool _isConfirmPage;
   late bool _hasCouponCode;
+  double _balanceJPY = 0;
   CouponCode? _coupon;
 
   @override
@@ -57,19 +56,20 @@ class _TopUpPageState extends State<TopUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    final payData = widget.paymentData[widget.index];
+    _balanceJPY = context.read<GetBalanceBloc>().userbalance?.balance ?? 0;
+    final _payData = widget.paymentData[widget.index];
     return MultiBlocProvider(
       providers: [
         BlocProvider(
           create: (context) => getIt<TopUpBalanceInMobileBloc>()
             ..add(
               TopUpBalanceInMobileEvent.setCashbackpercentage(
-                payData.cashbackPer ?? 0.0,
+                _payData.cashbackPer ?? 0.0,
               ),
             )
             ..add(
               TopUpBalanceInMobileEvent.setRewardPoint(
-                payData.rewardPoint ?? 0.0,
+                _payData.rewardPoint ?? 0.0,
               ),
             ),
         ),
@@ -78,7 +78,7 @@ class _TopUpPageState extends State<TopUpPage> {
             ..add(
               VerifyCouponEvent.setInitialState(
                 productType: 'utility',
-                productId: payData.id ?? 0,
+                productId: _payData.id ?? 0,
               ),
             ),
         ),
@@ -216,21 +216,28 @@ class _TopUpPageState extends State<TopUpPage> {
             const SizedBox(height: 20),
             _ProceedButton(
               callback: () {
-                final int amt = int.parse(amount);
+                try {
+                  final int amtNPR = int.parse(amount);
+                  final int amtJPY = amtNPR ~/ widget.conversionRate;
 
-                if (amt < Values.MIN_RECHARGE || amt > Values.MAX_RECHARGE) {
-                  FlushbarHelper.createError(
-                          message:
-                              'Amount be at least NPR ${Values.MIN_RECHARGE} and less than ${Values.MAX_RECHARGE}')
+                  if (amtNPR < Values.MIN_RECHARGE ||
+                      amtNPR > Values.MAX_RECHARGE) {
+                    FlushbarHelper.createError(
+                            message:
+                                'Amount be at least NPR ${Values.MIN_RECHARGE} and less than ${Values.MAX_RECHARGE}')
+                        .show(context);
+                    return;
+                  } else if (amtJPY > _balanceJPY) {
+                    FlushbarHelper.createError(message: 'Insufficient balance!')
+                        .show(context);
+                  } else {
+                    setState(() {
+                      _isConfirmPage = true;
+                    });
+                  }
+                } catch (e) {
+                  FlushbarHelper.createError(message: 'Invalid Amount!')
                       .show(context);
-                  return;
-                } else if (amt > widget.balance) {
-                  FlushbarHelper.createError(message: 'Insufficient balance!')
-                      .show(context);
-                } else {
-                  setState(() {
-                    _isConfirmPage = true;
-                  });
                 }
               },
             ),
@@ -529,9 +536,15 @@ class _MobileNumberTextField extends StatelessWidget {
                   suffixIcon: InkWell(
                     onTap: () async {
                       final phoneNumber = await handleContact(context);
-                      context.read<TopUpBalanceInMobileBloc>().add(
-                          TopUpBalanceInMobileEvent.changePhoneNumberViaContact(
-                              phoneNumber));
+                      if (phoneNumber.isEmpty) {
+                        FlushbarHelper.createError(
+                                message: 'Invalid mobile number!')
+                            .show(context);
+                      } else {
+                        context.read<TopUpBalanceInMobileBloc>().add(
+                            TopUpBalanceInMobileEvent
+                                .changePhoneNumberViaContact(phoneNumber));
+                      }
                     },
                     child: SvgPicture.asset(
                       "assets/images/home/utility-payment/icon-Phone-book.svg",
@@ -570,20 +583,26 @@ class _MobileNumberTextField extends StatelessWidget {
     }
     final PhoneContact contact = await FlutterContactPicker.pickPhoneContact();
     if (contact.phoneNumber != null) {
-      final String? number = contact.phoneNumber?.number;
+      var number = contact.phoneNumber!.number.toString();
+      if (number.length < 10) return '';
 
-      String formattedNumber = number
-          .toString()
+      number = number
           .replaceAll('+', '')
           .replaceAll('(', '')
           .replaceAll(')', '')
           .replaceAll('-', '')
           .replaceAll(' ', '');
-      if (formattedNumber.startsWith('977')) {
-        formattedNumber = formattedNumber.substring(3);
-      }
 
-      return formattedNumber;
+      // taking the last 10 digits of the num if there is any type of prefix like country code etc
+      number = number.substring(number.length - 10);
+
+      //checking if the num is compatible with our providers
+      if (Values.ntcRegx.hasMatch(number) ||
+          Values.ncellRegx.hasMatch(number) ||
+          Values.smartCellRegx.hasMatch(number)) {
+        return number;
+      }
+      return "";
     }
     return "";
   }

@@ -17,11 +17,8 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class StripeNewCardPaymentPage extends StatelessWidget {
-  final String balance;
-
   const StripeNewCardPaymentPage({
     Key? key,
-    required this.balance,
   }) : super(key: key);
 
   @override

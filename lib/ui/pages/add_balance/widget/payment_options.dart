@@ -20,7 +20,7 @@ class PaymentOptions extends StatefulWidget {
 
   final List<PaymentMethod> paymentMethods;
   final List<CreditCard> creditCards;
-  final String balance;
+  final double balance;
   final double conversionRate;
   final bool isVerified;
   final String userId;
@@ -95,13 +95,11 @@ class _PaymentOptionsState extends State<PaymentOptions> {
 
   Future onPaymentSelected(BuildContext context, int index) async {
     final paymentMethod = widget.paymentMethods[index];
-    final balanceParsed =
-        double.parse(widget.balance.split(' ').last.replaceAll(',', ""));
+
     switch (paymentMethod.type) {
       case "stripe":
         context.pushRoute(
           StripePaymentCardSelectionRoute(
-            balance: widget.balance,
             cards: _creditCards,
             deleteCard: (id) {
               _creditCards.removeWhere((element) => element.id == id);
@@ -124,7 +122,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
                 method: paymentMethod,
                 userId: widget.userId,
                 conversionRate: widget.conversionRate,
-                balance: balanceParsed,
+                balance: widget.balance,
                 isVerified: widget.isVerified);
           },
         );
@@ -144,7 +142,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
                 method: paymentMethod,
                 userId: widget.userId,
                 conversionRate: widget.conversionRate,
-                balance: balanceParsed,
+                balance: widget.balance,
                 isVerified: widget.isVerified);
           },
         );
@@ -164,7 +162,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
                 userId: widget.userId,
                 method: paymentMethod,
                 conversionRate: widget.conversionRate,
-                balance: balanceParsed,
+                balance: widget.balance,
                 isVerified: widget.isVerified);
           },
         );

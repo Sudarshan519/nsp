@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/topup_balance_for_mobile.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 part 'top_up_balance_in_mobile_event.dart';
 part 'top_up_balance_in_mobile_state.dart';
@@ -209,19 +210,15 @@ class TopUpBalanceInMobileBloc
       return '';
     }
 
-    final ntcRegx = RegExp(r'^(984|985|986|)\d{7}$', caseSensitive: false);
-    final ncellRegx = RegExp(r'^(980|981|982)\d{7}$', caseSensitive: false);
-    final smartCellRegx = RegExp(r'^(961|988)\d{7}$', caseSensitive: false);
-
-    if (ntcRegx.hasMatch(fromNumber)) {
+    if (Values.ntcRegx.hasMatch(fromNumber)) {
       return 'ntc';
     }
 
-    if (ncellRegx.hasMatch(fromNumber)) {
+    if (Values.ncellRegx.hasMatch(fromNumber)) {
       return 'ncell';
     }
 
-    if (smartCellRegx.hasMatch(fromNumber)) {
+    if (Values.smartCellRegx.hasMatch(fromNumber)) {
       return 'smartcell';
     }
 
