@@ -25,7 +25,7 @@ class GetSearchPageData
     if (!isConnected) {
       return const Left(ApiFailure.noInternetConnection());
     } else {
-      return repository.getSearchPageData(searchText);
+      return repository.getSearchPageData(searchText: searchText);
     }
   }
 }

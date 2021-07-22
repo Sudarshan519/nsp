@@ -54,11 +54,15 @@ class SearchPage extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
+              leading: const BackButton(color: Colors.white),
+              titleSpacing: 0,
+              leadingWidth: 40,
+              centerTitle: true,
               automaticallyImplyLeading: false,
               title: Container(
                 alignment: Alignment.center,
-                // padding: const EdgeInsets.symmetric(vertical: 8),
-                margin: const EdgeInsets.symmetric(vertical: 8),
+
+                margin: const EdgeInsets.symmetric(vertical: 16),
 
                 // height: height * 0.048,
                 decoration: BoxDecoration(
@@ -85,6 +89,7 @@ class SearchPage extends StatelessWidget {
                 ),
               ),
               actions: [
+                const SizedBox(width: 5),
                 GestureDetector(
                   onTap: () {
                     _searchController.clear();
@@ -97,8 +102,13 @@ class SearchPage extends StatelessWidget {
                     children: const [
                       CircleAvatar(
                         backgroundColor: Colors.white,
+                        radius: 16,
                       ),
-                      Icon(Icons.clear, color: Colors.black),
+                      Icon(
+                        Icons.clear,
+                        color: Colors.black,
+                        size: 22,
+                      ),
                     ],
                   ),
                 ),

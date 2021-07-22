@@ -54,9 +54,7 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: InkWell(
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SearchPage(),
-              )),
+              onTap: () => context.pushRoute(const SearchRoute()),
               child: Stack(
                 children: [
                   SvgPicture.asset(

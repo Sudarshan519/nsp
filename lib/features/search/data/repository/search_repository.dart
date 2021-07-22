@@ -20,7 +20,7 @@ class SearchRepositoryImpl implements SearchRepository {
 
   @override
   Future<Either<ApiFailure, List<SearchDataModel>>> getSearchPageData(
-      String searchText) async {
+      {required String searchText}) async {
     try {
       return Right(await dataSource.getSearchPageData(searchText));
     } on ServerException catch (ex) {

@@ -171,7 +171,7 @@ class EsewaTopupPage extends StatelessWidget {
       if (method.balanceLimit != null && sum >= method.balanceLimit!) {
         FlushbarHelper.createError(
                 message:
-                    "Unverified user cannot topup more than limit ${method.balanceLimit}.")
+                    "Please verify kyc for this trasaction. Unverified user cannot topup more than limit ${method.balanceLimit}.")
             .show(context);
         return;
       }
