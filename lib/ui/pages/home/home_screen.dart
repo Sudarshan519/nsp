@@ -198,7 +198,6 @@ class HomePage extends StatelessWidget {
 
         if (data.isNotEmpty) {
           return UtilityPamentWidget(
-            conversionRate: 1 / (userDetail?.currencyConversionRate ?? 1.067),
             paymentData: data,
           );
         }

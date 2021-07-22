@@ -29,6 +29,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         final result = await getSearchPageData(s.searchText);
 
         yield result.fold((l) => _Failure(l), (r) => _Loaded(r));
+      } else {
+        yield const _Initial();
       }
     });
   }

@@ -310,10 +310,7 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<TopUpRouteArgs>();
           return _i33.TopUpPage(
-              key: args.key,
-              conversionRate: args.conversionRate,
-              index: args.index,
-              paymentData: args.paymentData);
+              key: args.key, index: args.index, paymentData: args.paymentData);
         }),
     PartnerServicePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -1050,30 +1047,21 @@ class PdfViewerRouteArgs {
 class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
   TopUpRoute(
       {_i2.Key? key,
-      required double conversionRate,
       required int index,
       required List<_i50.UtilityPaymentsModel> paymentData})
       : super(name,
             path: '/top-up-page',
             args: TopUpRouteArgs(
-                key: key,
-                conversionRate: conversionRate,
-                index: index,
-                paymentData: paymentData));
+                key: key, index: index, paymentData: paymentData));
 
   static const String name = 'TopUpRoute';
 }
 
 class TopUpRouteArgs {
   const TopUpRouteArgs(
-      {this.key,
-      required this.conversionRate,
-      required this.index,
-      required this.paymentData});
+      {this.key, required this.index, required this.paymentData});
 
   final _i2.Key? key;
-
-  final double conversionRate;
 
   final int index;
 

@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttercontactpicker/fluttercontactpicker.dart';
 import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
@@ -26,12 +27,10 @@ import 'package:wallet_app/utils/currency_formater.dart';
 class TopUpPage extends StatefulWidget {
   final int index;
 
-  final double conversionRate;
   final List<UtilityPaymentsModel> paymentData;
 
   const TopUpPage({
     Key? key,
-    required this.conversionRate,
     required this.index,
     required this.paymentData,
   }) : super(key: key);
@@ -44,6 +43,7 @@ class _TopUpPageState extends State<TopUpPage> {
   late bool _isConfirmPage;
   late bool _hasCouponCode;
   double _balanceJPY = 0;
+  double _conversionRate = 1;
   CouponCode? _coupon;
 
   @override
@@ -57,6 +57,14 @@ class _TopUpPageState extends State<TopUpPage> {
   @override
   Widget build(BuildContext context) {
     _balanceJPY = context.read<GetBalanceBloc>().userbalance;
+    _conversionRate = 1 /
+        (context
+                .read<HomePageDataBloc>()
+                .homeData
+                ?.userDetail
+                ?.currencyConversionRate ??
+            1.067);
+
     final _payData = widget.paymentData[widget.index];
     return MultiBlocProvider(
       providers: [
@@ -179,7 +187,7 @@ class _TopUpPageState extends State<TopUpPage> {
             _MobileNumberTextField(widget.paymentData),
             _TypeOfNumber(widget.paymentData),
             _AmountTextField(
-              conversionRate: widget.conversionRate,
+              conversionRate: _conversionRate,
             ),
             const SizedBox(height: 20),
             CouponCodeWidget(
@@ -211,14 +219,14 @@ class _TopUpPageState extends State<TopUpPage> {
             ),
             const SizedBox(height: 20),
             _TransactionDetail(
-              conversionRate: widget.conversionRate,
+              conversionRate: _conversionRate,
             ),
             const SizedBox(height: 20),
             _ProceedButton(
               callback: () {
                 try {
                   final int amtNPR = int.parse(amount);
-                  final int amtJPY = amtNPR ~/ widget.conversionRate;
+                  final int amtJPY = amtNPR ~/ _conversionRate;
 
                   if (amtNPR < Values.MIN_RECHARGE ||
                       amtNPR > Values.MAX_RECHARGE) {
@@ -272,7 +280,7 @@ class _TopUpPageState extends State<TopUpPage> {
 
           doubleAmount = doubleAmount - discountAmount;
 
-          final conversionValue = doubleAmount / widget.conversionRate;
+          final conversionValue = doubleAmount / _conversionRate;
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Column(

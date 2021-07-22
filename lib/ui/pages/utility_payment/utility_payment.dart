@@ -10,12 +10,10 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
 class UtilityPamentWidget extends StatelessWidget {
-  final double conversionRate;
   final List<UtilityPaymentsModel> paymentData;
 
   const UtilityPamentWidget({
     Key? key,
-    required this.conversionRate,
     required this.paymentData,
   }) : super(key: key);
 
@@ -43,7 +41,6 @@ class UtilityPamentWidget extends StatelessWidget {
                   .map(
                     (e) => GridItem(
                       index: paymentData.indexOf(e),
-                      conversionRate: conversionRate,
                       paymentData: paymentData,
                     ),
                   )
@@ -58,14 +55,9 @@ class UtilityPamentWidget extends StatelessWidget {
 
 class GridItem extends StatelessWidget {
   final int index;
-  final double conversionRate;
   final List<UtilityPaymentsModel> paymentData;
 
-  const GridItem(
-      {Key? key,
-      required this.index,
-      required this.conversionRate,
-      required this.paymentData})
+  const GridItem({Key? key, required this.index, required this.paymentData})
       : super(key: key);
 
   @override
@@ -79,7 +71,6 @@ class GridItem extends StatelessWidget {
           context.pushRoute(
             TopUpRoute(
               index: index,
-              conversionRate: conversionRate,
               paymentData: paymentData,
             ),
           );

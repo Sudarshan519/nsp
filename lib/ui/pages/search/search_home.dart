@@ -4,6 +4,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/data/model/remit_rate_mode.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_model.dart';
 import 'package:wallet_app/features/search/data/model/search_data_model.dart';
@@ -24,7 +25,6 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
     Timer? _debounce;
 
     Widget searchBody(SearchState state) {
@@ -56,12 +56,16 @@ class SearchPage extends StatelessWidget {
             appBar: AppBar(
               automaticallyImplyLeading: false,
               title: Container(
-                height: height * 0.048,
+                alignment: Alignment.center,
+                // padding: const EdgeInsets.symmetric(vertical: 8),
+                margin: const EdgeInsets.symmetric(vertical: 8),
+
+                // height: height * 0.048,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20)),
-                padding: const EdgeInsets.only(left: 8),
                 child: TextField(
+                  textAlignVertical: TextAlignVertical.center,
                   controller: _searchController,
                   onChanged: (text) {
                     if (_debounce != null) {
@@ -74,25 +78,30 @@ class SearchPage extends StatelessWidget {
                   },
                   autofocus: true,
                   decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.all(6),
                       border: InputBorder.none,
                       hintText: 'Search',
                       suffixIcon: Icon(Icons.search)),
                 ),
               ),
               actions: [
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      _searchController.clear();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      shape: const CircleBorder(),
-                      primary: Colors.white,
-                    ),
-                    child: const Icon(Icons.clear, color: Colors.black),
+                GestureDetector(
+                  onTap: () {
+                    _searchController.clear();
+                    context
+                        .read<SearchBloc>()
+                        .add(const SearchEvent.search(''));
+                  },
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: const [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                      ),
+                      Icon(Icons.clear, color: Colors.black),
+                    ],
                   ),
-                )
+                ),
               ],
             ),
             body: searchBody(state),
@@ -179,10 +188,6 @@ class _SearchBodyState extends State<SearchBody> {
 
               if (data.isNotEmpty) {
                 return UtilityPamentWidget(
-                  // balance: userDetail?.balance ?? 0.0,
-                  // conversionRate: 1 / (userDetail?.currencyConversionRate ?? 1.067),
-                  balance: 0,
-                  conversionRate: 1,
                   paymentData: data,
                 );
               }
