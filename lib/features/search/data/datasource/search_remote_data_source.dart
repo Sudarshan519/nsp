@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
-import 'package:wallet_app/features/home/data/model/home_data_model.dart';
 import 'package:wallet_app/features/search/data/app_constant/constant.dart';
+import 'package:wallet_app/features/search/data/model/search_data_model.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -15,7 +15,7 @@ abstract class SearchPageRemoteDataSource {
   /// Calls the https://base_url/home_api/ endpoint
   ///
   /// Throws [ServerException] for all error codes.
-  Future<List<HomeDataModel>> getSearchPageData(String searchText);
+  Future<List<SearchDataModel>> getSearchPageData(String searchText);
 }
 
 @LazySingleton(as: SearchPageRemoteDataSource)
@@ -38,7 +38,7 @@ class SearchPageRemoteDataSourceImpl implements SearchPageRemoteDataSource {
   });
 
   @override
-  Future<List<HomeDataModel>> getSearchPageData(String searchText) async {
+  Future<List<SearchDataModel>> getSearchPageData(String searchText) async {
     final url =
         "${config.baseURL}${config.apiPath}${SearchApiEndpoints.search}$searchText";
     final accessToken = (await auth.getWalletUser()).accessToken;
@@ -75,14 +75,14 @@ class SearchPageRemoteDataSourceImpl implements SearchPageRemoteDataSource {
 
       try {
         final jsonVal = json.decode(responseBody);
-        final searchResponse = List<HomeDataModel>.from((jsonVal as Iterable)
-            .map((x) => HomeDataModel.fromJson(x as Map<String, dynamic>)));
+        final searchResponse = List<SearchDataModel>.from((jsonVal as Iterable)
+            .map((x) => SearchDataModel.fromJson(x as Map<String, dynamic>)));
         return searchResponse;
       } catch (ex) {
         logger.log(
           className: "SearchPageRemoteDataSource",
           functionName: "getSearchPageData()",
-          errorText: "Error casting from json to HomeDataModel",
+          errorText: "Error casting from json to SearchDataModel",
           errorMessage: ex.toString(),
         );
         throw const ServerException(message: AppConstants.someThingWentWrong);

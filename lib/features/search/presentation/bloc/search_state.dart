@@ -5,6 +5,6 @@ class SearchState with _$SearchState {
   const factory SearchState.loading() = _Loading;
   const factory SearchState.initial() = _Initial;
 
-  factory SearchState.loaded(List<HomeDataModel> list) = _Loaded;
+  factory SearchState.loaded(List<SearchDataModel> list) = _Loaded;
   const factory SearchState.failure(ApiFailure failure) = _Failure;
 }

@@ -3,12 +3,12 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
-import 'package:wallet_app/features/home/data/model/home_data_model.dart';
+import 'package:wallet_app/features/search/data/model/search_data_model.dart';
 import 'package:wallet_app/features/search/domain/repositories/search_repository.dart';
 
 @lazySingleton
 class GetSearchPageData
-    extends Usecase<ApiFailure, List<HomeDataModel>, String> {
+    extends Usecase<ApiFailure, List<SearchDataModel>, String> {
   final SearchRepository repository;
   final NetworkInfo networkInfo;
 
@@ -18,7 +18,7 @@ class GetSearchPageData
   });
 
   @override
-  Future<Either<ApiFailure, List<HomeDataModel>>> call(
+  Future<Either<ApiFailure, List<SearchDataModel>>> call(
       String searchText) async {
     final isConnected = await networkInfo.isConnected;
 

@@ -189,7 +189,7 @@ class HomePage extends StatelessWidget {
     final model = data as HomeData;
     final typeString = model.type ?? '';
 
-    final type = _getHomeItemTypeString(typeString);
+    final type = getHomeItemTypeString(typeString);
     switch (type) {
       case HomeItemType.utility_payments:
         final data = List<UtilityPaymentsModel>.from((model.data as Iterable)
@@ -259,12 +259,6 @@ class HomePage extends StatelessWidget {
       default:
         return const SizedBox.shrink();
     }
-  }
-
-  HomeItemType _getHomeItemTypeString(String type) {
-    final _type = 'HomeItemType.$type';
-    return HomeItemType.values.firstWhere((f) => f.toString() == _type,
-        orElse: () => HomeItemType.disaster_alert);
   }
 
   Widget buildResumeSection(

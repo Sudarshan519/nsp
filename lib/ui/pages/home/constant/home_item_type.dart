@@ -8,3 +8,9 @@ enum HomeItemType {
   news,
   disaster_alert,
 }
+
+HomeItemType getHomeItemTypeString(String type) {
+  final _type = 'HomeItemType.$type';
+  return HomeItemType.values.firstWhere((f) => f.toString() == _type,
+      orElse: () => HomeItemType.disaster_alert);
+}
