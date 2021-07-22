@@ -22,7 +22,7 @@ class GetBalanceBloc extends Bloc<GetBalanceEvent, GetBalanceState> {
 
   UserBalance? _userbalance;
 
-  UserBalance? get userbalance => _userbalance;
+  double get userbalance => _userbalance?.balance ?? 0;
 
   @override
   Stream<GetBalanceState> mapEventToState(

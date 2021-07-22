@@ -56,7 +56,7 @@ class _TopUpPageState extends State<TopUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    _balanceJPY = context.read<GetBalanceBloc>().userbalance?.balance ?? 0;
+    _balanceJPY = context.read<GetBalanceBloc>().userbalance;
     final _payData = widget.paymentData[widget.index];
     return MultiBlocProvider(
       providers: [

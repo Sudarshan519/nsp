@@ -72,7 +72,7 @@ class AddBalancePage extends StatelessWidget {
   }
 
   Widget body(LoadFund? loadFund, BuildContext context) {
-    double balance = context.read<GetBalanceBloc>().userbalance?.balance ?? 0;
+    final balance = context.read<GetBalanceBloc>().userbalance;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
