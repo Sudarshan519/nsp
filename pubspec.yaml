@@ -110,6 +110,7 @@ flutter:
     - assets/images/navigation_bar/
     - assets/images/top_up/
     - assets/images/home/
+    - assets/images/errors/
     - assets/images/home/utility-payment/
     - assets/images/navigation_tabs/
     - assets/images/news/

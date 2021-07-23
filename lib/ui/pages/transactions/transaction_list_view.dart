@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -382,23 +383,26 @@ class InfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(22.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(
-            Icons.info,
-            size: 25,
-          ),
-          const SizedBox(
-            width: 7,
-          ),
-          Text(
-            message,
-            textScaleFactor: 1.1,
-          )
-        ],
+    return Expanded(
+      child: Container(
+        // width: 500,
+        padding: const EdgeInsets.all(22.0),
+        child: Column(
+          children: [
+            const Icon(
+              Icons.info,
+              size: 25,
+            ),
+            const SizedBox(
+              height: 7,
+            ),
+            Text(
+              message,
+              maxLines: 2,
+              textScaleFactor: 0.8,
+            )
+          ],
+        ),
       ),
     );
   }

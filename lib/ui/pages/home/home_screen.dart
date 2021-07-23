@@ -12,12 +12,14 @@ import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_
 import 'package:wallet_app/features/partner_services/data/model/services_model.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/resume/data/model/resume_data_model.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
 import 'package:wallet_app/ui/pages/utility_payment/utility_payment.dart';
+import 'package:wallet_app/ui/widgets/error_widgets.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -114,7 +116,28 @@ class HomePage extends StatelessWidget {
                 ).show(context);
               },
             );
-            return const SizedBox.shrink();
+
+            final onrefreshFunc = () {
+              context.read<HomePageDataBloc>().add(
+                    const HomePageDataEvent.fetch(),
+                  );
+              getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
+              getIt<AdsBloc>().add(
+                const AdsEvent.fetchAds(),
+              );
+              getIt<TransactionBloc>()
+                  .add(const TransactionEvent.fetchTransactionData());
+            };
+            return error.failure.map(
+              serverError: (error) => errorView(
+                  onRefresh: () => onrefreshFunc(),
+                  errorType: ErrorType.server_error),
+              invalidUser: (error) => errorView(
+                  onRefresh: () => onrefreshFunc(), errorType: ErrorType.other),
+              noInternetConnection: (error) => errorView(
+                  onRefresh: () => onrefreshFunc(),
+                  errorType: ErrorType.no_internet),
+            );
           },
           failureWithData: (failure) {
             Future.delayed(Duration.zero, () {
