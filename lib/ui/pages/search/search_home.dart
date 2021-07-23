@@ -43,7 +43,7 @@ class SearchPage extends StatelessWidget {
                 invalidUser: (error) => AppConstants.someThingWentWrong,
               ),
             ).show(context);
-            return const Text('Failure');
+            return const Center(child: Text('Failed to load result'));
           });
     }
 
@@ -88,27 +88,29 @@ class SearchPage extends StatelessWidget {
                 ),
               ),
               actions: [
-                const SizedBox(width: 5),
-                GestureDetector(
-                  onTap: () {
-                    _searchController.clear();
-                    context
-                        .read<SearchBloc>()
-                        .add(const SearchEvent.search(''));
-                  },
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: const [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 16,
-                      ),
-                      Icon(
-                        Icons.clear,
-                        color: Colors.black,
-                        size: 22,
-                      ),
-                    ],
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      _searchController.clear();
+                      context
+                          .read<SearchBloc>()
+                          .add(const SearchEvent.search(''));
+                    },
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: const [
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: 16,
+                        ),
+                        Icon(
+                          Icons.clear,
+                          color: Colors.black,
+                          size: 22,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

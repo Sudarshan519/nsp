@@ -51,20 +51,20 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         leading: HomeUserProfileWidget(),
         actions: [
-          // Padding(
-          //   padding: const EdgeInsets.all(10.0),
-          //   child: InkWell(
-          //     onTap: () => context.pushRoute(const SearchRoute()),
-          //     child: Stack(
-          //       children: [
-          //         SvgPicture.asset(
-          //           "assets/images/navigation_bar/search.svg",
-          //           height: 25.0,
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () => context.pushRoute(const SearchRoute()),
+              child: Stack(
+                children: [
+                  SvgPicture.asset(
+                    "assets/images/navigation_bar/search.svg",
+                    height: 25.0,
+                  ),
+                ],
+              ),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: InkWell(

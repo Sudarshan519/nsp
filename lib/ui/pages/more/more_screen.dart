@@ -124,8 +124,7 @@ class MorePage extends StatelessWidget {
         onTap: () {
           context.pushRoute(
             AppWebViewRoute(
-                url: "https://bnpj.jp/privacy-policy",
-                title: "Privacy Policy"),
+                url: "https://bnpj.jp/privacy-policy", title: "Privacy Policy"),
           );
         },
       ),

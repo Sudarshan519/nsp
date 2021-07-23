@@ -46,6 +46,7 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
     final _tabBar = _tabBarWidget();
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TabBar(
           unselectedLabelColor: Palette.black,
@@ -103,7 +104,7 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
           height: 4,
         ),
         SizedBox(
-            width: size.width * 0.18,
+            width: size.width * 0.20,
             height: size.height * 0.036,
             child: text.length > 16
                 ? Marquee(
