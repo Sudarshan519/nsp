@@ -4,7 +4,6 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
-import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/resume/data/app_constant/constant.dart';
 import 'package:wallet_app/features/resume/domain/repository/resume_repository.dart';
 

@@ -92,7 +92,10 @@ class ServicesDetailPage extends StatelessWidget {
                       fit: BoxFit.fitWidth,
                       loadingBuilder: (BuildContext context, Widget child,
                           ImageChunkEvent? loadingProgress) {
-                        if (loadingProgress == null) return child;
+                        if (loadingProgress == null)
+                          return SizedBox(
+                              height: loadingProgress == null ? 200 : 0,
+                              child: child);
                         return Container(
                           color: Palette.primaryBackground,
                           height: 200,

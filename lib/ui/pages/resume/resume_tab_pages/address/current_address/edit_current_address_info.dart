@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
-import 'package:wallet_app/features/location_information/domain/usecases/get_countries.dart';
 import 'package:wallet_app/features/location_information/domain/usecases/get_list_of_cities_from_prefectures.dart';
 import 'package:wallet_app/features/location_information/presentation/bloc/location_via_postal_code_bloc.dart';
 import 'package:wallet_app/features/resume/domain/entities/personal_info.dart';

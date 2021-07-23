@@ -4,7 +4,6 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/home/data/model/remit_rate_mode.dart';
-import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_model.dart';
 import 'package:wallet_app/features/search/data/model/search_data_model.dart';
