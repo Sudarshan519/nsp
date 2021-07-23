@@ -712,14 +712,6 @@ class _AmountDropDownField extends StatelessWidget {
                     }
                   },
                 ),
-                // child: InputTextWidget(
-                //   hintText: "Rs. 100",
-                //   textInputType: TextInputType.number,
-                //   value: state.amount,
-                //   onChanged: (value) {
-
-                //   },
-                // ),
               ),
             ],
           ),

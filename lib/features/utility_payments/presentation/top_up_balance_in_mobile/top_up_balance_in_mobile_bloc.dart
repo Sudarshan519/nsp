@@ -71,6 +71,8 @@ class TopUpBalanceInMobileBloc
     final type = getType(fromNumber: _changePhoneNumber.number);
 
     var amount = state.amount;
+
+    //making sure the amount is within the list of smart cell if any other amt is entered when mart cell number is entered
     if (type == Values.SMARTCELL) {
       amount = Values.SMARTCELL_TOPUP.contains(state.amount) ? amount : '';
     }
@@ -88,6 +90,8 @@ class TopUpBalanceInMobileBloc
     final type = getType(fromNumber: _changePhoneNumberViaContact.number);
 
     var amount = state.amount;
+
+    //making sure the amount is within the list of smart cell if any other amt is entered when mart cell number is entered
     if (type == Values.SMARTCELL) {
       amount = Values.SMARTCELL_TOPUP.contains(state.amount) ? amount : '';
     }
