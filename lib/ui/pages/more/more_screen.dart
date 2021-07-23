@@ -124,7 +124,7 @@ class MorePage extends StatelessWidget {
         onTap: () {
           context.pushRoute(
             AppWebViewRoute(
-                url: "https://nspweb.truestreamz.com/privacy-policy",
+                url: "https://bnpj.jp/privacy-policy",
                 title: "Privacy Policy"),
           );
         },
@@ -135,7 +135,7 @@ class MorePage extends StatelessWidget {
         onTap: () {
           context.pushRoute(
             AppWebViewRoute(
-              url: "https://nspweb.truestreamz.com/terms-conditions",
+              url: "https://bnpj.jp/terms-conditions",
               title: "Terms and Conditions",
             ),
           );
