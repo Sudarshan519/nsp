@@ -18,6 +18,7 @@ import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_chi
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/dashed_line.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
@@ -170,13 +171,14 @@ class _TopUpPageState extends State<TopUpPage> {
         return Expanded(
             child: topupInformationbody(
           context,
-          state.amount,
+          state,
         ));
       },
     );
   }
 
-  Widget topupInformationbody(BuildContext context, String amount) {
+  Widget topupInformationbody(
+      BuildContext context, TopUpBalanceInMobileState state) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: SingleChildScrollView(
@@ -186,9 +188,14 @@ class _TopUpPageState extends State<TopUpPage> {
             const SizedBox(height: 20),
             _MobileNumberTextField(widget.paymentData),
             _TypeOfNumber(widget.paymentData),
-            _AmountTextField(
-              conversionRate: _conversionRate,
-            ),
+            if (state.type == 'smartcell')
+              _AmountDropDownField(
+                conversionRate: _conversionRate,
+              )
+            else
+              _AmountTextField(
+                conversionRate: _conversionRate,
+              ),
             const SizedBox(height: 20),
             CouponCodeWidget(
               hasCouponCode: _hasCouponCode,
@@ -225,7 +232,7 @@ class _TopUpPageState extends State<TopUpPage> {
             _ProceedButton(
               callback: () {
                 try {
-                  final int amtNPR = int.parse(amount);
+                  final int amtNPR = int.parse(state.amount);
                   final int amtJPY = amtNPR ~/ _conversionRate;
 
                   if (amtNPR < Values.MIN_RECHARGE ||
@@ -657,6 +664,65 @@ class _AmountTextField extends StatelessWidget {
               ),
             ),
           ],
+        );
+      },
+    );
+  }
+}
+
+class _AmountDropDownField extends StatelessWidget {
+  final double conversionRate;
+
+  const _AmountDropDownField({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        if (state.number.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        return SizedBox(
+          // width: 200,
+          child: Column(
+            children: [
+              TextWidetWithLabelAndChild(
+                title: "Amount (in NPR)",
+                child: CustomDropDownWidget(
+                  hintText: "Select Amount",
+                  value: state.amount,
+                  isExpanded: false,
+                  options: Values.SMARTCELL_TOPUP,
+                  onChanged: (value) {
+                    context
+                        .read<TopUpBalanceInMobileBloc>()
+                        .add(TopUpBalanceInMobileEvent.changeAmount(value));
+                    if (value.isNotEmpty) {
+                      final conversionValue =
+                          double.parse(value) * conversionRate;
+                      context.read<TopUpBalanceInMobileBloc>().add(
+                          TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
+                              conversionValue.toStringAsFixed(0)));
+                    } else {
+                      context.read<TopUpBalanceInMobileBloc>().add(
+                          TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
+                              value));
+                    }
+                  },
+                ),
+                // child: InputTextWidget(
+                //   hintText: "Rs. 100",
+                //   textInputType: TextInputType.number,
+                //   value: state.amount,
+                //   onChanged: (value) {
+
+                //   },
+                // ),
+              ),
+            ],
+          ),
         );
       },
     );

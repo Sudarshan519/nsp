@@ -70,7 +70,13 @@ class TopUpBalanceInMobileBloc
       _ChangePhoneNumber _changePhoneNumber) {
     final type = getType(fromNumber: _changePhoneNumber.number);
 
+    var amount = state.amount;
+    if (type == Values.SMARTCELL) {
+      amount = Values.SMARTCELL_TOPUP.contains(state.amount) ? amount : '';
+    }
+
     return state.copyWith(
+      amount: amount,
       number: _changePhoneNumber.number,
       type: type,
       failureOrSuccessOption: none(),
@@ -81,8 +87,14 @@ class TopUpBalanceInMobileBloc
       _ChangePhoneNumberViaContact _changePhoneNumberViaContact) {
     final type = getType(fromNumber: _changePhoneNumberViaContact.number);
 
+    var amount = state.amount;
+    if (type == Values.SMARTCELL) {
+      amount = Values.SMARTCELL_TOPUP.contains(state.amount) ? amount : '';
+    }
+
     return state.copyWith(
       key: UniqueKey(),
+      amount: amount,
       number: _changePhoneNumberViaContact.number,
       type: type,
       failureOrSuccessOption: none(),
@@ -211,15 +223,15 @@ class TopUpBalanceInMobileBloc
     }
 
     if (Values.ntcRegx.hasMatch(fromNumber)) {
-      return 'ntc';
+      return Values.NTC;
     }
 
     if (Values.ncellRegx.hasMatch(fromNumber)) {
-      return 'ncell';
+      return Values.NCELL;
     }
 
     if (Values.smartCellRegx.hasMatch(fromNumber)) {
-      return 'smartcell';
+      return Values.SMARTCELL;
     }
 
     return '';

@@ -47,8 +47,19 @@ class Values {
   static const EN_NEPAL = 'nepal';
   static const JP_JAPAN = '日本';
   static const JP_NEPAL = 'ネパール';
+  static const NTC = 'ntc';
+  static const NCELL = 'ncell';
+  static const SMARTCELL = 'smartcell';
 
   //List constants
+  static const List<String> SMARTCELL_TOPUP = [
+    '20',
+    '50',
+    '100',
+    '200',
+    '500',
+    '1000'
+  ];
   static const List<String> GENDER = ['Male', 'Female'];
   static const List<String> PAYMENT_PURPOSE = [
     'Utilities',
