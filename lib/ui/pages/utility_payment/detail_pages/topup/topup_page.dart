@@ -188,7 +188,7 @@ class _TopUpPageState extends State<TopUpPage> {
             const SizedBox(height: 20),
             _MobileNumberTextField(widget.paymentData),
             _TypeOfNumber(widget.paymentData),
-            if (state.type == 'smartcell')
+            if (state.type == Values.SMARTCELL)
               _AmountDropDownField(
                 conversionRate: _conversionRate,
               )
