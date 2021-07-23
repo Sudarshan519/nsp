@@ -45,13 +45,11 @@ class _TopUpPageState extends State<TopUpPage> {
   late bool _hasCouponCode;
   double _balanceJPY = 0;
   double _conversionRate = 1;
-  CouponCode? _coupon;
 
   @override
   void initState() {
     _isConfirmPage = false;
     _hasCouponCode = false;
-    _coupon = null;
     super.initState();
   }
 
@@ -205,9 +203,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 });
               },
               validCoupon: (couponCode) {
-                setState(() {
-                  _coupon = couponCode;
-                });
+                setState(() {});
                 context.read<TopUpBalanceInMobileBloc>().add(
                       TopUpBalanceInMobileEvent.changeCoupon(
                           couponCode?.couponCode ?? ''),
@@ -750,12 +746,12 @@ class _TypeOfNumber extends StatelessWidget {
           context
               .read<TopUpBalanceInMobileBloc>()
               .add(TopUpBalanceInMobileEvent.setProductId("$id"));
-          getIt<VerifyCouponBloc>().add(
-            VerifyCouponEvent.setInitialState(
-              productType: 'utility',
-              productId: id,
-            ),
-          );
+          context.read<VerifyCouponBloc>().add(
+                VerifyCouponEvent.setInitialState(
+                  productType: 'utility',
+                  productId: id,
+                ),
+              );
         }
         // print(imgUrl);
 

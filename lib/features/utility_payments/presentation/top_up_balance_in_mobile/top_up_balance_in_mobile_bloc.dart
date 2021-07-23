@@ -81,6 +81,9 @@ class TopUpBalanceInMobileBloc
       amount: amount,
       number: _changePhoneNumber.number,
       type: type,
+      coupon: '',
+      discountPercentage: 0,
+      rewardPointFromCoupon: 0,
       failureOrSuccessOption: none(),
     );
   }
@@ -101,6 +104,9 @@ class TopUpBalanceInMobileBloc
       amount: amount,
       number: _changePhoneNumberViaContact.number,
       type: type,
+      coupon: '',
+      discountPercentage: 0,
+      rewardPointFromCoupon: 0,
       failureOrSuccessOption: none(),
     );
   }
