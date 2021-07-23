@@ -168,7 +168,7 @@ class BannerDetailPage extends StatelessWidget {
             Wrap(
               children: [
                 const Text(
-                  "NOTE: Choy-san Prepaid VISA Credit Wallet can be Installed and Activated with Japan Mobile Number so anyone can download and apply for it after coming to Japan. ",
+                  "NOTE: Choy-San Prepaid VISA Credit Wallet can be Installed and Activated with Japan Mobile Number so anyone can download and apply for it after coming to Japan. ",
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 15,
