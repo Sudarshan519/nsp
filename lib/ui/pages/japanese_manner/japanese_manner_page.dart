@@ -22,19 +22,6 @@ class JapaneseMannerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Japanese Manners",
-          style: TextStyle(color: Palette.white),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        centerTitle: true,
-        backgroundColor: Palette.primary,
-        elevation: 0,
-      ),
       body: BlocProvider(
         create: (context) => getIt<JapaneseMannerCategoriesBloc>()
           ..add(
@@ -91,6 +78,7 @@ class _JapaneseMannerTabPage extends StatefulWidget {
 class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
   int _selectedIndex = 0;
   bool _changedByUser = false;
+  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -106,9 +94,57 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
       initialIndex: _selectedIndex,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 2),
           child: Column(
             children: [
+              Expanded(
+                child: AppBar(
+                  title: Container(
+                    height: 34,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        hintText: 'Japanese Manners',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.only(left: 5),
+                        counterText: '',
+                        suffixIcon: Icon(Icons.search),
+                      ),
+                      maxLength: 20,
+                      controller: _searchController,
+                      onChanged: (val) =>
+                          setState(() => _searchController.clear()),
+                    ),
+                  ),
+                  actions: [
+                    InkWell(
+                      onTap: () => _searchController.clear(),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          const CircleAvatar(
+                            backgroundColor: Colors.white,
+                            radius: 17,
+                            child: Icon(
+                              Icons.close,
+                              size: 21,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                  leading: IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                  centerTitle: true,
+                  backgroundColor: Palette.primary,
+                  elevation: 0,
+                ),
+              ),
               NewsTabBar(
                 onTap: (selected) {
                   setState(() {
@@ -141,6 +177,7 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
       widgets.add(
         _JapaneseMannerPageList(
           category: category,
+          searchText: _searchController.text,
         ),
       );
     }
@@ -170,11 +207,12 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
 class _JapaneseMannerPageList extends StatelessWidget {
   final JapaneseMannerCategory category;
   final ScrollController _scrollController = ScrollController();
-  final TextEditingController _searchController = TextEditingController();
+  final String searchText;
 
   _JapaneseMannerPageList({
     Key? key,
     required this.category,
+    this.searchText = '',
   }) : super(key: key);
 
   @override
@@ -229,12 +267,24 @@ class _JapaneseMannerPageList extends StatelessWidget {
     required List<JapaneseManner> manners,
     bool isLoading = false,
   }) {
+    if (searchText.isNotEmpty) {
+      manners = manners
+          .where((element) =>
+              element.title
+                  .toString()
+                  .toLowerCase()
+                  .contains(searchText.toLowerCase()) ||
+              element.description
+                  .toString()
+                  .toLowerCase()
+                  .contains(searchText.toLowerCase()))
+          .toList();
+    }
     if (manners.isEmpty) {
       return const Center(
         child: Text("No data availabe for this section"),
       );
     }
-    List<JapaneseManner> searchList = [];
 
     return StatefulBuilder(
       builder: (context, setstate) {
@@ -254,60 +304,12 @@ class _JapaneseMannerPageList extends StatelessWidget {
             ),
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                height: MediaQuery.of(context).size.height * 0.04,
-                child: TextField(
-                    controller: _searchController,
-                    maxLength: 25,
-                    onChanged: (s) {
-                      setstate(() {
-                        searchList.clear();
-                        searchList = manners.where((element) {
-                          if (element.title != null) {
-                            return element.title!
-                                .toLowerCase()
-                                .contains(s.toLowerCase());
-                          }
-                          return false;
-                        }).toList();
-                      });
-                    },
-                    // controller: _searchController,
-                    textAlignVertical: TextAlignVertical.center,
-                    style: const TextStyle(fontSize: 12),
-                    decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: const EdgeInsets.only(left: 8),
-                        hintText: 'Search',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(
-                            // color: Colors.black,
-                            width: 0.07,
-                            style: BorderStyle.none,
-                          ),
-                        ),
-                        prefixIcon: const Icon(Icons.search, size: 20),
-                        suffixIcon: IconButton(
-                            onPressed: () {
-                              setstate(() {
-                                _searchController.clear();
-                              });
-                            },
-                            icon: const Icon(Icons.close, size: 16)))),
-              ),
               ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: _searchController.text.isNotEmpty
-                    ? searchList.length
-                    : manners.length,
+                itemCount: manners.length,
                 itemBuilder: (context, index) {
-                  return JapaneseMannerWidget(
-                      data: _searchController.text.isNotEmpty
-                          ? searchList[index]
-                          : manners[index]);
+                  return JapaneseMannerWidget(data: manners[index]);
                 },
               ),
               if (isLoading)

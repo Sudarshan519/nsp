@@ -16,7 +16,7 @@ import 'package:wallet_app/utils/constant.dart';
 class PartnerServicesPage extends StatelessWidget {
   final String? categoryName;
 
-  PartnerServicesPage({
+  const PartnerServicesPage({
     Key? key,
     this.categoryName,
   }) : super(key: key);
@@ -107,13 +107,16 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
                         borderRadius: BorderRadius.circular(20)),
                     child: TextField(
                       decoration: const InputDecoration(
+                        hintText: 'Partner Services',
+                        border: InputBorder.none,
                         contentPadding: EdgeInsets.only(left: 5),
                         counterText: '',
                         suffixIcon: Icon(Icons.search),
                       ),
                       maxLength: 20,
                       controller: _searchController,
-                      onChanged: (val) => setState(() {}),
+                      onChanged: (val) =>
+                          setState(() => _searchController.clear()),
                     ),
                   ),
                   actions: [
@@ -209,9 +212,11 @@ class _PartnerServicesPageList extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
   final String searchText;
 
-  _PartnerServicesPageList(
-      {Key? key, required this.category, this.searchText = ''})
-      : super(key: key);
+  _PartnerServicesPageList({
+    Key? key,
+    required this.category,
+    this.searchText = '',
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

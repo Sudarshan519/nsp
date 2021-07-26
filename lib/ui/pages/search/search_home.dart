@@ -59,11 +59,7 @@ class SearchPage extends StatelessWidget {
               centerTitle: true,
               automaticallyImplyLeading: false,
               title: Container(
-                alignment: Alignment.center,
-
-                margin: const EdgeInsets.symmetric(vertical: 16),
-
-                // height: height * 0.048,
+                height: 34,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20)),
@@ -81,7 +77,7 @@ class SearchPage extends StatelessWidget {
                   },
                   autofocus: true,
                   decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.all(6),
+                      contentPadding: EdgeInsets.only(left: 12),
                       border: InputBorder.none,
                       hintText: 'Search',
                       suffixIcon: Icon(Icons.search)),
