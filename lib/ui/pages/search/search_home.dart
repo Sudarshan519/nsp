@@ -77,7 +77,7 @@ class SearchPage extends StatelessWidget {
                   },
                   autofocus: true,
                   decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.only(left: 12),
+                      contentPadding: EdgeInsets.only(left: 12, bottom: 10),
                       border: InputBorder.none,
                       hintText: 'Search',
                       suffixIcon: Icon(Icons.search)),

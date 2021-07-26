@@ -100,6 +100,7 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
             children: [
               Expanded(
                 child: AppBar(
+                  leadingWidth: 14,
                   title: Container(
                     height: 34,
                     decoration: BoxDecoration(
@@ -109,31 +110,33 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
                       decoration: const InputDecoration(
                         hintText: 'Partner Services',
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.only(left: 5),
+                        contentPadding: EdgeInsets.only(left: 8),
                         counterText: '',
                         suffixIcon: Icon(Icons.search),
                       ),
                       maxLength: 20,
                       controller: _searchController,
-                      onChanged: (val) =>
-                          setState(() => _searchController.clear()),
+                      onChanged: (val) => setState(() {}),
                     ),
                   ),
                   actions: [
-                    InkWell(
-                      onTap: () => _searchController.clear(),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          const CircleAvatar(
-                            backgroundColor: Colors.white,
-                            radius: 17,
-                            child: Icon(
-                              Icons.close,
-                              size: 21,
-                            ),
-                          )
-                        ],
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+                      child: InkWell(
+                        onTap: () => setState(() => _searchController.clear()),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            const CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 17,
+                              child: Icon(
+                                Icons.close,
+                                size: 21,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     )
                   ],
