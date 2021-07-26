@@ -2,11 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services_categories.dart';
 import 'package:wallet_app/features/partner_services/presentation/partner_services/parnter_services_bloc.dart';
 import 'package:wallet_app/features/partner_services/presentation/partner_services_categories/partner_service_categories_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/tabs/tab_bar/news_tab_bar.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -24,6 +26,30 @@ class PartnerServicesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leadingWidth: 14,
+        title: const Text(
+          'Partner Services',
+          style: TextStyle(color: Colors.white),
+        ),
+        leading: const BackButton(color: Colors.white),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () =>
+                  context.pushRoute(SearchRoute(type: HomeItemType.services)),
+              child: SvgPicture.asset(
+                "assets/images/navigation_bar/search.svg",
+                height: 25.0,
+              ),
+            ),
+          ),
+        ],
+        centerTitle: true,
+        backgroundColor: Palette.primary,
+        elevation: 0,
+      ),
       body: BlocProvider(
         create: (context) => getIt<PartnerServiceCategoriesBloc>()
           ..add(
@@ -79,7 +105,6 @@ class _PartnerServicesTabPage extends StatefulWidget {
 class _PartnerServicesState extends State<_PartnerServicesTabPage> {
   int _selectedIndex = 0;
   bool _changedByUser = false;
-  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -95,60 +120,9 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
       initialIndex: _selectedIndex,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 2),
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Column(
             children: [
-              Expanded(
-                child: AppBar(
-                  leadingWidth: 14,
-                  title: Container(
-                    height: 34,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: TextField(
-                      decoration: const InputDecoration(
-                        hintText: 'Partner Services',
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.only(left: 8),
-                        counterText: '',
-                        suffixIcon: Icon(Icons.search),
-                      ),
-                      maxLength: 20,
-                      controller: _searchController,
-                      onChanged: (val) => setState(() {}),
-                    ),
-                  ),
-                  actions: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0, left: 8.0),
-                      child: InkWell(
-                        onTap: () => setState(() => _searchController.clear()),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            const CircleAvatar(
-                              backgroundColor: Colors.white,
-                              radius: 17,
-                              child: Icon(
-                                Icons.close,
-                                size: 21,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                  leading: IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  centerTitle: true,
-                  backgroundColor: Palette.primary,
-                  elevation: 0,
-                ),
-              ),
               NewsTabBar(
                 onTap: (selected) {
                   setState(() {
@@ -181,7 +155,6 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
       widgets.add(
         _PartnerServicesPageList(
           category: category,
-          searchText: _searchController.text,
         ),
       );
     }
@@ -213,12 +186,10 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
 class _PartnerServicesPageList extends StatelessWidget {
   final ServicesCategory category;
   final ScrollController _scrollController = ScrollController();
-  final String searchText;
 
   _PartnerServicesPageList({
     Key? key,
     required this.category,
-    this.searchText = '',
   }) : super(key: key);
 
   @override
@@ -281,19 +252,6 @@ class _PartnerServicesPageList extends StatelessWidget {
     required List<Services> services,
     bool isLoading = false,
   }) {
-    if (searchText.isNotEmpty) {
-      services = services
-          .where((element) =>
-              element.serviceProductName
-                  .toString()
-                  .toLowerCase()
-                  .contains(searchText.toLowerCase()) ||
-              element.description
-                  .toString()
-                  .toLowerCase()
-                  .contains(searchText.toLowerCase()))
-          .toList();
-    }
     if (services.isEmpty) {
       return const Center(
         child: Text("No data availabe for this section"),

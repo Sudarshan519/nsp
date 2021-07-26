@@ -20,7 +20,11 @@ import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class SearchPage extends StatelessWidget {
+  final HomeItemType? type;
+
   final TextEditingController _searchController = TextEditingController();
+
+  SearchPage({Key? key, this.type}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +36,7 @@ class SearchPage extends StatelessWidget {
           initial: (i) => const Center(child: Text('Please Input search Text')),
           loaded: (loaded) => SearchBody(
                 searchData: loaded.list,
+                type: type,
               ),
           failure: (f) {
             FlushbarHelper.createError(
@@ -121,7 +126,9 @@ class SearchPage extends StatelessWidget {
 
 class SearchBody extends StatefulWidget {
   final List<SearchDataModel> searchData;
-  const SearchBody({Key? key, required this.searchData}) : super(key: key);
+  final HomeItemType? type;
+  const SearchBody({Key? key, required this.searchData, this.type})
+      : super(key: key);
 
   @override
   _SearchBodyState createState() => _SearchBodyState();
@@ -129,11 +136,21 @@ class SearchBody extends StatefulWidget {
 
 class _SearchBodyState extends State<SearchBody> {
   String selectedType = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    selectedType = widget.type?.toString().split('.').last ?? '';
+    print(selectedType);
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     Widget header() {
+      if (widget.type != null) return const SizedBox();
       return SizedBox(
         height: size.height * 0.08,
         width: size.width,

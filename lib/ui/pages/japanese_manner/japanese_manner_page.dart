@@ -1,13 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner_categories.dart';
 import 'package:wallet_app/features/japanese_manners/presentation/japanese_manner/japanese_manner_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/presentation/japanese_manner_categories/japanese_manner_categories_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/widgets/japanese_manner_widget.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/tabs/tab_bar/news_tab_bar.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -22,6 +26,29 @@ class JapaneseMannerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Japanese Manners',
+          style: TextStyle(color: Colors.white),
+        ),
+        leading: const BackButton(color: Colors.white),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () =>
+                  context.pushRoute(SearchRoute(type: HomeItemType.jp_manners)),
+              child: SvgPicture.asset(
+                "assets/images/navigation_bar/search.svg",
+                height: 25.0,
+              ),
+            ),
+          ),
+        ],
+        centerTitle: true,
+        backgroundColor: Palette.primary,
+        elevation: 0,
+      ),
       body: BlocProvider(
         create: (context) => getIt<JapaneseMannerCategoriesBloc>()
           ..add(
@@ -78,7 +105,6 @@ class _JapaneseMannerTabPage extends StatefulWidget {
 class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
   int _selectedIndex = 0;
   bool _changedByUser = false;
-  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -94,60 +120,9 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
       initialIndex: _selectedIndex,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 2),
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Column(
             children: [
-              Expanded(
-                child: AppBar(
-                  leadingWidth: 14,
-                  title: Container(
-                    height: 34,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: TextField(
-                      decoration: const InputDecoration(
-                        hintText: 'Japanese Manners',
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.only(left: 8),
-                        counterText: '',
-                        suffixIcon: Icon(Icons.search),
-                      ),
-                      maxLength: 20,
-                      controller: _searchController,
-                      onChanged: (val) => setState(() {}),
-                    ),
-                  ),
-                  actions: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0, left: 8.0),
-                      child: InkWell(
-                        onTap: () => setState(() => _searchController.clear()),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            const CircleAvatar(
-                              backgroundColor: Colors.white,
-                              radius: 17,
-                              child: Icon(
-                                Icons.close,
-                                size: 21,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                  leading: IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  centerTitle: true,
-                  backgroundColor: Palette.primary,
-                  elevation: 0,
-                ),
-              ),
               NewsTabBar(
                 onTap: (selected) {
                   setState(() {
@@ -180,7 +155,6 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
       widgets.add(
         _JapaneseMannerPageList(
           category: category,
-          searchText: _searchController.text,
         ),
       );
     }
@@ -210,12 +184,10 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
 class _JapaneseMannerPageList extends StatelessWidget {
   final JapaneseMannerCategory category;
   final ScrollController _scrollController = ScrollController();
-  final String searchText;
 
   _JapaneseMannerPageList({
     Key? key,
     required this.category,
-    this.searchText = '',
   }) : super(key: key);
 
   @override
@@ -270,19 +242,6 @@ class _JapaneseMannerPageList extends StatelessWidget {
     required List<JapaneseManner> manners,
     bool isLoading = false,
   }) {
-    if (searchText.isNotEmpty) {
-      manners = manners
-          .where((element) =>
-              element.title
-                  .toString()
-                  .toLowerCase()
-                  .contains(searchText.toLowerCase()) ||
-              element.description
-                  .toString()
-                  .toLowerCase()
-                  .contains(searchText.toLowerCase()))
-          .toList();
-    }
     if (manners.isEmpty) {
       return const Center(
         child: Text("No data availabe for this section"),

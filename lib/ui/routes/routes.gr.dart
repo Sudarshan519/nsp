@@ -43,6 +43,7 @@ import '../pages/auth/register_screen.dart' as _i7;
 import '../pages/auth/validate_user_screen.dart' as _i6;
 import '../pages/banner_detail_page/banner_detail_page.dart' as _i31;
 import '../pages/coupons/coupon_page.dart' as _i39;
+import '../pages/home/constant/home_item_type.dart' as _i55;
 import '../pages/japanese_manner/japanese_manner_detail.dart' as _i22;
 import '../pages/japanese_manner/japanese_manner_page.dart' as _i21;
 import '../pages/news/detail_page/news_detail.dart' as _i16;
@@ -379,8 +380,10 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     SearchRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i41.SearchPage();
+        builder: (data) {
+          final args = data.argsAs<SearchRouteArgs>(
+              orElse: () => const SearchRouteArgs());
+          return _i41.SearchPage(key: args.key, type: args.type);
         })
   };
 
@@ -1242,8 +1245,18 @@ class ServiceDetailRouteFromAPIArgs {
   final int id;
 }
 
-class SearchRoute extends _i1.PageRouteInfo {
-  const SearchRoute() : super(name, path: '/search-page');
+class SearchRoute extends _i1.PageRouteInfo<SearchRouteArgs> {
+  SearchRoute({_i2.Key? key, _i55.HomeItemType? type})
+      : super(name,
+            path: '/search-page', args: SearchRouteArgs(key: key, type: type));
 
   static const String name = 'SearchRoute';
+}
+
+class SearchRouteArgs {
+  const SearchRouteArgs({this.key, this.type});
+
+  final _i2.Key? key;
+
+  final _i55.HomeItemType? type;
 }
