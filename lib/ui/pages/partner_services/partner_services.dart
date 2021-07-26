@@ -16,7 +16,7 @@ import 'package:wallet_app/utils/constant.dart';
 class PartnerServicesPage extends StatelessWidget {
   final String? categoryName;
 
-  const PartnerServicesPage({
+  PartnerServicesPage({
     Key? key,
     this.categoryName,
   }) : super(key: key);
@@ -24,19 +24,6 @@ class PartnerServicesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Partner Services",
-          style: TextStyle(color: Palette.white),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        centerTitle: true,
-        backgroundColor: Palette.primary,
-        elevation: 0,
-      ),
       body: BlocProvider(
         create: (context) => getIt<PartnerServiceCategoriesBloc>()
           ..add(
@@ -92,6 +79,7 @@ class _PartnerServicesTabPage extends StatefulWidget {
 class _PartnerServicesState extends State<_PartnerServicesTabPage> {
   int _selectedIndex = 0;
   bool _changedByUser = false;
+  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -107,9 +95,54 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
       initialIndex: _selectedIndex,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 2),
           child: Column(
             children: [
+              Expanded(
+                child: AppBar(
+                  title: Container(
+                    height: 34,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 5),
+                        counterText: '',
+                        suffixIcon: Icon(Icons.search),
+                      ),
+                      maxLength: 20,
+                      controller: _searchController,
+                      onChanged: (val) => setState(() {}),
+                    ),
+                  ),
+                  actions: [
+                    InkWell(
+                      onTap: () => _searchController.clear(),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          const CircleAvatar(
+                            backgroundColor: Colors.white,
+                            radius: 17,
+                            child: Icon(
+                              Icons.close,
+                              size: 21,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                  leading: IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                  centerTitle: true,
+                  backgroundColor: Palette.primary,
+                  elevation: 0,
+                ),
+              ),
               NewsTabBar(
                 onTap: (selected) {
                   setState(() {
@@ -142,6 +175,7 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
       widgets.add(
         _PartnerServicesPageList(
           category: category,
+          searchText: _searchController.text,
         ),
       );
     }
@@ -173,11 +207,11 @@ class _PartnerServicesState extends State<_PartnerServicesTabPage> {
 class _PartnerServicesPageList extends StatelessWidget {
   final ServicesCategory category;
   final ScrollController _scrollController = ScrollController();
+  final String searchText;
 
-  _PartnerServicesPageList({
-    Key? key,
-    required this.category,
-  }) : super(key: key);
+  _PartnerServicesPageList(
+      {Key? key, required this.category, this.searchText = ''})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -239,6 +273,19 @@ class _PartnerServicesPageList extends StatelessWidget {
     required List<Services> services,
     bool isLoading = false,
   }) {
+    if (searchText.isNotEmpty) {
+      services = services
+          .where((element) =>
+              element.serviceProductName
+                  .toString()
+                  .toLowerCase()
+                  .contains(searchText.toLowerCase()) ||
+              element.description
+                  .toString()
+                  .toLowerCase()
+                  .contains(searchText.toLowerCase()))
+          .toList();
+    }
     if (services.isEmpty) {
       return const Center(
         child: Text("No data availabe for this section"),
