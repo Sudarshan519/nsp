@@ -24,11 +24,10 @@ class RemitRateExchangePage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 10),
-        if (remitRate.remitCharge?.isNotEmpty ?? false)
-          RemitExchangeProceGenerator(
-            remitRate: remitRate,
-            onChanged: (value) => _hasSwappedValueNotifier.value = value,
-          ),
+        RemitExchangeProceGenerator(
+          remitRate: remitRate,
+          onChanged: (value) => _hasSwappedValueNotifier.value = value,
+        ),
         ValueListenableBuilder(
           valueListenable: _hasSwappedValueNotifier,
           builder: (context, hasSwapped, child) {
@@ -43,7 +42,9 @@ class RemitRateExchangePage extends StatelessWidget {
         //   remitRate: remitRate,
         // ),
         const SizedBox(height: 10),
-        ViewMoreRate(remitRate: remitRate),
+        if (remitRate.remitCharge != null &&
+            (remitRate.remitCharge?.isNotEmpty ?? false))
+          ViewMoreRate(remitRate: remitRate),
       ],
     );
   }

@@ -142,7 +142,6 @@ class _SearchBodyState extends State<SearchBody> {
     super.initState();
 
     selectedType = widget.type?.toString().split('.').last ?? '';
-    print(selectedType);
   }
 
   @override
@@ -167,7 +166,7 @@ class _SearchBodyState extends State<SearchBody> {
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 4),
                 child: Chip(
-                    side: const BorderSide(width: 0.4),
+                    side: const BorderSide(width: 0.46),
                     backgroundColor: selectedType == item.type
                         ? Palette.primary
                         : Colors.white,
