@@ -37,11 +37,9 @@ class RemitRateExchangePage extends StatelessWidget {
             );
           },
         ),
-        const SizedBox(height: 5),
-        // ServiceChargeWidget(
-        //   remitRate: remitRate,
-        // ),
-        const SizedBox(height: 10),
+        if (remitRate.remitCharge != null &&
+            (remitRate.remitCharge?.isNotEmpty ?? false))
+          const SizedBox(height: 5),
         if (remitRate.remitCharge != null &&
             (remitRate.remitCharge?.isNotEmpty ?? false))
           ViewMoreRate(remitRate: remitRate),
