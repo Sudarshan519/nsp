@@ -22,6 +22,7 @@ class RemitRateExchangePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         const SizedBox(height: 10),
         RemitExchangeProceGenerator(
