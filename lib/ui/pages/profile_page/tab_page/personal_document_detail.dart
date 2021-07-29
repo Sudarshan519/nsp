@@ -361,7 +361,7 @@ class _PersonalDocumentDetailPageState
 
     final reqLocation =
         getIt<HomePageDataBloc>().homeData?.userDetail?.requestLocation ?? 'JP';
-    final isJapan = reqLocation == 'JP';
+    final isJapan = reqLocation.toUpperCase() == 'JP';
 
     if (isJapan) {
       widgets = [
