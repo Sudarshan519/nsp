@@ -28,8 +28,7 @@ class RewardPointPage extends StatelessWidget {
           ..add(
             const RewardPointEvent.fetchRewardPoints(),
           ),
-        child: BlocConsumer<RewardPointBloc, RewardPointState>(
-          listener: (context, state) {},
+        child: BlocBuilder<RewardPointBloc, RewardPointState>(
           buildWhen: (previous, current) =>
               previous.hashCode != current.hashCode,
           builder: (context, state) {

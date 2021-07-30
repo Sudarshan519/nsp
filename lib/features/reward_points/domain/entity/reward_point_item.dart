@@ -12,12 +12,4 @@ class RewardPointItem {
     this.rewardPoint,
     this.createdAt,
   });
-
-  RewardPointItem.fromJson(Map<String, dynamic> json) {
-    id = json['id'] as int?;
-    user = json['user'] as String?;
-    moduleName = json['module_name'] as String?;
-    rewardPoint = json['reward_point'] as double?;
-    createdAt = json['created_at'] as String?;
-  }
 }
