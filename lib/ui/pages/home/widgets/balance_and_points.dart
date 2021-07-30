@@ -96,38 +96,43 @@ class BalanceAndPointWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Points",
-                        style: TextStyle(
-                          color: Palette.black.withOpacity(0.7),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      if (points.isEmpty)
-                        Container(
-                          padding: const EdgeInsets.only(top: 4),
-                          width: 55,
-                          child: const LinearProgressIndicator(
-                            color: Colors.black,
-                            backgroundColor: Colors.black12,
-                          ),
-                        )
-                      else
+                  InkWell(
+                    onTap: () {
+                      context.pushRoute(const RewardPointRoute());
+                    },
+                    child: Row(
+                      children: [
                         Text(
-                          points,
+                          "Points",
                           style: TextStyle(
-                            color: Palette.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            color: Palette.black.withOpacity(0.7),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
-                    ],
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        if (points.isEmpty)
+                          Container(
+                            padding: const EdgeInsets.only(top: 4),
+                            width: 55,
+                            child: const LinearProgressIndicator(
+                              color: Colors.black,
+                              backgroundColor: Colors.black12,
+                            ),
+                          )
+                        else
+                          Text(
+                            points,
+                            style: TextStyle(
+                              color: Palette.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                   const SizedBox(
                     height: 5,
