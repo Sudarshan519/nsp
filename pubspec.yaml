@@ -83,6 +83,7 @@ dependencies:
   flutter_web_browser: ^0.14.0
   marquee: ^2.2.0
   firebase_analytics: ^8.2.0
+  image_cropper: ^1.4.1
 
 dev_dependencies:
   flutter_test:

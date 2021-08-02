@@ -7,7 +7,10 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/notification/navigate_notification.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/main.dart';
+import 'package:wallet_app/utils/config_reader.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 const AndroidNotificationChannel _androidChannel = AndroidNotificationChannel(
   'high_importance_channel', // id
@@ -88,7 +91,11 @@ class PushNotificationManager {
     }
 
     try {
-      _firebaseMessaging.subscribeToTopic('bnpjwallet');
+      var topic = Values.PushNotifTopicId;
+      if (getIt<ConfigReader>().isDebugApp) {
+        topic = topic + '_dev';
+      }
+      _firebaseMessaging.subscribeToTopic(topic);
     } catch (ex) {
       debugPrint(ex.toString());
       return;

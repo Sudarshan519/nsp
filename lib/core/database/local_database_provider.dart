@@ -102,7 +102,7 @@ class DBProviderImpl implements DBProvider {
 
   String _createNewsForYouTable() {
     return '''
-    CREATE TABLE ${NewsItemTable.tableNewsForYou}
+    CREATE TABLE IF NOT EXISTS ${NewsItemTable.tableNewsForYou}
      ( 
       ${NewsItemTable.newsItemColumnId} INT PRIMARY KEY,
       ${NewsItemTable.newsItemColumnTitle} TEXT,
@@ -120,7 +120,7 @@ class DBProviderImpl implements DBProvider {
 
   String _createNewsLatestTable() {
     return '''
-    CREATE TABLE ${NewsItemTable.tableNewsLatest}
+    CREATE TABLE IF NOT EXISTS ${NewsItemTable.tableNewsLatest}
      ( 
       ${NewsItemTable.newsItemColumnId} INT PRIMARY KEY,
       ${NewsItemTable.newsItemColumnTitle} TEXT,
@@ -138,7 +138,7 @@ class DBProviderImpl implements DBProvider {
 
   String _createFavouriteNewsTable() {
     return '''
-    CREATE TABLE ${NewsItemTable.tableNewsLocalSaved}
+    CREATE TABLE IF NOT EXISTS ${NewsItemTable.tableNewsLocalSaved}
      ( 
       ${NewsItemTable.newsItemColumnId} INT PRIMARY KEY,
       ${NewsItemTable.newsItemColumnTitle} TEXT,
@@ -156,7 +156,7 @@ class DBProviderImpl implements DBProvider {
 
   String _createNewsSourceTable() {
     return '''
-    CREATE TABLE ${NewsSourceTable.tableNewsSource}
+    CREATE TABLE IF NOT EXISTS ${NewsSourceTable.tableNewsSource}
      (
       ${NewsSourceTable.newsSourceColumnId} INT PRIMARY KEY, 
       ${NewsSourceTable.newsSourceColumnSource} TEXT 
