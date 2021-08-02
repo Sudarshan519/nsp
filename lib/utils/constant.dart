@@ -51,6 +51,9 @@ class Values {
   static const NCELL = 'ncell';
   static const SMARTCELL = 'smartcell';
 
+  static const PushNotifTopicId = 'bnpjwallet';
+
+
   //List constants
   static const List<String> SMARTCELL_TOPUP = [
     '20',
