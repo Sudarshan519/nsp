@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
@@ -167,6 +168,8 @@ class _LoginBody extends StatelessWidget {
         const SizedBox(width: 5),
         InkWell(
           onTap: () {
+            AnalyticsService.signUp('email_and_password');
+
             context.router.push(const SignupRoute());
           },
           child: Text(

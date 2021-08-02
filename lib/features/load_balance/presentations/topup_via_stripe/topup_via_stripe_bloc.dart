@@ -5,8 +5,10 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/load_balance/domain/usecases/top_up_via_stripe.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 part 'topup_via_stripe_event.dart';
 part 'topup_via_stripe_state.dart';
@@ -127,6 +129,7 @@ class TopupViaStripeBloc
       isSubmitting: true,
       failureOrSuccessOption: none(),
     );
+    AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_STRIPE);
 
     result = await topUpViaStripe(
       TopUpViaStripeParams(

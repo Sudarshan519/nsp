@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/features/home/data/model/remit_rate_mode.dart';
 import 'package:wallet_app/features/japanese_manners/data/model/japanese_manner_model.dart';
 import 'package:wallet_app/features/partner_services/data/model/services_model.dart';
@@ -77,6 +78,7 @@ class SearchPage extends StatelessWidget {
                     }
 
                     _debounce = Timer(const Duration(milliseconds: 700), () {
+                      AnalyticsService.search(text);
                       context.read<SearchBloc>().add(SearchEvent.search(text));
                     });
                   },

@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/ime_pay/ime_pay_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/esewa/esewa_topup_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/khalti/khalti_topup_page.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 class PaymentOptions extends StatefulWidget {
   const PaymentOptions({
@@ -108,6 +110,8 @@ class _PaymentOptionsState extends State<PaymentOptions> {
         );
         break;
       case "esewa":
+        AnalyticsService.logEvent(FirebaseEvents.ESEWA_PAGE,
+            params: {'test_key': 'test_val'});
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,
@@ -128,6 +132,8 @@ class _PaymentOptionsState extends State<PaymentOptions> {
         );
         break;
       case "ime_pay":
+        AnalyticsService.logEvent(FirebaseEvents.IME_PAY_PAGE);
+
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,
@@ -148,6 +154,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
         );
         break;
       case "khalti":
+        AnalyticsService.logEvent(FirebaseEvents.KHALTI_PAGE);
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,

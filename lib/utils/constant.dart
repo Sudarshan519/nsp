@@ -97,3 +97,10 @@ class Values {
   static final smartCellRegx =
       RegExp(r'^(961|988)\d{7}$', caseSensitive: false);
 }
+
+class FirebaseEvents {
+  static const PAYMENT_VIA_STRIPE = 'PAYMENT_VIA_STRIPE';
+  static const ESEWA_PAGE = 'ESEWA_PAGE';
+  static const KHALTI_PAGE = 'KHALTI_PAGE';
+  static const IME_PAY_PAGE = 'IME_PAY_PAGE';
+}

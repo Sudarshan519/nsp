@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/features/ads/presentation/get_ads/ads_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/favourite_news/favourite_news_bloc.dart';
@@ -77,7 +78,7 @@ class WalletApp extends StatelessWidget {
               const GetBalanceEvent.fetchBalance(),
             ),
         ),
-          BlocProvider(
+        BlocProvider(
           create: (_) => getIt<AdsBloc>()
             ..add(
               const AdsEvent.fetchAds(),
@@ -85,7 +86,10 @@ class WalletApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
-        routerDelegate: appRouter.delegate(),
+        routerDelegate: appRouter.delegate(
+            navigatorObservers: () => [
+                  AnalyticsService.getAnalyticsObserver(),
+                ]),
         routeInformationParser: appRouter.defaultRouteParser(),
         title: 'Wallet',
         theme: ThemeData(

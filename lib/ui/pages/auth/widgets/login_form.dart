@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/features/auth/presentation/sign_in_form/sign_in_form_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
@@ -160,6 +161,8 @@ class _LoginButton extends StatelessWidget {
       builder: (context, state) {
         return InkWell(
           onTap: () {
+            AnalyticsService.logIn();
+
             context
                 .read<SignInFormBloc>()
                 .add(const SignInFormEvent.signInWithEmailAndPasswordPressed());
