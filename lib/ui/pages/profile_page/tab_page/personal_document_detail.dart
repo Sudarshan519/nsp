@@ -4,6 +4,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/file_picker/file_provider.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/update_profile/presentations/bloc/update_profile_bloc.dart';
@@ -413,6 +415,8 @@ class _PersonalDocumentDetailPageState
           onTap: isVerified
               ? null
               : () {
+                  AnalyticsService.logEvent(FirebaseEvents.PROFILE_UPDATE);
+
                   context
                       .read<UpdateProfileBloc>()
                       .add(const UpdateProfileEvent.saveDocumentInfo());

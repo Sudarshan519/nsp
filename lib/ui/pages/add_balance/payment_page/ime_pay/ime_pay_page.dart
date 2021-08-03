@@ -2,6 +2,8 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ime_pay/ime_pay.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/ime_pay/ime_pay_form/ime_pay_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/ime_pay/verify_ime_pay_topup/verify_ime_pay_topup_bloc.dart';
@@ -196,7 +198,7 @@ class ImePayTopupPage extends StatelessWidget {
       refId:
           "BNPJ_TOPUP_${userId}_${DateTime.now().millisecondsSinceEpoch.toString()}",
     );
-
+    AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_IME);
     _imePay.startPayment(onSuccess: (ImePaySuccessResponse data) {
       debugPrint(data.toString());
       context.read<VerifyImePayTopupBloc>().add(

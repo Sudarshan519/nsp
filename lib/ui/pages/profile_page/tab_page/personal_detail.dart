@@ -3,6 +3,8 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/location_information/presentation/bloc/location_via_postal_code_bloc.dart';
 import 'package:wallet_app/features/profile/update_profile/presentations/bloc/update_profile_bloc.dart';
@@ -1153,9 +1155,13 @@ class _SaveButton extends StatelessWidget {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       builder: (context, state) {
         return InkWell(
-          onTap: () => context
-              .read<UpdateProfileBloc>()
-              .add(const UpdateProfileEvent.saveUserInfo()),
+          onTap: () {
+            AnalyticsService.logEvent(FirebaseEvents.PROFILE_UPDATE);
+
+            context
+                .read<UpdateProfileBloc>()
+                .add(const UpdateProfileEvent.saveUserInfo());
+          },
           child: Container(
             width: 80,
             height: 30,

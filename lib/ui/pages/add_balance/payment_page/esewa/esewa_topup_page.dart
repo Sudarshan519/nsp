@@ -4,6 +4,8 @@ import 'package:esewa_pnp/esewa.dart';
 import 'package:esewa_pnp/esewa_pnp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/esewa_form/esewa_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/esewa/verify_esewa_topup/verify_esewa_topup_bloc.dart';
@@ -196,6 +198,7 @@ class EsewaTopupPage extends StatelessWidget {
     );
 
     try {
+      AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_ESEWA);
       final _res = await _eSewaPnp.initPayment(payment: _payment);
       debugPrint(_res.message);
 

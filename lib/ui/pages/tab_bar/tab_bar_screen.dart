@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/ui/pages/home/home_screen.dart';
 import 'package:wallet_app/ui/pages/more/more_screen.dart';
 import 'package:wallet_app/ui/pages/news/news_screen.dart';
@@ -20,6 +21,13 @@ class TabBarPage extends StatefulWidget {
 class TabBarScreenState extends State<TabBarPage> {
   int _selectedIndex = 0;
   HomePage? homePage;
+
+  @override
+  void initState() {
+    super.initState();
+    final pageName = getTabs()[_selectedIndex].toString();
+    AnalyticsService.logEvent(pageName);
+  }
 
   List<BottomNavigationBarItem> _tabBarData(int index) => [
         BottomNavigationBarItem(
@@ -87,6 +95,8 @@ class TabBarScreenState extends State<TabBarPage> {
   }
 
   void _onTap(int page) {
+    final pageName = getTabs()[page].toString();
+    AnalyticsService.logEvent(pageName);
     if (page == 0) {
       homePage?.scrollController.animateTo(
         0.0,

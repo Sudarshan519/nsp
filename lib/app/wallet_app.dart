@@ -20,6 +20,8 @@ import 'package:wallet_app/utils/config_reader.dart';
 class WalletApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    appRouter
+        .addListener(() => AnalyticsService.logEvent(appRouter.current.name));
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -87,9 +89,10 @@ class WalletApp extends StatelessWidget {
       ],
       child: MaterialApp.router(
         routerDelegate: appRouter.delegate(
-            navigatorObservers: () => [
-                  AnalyticsService.getAnalyticsObserver(),
-                ]),
+            // navigatorObservers: () => [
+            //       AnalyticsService.getAnalyticsObserver(),
+            //     ]
+            ),
         routeInformationParser: appRouter.defaultRouteParser(),
         title: 'Wallet',
         theme: ThemeData(
