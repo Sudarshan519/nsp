@@ -685,7 +685,8 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult = await fileProvider.getImage();
+                      final fileProviderResult =
+                          await fileProvider.getImage(freeCrop: true);
                       fileProviderResult.fold(
                         (message) {
                           if (message.isNotEmpty) {
@@ -734,7 +735,8 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult = await fileProvider.getImage();
+                      final fileProviderResult =
+                          await fileProvider.getImage(freeCrop: true);
                       // setState(() {
                       //   _isLoading = false;
                       // });
@@ -836,7 +838,8 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult = await fileProvider.getImage();
+                      final fileProviderResult =
+                          await fileProvider.getImage(freeCrop: true);
                       fileProviderResult.fold(
                         (message) {
                           if (message.isNotEmpty) {
@@ -885,7 +888,8 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult = await fileProvider.getImage();
+                      final fileProviderResult =
+                          await fileProvider.getImage(freeCrop: true);
                       // setState(() {
                       //   _isLoading = false;
                       // });
