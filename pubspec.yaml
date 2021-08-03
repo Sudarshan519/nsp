@@ -31,7 +31,7 @@ dependencies:
     git:
       url: https://github.com/AdiD253/pdf_viewer.git
       ref: pdf-viewer-file-fix
-  assorted_layout_widgets: ^4.0.8     
+  assorted_layout_widgets: ^5.0.2     
   another_flushbar: ^1.10.20           
   auto_route: ^2.2.0                
   carousel_slider: ^4.0.0-nullsafety.0   
@@ -50,7 +50,7 @@ dependencies:
   flutter_downloader: ^1.6.1      
   flutter_facebook_auth: ^3.3.3+1              
   flutter_html: ^2.0.0  
-  flutter_local_notifications: ^6.0.0              
+  flutter_local_notifications: ^8.0.0              
   flutter_secure_storage: ^4.2.0 
   flutter_svg: ^0.22.0               
   form_validator: ^1.0.0-nullsafety.1   
@@ -60,14 +60,14 @@ dependencies:
   google_maps_flutter: ^2.0.5                
   google_sign_in: ^5.0.3                
   http: ^0.13.3               
-  image_picker: ^0.7.5   
+  image_picker: ^0.8.2   
   ime_pay: ^0.0.6             
   injectable: ^1.4.0    
   internet_connection_checker: ^0.0.1            
   kana_kit: ^2.0.0                              
   multi_select_flutter: ^4.0.0                
   path_provider: ^2.0.1                
-  permission_handler: ^7.1.0                
+  permission_handler: ^8.1.4+2                
   share: ^2.0.1                
   shared_preferences: ^2.0.5                
   sign_in_with_apple: ^3.0.0  
@@ -80,7 +80,7 @@ dependencies:
   google_mobile_ads: ^0.13.2
   facebook_audience_network: ^0.9.0
   flutter_khalti: ^1.1.0
-  flutter_web_browser: ^0.14.0
+  flutter_web_browser: ^0.15.0
   marquee: ^2.2.0
   firebase_analytics: ^8.2.0
   image_cropper: ^1.4.1
