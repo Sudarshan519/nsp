@@ -56,7 +56,6 @@ class LatestNewsBloc extends Bloc<LatestNewsEvent, LatestNewsState> {
         _hasReachedEnd = false;
         _page = 1;
         _newsData = [];
-        yield const _Loading();
         yield* _mapFetchNewsToState();
       },
     );
@@ -68,6 +67,8 @@ class LatestNewsBloc extends Bloc<LatestNewsEvent, LatestNewsState> {
     }
 
     final result = await getNews(GetLatestNewsParams(page: "$_page"));
+    yield const _Loading();
+
     yield result.fold(
       (failure) {
         isFetching = false;

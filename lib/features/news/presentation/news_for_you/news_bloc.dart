@@ -56,7 +56,6 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         _hasReachedEnd = false;
         _page = 1;
         _newsData = [];
-        yield const _Loading();
         yield* _mapFetchNewsToState();
       },
     );
@@ -68,6 +67,8 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
     }
 
     final result = await getNews(GetNewsForYouParams(page: "$_page"));
+    yield const _Loading();
+
     yield result.fold(
       (failure) {
         isFetching = false;
