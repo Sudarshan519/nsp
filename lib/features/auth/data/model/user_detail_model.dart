@@ -263,7 +263,7 @@ class UserDetailModel extends UserDetail {
       params["marital_status"] = maritalStatus;
     }
 
-    if (dob != null) {
+    if (dob != null && dob!.isNotEmpty) {
       params["dob"] = dob;
     }
 

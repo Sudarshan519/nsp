@@ -2,6 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/foundation.dart';
 
+// ignore: avoid_classes_with_only_static_members
 class AnalyticsService {
   static final FirebaseAnalytics _analytics = FirebaseAnalytics();
 
@@ -23,7 +24,7 @@ class AnalyticsService {
     if (eventId == _previousEvent) {
       return;
     }
-    // debugPrint('EVENT: $eventId');
+    debugPrint('EVENT: $eventId');
     _previousEvent = eventId;
     await _analytics.logEvent(name: eventId, parameters: params);
   }
