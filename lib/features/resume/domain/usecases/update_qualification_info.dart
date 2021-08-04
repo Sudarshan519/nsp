@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
@@ -25,11 +27,13 @@ class UpdateQualificationInfo
     if (!isConnected) {
       return const Left(ApiFailure.noInternetConnection());
     }
-     if(params.qualificationName.isEmpty){
-            return const Left(ApiFailure.serverError(message: 'Please enter Qualification Name!'));
+    if (params.qualificationName.isEmpty) {
+      return const Left(
+          ApiFailure.serverError(message: 'Please enter Qualification Name!'));
     }
-      if(params.certifiedYear.isEmpty){
-            return const Left(ApiFailure.serverError(message: 'Please enter Certified year!'));
+    if (params.certifiedYear.isEmpty) {
+      return const Left(
+          ApiFailure.serverError(message: 'Please enter Certified year!'));
     }
 
     final qualificationData = QualificationHistory(
@@ -38,6 +42,7 @@ class UpdateQualificationInfo
       certifiedYear: params.certifiedYear,
       certifiedMonth: params.certifiedMonth,
     );
+    AnalyticsService.logEvent(FirebaseEvents.RESUME_UPDATE);
 
     return repository.updateQualification(
       data: qualificationData,

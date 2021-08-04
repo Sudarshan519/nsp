@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -33,8 +34,8 @@ class NewsItemWidget extends StatelessWidget {
                   child: SizedBox(
                     height: 100,
                     width: 120,
-                    child: Image.network(
-                      newsItem.image ?? '',
+                    child: CachedNetworkImage(
+                      imageUrl: newsItem.image ?? '',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -152,8 +153,8 @@ class NewsItemWidget extends StatelessWidget {
                       //TODO: add news source icon
                       Row(
                         children: [
-                          Image.network(
-                            newsItem.sourceImage ?? '',
+                          CachedNetworkImage(
+                            imageUrl: newsItem.sourceImage ?? '',
                             fit: BoxFit.fitHeight,
                             height: 10,
                           ),

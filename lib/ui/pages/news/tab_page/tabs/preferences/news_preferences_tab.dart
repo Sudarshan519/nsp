@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/news/domain/entity/news_preference.dart';
@@ -192,8 +193,8 @@ class _LanguageWithSource extends StatelessWidget {
                       child: Row(
                         children: [
                           const SizedBox(width: 2),
-                          Image.network(
-                            sources[index].image ?? "",
+                          CachedNetworkImage(
+                            imageUrl: sources[index].image ?? "",
                             height: 10,
                             fit: BoxFit.fitWidth,
                           ),

@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/home/domain/entities/home_response.dart';
@@ -56,6 +57,11 @@ class HomePageDataBloc extends Bloc<HomePageDataEvent, HomePageDataState> {
       },
       (data) async* {
         homeData = data;
+
+        final userID = homeData!.userDetail?.uuid ?? '';
+        if (userID.isEmpty) {
+          AnalyticsService.setUserId(userID);
+        }
         yield HomePageDataState.loaded(homeData!);
       },
     );

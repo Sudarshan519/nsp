@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
@@ -22,10 +23,13 @@ class NewsCarouselItem extends StatelessWidget {
           Column(
             children: [
               Expanded(
-                child: Image.network(
-                  newsItem.image ?? "",
+                child: CachedNetworkImage(
+                  imageUrl: newsItem.image ?? "",
                   fit: BoxFit.cover,
                   width: 1000,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ],

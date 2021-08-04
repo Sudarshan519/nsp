@@ -54,6 +54,7 @@ class UserDetail extends Equatable {
     this.isKycVerified,
     this.currencyConversionRate,
     this.notificationCount,
+    this.requestLocation,
   });
 
   final String? firstName;
@@ -109,6 +110,7 @@ class UserDetail extends Equatable {
   ///1  Npr -> JPY
   final double? currencyConversionRate;
   final int? notificationCount;
+  final String? requestLocation;
 
   @override
   List<Object> get props => [];

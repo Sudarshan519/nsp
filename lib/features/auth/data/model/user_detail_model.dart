@@ -49,6 +49,7 @@ class UserDetailModel extends UserDetail {
     required String? buildingName,
     required String? remarks,
     required String? otherPhone,
+    required String? requestLocation,
     required int? smartPitNo,
     required bool? isKycVerified,
     ResumeOptionsModel? options,
@@ -108,6 +109,7 @@ class UserDetailModel extends UserDetail {
           isKycVerified: isKycVerified,
           currencyConversionRate: currencyConversionRate,
           notificationCount: notificationCount,
+          requestLocation: requestLocation,
         );
 
   factory UserDetailModel.fromJson(Map<String, dynamic> json) =>
@@ -119,6 +121,7 @@ class UserDetailModel extends UserDetail {
         mobile: json["mobile_phone"] as String?,
         uuid: json["uuid"] as String?,
         avatar: json["avatar"] as String?,
+        requestLocation: json['request_location'] as String?,
         balance: (json["balance"] is int?)
             ? double.parse("${json["balance"] as int? ?? 0}")
             : json["balance"] as double?,
@@ -425,5 +428,6 @@ extension UserDetailExt on UserDetail {
         // options: options.toResumeOptionsModel(),
         currencyConversionRate: currencyConversionRate,
         notificationCount: notificationCount,
+        requestLocation: requestLocation,
       );
 }

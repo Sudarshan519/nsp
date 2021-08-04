@@ -35,6 +35,8 @@ class AppConstants {
   static const redeemSuccessTitle = "Redeem completed";
   static const redeemSuccessMessage =
       "You have successfully redeem the coupon. Thank you.";
+  static const imagePickError =
+      "Sorry the file you chose could not be fetched. Please select another one.";
 }
 
 class Values {
@@ -50,6 +52,8 @@ class Values {
   static const NTC = 'ntc';
   static const NCELL = 'ncell';
   static const SMARTCELL = 'smartcell';
+
+  static const PushNotifTopicId = 'bnpjwallet';
 
   //List constants
   static const List<String> SMARTCELL_TOPUP = [

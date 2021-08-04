@@ -13,8 +13,7 @@ class ForYouNewsTab extends StatelessWidget {
   ForYouNewsTab({
     Key? key,
     required this.editGenre,
-  })   : assert(editGenre != null),
-        super(key: key);
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NewsBloc, NewsState>(

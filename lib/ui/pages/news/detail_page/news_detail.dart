@@ -1,5 +1,6 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
@@ -45,8 +46,8 @@ class NewsDetailPage extends StatelessWidget {
       child: ColumnSuper(
         innerDistance: -60,
         children: [
-          Image.network(
-            newsItem.image ?? '',
+          CachedNetworkImage(
+            imageUrl: newsItem.image ?? '',
             width: width,
             fit: BoxFit.fitWidth,
           ),
@@ -58,8 +59,8 @@ class NewsDetailPage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Image.network(
-                      newsItem.sourceImage ?? '',
+                    CachedNetworkImage(
+                      imageUrl: newsItem.sourceImage ?? '',
                       fit: BoxFit.fitHeight,
                       height: 10,
                     ),

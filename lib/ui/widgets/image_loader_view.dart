@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -50,26 +51,19 @@ class ImageLoaderWidget extends StatelessWidget {
       height: height,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(cornerRadius),
-        child: Image.network(
-          image,
+        child: CachedNetworkImage(
+          imageUrl: image,
           fit: BoxFit.cover,
-          loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) return child;
-            return Container(
-              color: Palette.primaryBackground,
-              height: height / 2.0,
-              child: Center(
-                child: CircularProgressIndicator(
-                  value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded /
-                          (loadingProgress.expectedTotalBytes ?? 1)
-                      : null,
-                ),
-              ),
-            );
-          },
-          errorBuilder: (_, __, ___) {
+          progressIndicatorBuilder: (context, url, downloadProgress) =>
+              Container(
+            color: Palette.primaryBackground,
+            height: height / 2.0,
+            child: Center(
+              child:
+                  CircularProgressIndicator(value: downloadProgress.progress),
+            ),
+          ),
+          errorWidget: (_, __, ___) {
             return Image.asset(
               'assets/images/navigation_bar/u1.png',
               fit: BoxFit.cover,

@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
@@ -25,6 +27,7 @@ class DeleteResumeData
     if (!isConnected) {
       return const Left(ApiFailure.noInternetConnection());
     }
+    AnalyticsService.logEvent(FirebaseEvents.RESUME_UPDATE);
 
     return repository.deleteResumeValue(
       id: params.id,

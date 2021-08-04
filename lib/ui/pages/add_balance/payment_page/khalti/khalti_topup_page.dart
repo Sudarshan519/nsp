@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/domain/usecases/verify_khalti_top_up.dart';
 import 'package:wallet_app/features/load_balance/presentations/khalti/khalti_form/khalti_form_cubit.dart';
@@ -203,7 +205,7 @@ class KhaltiTopupPage extends StatelessWidget {
       amount: khaltiAmtinPaisa,
       name: "Load Balance from Khalti",
     );
-
+    AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_KHALTI);
     _flutterKhalti.startPayment(
       product: product,
       onSuccess: (data) {

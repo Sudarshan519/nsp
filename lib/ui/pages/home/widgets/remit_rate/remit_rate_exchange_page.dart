@@ -22,13 +22,13 @@ class RemitRateExchangePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         const SizedBox(height: 10),
-        if (remitRate.remitCharge?.isNotEmpty ?? false)
-          RemitExchangeProceGenerator(
-            remitRate: remitRate,
-            onChanged: (value) => _hasSwappedValueNotifier.value = value,
-          ),
+        RemitExchangeProceGenerator(
+          remitRate: remitRate,
+          onChanged: (value) => _hasSwappedValueNotifier.value = value,
+        ),
         ValueListenableBuilder(
           valueListenable: _hasSwappedValueNotifier,
           builder: (context, hasSwapped, child) {
@@ -38,12 +38,12 @@ class RemitRateExchangePage extends StatelessWidget {
             );
           },
         ),
-        const SizedBox(height: 5),
-        // ServiceChargeWidget(
-        //   remitRate: remitRate,
-        // ),
-        const SizedBox(height: 10),
-        ViewMoreRate(remitRate: remitRate),
+        if (remitRate.remitCharge != null &&
+            (remitRate.remitCharge?.isNotEmpty ?? false))
+          const SizedBox(height: 5),
+        if (remitRate.remitCharge != null &&
+            (remitRate.remitCharge?.isNotEmpty ?? false))
+          ViewMoreRate(remitRate: remitRate),
       ],
     );
   }

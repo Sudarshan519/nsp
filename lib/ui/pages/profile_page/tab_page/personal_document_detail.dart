@@ -4,6 +4,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/file_picker/file_provider.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/update_profile/presentations/bloc/update_profile_bloc.dart';
@@ -88,21 +90,51 @@ class _PersonalDocumentDetailPageState
   }
 
   Widget buildBody(BuildContext context, Key? key) {
-    return Column(
-      key: key,
-      children: [
-        if (_userImage == null)
-          _UserPhotoWidget(
-            callback: (file) {
-              setState(() {
-                _userImage = file;
-              });
-            },
-          )
-        else
-          _userSelectedImage(),
-        const SizedBox(height: 16),
-        ShadowBoxWidget(
+    final kycCountryOriginImage = ShadowBoxWidget(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: SizedBox(
+        width: double.maxFinite,
+        child: Column(
+          children: [
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "KYC for Country of Origin",
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            _OriginKycDocumentWidget(
+              kycFront: _originKycDocFront,
+              kycBack: _originKycDocBack,
+              kycCallFront: (file) {
+                setState(() {
+                  _originKycDocFront = file;
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeOriginKycDocFront(file));
+                });
+              },
+              kycCallBack: (file) {
+                setState(() {
+                  _originKycDocBack = file;
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeOriginKycDocBack(file));
+                });
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+    final kycCountryOriginDesc =
+        BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
+      builder: (context, state) {
+        return ShadowBoxWidget(
           margin: const EdgeInsets.symmetric(horizontal: 16),
           child: SizedBox(
             width: double.maxFinite,
@@ -119,172 +151,168 @@ class _PersonalDocumentDetailPageState
                   ),
                 ),
                 const SizedBox(height: 10),
-                _OriginKycDocumentWidget(
-                  kycFront: _originKycDocFront,
-                  kycBack: _originKycDocBack,
-                  kycCallFront: (file) {
-                    setState(() {
-                      _originKycDocFront = file;
-                      context.read<UpdateProfileBloc>().add(
-                          UpdateProfileEvent.changeOriginKycDocFront(file));
-                    });
-                  },
-                  kycCallBack: (file) {
-                    setState(() {
-                      _originKycDocBack = file;
-                      context
-                          .read<UpdateProfileBloc>()
-                          .add(UpdateProfileEvent.changeOriginKycDocBack(file));
-                    });
-                  },
+                TextWidetWithLabelAndChild(
+                  title: "Document Type",
+                  child: CustomDropDownWidget(
+                    hintText: "Document Type",
+                    value: state.originKycDocType,
+                    options: state.listOfKycDocType,
+                    onChanged: (value) => context
+                        .read<UpdateProfileBloc>()
+                        .add(UpdateProfileEvent.changeOriginKycDocType(value)),
+                  ),
                 ),
+                const SizedBox(height: 10),
+                TextWidetWithLabelAndChild(
+                  title: "${state.originKycDocType} Number",
+                  child: InputTextWidget(
+                    hintText: "${state.originKycDocType} Number",
+                    value: state.originKycDocNumber,
+                    onChanged: (value) => context.read<UpdateProfileBloc>().add(
+                        UpdateProfileEvent.changeOriginKycDocNumber(value)),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                // TextWidetWithLabelAndChild(
+                //   title: "Document Issued From",
+                //   child: InputTextWidget(
+                //     hintText: "Document Issued From",
+                //     textInputType: TextInputType.name,
+                //     value: state.originDocIssuedFrom,
+                //     onChanged: (value) => context
+                //         .read<UpdateProfileBloc>()
+                //         .add(UpdateProfileEvent.changeOriginDocIssuedFrom(
+                //             value)),
+                //   ),
+                // ),
+                // const SizedBox(height: 10),
+                // InkWell(
+                //   onTap: () {
+                //     selectDate(
+                //       context: context,
+                //       futureDataAvailable: false,
+                //       showAge: false,
+                //       controller: TextEditingController(
+                //           text: state.originDocIssuedDate),
+                //       onChanged: (date, age) {
+                //         context.read<UpdateProfileBloc>().add(
+                //             UpdateProfileEvent.changeOriginDocIssuedDate(
+                //                 date));
+                //       },
+                //     );
+                //   },
+                //   child: Row(
+                //     mainAxisSize: MainAxisSize.min,
+                //     children: [
+                //       Expanded(
+                //         flex: 2,
+                //         child: TextWidetWithLabelAndChild(
+                //           title: "Issued Date",
+                //           child: InputTextWidget(
+                //             hintText: "AD",
+                //             textInputType: TextInputType.name,
+                //             value: "AD",
+                //             isEnable: false,
+                //             onChanged: (value) {},
+                //           ),
+                //         ),
+                //       ),
+                //       const SizedBox(width: 5),
+                //       Expanded(
+                //         flex: 2,
+                //         child: TextWidetWithLabelAndChild(
+                //           key: UniqueKey(),
+                //           title: "Year",
+                //           child: InputTextWidget(
+                //             hintText: "1195",
+                //             textInputType: TextInputType.name,
+                //             value: state.originDocIssuedYear,
+                //             isEnable: false,
+                //             onChanged: (value) {},
+                //           ),
+                //         ),
+                //       ),
+                //       const SizedBox(width: 5),
+                //       Expanded(
+                //         child: TextWidetWithLabelAndChild(
+                //           key: UniqueKey(),
+                //           title: "Month",
+                //           child: InputTextWidget(
+                //             hintText: "Jan",
+                //             textInputType: TextInputType.name,
+                //             value: state.originDocIssuedMonth,
+                //             isEnable: false,
+                //             onChanged: (value) {},
+                //           ),
+                //         ),
+                //       ),
+                //       const SizedBox(width: 5),
+                //       Expanded(
+                //         child: TextWidetWithLabelAndChild(
+                //           key: UniqueKey(),
+                //           title: "Days",
+                //           child: InputTextWidget(
+                //             hintText: "31",
+                //             textInputType: TextInputType.name,
+                //             value: state.originDocIssuedDay,
+                //             isEnable: false,
+                //             onChanged: (value) {},
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),
-        ),
-        const SizedBox(height: 16),
-        BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-          builder: (context, state) {
-            return ShadowBoxWidget(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              child: SizedBox(
-                width: double.maxFinite,
-                child: Column(
-                  children: [
-                    const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "KYC for Country of Origin",
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    TextWidetWithLabelAndChild(
-                      title: "Document Type",
-                      child: CustomDropDownWidget(
-                        hintText: "Document Type",
-                        value: state.originKycDocType,
-                        options: state.listOfKycDocType,
-                        onChanged: (value) => context
-                            .read<UpdateProfileBloc>()
-                            .add(UpdateProfileEvent.changeOriginKycDocType(
-                                value)),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    TextWidetWithLabelAndChild(
-                      title: "${state.originKycDocType} Number",
-                      child: InputTextWidget(
-                        hintText: "${state.originKycDocType} Number",
-                        value: state.originKycDocNumber,
-                        onChanged: (value) => context
-                            .read<UpdateProfileBloc>()
-                            .add(UpdateProfileEvent.changeOriginKycDocNumber(
-                                value)),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    // TextWidetWithLabelAndChild(
-                    //   title: "Document Issued From",
-                    //   child: InputTextWidget(
-                    //     hintText: "Document Issued From",
-                    //     textInputType: TextInputType.name,
-                    //     value: state.originDocIssuedFrom,
-                    //     onChanged: (value) => context
-                    //         .read<UpdateProfileBloc>()
-                    //         .add(UpdateProfileEvent.changeOriginDocIssuedFrom(
-                    //             value)),
-                    //   ),
-                    // ),
-                    // const SizedBox(height: 10),
-                    // InkWell(
-                    //   onTap: () {
-                    //     selectDate(
-                    //       context: context,
-                    //       futureDataAvailable: false,
-                    //       showAge: false,
-                    //       controller: TextEditingController(
-                    //           text: state.originDocIssuedDate),
-                    //       onChanged: (date, age) {
-                    //         context.read<UpdateProfileBloc>().add(
-                    //             UpdateProfileEvent.changeOriginDocIssuedDate(
-                    //                 date));
-                    //       },
-                    //     );
-                    //   },
-                    //   child: Row(
-                    //     mainAxisSize: MainAxisSize.min,
-                    //     children: [
-                    //       Expanded(
-                    //         flex: 2,
-                    //         child: TextWidetWithLabelAndChild(
-                    //           title: "Issued Date",
-                    //           child: InputTextWidget(
-                    //             hintText: "AD",
-                    //             textInputType: TextInputType.name,
-                    //             value: "AD",
-                    //             isEnable: false,
-                    //             onChanged: (value) {},
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       const SizedBox(width: 5),
-                    //       Expanded(
-                    //         flex: 2,
-                    //         child: TextWidetWithLabelAndChild(
-                    //           key: UniqueKey(),
-                    //           title: "Year",
-                    //           child: InputTextWidget(
-                    //             hintText: "1195",
-                    //             textInputType: TextInputType.name,
-                    //             value: state.originDocIssuedYear,
-                    //             isEnable: false,
-                    //             onChanged: (value) {},
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       const SizedBox(width: 5),
-                    //       Expanded(
-                    //         child: TextWidetWithLabelAndChild(
-                    //           key: UniqueKey(),
-                    //           title: "Month",
-                    //           child: InputTextWidget(
-                    //             hintText: "Jan",
-                    //             textInputType: TextInputType.name,
-                    //             value: state.originDocIssuedMonth,
-                    //             isEnable: false,
-                    //             onChanged: (value) {},
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       const SizedBox(width: 5),
-                    //       Expanded(
-                    //         child: TextWidetWithLabelAndChild(
-                    //           key: UniqueKey(),
-                    //           title: "Days",
-                    //           child: InputTextWidget(
-                    //             hintText: "31",
-                    //             textInputType: TextInputType.name,
-                    //             value: state.originDocIssuedDay,
-                    //             isEnable: false,
-                    //             onChanged: (value) {},
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                  ],
+        );
+      },
+    );
+    final kycForJPImg = ShadowBoxWidget(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: SizedBox(
+        width: double.maxFinite,
+        child: Column(
+          children: [
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "KYC For Japan",
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
-            );
-          },
+            ),
+            const SizedBox(height: 10),
+            _ResidenceKycDocumentWidget(
+              kycFront: _residenceKycDocFront,
+              kycBack: _residenceKycDocBack,
+              kycCallFront: (file) {
+                setState(() {
+                  _residenceKycDocFront = file;
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeResidenceKycDocFront(file));
+                });
+              },
+              kycCallBack: (file) {
+                setState(() {
+                  _residenceKycDocBack = file;
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(UpdateProfileEvent.changeResidenceKycDocBack(file));
+                });
+              },
+            ),
+          ],
         ),
-        const SizedBox(height: 16),
-        ShadowBoxWidget(
+      ),
+    );
+    final kycForJapanDesc = BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
+      builder: (context, state) {
+        return ShadowBoxWidget(
           margin: const EdgeInsets.symmetric(horizontal: 16),
           child: SizedBox(
             width: double.maxFinite,
@@ -301,88 +329,98 @@ class _PersonalDocumentDetailPageState
                   ),
                 ),
                 const SizedBox(height: 10),
-                _ResidenceKycDocumentWidget(
-                  kycFront: _residenceKycDocFront,
-                  kycBack: _residenceKycDocBack,
-                  kycCallFront: (file) {
-                    setState(() {
-                      _residenceKycDocFront = file;
-                      context.read<UpdateProfileBloc>().add(
-                          UpdateProfileEvent.changeResidenceKycDocFront(file));
-                    });
-                  },
-                  kycCallBack: (file) {
-                    setState(() {
-                      _residenceKycDocBack = file;
-                      context.read<UpdateProfileBloc>().add(
-                          UpdateProfileEvent.changeResidenceKycDocBack(file));
-                    });
-                  },
+                TextWidetWithLabelAndChild(
+                  title: "Document Type",
+                  child: CustomDropDownWidget(
+                    hintText: "Document Type",
+                    value: state.residenceKycDocType,
+                    options: const [
+                      "Japan Residence Card",
+                      "Japan Driving License"
+                    ],
+                    onChanged: (value) => context.read<UpdateProfileBloc>().add(
+                        UpdateProfileEvent.changeResidenceKycDocType(value)),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                TextWidetWithLabelAndChild(
+                  title: "${state.residenceKycDocType} Number",
+                  child: InputTextWidget(
+                    hintText: "${state.residenceKycDocType} Number",
+                    value: state.residenceKycDocNumber,
+                    onChanged: (value) => context.read<UpdateProfileBloc>().add(
+                        UpdateProfileEvent.changeResidenceKycDocNumber(value)),
+                  ),
                 ),
               ],
             ),
           ),
-        ),
+        );
+      },
+    );
+
+    var widgets = <Widget>[];
+
+    final reqLocation =
+        getIt<HomePageDataBloc>().homeData?.userDetail?.requestLocation ?? 'JP';
+    final isJapan = reqLocation.toUpperCase() == 'JP';
+
+    if (isJapan) {
+      widgets = [
+        kycForJPImg,
         const SizedBox(height: 16),
-        BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-          builder: (context, state) {
-            return ShadowBoxWidget(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              child: SizedBox(
-                width: double.maxFinite,
-                child: Column(
-                  children: [
-                    const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "KYC For Japan",
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    TextWidetWithLabelAndChild(
-                      title: "Document Type",
-                      child: CustomDropDownWidget(
-                        hintText: "Document Type",
-                        value: state.residenceKycDocType,
-                        options: const [
-                          "Japan Residence Card",
-                          "Japan Driving License"
-                        ],
-                        onChanged: (value) => context
-                            .read<UpdateProfileBloc>()
-                            .add(UpdateProfileEvent.changeResidenceKycDocType(
-                                value)),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    TextWidetWithLabelAndChild(
-                      title: "${state.residenceKycDocType} Number",
-                      child: InputTextWidget(
-                        hintText: "${state.residenceKycDocType} Number",
-                        value: state.residenceKycDocNumber,
-                        onChanged: (value) => context
-                            .read<UpdateProfileBloc>()
-                            .add(UpdateProfileEvent.changeResidenceKycDocNumber(
-                                value)),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-        ),
+        kycForJapanDesc,
         const SizedBox(height: 16),
+        kycCountryOriginImage,
+        const SizedBox(height: 16),
+        kycCountryOriginDesc,
+      ];
+    } else {
+      widgets = [
+        kycCountryOriginImage,
+        const SizedBox(height: 16),
+        kycCountryOriginDesc,
+        const SizedBox(height: 16),
+        kycForJPImg,
+        const SizedBox(height: 16),
+        kycForJapanDesc,
+        const SizedBox(height: 16),
+      ];
+    }
+    final isVerified =
+        getIt<HomePageDataBloc>().homeData?.userDetail?.isKycVerified ?? false;
+
+    return Column(
+      key: key,
+      children: [
+        if (_userImage == null)
+          _UserPhotoWidget(
+            callback: (file) {
+              setState(() {
+                _userImage = file;
+              });
+            },
+          )
+        else
+          _userSelectedImage(),
+        const SizedBox(height: 16),
+        AbsorbPointer(
+          absorbing: isVerified,
+          child: Column(
+            children: widgets,
+          ),
+        ),
+        const SizedBox(height: 8),
         InkWell(
-          onTap: () {
-            context
-                .read<UpdateProfileBloc>()
-                .add(const UpdateProfileEvent.saveDocumentInfo());
-          },
+          onTap: isVerified
+              ? null
+              : () {
+                  AnalyticsService.logEvent(FirebaseEvents.PROFILE_UPDATE);
+
+                  context
+                      .read<UpdateProfileBloc>()
+                      .add(const UpdateProfileEvent.saveDocumentInfo());
+                },
           child: Container(
             width: 80,
             height: 30,
@@ -647,7 +685,8 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult = await fileProvider.getImage();
+                      final fileProviderResult =
+                          await fileProvider.getImage(freeCrop: true);
                       fileProviderResult.fold(
                         (message) {
                           if (message.isNotEmpty) {
@@ -696,7 +735,8 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult = await fileProvider.getImage();
+                      final fileProviderResult =
+                          await fileProvider.getImage(freeCrop: true);
                       // setState(() {
                       //   _isLoading = false;
                       // });
@@ -798,7 +838,8 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult = await fileProvider.getImage();
+                      final fileProviderResult =
+                          await fileProvider.getImage(freeCrop: true);
                       fileProviderResult.fold(
                         (message) {
                           if (message.isNotEmpty) {
@@ -847,7 +888,8 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult = await fileProvider.getImage();
+                      final fileProviderResult =
+                          await fileProvider.getImage(freeCrop: true);
                       // setState(() {
                       //   _isLoading = false;
                       // });

@@ -157,7 +157,8 @@ class JapaneseMannerWidget extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Column(
+                Expanded(
+                    child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 10),
@@ -192,7 +193,7 @@ class JapaneseMannerWidget extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                )),
               ],
             ),
             const SizedBox(height: 10),

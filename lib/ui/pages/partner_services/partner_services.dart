@@ -2,11 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/services_categories.dart';
 import 'package:wallet_app/features/partner_services/presentation/partner_services/parnter_services_bloc.dart';
 import 'package:wallet_app/features/partner_services/presentation/partner_services_categories/partner_service_categories_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/tabs/tab_bar/news_tab_bar.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -25,14 +27,25 @@ class PartnerServicesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Partner Services",
-          style: TextStyle(color: Palette.white),
+        leadingWidth: 14,
+        title: const Text(
+          'Partner Services',
+          style: TextStyle(color: Colors.white),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        leading: const BackButton(color: Colors.white),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () =>
+                  context.pushRoute(SearchRoute(type: HomeItemType.services)),
+              child: SvgPicture.asset(
+                "assets/images/navigation_bar/search.svg",
+                height: 25.0,
+              ),
+            ),
+          ),
+        ],
         centerTitle: true,
         backgroundColor: Palette.primary,
         elevation: 0,

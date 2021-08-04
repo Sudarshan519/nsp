@@ -3,6 +3,8 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/location_information/presentation/bloc/location_via_postal_code_bloc.dart';
 import 'package:wallet_app/features/profile/update_profile/presentations/bloc/update_profile_bloc.dart';
@@ -66,103 +68,108 @@ class PersonalDetailPage extends StatelessWidget {
   }
 
   Widget buildBody(BuildContext context, Key? key) {
+    final isVerified =
+        getIt<HomePageDataBloc>().homeData?.userDetail?.isKycVerified ?? false;
     return ShadowBoxWidget(
       key: key,
       margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        children: [
-          _FirstNameWidget(),
-          const SizedBox(height: 10),
-          _LastNameWidget(),
-          const SizedBox(height: 10),
-          _FuriganaWidget(),
-          const SizedBox(height: 10),
-          // _FatherNameWidget(),
-          // const SizedBox(height: 10),
-          // _MotherNameWidget(),
-          // const SizedBox(height: 10),
-          // _GrandFatherNameWidget(),
-          // const SizedBox(height: 10),
-          _CompanyWidget(),
-          const SizedBox(height: 10),
-          _ProfessionWidget(),
-          const SizedBox(height: 10),
-          _NationalityWidget(),
-          const SizedBox(height: 10),
-          _GenderWidget(),
-          const SizedBox(height: 10),
-          _MaritalStatusWidget(),
-          const SizedBox(height: 10),
-          _DobWidget(),
-          // const SizedBox(height: 10),
-          // _CommunityWidget(),
-          const SizedBox(height: 10),
-          _MobileNumberWidget(),
-          const SizedBox(height: 10),
-          _OtherNumberWidget(),
-          const SizedBox(height: 10),
-          _EmailWidget(),
-          const SizedBox(height: 16),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "Origin/Permanent Address",
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
+      child: AbsorbPointer(
+        absorbing: isVerified,
+        child: Column(
+          children: [
+            _FirstNameWidget(),
+            const SizedBox(height: 10),
+            _LastNameWidget(),
+            const SizedBox(height: 10),
+            _FuriganaWidget(),
+            const SizedBox(height: 10),
+            // _FatherNameWidget(),
+            // const SizedBox(height: 10),
+            // _MotherNameWidget(),
+            // const SizedBox(height: 10),
+            // _GrandFatherNameWidget(),
+            // const SizedBox(height: 10),
+            _CompanyWidget(),
+            const SizedBox(height: 10),
+            _ProfessionWidget(),
+            const SizedBox(height: 10),
+            _NationalityWidget(),
+            const SizedBox(height: 10),
+            _GenderWidget(),
+            const SizedBox(height: 10),
+            _MaritalStatusWidget(),
+            const SizedBox(height: 10),
+            _DobWidget(),
+            // const SizedBox(height: 10),
+            // _CommunityWidget(),
+            const SizedBox(height: 10),
+            _MobileNumberWidget(),
+            const SizedBox(height: 10),
+            _OtherNumberWidget(),
+            const SizedBox(height: 10),
+            _EmailWidget(),
+            const SizedBox(height: 16),
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Origin/Permanent Address",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          ShadowBoxWidget(
-            child: Column(
-              children: const [
-                _OriginCountryInputField(),
-                SizedBox(height: 10),
-                _OriginPostalCodeInputField(),
-                SizedBox(height: 10),
-                _OriginPrefectureInputField(),
-                SizedBox(height: 10),
-                _OriginCityInputField(),
-                SizedBox(height: 10),
-                _OriginAddressInputField(),
-                SizedBox(height: 10),
-              ],
-            ),
-          ),
-          const SizedBox(height: 16),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "Residence/Current Address",
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
+            const SizedBox(height: 10),
+            ShadowBoxWidget(
+              child: Column(
+                children: const [
+                  _OriginCountryInputField(),
+                  SizedBox(height: 10),
+                  _OriginPostalCodeInputField(),
+                  SizedBox(height: 10),
+                  _OriginPrefectureInputField(),
+                  SizedBox(height: 10),
+                  _OriginCityInputField(),
+                  SizedBox(height: 10),
+                  _OriginAddressInputField(),
+                  SizedBox(height: 10),
+                ],
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          ShadowBoxWidget(
-            child: Column(
-              children: const [
-                _SameAsPermanentAddress(),
-                SizedBox(height: 10),
-                _ResidenceCountryInputField(),
-                SizedBox(height: 10),
-                _ResidencePostalCodeInputField(),
-                SizedBox(height: 10),
-                _ResidencePrefectureInputField(),
-                SizedBox(height: 10),
-                _ResidenceCityInputField(),
-                SizedBox(height: 10),
-                _ResidenceAddressInputField(),
-                SizedBox(height: 10),
-              ],
+            const SizedBox(height: 16),
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Residence/Current Address",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
-          ),
-          const SizedBox(height: 10),
-          _SaveButton(),
-        ],
+            const SizedBox(height: 10),
+            ShadowBoxWidget(
+              child: Column(
+                children: const [
+                  _SameAsPermanentAddress(),
+                  SizedBox(height: 10),
+                  _ResidenceCountryInputField(),
+                  SizedBox(height: 10),
+                  _ResidencePostalCodeInputField(),
+                  SizedBox(height: 10),
+                  _ResidencePrefectureInputField(),
+                  SizedBox(height: 10),
+                  _ResidenceCityInputField(),
+                  SizedBox(height: 10),
+                  _ResidenceAddressInputField(),
+                  SizedBox(height: 10),
+                ],
+              ),
+            ),
+            const SizedBox(height: 10),
+            _SaveButton(),
+          ],
+        ),
       ),
     );
   }
@@ -1148,9 +1155,13 @@ class _SaveButton extends StatelessWidget {
     return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
       builder: (context, state) {
         return InkWell(
-          onTap: () => context
-              .read<UpdateProfileBloc>()
-              .add(const UpdateProfileEvent.saveUserInfo()),
+          onTap: () {
+            AnalyticsService.logEvent(FirebaseEvents.PROFILE_UPDATE);
+
+            context
+                .read<UpdateProfileBloc>()
+                .add(const UpdateProfileEvent.saveUserInfo());
+          },
           child: Container(
             width: 80,
             height: 30,

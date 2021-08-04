@@ -1,13 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner.dart';
 import 'package:wallet_app/features/japanese_manners/domain/entities/japanese_manner_categories.dart';
 import 'package:wallet_app/features/japanese_manners/presentation/japanese_manner/japanese_manner_bloc.dart';
 import 'package:wallet_app/features/japanese_manners/presentation/japanese_manner_categories/japanese_manner_categories_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/widgets/japanese_manner_widget.dart';
 import 'package:wallet_app/ui/pages/news/tab_page/tabs/tab_bar/news_tab_bar.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -23,14 +27,24 @@ class JapaneseMannerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Japanese Manners",
-          style: TextStyle(color: Palette.white),
+        title: const Text(
+          'Japanese Manners',
+          style: TextStyle(color: Colors.white),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        leading: const BackButton(color: Colors.white),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () =>
+                  context.pushRoute(SearchRoute(type: HomeItemType.jp_manners)),
+              child: SvgPicture.asset(
+                "assets/images/navigation_bar/search.svg",
+                height: 25.0,
+              ),
+            ),
+          ),
+        ],
         centerTitle: true,
         backgroundColor: Palette.primary,
         elevation: 0,
@@ -170,7 +184,6 @@ class _JapaneseMannerPageState extends State<_JapaneseMannerTabPage> {
 class _JapaneseMannerPageList extends StatelessWidget {
   final JapaneseMannerCategory category;
   final ScrollController _scrollController = ScrollController();
-  final TextEditingController _searchController = TextEditingController();
 
   _JapaneseMannerPageList({
     Key? key,
@@ -234,7 +247,6 @@ class _JapaneseMannerPageList extends StatelessWidget {
         child: Text("No data availabe for this section"),
       );
     }
-    List<JapaneseManner> searchList = [];
 
     return StatefulBuilder(
       builder: (context, setstate) {
@@ -254,60 +266,12 @@ class _JapaneseMannerPageList extends StatelessWidget {
             ),
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                height: MediaQuery.of(context).size.height * 0.04,
-                child: TextField(
-                    controller: _searchController,
-                    maxLength: 25,
-                    onChanged: (s) {
-                      setstate(() {
-                        searchList.clear();
-                        searchList = manners.where((element) {
-                          if (element.title != null) {
-                            return element.title!
-                                .toLowerCase()
-                                .contains(s.toLowerCase());
-                          }
-                          return false;
-                        }).toList();
-                      });
-                    },
-                    // controller: _searchController,
-                    textAlignVertical: TextAlignVertical.center,
-                    style: const TextStyle(fontSize: 12),
-                    decoration: InputDecoration(
-                        counterText: '',
-                        contentPadding: const EdgeInsets.only(left: 8),
-                        hintText: 'Search',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(
-                            // color: Colors.black,
-                            width: 0.07,
-                            style: BorderStyle.none,
-                          ),
-                        ),
-                        prefixIcon: const Icon(Icons.search, size: 20),
-                        suffixIcon: IconButton(
-                            onPressed: () {
-                              setstate(() {
-                                _searchController.clear();
-                              });
-                            },
-                            icon: const Icon(Icons.close, size: 16)))),
-              ),
               ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: _searchController.text.isNotEmpty
-                    ? searchList.length
-                    : manners.length,
+                itemCount: manners.length,
                 itemBuilder: (context, index) {
-                  return JapaneseMannerWidget(
-                      data: _searchController.text.isNotEmpty
-                          ? searchList[index]
-                          : manners[index]);
+                  return JapaneseMannerWidget(data: manners[index]);
                 },
               ),
               if (isLoading)

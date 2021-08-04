@@ -65,7 +65,7 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
           height: 170,
           child: TabBarView(
             controller: _tabController,
-            children: _child.map((child) => child).toList(),
+            children: _child,
           ),
         ),
       ],
