@@ -26,7 +26,7 @@ class TabBarScreenState extends State<TabBarPage> {
   void initState() {
     super.initState();
     final pageName = getTabs()[_selectedIndex].toString();
-    AnalyticsService.logEvent(pageName);
+    AnalyticsService.setScreen(pageName);
   }
 
   List<BottomNavigationBarItem> _tabBarData(int index) => [
@@ -96,7 +96,7 @@ class TabBarScreenState extends State<TabBarPage> {
 
   void _onTap(int page) {
     final pageName = getTabs()[page].toString();
-    AnalyticsService.logEvent(pageName);
+    AnalyticsService.setScreen(pageName);
     if (page == 0) {
       homePage?.scrollController.animateTo(
         0.0,

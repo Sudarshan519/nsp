@@ -21,7 +21,7 @@ class WalletApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     appRouter
-        .addListener(() => AnalyticsService.logEvent(appRouter.current.name));
+        .addListener(() => AnalyticsService.setScreen(appRouter.current.name));
     return MultiBlocProvider(
       providers: [
         BlocProvider(
