@@ -22,7 +22,6 @@ class LatestNewsTab extends StatelessWidget {
       },
       buildWhen: (previous, current) => previous.hashCode != current.hashCode,
       builder: (context, state) {
-        print('sss ' + state.runtimeType.toString());
         return state.map(
           // initial and loading state will not be refrected here,
           // this two states are for very first state of app
