@@ -15,6 +15,7 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/main.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
 class WalletApp extends StatelessWidget {
@@ -101,7 +102,18 @@ class WalletApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Montserrat',
         ),
-        debugShowCheckedModeBanner: getIt<ConfigReader>().isDebugApp,
+        builder: (context, child) {
+          if (getIt<ConfigReader>().isDebugApp) {
+            return Banner(
+              location: BannerLocation.topEnd,
+              message: 'DEVELOP',
+              child: child,
+            );
+          } else {
+            return child ?? loadingPage();
+          }
+        },
+        debugShowCheckedModeBanner: false,
       ),
     );
   }
