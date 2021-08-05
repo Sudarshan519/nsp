@@ -23,12 +23,20 @@ String? errorMessageFromServer(String message) {
     final errorJson = data['error'] as Map<String, dynamic>;
 
     // get first key of the json error
-    final errorKey = errorJson.keys.toList()[0];
+    var errorKey = errorJson.keys.toList()[0];
 
     // get first error List
     final actualError = errorJson[errorKey] as List;
 
-    return actualError[0] as String;
+    var err = actualError[0] as String;
+    if (err.toLowerCase().contains('this')) {
+      errorKey = (errorKey[0].toUpperCase() + errorKey.substring(1))
+          .replaceAll('_', ' ');
+
+      err = err.replaceFirst('This', errorKey);
+      err = err.replaceFirst('this', errorKey);
+    }
+    return err;
   } catch (ex) {
     logger.log(
       className: "Parse Message From Server",
