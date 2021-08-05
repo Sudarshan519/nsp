@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 import '../colors.dart';
@@ -37,6 +39,7 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
     super.initState();
     _bindBackgroundIsolate();
     FlutterDownloader.registerCallback(downloadCallback);
+    AnalyticsService.logEvent(FirebaseEvents.RESUME_DOWNLOAD);
     startDownloading(widget.downloadUrl);
   }
 

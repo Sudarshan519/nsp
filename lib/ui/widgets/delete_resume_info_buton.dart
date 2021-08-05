@@ -27,6 +27,9 @@ class DeleteResumeItemButton extends StatelessWidget {
                 context.read<ResumeWatcherBloc>().add(
                     ResumeWatcherEvent.deleteResumeData(
                         DeleteResumeDataParams(type: type, id: id)));
+                context
+                    .read<ResumeWatcherBloc>()
+                    .add(const ResumeWatcherEvent.getResumeData());
                 context.popRoute();
               },
             ),

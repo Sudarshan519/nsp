@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/coupon/presentation/redeem_coupon/redeem_coupon_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -197,9 +199,14 @@ class RedeemPage extends StatelessWidget {
                       ),
                       if (state.coupon?.isReward ?? false)
                         InkWell(
-                          onTap: () => context
-                              .read<RedeemCouponBloc>()
-                              .add(const RedeemCouponEvent.redeemCoupon()),
+                          onTap: () {
+                            AnalyticsService.logEvent(
+                                FirebaseEvents.COUPON_REDEEM);
+
+                            context
+                                .read<RedeemCouponBloc>()
+                                .add(const RedeemCouponEvent.redeemCoupon());
+                          },
                           child: Container(
                             height: 40,
                             width: 120,

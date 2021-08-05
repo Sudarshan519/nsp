@@ -58,9 +58,20 @@ class HomePageDataBloc extends Bloc<HomePageDataEvent, HomePageDataState> {
       (data) async* {
         homeData = data;
 
+        //adding values to firebase analytics
         final userID = homeData!.userDetail?.uuid ?? '';
         if (userID.isEmpty) {
           AnalyticsService.setUserId(userID);
+          if (homeData!.userDetail != null) {
+            final detail = homeData!.userDetail!;
+            AnalyticsService.setUserVal(
+                'name', '${detail.firstName ?? ''} ${detail.lastName ?? ''}');
+            AnalyticsService.setUserVal('gender', detail.gender ?? '');
+            AnalyticsService.setUserVal('email', detail.email ?? '');
+            AnalyticsService.setUserVal(
+                'is_kyc_verified', (detail.isKycVerified ?? false).toString());
+            AnalyticsService.setUserVal('mobile', detail.mobile ?? '');
+          }
         }
         yield HomePageDataState.loaded(homeData!);
       },

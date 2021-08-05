@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/home/domain/entities/remit_rate.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
@@ -220,6 +222,7 @@ class _RemitExchangeProceGeneratorState
           _toValue = doubleFromValue.toStringAsFixed(0);
         });
       }
+      AnalyticsService.logEvent(FirebaseEvents.CURRENCY_CONVERT);
     } catch (e) {
       setState(() {
         _toValue = '';
@@ -320,6 +323,7 @@ class RateAndViewGraphWidget extends StatelessWidget {
             CustomButton(
               title: "View Graph",
               onTap: () {
+                AnalyticsService.logEvent(FirebaseEvents.VIEW_GRAPH);
                 showModalBottomSheet(
                   context: context,
                   isScrollControlled: true,

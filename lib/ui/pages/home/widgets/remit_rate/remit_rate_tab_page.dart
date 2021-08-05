@@ -22,6 +22,7 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
   late List<RemitRate> _remitRates;
+  int _selectedIndex = 0;
 
   @override
   void initState() {
@@ -42,7 +43,6 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
 
   @override
   Widget build(BuildContext context) {
-    final _child = _children();
     final _tabBar = _tabBarWidget();
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -56,18 +56,20 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
           indicatorSize: TabBarIndicatorSize.tab,
           indicatorColor: Palette.primary,
           isScrollable: true,
+          onTap: (i) => setState(() => _selectedIndex = i),
         ),
         Container(
           height: 1,
           color: Palette.dividerColor,
         ),
-        SizedBox(
-          height: 170,
-          child: TabBarView(
-            controller: _tabController,
-            children: _child,
-          ),
-        ),
+        IndexedStack(
+          index: _selectedIndex,
+          children: widget.remitRates
+              .map((e) => RemitRateExchangePage(
+                    remitRate: e,
+                  ))
+              .toList(),
+        )
       ],
     );
   }
@@ -124,15 +126,5 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
                   )),
       ],
     );
-  }
-
-  List<Widget> _children() {
-    final widgets = <Widget>[];
-    for (final RemitRate rate in _remitRates) {
-      widgets.add(RemitRateExchangePage(
-        remitRate: rate,
-      ));
-    }
-    return widgets;
   }
 }

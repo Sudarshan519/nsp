@@ -119,12 +119,12 @@ class _CreateWorkInfoBox extends StatelessWidget {
       if (state.isSubmitting) {
         return loadingPage();
       }
-      return _createBody(context, actor, work);
+      return _createBody(context, actor, work, state);
     });
   }
 
   Widget _createBody(BuildContext context, UpdateWorkInfoActorBloc actorBloc,
-      WorkHistory work) {
+      WorkHistory work, UpdateWorkInfoActorState state) {
     return ShadowBoxWidget(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
       child: Column(
@@ -166,18 +166,23 @@ class _CreateWorkInfoBox extends StatelessWidget {
           ),
           const _NameOfCompanyField(),
           const SizedBox(height: 10),
-          const _TypeOfCompanyField(),
-          const SizedBox(height: 10),
-          const SizedBox(height: 10),
-          const _StartedYearField(),
-          const SizedBox(height: 10),
-          const _StartedMonthField(),
-          const SizedBox(height: 10),
-          const _EndYearField(),
-          const SizedBox(height: 10),
-          const _EndMonthField(),
-          const SizedBox(height: 10),
-          const _PurposeOfResignField(),
+          //comapny
+          if (state.companyType.isNotEmpty) const _TypeOfCompanyField(),
+          if (state.companyType.isNotEmpty) const SizedBox(height: 10),
+
+          //started year
+          if (state.startedYear.isNotEmpty) const _StartedYearField(),
+          if (state.startedYear.isNotEmpty) const SizedBox(height: 10),
+
+          if (state.startedMonth.isNotEmpty) const _StartedMonthField(),
+          if (state.startedMonth.isNotEmpty) const SizedBox(height: 10),
+
+          if (state.endYear.isNotEmpty) const _EndYearField(),
+          if (state.endYear.isNotEmpty) const SizedBox(height: 10),
+
+          if (state.endMonth.isNotEmpty) const _EndMonthField(),
+          if (state.endMonth.isNotEmpty) const SizedBox(height: 10),
+          if (state.purposeOfResign.isNotEmpty) const _PurposeOfResignField(),
         ],
       ),
     );
