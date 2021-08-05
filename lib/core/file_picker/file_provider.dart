@@ -19,16 +19,8 @@ class FileProvider {
     }
     final croppedFile = await ImageCropper.cropImage(
         sourcePath: result.path,
-        aspectRatioPresets: [
-          if (freeCrop)
-            CropAspectRatioPreset.original
-          else
-            CropAspectRatioPreset.square,
-          // CropAspectRatioPreset.ratio3x2,
-          // CropAspectRatioPreset.original,
-          // CropAspectRatioPreset.ratio4x3,
-          // CropAspectRatioPreset.ratio16x9
-        ],
+        aspectRatio:
+            freeCrop ? null : const CropAspectRatio(ratioX: 3, ratioY: 4),
         androidUiSettings: AndroidUiSettings(
           toolbarTitle: 'Crop Image',
           initAspectRatio: CropAspectRatioPreset.original,

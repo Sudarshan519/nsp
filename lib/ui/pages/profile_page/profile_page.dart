@@ -195,10 +195,7 @@ class _UserInfoWidget extends StatelessWidget {
             ],
           ),
         ),
-        BalanceAndPointWidget(
-          user: user,
-          showAddBalanceButton: false,
-        ),
+        const BalanceAndPointWidget(showAddBalanceButton: false),
         const Padding(padding: EdgeInsets.only(bottom: 16)),
       ],
     );
