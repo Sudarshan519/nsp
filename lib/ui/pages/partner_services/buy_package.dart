@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_packages.dart';
@@ -224,6 +226,12 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                       builder: (_) => PopUpConfirmation(
                         message: 'Are you sure to make the purchase?',
                         onConfirmed: () {
+                          AnalyticsService.logEvent(
+                            FirebaseEvents.SERVICE_PACKAGE_PURCHASE,
+                            params: {
+                              'name': widget.package.packageName,
+                            },
+                          );
                           context.read<PurchasePackageBloc>().add(
                                 const PurchasePackageEvent.purchase(),
                               );

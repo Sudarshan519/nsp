@@ -1236,7 +1236,10 @@ class _ConfirmButton extends StatelessWidget {
         return InkWell(
           onTap: () {
             if (state.productId.isNotEmpty) {
-              AnalyticsService.logEvent(FirebaseEvents.MOBILE_TOPUP);
+              AnalyticsService.logEvent(
+                FirebaseEvents.MOBILE_TOPUP,
+                params: {'type': state.type},
+              );
               context
                   .read<TopUpBalanceInMobileBloc>()
                   .add(const TopUpBalanceInMobileEvent.topup());

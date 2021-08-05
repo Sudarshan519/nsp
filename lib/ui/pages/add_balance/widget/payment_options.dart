@@ -110,8 +110,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
         );
         break;
       case "esewa":
-        AnalyticsService.logEvent(FirebaseEvents.ESEWA_PAGE,
-            params: {'test_key': 'test_val'});
+        AnalyticsService.logEvent(FirebaseEvents.ESEWA_PAGE);
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,

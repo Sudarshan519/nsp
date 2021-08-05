@@ -22,6 +22,10 @@ class AnalyticsService {
     await _analytics.setUserId(userID);
   }
 
+  static Future setUserVal(String key, String val) async {
+    await _analytics.setUserProperty(name: key, value: val);
+  }
+
   static Future logEvent(FirebaseEvents event,
       {Map<String, Object?>? params}) async {
     final String eventId = event.toString().split('.').last;
@@ -45,7 +49,8 @@ class AnalyticsService {
     if (eventId == _previousEvent) {
       return;
     }
-    debugPrint('EVENT: $eventId');
+    debugPrint(
+        '${'EVENT: $eventId '}${params != null ? params.toString() : ''}');
     _previousEvent = eventId;
     await _analytics.logEvent(name: eventId, parameters: params);
 
