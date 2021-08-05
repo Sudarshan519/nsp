@@ -116,12 +116,15 @@ class _CreateAcademicInfoBox extends StatelessWidget {
       if (state.isSubmitting) {
         return loadingPage();
       }
-      return _createBody(context, actor, history);
+      return _createBody(context, actor, history, state);
     });
   }
 
-  Widget _createBody(BuildContext context,
-      UpdateAcademicInfoActorBloc actorBloc, AcademicHistory academicHistory) {
+  Widget _createBody(
+      BuildContext context,
+      UpdateAcademicInfoActorBloc actorBloc,
+      AcademicHistory academicHistory,
+      UpdateAcademicInfoActorState state) {
     return ShadowBoxWidget(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
       child: Column(
@@ -159,16 +162,17 @@ class _CreateAcademicInfoBox extends StatelessWidget {
             height: 10,
           ),
           const _NameOfInstituteField(),
-          const SizedBox(height: 10),
-          const _MajorSubjectField(),
+          if (state.majorSubject.isNotEmpty) const SizedBox(height: 10),
+          if (state.majorSubject.isNotEmpty) const _MajorSubjectField(),
           const SizedBox(height: 10),
           const _YearOfEnrollField(),
           const SizedBox(height: 10),
           const _MonthOfEnrollField(),
           const SizedBox(height: 10),
-          const _YearOfCompletionField(),
-          const SizedBox(height: 10),
-          const _MonthOfCompletionField(),
+          if (state.yearOfCpmpletion.isNotEmpty) const _YearOfCompletionField(),
+          if (state.yearOfCpmpletion.isNotEmpty) const SizedBox(height: 10),
+          if (state.monthOfCompletion.isNotEmpty)
+            const _MonthOfCompletionField(),
         ],
       ),
     );

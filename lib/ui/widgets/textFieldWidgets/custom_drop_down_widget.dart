@@ -36,13 +36,15 @@ class CustomDropDownWidget extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(
-          height: 38,
+          height: 34,
           child: DropdownButtonFormField<String>(
             isExpanded: isExpanded,
             value: (value ?? "").isEmpty ? null : value,
             decoration: InputDecoration(
+              contentPadding: const EdgeInsets.only(bottom: 12),
               border: InputBorder.none,
               hintText: hintText,
               hintStyle: TextStyle(
