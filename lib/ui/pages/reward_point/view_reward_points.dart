@@ -15,6 +15,7 @@ class RewardPointPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         centerTitle: true,
         leading: const BackButton(
           color: Colors.white,
