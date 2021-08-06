@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:wallet_app/features/news/domain/entity/news_preference.dart';
 import 'package:wallet_app/features/news/presentation/news_preference/news_preference_bloc.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 class NewsPreferenceTab extends StatelessWidget {
   final Function(int) changePage;
@@ -20,7 +22,28 @@ class NewsPreferenceTab extends StatelessWidget {
       builder: (context, state) {
         return state.map(
           failure: (failure) {
-            return const SizedBox.shrink();
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                      child: Text(failure.failure.map(
+                          serverError: (value) => value.message,
+                          invalidUser: (value) =>
+                              AppConstants.someThingWentWrong,
+                          noInternetConnection: (value) =>
+                              AppConstants.noNetwork))),
+                ),
+                MaterialButton(
+                  onPressed: () => context
+                      .read<NewsPreferenceBloc>()
+                      .add(const NewsPreferenceEvent.fetch()),
+                  color: Palette.primary,
+                  child: const Text('Refresh'),
+                )
+              ],
+            );
           },
           initial: (_) => loadingPage(),
           loading: (_) => loadingPage(),
@@ -51,56 +74,65 @@ class _NewsPreferenceTab extends StatefulWidget {
 class __NewsPreferenceTabState extends State<_NewsPreferenceTab> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            children: [
-              Text(
-                "Select your favourite Language",
-                style: TextStyle(
-                  color: Palette.black.withOpacity(0.4),
-                  fontWeight: FontWeight.w600,
+    return RefreshIndicator(
+      onRefresh: () async {
+        context
+            .read<NewsPreferenceBloc>()
+            .add(const NewsPreferenceEvent.fetch());
+        // await 2 sec for the loader to show
+        await Future.delayed(const Duration(seconds: 2), () {});
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                Text(
+                  "Select your favourite Language",
+                  style: TextStyle(
+                    color: Palette.black.withOpacity(0.4),
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              const Spacer(),
-              CustomButton(
-                title: "Save",
-                onTap: () {
-                  context
-                      .read<NewsPreferenceBloc>()
-                      .add(const NewsPreferenceEvent.save());
-                  DefaultTabController.of(context)?.animateTo(1);
-                  widget.changePage(1);
-                },
-              )
-            ],
+                const Spacer(),
+                CustomButton(
+                  title: "Save",
+                  onTap: () {
+                    context
+                        .read<NewsPreferenceBloc>()
+                        .add(const NewsPreferenceEvent.save());
+                    DefaultTabController.of(context)?.animateTo(1);
+                    widget.changePage(1);
+                  },
+                )
+              ],
+            ),
           ),
-        ),
-        Container(
-          height: 1,
-          width: double.maxFinite,
-          color: Palette.black.withOpacity(0.1),
-        ),
-        const SizedBox(height: 10),
-        Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: widget.preferences.length,
-            itemBuilder: (context, index) {
-              return _LanguageWithSource(
-                title: widget.preferences[index].name ?? '',
-                isSelected: widget.preferences[index].isSelected ?? false,
-                isExpanded: true,
-                sources: widget.preferences[index].sources ?? [],
-                parentIndex: index,
-              );
-            },
+          Container(
+            height: 1,
+            width: double.maxFinite,
+            color: Palette.black.withOpacity(0.1),
           ),
-        ),
-      ],
+          const SizedBox(height: 10),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: widget.preferences.length,
+              itemBuilder: (context, index) {
+                return _LanguageWithSource(
+                  title: widget.preferences[index].name ?? '',
+                  isSelected: widget.preferences[index].isSelected ?? false,
+                  isExpanded: true,
+                  sources: widget.preferences[index].sources ?? [],
+                  parentIndex: index,
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
