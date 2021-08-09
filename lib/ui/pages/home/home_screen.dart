@@ -17,6 +17,7 @@ import 'package:wallet_app/features/utility_payments/data/models/utility_payment
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
+import 'package:wallet_app/ui/pages/home/widgets/kyc_update_prompt.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
 import 'package:wallet_app/ui/pages/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/error_widgets.dart';
@@ -175,7 +176,11 @@ class HomePage extends StatelessWidget {
         controller: scrollController,
         slivers: [
           const SliverToBoxAdapter(child: HomePageHeader()),
+
+          //if user kyc is not verified, showing a prompt widget
+          if (!(userDetail?.isKycVerified ?? false)) kycPromptWidget(context),
           _homePageBodyContent(context, data, userDetail),
+
           SegmentedNewsViewWidget(
             key: UniqueKey(),
             changeTabPage: changeTabPage,
