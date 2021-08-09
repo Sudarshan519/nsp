@@ -1,18 +1,37 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/services.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:wallet_app/core/logger/logger.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 @lazySingleton
 class FileProvider {
   Future<Either<String, File>> getImage(
       {bool? allowCompression, bool freeCrop = false}) async {
-    final result = await ImagePicker()
-        .getImage(source: ImageSource.gallery, imageQuality: 35);
+    XFile? result;
+    try {
+      final result = await ImagePicker()
+          .pickImage(source: ImageSource.gallery, imageQuality: 35);
+    } catch (ex) {
+      if (ex is PlatformException) {
+        if (ex.code == "photo_access_denied") {
+          print(ex.code.toUpperCase());
+          throw PlatformException(code: "photo_access_denied");
+        } else {
+          getIt<Logger>().log(
+              className: "FileProvider",
+              functionName: "getImage",
+              errorText: "Picker throw an exception",
+              errorMessage: ex.message ?? '');
+        }
+      }
+    }
 
     if (result == null) {
       return const Left(AppConstants.imagePickError);

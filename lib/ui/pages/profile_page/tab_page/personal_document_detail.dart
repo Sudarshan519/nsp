@@ -14,12 +14,14 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/profile_page/widgets/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/image_loader_view.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_permission_handler.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class PersonalDocumentDetailPage extends StatefulWidget {
   @override
@@ -580,21 +582,31 @@ class _UserPhotoWidget extends StatelessWidget {
                 const SizedBox(height: 10),
                 InkWell(
                   onTap: () async {
-                    final fileProviderResult = await fileProvider.getImage();
-                    // setState(() {
-                    //   _isLoading = false;
-                    // });
-                    fileProviderResult.fold(
-                      (message) {
-                        if (message.isNotEmpty) {
-                          FlushbarHelper.createError(message: message)
-                              .show(context);
-                        }
-                      },
-                      (file) {
-                        callback(file);
-                      },
-                    );
+                    try {
+                      final fileProviderResult = await fileProvider.getImage();
+                      fileProviderResult.fold(
+                        (message) {
+                          if (message.isNotEmpty) {
+                            FlushbarHelper.createError(message: message)
+                                .show(context);
+                          }
+                        },
+                        (file) {
+                          callback(file);
+                        },
+                      );
+                    } catch (ex) {
+                      showDialog(
+                        context: context,
+                        builder: (_) => PermissionNotAvailableWidget(
+                          onPressed: () async {
+                            context.popRoute();
+
+                            await openAppSettings();
+                          },
+                        ),
+                      );
+                    }
                   },
                   child: Column(
                     children: [
@@ -609,20 +621,33 @@ class _UserPhotoWidget extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () async {
-                          final fileProviderResult =
-                              await fileProvider.getImage();
+                          try {
+                            final fileProviderResult =
+                                await fileProvider.getImage();
 
-                          fileProviderResult.fold(
-                            (message) {
-                              if (message.isNotEmpty) {
-                                FlushbarHelper.createError(message: message)
-                                    .show(context);
-                              }
-                            },
-                            (file) {
-                              callback(file);
-                            },
-                          );
+                            fileProviderResult.fold(
+                              (message) {
+                                if (message.isNotEmpty) {
+                                  FlushbarHelper.createError(message: message)
+                                      .show(context);
+                                }
+                              },
+                              (file) {
+                                callback(file);
+                              },
+                            );
+                          } catch (ex) {
+                            showDialog(
+                              context: context,
+                              builder: (_) => PermissionNotAvailableWidget(
+                                onPressed: () async {
+                                  context.popRoute();
+
+                                  await openAppSettings();
+                                },
+                              ),
+                            );
+                          }
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -685,19 +710,32 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult =
-                          await fileProvider.getImage(freeCrop: true);
-                      fileProviderResult.fold(
-                        (message) {
-                          if (message.isNotEmpty) {
-                            FlushbarHelper.createError(message: message)
-                                .show(context);
-                          }
-                        },
-                        (file) {
-                          kycCallFront(file);
-                        },
-                      );
+                      try {
+                        final fileProviderResult =
+                            await fileProvider.getImage(freeCrop: true);
+                        fileProviderResult.fold(
+                          (message) {
+                            if (message.isNotEmpty) {
+                              FlushbarHelper.createError(message: message)
+                                  .show(context);
+                            }
+                          },
+                          (file) {
+                            kycCallFront(file);
+                          },
+                        );
+                      } catch (ex) {
+                        showDialog(
+                          context: context,
+                          builder: (_) => PermissionNotAvailableWidget(
+                            onPressed: () async {
+                              context.popRoute();
+
+                              await openAppSettings();
+                            },
+                          ),
+                        );
+                      }
                     },
                     child: Container(
                       height: 100,
@@ -735,22 +773,35 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult =
-                          await fileProvider.getImage(freeCrop: true);
-                      // setState(() {
-                      //   _isLoading = false;
-                      // });
-                      fileProviderResult.fold(
-                        (message) {
-                          if (message.isNotEmpty) {
-                            FlushbarHelper.createError(message: message)
-                                .show(context);
-                          }
-                        },
-                        (file) {
-                          kycCallBack(file);
-                        },
-                      );
+                      try {
+                        final fileProviderResult =
+                            await fileProvider.getImage(freeCrop: true);
+                        // setState(() {
+                        //   _isLoading = false;
+                        // });
+                        fileProviderResult.fold(
+                          (message) {
+                            if (message.isNotEmpty) {
+                              FlushbarHelper.createError(message: message)
+                                  .show(context);
+                            }
+                          },
+                          (file) {
+                            kycCallBack(file);
+                          },
+                        );
+                      } catch (ex) {
+                        showDialog(
+                          context: context,
+                          builder: (_) => PermissionNotAvailableWidget(
+                            onPressed: () async {
+                              context.popRoute();
+
+                              await openAppSettings();
+                            },
+                          ),
+                        );
+                      }
                     },
                     child: Container(
                       height: 100,
@@ -838,19 +889,32 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult =
-                          await fileProvider.getImage(freeCrop: true);
-                      fileProviderResult.fold(
-                        (message) {
-                          if (message.isNotEmpty) {
-                            FlushbarHelper.createError(message: message)
-                                .show(context);
-                          }
-                        },
-                        (file) {
-                          kycCallFront(file);
-                        },
-                      );
+                      try {
+                        final fileProviderResult =
+                            await fileProvider.getImage(freeCrop: true);
+                        fileProviderResult.fold(
+                          (message) {
+                            if (message.isNotEmpty) {
+                              FlushbarHelper.createError(message: message)
+                                  .show(context);
+                            }
+                          },
+                          (file) {
+                            kycCallFront(file);
+                          },
+                        );
+                      } catch (ex) {
+                        showDialog(
+                          context: context,
+                          builder: (_) => PermissionNotAvailableWidget(
+                            onPressed: () async {
+                              context.popRoute();
+
+                              await openAppSettings();
+                            },
+                          ),
+                        );
+                      }
                     },
                     child: Container(
                       height: 100,
@@ -888,22 +952,35 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () async {
-                      final fileProviderResult =
-                          await fileProvider.getImage(freeCrop: true);
-                      // setState(() {
-                      //   _isLoading = false;
-                      // });
-                      fileProviderResult.fold(
-                        (message) {
-                          if (message.isNotEmpty) {
-                            FlushbarHelper.createError(message: message)
-                                .show(context);
-                          }
-                        },
-                        (file) {
-                          kycCallBack(file);
-                        },
-                      );
+                      try {
+                        final fileProviderResult =
+                            await fileProvider.getImage(freeCrop: true);
+                        // setState(() {
+                        //   _isLoading = false;
+                        // });
+                        fileProviderResult.fold(
+                          (message) {
+                            if (message.isNotEmpty) {
+                              FlushbarHelper.createError(message: message)
+                                  .show(context);
+                            }
+                          },
+                          (file) {
+                            kycCallBack(file);
+                          },
+                        );
+                      } catch (ex) {
+                        showDialog(
+                          context: context,
+                          builder: (_) => PermissionNotAvailableWidget(
+                            onPressed: () async {
+                              context.popRoute();
+
+                              await openAppSettings();
+                            },
+                          ),
+                        );
+                      }
                     },
                     child: Container(
                       height: 100,

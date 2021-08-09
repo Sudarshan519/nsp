@@ -12,9 +12,11 @@ import 'package:wallet_app/features/resume/domain/usecases/update_resume_image.d
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
 import 'package:wallet_app/features/resume/presentation/upload_resume_image/upload_resume_image_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_permission_handler.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_switch_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class ResumeHeaderWidget extends StatefulWidget {
   @override
@@ -144,23 +146,40 @@ class _ResumeHeaderWidgetState extends State<ResumeHeaderWidget> {
                     setState(() {
                       _isLoading = true;
                     });
-                    final fileProviderResult = await fileProvider.getImage();
-                    setState(() {
-                      _isLoading = false;
-                    });
-                    fileProviderResult.fold(
-                      (message) {
-                        if (message.isNotEmpty) {
-                          FlushbarHelper.createError(message: message)
-                              .show(context);
-                        }
-                      },
-                      (file) {
-                        setState(() {
-                          _selectedImage = file;
-                        });
-                      },
-                    );
+
+                    try {
+                      final fileProviderResult = await fileProvider.getImage();
+                      setState(() {
+                        _isLoading = false;
+                      });
+                      fileProviderResult.fold(
+                        (message) {
+                          if (message.isNotEmpty) {
+                            FlushbarHelper.createError(message: message)
+                                .show(context);
+                          }
+                        },
+                        (file) {
+                          setState(() {
+                            _selectedImage = file;
+                          });
+                        },
+                      );
+                    } catch (ex) {
+                      setState(() {
+                        _isLoading = false;
+                      });
+                      showDialog(
+                        context: context,
+                        builder: (_) => PermissionNotAvailableWidget(
+                          onPressed: () async {
+                            context.popRoute();
+
+                            await openAppSettings();
+                          },
+                        ),
+                      );
+                    }
                   },
                   child: Stack(
                     alignment: Alignment.center,
