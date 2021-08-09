@@ -60,7 +60,8 @@ class _RewardPointListView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const BalanceAndPointWidget(showAddBalanceButton: false),
+          const IgnorePointer(
+              child: BalanceAndPointWidget(showAddBalanceButton: false)),
           const SizedBox(height: 5),
           ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
