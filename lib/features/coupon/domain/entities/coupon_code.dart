@@ -54,4 +54,16 @@ class CouponCode {
     }
     return '';
   }
+
+  /// If [isReward] is true, the  [rewardPoint] is treated as flat point
+  ///
+  /// else [rewardPoint] is calculated on the basis of [amount]
+  double getActualRewardPoint(double amount) {
+    final point = double.parse(rewardPoint ?? '0.0');
+    if (isReward ?? false) {
+      return point;
+    } else {
+      return point / 100 * amount;
+    }
+  }
 }

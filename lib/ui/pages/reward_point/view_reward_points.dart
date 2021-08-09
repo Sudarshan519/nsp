@@ -56,46 +56,49 @@ class _RewardPointListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const BalanceAndPointWidget(showAddBalanceButton: false),
-        const SizedBox(height: 5),
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: items.length,
-          itemBuilder: (BuildContext context, int index) {
-            final item = items[index];
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const BalanceAndPointWidget(showAddBalanceButton: false),
+          const SizedBox(height: 5),
+          ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: items.length,
+            itemBuilder: (BuildContext context, int index) {
+              final item = items[index];
 
-            return ListTile(
-              leading: Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(8)),
-                    color: Palette.primary,
-                  ),
-                  child: const SizedBox(
-                    child: Icon(Icons.star, color: Colors.white),
-                  )),
-              title: Text(
-                item.moduleName ?? '',
-                textScaleFactor: 0.76,
-                style: const TextStyle(fontWeight: FontWeight.w700),
-              ),
-              subtitle: Text(
-                '''${DateTimeFormatter.formatDate(item.createdAt.toString())} - ${DateTimeFormatter.formatTime(item.createdAt.toString())}''',
-                textScaleFactor: 0.8,
-              ),
-              trailing: Text(
-                'Points: ${item.rewardPoint ?? 0}',
-                style: TextStyle(
-                    fontWeight: FontWeight.w700, color: Palette.primary),
-              ),
-            );
-          },
-        ),
-      ],
+              return ListTile(
+                leading: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(8)),
+                      color: Palette.primary,
+                    ),
+                    child: const SizedBox(
+                      child: Icon(Icons.star, color: Colors.white),
+                    )),
+                title: Text(
+                  item.moduleName ?? '',
+                  textScaleFactor: 0.76,
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                subtitle: Text(
+                  '''${DateTimeFormatter.formatDate(item.createdAt.toString())} - ${DateTimeFormatter.formatTime(item.createdAt.toString())}''',
+                  textScaleFactor: 0.8,
+                ),
+                trailing: Text(
+                  'Points: ${item.rewardPoint ?? 0}',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700, color: Palette.primary),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

@@ -19,6 +19,7 @@ import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/coupon_code_widget.dart';
 import 'package:wallet_app/ui/widgets/dashed_line.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
@@ -177,6 +178,51 @@ class _TopUpPageState extends State<TopUpPage> {
     );
   }
 
+  Widget couponcodeWidget() {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        if (state.number.isEmpty ||
+            state.type.isEmpty ||
+            state.amount.isEmpty) {
+          return const SizedBox.shrink();
+        }
+
+        return CouponCodeWidget(
+          hasCouponCode: _hasCouponCode,
+          callback: () {
+            setState(() {
+              _hasCouponCode = !_hasCouponCode;
+            });
+          },
+          validCoupon: (couponCode) {
+            setState(() {});
+            context.read<TopUpBalanceInMobileBloc>().add(
+                  TopUpBalanceInMobileEvent.changeCoupon(
+                      couponCode?.couponCode ?? ''),
+                );
+
+            context.read<TopUpBalanceInMobileBloc>().add(
+                  TopUpBalanceInMobileEvent.setDiscountpercentage(
+                      double.parse(couponCode?.cashback ?? '0.0')),
+                );
+            var doubleAmount = double.parse(state.amount);
+            final discountAmount =
+                doubleAmount * (state.discountPercentage / 100);
+            final cashbackAmount =
+                doubleAmount * (state.cashbackPercentage / 100);
+
+            doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
+
+            context.read<TopUpBalanceInMobileBloc>().add(
+                  TopUpBalanceInMobileEvent.setRewardPointFromCoupon(
+                      couponCode?.getActualRewardPoint(doubleAmount) ?? 0),
+                );
+          },
+        );
+      },
+    );
+  }
+
   Widget topupInformationbody(
       BuildContext context, TopUpBalanceInMobileState state) {
     return Container(
@@ -197,31 +243,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 conversionRate: _conversionRate,
               ),
             const SizedBox(height: 20),
-            CouponCodeWidget(
-              hasCouponCode: _hasCouponCode,
-              callback: () {
-                setState(() {
-                  _hasCouponCode = !_hasCouponCode;
-                });
-              },
-              validCoupon: (couponCode) {
-                setState(() {});
-                context.read<TopUpBalanceInMobileBloc>().add(
-                      TopUpBalanceInMobileEvent.changeCoupon(
-                          couponCode?.couponCode ?? ''),
-                    );
-
-                context.read<TopUpBalanceInMobileBloc>().add(
-                      TopUpBalanceInMobileEvent.setDiscountpercentage(
-                          double.parse(couponCode?.cashback ?? '0.0')),
-                    );
-
-                context.read<TopUpBalanceInMobileBloc>().add(
-                      TopUpBalanceInMobileEvent.setRewardPointFromCoupon(
-                          double.parse(couponCode?.rewardPoint ?? '0.0')),
-                    );
-              },
-            ),
+            couponcodeWidget(),
             const SizedBox(height: 20),
             _TransactionDetail(
               conversionRate: _conversionRate,
@@ -278,12 +300,12 @@ class _TopUpPageState extends State<TopUpPage> {
           // final cashbackAmount =
           //     doubleAmount * (state.cashbackPercentage / 100);
 
+          // final discountAmount = doubleAmount *
+          //     ((state.discountPercentage + state.cashbackPercentage) / 100);
+
+          doubleAmount = _amtAfterDiscountDeduction(state);
+
           final rewardPoint = doubleAmount * (state.rewardPoint / 100);
-
-          final discountAmount = doubleAmount *
-              ((state.discountPercentage + state.cashbackPercentage) / 100);
-
-          doubleAmount = doubleAmount - discountAmount;
 
           final conversionValue = doubleAmount / _conversionRate;
           return Container(
@@ -322,7 +344,7 @@ class _TopUpPageState extends State<TopUpPage> {
                       _TransactionDetailRow(
                         title: 'Reward Points',
                         value:
-                            '${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(0)} Pts.',
+                            "${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(1)} Pts.",
                       ),
                       const SizedBox(height: 5),
                     ],
@@ -330,15 +352,20 @@ class _TopUpPageState extends State<TopUpPage> {
                 const SizedBox(height: 5),
                 _TransactionDetailRow(
                   title: 'Transaction Amount (NPR)',
-                  value:
-                      currencyFormatter(value: doubleAmount, showSymbol: false),
+                  value: currencyFormatter(
+                    value: doubleAmount,
+                    showSymbol: false,
+                    decimalDigits: 2,
+                  ),
                 ),
                 const SizedBox(height: 5),
                 _TransactionDetailRow(
                   title: 'Transaction Amount (JPY)',
-                  value: currencyFormatterString(
-                      value: conversionValue.toStringAsFixed(0),
-                      showSymbol: false),
+                  value: currencyFormatter(
+                    value: conversionValue,
+                    decimalDigits: 2,
+                    showSymbol: false,
+                  ),
                 ),
                 const SizedBox(height: 40),
                 const _ConfirmButton(),
@@ -348,174 +375,6 @@ class _TopUpPageState extends State<TopUpPage> {
           );
         },
       ),
-    );
-  }
-}
-
-class CouponCodeWidget extends StatelessWidget {
-  const CouponCodeWidget({
-    Key? key,
-    required this.hasCouponCode,
-    required this.callback,
-    required this.validCoupon,
-  }) : super(key: key);
-
-  final bool hasCouponCode;
-  final Function() callback;
-  final Function(CouponCode?) validCoupon;
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
-      builder: (context, state) {
-        if (state.number.isEmpty ||
-            state.type.isEmpty ||
-            state.amount.isEmpty) {
-          return const SizedBox.shrink();
-        }
-        return _buildCoupon(context);
-      },
-    );
-  }
-
-  Widget _buildCoupon(BuildContext context) {
-    if (!hasCouponCode) {
-      return InkWell(
-        onTap: callback,
-        child: Container(
-          height: 30,
-          width: 150,
-          decoration: BoxDecoration(
-              border: Border.all(
-                color: Palette.primary,
-              ),
-              borderRadius: BorderRadius.circular(15.0)),
-          child: Center(
-            child: Text(
-              "I have a coupon",
-              style: TextStyle(
-                color: Palette.primary,
-              ),
-            ),
-          ),
-        ),
-      );
-    }
-    return _couponBlocBuilder(context);
-  }
-
-  Widget _couponBlocBuilder(BuildContext context) {
-    return BlocConsumer<VerifyCouponBloc, VerifyCouponState>(
-      listener: (context, state) {
-        state.failureOrSuccess.fold(
-          () => {},
-          (either) => either.fold(
-            (failure) {
-              validCoupon(null);
-              FlushbarHelper.createError(
-                  message: failure.map(
-                serverError: (error) => error.message,
-                invalidUser: (_) => AppConstants.someThingWentWrong,
-                noInternetConnection: (_) => AppConstants.noNetwork,
-              )).show(context);
-            },
-            (coupon) {
-              validCoupon(coupon);
-            },
-          ),
-        );
-      },
-      builder: (context, state) {
-        if (state.isSubmitting == true) {
-          return loadingPage();
-        }
-        return _couponEdit(context);
-      },
-    );
-  }
-
-  Widget _couponEdit(BuildContext context) {
-    return BlocBuilder<VerifyCouponBloc, VerifyCouponState>(
-      builder: (context, state) {
-        return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Palette.dividerColor.withOpacity(0.4),
-          ),
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.centerRight,
-                child: InkWell(
-                  onTap: () {
-                    callback();
-                    validCoupon(null);
-                  },
-                  child: const Icon(
-                    Icons.clear,
-                    size: 15,
-                  ),
-                ),
-              ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        height: 30,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Palette.dividerColor,
-                          ),
-                          borderRadius: BorderRadius.circular(15.0),
-                          color: Palette.white,
-                        ),
-                        child: InputTextWidget(
-                          hintText: "Coupon Code",
-                          value: state.couponCode,
-                          onChanged: (value) => context
-                              .read<VerifyCouponBloc>()
-                              .add(VerifyCouponEvent.changeCouponCode(value)),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 5),
-                    InkWell(
-                      onTap: () {
-                        validCoupon(null);
-                        context
-                            .read<VerifyCouponBloc>()
-                            .add(const VerifyCouponEvent.verifyCoupon());
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        height: 30,
-                        width: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          color: Palette.primary,
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Check",
-                            style: TextStyle(
-                              color: Palette.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
-      },
     );
   }
 }
@@ -649,7 +508,7 @@ class _AmountTextField extends StatelessWidget {
                       .add(TopUpBalanceInMobileEvent.changeAmount(value));
                   if (value.isNotEmpty) {
                     final conversionValue =
-                        double.parse(value) * conversionRate;
+                        double.parse(value) / conversionRate;
                     context.read<TopUpBalanceInMobileBloc>().add(
                         TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
                             conversionValue.toStringAsFixed(0)));
@@ -699,7 +558,7 @@ class _AmountDropDownField extends StatelessWidget {
                         .add(TopUpBalanceInMobileEvent.changeAmount(value));
                     if (value.isNotEmpty) {
                       final conversionValue =
-                          double.parse(value) * conversionRate;
+                          double.parse(value) / conversionRate;
                       context.read<TopUpBalanceInMobileBloc>().add(
                           TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
                               conversionValue.toStringAsFixed(0)));
@@ -816,10 +675,9 @@ class _TransactionDetail extends StatelessWidget {
           return SizedBox.fromSize();
         }
 
-        final discountAmount = doubleAmount * (state.discountPercentage / 100);
-        final cashbackAmount = doubleAmount * (state.cashbackPercentage / 100);
+        doubleAmount = _amtAfterDiscountDeduction(state);
+        final rewardPoint = doubleAmount * (state.rewardPoint / 100);
 
-        doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
         final conversionValue = doubleAmount / conversionRate;
         return Column(
           children: [
@@ -925,7 +783,7 @@ class _TransactionDetail extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${state.rewardPoint + state.rewardPointFromCoupon} Pts.",
+                              "${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(1)} Pts.",
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
@@ -954,7 +812,10 @@ class _TransactionDetail extends StatelessWidget {
                       ),
                       Text(
                         currencyFormatter(
-                            value: doubleAmount, showSymbol: false),
+                          decimalDigits: 2,
+                          value: doubleAmount,
+                          showSymbol: false,
+                        ),
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -976,9 +837,11 @@ class _TransactionDetail extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        currencyFormatterString(
-                            value: conversionValue.toStringAsFixed(0),
-                            showSymbol: false),
+                        currencyFormatter(
+                          value: conversionValue,
+                          showSymbol: false,
+                          decimalDigits: 2,
+                        ),
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -998,99 +861,99 @@ class _TransactionDetail extends StatelessWidget {
   }
 }
 
-class _CouponDetail extends StatelessWidget {
-  final CouponCode coupon;
-  const _CouponDetail({
-    Key? key,
-    required this.coupon,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          // height: 30,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Palette.primary,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Coupon Code',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    coupon.couponCode ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Cashback:',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    coupon.cashback ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Reward Point:',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                  Text(
-                    coupon.rewardPoint ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Palette.white,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 20),
-      ],
-    );
-  }
-}
+// class _CouponDetail extends StatelessWidget {
+//   final CouponCode coupon;
+//   const _CouponDetail({
+//     Key? key,
+//     required this.coupon,
+//   }) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: [
+//         Container(
+//           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+//           // height: 30,
+//           decoration: BoxDecoration(
+//             borderRadius: BorderRadius.circular(10),
+//             color: Palette.primary,
+//           ),
+//           child: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             children: [
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   Text(
+//                     'Coupon Code',
+//                     style: TextStyle(
+//                       fontSize: 12,
+//                       fontWeight: FontWeight.w600,
+//                       color: Palette.white,
+//                     ),
+//                   ),
+//                   Text(
+//                     coupon.couponCode ?? '',
+//                     style: TextStyle(
+//                       fontSize: 12,
+//                       fontWeight: FontWeight.bold,
+//                       color: Palette.white,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               const SizedBox(height: 10),
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   Text(
+//                     'Cashback:',
+//                     style: TextStyle(
+//                       fontSize: 12,
+//                       fontWeight: FontWeight.w600,
+//                       color: Palette.white,
+//                     ),
+//                   ),
+//                   Text(
+//                     coupon.cashback ?? '',
+//                     style: TextStyle(
+//                       fontSize: 12,
+//                       fontWeight: FontWeight.w600,
+//                       color: Palette.white,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               const SizedBox(height: 10),
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   Text(
+//                     'Reward Point:',
+//                     style: TextStyle(
+//                       fontSize: 12,
+//                       fontWeight: FontWeight.w600,
+//                       color: Palette.white,
+//                     ),
+//                   ),
+//                   Text(
+//                     coupon.rewardPoint ?? '',
+//                     style: TextStyle(
+//                       fontSize: 12,
+//                       fontWeight: FontWeight.w600,
+//                       color: Palette.white,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ],
+//           ),
+//         ),
+//         const SizedBox(height: 20),
+//       ],
+//     );
+//   }
+// }
 
 class _ProceedButton extends StatelessWidget {
   // final String balance;
@@ -1168,8 +1031,10 @@ class _TransactionAmountInNPRField extends StatelessWidget {
       builder: (context, state) {
         return _TransactionDetailRow(
           title: 'Transaction Amount (NPR)',
-          value:
-              currencyFormatterString(value: state.amount, showSymbol: false),
+          value: currencyFormatterString(
+            value: state.amount,
+            showSymbol: false,
+          ),
         );
       },
     );
@@ -1265,5 +1130,18 @@ class _ConfirmButton extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+double _amtAfterDiscountDeduction(TopUpBalanceInMobileState state) {
+  var doubleAmount = double.parse(state.amount);
+  try {
+    final discountAmount = doubleAmount * (state.discountPercentage / 100);
+    final cashbackAmount = doubleAmount * (state.cashbackPercentage / 100);
+
+    doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
+    return doubleAmount;
+  } catch (e) {
+    return 0;
   }
 }

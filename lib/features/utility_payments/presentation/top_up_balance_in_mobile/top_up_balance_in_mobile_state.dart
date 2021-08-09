@@ -24,7 +24,7 @@ class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
         number: '',
         type: '',
         amount: '',
-        convertedJpyAmount: '',
+        convertedJpyAmount: '0.0',
         coupon: '',
         cashbackPercentage: 0,
         discountPercentage: 0,

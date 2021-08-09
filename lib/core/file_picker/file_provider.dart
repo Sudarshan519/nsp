@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'package:image_picker/image_picker.dart';
@@ -16,12 +17,12 @@ class FileProvider {
       {bool? allowCompression, bool freeCrop = false}) async {
     XFile? result;
     try {
-      final result = await ImagePicker()
+      result = await ImagePicker()
           .pickImage(source: ImageSource.gallery, imageQuality: 35);
     } catch (ex) {
       if (ex is PlatformException) {
         if (ex.code == "photo_access_denied") {
-          print(ex.code.toUpperCase());
+          debugPrint(ex.code.toUpperCase());
           throw PlatformException(code: "photo_access_denied");
         } else {
           getIt<Logger>().log(

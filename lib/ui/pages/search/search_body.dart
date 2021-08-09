@@ -58,7 +58,9 @@ class _SearchBodyState extends State<SearchBody> {
 
     Widget header() {
       //removing header if search is only of selected type
-      if (widget.type != null) return const SizedBox();
+      if (widget.type != null || widget.searchData.isEmpty) {
+        return const SizedBox();
+      }
 
       return SizedBox(
         height: size.height * 0.08,
