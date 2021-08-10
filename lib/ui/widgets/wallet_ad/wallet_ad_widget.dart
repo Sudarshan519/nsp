@@ -25,7 +25,7 @@ class WalletAdWidget extends StatelessWidget {
                 onError: (err) {
                   debugPrint(err.toString());
 
-                  context.read<AdsBloc>().add(const AdsEvent.hideAds());
+                  context.read<AdsBloc>().add(const AdsEvent.refreshAd());
                 }),
           ),
         );
