@@ -8,12 +8,13 @@ class AdsModel extends Ads {
   }) : super(admob: admob, facebookAd: facebookAd, walletAd: walletAd);
 
   factory AdsModel.fromJson(Map<String, dynamic> json) => AdsModel(
-     admob : json['admob'] != null ?  Admob.fromJson(json['admob'] as Map<String, dynamic>) : null,
-    walletAd : json['walletAd'] != null
-        ?  WalletAd.fromJson(json['walletAd'] as Map<String, dynamic>)
-        : null,
-    facebookAd: json['facebookAd'] != null
-        ?  FacebookAd.fromJson(json['facebookAd'] as Map<String, dynamic>)
-        : null
-  );
+      admob: json['admob'] != null
+          ? Admob.fromJson(json['admob'] as Map<String, dynamic>)
+          : null,
+      walletAd: json['walletAd'] != null
+          ? WalletAd.fromJson(json['walletAd'] as Map<String, dynamic>)
+          : null,
+      facebookAd: json['facebookAd'] != null
+          ? FacebookAd.fromJson(json['facebookAd'] as Map<String, dynamic>)
+          : null);
 }

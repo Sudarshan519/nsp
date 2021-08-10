@@ -78,8 +78,8 @@ dependencies:
   syncfusion_flutter_charts: ^19.1.66+1          
   url_launcher: ^6.0.3                
   youtube_player_flutter: ^8.0.0
-  google_mobile_ads: ^0.13.2
-  facebook_audience_network: ^0.9.0
+  google_mobile_ads: ^0.13.3
+  facebook_audience_network: ^1.0.0-nullsafety.0
   flutter_khalti: ^1.1.0
   flutter_web_browser: ^0.15.0
   marquee: ^2.2.0

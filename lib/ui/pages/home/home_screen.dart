@@ -21,6 +21,7 @@ import 'package:wallet_app/ui/pages/home/widgets/kyc_update_prompt.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
 import 'package:wallet_app/ui/pages/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/error_widgets.dart';
+import 'package:wallet_app/ui/widgets/wallet_ad/wallet_ad_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -172,20 +173,29 @@ class HomePage extends StatelessWidget {
         // await 2 sec for the loader to show
         await Future.delayed(const Duration(seconds: 2), () {});
       },
-      child: CustomScrollView(
-        controller: scrollController,
-        slivers: [
-          const SliverToBoxAdapter(child: HomePageHeader()),
+      child: Stack(
+        children: [
+          CustomScrollView(
+            controller: scrollController,
+            slivers: [
+              const SliverToBoxAdapter(child: HomePageHeader()),
 
-          //if user kyc is not verified, showing a prompt widget
-          if (!(userDetail?.isKycVerified ?? false)) kycPromptWidget(context),
-          _homePageBodyContent(context, data, userDetail),
+              //if user kyc is not verified, showing a prompt widget
+              if (!(userDetail?.isKycVerified ?? false))
+                kycPromptWidget(context),
+              _homePageBodyContent(context, data, userDetail),
 
-          SegmentedNewsViewWidget(
-            key: UniqueKey(),
-            changeTabPage: changeTabPage,
-            changeNewsTabPage: changeNewsTabPage,
+              SegmentedNewsViewWidget(
+                key: UniqueKey(),
+                changeTabPage: changeTabPage,
+                changeNewsTabPage: changeNewsTabPage,
+              ),
+            ],
           ),
+          const Align(
+            alignment: Alignment.bottomCenter,
+            child: WalletAdWidget(),
+          )
         ],
       ),
     );
