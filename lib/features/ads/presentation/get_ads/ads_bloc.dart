@@ -32,13 +32,18 @@ class AdsBloc extends Bloc<AdsEvent, AdsState> {
       yield result.fold(
         (failure) => _Failure(failure),
         (ads) {
-          if (ads.admob != null) adList.add(ads.admob!);
-          if (ads.facebookAd != null) adList.add(ads.facebookAd!);
+          if (ads.admob != null && (ads.admob?.banner?.status ?? false)) {
+            adList.add(ads.admob!);
+          }
+          if (ads.facebookAd != null &&
+              (ads.facebookAd?.overlay?.status ?? false)) {
+            adList.add(ads.facebookAd!);
+          }
 
           adList.sort((a, b) => a.getPriority().compareTo(b.getPriority()));
 
           if (adList.isEmpty) {
-            return const _Loading();
+            return const _Hidden();
           } else {
             return _Loaded(adList.first);
           }
