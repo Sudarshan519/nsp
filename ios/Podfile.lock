@@ -54,7 +54,7 @@ PODS:
   - firebase_core (1.4.0):
     - Firebase/CoreOnly (= 8.3.0)
     - Flutter
-  - firebase_messaging (10.0.4):
+  - firebase_messaging (10.0.3):
     - Firebase/Messaging (= 8.3.0)
     - firebase_core
     - Flutter
@@ -120,12 +120,12 @@ PODS:
     - Flutter
   - flutter_web_browser (0.15.0):
     - Flutter
-  - fluttercontactpicker (4.5.1):
+  - fluttercontactpicker (4.4.0):
     - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - geolocator_apple (1.0.0):
+  - geolocator (6.2.0):
     - Flutter
   - Google-Mobile-Ads-SDK (8.5.0):
     - GoogleAppMeasurement (< 9.0, >= 7.0)
@@ -251,7 +251,7 @@ DEPENDENCIES:
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - flutter_web_browser (from `.symlinks/plugins/flutter_web_browser/ios`)
   - fluttercontactpicker (from `.symlinks/plugins/fluttercontactpicker/ios`)
-  - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
+  - geolocator (from `.symlinks/plugins/geolocator/ios`)
   - google_maps_flutter (from `.symlinks/plugins/google_maps_flutter/ios`)
   - google_mobile_ads (from `.symlinks/plugins/google_mobile_ads/ios`)
   - google_sign_in (from `.symlinks/plugins/google_sign_in/ios`)
@@ -335,8 +335,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_web_browser/ios"
   fluttercontactpicker:
     :path: ".symlinks/plugins/fluttercontactpicker/ios"
-  geolocator_apple:
-    :path: ".symlinks/plugins/geolocator_apple/ios"
+  geolocator:
+    :path: ".symlinks/plugins/geolocator/ios"
   google_maps_flutter:
     :path: ".symlinks/plugins/google_maps_flutter/ios"
   google_mobile_ads:
@@ -385,7 +385,7 @@ SPEC CHECKSUMS:
   Firebase: 817b9171d0d51dccc458b94a5e8edff6b1dd323d
   firebase_analytics: 25a03006c041a3be10bbd8e7313f87f59b9857bf
   firebase_core: 72374607c8c6f5a0adc0559e5c5bf57deda975e3
-  firebase_messaging: 55c5b8184efd330b9d1f1765b55c4ae57e015c5e
+  firebase_messaging: befb9edbc80c1a3ab5afe1a24de4ba6bd952f6d0
   FirebaseAnalytics: 456f2c51599870a15ded4548d1f1f7b2cabf65a7
   FirebaseCore: a6dba751680d7033b9d3831e1cfc95ead0605118
   FirebaseCoreDiagnostics: 7bf55d386f9fc690d971b70a582142321a390eb8
@@ -399,13 +399,13 @@ SPEC CHECKSUMS:
   flutter_local_notifications: 0c0b1ae97e741e1521e4c1629a459d04b9aec743
   flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
   flutter_web_browser: dcd4d56462dc03099dbff2f89a3e93014d8e8e06
-  fluttercontactpicker: 141493596bfca4a786d695d2572c65885bc4f088
+  fluttercontactpicker: 36cf7811f583f3c5aec3c53efcbf366b9cdfdf51
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  geolocator_apple: 60a1c3f5930c090d2f5164ba8bf25f4f89121e3c
+  geolocator: f5e3de65e241caba7ce3e8a618803387bda73384
   Google-Mobile-Ads-SDK: 6f5c41bf73db1656e5b203ba9c31e3d0899a128d
   google_maps_flutter: df4e7de95264aa0a2f11aac0fc7e313acb8ffc7e
   google_mobile_ads: b3a22ee82112a9f06eea4435c71a97d104e0d271
-  google_sign_in: 952c378b33dc5a0bf4bcb2d12afe9ac70b3239fb
+  google_sign_in: 6bd214b9c154f881422f5fe27b66aaa7bbd580cc
   GoogleAppMeasurement: de70802583dedceb0bca18172b345307e8f410b8
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
@@ -435,7 +435,7 @@ SPEC CHECKSUMS:
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
   video_player: 9cc823b1d9da7e8427ee591e8438bfbcde500e6e
   wakelock: d0fc7c864128eac40eba1617cb5264d9c940b46f
-  webview_flutter: 3603125dfd3bcbc9d8d418c3f80aeecf331c068b
+  webview_flutter: 9f491a9b5a66f2573946a389b2677987b0ff8c0b
 
 PODFILE CHECKSUM: cddb9a99248e060d48388ddd119cddec2f79247c
 
