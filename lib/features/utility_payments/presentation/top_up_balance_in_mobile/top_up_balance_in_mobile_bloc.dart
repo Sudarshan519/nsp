@@ -5,6 +5,8 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/topup_balance_for_mobile.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -210,6 +212,10 @@ class TopUpBalanceInMobileBloc
       isSubmitting: true,
       failureOrSuccessOption: none(),
     );
+    AnalyticsService.logEvent(
+      FirebaseEvents.MOBILE_TOPUP,
+      params: {'type': state.type},
+    );
 
     result = await topUpBalanceForMobile(
       TopUpBalanceForMobileParams(
@@ -220,6 +226,13 @@ class TopUpBalanceInMobileBloc
         coupon: state.coupon,
       ),
     );
+    if (result.isRight()) {
+      AnalyticsService.logEvent(
+        FirebaseEvents.MOBILE_TOPUP,
+        isSuccess: true,
+        params: {'type': state.type},
+      );
+    }
 
     yield state.copyWith(
       isSubmitting: false,

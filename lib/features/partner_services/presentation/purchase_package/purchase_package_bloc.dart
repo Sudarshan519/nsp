@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/analytcs/analytics_service.dart';
+import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_packages.dart';
 import 'package:wallet_app/features/partner_services/domain/usecase/get_partner_services.dart';
@@ -147,6 +149,12 @@ class PurchasePackageBloc
       isSubmitting: true,
       failureOrSuccessOption: none(),
     );
+    AnalyticsService.logEvent(
+      FirebaseEvents.SERVICE_PACKAGE_PURCHASE,
+      params: {
+        'name': state.packageName,
+      },
+    );
 
     failureOrSuccess = await purchasePackage(
       PurchasePackageParams(
@@ -159,6 +167,15 @@ class PurchasePackageBloc
         coupon: state.coupon,
       ),
     );
+    if (failureOrSuccess.isRight()) {
+      AnalyticsService.logEvent(
+        FirebaseEvents.SERVICE_PACKAGE_PURCHASE,
+        isSuccess: true,
+        params: {
+          'name': state.packageName,
+        },
+      );
+    }
 
     yield state.copyWith(
       isSubmitting: false,

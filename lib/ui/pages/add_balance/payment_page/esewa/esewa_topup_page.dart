@@ -199,8 +199,11 @@ class EsewaTopupPage extends StatelessWidget {
 
     try {
       AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_ESEWA);
+
       final _res = await _eSewaPnp.initPayment(payment: _payment);
       debugPrint(_res.message);
+      AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_ESEWA,
+          isSuccess: true);
 
       context.read<VerifyEsewaTopupBloc>().add(
             VerifyEsewaTopupEvent.verify(

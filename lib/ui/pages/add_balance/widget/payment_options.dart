@@ -6,6 +6,7 @@ import 'package:wallet_app/features/load_balance/domain/entities/payment_method.
 import 'package:wallet_app/ui/pages/add_balance/payment_page/ime_pay/ime_pay_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/esewa/esewa_topup_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/khalti/khalti_topup_page.dart';
+import 'package:wallet_app/ui/pages/add_balance/payment_page/prabhu_pay/prabhu_pay_page.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
@@ -55,6 +56,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
           if (!(widget.paymentMethods[index].isActive ?? true)) {
             return const SizedBox.shrink();
           }
+          final logo = widget.paymentMethods[index].logo;
 
           return InkWell(
             onTap: () {
@@ -76,10 +78,12 @@ class _PaymentOptionsState extends State<PaymentOptions> {
                         color: Palette.dividerColor,
                       ),
                     ),
-                    child: Image.network(
-                      widget.paymentMethods[index].logo ?? '',
-                      fit: BoxFit.contain,
-                    ),
+                    child: logo != null && logo.isNotEmpty
+                        ? Image.network(
+                            widget.paymentMethods[index].logo ?? '',
+                            fit: BoxFit.contain,
+                          )
+                        : const SizedBox(),
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -167,6 +171,27 @@ class _PaymentOptionsState extends State<PaymentOptions> {
             return KhaltiTopupPage(
                 userId: widget.userId,
                 method: paymentMethod,
+                conversionRate: widget.conversionRate,
+                balance: widget.balance,
+                isVerified: widget.isVerified);
+          },
+        );
+        break;
+      case "prabhupay":
+        AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_PRABHU);
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
+          ),
+          builder: (BuildContext context) {
+            return PrabhuPayTopupPage(
+                method: paymentMethod,
+                userId: widget.userId,
                 conversionRate: widget.conversionRate,
                 balance: widget.balance,
                 isVerified: widget.isVerified);

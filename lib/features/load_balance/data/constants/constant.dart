@@ -6,4 +6,6 @@ class LoadBalanceApiEndpoints {
   static const verifyImepayTopup = "/topup/imepay/verify";
   static const verifyEsewaTopup = "/topup/esewa/verify";
   static const verifyKhaltiTopup = "/topup/khalti/verify";
+
+  static const prabhuPayInitiate = "/topup/prabhupay/initiate";
 }

@@ -77,6 +77,28 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
   }
 
   @override
+  Future<Either<ApiFailure, String>> verifyPrabhuPayTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+    required String productName,
+    required String returnUrl,
+  }) async {
+    try {
+      return Right(
+        await dataSource.verifyPrabhuPayTopup(
+            referenceId: referenceId,
+            amount: amount,
+            purpose: purpose,
+            returnUrl: returnUrl,
+            productName: productName),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
   Future<Either<ApiFailure, Unit>> verifyEsewaTopup({
     required String referenceId,
     required String amount,

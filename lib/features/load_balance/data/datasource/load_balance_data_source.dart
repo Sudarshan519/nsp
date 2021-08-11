@@ -34,6 +34,13 @@ abstract class LoadBalanceDataSource {
     required String amount,
     required String purpose,
   });
+  Future<String> verifyPrabhuPayTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+    required String productName,
+    required String returnUrl,
+  });
   Future<Unit> verifyEsewaTopup({
     required String referenceId,
     required String amount,
@@ -159,11 +166,11 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       };
     }
 
-    return _postRequest(
+    return await _postRequest(
       endpoint: LoadBalanceApiEndpoints.stripeTopup,
       params: params,
       functionName: "topupViaStripe",
-    );
+    ) as Unit;
   }
 
   @override
@@ -188,11 +195,42 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       "purpose": purpose,
     };
 
-    return _postRequest(
+    return await _postRequest(
       endpoint: LoadBalanceApiEndpoints.verifyImepayTopup,
       params: params,
       functionName: "verifyImePayTopup",
-    );
+    ) as Unit;
+  }
+
+  @override
+  Future<String> verifyPrabhuPayTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+    required String productName,
+    required String returnUrl,
+  }) async {
+    final userId = (await auth.getUserDetail()).uuid;
+
+    if (userId?.isEmpty ?? true) {
+      //TODO: user id is empty we have to redirect to login page.
+
+    }
+
+    final params = {
+      "reference_id": referenceId,
+      "product_id": userId,
+      'product_name': userId,
+      "amount": amount,
+      "remarks": purpose,
+      "return_url": config.baseURL + returnUrl
+    };
+
+    return await _postRequest(
+      endpoint: LoadBalanceApiEndpoints.prabhuPayInitiate,
+      params: params,
+      functionName: "verifyPrabhuPayTopup",
+    ) as String;
   }
 
   @override
@@ -216,11 +254,11 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       "purpose": purpose,
       "verify_amount": verifyAmount, // amt in nepali PAISA
     };
-    return _postRequest(
+    return await _postRequest(
       endpoint: LoadBalanceApiEndpoints.verifyKhaltiTopup,
       params: params,
       functionName: "verifyKhaltiTopup",
-    );
+    ) as Unit;
   }
 
   @override
@@ -242,14 +280,14 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
       "amount": amount,
       "purpose": purpose,
     };
-    return _postRequest(
+    return await _postRequest(
       endpoint: LoadBalanceApiEndpoints.verifyEsewaTopup,
       params: params,
       functionName: "verifyEsewaTopup",
-    );
+    ) as Unit;
   }
 
-  Future<Unit> _postRequest({
+  Future<dynamic> _postRequest({
     required String endpoint,
     required Map<String, dynamic> params,
     required String functionName,
@@ -293,6 +331,18 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     final statusCode = response.statusCode;
 
     if (statusCode == 200) {
+      if (endpoint.contains('prabhu')) {
+        try {
+          final jsondata = json.decode(response.body);
+
+          final url = jsondata['payment_link']['data']['redirectionUrl'];
+          return url;
+        } catch (e) {
+          throw ServerException(
+              message: errorMessageFromServerWithError(response.body) ??
+                  AppConstants.someThingWentWrong);
+        }
+      }
       return unit;
     } else {
       logger.log(

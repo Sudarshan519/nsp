@@ -1,12 +1,12 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ime_pay/ime_pay.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
-import 'package:wallet_app/features/load_balance/presentations/ime_pay/ime_pay_form/ime_pay_form_cubit.dart';
-import 'package:wallet_app/features/load_balance/presentations/ime_pay/verify_ime_pay_topup/verify_ime_pay_topup_bloc.dart';
+import 'package:wallet_app/features/load_balance/presentations/prabhu_pay/prabhu_pay_form/prabhu_pay_form_cubit.dart';
+import 'package:wallet_app/features/load_balance/presentations/prabhu_pay/verify_prabhu_pay_topup/verify_prabhu_pay_topup_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -21,14 +21,14 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 
-class ImePayTopupPage extends StatelessWidget {
+class PrabhuPayTopupPage extends StatelessWidget {
   final PaymentMethod method;
   final String userId;
   final double conversionRate;
   final bool isVerified;
   final double balance;
 
-  const ImePayTopupPage({
+  const PrabhuPayTopupPage({
     Key? key,
     required this.method,
     required this.userId,
@@ -42,10 +42,10 @@ class ImePayTopupPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<VerifyImePayTopupBloc>(),
+          create: (context) => getIt<VerifyPrabhuPayTopupBloc>(),
         ),
         BlocProvider(
-          create: (context) => getIt<ImePayFormCubit>(),
+          create: (context) => getIt<PrabhuPayFormCubit>(),
         ),
       ],
       child: blocBuilderWidget(context),
@@ -53,26 +53,43 @@ class ImePayTopupPage extends StatelessWidget {
   }
 
   Widget blocBuilderWidget(BuildContext context) {
-    return BlocConsumer<VerifyImePayTopupBloc, VerifyImePayTopupState>(
+    return BlocConsumer<VerifyPrabhuPayTopupBloc, VerifyPrabhuPayTopupState>(
       listener: (context, state) {
         state.map(
           initial: (_) {},
           loading: (_) {},
-          success: (_) {
-            getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
+          success: (success) async {
+            final successResult = await context.pushRoute(AppWebViewRoute(
+                url: success.url,
+                title: 'Prabhu Pay',
+                urlListner: (url) {
+                  if (url == Values.prabhuConfirmUrl) {
+                    context.popRoute(true);
+                  }
+                }));
 
-            getIt<TransactionBloc>()
-                .add(const TransactionEvent.fetchTransactionData());
-            showDialog(
-              context: context,
-              builder: (_) => PopUpSuccessOverLay(
-                title: AppConstants.topUpSuccessTitle,
-                message: AppConstants.topUpSuccessMessage,
-                onPressed: () {
-                  context.router.navigate(const TabBarRoute());
-                },
-              ),
-            );
+            if (successResult == true) {
+              AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_PRABHU,
+                  isSuccess: true);
+              getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
+
+              getIt<TransactionBloc>()
+                  .add(const TransactionEvent.fetchTransactionData());
+              showDialog(
+                context: context,
+                builder: (_) => PopUpSuccessOverLay(
+                  title: AppConstants.topUpSuccessTitle,
+                  message: AppConstants.topUpSuccessMessage,
+                  onPressed: () {
+                    context.router.navigate(const TabBarRoute());
+                  },
+                ),
+              );
+            } else {
+              FlushbarHelper.createError(
+                      message: 'Payment error or canceled by user')
+                  .show(context);
+            }
           },
           failure: (failure) {
             FlushbarHelper.createError(
@@ -88,15 +105,15 @@ class ImePayTopupPage extends StatelessWidget {
         );
       },
       builder: (context, state) {
-        if (state == const VerifyImePayTopupState.loading()) {
+        if (state == const VerifyPrabhuPayTopupState.loading()) {
           return loadingPage();
         }
-        return imePayFormWidget(context);
+        return prabhuPayFormWidget(context);
       },
     );
   }
 
-  Widget imePayFormWidget(BuildContext context) {
+  Widget prabhuPayFormWidget(BuildContext context) {
     return Padding(
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
@@ -119,7 +136,7 @@ class ImePayTopupPage extends StatelessWidget {
               const SizedBox(height: 10),
               _ProceedButton(
                 onTap: () {
-                  _imePay(context);
+                  _prabhuPay(context);
                 },
               ),
               const SizedBox(height: 10),
@@ -143,9 +160,9 @@ class ImePayTopupPage extends StatelessWidget {
     );
   }
 
-  Future _imePay(BuildContext context) async {
-    final amount = context.read<ImePayFormCubit>().state.amount;
-    final purpose = context.read<ImePayFormCubit>().state.purpose;
+  Future _prabhuPay(BuildContext context) async {
+    final amount = context.read<PrabhuPayFormCubit>().state.amount;
+    final purpose = context.read<PrabhuPayFormCubit>().state.purpose;
 
     if (amount.isEmpty) {
       FlushbarHelper.createError(message: "The amount cannot be empty.")
@@ -183,39 +200,18 @@ class ImePayTopupPage extends StatelessWidget {
       }
     }
 
-    final ImePay _imePay = ImePay(
-      merchantCode: method.module ?? '',
-      module: method.module ?? '',
-      userName: method.username ?? '',
-      password: method.password ?? '',
-      amount: amountDoubleInRupees,
-      merchantName: method.module ?? '',
-      recordingServiceUrl: method.recordingUrl ?? '',
-      deliveryServiceUrl: method.deliveryUrl ?? '',
-      environment: (method.islive ?? false)
-          ? ImePayEnvironment.LIVE
-          : ImePayEnvironment.TEST,
-      refId:
-          "BNPJ_TOPUP_${userId}_${DateTime.now().millisecondsSinceEpoch.toString()}",
-    );
-    AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_IME);
+    AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_PRABHU);
 
-    _imePay.startPayment(onSuccess: (ImePaySuccessResponse data) {
-      debugPrint(data.toString());
-      AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_IME,
-          isSuccess: true);
-
-      context.read<VerifyImePayTopupBloc>().add(
-            VerifyImePayTopupEvent.verify(
-              tokenId: data.transactionId.toString(),
-              refId: data.refId.toString(),
-              amount: data.amount.toString(),
-              purpose: purpose,
-            ),
-          );
-    }, onFailure: (error) {
-      debugPrint(error);
-    });
+    context.read<VerifyPrabhuPayTopupBloc>().add(
+          VerifyPrabhuPayTopupEvent.verify(
+            referenceId:
+                "BNPJ_TOPUP_${userId}_${DateTime.now().millisecondsSinceEpoch.toString()}",
+            amount: amountDoubleInRupees.toStringAsFixed(0),
+            purpose: purpose,
+            productName: '',
+            returnUrl: method.callbackUrl.toString(),
+          ),
+        );
   }
 }
 
@@ -228,7 +224,7 @@ class _ConversionRate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ImePayFormCubit, ImePayFormState>(
+    return BlocBuilder<PrabhuPayFormCubit, PrabhuPayFormState>(
       builder: (context, state) {
         if (state.amount.isEmpty) {
           return const SizedBox.shrink();
@@ -264,7 +260,7 @@ class _AmountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      BlocBuilder<ImePayFormCubit, ImePayFormState>(
+      BlocBuilder<PrabhuPayFormCubit, PrabhuPayFormState>(
         builder: (context, state) {
           return TextWidetWithLabelAndChild(
             key: state.key,
@@ -273,8 +269,9 @@ class _AmountWidget extends StatelessWidget {
               hintText: "रू 1000",
               textInputType: TextInputType.number,
               value: state.amount,
-              onChanged: (value) =>
-                  context.read<ImePayFormCubit>().updateAmountFromForm(value),
+              onChanged: (value) => context
+                  .read<PrabhuPayFormCubit>()
+                  .updateAmountFromForm(value),
             ),
           );
         },
@@ -313,10 +310,10 @@ class _AmountFromSuggestionWidget extends StatelessWidget {
   }
 
   Widget buildPriceHelperItem(BuildContext context, String price) {
-    return BlocBuilder<ImePayFormCubit, ImePayFormState>(
+    return BlocBuilder<PrabhuPayFormCubit, PrabhuPayFormState>(
       builder: (context, state) {
         return InkWell(
-          onTap: () => context.read<ImePayFormCubit>().updateAmountFromMenu(
+          onTap: () => context.read<PrabhuPayFormCubit>().updateAmountFromMenu(
                 price.replaceAll(",", ""),
               ),
           child: Container(
@@ -347,7 +344,7 @@ class _PurposeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      BlocBuilder<ImePayFormCubit, ImePayFormState>(
+      BlocBuilder<PrabhuPayFormCubit, PrabhuPayFormState>(
         builder: (context, state) {
           return TextWidetWithLabelAndChild(
             title: "Purpose",
@@ -356,7 +353,7 @@ class _PurposeWidget extends StatelessWidget {
               value: state.purpose,
               options: Values.PAYMENT_PURPOSE,
               onChanged: (value) =>
-                  context.read<ImePayFormCubit>().setPurpose(value ?? ''),
+                  context.read<PrabhuPayFormCubit>().setPurpose(value ?? ''),
             ),
           );
         },

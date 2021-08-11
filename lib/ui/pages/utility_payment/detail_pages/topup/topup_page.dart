@@ -5,9 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttercontactpicker/fluttercontactpicker.dart';
-import 'package:wallet_app/core/analytcs/analytics_service.dart';
-import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
-import 'package:wallet_app/features/coupon/domain/entities/coupon_code.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
@@ -1101,10 +1098,6 @@ class _ConfirmButton extends StatelessWidget {
         return InkWell(
           onTap: () {
             if (state.productId.isNotEmpty) {
-              AnalyticsService.logEvent(
-                FirebaseEvents.MOBILE_TOPUP,
-                params: {'type': state.type},
-              );
               context
                   .read<TopUpBalanceInMobileBloc>()
                   .add(const TopUpBalanceInMobileEvent.topup());

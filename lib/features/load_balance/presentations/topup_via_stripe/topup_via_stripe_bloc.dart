@@ -142,6 +142,10 @@ class TopupViaStripeBloc
         isSavedCard: _topUp.isSavedCard,
       ),
     );
+    if (result.isRight()) {
+      AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_STRIPE,
+          isSuccess: true);
+    }
     yield state.copyWith(
       isSubmitting: false,
       failureOrSuccessOption: optionOf(result),

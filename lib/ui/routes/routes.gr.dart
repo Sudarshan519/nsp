@@ -201,7 +201,10 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<AppWebViewRouteArgs>();
           return _i17.AppWebViewPage(
-              key: args.key, url: args.url, title: args.title);
+              key: args.key,
+              url: args.url,
+              title: args.title,
+              urlListner: args.urlListner);
         }),
     ProfileRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -792,22 +795,30 @@ class NewsDetailRouteArgs {
 }
 
 class AppWebViewRoute extends _i1.PageRouteInfo<AppWebViewRouteArgs> {
-  AppWebViewRoute({_i2.Key? key, required String url, required String title})
+  AppWebViewRoute(
+      {_i2.Key? key,
+      required String url,
+      required String title,
+      dynamic Function(String)? urlListner})
       : super(name,
             path: '/app-web-view-page',
-            args: AppWebViewRouteArgs(key: key, url: url, title: title));
+            args: AppWebViewRouteArgs(
+                key: key, url: url, title: title, urlListner: urlListner));
 
   static const String name = 'AppWebViewRoute';
 }
 
 class AppWebViewRouteArgs {
-  const AppWebViewRouteArgs({this.key, required this.url, required this.title});
+  const AppWebViewRouteArgs(
+      {this.key, required this.url, required this.title, this.urlListner});
 
   final _i2.Key? key;
 
   final String url;
 
   final String title;
+
+  final dynamic Function(String)? urlListner;
 }
 
 class ProfileRoute extends _i1.PageRouteInfo {

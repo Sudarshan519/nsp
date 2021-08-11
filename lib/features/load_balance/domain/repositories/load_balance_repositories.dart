@@ -35,5 +35,13 @@ abstract class LoadBalanceRepositories {
     required String verifyAmount,
   });
 
+  Future<Either<ApiFailure, String>> verifyPrabhuPayTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+    required String productName,
+    required String returnUrl,
+  });
+
   Future<Either<ApiFailure, Unit>> deleteCard({required int cardId});
 }

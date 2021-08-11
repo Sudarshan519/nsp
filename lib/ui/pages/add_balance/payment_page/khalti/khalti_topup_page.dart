@@ -206,9 +206,13 @@ class KhaltiTopupPage extends StatelessWidget {
       name: "Load Balance from Khalti",
     );
     AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_KHALTI);
+
     _flutterKhalti.startPayment(
       product: product,
       onSuccess: (data) {
+        AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_KHALTI,
+            isSuccess: true);
+
         context.read<VerifyKhaltiTopupBloc>().add(
               VerifyKhaltiTopupEvent.verify(VerifyKhaltiTopupParams(
                   referenceId: data['token'] as String,
