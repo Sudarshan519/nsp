@@ -8,7 +8,6 @@ import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/ads/data/data_source/ads_remote_datasource.dart';
 import 'package:wallet_app/features/ads/domain/enity/ad.dart';
 import 'package:wallet_app/features/ads/domain/use_case/get_ads.dart';
-import 'package:wallet_app/features/auth/presentation/password_reset/password_reset_bloc.dart';
 
 part 'ads_event.dart';
 part 'ads_state.dart';
@@ -21,6 +20,7 @@ class AdsBloc extends Bloc<AdsEvent, AdsState> {
   AdsBloc(this.getAds, this.adsDataSrc) : super(const _Initial());
   List<AdContract> adList = [];
   int currentIndex = 0;
+  bool _isRefreshing = false;
 
   @override
   Stream<AdsState> mapEventToState(
@@ -47,16 +47,22 @@ class AdsBloc extends Bloc<AdsEvent, AdsState> {
           } else {
             return _Loaded(adList.first);
           }
-
-          // return _Loaded(adList.reduce((curr, next) =>
-          //     curr.getPriority() > next.getPriority() ? curr : next));
         },
       );
     }, hideAds: (e) async* {
       yield const _Hidden();
     }, refreshAd: (e) async* {
-      currentIndex = (currentIndex + 1 == adList.length) ? 0 : currentIndex + 1;
-      yield _Loaded(adList[currentIndex]);
+      if (!_isRefreshing) {
+        _isRefreshing = true;
+
+        await Future.delayed(Duration(seconds: e.seconds));
+
+        currentIndex =
+            (currentIndex + 1 == adList.length) ? 0 : currentIndex + 1;
+
+        yield _Loaded(adList[currentIndex]);
+        _isRefreshing = false;
+      }
     });
   }
 }

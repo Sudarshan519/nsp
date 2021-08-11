@@ -1,5 +1,3 @@
-import 'package:facebook_audience_network/ad/ad_banner.dart';
-import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -22,10 +20,17 @@ class WalletAdWidget extends StatelessWidget {
           child: AdWidget(
             ad: WalletAdService.creategoogleAd(
                 bannerId: admob.banner?.name ?? '',
+                onSuccess: (ad) {
+                  context.read<AdsBloc>().add(AdsEvent.refreshAd(
+                        seconds: admob.getRefreshTime(),
+                      ));
+                },
                 onError: (err) {
                   debugPrint(err.toString());
 
-                  context.read<AdsBloc>().add(const AdsEvent.refreshAd());
+                  context
+                      .read<AdsBloc>()
+                      .add(const AdsEvent.refreshAd(seconds: 0));
                 }),
           ),
         );
@@ -43,9 +48,9 @@ class WalletAdWidget extends StatelessWidget {
           hidden: (h) => const SizedBox(),
           loading: (val) => const SizedBox(),
           loaded: (val) {
-            Future.delayed(Duration(seconds: val.ad.getRefreshTime()), () {
-              context.read<AdsBloc>().add(const AdsEvent.refreshAd());
-            });
+            // context
+            //     .read<AdsBloc>()
+            //     .add(AdsEvent.refreshAd(seconds: val.ad.getRefreshTime()));
 
             switch (val.ad.runtimeType) {
               case Admob:
@@ -53,7 +58,18 @@ class WalletAdWidget extends StatelessWidget {
                 return _googleAd(ad);
               case FacebookAd:
                 final ad = val.ad as FacebookAd;
-                return WalletAdService.createfacebookAd(ad.getAPIKey());
+                return WalletAdService.createfacebookAd(
+                    id: ad.getAPIKey(),
+                    onError: (val) {
+                      context.read<AdsBloc>().add(const AdsEvent.refreshAd(
+                            seconds: 0,
+                          ));
+                    },
+                    onSuccess: () {
+                      context.read<AdsBloc>().add(AdsEvent.refreshAd(
+                            seconds: val.ad.getRefreshTime(),
+                          ));
+                    });
 
               default:
                 return const SizedBox();

@@ -20,7 +20,9 @@ class WalletAdService {
   }
 
   static BannerAd creategoogleAd(
-      {required String bannerId, required Function(LoadAdError) onError}) {
+      {required String bannerId,
+      required Function(LoadAdError) onError,
+      required Function(Ad) onSuccess}) {
     return BannerAd(
         size: AdSize.fullBanner,
         adUnitId: bannerId,
@@ -28,6 +30,7 @@ class WalletAdService {
           onAdClosed: (ad) {},
           onAdLoaded: (ad) {
             debugPrint('=>Ad Loaded');
+            onSuccess(ad);
           },
           onAdFailedToLoad: (ad, error) {
             debugPrint('=>Failed to load google banner ad');
@@ -39,7 +42,10 @@ class WalletAdService {
       ..load();
   }
 
-  static Widget createfacebookAd(String id) {
+  static Widget createfacebookAd(
+      {required String id,
+      required Function(dynamic) onError,
+      required Function onSuccess}) {
     return FacebookBannerAd(
       // placementId: getUseablePlacementID(val.ads.facebookAd?.overlay?.name),
       placementId: _getUseablePlacementID(id),
@@ -47,9 +53,12 @@ class WalletAdService {
         switch (result) {
           case BannerAdResult.ERROR:
             debugPrint("Error: $value");
+            onError(value);
+
             break;
           case BannerAdResult.LOADED:
             debugPrint("Loaded: $value");
+            onSuccess();
             break;
           case BannerAdResult.CLICKED:
             debugPrint("Clicked: $value");
