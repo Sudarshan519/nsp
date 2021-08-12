@@ -1,4 +1,3 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,7 +62,7 @@ class PrabhuPayTopupPage extends StatelessWidget {
                 url: success.url,
                 title: 'Prabhu Pay',
                 urlListner: (url) {
-                  if (url == Values.prabhuConfirmUrl) {
+                  if (url == method.deliveryUrl) {
                     context.popRoute(true);
                   }
                 }));
@@ -87,7 +86,7 @@ class PrabhuPayTopupPage extends StatelessWidget {
               );
             } else {
               FlushbarHelper.createError(
-                      message: 'Payment error or canceled by user')
+                      message: 'Payment error or canceled by user!')
                   .show(context);
             }
           },
@@ -193,8 +192,8 @@ class PrabhuPayTopupPage extends StatelessWidget {
       final sum = amountDoubleInRupees + balance;
       if (method.balanceLimit != null && sum >= method.balanceLimit!) {
         FlushbarHelper.createError(
-                message:
-                    "Please verify kyc for this trasaction. Unverified user cannot topup more than limit ${method.balanceLimit}.")
+                message: AppConstants.verifyKycTransaction(
+                    method.balanceLimit.toString()))
             .show(context);
         return;
       }
@@ -209,7 +208,7 @@ class PrabhuPayTopupPage extends StatelessWidget {
             amount: amountDoubleInRupees.toStringAsFixed(0),
             purpose: purpose,
             productName: '',
-            returnUrl: method.callbackUrl.toString(),
+            returnUrl: method.callbackUrl ?? '',
           ),
         );
   }
