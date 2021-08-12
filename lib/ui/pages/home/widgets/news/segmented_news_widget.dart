@@ -234,11 +234,12 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
     return ShadowBoxWidget(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       padding: const EdgeInsets.only(bottom: 16),
-      // padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
         children: [
-          SizedBox(
-              height: 95, child: _latestAlertBody(context, isHorizontal: true)),
+          if (showAlerts)
+            SizedBox(
+                height: 95,
+                child: _latestAlertBody(context, isHorizontal: true)),
           ListView.builder(
             primary: false,
             physics: const NeverScrollableScrollPhysics(),
