@@ -6,12 +6,11 @@ import 'package:wallet_app/features/ads/domain/enity/ad.dart';
 import 'package:wallet_app/features/ads/presentation/get_ads/ads_bloc.dart';
 
 class WalletAdWidget extends StatelessWidget {
-  const WalletAdWidget({Key? key}) : super(key: key);
+  final double height;
+  const WalletAdWidget({required this.height, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height * 0.09;
-
     Widget _googleAd(Admob? admob) {
       if (admob != null && (admob.banner?.status ?? false)) {
         return Container(

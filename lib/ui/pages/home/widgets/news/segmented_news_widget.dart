@@ -194,7 +194,7 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
         },
         loaded: (data) {
           final newsList = data.newsData;
-          return _newsData(newsList);
+          return _newsData(newsList, showAlerts: true);
         },
         failure: (_) => const SizedBox.shrink(),
         failureWithData: (data) {
@@ -230,13 +230,15 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
     });
   }
 
-  Widget _newsData(List<NewsItem> newsList) {
+  Widget _newsData(List<NewsItem> newsList, {bool showAlerts = false}) {
     return ShadowBoxWidget(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       padding: const EdgeInsets.only(bottom: 16),
       // padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
         children: [
+          SizedBox(
+              height: 95, child: _latestAlertBody(context, isHorizontal: true)),
           ListView.builder(
             primary: false,
             physics: const NeverScrollableScrollPhysics(),
@@ -274,7 +276,7 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
     );
   }
 
-  Widget _latestAlertBody(BuildContext context) {
+  Widget _latestAlertBody(BuildContext context, {bool isHorizontal = false}) {
     return BlocBuilder<GetAlertsBloc, GetAlertsState>(
         builder: (context, state) {
       return state.map(
@@ -283,8 +285,12 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
           height: 70,
           child: loadingPage(),
         ),
-        loadingWithData: (data) => _showAlertList(data.alerts),
-        success: (success) => _showAlertList(success.alerts),
+        loadingWithData: (data) => !isHorizontal
+            ? _showAlertList(data.alerts)
+            : _showAlertListHorizontal(data.alerts),
+        success: (success) => !isHorizontal
+            ? _showAlertList(success.alerts)
+            : _showAlertListHorizontal(success.alerts),
         failure: (failure) => const SizedBox.shrink(),
       );
     });
@@ -325,6 +331,26 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _showAlertListHorizontal(List<Alert> alerts) {
+    return ShadowBoxWidget(
+      margin: const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsets.only(bottom: 4),
+      child: ListView.builder(
+        primary: false,
+        scrollDirection: Axis.horizontal,
+        itemCount: alerts.length,
+        itemBuilder: (context, index) {
+          return SizedBox(
+            width: 370,
+            child: AlertWidget(
+              alert: alerts[index],
+            ),
+          );
+        },
       ),
     );
   }

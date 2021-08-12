@@ -163,6 +163,8 @@ class HomePage extends StatelessWidget {
 
   Widget _homePageSilver(
       BuildContext context, List? data, UserDetail? userDetail) {
+    final height = MediaQuery.of(context).size.height * 0.09;
+
     return RefreshIndicator(
       onRefresh: () async {
         context.read<HomePageDataBloc>().add(
@@ -192,11 +194,17 @@ class HomePage extends StatelessWidget {
                 changeTabPage: changeTabPage,
                 changeNewsTabPage: changeNewsTabPage,
               ),
+              SliverToBoxAdapter(
+                  child: SizedBox(
+                height: height,
+              )),
             ],
           ),
-          const Align(
+          Align(
             alignment: Alignment.bottomCenter,
-            child: WalletAdWidget(),
+            child: WalletAdWidget(
+              height: height,
+            ),
           )
         ],
       ),
