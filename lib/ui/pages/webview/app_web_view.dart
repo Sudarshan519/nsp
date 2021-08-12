@@ -22,19 +22,6 @@ class AppWebViewPage extends StatefulWidget {
 
 class _AppWebViewState extends State<AppWebViewPage> {
   bool isLoading = true;
-  String currentUrl = '';
-  Timer? _timer;
-  @override
-  void initState() {
-    super.initState();
-    currentUrl = widget.url;
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _timer?.cancel();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,30 +44,14 @@ class _AppWebViewState extends State<AppWebViewPage> {
           WebView(
             initialUrl: widget.url,
             javascriptMode: JavascriptMode.unrestricted,
-            onPageFinished: (finish) {
+            onPageFinished: (url) {
               setState(() {
                 isLoading = false;
               });
+              if (widget.urlListner != null) {
+                widget.urlListner!(url);
+              }
             },
-            onWebViewCreated: (a) {
-              _timer = Timer.periodic(const Duration(seconds: 2), (t) async {
-                final url = await a.currentUrl();
-                if (url == null) return;
-                if (url != currentUrl) {
-                  currentUrl = url;
-                  if (widget.urlListner != null) {
-                    widget.urlListner!(url);
-                  }
-                }
-              });
-            },
-            // navigationDelegate: (request) {
-            //   print(request);
-            //   if (widget.urlListner != null) {
-            //     widget.urlListner!(request.url);
-            //   }
-            //   return NavigationDecision.navigate; // Prevent opening url
-            // },
           ),
           if (isLoading) loadingPage() else const SizedBox.shrink(),
         ],
