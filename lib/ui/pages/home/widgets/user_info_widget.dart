@@ -17,48 +17,31 @@ class UserInfoWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
+          padding: const EdgeInsets.only(bottom: 10),
           width: double.maxFinite,
           color: Palette.primary,
-          child: Column(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SvgPicture.asset(
+                "assets/images/resume/email-icon.svg",
+                color: Palette.white,
+                height: 12.0,
+              ),
+              const SizedBox(width: 5),
               Text(
-                "${user?.firstName ?? ""} ${user?.lastName ?? ""}",
+                user?.email ?? "",
                 style: TextStyle(
                   color: Palette.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
                 ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/resume/email-icon.svg",
-                    color: Palette.white,
-                    height: 12.0,
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    user?.email ?? "",
-                    style: TextStyle(
-                      color: Palette.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
               ),
             ],
           ),
         ),
         const BalanceAndPointWidget(),
-        const Padding(padding: EdgeInsets.only(bottom: 16)),
+        const SizedBox(height: 16)
       ],
     );
   }

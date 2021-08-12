@@ -52,6 +52,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: HomeUserProfileWidget(),
+        title: const HomeAppbarTitle(),
+        centerTitle: false,
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),

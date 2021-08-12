@@ -116,6 +116,14 @@ class BalanceAndPointWidget extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          if (points.isNotEmpty)
+                            const Icon(
+                              Icons.subdirectory_arrow_right,
+                              size: 20,
+                            )
                         ],
                       ),
                     ),

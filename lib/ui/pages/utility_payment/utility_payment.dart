@@ -63,7 +63,6 @@ class GridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _baseURL = getIt<ConfigReader>().baseURL;
-
     return InkWell(
       onTap: () {
         final type = paymentData[index].paymentType ?? '';
@@ -86,18 +85,16 @@ class GridItem extends StatelessWidget {
         children: [
           if (paymentData[index].image != null)
             Container(
-              padding: const EdgeInsets.all(8),
+              height: 60,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
                   color: Palette.dividerColor,
                 ),
               ),
-              child: Center(
-                child: Image.network(
-                  _baseURL + paymentData[index].image!,
-                  height: 35,
-                ),
+              child: Image.network(
+                _baseURL + paymentData[index].image!,
+                fit: BoxFit.contain,
               ),
             ),
           const SizedBox(height: 3),
