@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
@@ -92,10 +93,24 @@ class GridItem extends StatelessWidget {
                   color: Palette.dividerColor,
                 ),
               ),
-              child: Image.network(
-                _baseURL + paymentData[index].image!,
-                fit: BoxFit.contain,
-              ),
+              child: CachedNetworkImage(
+                  imageUrl: _baseURL + paymentData[index].image!,
+                  fit: BoxFit.contain,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      Container(
+                        color: Palette.primaryBackground,
+                        height: 10,
+                        child: Center(
+                          child: CircularProgressIndicator(
+                              value: downloadProgress.progress),
+                        ),
+                      ),
+                  errorWidget: (_, __, ___) {
+                    return Image.asset(
+                      'assets/images/navigation_bar/u1.png',
+                      fit: BoxFit.cover,
+                    );
+                  }),
             ),
           const SizedBox(height: 3),
           Text(

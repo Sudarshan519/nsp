@@ -345,7 +345,7 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
         itemCount: alerts.length,
         itemBuilder: (context, index) {
           return SizedBox(
-            width: 370,
+            width: MediaQuery.of(context).size.width * 0.899,
             child: AlertWidget(
               alert: alerts[index],
             ),
