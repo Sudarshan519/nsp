@@ -31,7 +31,7 @@ class PersonalDocumentDetailPage extends StatefulWidget {
 
 class _PersonalDocumentDetailPageState
     extends State<PersonalDocumentDetailPage> {
-  File? _userImage;
+  // File? _userImage;
   File? _originKycDocFront;
   File? _originKycDocBack;
   File? _residenceKycDocFront;
@@ -40,7 +40,6 @@ class _PersonalDocumentDetailPageState
   @override
   void initState() {
     // TODO: implement initState
-    _userImage = null;
     _originKycDocFront = null;
     _originKycDocBack = null;
     _residenceKycDocFront = null;
@@ -369,23 +368,23 @@ class _PersonalDocumentDetailPageState
 
     if (isJapan) {
       widgets = [
-        kycForJPImg,
-        const SizedBox(height: 16),
         kycForJapanDesc,
         const SizedBox(height: 16),
-        kycCountryOriginImage,
+        kycForJPImg,
         const SizedBox(height: 16),
         kycCountryOriginDesc,
+        const SizedBox(height: 16),
+        kycCountryOriginImage,
       ];
     } else {
       widgets = [
-        kycCountryOriginImage,
-        const SizedBox(height: 16),
         kycCountryOriginDesc,
         const SizedBox(height: 16),
-        kycForJPImg,
+        kycCountryOriginImage,
         const SizedBox(height: 16),
         kycForJapanDesc,
+        const SizedBox(height: 16),
+        kycForJPImg,
         const SizedBox(height: 16),
       ];
     }
@@ -395,16 +394,6 @@ class _PersonalDocumentDetailPageState
     return Column(
       key: key,
       children: [
-        if (_userImage == null)
-          _UserPhotoWidget(
-            callback: (file) {
-              setState(() {
-                _userImage = file;
-              });
-            },
-          )
-        else
-          _userSelectedImage(),
         const SizedBox(height: 16),
         AbsorbPointer(
           absorbing: isVerified,
@@ -442,241 +431,6 @@ class _PersonalDocumentDetailPageState
         ),
         const SizedBox(height: 16),
       ],
-    );
-  }
-
-  Widget _userSelectedImage() {
-    return ShadowBoxWidget(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: SizedBox(
-        width: double.maxFinite,
-        child: Column(
-          children: [
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "User Photo",
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Column(
-              children: [
-                // if (_isLoading)
-                //   SizedBox(height: 82, child: loadingPage())
-                // else
-                SizedBox(
-                  height: 80,
-                  width: 80,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(40.0),
-                    child: _userImage == null
-                        ? const SizedBox.expand()
-                        : Image.file(
-                            _userImage!,
-                            fit: BoxFit.cover,
-                          ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        if (_userImage != null) {
-                          context.read<UpdateProfileBloc>().add(
-                                UpdateProfileEvent.saveUserImage(
-                                  _userImage!,
-                                ),
-                              );
-                        }
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        height: 25,
-                        decoration: BoxDecoration(
-                          color: Palette.primaryButtonColor,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Save",
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w500,
-                              color: Palette.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          _userImage = null;
-                        });
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        height: 25,
-                        decoration: BoxDecoration(
-                          color: Palette.white,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            "Cancel",
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _UserPhotoWidget extends StatelessWidget {
-  final FileProvider fileProvider = getIt<FileProvider>();
-  final Function(File) callback;
-
-  _UserPhotoWidget({
-    Key? key,
-    required this.callback,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UpdateProfileBloc, UpdateProfileState>(
-      builder: (context, state) {
-        return ShadowBoxWidget(
-          margin: const EdgeInsets.symmetric(horizontal: 16),
-          child: SizedBox(
-            width: double.maxFinite,
-            child: Column(
-              children: [
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "User Photo",
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                InkWell(
-                  onTap: () async {
-                    try {
-                      final fileProviderResult = await fileProvider.getImage();
-                      fileProviderResult.fold(
-                        (message) {
-                          if (message.isNotEmpty) {
-                            FlushbarHelper.createError(message: message)
-                                .show(context);
-                          }
-                        },
-                        (file) {
-                          callback(file);
-                        },
-                      );
-                    } catch (ex) {
-                      showDialog(
-                        context: context,
-                        builder: (_) => PermissionNotAvailableWidget(
-                          onPressed: () async {
-                            context.popRoute();
-
-                            await openAppSettings();
-                          },
-                        ),
-                      );
-                    }
-                  },
-                  child: Column(
-                    children: [
-                      ImageLoaderWidget(
-                        image: state.profilePicture,
-                        height: 80,
-                        width: 80,
-                        cornerRadius: 40,
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          try {
-                            final fileProviderResult =
-                                await fileProvider.getImage();
-
-                            fileProviderResult.fold(
-                              (message) {
-                                if (message.isNotEmpty) {
-                                  FlushbarHelper.createError(message: message)
-                                      .show(context);
-                                }
-                              },
-                              (file) {
-                                callback(file);
-                              },
-                            );
-                          } catch (ex) {
-                            showDialog(
-                              context: context,
-                              builder: (_) => PermissionNotAvailableWidget(
-                                onPressed: () async {
-                                  context.popRoute();
-
-                                  await openAppSettings();
-                                },
-                              ),
-                            );
-                          }
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          height: 25,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            color: Palette.primaryButtonColor,
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Update",
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                                color: Palette.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }

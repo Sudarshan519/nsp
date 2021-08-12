@@ -61,7 +61,7 @@ class HomeAppbarTitle extends StatelessWidget {
       name.isEmpty ? 'User' : name,
       style: TextStyle(
         color: Palette.white,
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: FontWeight.w600,
       ),
     );

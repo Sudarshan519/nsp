@@ -7,6 +7,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/profile/update_profile/presentations/bloc/update_profile_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/balance_and_points.dart';
+import 'package:wallet_app/ui/pages/resume/widgets/image_edit_widget.dart';
 import 'package:wallet_app/ui/widgets/image_loader_view.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -127,18 +128,16 @@ class _UserInfoWidget extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              Stack(
-                alignment: Alignment.center,
-                clipBehavior: Clip.none,
+              Column(
                 children: [
-                  ImageLoaderWidget(
-                    image: user.avatar ?? "",
-                    height: 80,
-                    width: 80,
-                    cornerRadius: 40,
-                  ),
-                  Positioned(
-                    bottom: -10,
+                  // ImageLoaderWidget(
+                  //   image: user.avatar ?? "",
+                  //   height: 80,
+                  //   width: 80,
+                  //   cornerRadius: 40,
+                  // ),
+                  ImageEditWidget(),
+                  Center(
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 7.0, vertical: 2),
@@ -146,29 +145,24 @@ class _UserInfoWidget extends StatelessWidget {
                         color: Palette.white,
                         borderRadius: BorderRadius.circular(13),
                       ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(
-                              isKycVerified
-                                  ? "assets/images/profile/verified.svg"
-                                  : "assets/images/profile/un-verified.svg",
-                              height: 10,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SvgPicture.asset(
+                            isKycVerified
+                                ? "assets/images/profile/verified.svg"
+                                : "assets/images/profile/un-verified.svg",
+                            height: 10,
+                          ),
+                          const SizedBox(width: 2),
+                          Text(
+                            isKycVerified ? "Verified" : "Unverified",
+                            style: TextStyle(
+                              color: isKycVerified ? Colors.green : Colors.red,
+                              fontSize: 10,
                             ),
-                            const SizedBox(width: 2),
-                            Text(
-                              isKycVerified ? "Verified" : "Unverified",
-                              style: TextStyle(
-                                color:
-                                    isKycVerified ? Colors.green : Colors.red,
-                                fontSize: 10,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
