@@ -21,5 +21,6 @@ enum FirebaseEvents {
   ESEWA_PAGE,
   KHALTI_PAGE,
   IME_PAY_PAGE,
+  PRABHU_PAY_PAGE,
   VIEW_GRAPH,
 }

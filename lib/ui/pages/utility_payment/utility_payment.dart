@@ -35,7 +35,7 @@ class UtilityPamentWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               crossAxisCount: 3,
-              mainAxisSpacing: 10,
+              mainAxisSpacing: 12,
               crossAxisSpacing: 20,
               childAspectRatio: 1 / 0.82,
               children: paymentData

@@ -178,7 +178,7 @@ class _PaymentOptionsState extends State<PaymentOptions> {
         );
         break;
       case "prabhupay":
-        AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_PRABHU);
+        AnalyticsService.logEvent(FirebaseEvents.PRABHU_PAY_PAGE);
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,
