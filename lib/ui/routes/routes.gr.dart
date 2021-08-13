@@ -67,7 +67,7 @@ import '../pages/resume/resume_tab_pages/other/edit_other_info.dart' as _i15;
 import '../pages/resume/resume_tab_pages/qualification/edit_qualification_info.dart'
     as _i14;
 import '../pages/resume/resume_tab_pages/work/edit_work_info.dart' as _i12;
-import '../pages/reward_point/view_reward_points.dart' as _i42;
+import '../pages/reward_point/reward_point_home.dart' as _i42;
 import '../pages/search/search_home.dart' as _i41;
 import '../pages/splash/splash_screen.dart' as _i3;
 import '../pages/tab_bar/tab_bar_screen.dart' as _i8;
@@ -389,10 +389,10 @@ class AppRouter extends _i1.RootStackRouter {
               orElse: () => const SearchRouteArgs());
           return _i41.SearchPage(key: args.key, type: args.type);
         }),
-    RewardPointRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    RewardPointsHome.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i42.RewardPointPage();
+          return const _i42.RewardPointsHome();
         })
   };
 
@@ -462,7 +462,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(ServiceDetailRouteFromAPI.name,
             path: '/service-detail-page-from-ap-i'),
         _i1.RouteConfig(SearchRoute.name, path: '/search-page'),
-        _i1.RouteConfig(RewardPointRoute.name, path: '/reward-point-page')
+        _i1.RouteConfig(RewardPointsHome.name, path: '/reward-points-home')
       ];
 }
 
@@ -1279,8 +1279,8 @@ class SearchRouteArgs {
   final _i56.HomeItemType? type;
 }
 
-class RewardPointRoute extends _i1.PageRouteInfo {
-  const RewardPointRoute() : super(name, path: '/reward-point-page');
+class RewardPointsHome extends _i1.PageRouteInfo {
+  const RewardPointsHome() : super(name, path: '/reward-points-home');
 
-  static const String name = 'RewardPointRoute';
+  static const String name = 'RewardPointsHome';
 }

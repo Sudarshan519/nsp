@@ -29,11 +29,11 @@ class WalletAdService {
         listener: BannerAdListener(
           onAdClosed: (ad) {},
           onAdLoaded: (ad) {
-            debugPrint('=>Ad Loaded');
+            // debugPrint('=>Ad Loaded');
             onSuccess(ad);
           },
           onAdFailedToLoad: (ad, error) {
-            debugPrint('=>Failed to load google banner ad');
+            // debugPrint('=>Failed to load google banner ad');
             ad.dispose();
             onError(error);
           },
@@ -52,19 +52,19 @@ class WalletAdService {
       listener: (result, value) {
         switch (result) {
           case BannerAdResult.ERROR:
-            debugPrint("Error: $value");
+            // debugPrint("Error: $value");
             onError(value);
 
             break;
           case BannerAdResult.LOADED:
-            debugPrint("Loaded: $value");
+            // debugPrint("Loaded: $value");
             onSuccess();
             break;
           case BannerAdResult.CLICKED:
-            debugPrint("Clicked: $value");
+            // debugPrint("Clicked: $value");
             break;
           case BannerAdResult.LOGGING_IMPRESSION:
-            debugPrint("Logging Impression: $value");
+            // debugPrint("Logging Impression: $value");
             break;
         }
       },

@@ -83,7 +83,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
-                        context.pushRoute(const RewardPointRoute());
+                        context.pushRoute(const RewardPointsHome());
                       },
                       child: Row(
                         children: [
