@@ -16,6 +16,7 @@ import 'package:wallet_app/features/transaction/presentation/transaction/transac
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
+import 'package:wallet_app/ui/pages/home/home_appbar.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/kyc_update_prompt.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
@@ -50,42 +51,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: HomeUserProfileWidget(),
-        title: const HomeAppbarTitle(),
-        centerTitle: false,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: InkWell(
-              onTap: () => context.pushRoute(SearchRoute()),
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/navigation_bar/search.svg",
-                    height: 25.0,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: InkWell(
-              onTap: () => context.pushRoute(const NotificationListRoute()),
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/navigation_bar/notification.svg",
-                    height: 25.0,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-        elevation: 0,
-      ),
+      appBar: HomeAppBar(scrollController: scrollController),
       body: _homePageBody(context),
     );
   }

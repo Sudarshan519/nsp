@@ -181,9 +181,10 @@ class ImageEditWidget extends StatelessWidget {
                                       horizontal: 10),
                                   height: 25,
                                   decoration: BoxDecoration(
-                                    color: Palette.primaryButtonColor,
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  ),
+                                      color: Palette.primary,
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      border: Border.all(
+                                          width: 0.5, color: Colors.white)),
                                   child: Center(
                                     child: Text(
                                       "Update",

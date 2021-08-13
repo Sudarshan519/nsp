@@ -122,7 +122,7 @@ class TabBarScreenState extends State<TabBarPage> {
       const ResumePage(),
       NewsPage(),
       const TransactionPage(),
-      const MorePage(),
+      MorePage(),
     ];
   }
 

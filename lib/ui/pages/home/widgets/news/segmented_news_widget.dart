@@ -237,9 +237,17 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
       child: Column(
         children: [
           if (showAlerts)
-            SizedBox(
-                height: 95,
-                child: _latestAlertBody(context, isHorizontal: true)),
+            Column(
+              children: [
+                Container(
+                    margin: const EdgeInsets.only(left: 5),
+                    height: 95,
+                    child: _latestAlertBody(context, isHorizontal: true)),
+                Divider(
+                  thickness: 20,
+                )
+              ],
+            ),
           ListView.builder(
             primary: false,
             physics: const NeverScrollableScrollPhysics(),
@@ -337,22 +345,18 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   }
 
   Widget _showAlertListHorizontal(List<Alert> alerts) {
-    return ShadowBoxWidget(
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      padding: const EdgeInsets.only(bottom: 4),
-      child: ListView.builder(
-        primary: false,
-        scrollDirection: Axis.horizontal,
-        itemCount: alerts.length,
-        itemBuilder: (context, index) {
-          return SizedBox(
-            width: MediaQuery.of(context).size.width * 0.899,
-            child: AlertWidget(
-              alert: alerts[index],
-            ),
-          );
-        },
-      ),
+    return ListView.builder(
+      primary: false,
+      scrollDirection: Axis.horizontal,
+      itemCount: alerts.length,
+      itemBuilder: (context, index) {
+        return SizedBox(
+          width: MediaQuery.of(context).size.width * 0.899,
+          child: AlertWidget(
+            alert: alerts[index],
+          ),
+        );
+      },
     );
   }
 }

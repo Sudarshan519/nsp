@@ -20,22 +20,40 @@ class UserInfoWidget extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 10),
           width: double.maxFinite,
           color: Palette.primary,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
             children: [
-              SvgPicture.asset(
-                "assets/images/resume/email-icon.svg",
-                color: Palette.white,
-                height: 12.0,
+              const SizedBox(
+                height: 5,
               ),
-              const SizedBox(width: 5),
               Text(
-                user?.email ?? "",
+                "${user?.firstName ?? ""} ${user?.lastName ?? ""}",
                 style: TextStyle(
                   color: Palette.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    "assets/images/resume/email-icon.svg",
+                    color: Palette.white,
+                    height: 12.0,
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    user?.email ?? "",
+                    style: TextStyle(
+                      color: Palette.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

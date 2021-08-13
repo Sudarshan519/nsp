@@ -112,7 +112,9 @@ class PaymentMethodsModel extends PaymentMethod {
         username: json["username"] == null ? null : json["username"] as String?,
         password: json["password"] == null ? null : json["password"] as String?,
         callbackUrl: json["callback_url"] == null
-            ? null
+            ? json["app_callback_url"] == null
+                ? null
+                : json["app_callback_url"] as String?
             : json["callback_url"] as String?,
         paymentUrl:
             json["payment_url"] == null ? null : json["payment_url"] as String?,

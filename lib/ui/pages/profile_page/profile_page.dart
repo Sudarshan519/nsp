@@ -137,6 +137,9 @@ class _UserInfoWidget extends StatelessWidget {
                   //   cornerRadius: 40,
                   // ),
                   ImageEditWidget(),
+                  const SizedBox(
+                    height: 4,
+                  ),
                   Center(
                     child: Container(
                       padding: const EdgeInsets.symmetric(
@@ -169,7 +172,7 @@ class _UserInfoWidget extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 15,
+                height: 6,
               ),
               Text(
                 "${user.firstName ?? ""} ${user.lastName ?? ""}",
@@ -182,9 +185,6 @@ class _UserInfoWidget extends StatelessWidget {
               ),
               const SizedBox(
                 height: 5,
-              ),
-              const SizedBox(
-                height: 10,
               ),
             ],
           ),
