@@ -51,7 +51,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeAppBar(scrollController: scrollController),
+      appBar: HomeAppBar(
+        scrollController: scrollController,
+        key: UniqueKey(),
+      ),
       body: _homePageBody(context),
     );
   }
