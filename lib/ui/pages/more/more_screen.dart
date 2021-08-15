@@ -7,6 +7,7 @@ import 'package:wallet_app/core/notification/push_notification_manager.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/auth/domain/usecase/logout_user.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/home/home_appbar.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_page_header.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -23,39 +24,9 @@ class MorePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _profileData = _getProfileList(context);
     return Scaffold(
-      appBar: AppBar(
-        leading: const HomeUserProfileWidget(),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: InkWell(
-              onTap: () => context.pushRoute(SearchRoute()),
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/navigation_bar/search.svg",
-                    height: 25.0,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: InkWell(
-              onTap: () => context.pushRoute(const NotificationListRoute()),
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/navigation_bar/notification.svg",
-                    height: 25.0,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-        elevation: 0,
+      appBar: HomeAppBar(
+        scrollController: scrollController,
+        key: UniqueKey(),
       ),
       body: Container(
         color: Palette.white,

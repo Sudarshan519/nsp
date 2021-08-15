@@ -243,8 +243,8 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
                     margin: const EdgeInsets.only(left: 5),
                     height: 95,
                     child: _latestAlertBody(context, isHorizontal: true)),
-                Divider(
-                  thickness: 20,
+                const Divider(
+                  thickness: 4,
                 )
               ],
             ),

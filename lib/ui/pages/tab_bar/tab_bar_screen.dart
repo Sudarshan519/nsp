@@ -98,11 +98,15 @@ class TabBarScreenState extends State<TabBarPage> {
     final pageName = getTabs()[page].toString();
     AnalyticsService.setScreen(pageName);
     if (page == 0) {
-      homePage?.scrollController.animateTo(
-        0.0,
-        curve: Curves.easeOut,
-        duration: const Duration(milliseconds: 300),
-      );
+      // WidgetsBinding.instance?.addPostFrameCallback((_) {
+      //   // if(pageController.hasClients){
+      //   homePage?.scrollController.animateTo(
+      //     0.0,
+      //     curve: Curves.easeOut,
+      //     duration: const Duration(milliseconds: 1),
+      //   );
+      //   // }
+      // });
     }
 
     setState(() {
