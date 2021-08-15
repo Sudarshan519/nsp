@@ -68,6 +68,9 @@ class AlertWidget extends StatelessWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(
+            height: 3,
+          ),
           Text(
             alert.occurredValue ?? '',
             style: TextStyle(
