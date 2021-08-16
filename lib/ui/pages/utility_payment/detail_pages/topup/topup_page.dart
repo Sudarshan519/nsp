@@ -597,6 +597,17 @@ class _TypeOfNumber extends StatelessWidget {
 
         if (searchList.isNotEmpty) {
           final id = searchList.first.id ?? 0;
+          context.read<TopUpBalanceInMobileBloc>()
+            ..add(
+              TopUpBalanceInMobileEvent.setCashbackpercentage(
+                searchList.first.cashbackPer ?? 0.0,
+              ),
+            )
+            ..add(
+              TopUpBalanceInMobileEvent.setRewardPoint(
+                searchList.first.rewardPoint ?? 0.0,
+              ),
+            );
           if (searchList.first.image != null) {
             imgUrl = getIt<ConfigReader>().baseURL + searchList.first.image!;
           }
