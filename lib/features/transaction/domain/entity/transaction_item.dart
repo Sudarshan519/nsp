@@ -30,7 +30,7 @@ class TransactionItem {
   String? referenceId;
   String? transactionId;
   bool? status;
-  bool? isRefundable;
+  bool isRefundable;
   String? transactionStatus;
   String? transactionFor;
   String? transactionType;

@@ -102,7 +102,7 @@ class TransactionDetailPage extends StatelessWidget {
     Widget refundButton() {
       final String name = item.transactionName.toString().toLowerCase();
       if ((name.contains('credit') || name.contains('stripe')) &&
-          (item.isRefundable ?? false)) {
+          item.isRefundable) {
         return RefundButton(referenceId: item.referenceId.toString());
       }
 
@@ -348,8 +348,8 @@ class RefundButton extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (_) => PopUpSuccessOverLay(
-                    title: AppConstants.topUpSuccessTitle,
-                    message: AppConstants.topUpSuccessMessage,
+                    title: 'Refund Success',
+                    message: 'The refund process for id $referenceId has been completed successfully!'
                     onPressed: () {
                       context.router.navigate(const TabBarRoute());
                     },
