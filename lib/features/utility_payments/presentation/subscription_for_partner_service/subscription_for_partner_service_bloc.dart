@@ -144,7 +144,7 @@ class SubscriptionForPartnerServiceBloc extends Bloc<
       }
     }
     final cashbarAmount = initialCashback / 100 * total;
-    initialRewardPoint = (total * (initialRewardPercent / 100)) - cashbarAmount;
+    initialRewardPoint = (total - cashbarAmount) * initialRewardPercent / 100;
 
     //if couponcode is there
     double cashbackFromCoupon = 0.0;

@@ -349,7 +349,8 @@ class RefundButton extends StatelessWidget {
                   context: context,
                   builder: (_) => PopUpSuccessOverLay(
                     title: 'Refund Success',
-                    message: 'The refund process for id $referenceId has been completed successfully!'
+                    message:
+                        'The refund process for id $referenceId has been completed successfully!',
                     onPressed: () {
                       context.router.navigate(const TabBarRoute());
                     },
