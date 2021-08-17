@@ -61,7 +61,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 .read<HomePageDataBloc>()
                 .homeData
                 ?.userDetail
-                ?.currencyConversionRate ??
+                ?.purchaseConversionRate ??
             1.067);
 
     final _payData = widget.paymentData[widget.index];

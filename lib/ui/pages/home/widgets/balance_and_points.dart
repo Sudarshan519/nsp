@@ -136,7 +136,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                         onTap: () => context.pushRoute(
                           AddBalanceRoute(
                               conversionRate:
-                                  user?.currencyConversionRate ?? 1.067,
+                                  user?.topupConversionRate ?? 1.067,
                               isVerified: user?.isKycVerified ?? false),
                         ),
                       ),

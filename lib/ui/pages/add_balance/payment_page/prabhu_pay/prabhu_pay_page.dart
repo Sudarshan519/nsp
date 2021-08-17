@@ -65,7 +65,7 @@ class PrabhuPayTopupPage extends StatelessWidget {
                   if (url == method.deliveryUrl) {
                     FlushbarHelper.createInformation(
                             message: "Please don't exit this page!",
-                            duration: const Duration(seconds: 4))
+                            duration: const Duration(seconds: 6))
                         .show(context);
                   }
 

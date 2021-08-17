@@ -52,7 +52,8 @@ class UserDetail extends Equatable {
     this.smartPitNo,
     this.options,
     this.isKycVerified,
-    this.currencyConversionRate,
+    this.topupConversionRate,
+    this.purchaseConversionRate,
     this.notificationCount,
     this.requestLocation,
   });
@@ -108,7 +109,8 @@ class UserDetail extends Equatable {
   final ResumeOptions? options;
 
   ///1  Npr -> JPY
-  final double? currencyConversionRate;
+  final double? topupConversionRate;
+  final double? purchaseConversionRate;
   final int? notificationCount;
   final String? requestLocation;
 
