@@ -27,6 +27,16 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
   }
 
   @override
+  Future<Either<ApiFailure, Unit>> refundStripe(
+      {required String referenceId}) async {
+    try {
+      return Right(await dataSource.refundStripe(referenceId: referenceId));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
   Future<Either<ApiFailure, Unit>> topupViaStripe({
     required String name,
     required String cardNumber,

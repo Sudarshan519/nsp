@@ -15,6 +15,7 @@ abstract class LoadBalanceRepositories {
     required bool saveCard,
     required bool isSavedCard,
   });
+  Future<Either<ApiFailure, Unit>> refundStripe({required String referenceId});
 
   Future<Either<ApiFailure, Unit>> verifyImePayTopup({
     required String referenceId,

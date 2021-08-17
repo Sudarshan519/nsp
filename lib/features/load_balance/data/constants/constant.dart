@@ -1,6 +1,9 @@
 class LoadBalanceApiEndpoints {
   static const getListOfPaymentTypes = "/topup/payment_methods";
+
   static const stripeTopup = "/topup/stripe";
+  static const stripeRefund = "$stripeTopup/refund";
+
   static const deleteCreditCard = "/topup/delete/credit_card/";
 
   static const verifyImepayTopup = "/topup/imepay/verify";

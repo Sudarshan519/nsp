@@ -28,6 +28,8 @@ abstract class LoadBalanceDataSource {
     required bool isSavedCard,
   });
 
+  Future<Unit> refundStripe({required String referenceId});
+
   Future<Unit> verifyImePayTopup({
     required String referenceId,
     required String tokenId,
@@ -398,6 +400,56 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
         className: "LoadBalanceDataSource",
         functionName: "deleteCard()",
         errorText: "Api Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+          message: errorMessageFromServerWithError(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<Unit> refundStripe({required String referenceId}) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${LoadBalanceApiEndpoints.stripeRefund}";
+
+    final accessToken = (await auth.getWalletUser()).accessToken;
+
+    if (accessToken?.isEmpty ?? true) {
+      //TODO: user access token is empty we have to redirect to login page.
+    }
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode({
+          'charge_id': referenceId,
+        }),
+      );
+    } catch (ex) {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "refundStripe()",
+        errorText: "failed to refund stripe for id $referenceId",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+
+    if (statusCode == 200) {
+      return unit;
+    } else {
+      logger.log(
+        className: "LoadBalanceDataSource",
+        functionName: "refundStripe()",
+        errorText: "Api Status code: $statusCode and ref id $referenceId",
         errorMessage: response.body,
       );
       throw ServerException(

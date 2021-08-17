@@ -13,6 +13,7 @@ class TransactionItem {
     required this.transactionType,
     this.remarks,
     required this.createdAt,
+    required this.isRefundable,
     required this.updatedAt,
     required this.user,
     required this.topupBy,
@@ -29,6 +30,7 @@ class TransactionItem {
   String? referenceId;
   String? transactionId;
   bool? status;
+  bool? isRefundable;
   String? transactionStatus;
   String? transactionFor;
   String? transactionType;
