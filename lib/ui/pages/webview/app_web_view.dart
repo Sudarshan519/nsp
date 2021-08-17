@@ -44,13 +44,15 @@ class _AppWebViewState extends State<AppWebViewPage> {
           WebView(
             initialUrl: widget.url,
             javascriptMode: JavascriptMode.unrestricted,
+            onPageStarted: (url) {
+              if (widget.urlListner != null) {
+                widget.urlListner!(url);
+              }
+            },
             onPageFinished: (url) {
               setState(() {
                 isLoading = false;
               });
-              if (widget.urlListner != null) {
-                widget.urlListner!(url);
-              }
             },
           ),
           if (isLoading) loadingPage() else const SizedBox.shrink(),

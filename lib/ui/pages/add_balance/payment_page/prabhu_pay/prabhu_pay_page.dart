@@ -63,7 +63,13 @@ class PrabhuPayTopupPage extends StatelessWidget {
                 title: 'Prabhu Pay',
                 urlListner: (url) async {
                   if (url == method.deliveryUrl) {
-                    await Future.delayed(const Duration(seconds: 2));
+                    FlushbarHelper.createInformation(
+                            message: "Please don't exit this page!",
+                            duration: const Duration(seconds: 4))
+                        .show(context);
+                  }
+
+                  if (url.toLowerCase().contains('status=success')) {
                     context.popRoute(true);
                   }
                 }));
