@@ -102,7 +102,7 @@ class TransactionDetailPage extends StatelessWidget {
     Widget refundButton() {
       final String name = item.transactionName.toString().toLowerCase();
       if ((name.contains('credit') || name.contains('stripe')) &&
-          (item.isRefundable ?? true)) {
+          (item.isRefundable ?? false)) {
         return RefundButton(referenceId: item.referenceId.toString());
       }
 
