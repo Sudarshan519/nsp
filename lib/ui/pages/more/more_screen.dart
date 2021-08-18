@@ -108,6 +108,16 @@ class MorePage extends StatelessWidget {
         },
       ),
       _ProfileData(
+        image: "icon-terms",
+        title: "Transactions Law",
+        onTap: () {
+          context.pushRoute(
+            AppWebViewRoute(
+                url: "https://bnpj.jp/transactions-law", title: "Transactions Law"),
+          );
+        },
+      ),
+      _ProfileData(
         image: "icon-privacy-policy",
         title: "Privacy Policy",
         onTap: () {
