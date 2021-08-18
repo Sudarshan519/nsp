@@ -28,14 +28,14 @@ class StripeRefundBloc extends Bloc<StripeRefundEvent, StripeRefundState> {
       stripeRefund: (e) async* {
         yield const _Loading();
 
-        AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_PRABHU);
+        AnalyticsService.logEvent(FirebaseEvents.STRIPE_REFUND);
 
         final result = await stripeRefund(e.referenceId);
 
         yield result.fold(
           (failure) => _Failure(failure),
           (_) {
-            AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_PRABHU,
+            AnalyticsService.logEvent(FirebaseEvents.STRIPE_REFUND,
                 isSuccess: true);
             return _Success(e.referenceId);
           },

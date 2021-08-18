@@ -45,36 +45,28 @@ class NotificationDetailPage extends StatelessWidget {
                     placeholder: (context, url) => const Center(
                       child: CircularProgressIndicator(),
                     ),
-
-                    // loadingBuilder: (BuildContext context, Widget child,
-                    //     ImageChunkEvent? loadingProgress) {
-                    //   if (loadingProgress == null) {
-                    //     return SizedBox(
-                    //         height: loadingProgress == null ? 100 : 0,
-                    //         child: child);
-                    //   }
-                    //   return Container(
-                    //     color: Palette.primaryBackground,
-                    //     height: 100,
-                    //     child: Center(
-                    //       child: CircularProgressIndicator(
-                    //         color: Palette.primary,
-                    //         value: loadingProgress.expectedTotalBytes != null
-                    //             ? loadingProgress.cumulativeBytesLoaded /
-                    //                 (loadingProgress.expectedTotalBytes ?? 1)
-                    //             : null,
-                    //       ),
-                    //     ),
-                    //   );
-                    // },
                   )),
             if (notification.message != null)
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ShadowBoxWidget(child: Text(notification.message!)),
+                    ShadowBoxWidget(
+                        child: Column(
+                      children: [
+                        Text(
+                          notification.title ?? 'Notification',
+                          style: const TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.w600),
+                        ),
+                        const Divider(
+                          thickness: 2,
+                          height: 20,
+                        ),
+                        Text(notification.message!),
+                      ],
+                    )),
                     const SizedBox(
                       height: 6,
                     ),
