@@ -25,6 +25,8 @@ abstract class AuthLocalDataSource {
 
   Future saveAppleUser(Map<String, dynamic> appleUser);
   Future<Map<String, dynamic>> getAppleUser();
+  DateTime? getKycPromptDate();
+  void setKycPromptDate();
 }
 
 @LazySingleton(as: AuthLocalDataSource)
@@ -80,6 +82,23 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   @override
   Future delete() async {
     await preferences.remove(AuthPreferenceKeys.walletUser);
+  }
+
+  @override
+  DateTime? getKycPromptDate() {
+    final result =
+        preferences.getString(AuthPreferenceKeys.kycVerificationPromptDate);
+    if (result != null) {
+      return DateTime.parse(result);
+    }
+    return null;
+  }
+
+  @override
+  void setKycPromptDate() {
+    final result = preferences.setString(
+        AuthPreferenceKeys.kycVerificationPromptDate,
+        DateTime.now().toString());
   }
 
   // User Details
