@@ -133,7 +133,7 @@ class BNPJCard extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 72),
           Text(
             "${userDetail?.firstName ?? ""} ${userDetail?.lastName ?? ""}",
             style: const TextStyle(

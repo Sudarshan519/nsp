@@ -1,6 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -45,6 +44,8 @@ class _AppWebViewState extends State<AppWebViewPage> {
             initialUrl: widget.url,
             javascriptMode: JavascriptMode.unrestricted,
             onPageStarted: (url) {
+              SystemChannels.textInput
+                  .invokeMethod('TextInput.hide'); //dismiss keyboard
               if (widget.urlListner != null) {
                 widget.urlListner!(url);
               }

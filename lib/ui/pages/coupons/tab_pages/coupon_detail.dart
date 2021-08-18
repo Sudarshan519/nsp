@@ -260,37 +260,38 @@ class _CouponDetailState extends State<CouponDetail> {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16.0, vertical: 10.0),
-                        decoration: BoxDecoration(
-                          color: Palette.primary,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Cashback",
-                              style: TextStyle(
-                                color: Palette.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
+                    if (!(widget.coupon.isReward ?? false))
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16.0, vertical: 10.0),
+                          decoration: BoxDecoration(
+                            color: Palette.primary,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Cashback",
+                                style: TextStyle(
+                                  color: Palette.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "${widget.coupon.cashback}%",
-                              style: TextStyle(
-                                color: Palette.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
+                              Text(
+                                "${widget.coupon.cashback}%",
+                                style: TextStyle(
+                                  color: Palette.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
                   ],
                 ),
                 const SizedBox(height: 10),
