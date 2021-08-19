@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class CustomCCInputWidget extends StatefulWidget {
   final String initVal;
+  final double width;
   final Function(String) onCompleted;
 
   CustomCCInputWidget({
     Key? key,
     required this.onCompleted,
+    required this.width,
     this.initVal = '',
   }) : super(key: key);
 
@@ -42,12 +44,12 @@ class _CustomCCInputWidgetState extends State<CustomCCInputWidget> {
 
       controllers.add(controller);
       textfields.add(Container(
-        width: 21,
+        width: widget.width * 0.052,
         decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
                 color: Colors.blue, // set border color
-                width: 0.8), // set border width
+                width: 0.4), // set border width
             borderRadius: const BorderRadius.all(Radius.circular(3.0))),
         child: TextFormField(
           textInputAction: TextInputAction.next,
@@ -76,16 +78,16 @@ class _CustomCCInputWidgetState extends State<CustomCCInputWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30,
+      height: 28,
       child: Form(
         child: Row(
           children: [
             for (var i = 0; i < 4; i++) textfields[i],
-            const SizedBox(width: 14),
+            const Spacer(),
             for (var i = 4; i < 8; i++) textfields[i],
-            const SizedBox(width: 14),
+            const Spacer(),
             for (var i = 8; i < 12; i++) textfields[i],
-            const SizedBox(width: 14),
+            const Spacer(),
             for (var i = 12; i < 16; i++) textfields[i],
           ],
         ),

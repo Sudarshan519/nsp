@@ -49,7 +49,7 @@ class TopUpViaStripe
 
       if (expiry.length < 2) {
         return const Left(ApiFailure.serverError(
-            message: "Expiry date is not valid. Input mm/yyyy"));
+            message: "Expiry date is not valid. Input format is mm/yyyy"));
       }
     }
 

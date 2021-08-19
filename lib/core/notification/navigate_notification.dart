@@ -18,6 +18,9 @@ void navigate(BuildContext context, NotificationItem item) {
     case NotificationType.advertisement:
       context.pushRoute(NotificationDetailRoute(notification: item));
       break;
+    case NotificationType.utilityPayment:
+      context.pushRoute(NotificationDetailRoute(notification: item));
+      break;
     case NotificationType.partnerService:
       if (item.productId != null) {
         context.pushRoute(ServiceDetailRouteFromAPI(id: item.productId!));
