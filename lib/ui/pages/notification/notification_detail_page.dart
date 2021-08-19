@@ -9,15 +9,55 @@ import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
+//ignore: must_be_immutable
 class NotificationDetailPage extends StatelessWidget {
   final NotificationItem notification;
-  const NotificationDetailPage({Key? key, required this.notification})
-      : super(key: key);
+
+  ///override on more detal pressed function
+  Function? onMoreDetailPressed;
+  NotificationDetailPage({
+    Key? key,
+    required this.notification,
+    this.onMoreDetailPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final String baseURL = getIt<ConfigReader>().baseURL;
     final width = MediaQuery.of(context).size.width;
+
+    Widget moreInfoButton() {
+      if (notification.redirectUrl == null && onMoreDetailPressed == null) {
+        return const SizedBox();
+      }
+
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
+        child: CustomButton(
+            title: 'More Info',
+            onTap: () {
+              if (onMoreDetailPressed != null) {
+                onMoreDetailPressed!();
+              } else {
+                try {
+                  final url = notification.redirectUrl!.startsWith('http')
+                      ? notification.redirectUrl!
+                      : 'http://${notification.redirectUrl!}';
+                  FlutterWebBrowser.openWebPage(
+                      url: url,
+                      customTabsOptions: CustomTabsOptions(
+                        colorScheme: CustomTabsColorScheme.dark,
+                        toolbarColor: Palette.primary,
+                        showTitle: true,
+                      ));
+                } catch (e) {
+                  FlushbarHelper.createError(message: 'Failed to launch url!')
+                      .show(context);
+                }
+              }
+            }),
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -70,32 +110,7 @@ class NotificationDetailPage extends StatelessWidget {
                     const SizedBox(
                       height: 6,
                     ),
-                    if (notification.redirectUrl != null)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 70, vertical: 12),
-                        child: CustomButton(
-                            title: 'More Info',
-                            onTap: () {
-                              try {
-                                final url =
-                                    notification.redirectUrl!.startsWith('http')
-                                        ? notification.redirectUrl!
-                                        : 'http://${notification.redirectUrl!}';
-                                FlutterWebBrowser.openWebPage(
-                                    url: url,
-                                    customTabsOptions: CustomTabsOptions(
-                                      colorScheme: CustomTabsColorScheme.dark,
-                                      toolbarColor: Palette.primary,
-                                      showTitle: true,
-                                    ));
-                              } catch (e) {
-                                FlushbarHelper.createError(
-                                        message: 'Failed to launch url!')
-                                    .show(context);
-                              }
-                            }),
-                      )
+                    moreInfoButton()
                   ],
                 ),
               ),

@@ -37,7 +37,7 @@ class UtilityPamentWidget extends StatelessWidget {
               crossAxisCount: 3,
               mainAxisSpacing: 12,
               crossAxisSpacing: 20,
-              childAspectRatio: 1 / 0.82,
+              childAspectRatio: 1 / 0.86,
               children: paymentData
                   .map(
                     (e) => GridItem(
@@ -69,10 +69,7 @@ class GridItem extends StatelessWidget {
         final type = paymentData[index].paymentType ?? '';
         if (type.toLowerCase() == 'topup_balance') {
           context.pushRoute(
-            TopUpRoute(
-              index: index,
-              paymentData: paymentData,
-            ),
+            TopUpRoute(paymentType: paymentData[index].name ?? ''),
           );
         }
 

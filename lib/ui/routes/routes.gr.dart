@@ -315,8 +315,7 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<TopUpRouteArgs>();
-          return _i33.TopUpPage(
-              key: args.key, index: args.index, paymentData: args.paymentData);
+          return _i33.TopUpPage(key: args.key, paymentType: args.paymentType);
         }),
     PartnerServicePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -368,7 +367,9 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<NotificationDetailRouteArgs>();
           return _i40.NotificationDetailPage(
-              key: args.key, notification: args.notification);
+              key: args.key,
+              notification: args.notification,
+              onMoreDetailPressed: args.onMoreDetailPressed);
         }),
     JPMannerDetailFromAPi.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -1073,27 +1074,20 @@ class PdfViewerRouteArgs {
 }
 
 class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
-  TopUpRoute(
-      {_i2.Key? key,
-      required int index,
-      required List<_i52.UtilityPaymentsModel> paymentData})
+  TopUpRoute({_i2.Key? key, required String paymentType})
       : super(name,
             path: '/top-up-page',
-            args: TopUpRouteArgs(
-                key: key, index: index, paymentData: paymentData));
+            args: TopUpRouteArgs(key: key, paymentType: paymentType));
 
   static const String name = 'TopUpRoute';
 }
 
 class TopUpRouteArgs {
-  const TopUpRouteArgs(
-      {this.key, required this.index, required this.paymentData});
+  const TopUpRouteArgs({this.key, required this.paymentType});
 
   final _i2.Key? key;
 
-  final int index;
-
-  final List<_i52.UtilityPaymentsModel> paymentData;
+  final String paymentType;
 }
 
 class PartnerServicePaymentRoute
@@ -1210,21 +1204,28 @@ class CouponRoute extends _i1.PageRouteInfo {
 class NotificationDetailRoute
     extends _i1.PageRouteInfo<NotificationDetailRouteArgs> {
   NotificationDetailRoute(
-      {_i2.Key? key, required _i55.NotificationItem notification})
+      {_i2.Key? key,
+      required _i55.NotificationItem notification,
+      Function? onMoreDetailPressed})
       : super(name,
             path: '/notification-detail-page',
             args: NotificationDetailRouteArgs(
-                key: key, notification: notification));
+                key: key,
+                notification: notification,
+                onMoreDetailPressed: onMoreDetailPressed));
 
   static const String name = 'NotificationDetailRoute';
 }
 
 class NotificationDetailRouteArgs {
-  const NotificationDetailRouteArgs({this.key, required this.notification});
+  const NotificationDetailRouteArgs(
+      {this.key, required this.notification, this.onMoreDetailPressed});
 
   final _i2.Key? key;
 
   final _i55.NotificationItem notification;
+
+  final Function? onMoreDetailPressed;
 }
 
 class JPMannerDetailFromAPi

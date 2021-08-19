@@ -11,6 +11,7 @@ class NotificationItem {
   String? type;
   String? createdAt;
   String? updatedAt;
+  String? utilityType;
 
   NotificationItem(
       {this.id,
@@ -24,7 +25,8 @@ class NotificationItem {
       this.type,
       this.redirectUrl,
       this.productId,
-      this.updatedAt});
+      this.updatedAt,
+      this.utilityType});
 }
 
 class NotificationType {
