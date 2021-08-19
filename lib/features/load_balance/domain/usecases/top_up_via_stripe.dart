@@ -33,9 +33,14 @@ class TopUpViaStripe
       }
 
       if (params.cardNumber.isEmpty) {
-        return const Left(
-            ApiFailure.serverError(message: "Card number cannot be empty"));
+        return const Left(ApiFailure.serverError(
+            message: "Please input 16 digits card number!"));
       }
+
+      // if (params.cardNumber.length < 16) {
+      //   return const Left(ApiFailure.serverError(
+      //       message: "Please input 16 digits card number!"));
+      // }
 
       if (params.cvc.isEmpty) {
         return const Left(
@@ -43,8 +48,8 @@ class TopUpViaStripe
       }
 
       if (expiry.length < 2) {
-        return const Left(
-            ApiFailure.serverError(message: "Expiry date is not valid"));
+        return const Left(ApiFailure.serverError(
+            message: "Expiry date is not valid. Input mm/yyyy"));
       }
     }
 

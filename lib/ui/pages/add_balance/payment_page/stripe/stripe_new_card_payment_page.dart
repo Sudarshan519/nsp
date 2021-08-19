@@ -16,6 +16,8 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
+import 'custom_credit_card_number_input.dart';
+
 class StripeNewCardPaymentPage extends StatelessWidget {
   const StripeNewCardPaymentPage({
     Key? key,
@@ -160,23 +162,29 @@ class _CreditCardWidget extends StatelessWidget {
       BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
         buildWhen: (previous, current) =>
             previous.cardNumber != current.cardNumber,
-        builder: (context, state) => TextWidetWithLabelAndChild(
-          title: "Credit Card Number",
-          child: InputTextWidget(
-            hintText: "XXXX XXXX XXXX XXXX",
-            textInputType: TextInputType.number,
-            inputFormatters: [
-              MaskedTextInputFormatter(
-                mask: "xxxx xxxx xxxx xxxx",
-                separator: " ",
+        builder: (context, state) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Credit Card Number',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 12),
+              CustomCCInputWidget(
+                initVal: state.cardNumber,
+                onCompleted: (val) {
+                  context
+                      .read<TopupViaStripeBloc>()
+                      .add(TopupViaStripeEvent.changeCardNumber(val));
+                },
               ),
             ],
-            value: state.cardNumber,
-            onChanged: (value) => context.read<TopupViaStripeBloc>().add(
-                  TopupViaStripeEvent.changeCardNumber(value),
-                ),
-          ),
-        ),
+          );
+        },
       );
 }
 
