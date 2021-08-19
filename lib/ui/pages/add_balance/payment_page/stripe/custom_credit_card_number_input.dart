@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomCCInputWidget extends StatelessWidget {
-  final int numOftextfield = 16;
-  final List<Widget> textfields = [];
+class CustomCCInputWidget extends StatefulWidget {
   final String initVal;
-  final List<TextEditingController> controllers = [];
   final Function(String) onCompleted;
 
   CustomCCInputWidget({
@@ -13,15 +10,33 @@ class CustomCCInputWidget extends StatelessWidget {
     this.initVal = '',
   }) : super(key: key);
 
+  @override
+  _CustomCCInputWidgetState createState() => _CustomCCInputWidgetState();
+}
+
+class _CustomCCInputWidgetState extends State<CustomCCInputWidget> {
+  final int numOftextfield = 16;
+
+  final List<Widget> textfields = [];
+
+  final List<TextEditingController> controllers = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setupValues(context);
+  }
+
   void setupValues(BuildContext context) {
     String output = '';
     for (var i = 0; i < numOftextfield; i++) {
       final controller = TextEditingController();
 
       //setting initial value to textbox
-      if (initVal.isNotEmpty) {
+      if (widget.initVal.isNotEmpty) {
         try {
-          controller.text = initVal[i];
+          controller.text = widget.initVal[i];
         } catch (e) {}
       }
 
@@ -45,7 +60,8 @@ class CustomCCInputWidget extends StatelessWidget {
             if (s.isNotEmpty) FocusScope.of(context).nextFocus();
             output = output.trim();
 
-            if (output.length == numOftextfield) onCompleted(output);
+            // if (output.length == numOftextfield)
+            widget.onCompleted(output);
           },
           textAlign: TextAlign.center,
           controller: controller,
@@ -59,9 +75,7 @@ class CustomCCInputWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    setupValues(context);
-    return Container(
-      // color: Colors.red,
+    return SizedBox(
       height: 30,
       child: Form(
         child: Row(

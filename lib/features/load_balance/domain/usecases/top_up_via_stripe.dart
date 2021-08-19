@@ -33,14 +33,14 @@ class TopUpViaStripe
       }
 
       if (params.cardNumber.isEmpty) {
-        return const Left(ApiFailure.serverError(
-            message: "Please input 16 digits card number!"));
+        return const Left(
+            ApiFailure.serverError(message: "Please enter card number!"));
       }
 
-      // if (params.cardNumber.length < 16) {
-      //   return const Left(ApiFailure.serverError(
-      //       message: "Please input 16 digits card number!"));
-      // }
+      if (params.cardNumber.length < 16) {
+        return const Left(
+            ApiFailure.serverError(message: "Card number must be 16 digits!"));
+      }
 
       if (params.cvc.isEmpty) {
         return const Left(
