@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
+import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
@@ -22,9 +23,9 @@ import 'widgets/mobile_number_input.dart';
 import 'widgets/topup_transaction_detail.dart';
 
 class TopUpPage extends StatefulWidget {
-  final String paymentType;
+  final UtilityPaymentsModel payData;
 
-  const TopUpPage({Key? key, required this.paymentType}) : super(key: key);
+  const TopUpPage({Key? key, required this.payData}) : super(key: key);
 
   @override
   _TopUpPageState createState() => _TopUpPageState();
@@ -33,119 +34,103 @@ class TopUpPage extends StatefulWidget {
 class _TopUpPageState extends State<TopUpPage> {
   late bool _isConfirmPage;
   late bool _hasCouponCode;
-  double _balanceJPY = -1;
-  double _conversionRate = -1;
+  double _balanceJPY = 0;
+  double _conversionRate = 1.067;
+  late UtilityPaymentsModel _payData;
+
   List<UtilityPaymentsModel> paymentData = [];
-  UtilityPaymentsModel? _payData;
 
   @override
   void initState() {
     _isConfirmPage = false;
     _hasCouponCode = false;
     super.initState();
+    _payData = widget.payData;
+
+    final homedata = getIt<HomePageDataBloc>().homeData;
+    if (homedata != null) {
+      _conversionRate =
+          1 / (homedata.userDetail?.purchaseConversionRate ?? 1.067);
+
+      paymentData = List<UtilityPaymentsModel>.from((homedata.homeData!
+              .firstWhere(
+                  (element) => element.type.toString().contains('utility'))
+              .data as Iterable)
+          .map(
+              (x) => UtilityPaymentsModel.fromJson(x as Map<String, dynamic>)));
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomePageDataBloc, HomePageDataState>(
+    return BlocBuilder<GetBalanceBloc, GetBalanceState>(
       buildWhen: (p, c) => p.hashCode != c.hashCode,
       builder: (context, state) {
-        state.map(
-            initial: (_) {},
-            loading: (_) {},
-            loadingWithData: (_) {},
+        return state.map(
+            loading: (_) =>
+                Container(color: Colors.white, child: loadingPage()),
             loaded: (loaded) {
-              var data = loaded.data;
-
-              _conversionRate =
-                  1 / (data.userDetail?.purchaseConversionRate ?? 1.067);
-              if (data.homeData == null) return;
-              var listdata = List<UtilityPaymentsModel>.from((data.homeData!
-                      .firstWhere((element) =>
-                          element.type.toString().contains('utility'))
-                      .data as Iterable)
-                  .map((x) => UtilityPaymentsModel.fromJson(
-                      x as Map<String, dynamic>)));
-              paymentData = listdata;
-
-              _payData = listdata.firstWhere((element) => element.name
-                  .toString()
-                  .toLowerCase()
-                  .contains(widget.paymentType.toLowerCase()));
-            },
-            failureWithData: (_) {},
-            failure: (_) {});
-        return BlocBuilder<GetBalanceBloc, GetBalanceState>(
-          buildWhen: (p, c) => p.hashCode != c.hashCode,
-          builder: (context, state) {
-            state.map(
-                loading: (_) {},
-                loaded: (loaded) {
-                  _balanceJPY = context.read<GetBalanceBloc>().userbalance;
-                },
-                failure: (_) {});
-            return _payData == null && _balanceJPY == -1
-                ? Container(color: Colors.white, child: loadingPage())
-                : MultiBlocProvider(
-                    providers: [
-                      BlocProvider(
-                        create: (context) => getIt<TopUpBalanceInMobileBloc>()
-                          ..add(
-                            TopUpBalanceInMobileEvent.setCashbackpercentage(
-                              _payData?.cashbackPer ?? 0.0,
-                            ),
-                          )
-                          ..add(
-                            TopUpBalanceInMobileEvent.setRewardPoint(
-                              _payData?.rewardPoint ?? 0.0,
-                            ),
-                          ),
-                      ),
-                      BlocProvider(
-                        create: (context) => getIt<VerifyCouponBloc>()
-                          ..add(
-                            VerifyCouponEvent.setInitialState(
-                              productType: 'utility',
-                              productId: _payData?.id ?? 0,
-                            ),
-                          ),
-                      ),
-                    ],
-                    child: Scaffold(
-                      appBar: AppBar(
-                        title: Text(
-                          "Topup",
-                          style: TextStyle(
-                            color: Palette.white,
-                          ),
+              _balanceJPY = context.read<GetBalanceBloc>().userbalance;
+              return MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create: (context) => getIt<TopUpBalanceInMobileBloc>()
+                      ..add(
+                        TopUpBalanceInMobileEvent.setCashbackpercentage(
+                          _payData.cashbackPer ?? 0.0,
                         ),
-                        leading: IconButton(
-                          icon:
-                              const Icon(Icons.arrow_back, color: Colors.white),
-                          onPressed: () {
-                            if (_isConfirmPage) {
-                              setState(() {
-                                _isConfirmPage = false;
-                              });
-                            } else {
-                              context.popRoute();
-                            }
-                          },
+                      )
+                      ..add(
+                        TopUpBalanceInMobileEvent.setRewardPoint(
+                          _payData.rewardPoint ?? 0.0,
                         ),
-                        centerTitle: true,
-                        backgroundColor: Palette.primary,
-                        elevation: 0,
                       ),
-                      body: Column(
-                        children: [
-                          const BalanceWidget(),
-                          _blocConsumer(context),
-                        ],
+                  ),
+                  BlocProvider(
+                    create: (context) => getIt<VerifyCouponBloc>()
+                      ..add(
+                        VerifyCouponEvent.setInitialState(
+                          productType: 'utility',
+                          productId: _payData.id ?? 0,
+                        ),
+                      ),
+                  ),
+                ],
+                child: Scaffold(
+                  appBar: AppBar(
+                    title: Text(
+                      "Topup",
+                      style: TextStyle(
+                        color: Palette.white,
                       ),
                     ),
-                  );
-          },
-        );
+                    leading: IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        if (_isConfirmPage) {
+                          setState(() {
+                            _isConfirmPage = false;
+                          });
+                        } else {
+                          context.popRoute();
+                        }
+                      },
+                    ),
+                    centerTitle: true,
+                    backgroundColor: Palette.primary,
+                    elevation: 0,
+                  ),
+                  body: Column(
+                    children: [
+                      const BalanceWidget(),
+                      _blocConsumer(context),
+                    ],
+                  ),
+                ),
+              );
+            },
+            failure: (_) =>
+                Container(color: Colors.white, child: loadingPage()));
       },
     );
   }
