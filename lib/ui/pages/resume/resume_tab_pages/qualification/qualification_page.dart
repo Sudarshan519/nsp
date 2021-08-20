@@ -186,7 +186,7 @@ class _NameOfQualificationField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Name of the qualification",
           textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.qualificationName,
           textAlign: TextAlign.end,
           isEnable: false,

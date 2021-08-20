@@ -14,11 +14,11 @@ class Validator {
         .build())(password);
   }
 
-  static String? isNotEmptyAndMinimum3CharacterLong(String? name,
-      {String? placeholder}) {
+  static String? isNotEmptyAndMinimumCharacterLong(String? name,
+      {String? placeholder, int minChar = 2}) {
     return (ValidationBuilder()
-        .minLength(3,
-            "${placeholder ?? "This field"} should be atleast 3 character long.")
+        .minLength(minChar,
+            "${placeholder ?? "This field"} should be atleast $minChar character long.")
         .build())(name);
   }
 

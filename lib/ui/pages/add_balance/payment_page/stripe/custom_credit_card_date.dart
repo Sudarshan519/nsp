@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 
-class CustomCCNumberInputWidget extends StatefulWidget {
+class CustomCCDateWidget extends StatefulWidget {
   final String initVal;
   final double width;
 
   final Function(String) onChanged;
 
-  const CustomCCNumberInputWidget({
+  const CustomCCDateWidget({
     Key? key,
     required this.onChanged,
     required this.width,
     this.initVal = '',
   }) : super(key: key);
   @override
-  _CustomCCNumberInputWidgetState createState() =>
-      _CustomCCNumberInputWidgetState();
+  _CustomCCDateWidgetState createState() => _CustomCCDateWidgetState();
 }
 
-class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
-  final int numOftextfield = 16;
+class _CustomCCDateWidgetState extends State<CustomCCDateWidget> {
+  final int numOftextfield = 6;
+  final hintText = 'MMYYYY';
 
   final List<Widget> textfields = [];
 
@@ -74,6 +74,9 @@ class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
             output = output.trim();
 
             // if (output.length == numOftextfield)
+            if (output.length > 2) {
+              output = '${output.substring(0, 2)}/${output.substring(2)}';
+            }
             widget.onChanged(output);
           },
           textAlign: TextAlign.center,
@@ -85,7 +88,7 @@ class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
             isCollapsed: true,
             contentPadding: EdgeInsets.zero,
             counterText: '',
-            hintText: 'X',
+            hintText: hintText[i],
             hintStyle: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w300,
@@ -125,13 +128,9 @@ class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
         child: Form(
           child: Row(
             children: [
-              for (var i = 0; i < 4; i++) textfields[i],
-              const SizedBox(width: 6),
-              for (var i = 4; i < 8; i++) textfields[i],
-              const SizedBox(width: 6),
-              for (var i = 8; i < 12; i++) textfields[i],
-              const SizedBox(width: 6),
-              for (var i = 12; i < 16; i++) textfields[i],
+              for (var i = 0; i < 2; i++) textfields[i],
+              const Text('/'),
+              for (var i = 2; i < 6; i++) textfields[i],
             ],
           ),
         ),

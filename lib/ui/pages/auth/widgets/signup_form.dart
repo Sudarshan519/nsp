@@ -93,7 +93,7 @@ class _FirstNameInput extends StatelessWidget {
               "assets/images/auth/user.svg",
             ),
             onEditingCompleted: callBack,
-            validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            validator: Validator.isNotEmptyAndMinimumCharacterLong,
             onChanged: (value) => context
                 .read<SignUpFormBloc>()
                 .add(SignUpFormEvent.changeFirstName(value)),
@@ -122,7 +122,7 @@ class _LastNameInput extends StatelessWidget {
             prefixIcon: SvgPicture.asset(
               "assets/images/auth/user.svg",
             ),
-            validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            validator: Validator.isNotEmptyAndMinimumCharacterLong,
             onEditingCompleted: callBack,
             onChanged: (value) => context
                 .read<SignUpFormBloc>()

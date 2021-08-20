@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/reward_points/domain/entity/reward_point_item.dart';
+import 'package:wallet_app/features/reward_points/domain/entity/reward_points.dart';
 import 'package:wallet_app/features/reward_points/domain/use_case/get_reward_points.dart';
 
 part 'reward_point_event.dart';
@@ -38,9 +39,9 @@ class RewardPointBloc extends Bloc<RewardPointEvent, RewardPointState> {
         return _Failure(fail);
       }, (result) {
         isFetching = false;
-        data.addAll(result);
+        data.addAll(result.rewardPoints ?? []);
         page = page + 1;
-        return _Loaded(data);
+        return _Loaded(result);
       });
     });
   }

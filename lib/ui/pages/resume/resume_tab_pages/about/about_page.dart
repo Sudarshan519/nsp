@@ -165,7 +165,7 @@ class _NameInputField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Name",
           textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.firstName,
           textAlign: TextAlign.end,
           isEnable: false,
@@ -194,7 +194,7 @@ class _FamilyNameInputField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Family Name",
           textInputType: TextInputType.name,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.lastName,
           textAlign: TextAlign.end,
           isEnable: false,
@@ -387,7 +387,7 @@ class _EmailInputField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Email",
           textInputType: TextInputType.emailAddress,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           textAlign: TextAlign.end,
           value: state.email,
           isEnable: false,

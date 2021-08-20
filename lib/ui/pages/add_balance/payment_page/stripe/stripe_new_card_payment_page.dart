@@ -7,11 +7,11 @@ import 'package:wallet_app/features/load_balance/presentations/topup_via_stripe/
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/custom_credit_card_date.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -174,7 +174,7 @@ class _CreditCardWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              CustomCCInputWidget(
+              CustomCCNumberInputWidget(
                 initVal: state.cardNumber,
                 width: MediaQuery.of(context).size.width,
                 onChanged: (val) {
@@ -195,22 +195,27 @@ class _ExpiresWidget extends StatelessWidget {
       BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
         buildWhen: (previous, current) => previous.expYear != current.expYear,
         builder: (context, state) {
-          return TextWidetWithLabelAndChild(
-            title: "Expires",
-            child: InputTextWidget(
-              hintText: "mm/yyyy",
-              textInputType: TextInputType.number,
-              inputFormatters: [
-                MaskedTextInputFormatter(
-                  mask: "xx/xxxx",
-                  separator: "/",
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Credit Card Number',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
                 ),
-              ],
-              value: state.expYear,
-              onChanged: (value) => context.read<TopupViaStripeBloc>().add(
-                    TopupViaStripeEvent.changeExpYear(value),
-                  ),
-            ),
+              ),
+              const SizedBox(height: 12),
+              CustomCCDateWidget(
+                initVal: state.expYear,
+                width: MediaQuery.of(context).size.width,
+                onChanged: (val) {
+                  context
+                      .read<TopupViaStripeBloc>()
+                      .add(TopupViaStripeEvent.changeCardNumber(val));
+                },
+              ),
+            ],
           );
         },
       );

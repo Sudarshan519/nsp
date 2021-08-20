@@ -204,7 +204,7 @@ class _NameOfInstituteField extends StatelessWidget {
         title: "Name of Institute",
         child: InputTextWidget(
           hintText: "Name of Institute",
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.nameOfInstitute,
           onChanged: (value) => context
               .read<UpdateAcademicInfoActorBloc>()

@@ -204,7 +204,7 @@ class _NameOfCompanyField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "XYZ Company",
           textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.nameOfComapny,
           textAlign: TextAlign.end,
           isEnable: false,

@@ -19,10 +19,10 @@ class SignUpWithEmailPasswordAndUserDetail
 
   @override
   Future<Either<ApiFailure, Unit>> call(SignUpParams params) async {
-    final firstName = Validator.isNotEmptyAndMinimum3CharacterLong(
+    final firstName = Validator.isNotEmptyAndMinimumCharacterLong(
         params.firstName,
         placeholder: "First name");
-    final lastName = Validator.isNotEmptyAndMinimum3CharacterLong(
+    final lastName = Validator.isNotEmptyAndMinimumCharacterLong(
         params.lastName,
         placeholder: "Last name");
     final emailValidation = Validator.isValidEmail(params.email);
