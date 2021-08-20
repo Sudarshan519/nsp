@@ -64,7 +64,7 @@ class _RemitRateTabPageState extends State<RemitRateTabPage>
         ),
         IndexedStack(
           index: _selectedIndex,
-          children: widget.remitRates
+          children: _remitRates
               .map((e) => RemitRateExchangePage(
                     remitRate: e,
                   ))
