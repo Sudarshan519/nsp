@@ -177,7 +177,7 @@ class _CreditCardWidget extends StatelessWidget {
               CustomCCInputWidget(
                 initVal: state.cardNumber,
                 width: MediaQuery.of(context).size.width,
-                onCompleted: (val) {
+                onChanged: (val) {
                   context
                       .read<TopupViaStripeBloc>()
                       .add(TopupViaStripeEvent.changeCardNumber(val));
