@@ -199,7 +199,7 @@ class _ExpiresWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Credit Card Number',
+                'Expires At',
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
@@ -207,12 +207,12 @@ class _ExpiresWidget extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               CustomCCDateWidget(
-                initVal: state.expYear,
+                initVal: state.expYear.replaceAll('/', ''),
                 width: MediaQuery.of(context).size.width,
                 onChanged: (val) {
                   context
                       .read<TopupViaStripeBloc>()
-                      .add(TopupViaStripeEvent.changeCardNumber(val));
+                      .add(TopupViaStripeEvent.changeExpYear(val));
                 },
               ),
             ],

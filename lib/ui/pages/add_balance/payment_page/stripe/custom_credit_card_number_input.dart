@@ -5,7 +5,6 @@ import 'package:wallet_app/ui/widgets/colors.dart';
 class CustomCCNumberInputWidget extends StatefulWidget {
   final String initVal;
   final double width;
-
   final Function(String) onChanged;
 
   const CustomCCNumberInputWidget({
@@ -23,9 +22,11 @@ class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
   final int numOftextfield = 16;
 
   final List<Widget> textfields = [];
+  final List<FocusNode> nodes = [];
 
   final List<TextEditingController> controllers = [];
   TextEditingController? currentController;
+  String _output = '';
 
   @override
   void initState() {
@@ -35,46 +36,60 @@ class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
   }
 
   void setupValues() {
-    String output = '';
+    _output = widget.initVal;
+
     for (var i = 0; i < numOftextfield; i++) {
       final controller = TextEditingController();
+      final node = FocusNode();
 
       //setting initial value to textbox
-      if (widget.initVal.isNotEmpty && i < widget.initVal.length) {
-        controller.text = widget.initVal[i];
+      if (_output.isNotEmpty && i < _output.length) {
+        controller.text = _output[i];
       }
+
+      nodes.add(node);
 
       controllers.add(controller);
       textfields.add(SizedBox(
-        width: widget.width * 0.025,
+        width: widget.width * 0.028,
         child: TextFormField(
+          focusNode: node,
           onTap: () {
-            currentController = controllers[i];
+            var currIndex = i;
+
+            //moving focus to the first box if tapped in the middle
+            if (_output.isEmpty) {
+              while (currIndex != 0) {
+                nodes.first.requestFocus();
+                currIndex = currIndex - 1;
+              }
+            }
+
+            currentController = controllers[currIndex];
           },
           textInputAction: TextInputAction.next,
           textAlignVertical: TextAlignVertical.center,
           onChanged: (s) {
             currentController = controllers[i];
-            output = '';
+            _output = '';
             controllers.forEach((c) {
-              output = output + c.text;
+              _output = _output + c.text;
             });
 
             if (s.isNotEmpty) {
-              FocusScope.of(context).nextFocus();
+              //checkong for index range error
               if (i < controllers.length - 1) {
-                currentController = controllers[i + 1];
+                //if next box is empty, shift focus to it
+                if (controllers[i + 1].text.isEmpty) {
+                  nodes[i + 1].requestFocus();
+                  currentController = controllers[i + 1];
+                }
               }
             }
-            //  else {
-            //   if (i != 0) {
-            //     currentController = controllers[i - 1];
-            //   }
-            // }
-            output = output.trim();
 
-            // if (output.length == numOftextfield)
-            widget.onChanged(output);
+            _output = _output.trim();
+
+            widget.onChanged(_output);
           },
           textAlign: TextAlign.center,
           controller: controller,
@@ -104,11 +119,15 @@ class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
       onKey: (event) {
         if (event.runtimeType == RawKeyDownEvent) {
           if (event.logicalKey == LogicalKeyboardKey.backspace) {
-            // here you can check if textfield is focused
-            if (currentController?.text.isEmpty ?? false) {
-              FocusScope.of(context).previousFocus();
+            final cond1 = currentController?.text.isEmpty ?? false;
+            final cond2 = currentController?.selection.baseOffset == 0;
+            final cond3 = controllers.indexOf(currentController!) > 0;
+
+            if ((cond1 || cond2) && cond3) {
               final index = controllers.indexOf(currentController!);
-              if (index > 0) currentController = controllers[index - 1];
+
+              currentController = controllers[index - 1];
+              nodes[index - 1].requestFocus();
             }
           }
         }
@@ -126,11 +145,11 @@ class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
           child: Row(
             children: [
               for (var i = 0; i < 4; i++) textfields[i],
-              const SizedBox(width: 6),
+              const SizedBox(width: 8),
               for (var i = 4; i < 8; i++) textfields[i],
-              const SizedBox(width: 6),
+              const SizedBox(width: 8),
               for (var i = 8; i < 12; i++) textfields[i],
-              const SizedBox(width: 6),
+              const SizedBox(width: 8),
               for (var i = 12; i < 16; i++) textfields[i],
             ],
           ),
