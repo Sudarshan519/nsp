@@ -37,11 +37,12 @@ class UtilityPamentWidget extends StatelessWidget {
               crossAxisCount: 3,
               mainAxisSpacing: 12,
               crossAxisSpacing: 20,
-              childAspectRatio: 1 / 0.86,
+              childAspectRatio: 1 / 0.82,
               children: paymentData
                   .map(
                     (e) => GridItem(
-                      paymentData: e,
+                      index: paymentData.indexOf(e),
+                      paymentData: paymentData,
                     ),
                   )
                   .toList(),
@@ -54,34 +55,36 @@ class UtilityPamentWidget extends StatelessWidget {
 }
 
 class GridItem extends StatelessWidget {
-  final UtilityPaymentsModel paymentData;
+  final int index;
+  final List<UtilityPaymentsModel> paymentData;
 
-  const GridItem({
-    Key? key,
-    required this.paymentData,
-  }) : super(key: key);
+  const GridItem({Key? key, required this.index, required this.paymentData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final _baseURL = getIt<ConfigReader>().baseURL;
     return InkWell(
       onTap: () {
-        final type = paymentData.paymentType ?? '';
+        final type = paymentData[index].paymentType ?? '';
         if (type.toLowerCase() == 'topup_balance') {
           context.pushRoute(
-            TopUpRoute(payData: paymentData),
+            TopUpRoute(
+              index: index,
+              paymentData: paymentData,
+            ),
           );
         }
 
         if (type.toLowerCase() == 'mirai') {
           context.pushRoute(
-            PartnerServicePaymentRoute(payData: paymentData),
+            PartnerServicePaymentRoute(payData: paymentData[index]),
           );
         }
       },
       child: Column(
         children: [
-          if (paymentData.image != null)
+          if (paymentData[index].image != null)
             Container(
               height: 60,
               decoration: BoxDecoration(
@@ -91,7 +94,7 @@ class GridItem extends StatelessWidget {
                 ),
               ),
               child: CachedNetworkImage(
-                  imageUrl: _baseURL + paymentData.image!,
+                  imageUrl: _baseURL + paymentData[index].image!,
                   fit: BoxFit.contain,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Container(
@@ -112,7 +115,7 @@ class GridItem extends StatelessWidget {
             ),
           const SizedBox(height: 3),
           Text(
-            paymentData.name ?? '',
+            paymentData[index].name ?? '',
             textScaleFactor: 0.82,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,

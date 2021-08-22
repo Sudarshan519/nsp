@@ -1,9 +1,11 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:fluttercontactpicker/fluttercontactpicker.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
-import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
@@ -11,21 +13,28 @@ import 'package:wallet_app/features/utility_payments/data/models/utility_payment
 import 'package:wallet_app/features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
+import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/coupon_code_widget.dart';
+import 'package:wallet_app/ui/widgets/dashed_line.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
+import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 
-import 'widgets/amount_text_field.dart';
-import 'widgets/mobile_number_input.dart';
-import 'widgets/topup_transaction_detail.dart';
-
 class TopUpPage extends StatefulWidget {
-  final UtilityPaymentsModel payData;
+  final int index;
 
-  const TopUpPage({Key? key, required this.payData}) : super(key: key);
+  final List<UtilityPaymentsModel> paymentData;
+
+  const TopUpPage({
+    Key? key,
+    required this.index,
+    required this.paymentData,
+  }) : super(key: key);
 
   @override
   _TopUpPageState createState() => _TopUpPageState();
@@ -35,103 +44,83 @@ class _TopUpPageState extends State<TopUpPage> {
   late bool _isConfirmPage;
   late bool _hasCouponCode;
   double _balanceJPY = 0;
-  double _conversionRate = 1.067;
-  late UtilityPaymentsModel _payData;
-
-  List<UtilityPaymentsModel> paymentData = [];
+  double _conversionRate = 1;
 
   @override
   void initState() {
     _isConfirmPage = false;
     _hasCouponCode = false;
     super.initState();
-    _payData = widget.payData;
-
-    final homedata = getIt<HomePageDataBloc>().homeData;
-    if (homedata != null) {
-      _conversionRate =
-          1 / (homedata.userDetail?.purchaseConversionRate ?? 1.067);
-
-      paymentData = List<UtilityPaymentsModel>.from((homedata.homeData!
-              .firstWhere(
-                  (element) => element.type.toString().contains('utility'))
-              .data as Iterable)
-          .map(
-              (x) => UtilityPaymentsModel.fromJson(x as Map<String, dynamic>)));
-    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetBalanceBloc, GetBalanceState>(
-      buildWhen: (p, c) => p.hashCode != c.hashCode,
-      builder: (context, state) {
-        return state.map(
-            loading: (_) =>
-                Container(color: Colors.white, child: loadingPage()),
-            loaded: (loaded) {
-              _balanceJPY = context.read<GetBalanceBloc>().userbalance;
-              return MultiBlocProvider(
-                providers: [
-                  BlocProvider(
-                    create: (context) => getIt<TopUpBalanceInMobileBloc>()
-                      ..add(
-                        TopUpBalanceInMobileEvent.setCashbackpercentage(
-                          _payData.cashbackPer ?? 0.0,
-                        ),
-                      )
-                      ..add(
-                        TopUpBalanceInMobileEvent.setRewardPoint(
-                          _payData.rewardPoint ?? 0.0,
-                        ),
-                      ),
-                  ),
-                  BlocProvider(
-                    create: (context) => getIt<VerifyCouponBloc>()
-                      ..add(
-                        VerifyCouponEvent.setInitialState(
-                          productType: 'utility',
-                          productId: _payData.id ?? 0,
-                        ),
-                      ),
-                  ),
-                ],
-                child: Scaffold(
-                  appBar: AppBar(
-                    title: Text(
-                      "Topup",
-                      style: TextStyle(
-                        color: Palette.white,
-                      ),
-                    ),
-                    leading: IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: () {
-                        if (_isConfirmPage) {
-                          setState(() {
-                            _isConfirmPage = false;
-                          });
-                        } else {
-                          context.popRoute();
-                        }
-                      },
-                    ),
-                    centerTitle: true,
-                    backgroundColor: Palette.primary,
-                    elevation: 0,
-                  ),
-                  body: Column(
-                    children: [
-                      const BalanceWidget(),
-                      _blocConsumer(context),
-                    ],
-                  ),
-                ),
-              );
+    _balanceJPY = context.read<GetBalanceBloc>().userbalance;
+    _conversionRate = 1 /
+        (context
+                .read<HomePageDataBloc>()
+                .homeData
+                ?.userDetail
+                ?.purchaseConversionRate ??
+            1.067);
+
+    final _payData = widget.paymentData[widget.index];
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<TopUpBalanceInMobileBloc>()
+            ..add(
+              TopUpBalanceInMobileEvent.setCashbackpercentage(
+                _payData.cashbackPer ?? 0.0,
+              ),
+            )
+            ..add(
+              TopUpBalanceInMobileEvent.setRewardPoint(
+                _payData.rewardPoint ?? 0.0,
+              ),
+            ),
+        ),
+        BlocProvider(
+          create: (context) => getIt<VerifyCouponBloc>()
+            ..add(
+              VerifyCouponEvent.setInitialState(
+                productType: 'utility',
+                productId: _payData.id ?? 0,
+              ),
+            ),
+        ),
+      ],
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Topup",
+            style: TextStyle(
+              color: Palette.white,
+            ),
+          ),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {
+              if (_isConfirmPage) {
+                setState(() {
+                  _isConfirmPage = false;
+                });
+              } else {
+                context.popRoute();
+              }
             },
-            failure: (_) =>
-                Container(color: Colors.white, child: loadingPage()));
-      },
+          ),
+          centerTitle: true,
+          backgroundColor: Palette.primary,
+          elevation: 0,
+        ),
+        body: Column(
+          children: [
+            const BalanceWidget(),
+            _blocConsumer(context),
+          ],
+        ),
+      ),
     );
   }
 
@@ -240,24 +229,24 @@ class _TopUpPageState extends State<TopUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            MobileNumberTextField(paymentData),
-            TypeOfNumber(paymentData),
+            _MobileNumberTextField(widget.paymentData),
+            _TypeOfNumber(widget.paymentData),
             if (state.type == Values.SMARTCELL)
-              AmountDropDownField(
+              _AmountDropDownField(
                 conversionRate: _conversionRate,
               )
             else
-              AmountTextField(
+              _AmountTextField(
                 conversionRate: _conversionRate,
               ),
             const SizedBox(height: 20),
             couponcodeWidget(),
             const SizedBox(height: 20),
-            TransactionDetail(
+            _TransactionDetail(
               conversionRate: _conversionRate,
             ),
             const SizedBox(height: 20),
-            ProceedButton(
+            _ProceedButton(
               callback: () {
                 try {
                   final int amtNPR = int.parse(state.amount);
@@ -311,7 +300,7 @@ class _TopUpPageState extends State<TopUpPage> {
           // final discountAmount = doubleAmount *
           //     ((state.discountPercentage + state.cashbackPercentage) / 100);
 
-          doubleAmount = amtAfterDiscountDeduction(state);
+          doubleAmount = _amtAfterDiscountDeduction(state);
 
           final rewardPoint = doubleAmount * (state.rewardPoint / 100);
 
@@ -322,14 +311,14 @@ class _TopUpPageState extends State<TopUpPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 20),
-                MobileNumberField(),
+                _MobileNumberField(),
                 const SizedBox(height: 5),
-                TransactionAmountInNPRField(),
+                _TransactionAmountInNPRField(),
                 const SizedBox(height: 5),
                 if (state.cashbackPercentage > 0)
                   Column(
                     children: [
-                      TransactionDetailRow(
+                      _TransactionDetailRow(
                         title: 'Cashback',
                         value: "${state.cashbackPercentage} %",
                       ),
@@ -339,7 +328,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 if (state.discountPercentage > 0)
                   Column(
                     children: [
-                      TransactionDetailRow(
+                      _TransactionDetailRow(
                         title: 'Discount cashback',
                         value: "${state.discountPercentage} %",
                       ),
@@ -349,7 +338,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 if (state.rewardPoint > 0 || state.rewardPointFromCoupon > 0)
                   Column(
                     children: [
-                      TransactionDetailRow(
+                      _TransactionDetailRow(
                         title: 'Reward Points',
                         value:
                             "${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(1)} Pts.",
@@ -358,7 +347,7 @@ class _TopUpPageState extends State<TopUpPage> {
                     ],
                   ),
                 const SizedBox(height: 5),
-                TransactionDetailRow(
+                _TransactionDetailRow(
                   title: 'Transaction Amount (NPR)',
                   value: currencyFormatter(
                     value: doubleAmount,
@@ -367,7 +356,7 @@ class _TopUpPageState extends State<TopUpPage> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                TransactionDetailRow(
+                _TransactionDetailRow(
                   title: 'Transaction Amount (JPY)',
                   value: currencyFormatter(
                     value: conversionValue,
@@ -376,7 +365,7 @@ class _TopUpPageState extends State<TopUpPage> {
                   ),
                 ),
                 const SizedBox(height: 40),
-                const ConfirmButton(),
+                const _ConfirmButton(),
                 const SizedBox(height: 20),
               ],
             ),
@@ -387,7 +376,674 @@ class _TopUpPageState extends State<TopUpPage> {
   }
 }
 
-double amtAfterDiscountDeduction(TopUpBalanceInMobileState state) {
+class _MobileNumberTextField extends StatelessWidget {
+  final List<UtilityPaymentsModel> paymentData;
+  const _MobileNumberTextField(this.paymentData);
+
+  @override
+  Widget build(BuildContext context) {
+    //get phone contacts
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              key: state.key,
+              child: TextWidetWithLabelAndChild(
+                title: "Mobile (10 digit)",
+                child: InputTextWidget(
+                  hintText: "98XXXXXXXX",
+                  textInputType: TextInputType.number,
+                  value: state.number,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(10),
+                  ],
+                  onChanged: (value) => context
+                      .read<TopUpBalanceInMobileBloc>()
+                      .add(TopUpBalanceInMobileEvent.changePhoneNumber(value)),
+                  suffixIcon: InkWell(
+                    onTap: () async {
+                      final phoneNumber = await handleContact(context);
+                      if (phoneNumber.isEmpty) {
+                        FlushbarHelper.createError(
+                                message: 'Invalid mobile number!')
+                            .show(context);
+                      } else {
+                        context.read<TopUpBalanceInMobileBloc>().add(
+                            TopUpBalanceInMobileEvent
+                                .changePhoneNumberViaContact(phoneNumber));
+                      }
+                    },
+                    child: SvgPicture.asset(
+                      "assets/images/home/utility-payment/icon-Phone-book.svg",
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 5),
+            Column(
+              children: [
+                const SizedBox(height: 13),
+                CircleAvatar(
+                  backgroundColor: Palette.primary,
+                  radius: 20,
+                  child: SvgPicture.asset(
+                    "assets/images/home/utility-payment/icon-Smartphone.svg",
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<String> handleContact(BuildContext context) async {
+    final bool hasPermission = await FlutterContactPicker.hasPermission();
+    if (!hasPermission) {
+      // FlushbarHelper.createError(
+      //         message: "Please provide contact read permission")
+      //     .show(context);
+      // await Future.delayed(const Duration(seconds: 2));
+      FlutterContactPicker.requestPermission();
+    }
+    final PhoneContact contact = await FlutterContactPicker.pickPhoneContact();
+    if (contact.phoneNumber != null) {
+      var number = contact.phoneNumber!.number.toString();
+      if (number.length < 10) return '';
+
+      number = number
+          .replaceAll('+', '')
+          .replaceAll('(', '')
+          .replaceAll(')', '')
+          .replaceAll('-', '')
+          .replaceAll(' ', '');
+
+      // taking the last 10 digits of the num if there is any type of prefix like country code etc
+      number = number.substring(number.length - 10);
+
+      //checking if the num is compatible with our providers
+      if (Values.ntcRegx.hasMatch(number) ||
+          Values.ncellRegx.hasMatch(number) ||
+          Values.smartCellRegx.hasMatch(number)) {
+        return number;
+      }
+      return "";
+    }
+    return "";
+  }
+}
+
+class _AmountTextField extends StatelessWidget {
+  final double conversionRate;
+
+  const _AmountTextField({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        if (state.number.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        return Column(
+          children: [
+            TextWidetWithLabelAndChild(
+              title: "Amount (in NPR)",
+              child: InputTextWidget(
+                hintText: "Rs. 100",
+                textInputType: TextInputType.number,
+                value: state.amount,
+                onChanged: (value) {
+                  context
+                      .read<TopUpBalanceInMobileBloc>()
+                      .add(TopUpBalanceInMobileEvent.changeAmount(value));
+                  if (value.isNotEmpty) {
+                    final conversionValue =
+                        double.parse(value) / conversionRate;
+                    context.read<TopUpBalanceInMobileBloc>().add(
+                        TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
+                            conversionValue.toStringAsFixed(0)));
+                  } else {
+                    context.read<TopUpBalanceInMobileBloc>().add(
+                        TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
+                            value));
+                  }
+                },
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _AmountDropDownField extends StatelessWidget {
+  final double conversionRate;
+
+  const _AmountDropDownField({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        if (state.number.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        return SizedBox(
+          // width: 200,
+          child: Column(
+            children: [
+              TextWidetWithLabelAndChild(
+                title: "Amount (in NPR)",
+                child: CustomDropDownWidget(
+                  hintText: "Select Amount",
+                  value: state.amount,
+                  isExpanded: false,
+                  options: Values.SMARTCELL_TOPUP,
+                  onChanged: (value) {
+                    context
+                        .read<TopUpBalanceInMobileBloc>()
+                        .add(TopUpBalanceInMobileEvent.changeAmount(value));
+                    if (value.isNotEmpty) {
+                      final conversionValue =
+                          double.parse(value) / conversionRate;
+                      context.read<TopUpBalanceInMobileBloc>().add(
+                          TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
+                              conversionValue.toStringAsFixed(0)));
+                    } else {
+                      context.read<TopUpBalanceInMobileBloc>().add(
+                          TopUpBalanceInMobileEvent.changeconvertedJpyAmount(
+                              value));
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _TypeOfNumber extends StatelessWidget {
+  final List<UtilityPaymentsModel> paymentData;
+  const _TypeOfNumber(this.paymentData);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        if (state.number.isEmpty || state.type.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        final searchList = paymentData
+            .where((element) => element.name
+                .toString()
+                .toLowerCase()
+                .contains(state.type.toLowerCase()))
+            .toList();
+
+        var imgUrl = '';
+
+        if (searchList.isNotEmpty) {
+          final id = searchList.first.id ?? 0;
+          context.read<TopUpBalanceInMobileBloc>()
+            ..add(
+              TopUpBalanceInMobileEvent.setCashbackpercentage(
+                searchList.first.cashbackPer ?? 0.0,
+              ),
+            )
+            ..add(
+              TopUpBalanceInMobileEvent.setRewardPoint(
+                searchList.first.rewardPoint ?? 0.0,
+              ),
+            );
+          if (searchList.first.image != null) {
+            imgUrl = getIt<ConfigReader>().baseURL + searchList.first.image!;
+          }
+
+          context
+              .read<TopUpBalanceInMobileBloc>()
+              .add(TopUpBalanceInMobileEvent.setProductId("$id"));
+          context.read<VerifyCouponBloc>().add(
+                VerifyCouponEvent.setInitialState(
+                  productType: 'utility',
+                  productId: id,
+                ),
+              );
+        }
+        // print(imgUrl);
+
+        return Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.grey.shade200,
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (imgUrl.isNotEmpty)
+                    Image.network(
+                      imgUrl,
+                      fit: BoxFit.fitWidth,
+                    ),
+                  Text(
+                    state.type.toUpperCase(),
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _TransactionDetail extends StatelessWidget {
+  final double conversionRate;
+
+  const _TransactionDetail({
+    Key? key,
+    required this.conversionRate,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        if (state.number.isEmpty ||
+            state.type.isEmpty ||
+            state.amount.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        double doubleAmount = 0.0;
+        try {
+          doubleAmount = double.parse(state.amount);
+        } catch (ex) {
+          debugPrint(ex.toString());
+          return SizedBox.fromSize();
+        }
+
+        doubleAmount = _amtAfterDiscountDeduction(state);
+        final rewardPoint = doubleAmount * (state.rewardPoint / 100);
+
+        final conversionValue = doubleAmount / conversionRate;
+        return Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              // height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Palette.primary,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Transaction Amount',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                      Text(
+                        currencyFormatterString(
+                            value: state.amount, showSymbol: false),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  if (state.cashbackPercentage > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Cashback',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                            Text(
+                              "${state.cashbackPercentage} %",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  if (state.discountPercentage > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Discount cashback',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                            Text(
+                              "${state.discountPercentage} %",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  if (state.rewardPoint > 0 || state.rewardPointFromCoupon > 0)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Reward Points',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                            Text(
+                              "${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(1)} Pts.",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Palette.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                  DashedLineWidget(
+                    color: Palette.white,
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Total Paying Amount (NPR)',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                      Text(
+                        currencyFormatter(
+                          decimalDigits: 2,
+                          value: doubleAmount,
+                          showSymbol: false,
+                        ),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Total Paying Amount (JPY)',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                      Text(
+                        currencyFormatter(
+                          value: conversionValue,
+                          showSymbol: false,
+                          decimalDigits: 2,
+                        ),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _ProceedButton extends StatelessWidget {
+  // final String balance;
+  // final TopUpBalanceInMobileBloc bloc;
+
+  final Function callback;
+
+  const _ProceedButton({
+    Key? key,
+    // required this.balance,
+    // required this.bloc,
+    required this.callback,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () {
+            context
+                .read<TopUpBalanceInMobileBloc>()
+                .add(const TopUpBalanceInMobileEvent.validate());
+
+            if (state.number.isEmpty ||
+                state.type.isEmpty ||
+                state.amount.isEmpty) {
+              return;
+            }
+
+            callback();
+          },
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Proceed",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+//! Class from here are verification page
+
+class _MobileNumberField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        return _TransactionDetailRow(
+          title: 'Mobile Number',
+          value: state.number,
+          isValueBold: true,
+        );
+      },
+    );
+  }
+}
+
+class _TransactionAmountInNPRField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        return _TransactionDetailRow(
+          title: 'Transaction Amount (NPR)',
+          value: currencyFormatterString(
+            value: state.amount,
+            showSymbol: false,
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _TransactionDetailRow extends StatelessWidget {
+  final String title;
+  final bool isTitleBold;
+  final String value;
+  final bool isValueBold;
+
+  const _TransactionDetailRow({
+    Key? key,
+    required this.title,
+    this.isTitleBold = false,
+    required this.value,
+    this.isValueBold = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 10,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Palette.dividerColor.withOpacity(0.2),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: isTitleBold ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: isValueBold ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ConfirmButton extends StatelessWidget {
+  const _ConfirmButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
+      builder: (context, state) {
+        return InkWell(
+          onTap: () {
+            if (state.productId.isNotEmpty) {
+              context
+                  .read<TopUpBalanceInMobileBloc>()
+                  .add(const TopUpBalanceInMobileEvent.topup());
+            } else {
+              //TODO: show no product found or mismatch
+            }
+          },
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Palette.primary,
+            ),
+            child: Center(
+              child: Text(
+                "Confirm",
+                style: TextStyle(
+                  color: Palette.white,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+double _amtAfterDiscountDeduction(TopUpBalanceInMobileState state) {
   var doubleAmount = double.parse(state.amount);
   try {
     final discountAmount = doubleAmount * (state.discountPercentage / 100);
