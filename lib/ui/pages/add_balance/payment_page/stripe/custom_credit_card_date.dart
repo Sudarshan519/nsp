@@ -58,12 +58,9 @@ class _CustomCCDateWidgetState extends State<CustomCCDateWidget> {
 
             //moving focus to the first box if tapped in the middle
             if (_output.isEmpty) {
-              while (currIndex != 0) {
-                nodes.first.requestFocus();
-                currIndex = currIndex - 1;
-              }
+              nodes.first.requestFocus();
+              currIndex = 0;
             }
-
             currentController = controllers[currIndex];
           },
           textInputAction: TextInputAction.next,
@@ -130,6 +127,7 @@ class _CustomCCDateWidgetState extends State<CustomCCDateWidget> {
 
               currentController = controllers[index - 1];
               nodes[index - 1].requestFocus();
+              currentController?.clear();
             }
           }
         }

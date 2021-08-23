@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +20,7 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Timer? _debounce;
     Widget searchBody(SearchState state) {
       return state.map(
           loading: (l) => loadingPage(),
@@ -60,9 +63,18 @@ class SearchPage extends StatelessWidget {
                   textInputAction: TextInputAction.search,
                   textAlignVertical: TextAlignVertical.center,
                   controller: _searchController,
-                  onSubmitted: (text) {
-                    AnalyticsService.search(text);
-                    context.read<SearchBloc>().add(SearchEvent.search(text));
+                  onChanged: (text) {
+                    if (text.isEmpty) return;
+
+                    if (_debounce != null) {
+                      if (_debounce!.isActive) _debounce!.cancel();
+                    }
+
+                    _debounce = Timer(const Duration(milliseconds: 2000), () {
+                      print(DateTime.now());
+                      AnalyticsService.search(text);
+                      context.read<SearchBloc>().add(SearchEvent.search(text));
+                    });
                   },
                   autofocus: true,
                   decoration: const InputDecoration(

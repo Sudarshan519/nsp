@@ -3,7 +3,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/coupon/presentation/verify_coupon/verify_coupon_bloc.dart';
-import 'package:wallet_app/features/home/domain/entities/home_data.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
@@ -137,7 +136,7 @@ class _TopUpPageState extends State<TopUpPage> {
 
   Widget _blocConsumer(BuildContext context) {
     return BlocConsumer<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
-      listener: (context, state) {
+      listener: (cntx, state) {
         state.failureOrSuccessOption.fold(
           () => {},
           (either) => either.fold(
