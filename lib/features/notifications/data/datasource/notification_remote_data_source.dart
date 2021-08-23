@@ -42,7 +42,7 @@ class NotificationsRemoteDataSourceImpl
     http.Response response;
 
     final url =
-        "${config.baseURL}${config.apiPath}${NotificationApiEndpoints.getNotifications}";
+        "${config.baseURL}${config.apiPath}${NotificationApiEndpoints.getNotifications}?page=${params.page}";
 
     final accessToken = (await auth.getWalletUser()).accessToken;
 

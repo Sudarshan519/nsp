@@ -23,6 +23,8 @@ class RewardPointUsage extends StatelessWidget {
         builder: (context, state) {
           return state.map(
             loading: (a) => loadingPage(),
+            loadingWith: (a) => loadingPage(),
+
             loaded: (data) => ShadowBoxWidget(
               margin: const EdgeInsets.all(8),
               child: Scrollbar(

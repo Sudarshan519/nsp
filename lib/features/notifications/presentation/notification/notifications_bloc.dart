@@ -76,8 +76,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         notifData.removeWhere((element) => element.isPinned);
 
         //adding pinned items to the beginning of list
-        notifData = [...pinned, ...notifData];
-        data.addAll(notifData);
+        data = [...pinned, ...data, ...notifData];
         page = page + 1;
         return _Loaded(data);
       },

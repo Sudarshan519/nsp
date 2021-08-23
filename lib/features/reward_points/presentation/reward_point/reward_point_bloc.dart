@@ -24,25 +24,48 @@ class RewardPointBloc extends Bloc<RewardPointEvent, RewardPointState> {
   int page = 1;
   bool hasReachedEnd = false;
   List<RewardPointItem> data = [];
+  String usage = '';
 
   @override
   Stream<RewardPointState> mapEventToState(
     RewardPointEvent event,
   ) async* {
-    yield* event.map(fetchRewardPoints: (e) async* {
-      isFetching = true;
-      yield const _Loading();
-      final result =
-          await getRewardPoints(GetRewardPointsParams(page: "$page"));
-      yield result.fold((fail) {
+    yield* event.map(
+      fetchRewardPoints: (e) async* {
+        if (hasReachedEnd) {
+          yield _Loaded(RewardPoints(rewardPoints: data, usage: usage));
+        } else {
+          isFetching = true;
+          yield const _Loading();
+          yield* _mapFetchRewardPointToState();
+        }
+      },
+    );
+  }
+
+  Stream<RewardPointState> _mapFetchRewardPointToState() async* {
+    if (data.isNotEmpty) {
+      yield _LoadingWith(RewardPoints(rewardPoints: data, usage: usage));
+    }
+
+    final result = await getRewardPoints(GetRewardPointsParams(page: "$page"));
+    yield result.fold(
+      (failure) {
         isFetching = false;
-        return _Failure(fail);
-      }, (result) {
+        return _Failure(failure);
+      },
+      (rewardPoint) {
+        usage = rewardPoint.usage ?? '';
         isFetching = false;
-        data.addAll(result.rewardPoints ?? []);
+        if (rewardPoint.rewardPoints?.isEmpty ?? true) {
+          hasReachedEnd = true;
+        }
+
+        data.addAll(rewardPoint.rewardPoints ?? []);
         page = page + 1;
-        return _Loaded(result);
-      });
-    });
+        return _Loaded(
+            RewardPoints(rewardPoints: data, usage: rewardPoint.usage));
+      },
+    );
   }
 }
