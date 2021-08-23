@@ -51,7 +51,7 @@ class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
 
       controllers.add(controller);
       textfields.add(SizedBox(
-        width: widget.width * 0.028,
+        width: widget.width * 0.030,
         child: TextFormField(
           focusNode: node,
           onTap: () {
@@ -111,45 +111,53 @@ class _CustomCCNumberInputWidgetState extends State<CustomCCNumberInputWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return RawKeyboardListener(
-      focusNode: FocusNode(),
-      onKey: (event) {
-        if (event.runtimeType == RawKeyDownEvent) {
-          if (event.logicalKey == LogicalKeyboardKey.backspace) {
-            final cond1 = currentController?.text.isEmpty ?? false;
-            final cond2 = currentController?.selection.baseOffset == 0;
-            final cond3 = controllers.indexOf(currentController!) > 0;
+    return GestureDetector(
+      onTap: () {
+        final index = controllers.indexWhere((element) => element.text.isEmpty);
+        if (index == -1) return;
+        currentController = controllers[index];
+        nodes[index].requestFocus();
+      },
+      child: RawKeyboardListener(
+        focusNode: FocusNode(),
+        onKey: (event) {
+          if (event.runtimeType == RawKeyDownEvent) {
+            if (event.logicalKey == LogicalKeyboardKey.backspace) {
+              final cond1 = currentController?.text.isEmpty ?? false;
+              final cond2 = currentController?.selection.baseOffset == 0;
+              final cond3 = controllers.indexOf(currentController!) > 0;
 
-            if ((cond1 || cond2) && cond3) {
-              final index = controllers.indexOf(currentController!);
+              if ((cond1 || cond2) && cond3) {
+                final index = controllers.indexOf(currentController!);
 
-              currentController = controllers[index - 1];
-              nodes[index - 1].requestFocus();
-              currentController?.clear();
+                currentController = controllers[index - 1];
+                nodes[index - 1].requestFocus();
+                currentController?.clear();
+              }
             }
           }
-        }
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-        height: 40,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Palette.dividerColor,
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+          height: 40,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Palette.dividerColor,
+            ),
+            borderRadius: BorderRadius.circular(20.0),
           ),
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: Form(
-          child: Row(
-            children: [
-              for (var i = 0; i < 4; i++) textfields[i],
-              const SizedBox(width: 8),
-              for (var i = 4; i < 8; i++) textfields[i],
-              const SizedBox(width: 8),
-              for (var i = 8; i < 12; i++) textfields[i],
-              const SizedBox(width: 8),
-              for (var i = 12; i < 16; i++) textfields[i],
-            ],
+          child: Form(
+            child: Row(
+              children: [
+                for (var i = 0; i < 4; i++) textfields[i],
+                const SizedBox(width: 9),
+                for (var i = 4; i < 8; i++) textfields[i],
+                const SizedBox(width: 9),
+                for (var i = 8; i < 12; i++) textfields[i],
+                const SizedBox(width: 9),
+                for (var i = 12; i < 16; i++) textfields[i],
+              ],
+            ),
           ),
         ),
       ),

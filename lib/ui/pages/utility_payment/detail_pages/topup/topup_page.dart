@@ -153,6 +153,7 @@ class _TopUpPageState extends State<TopUpPage> {
               getIt<TransactionBloc>()
                   .add(const TransactionEvent.fetchTransactionData());
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: AppConstants.topUpSuccessTitle,
@@ -259,14 +260,14 @@ class _TopUpPageState extends State<TopUpPage> {
             ProceedButton(
               callback: () {
                 try {
-                  final int amtNPR = int.parse(state.amount);
+                  final amtNPR = amtAfterDiscountDeduction(state);
                   final int amtJPY = amtNPR ~/ _conversionRate;
 
                   if (amtNPR < Values.MIN_RECHARGE ||
                       amtNPR > Values.MAX_RECHARGE) {
                     FlushbarHelper.createError(
                             message:
-                                'Amount be at least NPR ${Values.MIN_RECHARGE} and less than ${Values.MAX_RECHARGE}')
+                                'Amount should be at least NPR ${Values.MIN_RECHARGE} and less than ${Values.MAX_RECHARGE}')
                         .show(context);
                     return;
                   } else if (amtJPY > _balanceJPY) {

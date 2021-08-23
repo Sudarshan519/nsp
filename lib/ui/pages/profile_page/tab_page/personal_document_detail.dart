@@ -64,6 +64,7 @@ class _PersonalDocumentDetailPageState
             },
             (success) {
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: "Kyc Info",
@@ -480,6 +481,7 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                         );
                       } catch (ex) {
                         showDialog(
+                          barrierDismissible: false,
                           context: context,
                           builder: (_) => PermissionNotAvailableWidget(
                             onPressed: () async {
@@ -546,6 +548,7 @@ class _OriginKycDocumentWidget extends StatelessWidget {
                         );
                       } catch (ex) {
                         showDialog(
+                          barrierDismissible: false,
                           context: context,
                           builder: (_) => PermissionNotAvailableWidget(
                             onPressed: () async {
@@ -659,6 +662,7 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                         );
                       } catch (ex) {
                         showDialog(
+                          barrierDismissible: false,
                           context: context,
                           builder: (_) => PermissionNotAvailableWidget(
                             onPressed: () async {
@@ -725,6 +729,7 @@ class _ResidenceKycDocumentWidget extends StatelessWidget {
                         );
                       } catch (ex) {
                         showDialog(
+                          barrierDismissible: false,
                           context: context,
                           builder: (_) => PermissionNotAvailableWidget(
                             onPressed: () async {

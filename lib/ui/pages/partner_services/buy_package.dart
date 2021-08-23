@@ -108,6 +108,7 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
               getIt<TransactionBloc>()
                   .add(const TransactionEvent.fetchTransactionData());
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: AppConstants.paymentSuccessTitle,
@@ -221,6 +222,7 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                 InkWell(
                   onTap: () {
                     showDialog(
+                      barrierDismissible: false,
                       context: context,
                       builder: (_) => PopUpConfirmation(
                         message: 'Are you sure to make the purchase?',

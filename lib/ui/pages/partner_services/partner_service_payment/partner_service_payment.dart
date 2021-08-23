@@ -96,6 +96,7 @@ class PartnerServicePaymentPage extends StatelessWidget {
             getIt<TransactionBloc>()
                 .add(const TransactionEvent.fetchTransactionData());
             showDialog(
+              barrierDismissible: false,
               context: context,
               builder: (_) => PopUpSuccessOverLay(
                 title: AppConstants.paymentSuccessTitle,

@@ -113,7 +113,8 @@ class MorePage extends StatelessWidget {
         onTap: () {
           context.pushRoute(
             AppWebViewRoute(
-                url: "https://bnpj.jp/transactions-law", title: "Transactions Law"),
+                url: "https://bnpj.jp/transactions-law",
+                title: "Transactions Law"),
           );
         },
       ),
@@ -144,6 +145,7 @@ class MorePage extends StatelessWidget {
         title: "Logout",
         onTap: () {
           showDialog(
+            barrierDismissible: false,
             context: context,
             builder: (_) => PopUpConfirmation(
               message: 'Are you sure to Logout?',

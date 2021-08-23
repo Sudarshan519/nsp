@@ -106,6 +106,7 @@ class ImageEditWidget extends StatelessWidget {
                               _isLoading = false;
                             });
                             showDialog(
+                              barrierDismissible: false,
                               context: context,
                               builder: (_) => PermissionNotAvailableWidget(
                                 onPressed: () async {

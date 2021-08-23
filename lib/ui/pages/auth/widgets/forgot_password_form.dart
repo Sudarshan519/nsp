@@ -37,6 +37,7 @@ class ForgetPasswordFormWidget extends StatelessWidget {
             loading: (_) {},
             successfulPasswordReset: (_) {
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: "Password reset completed",

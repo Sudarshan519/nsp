@@ -98,6 +98,7 @@ class EditContactAddressInfoFormPage extends StatelessWidget {
                   .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: "Address Info",

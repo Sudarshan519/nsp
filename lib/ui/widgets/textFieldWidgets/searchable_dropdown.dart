@@ -754,7 +754,7 @@ class _SearchChoicesState<T> extends State<SearchChoices<T>> {
           context: context,
           barrierDismissible: true,
           builder: (context) {
-            return (menuWidget(searchTerms: searchTerms));
+            return menuWidget(searchTerms: searchTerms);
           });
       if (widget.onChanged != null && selectedItems != null) {
         widget.onChanged!(selectedResult);

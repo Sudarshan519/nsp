@@ -318,6 +318,7 @@ class RefundButton extends StatelessWidget {
                       title: 'Refund',
                       onTap: () {
                         showDialog(
+                          barrierDismissible: false,
                           context: context,
                           builder: (_) => PopUpConfirmation(
                             message: 'Are you sure to make the refund?',
@@ -346,6 +347,7 @@ class RefundButton extends StatelessWidget {
 
               WidgetsBinding.instance?.addPostFrameCallback((_) {
                 showDialog(
+                  barrierDismissible: false,
                   context: context,
                   builder: (_) => PopUpSuccessOverLay(
                     title: 'Refund Success',

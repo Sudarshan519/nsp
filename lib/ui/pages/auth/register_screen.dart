@@ -57,6 +57,7 @@ class _SignupBody extends StatelessWidget {
                 },
                 (success) {
                   showDialog(
+                    barrierDismissible: false,
                     context: context,
                     builder: (_) => PopUpSuccessOverLay(
                       title: AppConstants.signUpCompleteTitle,

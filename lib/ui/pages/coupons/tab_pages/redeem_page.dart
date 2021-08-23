@@ -53,6 +53,7 @@ class RedeemPage extends StatelessWidget {
                 getIt<GetBalanceBloc>()
                     .add(const GetBalanceEvent.fetchBalance());
                 showDialog(
+                  barrierDismissible: false,
                   context: context,
                   builder: (_) => PopUpSuccessOverLay(
                     title: AppConstants.redeemSuccessTitle,

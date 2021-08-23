@@ -166,6 +166,7 @@ class _StripePaymentCardSelectionPageState
                       IconButton(
                         onPressed: () {
                           showDialog(
+                            barrierDismissible: false,
                             context: context,
                             builder: (_) => PopUpConfirmation(
                               message: 'Are you sure to delete the card?',

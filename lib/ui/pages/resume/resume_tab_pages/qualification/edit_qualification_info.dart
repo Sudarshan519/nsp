@@ -80,6 +80,7 @@ class EditQualificationInfoFormPage extends StatelessWidget {
                   .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: "Academic Info",
