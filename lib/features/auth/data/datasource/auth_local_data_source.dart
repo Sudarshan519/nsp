@@ -27,6 +27,9 @@ abstract class AuthLocalDataSource {
   Future<Map<String, dynamic>> getAppleUser();
   DateTime? getKycPromptDate();
   void setKycPromptDate();
+
+  String getAlertLocation();
+  void setAlertLocation(String location);
 }
 
 @LazySingleton(as: AuthLocalDataSource)
@@ -99,6 +102,17 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
     final result = preferences.setString(
         AuthPreferenceKeys.kycVerificationPromptDate,
         DateTime.now().toString());
+  }
+
+  @override
+  String getAlertLocation() {
+    final result = preferences.getString(AuthPreferenceKeys.alert_location);
+    return result ?? '';
+  }
+
+  @override
+  void setAlertLocation(String location) {
+    preferences.setString(AuthPreferenceKeys.alert_location, location);
   }
 
   // User Details

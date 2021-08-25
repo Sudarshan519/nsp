@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_volcanoes/get_volcanoes_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_earthquakes/get_earthquakes_bloc.dart';
@@ -9,16 +10,38 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/alerts/tabs/weather_list_page.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
+import 'location/select_location_page.dart';
 import 'tabs/alert_list_page.dart';
 import 'tabs/earthquake_list_page.dart';
 import 'tabs/volcano_list_page.dart';
 
-class AlertsTabPage extends StatefulWidget {
+class AlertsTabPage extends StatelessWidget {
+  const AlertsTabPage({Key? key}) : super(key: key);
+
   @override
-  _AlertsTabPageState createState() => _AlertsTabPageState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => getIt<GetAlertLocationBloc>()
+        ..add(const GetAlertLocationEvent.getlocation()),
+      child: BlocConsumer<GetAlertLocationBloc, GetAlertLocationState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return state.map(
+              initial: (_) => loadingPage(),
+              loaded: (_) => _AlertsTab(),
+              failure: (_) => SelectLocationPage());
+        },
+      ),
+    );
+  }
 }
 
-class _AlertsTabPageState extends State<AlertsTabPage>
+class _AlertsTab extends StatefulWidget {
+  @override
+  __AlertsTabState createState() => __AlertsTabState();
+}
+
+class __AlertsTabState extends State<_AlertsTab>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
@@ -99,6 +122,24 @@ class _AlertsTabPageState extends State<AlertsTabPage>
         centerTitle: true,
         backgroundColor: Palette.primary,
         elevation: 0,
+        actions: [
+          IconButton(
+              onPressed: () {
+                //TODO: replace auto route
+
+                getIt<GetAlertLocationBloc>()
+                    .add(const GetAlertLocationEvent.setLocation(''));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const SelectLocationPage(),
+                //     ));
+              },
+              icon: const Icon(
+                Icons.settings,
+                color: Colors.white,
+              ))
+        ],
       ),
       body: MultiBlocProvider(
         providers: [

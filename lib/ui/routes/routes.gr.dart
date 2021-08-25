@@ -7,54 +7,55 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
-import '../../features/alerts/domain/entity/alert_model.dart' as _i50;
+import '../../features/alerts/domain/entity/alert_model.dart' as _i51;
 import '../../features/japanese_manners/domain/entities/japanese_manner.dart'
-    as _i49;
+    as _i50;
 import '../../features/load_balance/domain/entities/payment_method.dart'
-    as _i51;
-import '../../features/news/domain/entity/news_item.dart' as _i47;
-import '../../features/notifications/domain/entity/notification_item.dart'
-    as _i55;
-import '../../features/partner_services/domain/entities/service_packages.dart'
-    as _i54;
-import '../../features/partner_services/domain/entities/services.dart' as _i48;
-import '../../features/resume/domain/entities/academic_history.dart' as _i45;
-import '../../features/resume/domain/entities/personal_info.dart' as _i43;
-import '../../features/resume/domain/entities/qualification_history.dart'
-    as _i46;
-import '../../features/resume/domain/entities/work_history.dart' as _i44;
-import '../../features/transaction/domain/entity/transaction_item.dart' as _i53;
-import '../../features/utility_payments/data/models/utility_payments_model.dart'
     as _i52;
-import '../pages/add_balance/add_balance.dart' as _i26;
-import '../pages/add_balance/payment_page/esewa/esewa_topup_page.dart' as _i30;
+import '../../features/news/domain/entity/news_item.dart' as _i48;
+import '../../features/notifications/domain/entity/notification_item.dart'
+    as _i56;
+import '../../features/partner_services/domain/entities/service_packages.dart'
+    as _i55;
+import '../../features/partner_services/domain/entities/services.dart' as _i49;
+import '../../features/resume/domain/entities/academic_history.dart' as _i46;
+import '../../features/resume/domain/entities/personal_info.dart' as _i44;
+import '../../features/resume/domain/entities/qualification_history.dart'
+    as _i47;
+import '../../features/resume/domain/entities/work_history.dart' as _i45;
+import '../../features/transaction/domain/entity/transaction_item.dart' as _i54;
+import '../../features/utility_payments/data/models/utility_payments_model.dart'
+    as _i53;
+import '../pages/add_balance/add_balance.dart' as _i27;
+import '../pages/add_balance/payment_page/esewa/esewa_topup_page.dart' as _i31;
 import '../pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart'
-    as _i27;
-import '../pages/add_balance/payment_page/stripe/stripe_new_card_payment_page.dart'
     as _i28;
-import '../pages/add_balance/payment_page/stripe/stripe_save_card_payment_page.dart'
+import '../pages/add_balance/payment_page/stripe/stripe_new_card_payment_page.dart'
     as _i29;
+import '../pages/add_balance/payment_page/stripe/stripe_save_card_payment_page.dart'
+    as _i30;
 import '../pages/alerts/alerts_page.dart' as _i23;
 import '../pages/alerts/alerts_tab_page.dart' as _i24;
 import '../pages/alerts/detail/alert_detail_page.dart' as _i25;
+import '../pages/alerts/location/city_list_page.dart' as _i26;
 import '../pages/auth/forgot_password_screen.dart' as _i5;
 import '../pages/auth/login_screen.dart' as _i4;
 import '../pages/auth/register_screen.dart' as _i7;
 import '../pages/auth/validate_user_screen.dart' as _i6;
-import '../pages/banner_detail_page/banner_detail_page.dart' as _i31;
-import '../pages/coupons/coupon_page.dart' as _i39;
-import '../pages/home/constant/home_item_type.dart' as _i56;
+import '../pages/banner_detail_page/banner_detail_page.dart' as _i32;
+import '../pages/coupons/coupon_page.dart' as _i40;
+import '../pages/home/constant/home_item_type.dart' as _i57;
 import '../pages/japanese_manner/japanese_manner_detail.dart' as _i22;
 import '../pages/japanese_manner/japanese_manner_page.dart' as _i21;
 import '../pages/news/detail_page/news_detail.dart' as _i16;
-import '../pages/notification/notification_detail_page.dart' as _i40;
-import '../pages/notification/notification_list.dart' as _i37;
-import '../pages/partner_services/buy_package.dart' as _i38;
+import '../pages/notification/notification_detail_page.dart' as _i41;
+import '../pages/notification/notification_list.dart' as _i38;
+import '../pages/partner_services/buy_package.dart' as _i39;
 import '../pages/partner_services/partner_service_payment/partner_service_payment.dart'
-    as _i34;
+    as _i35;
 import '../pages/partner_services/partner_services.dart' as _i19;
 import '../pages/partner_services/service_detail.dart' as _i20;
-import '../pages/pdf_viewer/pdf_viewer.dart' as _i32;
+import '../pages/pdf_viewer/pdf_viewer.dart' as _i33;
 import '../pages/profile_page/profile_page.dart' as _i18;
 import '../pages/resume/resume_tab_pages/about/edit_basic_info.dart' as _i9;
 import '../pages/resume/resume_tab_pages/academics/edit_academic_info.dart'
@@ -67,13 +68,13 @@ import '../pages/resume/resume_tab_pages/other/edit_other_info.dart' as _i15;
 import '../pages/resume/resume_tab_pages/qualification/edit_qualification_info.dart'
     as _i14;
 import '../pages/resume/resume_tab_pages/work/edit_work_info.dart' as _i12;
-import '../pages/reward_point/reward_point_home.dart' as _i42;
-import '../pages/search/search_home.dart' as _i41;
+import '../pages/reward_point/reward_point_home.dart' as _i43;
+import '../pages/search/search_home.dart' as _i42;
 import '../pages/splash/splash_screen.dart' as _i3;
 import '../pages/tab_bar/tab_bar_screen.dart' as _i8;
-import '../pages/transactions/transaction_detail_page.dart' as _i36;
-import '../pages/transactions/transactions_page.dart' as _i35;
-import '../pages/utility_payment/detail_pages/topup/topup_page.dart' as _i33;
+import '../pages/transactions/transaction_detail_page.dart' as _i37;
+import '../pages/transactions/transactions_page.dart' as _i36;
+import '../pages/utility_payment/detail_pages/topup/topup_page.dart' as _i34;
 import '../pages/webview/app_web_view.dart' as _i17;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -249,7 +250,7 @@ class AppRouter extends _i1.RootStackRouter {
     AlertsTabRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i24.AlertsTabPage();
+          return const _i24.AlertsTabPage();
         }),
     AlertDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -257,11 +258,16 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<AlertDetailRouteArgs>();
           return _i25.AlertDetailPage(key: args.key, alert: args.alert);
         }),
+    AlertCityChooser.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i26.AlertCityChooser();
+        }),
     AddBalanceRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<AddBalanceRouteArgs>();
-          return _i26.AddBalancePage(
+          return _i27.AddBalancePage(
               key: args.key,
               conversionRate: args.conversionRate,
               isVerified: args.isVerified);
@@ -271,7 +277,7 @@ class AppRouter extends _i1.RootStackRouter {
             routeData: routeData,
             builder: (data) {
               final args = data.argsAs<StripePaymentCardSelectionRouteArgs>();
-              return _i27.StripePaymentCardSelectionPage(
+              return _i28.StripePaymentCardSelectionPage(
                   key: args.key,
                   cards: args.cards,
                   deleteCard: args.deleteCard);
@@ -279,19 +285,19 @@ class AppRouter extends _i1.RootStackRouter {
     StripeNewCardPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i28.StripeNewCardPaymentPage();
+          return const _i29.StripeNewCardPaymentPage();
         }),
     StripeSaveCardPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<StripeSaveCardPaymentRouteArgs>();
-          return _i29.StripeSaveCardPaymentPage(key: args.key, card: args.card);
+          return _i30.StripeSaveCardPaymentPage(key: args.key, card: args.card);
         }),
     EsewaTopupRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<EsewaTopupRouteArgs>();
-          return _i30.EsewaTopupPage(
+          return _i31.EsewaTopupPage(
               key: args.key,
               method: args.method,
               userId: args.userId,
@@ -302,55 +308,55 @@ class AppRouter extends _i1.RootStackRouter {
     BannerDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i31.BannerDetailPage();
+          return _i32.BannerDetailPage();
         }),
     PdfViewerRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<PdfViewerRouteArgs>();
-          return _i32.PdfViewerPage(
+          return _i33.PdfViewerPage(
               key: args.key, pdfUrl: args.pdfUrl, title: args.title);
         }),
     TopUpRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<TopUpRouteArgs>();
-          return _i33.TopUpPage(key: args.key, payData: args.payData);
+          return _i34.TopUpPage(key: args.key, payData: args.payData);
         }),
     PartnerServicePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<PartnerServicePaymentRouteArgs>();
-          return _i34.PartnerServicePaymentPage(
+          return _i35.PartnerServicePaymentPage(
               key: args.key, payData: args.payData);
         }),
     TransactionRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i35.TransactionPage();
+          return const _i36.TransactionPage();
         }),
     TransactionDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<TransactionDetailRouteArgs>();
-          return _i36.TransactionDetailPage(key: args.key, item: args.item);
+          return _i37.TransactionDetailPage(key: args.key, item: args.item);
         }),
     TransactionDetailFromAPi.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<TransactionDetailFromAPiArgs>();
-          return _i36.TransactionDetailFromAPi(key: args.key, id: args.id);
+          return _i37.TransactionDetailFromAPi(key: args.key, id: args.id);
         }),
     NotificationListRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i37.NotificationListPage();
+          return _i38.NotificationListPage();
         }),
     BuyPackageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<BuyPackageRouteArgs>();
-          return _i38.BuyPackagePage(
+          return _i39.BuyPackagePage(
               key: args.key,
               package: args.package,
               services: args.services,
@@ -360,13 +366,13 @@ class AppRouter extends _i1.RootStackRouter {
     CouponRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i39.CouponPage();
+          return const _i40.CouponPage();
         }),
     NotificationDetailRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<NotificationDetailRouteArgs>();
-          return _i40.NotificationDetailPage(
+          return _i41.NotificationDetailPage(
               key: args.key,
               notification: args.notification,
               onMoreDetailPressed: args.onMoreDetailPressed);
@@ -388,12 +394,12 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<SearchRouteArgs>(
               orElse: () => const SearchRouteArgs());
-          return _i41.SearchPage(key: args.key, type: args.type);
+          return _i42.SearchPage(key: args.key, type: args.type);
         }),
     RewardPointsHome.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i42.RewardPointsHome();
+          return const _i43.RewardPointsHome();
         })
   };
 
@@ -434,6 +440,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(AlertsRoute.name, path: '/alerts-page'),
         _i1.RouteConfig(AlertsTabRoute.name, path: '/alerts-tab-page'),
         _i1.RouteConfig(AlertDetailRoute.name, path: '/alert-detail-page'),
+        _i1.RouteConfig(AlertCityChooser.name, path: '/alert-city-chooser'),
         _i1.RouteConfig(AddBalanceRoute.name, path: '/add-balance-page'),
         _i1.RouteConfig(StripePaymentCardSelectionRoute.name,
             path: '/stripe-payment-card-selection-page'),
@@ -518,7 +525,7 @@ class EditBasicInfoFormRoute
     extends _i1.PageRouteInfo<EditBasicInfoFormRouteArgs> {
   EditBasicInfoFormRoute(
       {_i2.Key? key,
-      required _i43.PersonalInfo info,
+      required _i44.PersonalInfo info,
       required List<String> listOfNationality,
       required List<String> listOfProfession,
       required String lang})
@@ -544,7 +551,7 @@ class EditBasicInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i43.PersonalInfo info;
+  final _i44.PersonalInfo info;
 
   final List<String> listOfNationality;
 
@@ -557,7 +564,7 @@ class EditCurrentAddressInfoFormRoute
     extends _i1.PageRouteInfo<EditCurrentAddressInfoFormRouteArgs> {
   EditCurrentAddressInfoFormRoute(
       {_i2.Key? key,
-      required _i43.PersonalInfo info,
+      required _i44.PersonalInfo info,
       required String lang,
       required List<String> prefecture,
       required List<String> provinces,
@@ -586,7 +593,7 @@ class EditCurrentAddressInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i43.PersonalInfo info;
+  final _i44.PersonalInfo info;
 
   final String lang;
 
@@ -601,7 +608,7 @@ class EditContactAddressInfoFormRoute
     extends _i1.PageRouteInfo<EditContactAddressInfoFormRouteArgs> {
   EditContactAddressInfoFormRoute(
       {_i2.Key? key,
-      required _i43.PersonalInfo info,
+      required _i44.PersonalInfo info,
       required String lang,
       required List<String> prefecture,
       required List<String> provinces,
@@ -630,7 +637,7 @@ class EditContactAddressInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i43.PersonalInfo info;
+  final _i44.PersonalInfo info;
 
   final String lang;
 
@@ -645,7 +652,7 @@ class EditWorkInfoFormRoute
     extends _i1.PageRouteInfo<EditWorkInfoFormRouteArgs> {
   EditWorkInfoFormRoute(
       {_i2.Key? key,
-      required _i44.WorkHistory info,
+      required _i45.WorkHistory info,
       required List<String> typeOfCompanyList,
       required String lang})
       : super(name,
@@ -668,7 +675,7 @@ class EditWorkInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i44.WorkHistory info;
+  final _i45.WorkHistory info;
 
   final List<String> typeOfCompanyList;
 
@@ -679,7 +686,7 @@ class EditAcademicInfoFormRoute
     extends _i1.PageRouteInfo<EditAcademicInfoFormRouteArgs> {
   EditAcademicInfoFormRoute(
       {_i2.Key? key,
-      required _i45.AcademicHistory info,
+      required _i46.AcademicHistory info,
       required List<String> listOfSubjects,
       required String lang})
       : super(name,
@@ -702,7 +709,7 @@ class EditAcademicInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i45.AcademicHistory info;
+  final _i46.AcademicHistory info;
 
   final List<String> listOfSubjects;
 
@@ -713,7 +720,7 @@ class EditQualificationInfoFormRoute
     extends _i1.PageRouteInfo<EditQualificationInfoFormRouteArgs> {
   EditQualificationInfoFormRoute(
       {_i2.Key? key,
-      required _i46.QualificationHistory info,
+      required _i47.QualificationHistory info,
       required String lang})
       : super(name,
             path: '/edit-qualification-info-form-page',
@@ -729,7 +736,7 @@ class EditQualificationInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i46.QualificationHistory info;
+  final _i47.QualificationHistory info;
 
   final String lang;
 }
@@ -738,7 +745,7 @@ class EditOtherInfoFormRoute
     extends _i1.PageRouteInfo<EditOtherInfoFormRouteArgs> {
   EditOtherInfoFormRoute(
       {_i2.Key? key,
-      required _i43.PersonalInfo info,
+      required _i44.PersonalInfo info,
       required List<String> listOfLanguages,
       required List<String> listOfHobbies,
       required List<String> listOfSkills,
@@ -767,7 +774,7 @@ class EditOtherInfoFormRouteArgs {
 
   final _i2.Key? key;
 
-  final _i43.PersonalInfo info;
+  final _i44.PersonalInfo info;
 
   final List<String> listOfLanguages;
 
@@ -779,7 +786,7 @@ class EditOtherInfoFormRouteArgs {
 }
 
 class NewsDetailRoute extends _i1.PageRouteInfo<NewsDetailRouteArgs> {
-  NewsDetailRoute({_i2.Key? key, required _i47.NewsItem newsItem})
+  NewsDetailRoute({_i2.Key? key, required _i48.NewsItem newsItem})
       : super(name,
             path: '/news-detail-page',
             args: NewsDetailRouteArgs(key: key, newsItem: newsItem));
@@ -792,7 +799,7 @@ class NewsDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i47.NewsItem newsItem;
+  final _i48.NewsItem newsItem;
 }
 
 class AppWebViewRoute extends _i1.PageRouteInfo<AppWebViewRouteArgs> {
@@ -847,7 +854,7 @@ class PartnerServicesRouteArgs {
 }
 
 class ServicesDetailRoute extends _i1.PageRouteInfo<ServicesDetailRouteArgs> {
-  ServicesDetailRoute({_i2.Key? key, required _i48.Services services})
+  ServicesDetailRoute({_i2.Key? key, required _i49.Services services})
       : super(name,
             path: '/services-detail-page',
             args: ServicesDetailRouteArgs(key: key, services: services));
@@ -860,7 +867,7 @@ class ServicesDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i48.Services services;
+  final _i49.Services services;
 }
 
 class JapaneseMannerRoute extends _i1.PageRouteInfo<JapaneseMannerRouteArgs> {
@@ -884,7 +891,7 @@ class JapaneseMannerRouteArgs {
 class JapaneseMannerDetailRoute
     extends _i1.PageRouteInfo<JapaneseMannerDetailRouteArgs> {
   JapaneseMannerDetailRoute(
-      {_i2.Key? key, required _i49.JapaneseManner japaneseManner})
+      {_i2.Key? key, required _i50.JapaneseManner japaneseManner})
       : super(name,
             path: '/japanese-manner-detail-page',
             args: JapaneseMannerDetailRouteArgs(
@@ -898,7 +905,7 @@ class JapaneseMannerDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i49.JapaneseManner japaneseManner;
+  final _i50.JapaneseManner japaneseManner;
 }
 
 class AlertsRoute extends _i1.PageRouteInfo {
@@ -914,7 +921,7 @@ class AlertsTabRoute extends _i1.PageRouteInfo {
 }
 
 class AlertDetailRoute extends _i1.PageRouteInfo<AlertDetailRouteArgs> {
-  AlertDetailRoute({_i2.Key? key, required _i50.Alert alert})
+  AlertDetailRoute({_i2.Key? key, required _i51.Alert alert})
       : super(name,
             path: '/alert-detail-page',
             args: AlertDetailRouteArgs(key: key, alert: alert));
@@ -927,7 +934,13 @@ class AlertDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i50.Alert alert;
+  final _i51.Alert alert;
+}
+
+class AlertCityChooser extends _i1.PageRouteInfo {
+  const AlertCityChooser() : super(name, path: '/alert-city-chooser');
+
+  static const String name = 'AlertCityChooser';
 }
 
 class AddBalanceRoute extends _i1.PageRouteInfo<AddBalanceRouteArgs> {
@@ -958,7 +971,7 @@ class StripePaymentCardSelectionRoute
     extends _i1.PageRouteInfo<StripePaymentCardSelectionRouteArgs> {
   StripePaymentCardSelectionRoute(
       {_i2.Key? key,
-      required List<_i51.CreditCard> cards,
+      required List<_i52.CreditCard> cards,
       required dynamic Function(int) deleteCard})
       : super(name,
             path: '/stripe-payment-card-selection-page',
@@ -974,7 +987,7 @@ class StripePaymentCardSelectionRouteArgs {
 
   final _i2.Key? key;
 
-  final List<_i51.CreditCard> cards;
+  final List<_i52.CreditCard> cards;
 
   final dynamic Function(int) deleteCard;
 }
@@ -988,7 +1001,7 @@ class StripeNewCardPaymentRoute extends _i1.PageRouteInfo {
 
 class StripeSaveCardPaymentRoute
     extends _i1.PageRouteInfo<StripeSaveCardPaymentRouteArgs> {
-  StripeSaveCardPaymentRoute({_i2.Key? key, required _i51.CreditCard card})
+  StripeSaveCardPaymentRoute({_i2.Key? key, required _i52.CreditCard card})
       : super(name,
             path: '/stripe-save-card-payment-page',
             args: StripeSaveCardPaymentRouteArgs(key: key, card: card));
@@ -1001,13 +1014,13 @@ class StripeSaveCardPaymentRouteArgs {
 
   final _i2.Key? key;
 
-  final _i51.CreditCard card;
+  final _i52.CreditCard card;
 }
 
 class EsewaTopupRoute extends _i1.PageRouteInfo<EsewaTopupRouteArgs> {
   EsewaTopupRoute(
       {_i2.Key? key,
-      required _i51.PaymentMethod method,
+      required _i52.PaymentMethod method,
       required String userId,
       required double conversionRate,
       required bool isVerified,
@@ -1036,7 +1049,7 @@ class EsewaTopupRouteArgs {
 
   final _i2.Key? key;
 
-  final _i51.PaymentMethod method;
+  final _i52.PaymentMethod method;
 
   final String userId;
 
@@ -1074,7 +1087,7 @@ class PdfViewerRouteArgs {
 }
 
 class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
-  TopUpRoute({_i2.Key? key, required _i52.UtilityPaymentsModel payData})
+  TopUpRoute({_i2.Key? key, required _i53.UtilityPaymentsModel payData})
       : super(name,
             path: '/top-up-page',
             args: TopUpRouteArgs(key: key, payData: payData));
@@ -1087,13 +1100,13 @@ class TopUpRouteArgs {
 
   final _i2.Key? key;
 
-  final _i52.UtilityPaymentsModel payData;
+  final _i53.UtilityPaymentsModel payData;
 }
 
 class PartnerServicePaymentRoute
     extends _i1.PageRouteInfo<PartnerServicePaymentRouteArgs> {
   PartnerServicePaymentRoute(
-      {_i2.Key? key, required _i52.UtilityPaymentsModel payData})
+      {_i2.Key? key, required _i53.UtilityPaymentsModel payData})
       : super(name,
             path: '/partner-service-payment-page',
             args: PartnerServicePaymentRouteArgs(key: key, payData: payData));
@@ -1106,7 +1119,7 @@ class PartnerServicePaymentRouteArgs {
 
   final _i2.Key? key;
 
-  final _i52.UtilityPaymentsModel payData;
+  final _i53.UtilityPaymentsModel payData;
 }
 
 class TransactionRoute extends _i1.PageRouteInfo {
@@ -1117,7 +1130,7 @@ class TransactionRoute extends _i1.PageRouteInfo {
 
 class TransactionDetailRoute
     extends _i1.PageRouteInfo<TransactionDetailRouteArgs> {
-  TransactionDetailRoute({_i2.Key? key, required _i53.TransactionItem item})
+  TransactionDetailRoute({_i2.Key? key, required _i54.TransactionItem item})
       : super(name,
             path: '/transaction-detail-page',
             args: TransactionDetailRouteArgs(key: key, item: item));
@@ -1130,7 +1143,7 @@ class TransactionDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i53.TransactionItem item;
+  final _i54.TransactionItem item;
 }
 
 class TransactionDetailFromAPi
@@ -1160,8 +1173,8 @@ class NotificationListRoute extends _i1.PageRouteInfo {
 class BuyPackageRoute extends _i1.PageRouteInfo<BuyPackageRouteArgs> {
   BuyPackageRoute(
       {_i2.Key? key,
-      required _i54.ServicePackage package,
-      required _i48.Services services,
+      required _i55.ServicePackage package,
+      required _i49.Services services,
       required double cashBackPercent,
       required double rewardPoint})
       : super(name,
@@ -1186,9 +1199,9 @@ class BuyPackageRouteArgs {
 
   final _i2.Key? key;
 
-  final _i54.ServicePackage package;
+  final _i55.ServicePackage package;
 
-  final _i48.Services services;
+  final _i49.Services services;
 
   final double cashBackPercent;
 
@@ -1205,7 +1218,7 @@ class NotificationDetailRoute
     extends _i1.PageRouteInfo<NotificationDetailRouteArgs> {
   NotificationDetailRoute(
       {_i2.Key? key,
-      required _i55.NotificationItem notification,
+      required _i56.NotificationItem notification,
       Function? onMoreDetailPressed})
       : super(name,
             path: '/notification-detail-page',
@@ -1223,7 +1236,7 @@ class NotificationDetailRouteArgs {
 
   final _i2.Key? key;
 
-  final _i55.NotificationItem notification;
+  final _i56.NotificationItem notification;
 
   final Function? onMoreDetailPressed;
 }
@@ -1265,7 +1278,7 @@ class ServiceDetailRouteFromAPIArgs {
 }
 
 class SearchRoute extends _i1.PageRouteInfo<SearchRouteArgs> {
-  SearchRoute({_i2.Key? key, _i56.HomeItemType? type})
+  SearchRoute({_i2.Key? key, _i57.HomeItemType? type})
       : super(name,
             path: '/search-page', args: SearchRouteArgs(key: key, type: type));
 
@@ -1277,7 +1290,7 @@ class SearchRouteArgs {
 
   final _i2.Key? key;
 
-  final _i56.HomeItemType? type;
+  final _i57.HomeItemType? type;
 }
 
 class RewardPointsHome extends _i1.PageRouteInfo {

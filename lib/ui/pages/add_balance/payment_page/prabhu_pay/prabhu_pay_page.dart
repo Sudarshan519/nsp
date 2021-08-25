@@ -60,7 +60,7 @@ class PrabhuPayTopupPage extends StatelessWidget {
           success: (success) async {
             final flushbar = FlushbarHelper.createInformation(
                 message: "Please don't exit this page!",
-                duration: const Duration(seconds: 20));
+                duration: const Duration(seconds: 40));
             final successResult = await context.pushRoute(AppWebViewRoute(
                 url: success.url,
                 title: 'Prabhu Pay',
