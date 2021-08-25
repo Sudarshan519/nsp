@@ -1,23 +1,14 @@
-import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:wallet_app/features/load_balance/presentations/stripe_refund/stripe_refund_bloc.dart';
-import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/domain/entity/transaction_item.dart';
 import 'package:wallet_app/features/transaction/presentation/individual_transaction/individual_transaction_bloc.dart';
-import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/pages/transactions/refund_button.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/dashed_line.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
-import 'package:wallet_app/ui/widgets/pop_up/pop_up_confirmation.dart';
-import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
-import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
 
@@ -99,16 +90,6 @@ class TransactionDetailPage extends StatelessWidget {
       );
     }
 
-    Widget refundButton() {
-      final String name = item.transactionName.toString().toLowerCase();
-      if ((name.contains('credit') || name.contains('stripe')) &&
-          item.isRefundable) {
-        return RefundButton(referenceId: item.referenceId.toString());
-      }
-
-      return const SizedBox();
-    }
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -181,7 +162,7 @@ class TransactionDetailPage extends StatelessWidget {
             //Description Widget
             descriptionWidget(),
 
-            refundButton(),
+            RefundButton(txn: item),
 
             if (item.gps != null) googleMap()
           ],
@@ -296,86 +277,6 @@ class TransactionDetailPage extends StatelessWidget {
                 lat,
                 long,
               ))),
-    );
-  }
-}
-
-class RefundButton extends StatelessWidget {
-  final String referenceId;
-  const RefundButton({Key? key, required this.referenceId}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<StripeRefundBloc>(),
-      child: BlocBuilder<StripeRefundBloc, StripeRefundState>(
-        builder: (context, state) {
-          Widget _refundButton() {
-            return Padding(
-              padding: const EdgeInsets.all(4),
-              child: Center(
-                  child: CustomButton(
-                      title: 'Refund',
-                      onTap: () {
-                        showDialog(
-                          barrierDismissible: false,
-                          context: context,
-                          builder: (_) => PopUpConfirmation(
-                            message: 'Are you sure to make the refund?',
-                            onConfirmed: () {
-                              print(referenceId);
-                              // AnalyticsService.logEvent(FirebaseEvents.LOGOUT);
-                              context.read<StripeRefundBloc>().add(
-                                  StripeRefundEvent.stripeRefund(referenceId));
-                              context.popRoute();
-                            },
-                          ),
-                        );
-                      })),
-            );
-          }
-
-          return state.map(
-            initial: (_) => _refundButton(),
-            loading: (_) {
-              return const LinearProgressIndicator();
-            },
-            success: (_) {
-              getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
-              getIt<TransactionBloc>()
-                  .add(const TransactionEvent.fetchTransactionData());
-
-              WidgetsBinding.instance?.addPostFrameCallback((_) {
-                showDialog(
-                  barrierDismissible: false,
-                  context: context,
-                  builder: (_) => PopUpSuccessOverLay(
-                    title: 'Refund Success',
-                    message:
-                        'The refund process for id $referenceId has been completed successfully!',
-                    onPressed: () {
-                      context.router.navigate(const TabBarRoute());
-                    },
-                  ),
-                );
-              });
-              return Container();
-            },
-            failure: (fail) {
-              FlushbarHelper.createError(
-                message: fail.failure.map(
-                  noInternetConnection: (error) => AppConstants.noNetwork,
-                  serverError: (error) => error.message.isNotEmpty
-                      ? error.message
-                      : AppConstants.someThingWentWrong,
-                  invalidUser: (error) => AppConstants.someThingWentWrong,
-                ),
-              ).show(context);
-              return _refundButton();
-            },
-          );
-        },
-      ),
     );
   }
 }

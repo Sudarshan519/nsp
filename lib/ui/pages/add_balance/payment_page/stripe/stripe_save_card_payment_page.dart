@@ -182,25 +182,15 @@ class _AmountFromSuggestionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final prices = [
-      "100",
-      "200",
-      "500",
-      "1,000",
-      "2,000",
-      "5,000",
-      "10,000",
-      "25,000"
-    ];
     return SizedBox(
       height: 30,
       child: ListView.separated(
-        itemCount: prices.length,
+        itemCount: Values.TOPUP_PRICES.length,
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemBuilder: (context, index) => buildPriceHelperItem(
           context,
-          prices[index],
+          Values.TOPUP_PRICES[index],
         ),
       ),
     );

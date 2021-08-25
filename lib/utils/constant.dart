@@ -72,6 +72,17 @@ class Values {
     '500',
     '1000'
   ];
+
+  static const List<String> TOPUP_PRICES = [
+    "100",
+    "200",
+    "500",
+    "1,000",
+    "2,000",
+    "5,000",
+    "10,000",
+    "25,000"
+  ];
   static const List<String> GENDER = ['Male', 'Female'];
   static const List<String> PAYMENT_PURPOSE = [
     'Utilities',
