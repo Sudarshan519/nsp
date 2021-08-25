@@ -56,6 +56,7 @@ class BNPJCard extends StatelessWidget {
               Positioned(
                 top: 20,
                 left: 20,
+                bottom: 20,
                 child: BlocBuilder<HomePageDataBloc, HomePageDataState>(
                   buildWhen: (previous, next) =>
                       previous.hashCode != next.hashCode,
@@ -133,7 +134,9 @@ class BNPJCard extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-          const SizedBox(height: 30),
+
+          //here
+          Spacer(),
           Text(
             "${userDetail?.firstName ?? ""} ${userDetail?.lastName ?? ""}",
             style: const TextStyle(

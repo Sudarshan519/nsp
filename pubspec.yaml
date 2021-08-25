@@ -32,7 +32,7 @@ dependencies:
       url: https://github.com/AdiD253/pdf_viewer.git
       ref: pdf-viewer-file-fix
   assorted_layout_widgets: ^5.0.2     
-  another_flushbar: ^1.10.20           
+  another_flushbar: ^1.10.24          
   auto_route: ^2.2.0                
   cached_network_image: ^3.1.0
   carousel_slider: ^4.0.0-nullsafety.0   
@@ -78,10 +78,11 @@ dependencies:
   syncfusion_flutter_charts: ^19.1.66+1          
   url_launcher: ^6.0.3                
   youtube_player_flutter: ^8.0.0
-  google_mobile_ads: ^0.13.2
-  facebook_audience_network: ^0.9.0
+  google_mobile_ads: ^0.13.3
+  facebook_audience_network: ^1.0.0-nullsafety.0
   flutter_khalti: ^1.1.0
   flutter_web_browser: ^0.15.0
+  webview_flutter: ^2.0.12
   marquee: ^2.2.0
   firebase_analytics: ^8.2.0
   image_cropper: ^1.4.1

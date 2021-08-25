@@ -36,6 +36,7 @@ class DownloadResumeButton extends StatelessWidget {
               if (!PopUpDownloadingOverLay.isShown) {
                 PopUpDownloadingOverLay.isShown = true;
                 showDialog(
+                  barrierDismissible: false,
                   context: context,
                   builder: (_) => PopUpDownloadingOverLay(
                     downloadUrl: message.url,

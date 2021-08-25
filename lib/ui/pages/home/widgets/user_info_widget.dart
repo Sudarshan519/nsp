@@ -17,10 +17,14 @@ class UserInfoWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
+          padding: const EdgeInsets.only(bottom: 10),
           width: double.maxFinite,
           color: Palette.primary,
           child: Column(
             children: [
+              const SizedBox(
+                height: 5,
+              ),
               Text(
                 "${user?.firstName ?? ""} ${user?.lastName ?? ""}",
                 style: TextStyle(
@@ -51,14 +55,11 @@ class UserInfoWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
             ],
           ),
         ),
         const BalanceAndPointWidget(),
-        const Padding(padding: EdgeInsets.only(bottom: 16)),
+        const SizedBox(height: 16)
       ],
     );
   }

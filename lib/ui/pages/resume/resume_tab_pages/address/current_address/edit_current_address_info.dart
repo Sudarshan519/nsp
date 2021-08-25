@@ -96,6 +96,7 @@ class EditCurrentAddressInfoFormPage extends StatelessWidget {
                   .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: "Address Info",
@@ -534,7 +535,7 @@ class _PhoneInputField extends StatelessWidget {
         title: "Phone",
         child: InputTextWidget(
           hintText: "XXX-XXXX-XXXX",
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
           textInputType: TextInputType.phone,
           value: state.currPhone,
           inputFormatters: [

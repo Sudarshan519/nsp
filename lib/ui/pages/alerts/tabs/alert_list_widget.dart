@@ -17,189 +17,79 @@ class AlertWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 0.1;
     final isEarthQuake = alert.label?.toLowerCase() == "earthquake";
-    if (isEarthQuake) {
-      return InkWell(
-        onTap: () => context.router.push(AlertDetailRoute(alert: alert)),
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Flexible(
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
-                          decoration: BoxDecoration(
-                            color: Palette.primary,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Center(
-                            child: SvgPicture.asset(
-                              "assets/images/alerts/earthquake-info.svg",
-                              color: Palette.white,
-                              height: width,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Flexible(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                alert.epicenterValue ?? "",
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(height: 5),
-                              Text(
-                                alert.occurredValue ?? '',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: Palette.black.withOpacity(0.5),
-                                ),
-                              ),
-                              Text(
-                                "Maximum seismic intensity ${alert.magnitudeValue}",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: Palette.black.withOpacity(0.5),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    // crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          color: Palette.primary,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "${alert.magnitudeValue}",
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      // Text(
-                      //   "10h",
-                      //   style: TextStyle(
-                      //     fontSize: 12,
-                      //     fontWeight: FontWeight.w400,
-                      //     color: Palette.black.withOpacity(0.5),
-                      //   ),
-                      // ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Container(
-                height: 1,
-                color: Palette.dividerColor,
-              ),
-            ],
+    return ListTile(
+      onTap: () => context.router.push(AlertDetailRoute(alert: alert)),
+      contentPadding: const EdgeInsets.all(12),
+      leading: Container(
+        width: 70,
+        height: 50,
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        decoration: BoxDecoration(
+          color: Palette.primary,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Center(
+          child: SvgPicture.asset(
+            isEarthQuake
+                ? "assets/images/alerts/earthquake-info.svg"
+                : "assets/images/alerts/volcano-alerts.svg",
+            color: Palette.white,
+            height: width,
           ),
         ),
-      );
-    }
-    return InkWell(
-      onTap: () => context.router.push(AlertDetailRoute(alert: alert)),
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Flexible(
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 10.0),
-                        decoration: BoxDecoration(
-                          color: Palette.primary,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Center(
-                          child: SvgPicture.asset(
-                            "assets/images/alerts/volcano-alerts.svg",
-                            color: Palette.white,
-                            height: width,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Flexible(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              alert.volcanoNameValue ?? "",
-                              style: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            const SizedBox(height: 5),
-                            Text(
-                              alert.occurredValue ?? '',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: Palette.black.withOpacity(0.5),
-                              ),
-                            ),
-                            Text(
-                              "${alert.levelTitle} ${alert.levelValue} (Do not approach the volcano)",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: Palette.black.withOpacity(0.5),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+      ),
+      trailing: isEarthQuake
+          ? CircleAvatar(
+              radius: 18,
+              backgroundColor: Palette.primary,
+              child: Center(
+                child: Text(
+                  "${alert.magnitudeValue}",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Palette.white,
                   ),
                 ),
-                const SizedBox(width: 10),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Container(
-              height: 1,
-              color: Palette.dividerColor,
-            ),
-          ],
+              ),
+            )
+          : const SizedBox(),
+      title: Text(
+        isEarthQuake
+            ? alert.epicenterValue ?? ""
+            : alert.volcanoNameValue ?? "",
+        style: const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
         ),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 3,
+          ),
+          Text(
+            alert.occurredValue ?? '',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: Palette.black.withOpacity(0.5),
+            ),
+          ),
+          Text(
+            isEarthQuake
+                ? "Maximum seismic intensity ${alert.magnitudeValue}"
+                : "${alert.levelTitle} ${alert.levelValue} (Do not approach the volcano)",
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: Palette.black.withOpacity(0.5),
+            ),
+          ),
+        ],
       ),
     );
   }

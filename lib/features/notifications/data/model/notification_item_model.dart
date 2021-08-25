@@ -1,20 +1,21 @@
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 
 class NotificationItemModel extends NotificationItem {
-  NotificationItemModel(
-      {required int? id,
-      required String? title,
-      required String? message,
-      required int? userId,
-      required String? image,
-      required bool isPinned,
-      required bool? isShow,
-      required String? redirectUrl,
-      required String? type,
-      required String? createdAt,
-      required int? productId,
-      required String? updatedAt})
-      : super(
+  NotificationItemModel({
+    required int? id,
+    required String? title,
+    required String? message,
+    required int? userId,
+    required String? image,
+    required bool isPinned,
+    required bool? isShow,
+    required String? redirectUrl,
+    required String? type,
+    required String? createdAt,
+    required int? productId,
+    required String? updatedAt,
+    required String? utilityType,
+  }) : super(
           id: id,
           createdAt: createdAt,
           image: image,
@@ -27,6 +28,7 @@ class NotificationItemModel extends NotificationItem {
           type: type,
           productId: productId,
           userId: userId,
+          utilityType: utilityType,
         );
 
   NotificationItemModel.fromJson(Map<String, dynamic> json) {
@@ -42,5 +44,6 @@ class NotificationItemModel extends NotificationItem {
     redirectUrl = json['redirect_url'] as String?;
     createdAt = json['created_at'] as String?;
     updatedAt = json['updated_at'] as String?;
+    utilityType = json['utility_type'] as String?;
   }
 }

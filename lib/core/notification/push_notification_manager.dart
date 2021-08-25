@@ -135,6 +135,7 @@ Future _selectNotification(String? payload,
     final message = data['message'] as String?;
     final title = data['title'] as String?;
     final redirect = data['redirect'] as String?;
+    final utilType = data['Utility_type'] as String?;
     final key = appRouter.navigatorKey;
     if (key.currentContext != null && type != null) {
       //TODO: make context routeable to autoRoute
@@ -146,6 +147,7 @@ Future _selectNotification(String? payload,
               type: type,
               image: image,
               message: message,
+              utilityType: utilType,
               redirectUrl: redirect));
     }
   } catch (ex) {

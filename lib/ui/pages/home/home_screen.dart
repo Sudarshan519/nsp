@@ -1,8 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/ads/presentation/get_ads/ads_bloc.dart';
 import 'package:wallet_app/features/auth/domain/entities/user_detail.dart';
 import 'package:wallet_app/features/home/data/model/remit_rate_mode.dart';
@@ -16,14 +14,14 @@ import 'package:wallet_app/features/transaction/presentation/transaction/transac
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/constant/home_item_type.dart';
-import 'package:wallet_app/ui/pages/home/widgets/home_header.dart';
+import 'package:wallet_app/ui/pages/home/home_appbar.dart';
 import 'package:wallet_app/ui/pages/home/widgets/kyc_update_prompt.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
 import 'package:wallet_app/ui/pages/utility_payment/utility_payment.dart';
 import 'package:wallet_app/ui/widgets/error_widgets.dart';
+import 'package:wallet_app/ui/widgets/wallet_ad/wallet_ad_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
-import 'package:wallet_app/ui/routes/routes.gr.dart';
 
 import 'widgets/banner_widget.dart';
 import 'widgets/build_resume.dart';
@@ -49,39 +47,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: HomeUserProfileWidget(),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: InkWell(
-              onTap: () => context.pushRoute(SearchRoute()),
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/navigation_bar/search.svg",
-                    height: 25.0,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: InkWell(
-              onTap: () => context.pushRoute(const NotificationListRoute()),
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/navigation_bar/notification.svg",
-                    height: 25.0,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-        elevation: 0,
+      appBar: HomeAppBar(
+        scrollController: scrollController,
+        key: UniqueKey(),
       ),
       body: _homePageBody(context),
     );
@@ -160,6 +128,8 @@ class HomePage extends StatelessWidget {
 
   Widget _homePageSilver(
       BuildContext context, List? data, UserDetail? userDetail) {
+    final height = MediaQuery.of(context).size.height * 0.09;
+
     return RefreshIndicator(
       onRefresh: () async {
         context.read<HomePageDataBloc>().add(
@@ -172,20 +142,35 @@ class HomePage extends StatelessWidget {
         // await 2 sec for the loader to show
         await Future.delayed(const Duration(seconds: 2), () {});
       },
-      child: CustomScrollView(
-        controller: scrollController,
-        slivers: [
-          const SliverToBoxAdapter(child: HomePageHeader()),
+      child: Stack(
+        children: [
+          CustomScrollView(
+            controller: scrollController,
+            slivers: [
+              const SliverToBoxAdapter(child: HomePageHeader()),
 
-          //if user kyc is not verified, showing a prompt widget
-          if (!(userDetail?.isKycVerified ?? false)) kycPromptWidget(context),
-          _homePageBodyContent(context, data, userDetail),
+              //if user kyc is not verified, showing a prompt widget
+              if (!(userDetail?.isKycVerified ?? false))
+                kycPromptWidget(context),
+              _homePageBodyContent(context, data, userDetail),
 
-          SegmentedNewsViewWidget(
-            key: UniqueKey(),
-            changeTabPage: changeTabPage,
-            changeNewsTabPage: changeNewsTabPage,
+              SegmentedNewsViewWidget(
+                key: UniqueKey(),
+                changeTabPage: changeTabPage,
+                changeNewsTabPage: changeNewsTabPage,
+              ),
+              SliverToBoxAdapter(
+                  child: SizedBox(
+                height: height,
+              )),
+            ],
           ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: WalletAdWidget(
+              height: height,
+            ),
+          )
         ],
       ),
     );

@@ -55,7 +55,8 @@ class UserDetailModel extends UserDetail {
     ResumeOptionsModel? options,
 
     ///1  Npr -> JPY
-    required double? currencyConversionRate,
+    required double? topupConversionRate,
+    required double? purchaseConversionRate,
     required int? notificationCount,
   }) : super(
           firstName: firstName,
@@ -107,7 +108,8 @@ class UserDetailModel extends UserDetail {
           smartPitNo: smartPitNo,
           options: options,
           isKycVerified: isKycVerified,
-          currencyConversionRate: currencyConversionRate,
+          topupConversionRate: topupConversionRate,
+          purchaseConversionRate: purchaseConversionRate,
           notificationCount: notificationCount,
           requestLocation: requestLocation,
         );
@@ -172,7 +174,8 @@ class UserDetailModel extends UserDetail {
             ? null
             : ResumeOptionsModel.fromJson(
                 json["options"] as Map<String, dynamic>),
-        currencyConversionRate: json["currency_conversion_rate"] as double?,
+        topupConversionRate: json["topup_conversion_rate"] as double?,
+        purchaseConversionRate: json["purchase_conversion_rate"] as double?,
         notificationCount: json["notification_count"] as int?,
       );
 
@@ -426,7 +429,8 @@ extension UserDetailExt on UserDetail {
         smartPitNo: smartPitNo,
         isKycVerified: isKycVerified,
         // options: options.toResumeOptionsModel(),
-        currencyConversionRate: currencyConversionRate,
+        topupConversionRate: topupConversionRate,
+        purchaseConversionRate: purchaseConversionRate,
         notificationCount: notificationCount,
         requestLocation: requestLocation,
       );

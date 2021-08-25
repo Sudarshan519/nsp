@@ -11,14 +11,18 @@ RewardPointModel rewardPointFromJson(String str) =>
 class RewardPointModel extends RewardPoints {
   RewardPointModel({
     required List<RewardPointItem>? rewardPoints,
-  }) : super(rewardPoints: rewardPoints);
+    required String usage,
+  }) : super(
+          rewardPoints: rewardPoints,
+          usage: usage,
+        );
 
   factory RewardPointModel.fromJson(Map<String, dynamic> json) =>
       RewardPointModel(
-        rewardPoints: json["reward_points"] != null
-            ? List<RewardPointItem>.from((json["reward_points"] as Iterable)
-                .map((item) => RewardPointItemModel.fromJson(
-                    item as Map<String, dynamic>)))
-            : null,
-      );
+          rewardPoints: json["reward_points"] != null
+              ? List<RewardPointItem>.from((json["reward_points"] as Iterable)
+                  .map((item) => RewardPointItemModel.fromJson(
+                      item as Map<String, dynamic>)))
+              : null,
+          usage: (json['usage'] as String?) ?? '');
 }

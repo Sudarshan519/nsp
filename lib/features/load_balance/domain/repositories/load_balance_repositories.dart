@@ -15,6 +15,7 @@ abstract class LoadBalanceRepositories {
     required bool saveCard,
     required bool isSavedCard,
   });
+  Future<Either<ApiFailure, Unit>> refundStripe({required String referenceId});
 
   Future<Either<ApiFailure, Unit>> verifyImePayTopup({
     required String referenceId,
@@ -33,6 +34,14 @@ abstract class LoadBalanceRepositories {
     required String amount,
     required String purpose,
     required String verifyAmount,
+  });
+
+  Future<Either<ApiFailure, String>> verifyPrabhuPayTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+    required String productName,
+    required String returnUrl,
   });
 
   Future<Either<ApiFailure, Unit>> deleteCard({required int cardId});

@@ -67,7 +67,7 @@ import '../pages/resume/resume_tab_pages/other/edit_other_info.dart' as _i15;
 import '../pages/resume/resume_tab_pages/qualification/edit_qualification_info.dart'
     as _i14;
 import '../pages/resume/resume_tab_pages/work/edit_work_info.dart' as _i12;
-import '../pages/reward_point/view_reward_points.dart' as _i42;
+import '../pages/reward_point/reward_point_home.dart' as _i42;
 import '../pages/search/search_home.dart' as _i41;
 import '../pages/splash/splash_screen.dart' as _i3;
 import '../pages/tab_bar/tab_bar_screen.dart' as _i8;
@@ -201,7 +201,10 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<AppWebViewRouteArgs>();
           return _i17.AppWebViewPage(
-              key: args.key, url: args.url, title: args.title);
+              key: args.key,
+              url: args.url,
+              title: args.title,
+              urlListner: args.urlListner);
         }),
     ProfileRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -312,8 +315,7 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<TopUpRouteArgs>();
-          return _i33.TopUpPage(
-              key: args.key, index: args.index, paymentData: args.paymentData);
+          return _i33.TopUpPage(key: args.key, payData: args.payData);
         }),
     PartnerServicePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -365,7 +367,9 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<NotificationDetailRouteArgs>();
           return _i40.NotificationDetailPage(
-              key: args.key, notification: args.notification);
+              key: args.key,
+              notification: args.notification,
+              onMoreDetailPressed: args.onMoreDetailPressed);
         }),
     JPMannerDetailFromAPi.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -386,10 +390,10 @@ class AppRouter extends _i1.RootStackRouter {
               orElse: () => const SearchRouteArgs());
           return _i41.SearchPage(key: args.key, type: args.type);
         }),
-    RewardPointRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    RewardPointsHome.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i42.RewardPointPage();
+          return const _i42.RewardPointsHome();
         })
   };
 
@@ -459,7 +463,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(ServiceDetailRouteFromAPI.name,
             path: '/service-detail-page-from-ap-i'),
         _i1.RouteConfig(SearchRoute.name, path: '/search-page'),
-        _i1.RouteConfig(RewardPointRoute.name, path: '/reward-point-page')
+        _i1.RouteConfig(RewardPointsHome.name, path: '/reward-points-home')
       ];
 }
 
@@ -792,22 +796,30 @@ class NewsDetailRouteArgs {
 }
 
 class AppWebViewRoute extends _i1.PageRouteInfo<AppWebViewRouteArgs> {
-  AppWebViewRoute({_i2.Key? key, required String url, required String title})
+  AppWebViewRoute(
+      {_i2.Key? key,
+      required String url,
+      required String title,
+      dynamic Function(String)? urlListner})
       : super(name,
             path: '/app-web-view-page',
-            args: AppWebViewRouteArgs(key: key, url: url, title: title));
+            args: AppWebViewRouteArgs(
+                key: key, url: url, title: title, urlListner: urlListner));
 
   static const String name = 'AppWebViewRoute';
 }
 
 class AppWebViewRouteArgs {
-  const AppWebViewRouteArgs({this.key, required this.url, required this.title});
+  const AppWebViewRouteArgs(
+      {this.key, required this.url, required this.title, this.urlListner});
 
   final _i2.Key? key;
 
   final String url;
 
   final String title;
+
+  final dynamic Function(String)? urlListner;
 }
 
 class ProfileRoute extends _i1.PageRouteInfo {
@@ -1062,27 +1074,20 @@ class PdfViewerRouteArgs {
 }
 
 class TopUpRoute extends _i1.PageRouteInfo<TopUpRouteArgs> {
-  TopUpRoute(
-      {_i2.Key? key,
-      required int index,
-      required List<_i52.UtilityPaymentsModel> paymentData})
+  TopUpRoute({_i2.Key? key, required _i52.UtilityPaymentsModel payData})
       : super(name,
             path: '/top-up-page',
-            args: TopUpRouteArgs(
-                key: key, index: index, paymentData: paymentData));
+            args: TopUpRouteArgs(key: key, payData: payData));
 
   static const String name = 'TopUpRoute';
 }
 
 class TopUpRouteArgs {
-  const TopUpRouteArgs(
-      {this.key, required this.index, required this.paymentData});
+  const TopUpRouteArgs({this.key, required this.payData});
 
   final _i2.Key? key;
 
-  final int index;
-
-  final List<_i52.UtilityPaymentsModel> paymentData;
+  final _i52.UtilityPaymentsModel payData;
 }
 
 class PartnerServicePaymentRoute
@@ -1199,21 +1204,28 @@ class CouponRoute extends _i1.PageRouteInfo {
 class NotificationDetailRoute
     extends _i1.PageRouteInfo<NotificationDetailRouteArgs> {
   NotificationDetailRoute(
-      {_i2.Key? key, required _i55.NotificationItem notification})
+      {_i2.Key? key,
+      required _i55.NotificationItem notification,
+      Function? onMoreDetailPressed})
       : super(name,
             path: '/notification-detail-page',
             args: NotificationDetailRouteArgs(
-                key: key, notification: notification));
+                key: key,
+                notification: notification,
+                onMoreDetailPressed: onMoreDetailPressed));
 
   static const String name = 'NotificationDetailRoute';
 }
 
 class NotificationDetailRouteArgs {
-  const NotificationDetailRouteArgs({this.key, required this.notification});
+  const NotificationDetailRouteArgs(
+      {this.key, required this.notification, this.onMoreDetailPressed});
 
   final _i2.Key? key;
 
   final _i55.NotificationItem notification;
+
+  final Function? onMoreDetailPressed;
 }
 
 class JPMannerDetailFromAPi
@@ -1268,8 +1280,8 @@ class SearchRouteArgs {
   final _i56.HomeItemType? type;
 }
 
-class RewardPointRoute extends _i1.PageRouteInfo {
-  const RewardPointRoute() : super(name, path: '/reward-point-page');
+class RewardPointsHome extends _i1.PageRouteInfo {
+  const RewardPointsHome() : super(name, path: '/reward-points-home');
 
-  static const String name = 'RewardPointRoute';
+  static const String name = 'RewardPointsHome';
 }

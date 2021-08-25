@@ -1,3 +1,4 @@
+// ignore: avoid_classes_with_only_static_members
 class AppConstants {
   static const someThingWentWrong =
       "Unfortunately something went wrong. Please try again later.";
@@ -38,10 +39,14 @@ class AppConstants {
   static const imagePickError =
       "Sorry the file you chose could not be fetched. Please select another one.";
 
+  static String verifyKycTransaction(String limit) =>
+      "Please verify kyc for this trasaction. Unverified user cannot topup more than limit $limit)";
+
   static const verfifyKYC =
       'As per the guidelines of NRB, all customers of BNPJ need to complete and verify KYC to get unrestricted transaction limit. \nPlease tap here to complete the KYC details.';
 }
 
+// ignore: avoid_classes_with_only_static_members
 class Values {
   //int constants
   static const int MIN_RECHARGE = 10; //NPR
@@ -97,7 +102,6 @@ class Values {
   ];
 
   //others
-
   static final ntcRegx = RegExp(r'^(984|985|986|)\d{7}$', caseSensitive: false);
   static final ncellRegx =
       RegExp(r'^(980|981|982)\d{7}$', caseSensitive: false);

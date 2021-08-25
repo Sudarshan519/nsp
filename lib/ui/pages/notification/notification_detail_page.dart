@@ -1,4 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
@@ -8,14 +9,55 @@ import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
+//ignore: must_be_immutable
 class NotificationDetailPage extends StatelessWidget {
   final NotificationItem notification;
-  const NotificationDetailPage({Key? key, required this.notification})
-      : super(key: key);
+
+  ///override on more detal pressed function
+  Function? onMoreDetailPressed;
+  NotificationDetailPage({
+    Key? key,
+    required this.notification,
+    this.onMoreDetailPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final String baseURL = getIt<ConfigReader>().baseURL;
+    final width = MediaQuery.of(context).size.width;
+
+    Widget moreInfoButton() {
+      if (notification.redirectUrl == null && onMoreDetailPressed == null) {
+        return const SizedBox();
+      }
+
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
+        child: CustomButton(
+            title: 'More Info',
+            onTap: () {
+              if (onMoreDetailPressed != null) {
+                onMoreDetailPressed!();
+              } else {
+                try {
+                  final url = notification.redirectUrl!.startsWith('http')
+                      ? notification.redirectUrl!
+                      : 'http://${notification.redirectUrl!}';
+                  FlutterWebBrowser.openWebPage(
+                      url: url,
+                      customTabsOptions: CustomTabsOptions(
+                        colorScheme: CustomTabsColorScheme.dark,
+                        toolbarColor: Palette.primary,
+                        showTitle: true,
+                      ));
+                } catch (e) {
+                  FlushbarHelper.createError(message: 'Failed to launch url!')
+                      .show(context);
+                }
+              }
+            }),
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -24,6 +66,7 @@ class NotificationDetailPage extends StatelessWidget {
           notification.title ?? 'Notification',
           style: const TextStyle(color: Colors.white),
         ),
+        elevation: 1,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -33,67 +76,41 @@ class NotificationDetailPage extends StatelessWidget {
                 notification.image.toString().isNotEmpty)
               Hero(
                   tag: notification.id.toString(),
-                  child: Image.network(
-                    notification.image!.contains('http')
+                  child: CachedNetworkImage(
+                    imageUrl: notification.image!.contains('http')
                         ? notification.image!
                         : baseURL + notification.image!,
-                    loadingBuilder: (BuildContext context, Widget child,
-                        ImageChunkEvent? loadingProgress) {
-                      if (loadingProgress == null)
-                        return SizedBox(
-                            height: loadingProgress == null ? 100 : 0,
-                            child: child);
-                      return Container(
-                        color: Palette.primaryBackground,
-                        height: 100,
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            color: Palette.primary,
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded /
-                                    (loadingProgress.expectedTotalBytes ?? 1)
-                                : null,
-                          ),
-                        ),
-                      );
-                    },
+                    width: width,
+                    fit: BoxFit.fitHeight,
+                    placeholder: (context, url) => const Center(
+                      child: CircularProgressIndicator(),
+                    ),
                   )),
             if (notification.message != null)
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ShadowBoxWidget(child: Text(notification.message!)),
+                    ShadowBoxWidget(
+                        child: Column(
+                      children: [
+                        Text(
+                          notification.title ?? 'Notification',
+                          style: const TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.w600),
+                        ),
+                        const Divider(
+                          thickness: 2,
+                          height: 20,
+                        ),
+                        Text(notification.message!),
+                      ],
+                    )),
                     const SizedBox(
                       height: 6,
                     ),
-                    if (notification.redirectUrl != null)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 70, vertical: 12),
-                        child: CustomButton(
-                            title: 'More Info',
-                            onTap: () {
-                              try {
-                                final url =
-                                    notification.redirectUrl!.startsWith('http')
-                                        ? notification.redirectUrl!
-                                        : 'http://${notification.redirectUrl!}';
-                                FlutterWebBrowser.openWebPage(
-                                    url: url,
-                                    customTabsOptions: CustomTabsOptions(
-                                      colorScheme: CustomTabsColorScheme.dark,
-                                      toolbarColor: Palette.primary,
-                                      showTitle: true,
-                                    ));
-                              } catch (e) {
-                                FlushbarHelper.createError(
-                                        message: 'Failed to launch url!')
-                                    .show(context);
-                              }
-                            }),
-                      )
+                    moreInfoButton()
                   ],
                 ),
               ),

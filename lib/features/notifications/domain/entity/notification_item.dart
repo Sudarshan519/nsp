@@ -11,6 +11,7 @@ class NotificationItem {
   String? type;
   String? createdAt;
   String? updatedAt;
+  String? utilityType;
 
   NotificationItem(
       {this.id,
@@ -24,7 +25,8 @@ class NotificationItem {
       this.type,
       this.redirectUrl,
       this.productId,
-      this.updatedAt});
+      this.updatedAt,
+      this.utilityType});
 }
 
 class NotificationType {
@@ -32,4 +34,5 @@ class NotificationType {
   static const jpManner = 'jp_manner';
   static const partnerService = 'partner_service';
   static const advertisement = 'advertisement';
+  static const utilityPayment = 'utility_payments';
 }

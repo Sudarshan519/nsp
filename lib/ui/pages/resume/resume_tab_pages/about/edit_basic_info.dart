@@ -90,6 +90,7 @@ class EditBasicInfoFormPage extends StatelessWidget {
                   .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: "Basic Info",
@@ -218,7 +219,7 @@ class _NameInputField extends StatelessWidget {
         title: "Name",
         child: InputTextWidget(
           hintText: "Name",
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.firstName,
           onEditingCompleted: callBack,
           onChanged: (value) => context
@@ -247,7 +248,7 @@ class _FamilyNameInputField extends StatelessWidget {
         title: "Family Name",
         child: InputTextWidget(
           hintText: "Family Name",
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.lastName,
           onEditingCompleted: callBack,
           onChanged: (value) => context
@@ -455,7 +456,7 @@ class _EmailInputField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Email",
           textInputType: TextInputType.emailAddress,
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.email,
           // isEnable: false,
           onEditingCompleted: callBack,

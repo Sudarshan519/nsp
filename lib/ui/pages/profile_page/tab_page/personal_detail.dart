@@ -38,6 +38,7 @@ class PersonalDetailPage extends StatelessWidget {
             },
             (success) {
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: "Kyc Info",

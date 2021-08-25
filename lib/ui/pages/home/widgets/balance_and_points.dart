@@ -83,7 +83,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
-                        context.pushRoute(const RewardPointRoute());
+                        context.pushRoute(const RewardPointsHome());
                       },
                       child: Row(
                         children: [
@@ -116,6 +116,14 @@ class BalanceAndPointWidget extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          if (points.isNotEmpty)
+                            const Icon(
+                              Icons.subdirectory_arrow_right,
+                              size: 20,
+                            )
                         ],
                       ),
                     ),
@@ -128,7 +136,7 @@ class BalanceAndPointWidget extends StatelessWidget {
                         onTap: () => context.pushRoute(
                           AddBalanceRoute(
                               conversionRate:
-                                  user?.currencyConversionRate ?? 1.067,
+                                  user?.topupConversionRate ?? 1.067,
                               isVerified: user?.isKycVerified ?? false),
                         ),
                       ),

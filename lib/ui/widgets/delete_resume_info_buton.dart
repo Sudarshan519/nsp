@@ -19,6 +19,7 @@ class DeleteResumeItemButton extends StatelessWidget {
     return IconButton(
         onPressed: () {
           showDialog(
+            barrierDismissible: false,
             context: context,
             builder: (_) => PopUpConfirmation(
               message: 'Are you sure to delete the resume item?',

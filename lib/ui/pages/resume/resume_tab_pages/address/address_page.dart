@@ -235,7 +235,7 @@ class _CurrentPostalCodeInputField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Postal Code",
           textInputType: TextInputType.number,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.currPostalCode,
           textAlign: TextAlign.end,
           isEnable: false,
@@ -262,7 +262,7 @@ class _CurrentPrefectureInputField extends StatelessWidget {
         title: "Prefecture",
         child: InputTextWidget(
           hintText: "Prefecture",
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
 
           value: state.currPrefecture,
           textAlign: TextAlign.end,
@@ -288,7 +288,7 @@ class _CurrentCityInputField extends StatelessWidget {
         title: "City",
         child: InputTextWidget(
           hintText: "City",
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.currCity,
           textAlign: TextAlign.end,
           isEnable: false,
@@ -315,7 +315,7 @@ class _CurrentAddressInputField extends StatelessWidget {
         title: "Address",
         child: InputTextWidget(
           hintText: "Address",
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.currAddress,
           textAlign: TextAlign.end,
           isEnable: false,

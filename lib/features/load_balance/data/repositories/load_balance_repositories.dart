@@ -27,6 +27,16 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
   }
 
   @override
+  Future<Either<ApiFailure, Unit>> refundStripe(
+      {required String referenceId}) async {
+    try {
+      return Right(await dataSource.refundStripe(referenceId: referenceId));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
   Future<Either<ApiFailure, Unit>> topupViaStripe({
     required String name,
     required String cardNumber,
@@ -70,6 +80,28 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
           amount: amount,
           purpose: purpose,
         ),
+      );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, String>> verifyPrabhuPayTopup({
+    required String referenceId,
+    required String amount,
+    required String purpose,
+    required String productName,
+    required String returnUrl,
+  }) async {
+    try {
+      return Right(
+        await dataSource.verifyPrabhuPayTopup(
+            referenceId: referenceId,
+            amount: amount,
+            purpose: purpose,
+            returnUrl: returnUrl,
+            productName: productName),
       );
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));

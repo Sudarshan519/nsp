@@ -328,7 +328,6 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
       margin: const EdgeInsets.only(right: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        
         children: [
           const SizedBox(height: 2),
           Row(
@@ -385,12 +384,11 @@ class _ResumeInformationWidgetWithArrayChild extends StatelessWidget {
                     child: child,
                   ),
                   const Spacer(),
-
                   InkWell(
                     onTap: () {
                       DefaultTabController.of(context)?.animateTo(1);
                       changeTabPage(1);
-          
+
                       if (changeResumeTabPage != null) {
                         changeResumeTabPage!(index);
                       }
@@ -517,7 +515,7 @@ class _ResumeInformationWidget extends StatelessWidget {
                     infoText4: infoText4,
                   ),
                   const Spacer(),
-                 
+
                   InkWell(
                     onTap: () {
                       DefaultTabController.of(context)?.animateTo(1);
@@ -622,7 +620,9 @@ class _ResumeDescriptionItem extends StatelessWidget {
     return Row(
       children: [
         SvgPicture.asset(
-          assetIcon,
+          assetIcon.isNotEmpty
+              ? assetIcon
+              : 'assets/images/more/icon-about.svg',
           color: Palette.black.withOpacity(0.4),
           height: 10.0,
         ),

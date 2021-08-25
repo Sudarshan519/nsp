@@ -64,6 +64,7 @@ class ImePayTopupPage extends StatelessWidget {
             getIt<TransactionBloc>()
                 .add(const TransactionEvent.fetchTransactionData());
             showDialog(
+              barrierDismissible: false,
               context: context,
               builder: (_) => PopUpSuccessOverLay(
                 title: AppConstants.topUpSuccessTitle,
@@ -176,8 +177,8 @@ class ImePayTopupPage extends StatelessWidget {
       final sum = amountDoubleInRupees + balance;
       if (method.balanceLimit != null && sum >= method.balanceLimit!) {
         FlushbarHelper.createError(
-                message:
-                    "Please verify kyc for this trasaction. Unverified user cannot topup more than limit ${method.balanceLimit}.")
+                message: AppConstants.verifyKycTransaction(
+                    method.balanceLimit.toString()))
             .show(context);
         return;
       }
@@ -199,8 +200,12 @@ class ImePayTopupPage extends StatelessWidget {
           "BNPJ_TOPUP_${userId}_${DateTime.now().millisecondsSinceEpoch.toString()}",
     );
     AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_IME);
+
     _imePay.startPayment(onSuccess: (ImePaySuccessResponse data) {
       debugPrint(data.toString());
+      AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_IME,
+          isSuccess: true);
+
       context.read<VerifyImePayTopupBloc>().add(
             VerifyImePayTopupEvent.verify(
               tokenId: data.transactionId.toString(),

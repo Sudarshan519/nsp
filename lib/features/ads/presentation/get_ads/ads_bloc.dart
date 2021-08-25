@@ -18,6 +18,9 @@ class AdsBloc extends Bloc<AdsEvent, AdsState> {
   final GetAds getAds;
   final AdsRemoteDataSource adsDataSrc;
   AdsBloc(this.getAds, this.adsDataSrc) : super(const _Initial());
+  List<AdContract> adList = [];
+  int currentIndex = 0;
+  bool _isRefreshing = false;
 
   @override
   Stream<AdsState> mapEventToState(
@@ -26,11 +29,40 @@ class AdsBloc extends Bloc<AdsEvent, AdsState> {
     yield* event.map(fetchAds: (e) async* {
       yield const _Loading();
       final result = await getAds(NoParams());
-        yield result.fold(
-          (failure) => _Failure(failure),
-          (ads) => _Loaded(ads),
-        );
+      yield result.fold(
+        (failure) => _Failure(failure),
+        (ads) {
+          if (ads.admob != null && (ads.admob?.banner?.status ?? false)) {
+            adList.add(ads.admob!);
+          }
+          if (ads.facebookAd != null &&
+              (ads.facebookAd?.overlay?.status ?? false)) {
+            adList.add(ads.facebookAd!);
+          }
 
+          adList.sort((a, b) => a.getPriority().compareTo(b.getPriority()));
+
+          if (adList.isEmpty) {
+            return const _Hidden();
+          } else {
+            return _Loaded(adList.first);
+          }
+        },
+      );
+    }, hideAds: (e) async* {
+      yield const _Hidden();
+    }, refreshAd: (e) async* {
+      if (!_isRefreshing) {
+        _isRefreshing = true;
+
+        await Future.delayed(Duration(seconds: e.seconds));
+
+        currentIndex =
+            (currentIndex + 1 == adList.length) ? 0 : currentIndex + 1;
+
+        yield _Loaded(adList[currentIndex]);
+        _isRefreshing = false;
+      }
     });
   }
 }

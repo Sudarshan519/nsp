@@ -20,6 +20,7 @@ class TransactionItemModel extends TransactionItem {
     required String? icon,
     required String? paidWith,
     required String? gps,
+    required bool isRefundable,
   }) : super(
           topupBy: topupBy,
           transactionFor: transactionFor,
@@ -39,6 +40,7 @@ class TransactionItemModel extends TransactionItem {
           icon: icon,
           paidWith: paidWith,
           gps: gps,
+          isRefundable: isRefundable,
         );
   factory TransactionItemModel.fromJson(Map<String, dynamic> json) =>
       TransactionItemModel(
@@ -60,5 +62,6 @@ class TransactionItemModel extends TransactionItem {
         transactionName: json['transaction_name'] as String?,
         paidWith: json['paid_with'] as String?,
         gps: json['gps'] as String?,
+        isRefundable: (json['is_refundable'] ?? false) as bool,
       );
 }

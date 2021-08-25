@@ -89,6 +89,7 @@ class EditOtherInfoFormPage extends StatelessWidget {
                   .add(const ResumeWatcherEvent.getResumeData());
 
               showDialog(
+                barrierDismissible: false,
                 context: context,
                 builder: (_) => PopUpSuccessOverLay(
                   title: "Basic Info",
@@ -272,7 +273,7 @@ class _SelfPrInputField extends StatelessWidget {
         title: "Self PR",
         child: InputTextWidget(
           hintText: "Self PR",
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.selfPR,
           maxLines: 4,
           textInputType: TextInputType.multiline,
@@ -365,7 +366,7 @@ class _MotivationInputField extends StatelessWidget {
         title: "Motivations and Appeal Points",
         child: InputTextWidget(
           hintText: "Motivations and Appeal Points",
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.motivationsSpecialSkills,
           onEditingCompleted: callBack,
           onChanged: (value) => context.read<UpdateOtherInfoActorBloc>().add(
@@ -568,7 +569,7 @@ class _SpecialConditionInputField extends StatelessWidget {
         title: "Special Conditions or Request if any",
         child: InputTextWidget(
           hintText: "Follow as per company rules and regulations.",
-          validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.specialConditions,
           onEditingCompleted: callBack,
           maxLines: 4,

@@ -62,6 +62,7 @@ class EsewaTopupPage extends StatelessWidget {
             getIt<TransactionBloc>()
                 .add(const TransactionEvent.fetchTransactionData());
             showDialog(
+              barrierDismissible: false,
               context: context,
               builder: (_) => PopUpSuccessOverLay(
                 title: AppConstants.topUpSuccessTitle,
@@ -172,8 +173,8 @@ class EsewaTopupPage extends StatelessWidget {
       final sum = amountDoubleInRupees + balance;
       if (method.balanceLimit != null && sum >= method.balanceLimit!) {
         FlushbarHelper.createError(
-                message:
-                    "Please verify kyc for this trasaction. Unverified user cannot topup more than limit ${method.balanceLimit}.")
+                message: AppConstants.verifyKycTransaction(
+                    method.balanceLimit.toString()))
             .show(context);
         return;
       }
@@ -199,8 +200,11 @@ class EsewaTopupPage extends StatelessWidget {
 
     try {
       AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_ESEWA);
+
       final _res = await _eSewaPnp.initPayment(payment: _payment);
       debugPrint(_res.message);
+      AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_ESEWA,
+          isSuccess: true);
 
       context.read<VerifyEsewaTopupBloc>().add(
             VerifyEsewaTopupEvent.verify(

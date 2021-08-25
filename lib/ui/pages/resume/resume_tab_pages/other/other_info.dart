@@ -166,7 +166,7 @@ class _LanguageInputField extends StatelessWidget {
           child: InputTextWidget(
             hintText: "Languages",
             textInputType: TextInputType.name,
-            // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            // validator: Validator.isNotEmptyAndMinimumCharacterLong,
             value: values,
             onEditingCompleted: () {},
             textAlign: TextAlign.end,
@@ -216,7 +216,7 @@ class _SelfPrInputField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Self PR",
           textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.selfPR,
           textAlign: TextAlign.end,
           isEnable: false,
@@ -247,7 +247,7 @@ class _HobbiesInputField extends StatelessWidget {
           child: InputTextWidget(
             hintText: "Hobbies",
             textInputType: TextInputType.name,
-            // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            // validator: Validator.isNotEmptyAndMinimumCharacterLong,
             value: values,
             onEditingCompleted: () {},
             textAlign: TextAlign.end,
@@ -277,7 +277,7 @@ class _SkillsInputField extends StatelessWidget {
           child: InputTextWidget(
             hintText: "Skills",
             textInputType: TextInputType.name,
-            // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+            // validator: Validator.isNotEmptyAndMinimumCharacterLong,
             value: values,
             onEditingCompleted: () {},
             textAlign: TextAlign.end,
@@ -305,7 +305,7 @@ class _MotivationSpecialSkillsInputField extends StatelessWidget {
         child: InputTextWidget(
           hintText: "Motivations and Appeal Points",
           textInputType: TextInputType.name,
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.motivationsSpecialSkills,
           onEditingCompleted: () {},
           textAlign: TextAlign.end,
@@ -475,7 +475,7 @@ class _SpecialConditionInputField extends StatelessWidget {
         title: "Special Conditions\nor Request if any",
         child: InputTextWidget(
           hintText: "Special Conditions or Request if any",
-          // validator: Validator.isNotEmptyAndMinimum3CharacterLong,
+          // validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.specialConditions,
           onEditingCompleted: () {},
           textAlign: TextAlign.end,

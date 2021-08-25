@@ -4,7 +4,7 @@ part of 'notifications_bloc.dart';
 class NotificationsState with _$NotificationsState {
   const factory NotificationsState.loading() = _Loading;
   const factory NotificationsState.loadingWith(
-      List<NotificationItem> offlinedata) = _LoadingWith;
+      List<NotificationItem> notificationData) = _LoadingWith;
   const factory NotificationsState.loaded(
       List<NotificationItem> notificationData) = _Loaded;
   const factory NotificationsState.failureWithData(

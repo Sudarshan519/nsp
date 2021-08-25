@@ -14,7 +14,7 @@ import 'package:wallet_app/ui/pages/auth/validate_user_screen.dart';
 import 'package:wallet_app/ui/pages/banner_detail_page/banner_detail_page.dart';
 import 'package:wallet_app/ui/pages/coupons/coupon_page.dart';
 import 'package:wallet_app/ui/pages/notification/notification_detail_page.dart';
-import 'package:wallet_app/ui/pages/reward_point/view_reward_points.dart';
+import 'package:wallet_app/ui/pages/reward_point/reward_point_home.dart';
 import 'package:wallet_app/ui/pages/search/search_home.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/topup/topup_page.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_detail.dart';
@@ -85,7 +85,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: JPMannerDetailFromAPi),
     AutoRoute(page: ServiceDetailPageFromAPI),
     AutoRoute(page: SearchPage),
-    AutoRoute(page: RewardPointPage),
+    AutoRoute(page: RewardPointsHome),
   ],
 )
 class $AppRouter {}

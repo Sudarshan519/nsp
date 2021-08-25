@@ -58,6 +58,7 @@ class _VerifyUserPageBody extends StatelessWidget {
           loading: (_) {},
           verified: (_) {
             showDialog(
+              barrierDismissible: false,
               context: context,
               builder: (_) => PopUpSuccessOverLay(
                 title: AppConstants.verificationCompletedTitle,

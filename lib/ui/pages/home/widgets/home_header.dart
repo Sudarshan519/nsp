@@ -7,6 +7,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class HomeUserProfileWidget extends StatelessWidget {
+  const HomeUserProfileWidget();
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -21,6 +21,9 @@ String? errorMessageFromServer(String message) {
 
     // search for a error key which is another json object
     final errorJson = data['error'] as Map<String, dynamic>;
+    if (errorJson.length == 1) {
+      return errorJson.values.first as String;
+    }
 
     // get first key of the json error
     var errorKey = errorJson.keys.toList()[0];

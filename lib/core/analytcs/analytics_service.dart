@@ -26,9 +26,15 @@ class AnalyticsService {
     await _analytics.setUserProperty(name: key, value: val);
   }
 
-  static Future logEvent(FirebaseEvents event,
-      {Map<String, Object?>? params}) async {
-    final String eventId = event.toString().split('.').last;
+  static Future logEvent(
+    FirebaseEvents event, {
+    Map<String, Object?>? params,
+    bool isSuccess = false,
+  }) async {
+    String eventId = event.toString().split('.').last;
+    if (isSuccess) {
+      eventId = eventId + '_SUCCESS';
+    }
     await _log(eventId, params: params);
   }
 

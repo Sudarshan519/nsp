@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class AppWebViewPage extends StatefulWidget {
   final String url;
   final String title;
+  final Function(String)? urlListner;
 
   const AppWebViewPage({
     Key? key,
     required this.url,
     required this.title,
+    this.urlListner,
   }) : super(key: key);
 
   @override
@@ -40,7 +43,14 @@ class _AppWebViewState extends State<AppWebViewPage> {
           WebView(
             initialUrl: widget.url,
             javascriptMode: JavascriptMode.unrestricted,
-            onPageFinished: (finish) {
+            onPageStarted: (url) {
+              SystemChannels.textInput
+                  .invokeMethod('TextInput.hide'); //dismiss keyboard
+              if (widget.urlListner != null) {
+                widget.urlListner!(url);
+              }
+            },
+            onPageFinished: (url) {
               setState(() {
                 isLoading = false;
               });
