@@ -58,25 +58,53 @@ class PrabhuPayTopupPage extends StatelessWidget {
           initial: (_) {},
           loading: (_) {},
           success: (success) async {
-            final flushbar = FlushbarHelper.createInformation(
-                message: "Please don't exit this page!",
-                duration: const Duration(seconds: 20));
-            final successResult = await context.pushRoute(AppWebViewRoute(
+            bool? successResult = false;
+            successResult = await context.pushRoute(AppWebViewRoute(
                 url: success.url,
                 title: 'Prabhu Pay',
                 urlListner: (url) async {
                   if (url == method.deliveryUrl) {
-                    flushbar.show(context);
+                    //show full screen unexitable dialog
+                    showGeneralDialog(
+                      context: context,
+                      barrierColor: Colors.white, // Background color
+                      barrierDismissible: false,
+
+                      transitionDuration: const Duration(milliseconds: 400),
+                      pageBuilder: (_, __, ___) {
+                        return WillPopScope(
+                            onWillPop: () async {
+                              return successResult ?? false;
+                            },
+                            child: SizedBox.expand(
+                              // Makes widget fullscreen
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const DefaultTextStyle(
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                    ),
+                                    child: Text(
+                                        'Please wait, the transaction is being processed.'),
+                                  ),
+                                  loadingPage(),
+                                ],
+                              ),
+                            ));
+                      },
+                    );
                   }
 
                   if (url.toLowerCase().contains('status=success')) {
-                    flushbar.dismiss();
-
-                    context.popRoute(true);
+                    successResult = true;
+                    await context.popRoute(); //dismiss dialog
+                    context.popRoute(true); //dismiss webview
                   }
-                }));
+                })) as bool?;
 
-            if (successResult == true) {
+            if (successResult != null && successResult! == true) {
               AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_PRABHU,
                   isSuccess: true);
               getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
@@ -294,25 +322,15 @@ class _AmountFromSuggestionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final prices = [
-      "100",
-      "200",
-      "500",
-      "1,000",
-      "2,000",
-      "5,000",
-      "10,000",
-      "25,000"
-    ];
     return SizedBox(
       height: 30,
       child: ListView.separated(
-        itemCount: prices.length,
+        itemCount: Values.TOPUP_PRICES.length,
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemBuilder: (context, index) => buildPriceHelperItem(
           context,
-          prices[index],
+          Values.TOPUP_PRICES[index],
         ),
       ),
     );
