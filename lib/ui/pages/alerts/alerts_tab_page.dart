@@ -1,4 +1,6 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
@@ -9,6 +11,7 @@ import 'package:wallet_app/features/alerts/presentation/get_weathers/get_weather
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/alerts/tabs/weather_list_page.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 import 'location/select_location_page.dart';
 import 'tabs/alert_list_page.dart';
@@ -20,17 +23,32 @@ class AlertsTabPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<GetAlertLocationBloc>()
-        ..add(const GetAlertLocationEvent.getlocation()),
-      child: BlocConsumer<GetAlertLocationBloc, GetAlertLocationState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return state.map(
-              initial: (_) => loadingPage(),
-              loaded: (_) => _AlertsTab(),
-              failure: (_) => const SelectLocationPage());
-        },
+    return Container(
+      color: Colors.white,
+      child: BlocProvider(
+        create: (_) => getIt<GetAlertLocationBloc>()
+          ..add(const GetAlertLocationEvent.getlocation()),
+        child: BlocConsumer<GetAlertLocationBloc, GetAlertLocationState>(
+          listener: (_, state) {},
+          builder: (context, state) {
+            return state.map(
+                initial: (_) => loadingPage(),
+                loaded: (_) => _AlertsTab(),
+                failure: (fail) {
+                  SchedulerBinding.instance?.addPostFrameCallback((_) {
+                    FlushbarHelper.createError(
+                        duration: const Duration(seconds: 4),
+                        message: fail.failure.map(
+                            serverError: (serverError) => serverError.message,
+                            invalidUser: (error) => 'Invalid User',
+                            noInternetConnection: (noInternetConnection) =>
+                                AppConstants.noNetwork)).show(context);
+                  });
+
+                  return const SelectLocationPage();
+                });
+          },
+        ),
       ),
     );
   }

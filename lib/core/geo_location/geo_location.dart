@@ -33,6 +33,7 @@ class GeoLocationManager {
     }
     final position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.medium);
+    _latLng = '${position.latitude}:${position.longitude}';
 
     return Left(position);
   }

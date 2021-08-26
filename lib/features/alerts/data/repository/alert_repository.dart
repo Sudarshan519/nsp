@@ -9,7 +9,6 @@ import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/alerts/domain/entity/weather_info.dart';
 import 'package:wallet_app/features/alerts/domain/repositories/alert_repository.dart';
-import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/injections/injection.dart';
 
@@ -108,6 +107,21 @@ class AlertRepositoryImpl implements AlertRepository {
         className: "AlertRepository",
         functionName: "getAlertPlaces()",
         errorText: "Error on getting alert places",
+        errorMessage: ex.toString(),
+      );
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, Place>> getPlaceFromGPS() async {
+    try {
+      return Right(await dataSource.getPlaceFromGPS());
+    } on ServerException catch (ex) {
+      logger.log(
+        className: "AlertRepository",
+        functionName: "getPlaceFromGPS()",
+        errorText: "Error on getting place from gps",
         errorMessage: ex.toString(),
       );
       return Left(ApiFailure.serverError(message: ex.message));

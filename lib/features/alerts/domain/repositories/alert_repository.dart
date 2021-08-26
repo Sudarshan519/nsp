@@ -16,4 +16,5 @@ abstract class AlertRepository {
   });
   Future<Either<ApiFailure, List<WeatherInfo>>> getWeather();
   Future<Either<ApiFailure, AlertPlaces>> getAlertPlaces();
+  Future<Either<ApiFailure, Place>> getPlaceFromGPS();
 }

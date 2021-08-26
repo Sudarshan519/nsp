@@ -73,6 +73,7 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                                   ?.userDetail
                                   ?.requestLocation ??
                               '';
+
                           // if (country.toLowerCase() != 'jp') {
                           //   FlushbarHelper.createError(
                           //           message:
@@ -84,8 +85,9 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                               .getForcedLocation();
                           location.fold((position) {
                             setState(() {
-                              // _cityCode =
-                              //     '${position.latitude},${position.longitude}';
+                              context.read<GetAlertLocationBloc>().add(
+                                  const GetAlertLocationEvent
+                                      .getPlaceFromGPS());
                             });
                           }, (message) {
                             FlushbarHelper.createError(message: message)

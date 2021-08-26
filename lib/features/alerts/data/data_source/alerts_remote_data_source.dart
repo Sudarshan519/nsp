@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/geo_location/geo_location.dart';
 import 'package:wallet_app/core/logger/logger.dart';
+import 'package:wallet_app/core/notification/push_notification_manager.dart';
 import 'package:wallet_app/features/alerts/data/constants/constant.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_model.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_places_model.dart';
@@ -27,6 +29,7 @@ abstract class AlertRemoteDataSource {
 
   Future<List<WeatherModel>> getWeather();
   Future<AlertPlacesModel> getAlertPlaces();
+  Future<PlaceModel> getPlaceFromGPS();
 }
 
 @LazySingleton(as: AlertRemoteDataSource)
@@ -205,13 +208,85 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
     } else {
       logger.log(
         className: "AlertRemoteDataSource",
-        functionName: "_getAlertList()",
+        functionName: "getWeather()",
         errorText: "Error on API status code: $statusCode",
         errorMessage: response.body,
       );
       throw ServerException(
           message: errorMessageFromServer(response.body) ??
               AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<PlaceModel> getPlaceFromGPS() async {
+    http.Response response;
+    final gps = getIt<GeoLocationManager>().gps.split(':');
+    final token = getIt<PushNotificationManager>().fireBaseToken;
+    final params = {
+      "old_destination": token,
+      "new_destination": token,
+      "number": 1,
+      "device": Platform.operatingSystem,
+      "is_push": 0,
+      "is_debug": 0,
+      "lang": "en",
+      "lat_lon": {"lat": gps[0], "lon": gps[1]}
+    };
+
+    final url = "${config.bosaiCloudUrl}${AlertApiEndpoints.getPlacefromGPS}";
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(params),
+      );
+    } catch (ex) {
+      logger.log(
+        className: "AlertRemoteDataSource",
+        functionName: "getPlaceFromGPS()",
+        errorText: "Error on fetching place list from GPS",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
+    }
+
+    final statusCode = response.statusCode;
+
+    if (statusCode == 200) {
+      final responseBody = utf8.decode(response.bodyBytes);
+
+      try {
+        return PlaceModel.fromJson(
+            json.decode(responseBody) as Map<String, dynamic>);
+      } catch (ex) {
+        logger.log(
+          className: "AlertRemoteDataSource",
+          functionName: "getPlaceFromGPS()",
+          errorText: "Error casting from json to places model",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
+    } else {
+      logger.log(
+        className: "AlertRemoteDataSource",
+        functionName: "getPlaceFromGPS()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
+
+      var error = AppConstants.someThingWentWrong;
+
+      final jsonBody = json.decode(response.body) as Map<String, dynamic>;
+
+      error = (jsonBody['error']?['message'] as String?) ??
+          AppConstants.someThingWentWrong;
+
+      throw ServerException(message: error);
     }
   }
 
