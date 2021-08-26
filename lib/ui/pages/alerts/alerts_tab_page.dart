@@ -29,7 +29,7 @@ class AlertsTabPage extends StatelessWidget {
           return state.map(
               initial: (_) => loadingPage(),
               loaded: (_) => _AlertsTab(),
-              failure: (_) => SelectLocationPage());
+              failure: (_) => const SelectLocationPage());
         },
       ),
     );
@@ -125,15 +125,9 @@ class __AlertsTabState extends State<_AlertsTab>
         actions: [
           IconButton(
               onPressed: () {
-                //TODO: replace auto route
-
-                getIt<GetAlertLocationBloc>()
-                    .add(const GetAlertLocationEvent.setLocation(''));
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => const SelectLocationPage(),
-                //     ));
+                context
+                    .read<GetAlertLocationBloc>()
+                    .add(const GetAlertLocationEvent.removePlace());
               },
               icon: const Icon(
                 Icons.settings,

@@ -7,6 +7,7 @@ import 'package:wallet_app/core/geo_location/geo_location.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/alerts/data/constants/constant.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_model.dart';
+import 'package:wallet_app/features/alerts/data/models/alert_places_model.dart';
 import 'package:wallet_app/features/alerts/data/models/weather_model.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
@@ -25,6 +26,7 @@ abstract class AlertRemoteDataSource {
   });
 
   Future<List<WeatherModel>> getWeather();
+  Future<AlertPlacesModel> getAlertPlaces();
 }
 
 @LazySingleton(as: AlertRemoteDataSource)
@@ -36,6 +38,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   final _header = {
     'Accept': 'application/json',
     "Content-Type": "application/json",
+    'x-api-key': AlertAppConstant.API_KEY,
   };
 
   AlertRemoteDataSourceImpl({
@@ -203,6 +206,66 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
       logger.log(
         className: "AlertRemoteDataSource",
         functionName: "_getAlertList()",
+        errorText: "Error on API status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+          message: errorMessageFromServer(response.body) ??
+              AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<AlertPlacesModel> getAlertPlaces() async {
+    http.Response response;
+
+    final params = {
+      "type": 'prefecture',
+      "lang": 'en',
+    };
+
+    final String queryString = Uri(queryParameters: params).query;
+
+    final url =
+        "${config.bosaiCloudUrl}${AlertApiEndpoints.getListOfPlaces}?$queryString";
+
+    try {
+      response = await client.get(
+        Uri.parse(url),
+        headers: _header,
+      );
+    } catch (ex) {
+      logger.log(
+        className: "AlertRemoteDataSource",
+        functionName: "getAlertPlaces()",
+        errorText: "Error on fetching places list from API",
+        errorMessage: ex.toString(),
+      );
+      throw ServerException(
+        message: ex.toString(),
+      );
+    }
+
+    final statusCode = response.statusCode;
+
+    if (statusCode == 200) {
+      final responseBody = utf8.decode(response.bodyBytes);
+
+      try {
+        return alertPlacesFromJson(responseBody);
+      } catch (ex) {
+        logger.log(
+          className: "AlertRemoteDataSource",
+          functionName: "getAlertPlaces()",
+          errorText: "Error casting from json to places model",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(message: AppConstants.someThingWentWrong);
+      }
+    } else {
+      logger.log(
+        className: "AlertRemoteDataSource",
+        functionName: "getAlertPlaces()",
         errorText: "Error on API status code: $statusCode",
         errorMessage: response.body,
       );

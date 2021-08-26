@@ -2,12 +2,14 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/core/geo_location/geo_location.dart';
+import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class SelectLocationPage extends StatefulWidget {
@@ -18,7 +20,7 @@ class SelectLocationPage extends StatefulWidget {
 }
 
 class _SelectLocationPageState extends State<SelectLocationPage> {
-  String _location = '';
+  Place? selectedCity;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,18 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
             const SizedBox(
               height: 40,
             ),
+            if (selectedCity != null)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.location_city),
+                    const SizedBox(width: 8),
+                    Text(selectedCity?.nameEn ?? '')
+                  ],
+                ),
+              ),
             OutlinedButton(
               onPressed: () {
                 showCupertinoModalPopup<void>(
@@ -70,8 +84,8 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                               .getForcedLocation();
                           location.fold((position) {
                             setState(() {
-                              _location =
-                                  '${position.latitude},${position.longitude}';
+                              // _cityCode =
+                              //     '${position.latitude},${position.longitude}';
                             });
                           }, (message) {
                             FlushbarHelper.createError(message: message)
@@ -87,7 +101,7 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                               await context.pushRoute(const AlertCityChooser());
                           if (result != null) {
                             setState(() {
-                              _location = result as String;
+                              selectedCity = result as Place;
                             });
                           }
                         },
@@ -108,18 +122,19 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
               style: OutlinedButton.styleFrom(
                 shape: const StadiumBorder(),
               ),
-              child:
-                  Text('${_location.isEmpty ? 'Select' : 'Change'} location'),
+              child: Text(
+                  '${selectedCity == null ? 'Select' : 'Change'} location'),
             ),
             const Spacer(),
             CustomButton(
               title: 'Done',
               onTap: () {
-                if (_location.isEmpty) {
+                if (selectedCity == null) {
                   context.popRoute();
                 } else {
-                  getIt<GetAlertLocationBloc>()
-                      .add(GetAlertLocationEvent.setLocation(_location));
+                  context
+                      .read<GetAlertLocationBloc>()
+                      .add(GetAlertLocationEvent.setCity(selectedCity!));
                 }
               },
             ),

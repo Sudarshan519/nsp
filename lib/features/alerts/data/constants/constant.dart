@@ -5,6 +5,8 @@ class AlertApiEndpoints {
   static const getEarthquakesAndVolcanoes =
       "/api/v1/portable-news/earthquakes-eruptions";
   static const getWeathers = "/api/v1/portable-news/warnings";
+  static const getListOfPlaces = '/appsettings';
+  static const getPlacefromGPS = '/settings';
 }
 
 class AlertAppConstant {
@@ -13,4 +15,6 @@ class AlertAppConstant {
   static const to = "9";
   static const clientName = "PortableNews";
   static const clientToken = "8r3f7rsucI";
+  static const API_KEY =
+      "A4667F6376F2AD47D136B5A7B868B15B1B58B62402D9593E9898F39F9D4C03C4";
 }

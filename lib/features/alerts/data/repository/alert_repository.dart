@@ -6,8 +6,12 @@ import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/alerts/data/constants/constant.dart';
 import 'package:wallet_app/features/alerts/data/data_source/alerts_remote_data_source.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
+import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/alerts/domain/entity/weather_info.dart';
 import 'package:wallet_app/features/alerts/domain/repositories/alert_repository.dart';
+import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
+import 'package:wallet_app/injections/injection.dart';
 
 @LazySingleton(as: AlertRepository)
 class AlertRepositoryImpl implements AlertRepository {
@@ -24,7 +28,12 @@ class AlertRepositoryImpl implements AlertRepository {
     required int limit,
   }) {
     return _getAlerts(request: () {
-      return dataSource.getAlerts(params: _getParams(limit: limit));
+      final params = _getParams(limit: limit);
+      final code = getIt<AuthLocalDataSource>().getAlertLocation()?.code ?? -1;
+      if (code != -1) {
+        params['city_code'] = '$code';
+      }
+      return dataSource.getAlerts(params: params);
     });
   }
 
@@ -84,6 +93,21 @@ class AlertRepositoryImpl implements AlertRepository {
         className: "AlertRepository",
         functionName: "getWeather()",
         errorText: "Error on getting weather",
+        errorMessage: ex.toString(),
+      );
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, AlertPlaces>> getAlertPlaces() async {
+    try {
+      return Right(await dataSource.getAlertPlaces());
+    } on ServerException catch (ex) {
+      logger.log(
+        className: "AlertRepository",
+        functionName: "getAlertPlaces()",
+        errorText: "Error on getting alert places",
         errorMessage: ex.toString(),
       );
       return Left(ApiFailure.serverError(message: ex.message));
