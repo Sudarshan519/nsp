@@ -11,6 +11,7 @@ import 'package:wallet_app/features/alerts/data/constants/constant.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_model.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_places_model.dart';
 import 'package:wallet_app/features/alerts/data/models/weather_model.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -138,23 +139,23 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   Future<List<WeatherModel>> getWeather() async {
     http.Response response;
 
-    final gps = getIt<GeoLocationManager>().gps.split(":");
-    String lat = "";
-    String long = "";
-
-    try {
-      lat = gps.first;
-      long = gps.last;
-    } catch (ex) {
-      debugPrint("Lat lng empty");
-    }
+    final data = getIt<AuthLocalDataSource>().getAlertLocation();
 
     final params = {
-      "lat": lat,
-      "lon": long,
       "client-name": AlertAppConstant.clientName,
       "client-token": AlertAppConstant.clientToken,
+      'type': '2',
+      'lang': 'en'
     };
+    if (data != null) {
+      params.addAll({
+        if (data.regionCode != -1) 'region_code': data.regionCode.toString(),
+        if (data.cityCode != -1) 'city_code': data.cityCode.toString(),
+        if (data.prefectureCode != -1)
+          'prefecture_code': data.prefectureCode.toString(),
+        if (data.villageCode != -1) 'village_code': data.villageCode.toString(),
+      });
+    }
 
     final String queryString = Uri(queryParameters: params).query;
 

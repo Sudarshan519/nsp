@@ -28,9 +28,17 @@ class AlertRepositoryImpl implements AlertRepository {
   }) {
     return _getAlerts(request: () {
       final params = _getParams(limit: limit);
-      final code = getIt<AuthLocalDataSource>().getAlertLocation()?.code ?? -1;
-      if (code != -1) {
-        params['city_code'] = '$code';
+      final data = getIt<AuthLocalDataSource>().getAlertLocation();
+
+      if (data != null) {
+        params.addAll({
+          if (data.regionCode != -1) 'region_code': data.regionCode.toString(),
+          if (data.cityCode != -1) 'city_code': data.cityCode.toString(),
+          if (data.prefectureCode != -1)
+            'prefecture_code': data.prefectureCode.toString(),
+          if (data.villageCode != -1)
+            'village_code': data.villageCode.toString(),
+        });
       }
       return dataSource.getAlerts(params: params);
     });

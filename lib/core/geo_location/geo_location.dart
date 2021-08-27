@@ -31,8 +31,9 @@ class GeoLocationManager {
         return const Right('Please enable location permission!');
       }
     }
-    final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.medium);
+    final position = await GeolocatorPlatform.instance.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.bestForNavigation,
+        forceAndroidLocationManager: true);
     _latLng = '${position.latitude}:${position.longitude}';
 
     return Left(position);

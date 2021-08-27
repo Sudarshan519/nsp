@@ -6,6 +6,7 @@ import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -26,19 +27,20 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(
               height: 80,
             ),
-            const Text(
+            Text(
               'It is recommended to select the area that you are planning to stay or visit ( eg. area in which your accomodation is located)',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+                color: Palette.black,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
               ),
             ),
             const SizedBox(
@@ -74,13 +76,15 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                                   ?.requestLocation ??
                               '';
 
-                          // if (country.toLowerCase() != 'jp') {
-                          //   FlushbarHelper.createError(
-                          //           message:
-                          //               'Judged as a request from overseas!')
-                          //       .show(context);
-                          //   return;
-                          // }
+                          if (country.toLowerCase() != 'jp') {
+                            await cntx.popRoute();
+
+                            FlushbarHelper.createError(
+                                    message:
+                                        'This feature is unavailable in your area!')
+                                .show(context);
+                            return;
+                          }
                           final location = await getIt<GeoLocationManager>()
                               .getForcedLocation();
                           location.fold((position) {
@@ -125,20 +129,27 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                 shape: const StadiumBorder(),
               ),
               child: Text(
-                  '${selectedCity == null ? 'Select' : 'Change'} location'),
+                '${selectedCity == null ? 'Select' : 'Change'} location',
+                style: const TextStyle(
+                  color: Colors.black,
+                ),
+              ),
             ),
             const Spacer(),
-            CustomButton(
-              title: 'Done',
-              onTap: () {
-                if (selectedCity == null) {
-                  context.popRoute();
-                } else {
-                  context
-                      .read<GetAlertLocationBloc>()
-                      .add(GetAlertLocationEvent.setCity(selectedCity!));
-                }
-              },
+            SizedBox(
+              height: 38,
+              child: CustomButton(
+                title: 'Done',
+                onTap: () {
+                  if (selectedCity == null) {
+                    context.popRoute();
+                  } else {
+                    context
+                        .read<GetAlertLocationBloc>()
+                        .add(GetAlertLocationEvent.setCity(selectedCity!));
+                  }
+                },
+              ),
             ),
             const SizedBox(height: 20)
           ],

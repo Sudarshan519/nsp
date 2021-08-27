@@ -46,56 +46,61 @@ class _AlertCityChooser extends StatefulWidget {
 
 class __AlertCityChooserState extends State<_AlertCityChooser> {
   List<Place> searchList = [];
-  List<Place> cities = [];
-  List<Place> prefectures = [];
-  Place? selectedCity;
-  Place? selectedPrefacture;
+  List<Place> cityOrVillage = [];
+  Place? selectedPrefecture;
+  Place? selectedVillage;
 
   final TextEditingController _search = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    cities = widget.alertPlaces.cities;
-    prefectures = widget.alertPlaces.prefectures;
-  }
 
   @override
   Widget build(BuildContext context) {
     Widget cityList() {
       final activeList = _search.text.isEmpty
-          ? selectedCity != null
-              ? cities
-              : prefectures
+          ? selectedPrefecture == null
+              ? widget.alertPlaces.prefectures
+              : cityOrVillage
           : searchList;
-      return Expanded(
-        child: Scrollbar(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: activeList.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                onTap: () {
-                  // if (selectedCity == null) {
-                  // setState(() {
-                  selectedCity = activeList[index];
-                  prefectures = widget.alertPlaces.prefectures
-                      .where((element) =>
-                          element.prefectureCode ==
-                          selectedCity!.prefectureCode)
-                      .toList();
-                  // });
-                  // } else {
-                  context.popRoute(selectedCity);
-                  // }
-                },
-                leading: const Icon(Icons.location_city),
-                title: Text(activeList[index].nameEn),
-              );
-            },
-          ),
-        ),
-      );
+      return activeList.isEmpty
+          ? const Padding(
+              padding: EdgeInsets.all(25.0),
+              child: Text('No results found'),
+            )
+          : Expanded(
+              child: Scrollbar(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: activeList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListTile(
+                      onTap: () {
+                        if (selectedPrefecture == null) {
+                          _search.clear();
+                          setState(() {
+                            selectedPrefecture = activeList[index];
+                            final city = widget.alertPlaces.cities
+                                .where((element) =>
+                                    element.prefectureCode ==
+                                    selectedPrefecture!.prefectureCode)
+                                .toList();
+                            final village = widget.alertPlaces.villages
+                                .where((element) =>
+                                    element.prefectureCode ==
+                                    selectedPrefecture!.prefectureCode)
+                                .toList();
+                            cityOrVillage.clear();
+                            cityOrVillage..addAll(city)..addAll(village);
+                          });
+                        } else {
+                          context.popRoute(activeList[index]);
+                        }
+                      },
+                      leading: const Icon(Icons.location_city),
+                      title: Text(activeList[index].nameEn),
+                    );
+                  },
+                ),
+              ),
+            );
     }
 
     return Scaffold(
@@ -103,15 +108,15 @@ class __AlertCityChooserState extends State<_AlertCityChooser> {
         leading: BackButton(
           color: Colors.white,
           onPressed: () {
-            if (selectedCity == null) {
+            if (selectedPrefecture == null) {
               context.popRoute();
             } else {
-              setState(() => selectedCity = null);
+              setState(() => selectedPrefecture = null);
             }
           },
         ),
         title: Text(
-          'Select ${selectedCity == null ? 'City' : 'Prefecture'}',
+          'Select ${selectedPrefecture == null ? 'Prefecture' : 'City/Village'}',
           style: const TextStyle(color: Colors.white),
         ),
       ),
@@ -124,7 +129,10 @@ class __AlertCityChooserState extends State<_AlertCityChooser> {
                 controller: _search,
                 onChanged: (val) {
                   setState(() {
-                    searchList = cities
+                    final listToSearch = selectedPrefecture == null
+                        ? widget.alertPlaces.prefectures
+                        : cityOrVillage;
+                    searchList = listToSearch
                         .where((element) => element.nameEn
                             .toLowerCase()
                             .contains(val.toLowerCase()))

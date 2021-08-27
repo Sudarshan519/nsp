@@ -23,7 +23,6 @@ class GetAlertLocationBloc
   final GetPlaceFromGPS getPlaceFromGPS;
 
   Place? _city;
-  int get cityCode => _city != null ? _city!.code : -1;
 
   @override
   Stream<GetAlertLocationState> mapEventToState(

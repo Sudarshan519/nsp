@@ -12,16 +12,23 @@ class AlertPlaces {
 
 class Place {
   Place({
-    required this.code,
+    required this.type,
+    required this.villageCode,
     required this.nameEn,
     required this.prefectureCode,
     required this.regionCode,
     required this.cityCode,
   });
-
-  final int code;
+  final String type;
+  final int villageCode;
   final String nameEn;
   final int prefectureCode;
   final int regionCode;
   final int cityCode;
+}
+
+class PlaceType {
+  static const city = 'city';
+  static const prefecture = 'prefecture';
+  static const village = 'village';
 }

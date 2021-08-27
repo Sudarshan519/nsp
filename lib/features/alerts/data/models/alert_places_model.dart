@@ -15,40 +15,53 @@ class AlertPlacesModel extends AlertPlaces {
   factory AlertPlacesModel.fromJson(Map<String, dynamic> json) {
     json = json['setting'] as Map<String, dynamic>;
     return AlertPlacesModel(
-      cities: List<Place>.from((json["cities"] as Iterable)
-          .map((item) => PlaceModel.fromJson(item as Map<String, dynamic>))),
-      prefectures: List<Place>.from((json["prefectures"] as Iterable)
-          .map((item) => PlaceModel.fromJson(item as Map<String, dynamic>))),
-      villages: List<Place>.from((json["villages"] as Iterable)
-          .map((item) => PlaceModel.fromJson(item as Map<String, dynamic>))),
+      cities: List<Place>.from((json["cities"] as Iterable).map((item) =>
+          PlaceModel.fromJson(item as Map<String, dynamic>, PlaceType.city))),
+      prefectures: List<Place>.from((json["prefectures"] as Iterable).map(
+          (item) => PlaceModel.fromJson(
+              item as Map<String, dynamic>, PlaceType.prefecture))),
+      villages: List<Place>.from((json["villages"] as Iterable).map((item) =>
+          PlaceModel.fromJson(
+              item as Map<String, dynamic>, PlaceType.village))),
     );
   }
 }
 
 class PlaceModel extends Place {
   PlaceModel({
-    required int code,
+    required String type,
+    required int villageCode,
     required String nameEn,
     required int prefectureCode,
     required int regionCode,
     required int cityCode,
   }) : super(
+            type: type,
             cityCode: cityCode,
-            code: code,
+            villageCode: villageCode,
             nameEn: nameEn,
             prefectureCode: prefectureCode,
             regionCode: regionCode);
 
-  factory PlaceModel.fromJson(Map<String, dynamic> json) => PlaceModel(
-        code: (json["code"] ?? -1) as int,
+  factory PlaceModel.fromJson(Map<String, dynamic> json, [String? type]) =>
+      PlaceModel(
+        type: (json["type"] as String?) ?? (type ?? ''),
         nameEn: (json["name_en"] ?? '') as String,
-        prefectureCode: (json["prefecture_code"] ?? -1) as int,
+        prefectureCode: type == PlaceType.prefecture
+            ? (json["code"] ?? -1) as int
+            : (json["prefecture_code"] ?? -1) as int,
+        cityCode: type == PlaceType.city
+            ? (json["code"] ?? -1) as int
+            : (json["city_code"] ?? -1) as int,
+        villageCode: type == PlaceType.village
+            ? (json["code"] ?? -1) as int
+            : (json["city_code"] ?? -1) as int,
         regionCode: (json["region_code"] ?? -1) as int,
-        cityCode: (json["city_code"] ?? -1) as int,
       );
 
   Map<String, dynamic> toJson() => {
-        "code": code,
+        "type": type,
+        "code": villageCode,
         "name_en": nameEn,
         "prefecture_code": prefectureCode,
         "region_code": regionCode,
