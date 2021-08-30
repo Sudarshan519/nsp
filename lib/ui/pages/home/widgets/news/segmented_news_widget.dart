@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
+import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bloc.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
@@ -33,6 +35,7 @@ class SegmentedNewsViewWidget extends StatefulWidget {
 
 class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   late int _selectedIndex;
+  double height = 0;
 
   @override
   void initState() {
@@ -48,6 +51,8 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+
     return MultiSliver(
       children: [
         _header(context),
@@ -185,10 +190,7 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   Widget _forYouBody(BuildContext context) {
     return BlocBuilder<NewsBloc, NewsState>(builder: (context, state) {
       return state.map(
-        loading: (_) => SizedBox(
-          height: 70,
-          child: loadingPage(),
-        ),
+        loading: (_) => const SizedBox(),
         loadingWith: (data) {
           final newsList = data.offlinedata;
           return _newsData(newsList);
@@ -231,16 +233,46 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
     });
   }
 
+  Widget selectLocationButton() {
+    return BlocBuilder<GetAlertLocationBloc, GetAlertLocationState>(
+        builder: (context, state) {
+      return state.map(
+          initial: (_) => const SizedBox(),
+          loaded: (_) => const SizedBox(),
+          setLocation: (fail) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 14.0),
+              child: CustomButton(
+                title: 'Set Alert Location',
+                onTap: () => context.pushRoute(const AlertsTabRoute()),
+                svgAsset: 'assets/images/resume/mapMarker.svg',
+              ),
+            );
+          });
+    });
+  }
+
+  Widget _showNewsWithAlerts() {
+    return Column(
+      children: [
+        SizedBox(
+            height: height * 0.12,
+            child: _latestAlertBody(context, isHorizontal: true)),
+        const Divider(
+          height: 1,
+        )
+      ],
+    );
+  }
+
   Widget _newsData(List<NewsItem> newsList, {bool showAlerts = false}) {
     return ShadowBoxWidget(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (showAlerts)
-            SizedBox(
-                height: 110,
-                child: _latestAlertBody(context, isHorizontal: true)),
+          if (showAlerts) _showNewsWithAlerts(),
           ListView.builder(
             primary: false,
             physics: const NeverScrollableScrollPhysics(),
@@ -252,9 +284,8 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
               );
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
-            child: loadingPage(),
           ),
           Center(
             child: CustomButton(
@@ -299,72 +330,79 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   }
 
   Widget _showAlertList(List<Alert> alerts) {
-    return ShadowBoxWidget(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Column(
-        children: [
-          ListView.builder(
-            primary: false,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: alerts.length,
-            itemBuilder: (context, index) {
-              return AlertWidget(
-                alert: alerts[index],
-              );
-            },
-          ),
-          SizedBox(
-            height: 10,
-            child: loadingPage(),
-          ),
-          Center(
-            child: CustomButton(
-              title: "View All",
-              textStyle: TextStyle(
-                color: Palette.white,
-                fontSize: 10,
-                fontWeight: FontWeight.w600,
+    return Column(
+      children: [
+        selectLocationButton(),
+        ShadowBoxWidget(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.only(bottom: 16),
+          child: Column(
+            children: [
+              ListView.builder(
+                primary: false,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: alerts.length,
+                itemBuilder: (context, index) {
+                  return AlertWidget(
+                    alert: alerts[index],
+                  );
+                },
               ),
-              onTap: () {
-                context.pushRoute(const AlertsTabRoute());
-              },
-            ),
+              SizedBox(
+                height: 10,
+                child: loadingPage(),
+              ),
+              Center(
+                child: CustomButton(
+                  title: "View All",
+                  textStyle: TextStyle(
+                    color: Palette.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  onTap: () => context.pushRoute(const AlertsTabRoute()),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _showAlertListHorizontal(List<Alert> alerts) {
     final controller = CarouselController();
-    return Column(
+    return Stack(
       children: [
         CarouselSlider(
           carouselController: controller,
           options: CarouselOptions(
-            height: 70,
+            height: height * 0.12,
             viewportFraction: 1,
           ),
           items: alerts.map((alert) {
             return AlertWidget(alert: alert);
           }).toList(),
         ),
-        Row(
-          children: [
-            InkWell(
+        Transform.translate(
+          offset: const Offset(-4, 0),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: InkWell(
                 onTap: () => controller.previousPage(),
                 child: const Icon(Icons.chevron_left)),
-            const Spacer(),
-            InkWell(
+          ),
+        ),
+        Transform.translate(
+          offset: const Offset(4, 0),
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: InkWell(
                 onTap: () => controller.nextPage(),
                 child: const Icon(Icons.chevron_right)),
-          ],
+          ),
         ),
-        const Divider(
-          height: 0.8,
-        )
       ],
     );
   }

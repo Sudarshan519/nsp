@@ -22,7 +22,7 @@ class GetAlertLocationBloc
 
   final GetPlaceFromGPS getPlaceFromGPS;
 
-  Place? _city;
+  Place? city;
 
   @override
   Stream<GetAlertLocationState> mapEventToState(
@@ -30,29 +30,28 @@ class GetAlertLocationBloc
   ) async* {
     yield* event.map(getlocation: (_) async* {
       yield const _Initial();
-      _city = getIt<AuthLocalDataSource>().getAlertLocation();
-      if (_city != null) {
-        yield _Loaded(_city!.nameEn);
+      city = getIt<AuthLocalDataSource>().getAlertLocation();
+      if (city != null) {
+        yield _Loaded(city!.nameEn);
       } else {
-        yield const _Failure(
+        yield const _SetLocation(
             ApiFailure.serverError(message: 'Please set alert location!'));
       }
     }, setCity: (e) async* {
       yield const _Initial();
-      _city = e.city;
+      city = e.city;
       getIt<AuthLocalDataSource>().setAlertLocation(e.city as PlaceModel);
       yield _Loaded(e.city.nameEn);
     }, removePlace: (e) async* {
       yield const _Initial();
-      getIt<AuthLocalDataSource>().setAlertLocation(null);
-      yield const _Failure(
-          ApiFailure.serverError(message: 'Please set alert location!'));
+      yield const _SetLocation(ApiFailure.serverError(
+          message: 'Please Set or Change alert location!'));
     }, getPlaceFromGPS: (e) async* {
       yield const _Initial();
 
       final result = await getPlaceFromGPS(NoParams());
       yield result.fold((fail) {
-        return _Failure(fail);
+        return _SetLocation(fail);
       }, (data) {
         getIt<AuthLocalDataSource>().setAlertLocation(data as PlaceModel);
 

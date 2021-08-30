@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
@@ -229,7 +228,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
       "new_destination": token,
       "number": 1,
       "device": Platform.operatingSystem,
-      "is_push": 0,
+      "is_push": 1,
       "is_debug": 0,
       "lang": "en",
       "lat_lon": {"lat": gps[0], "lon": gps[1]}

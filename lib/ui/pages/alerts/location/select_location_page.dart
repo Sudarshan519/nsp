@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/core/geo_location/geo_location.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
@@ -24,141 +25,172 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
   Place? selectedCity;
 
   @override
+  void initState() {
+    super.initState();
+    setState(() {
+      selectedCity = context.read<GetAlertLocationBloc>().city;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    void onTap() {
+      if (selectedCity == null) {
+        context.popRoute();
+      } else {
+        context
+            .read<GetAlertLocationBloc>()
+            .add(GetAlertLocationEvent.setCity(selectedCity!));
+      }
+    }
+
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(
-              height: 80,
-            ),
-            Text(
-              'It is recommended to select the area that you are planning to stay or visit ( eg. area in which your accomodation is located)',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Palette.black,
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            if (selectedCity != null)
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.location_city),
-                    const SizedBox(width: 8),
-                    Text(selectedCity?.nameEn ?? '')
-                  ],
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(
+                  height: 80,
                 ),
-              ),
-            OutlinedButton(
-              onPressed: () {
-                showCupertinoModalPopup<void>(
-                  context: context,
-                  builder: (BuildContext cntx) => CupertinoActionSheet(
-                    title: const Text('Location Setting'),
-                    message: const Text('Please Select an option.'),
-                    actions: <CupertinoActionSheetAction>[
-                      CupertinoActionSheetAction(
-                        onPressed: () async {
-                          cntx.popRoute();
-
-                          final country = getIt<HomePageDataBloc>()
-                                  .homeData
-                                  ?.userDetail
-                                  ?.requestLocation ??
-                              '';
-
-                          if (country.toLowerCase() != 'jp') {
-                            await cntx.popRoute();
-
-                            FlushbarHelper.createError(
-                                    message:
-                                        'This feature is unavailable in your area!')
-                                .show(context);
-                            return;
-                          }
-                          final location = await getIt<GeoLocationManager>()
-                              .getForcedLocation();
-                          location.fold((position) {
-                            setState(() {
-                              context.read<GetAlertLocationBloc>().add(
-                                  const GetAlertLocationEvent
-                                      .getPlaceFromGPS());
-                            });
-                          }, (message) {
-                            FlushbarHelper.createError(message: message)
-                                .show(context);
-                          });
-                        },
-                        child: const Text(
-                          'Select current location from GPS',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ),
-                      CupertinoActionSheetAction(
-                        onPressed: () async {
-                          cntx.popRoute();
-                          final result =
-                              await context.pushRoute(const AlertCityChooser());
-                          if (result != null) {
-                            setState(() {
-                              selectedCity = result as Place;
-                            });
-                          }
-                        },
-                        child: const Text(
-                          'Select predictive area from address list',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      )
-                    ],
-                    cancelButton: CupertinoActionSheetAction(
-                      isDestructiveAction: true,
-                      onPressed: () {
-                        cntx.popRoute();
-                      },
-                      child: const Text('Cancel'),
+                Text(
+                  'It is recommended to select the area that you are planning to stay or visit ( eg. area in which your accomodation is located)',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Palette.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                if (selectedCity != null)
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.location_city),
+                        const SizedBox(width: 8),
+                        Text(selectedCity?.nameEn ?? '')
+                      ],
                     ),
                   ),
-                );
-              },
-              style: OutlinedButton.styleFrom(
-                shape: const StadiumBorder(),
-              ),
-              child: Text(
-                '${selectedCity == null ? 'Select' : 'Change'} location',
-                style: const TextStyle(
-                  color: Colors.black,
+                OutlinedButton(
+                  onPressed: () {
+                    showCupertinoModalPopup<void>(
+                      context: context,
+                      builder: (BuildContext cntx) => CupertinoActionSheet(
+                        title: const Text('Location Setting'),
+                        message: const Text('Please Select an option.'),
+                        actions: <CupertinoActionSheetAction>[
+                          CupertinoActionSheetAction(
+                            onPressed: () async {
+                              cntx.popRoute();
+
+                              final country = getIt<HomePageDataBloc>()
+                                      .homeData
+                                      ?.userDetail
+                                      ?.requestLocation ??
+                                  '';
+
+                              if (country.toLowerCase() != 'jp') {
+                                await cntx.popRoute();
+
+                                FlushbarHelper.createError(
+                                        message:
+                                            'This feature is only available if you are in Japan. Please select city from address list.')
+                                    .show(context);
+                                return;
+                              }
+                              final location = await getIt<GeoLocationManager>()
+                                  .getForcedLocation();
+                              location.fold((position) {
+                                setState(() {
+                                  context.read<GetAlertLocationBloc>().add(
+                                      const GetAlertLocationEvent
+                                          .getPlaceFromGPS());
+                                });
+                              }, (message) {
+                                FlushbarHelper.createError(message: message)
+                                    .show(context);
+                              });
+                            },
+                            child: const Text(
+                              'Select current location from GPS',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                          CupertinoActionSheetAction(
+                            onPressed: () async {
+                              cntx.popRoute();
+                              final result = await context
+                                  .pushRoute(const AlertCityChooser());
+                              if (result != null) {
+                                setState(() {
+                                  selectedCity = result as Place;
+                                });
+                              }
+                            },
+                            child: const Text(
+                              'Select predictive area from address list',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          )
+                        ],
+                        cancelButton: CupertinoActionSheetAction(
+                          isDestructiveAction: true,
+                          onPressed: () {
+                            cntx.popRoute();
+                          },
+                          child: const Text('Cancel'),
+                        ),
+                      ),
+                    );
+                  },
+                  style: OutlinedButton.styleFrom(
+                    shape: const StadiumBorder(),
+                  ),
+                  child: Text(
+                    '${selectedCity == null ? 'Select' : 'Change'} location',
+                    style: const TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
+                const Spacer(),
+                SizedBox(
+                  height: 38,
+                  child: CustomButton(
+                    title: 'Done',
+                    onTap: () => onTap(),
+                  ),
+                ),
+                const SizedBox(height: 20)
+              ],
+            ),
+          ),
+          Positioned(
+            top: 26,
+            left: 8,
+            child: InkWell(
+              onTap: () => onTap(),
+              child: const CircleAvatar(
+                // ignore: sort_child_properties_last
+                child: Icon(
+                  Icons.close,
+                  size: 20,
+                  color: Colors.white,
+                ),
+                backgroundColor: Colors.black,
+                radius: 16,
               ),
             ),
-            const Spacer(),
-            SizedBox(
-              height: 38,
-              child: CustomButton(
-                title: 'Done',
-                onTap: () {
-                  if (selectedCity == null) {
-                    context.popRoute();
-                  } else {
-                    context
-                        .read<GetAlertLocationBloc>()
-                        .add(GetAlertLocationEvent.setCity(selectedCity!));
-                  }
-                },
-              ),
-            ),
-            const SizedBox(height: 20)
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

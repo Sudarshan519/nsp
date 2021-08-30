@@ -4,5 +4,6 @@ part of 'get_alert_location_bloc.dart';
 class GetAlertLocationState with _$GetAlertLocationState {
   const factory GetAlertLocationState.initial() = _Initial;
   const factory GetAlertLocationState.loaded(String location) = _Loaded;
-  const factory GetAlertLocationState.failure(ApiFailure failure) = _Failure;
+  const factory GetAlertLocationState.setLocation(ApiFailure failure) =
+      _SetLocation;
 }

@@ -25,30 +25,25 @@ class AlertsTabPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: BlocProvider(
-        create: (_) => getIt<GetAlertLocationBloc>()
-          ..add(const GetAlertLocationEvent.getlocation()),
-        child: BlocConsumer<GetAlertLocationBloc, GetAlertLocationState>(
-          listener: (_, state) {},
-          builder: (context, state) {
-            return state.map(
-                initial: (_) => loadingPage(),
-                loaded: (_) => _AlertsTab(),
-                failure: (fail) {
-                  SchedulerBinding.instance?.addPostFrameCallback((_) {
-                    FlushbarHelper.createError(
-                        duration: const Duration(seconds: 4),
-                        message: fail.failure.map(
-                            serverError: (serverError) => serverError.message,
-                            invalidUser: (error) => 'Invalid User',
-                            noInternetConnection: (noInternetConnection) =>
-                                AppConstants.noNetwork)).show(context);
-                  });
-
-                  return const SelectLocationPage();
+      child: BlocBuilder<GetAlertLocationBloc, GetAlertLocationState>(
+        builder: (context, state) {
+          return state.map(
+              initial: (_) => loadingPage(),
+              loaded: (_) => _AlertsTab(),
+              setLocation: (fail) {
+                SchedulerBinding.instance?.addPostFrameCallback((_) {
+                  FlushbarHelper.createError(
+                      duration: const Duration(seconds: 4),
+                      message: fail.failure.map(
+                          serverError: (serverError) => serverError.message,
+                          invalidUser: (error) => 'Invalid User',
+                          noInternetConnection: (noInternetConnection) =>
+                              AppConstants.noNetwork)).show(context);
                 });
-          },
-        ),
+
+                return const SelectLocationPage();
+              });
+        },
       ),
     );
   }
