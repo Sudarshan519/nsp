@@ -98,7 +98,10 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                                 .show(context);
                           });
                         },
-                        child: const Text('Select current location from GPS'),
+                        child: const Text(
+                          'Select current location from GPS',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                       CupertinoActionSheetAction(
                         onPressed: () async {
@@ -112,7 +115,9 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                           }
                         },
                         child: const Text(
-                            'Select predictive area from address list'),
+                          'Select predictive area from address list',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       )
                     ],
                     cancelButton: CupertinoActionSheetAction(
