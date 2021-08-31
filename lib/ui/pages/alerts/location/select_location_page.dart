@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/core/geo_location/geo_location.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
-import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
@@ -75,7 +74,7 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                       children: [
                         const Icon(Icons.location_city),
                         const SizedBox(width: 8),
-                        Text(selectedCity?.nameEn ?? '')
+                        Text(selectedCity?.name ?? '')
                       ],
                     ),
                   ),
@@ -97,15 +96,15 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                                       ?.requestLocation ??
                                   '';
 
-                              if (country.toLowerCase() != 'jp') {
-                                await cntx.popRoute();
+                              // if (country.toLowerCase() != 'jp') {
+                              //   await cntx.popRoute();
 
-                                FlushbarHelper.createError(
-                                        message:
-                                            'This feature is only available if you are in Japan. Please select city from address list.')
-                                    .show(context);
-                                return;
-                              }
+                              //   FlushbarHelper.createError(
+                              //           message:
+                              //               'This feature is only available if you are in Japan. Please select city from address list.')
+                              //       .show(context);
+                              //   return;
+                              // }
                               final location = await getIt<GeoLocationManager>()
                                   .getForcedLocation();
                               location.fold((position) {
@@ -174,7 +173,7 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
             ),
           ),
           Positioned(
-            top: 26,
+            top: 35,
             left: 8,
             child: InkWell(
               onTap: () => onTap(),

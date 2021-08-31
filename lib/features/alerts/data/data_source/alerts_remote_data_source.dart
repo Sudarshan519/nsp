@@ -41,7 +41,6 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   final _header = {
     'Accept': 'application/json',
     "Content-Type": "application/json",
-    'x-api-key': AlertAppConstant.API_KEY,
   };
 
   AlertRemoteDataSourceImpl({
@@ -144,7 +143,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
       "client-name": AlertAppConstant.clientName,
       "client-token": AlertAppConstant.clientToken,
       'type': '2',
-      'lang': 'en'
+      'lang': 'en',
     };
     if (data != null) {
       params.addAll({
@@ -224,23 +223,25 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
     final gps = getIt<GeoLocationManager>().gps.split(':');
     final token = getIt<PushNotificationManager>().fireBaseToken;
     final params = {
+      "client-name": AlertAppConstant.clientName,
+      "client-token": AlertAppConstant.clientToken,
       "old_destination": token,
       "new_destination": token,
-      "number": 1,
+      "number": '1',
       "device": Platform.operatingSystem,
-      "is_push": 1,
-      "is_debug": 0,
+      "is_push": '1',
       "lang": "en",
-      "lat_lon": {"lat": gps[0], "lon": gps[1]}
+      "lat": gps[0],
+      "lon": gps[1]
     };
-
-    final url = "${config.bosaiCloudUrl}${AlertApiEndpoints.getPlacefromGPS}";
+    final String queryString = Uri(queryParameters: params).query;
+    final url =
+        "${config.alertBaseUrl}${AlertApiEndpoints.getPlacefromGPS}?$queryString";
 
     try {
-      response = await client.post(
+      response = await client.get(
         Uri.parse(url),
         headers: _header,
-        body: json.encode(params),
       );
     } catch (ex) {
       logger.log(
@@ -297,12 +298,14 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
     final params = {
       "type": 'prefecture',
       "lang": 'en',
+      "client-name": AlertAppConstant.clientName,
+      "client-token": AlertAppConstant.clientToken,
     };
 
     final String queryString = Uri(queryParameters: params).query;
 
     final url =
-        "${config.bosaiCloudUrl}${AlertApiEndpoints.getListOfPlaces}?$queryString";
+        "${config.alertBaseUrl}${AlertApiEndpoints.getListOfPlaces}?$queryString";
 
     try {
       response = await client.get(

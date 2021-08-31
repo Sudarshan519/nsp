@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alert_places/get_alert_places_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 class AlertCityChooser extends StatelessWidget {
@@ -24,8 +25,19 @@ class AlertCityChooser extends StatelessWidget {
                       alertPlaces: success.alertPlaces,
                     ),
                 failure: (fail) {
-                  return const Center(
-                    child: Text('Faild to load Cities'),
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const DefaultTextStyle(
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                          ),
+                          child: Text('Failed to load Cities')),
+                      const SizedBox(height: 10),
+                      CustomButton(
+                          title: 'Return', onTap: () => context.popRoute())
+                    ],
                   );
                 });
           },
@@ -95,7 +107,7 @@ class __AlertCityChooserState extends State<_AlertCityChooser> {
                         }
                       },
                       leading: const Icon(Icons.location_city),
-                      title: Text(activeList[index].nameEn),
+                      title: Text(activeList[index].name),
                     );
                   },
                 ),
@@ -133,7 +145,7 @@ class __AlertCityChooserState extends State<_AlertCityChooser> {
                         ? widget.alertPlaces.prefectures
                         : cityOrVillage;
                     searchList = listToSearch
-                        .where((element) => element.nameEn
+                        .where((element) => element.name
                             .toLowerCase()
                             .contains(val.toLowerCase()))
                         .toList();

@@ -32,7 +32,7 @@ class GetAlertLocationBloc
       yield const _Initial();
       city = getIt<AuthLocalDataSource>().getAlertLocation();
       if (city != null) {
-        yield _Loaded(city!.nameEn);
+        yield _Loaded(city!.name);
       } else {
         yield const _SetLocation(
             ApiFailure.serverError(message: 'Please set alert location!'));
@@ -41,7 +41,7 @@ class GetAlertLocationBloc
       yield const _Initial();
       city = e.city;
       getIt<AuthLocalDataSource>().setAlertLocation(e.city as PlaceModel);
-      yield _Loaded(e.city.nameEn);
+      yield _Loaded(e.city.name);
     }, removePlace: (e) async* {
       yield const _Initial();
       yield const _SetLocation(ApiFailure.serverError(
@@ -53,9 +53,10 @@ class GetAlertLocationBloc
       yield result.fold((fail) {
         return _SetLocation(fail);
       }, (data) {
+        city = data;
         getIt<AuthLocalDataSource>().setAlertLocation(data as PlaceModel);
 
-        return _Loaded(data.nameEn);
+        return _Loaded(data.name);
       });
     });
   }
