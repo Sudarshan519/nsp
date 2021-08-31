@@ -96,15 +96,15 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                                       ?.requestLocation ??
                                   '';
 
-                              // if (country.toLowerCase() != 'jp') {
-                              //   await cntx.popRoute();
+                              if (country.toLowerCase() != 'jp') {
+                                await cntx.popRoute();
 
-                              //   FlushbarHelper.createError(
-                              //           message:
-                              //               'This feature is only available if you are in Japan. Please select city from address list.')
-                              //       .show(context);
-                              //   return;
-                              // }
+                                FlushbarHelper.createError(
+                                        message:
+                                            'This feature is only available if you are in Japan. Please select city from address list.')
+                                    .show(context);
+                                return;
+                              }
                               final location = await getIt<GeoLocationManager>()
                                   .getForcedLocation();
                               location.fold((position) {
