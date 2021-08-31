@@ -258,6 +258,12 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<AlertDetailRouteArgs>();
           return _i25.AlertDetailPage(key: args.key, alert: args.alert);
         }),
+    AlertDetailFomApi.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<AlertDetailFomApiArgs>();
+          return _i25.AlertDetailFomApi(key: args.key, id: args.id);
+        }),
     AlertCityChooser.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -440,6 +446,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(AlertsRoute.name, path: '/alerts-page'),
         _i1.RouteConfig(AlertsTabRoute.name, path: '/alerts-tab-page'),
         _i1.RouteConfig(AlertDetailRoute.name, path: '/alert-detail-page'),
+        _i1.RouteConfig(AlertDetailFomApi.name, path: '/alert-detail-fom-api'),
         _i1.RouteConfig(AlertCityChooser.name, path: '/alert-city-chooser'),
         _i1.RouteConfig(AddBalanceRoute.name, path: '/add-balance-page'),
         _i1.RouteConfig(StripePaymentCardSelectionRoute.name,
@@ -935,6 +942,23 @@ class AlertDetailRouteArgs {
   final _i2.Key? key;
 
   final _i51.Alert alert;
+}
+
+class AlertDetailFomApi extends _i1.PageRouteInfo<AlertDetailFomApiArgs> {
+  AlertDetailFomApi({_i2.Key? key, required String id})
+      : super(name,
+            path: '/alert-detail-fom-api',
+            args: AlertDetailFomApiArgs(key: key, id: id));
+
+  static const String name = 'AlertDetailFomApi';
+}
+
+class AlertDetailFomApiArgs {
+  const AlertDetailFomApiArgs({this.key, required this.id});
+
+  final _i2.Key? key;
+
+  final String id;
 }
 
 class AlertCityChooser extends _i1.PageRouteInfo {

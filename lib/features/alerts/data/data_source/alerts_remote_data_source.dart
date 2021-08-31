@@ -63,8 +63,11 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   Future<List<AlertModel>> getEarthquakes({
     required Map<String, String> params,
   }) {
+    final url = params.containsKey('code')
+        ? AlertApiEndpoints.getEarthquakeDetails
+        : AlertApiEndpoints.getEarthquakes;
     return _getAlertList(
-      uri: AlertApiEndpoints.getEarthquakes,
+      uri: url,
       params: params,
     );
   }

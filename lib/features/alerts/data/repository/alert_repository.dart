@@ -45,26 +45,24 @@ class AlertRepositoryImpl implements AlertRepository {
   }
 
   @override
-  Future<Either<ApiFailure, List<Alert>>> getEarthquaked({
-    required int limit,
-  }) {
+  Future<Either<ApiFailure, List<Alert>>> getEarthquake(
+      {required int limit, String? code}) {
     return _getAlerts(request: () {
-      return dataSource.getEarthquakes(params: _getParams(limit: limit));
+      return dataSource.getEarthquakes(
+          params: _getParams(limit: limit, code: code));
     });
   }
 
   @override
-  Future<Either<ApiFailure, List<Alert>>> getVolcanoes({
-    required int limit,
-  }) {
+  Future<Either<ApiFailure, List<Alert>>> getVolcanoes(
+      {required int limit, String? code}) {
     return _getAlerts(request: () {
-      return dataSource.getVolcanoes(params: _getParams(limit: limit));
+      return dataSource.getVolcanoes(
+          params: _getParams(limit: limit, code: code));
     });
   }
 
-  Map<String, String> _getParams({
-    required int limit,
-  }) {
+  Map<String, String> _getParams({required int limit, String? code}) {
     return {
       "lang": AlertAppConstant.lang,
       "limit": "$limit",
@@ -72,6 +70,7 @@ class AlertRepositoryImpl implements AlertRepository {
       "to": AlertAppConstant.to,
       "client-name": AlertAppConstant.clientName,
       "client-token": AlertAppConstant.clientToken,
+      if (code != null) 'code': code
     };
   }
 

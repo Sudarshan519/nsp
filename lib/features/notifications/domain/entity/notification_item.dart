@@ -35,4 +35,7 @@ class NotificationType {
   static const partnerService = 'partner_service';
   static const advertisement = 'advertisement';
   static const utilityPayment = 'utility_payments';
+  static const earthquake = 'EEW';
+  static const weather = 'WEATHER';
+  static const eruption = 'ERUPTION';
 }

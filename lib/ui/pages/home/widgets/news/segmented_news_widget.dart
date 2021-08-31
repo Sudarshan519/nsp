@@ -256,7 +256,7 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
     return Column(
       children: [
         SizedBox(
-            height: height * 0.12,
+            height: height * 0.14,
             child: _latestAlertBody(context, isHorizontal: true)),
         const Divider(
           height: 1,
@@ -372,18 +372,45 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   }
 
   Widget _showAlertListHorizontal(List<Alert> alerts) {
+    var displayList = alerts;
     final controller = CarouselController();
+
+    if (displayList.length > 5) {
+      //showing only first 5 alerts
+      displayList = alerts.sublist(0, 6);
+    }
     return Stack(
       children: [
-        CarouselSlider(
+        CarouselSlider.builder(
           carouselController: controller,
           options: CarouselOptions(
-            height: height * 0.12,
+            height: 400,
             viewportFraction: 1,
+            disableCenter: true,
           ),
-          items: alerts.map((alert) {
-            return AlertWidget(alert: alert);
-          }).toList(),
+          itemCount: displayList.length,
+          itemBuilder:
+              (BuildContext context, int itemIndex, int pageViewIndex) {
+            return Column(
+              children: [
+                AlertWidget(alert: displayList[itemIndex]),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List<Widget>.generate(
+                      displayList.length,
+                      (index) => Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 2),
+                            child: Icon(
+                              index == itemIndex
+                                  ? Icons.circle_rounded
+                                  : Icons.circle_outlined,
+                              size: 10,
+                            ),
+                          )),
+                )
+              ],
+            );
+          },
         ),
         Transform.translate(
           offset: const Offset(-4, 0),

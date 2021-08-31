@@ -8,7 +8,8 @@ import 'package:wallet_app/features/utility_payments/data/models/utility_payment
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 
-void navigate(BuildContext context, NotificationItem item) {
+void navigate(BuildContext context, NotificationItem item,
+    {Map<String, dynamic>? data}) {
   if (item.type == null) {
     return;
   }
@@ -39,6 +40,26 @@ void navigate(BuildContext context, NotificationItem item) {
       if (item.productId != null) {
         context.pushRoute(JPMannerDetailFromAPi(id: item.productId!));
       }
+      break;
+    case NotificationType.earthquake:
+      if (data != null) {
+        context.pushRoute(
+            AlertDetailFomApi(id: data['earthquake_code'] as String));
+      }
+
+      break;
+    case NotificationType.eruption:
+      if (data != null) {
+        context
+            .pushRoute(AlertDetailFomApi(id: data['volcano_code'] as String));
+      }
+
+      break;
+    case NotificationType.weather:
+      if (data != null) {
+        context.pushRoute(AlertDetailFomApi(id: data['message_id'] as String));
+      }
+
       break;
 
     default:

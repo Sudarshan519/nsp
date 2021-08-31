@@ -67,6 +67,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: AlertsPage),
     AutoRoute(page: AlertsTabPage),
     AutoRoute(page: AlertDetailPage),
+    AutoRoute(page: AlertDetailFomApi),
     AutoRoute(page: AlertCityChooser),
     AutoRoute(page: AddBalancePage),
     AutoRoute(page: StripePaymentCardSelectionPage),
