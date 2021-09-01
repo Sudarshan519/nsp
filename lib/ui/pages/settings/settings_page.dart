@@ -53,6 +53,10 @@ class SettingsPage extends StatelessWidget {
           );
         },
       ),
+      MoreItem(
+          imageName: "icon-profile",
+          title: "Change Password",
+          onTap: () => context.pushRoute(const ChangePasswordRoute())),
     ];
     return Scaffold(
       appBar: AppBar(

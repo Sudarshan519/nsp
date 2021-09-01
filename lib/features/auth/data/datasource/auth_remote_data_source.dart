@@ -9,6 +9,7 @@ import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/core/notification/push_notification_manager.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
+import 'package:wallet_app/features/auth/domain/usecase/change_password.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -63,6 +64,10 @@ abstract class AuthRemoteDataSource {
   /// Throws [ServerException] for all error codes.
   Future<Unit> resetCode({
     required String email,
+  });
+
+  Future<Unit> changePassword({
+    required ChangePasswordParams params,
   });
 
   Future<Unit> getPasswordChangeVerificationCode(String email);
@@ -270,6 +275,22 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     );
   }
 
+  @override
+  Future<Unit> changePassword({
+    required ChangePasswordParams params,
+  }) {
+    final body = {
+      "current_password": params.currentPassword,
+      'new_password': params.newPassword,
+      'new_password_confirmation': params.confirmNewPassword
+    };
+    return _postRequestForAuth(
+      AuthApiEndpoints.updatePassword,
+      _header,
+      body,
+    );
+  }
+
   Future<Unit> _postRequestForAuth(
     String uri,
     Map<String, String> header,
@@ -288,7 +309,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       logger.log(
         className: "AuthRemoteDataSource",
         functionName: "_postRequestForAuth()",
-        errorText: "Error in post login after register",
+        errorText: "Error in post auth",
         errorMessage: ex.toString(),
       );
       throw ServerException(

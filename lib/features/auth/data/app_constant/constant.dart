@@ -8,6 +8,7 @@ class AuthApiEndpoints {
   static const emailActivationCode = "/email/activation/code/";
   static const getNewVerificationCode = "/email/password/reset/code/";
   static const resetPassword = "/email/password/reset/";
+  static const updatePassword = "/email/password/update/";
 }
 
 class AuthPreferenceKeys {
