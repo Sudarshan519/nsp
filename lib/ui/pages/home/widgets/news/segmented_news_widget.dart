@@ -253,53 +253,56 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   }
 
   Widget _newsData(List<NewsItem> newsList, {bool showAlerts = false}) {
-    return ShadowBoxWidget(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          if (showAlerts) _latestAlertBody(context, isHorizontal: true),
-          ListView.builder(
-            primary: false,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: newsList.length,
-            itemBuilder: (context, index) {
-              return NewsItemWidget(
-                newsItem: newsList[index],
-              );
-            },
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Center(
-            child: CustomButton(
-              title: "View All",
-              textStyle: TextStyle(
-                color: Palette.white,
-                fontSize: 10,
-                fontWeight: FontWeight.w600,
+    return Column(
+      children: [
+        if (showAlerts) _latestAlertBody(context, isHorizontal: true),
+        ShadowBoxWidget(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.only(bottom: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ListView.builder(
+                primary: false,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: newsList.length,
+                itemBuilder: (context, index) {
+                  return NewsItemWidget(
+                    newsItem: newsList[index],
+                  );
+                },
               ),
-              onTap: () {
-                DefaultTabController.of(context)?.animateTo(2);
-                if (_selectedIndex == 1) {
-                  widget.changeNewsTabPage(1);
-                }
-                widget.changeTabPage(2);
-              },
-            ),
+              const SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: CustomButton(
+                  title: "View All",
+                  textStyle: TextStyle(
+                    color: Palette.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  onTap: () {
+                    DefaultTabController.of(context)?.animateTo(2);
+                    if (_selectedIndex == 1) {
+                      widget.changeNewsTabPage(1);
+                    }
+                    widget.changeTabPage(2);
+                  },
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _latestAlertBody(BuildContext context, {bool isHorizontal = false}) {
     return BlocBuilder<GetAlertsBloc, GetAlertsState>(
         builder: (context, state) {
-      print('state is' + state.toString());
       return state.map(
         initial: (_) => const SizedBox.shrink(),
         loading: (_) => SizedBox(
@@ -364,86 +367,87 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   Widget _showAlertListHorizontal(List<Alert> alerts) {
     var displayList = alerts;
     final controller = CarouselController();
+    const limit = 5;
 
-    if (displayList.length > 5) {
-      //showing only first 5 alerts
-      displayList = alerts.sublist(0, 6);
+    if (displayList.length > limit) {
+      ///showing only first [limit] alerts
+      displayList = alerts.sublist(0, limit - 1);
     }
+    const arrowSize = 22.0;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            GestureDetector(
+                onTap: () => controller.previousPage(),
+                child: Container(
+                    height: arrowSize,
+                    color: Colors.grey.shade300,
+                    child: const Icon(
+                      Icons.chevron_left,
+                      size: arrowSize,
+                    ))),
+            const SizedBox(
+              width: 7,
+            ),
+            GestureDetector(
+                onTap: () => controller.nextPage(),
+                child: Container(
+                    height: arrowSize,
+                    color: Colors.grey.shade300,
+                    child: const Icon(
+                      Icons.chevron_right,
+                      size: arrowSize,
+                    ))),
+            const SizedBox(
+              width: 16,
+            ),
+          ],
+        ),
         Container(
           padding: const EdgeInsets.only(top: 6),
           height: height * 0.14,
-          child: Stack(
-            alignment: Alignment.topRight,
-            children: [
-              CarouselSlider.builder(
-                carouselController: controller,
-                options: CarouselOptions(
-                  height: 400,
-                  viewportFraction: 1,
-                  disableCenter: true,
-                ),
-                itemCount: displayList.length,
-                itemBuilder:
-                    (BuildContext context, int itemIndex, int pageViewIndex) {
-                  return Column(
-                    children: [
-                      AlertWidget(alert: displayList[itemIndex]),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List<Widget>.generate(
-                            displayList.length,
-                            (index) => Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 2),
-                                  child: Icon(
-                                    index == itemIndex
-                                        ? Icons.circle_rounded
-                                        : Icons.circle_outlined,
-                                    size: 10,
-                                  ),
-                                )),
-                      )
-                    ],
-                  );
-                },
-              ),
-              Transform.translate(
-                offset: const Offset(-20, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    GestureDetector(
-                        onTap: () => controller.previousPage(),
-                        child: Container(
-                            height: 12,
-                            color: Colors.grey.shade300,
-                            child: const Icon(
-                              Icons.chevron_left,
-                              size: 12,
-                            ))),
-                    const SizedBox(
-                      width: 2,
-                    ),
-                    GestureDetector(
-                        onTap: () => controller.nextPage(),
-                        child: Container(
-                            height: 12,
-                            color: Colors.grey.shade300,
-                            child: const Icon(
-                              Icons.chevron_right,
-                              size: 12,
-                            ))),
-                  ],
-                ),
-              )
-            ],
+          child: CarouselSlider.builder(
+            carouselController: controller,
+            options: CarouselOptions(
+              height: 400,
+              viewportFraction: 1,
+              disableCenter: true,
+            ),
+            itemCount: displayList.length,
+            itemBuilder:
+                (BuildContext context, int itemIndex, int pageViewIndex) {
+              return Column(
+                children: [
+                  AlertWidget(alert: displayList[itemIndex]),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List<Widget>.generate(
+                        displayList.length,
+                        (index) => Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 2),
+                              child: Icon(
+                                index == itemIndex
+                                    ? Icons.circle_rounded
+                                    : Icons.circle_outlined,
+                                size: 10,
+                              ),
+                            )),
+                  )
+                ],
+              );
+            },
           ),
         ),
         const Divider(
           height: 1,
+        ),
+        SizedBox(
+          height: 5,
         )
       ],
     );
