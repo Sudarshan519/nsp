@@ -22,13 +22,7 @@ class TransactionPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // const BalanceWidget(),
           const BNPJCard(),
-          const SizedBox(height: 10),
-          const Text(
-            'Latest Transactions',
-            style: TextStyle(fontWeight: FontWeight.w700),
-          ),
           body(),
         ],
       ),

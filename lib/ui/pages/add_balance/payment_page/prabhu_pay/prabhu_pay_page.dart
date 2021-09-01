@@ -87,7 +87,9 @@ class PrabhuPayTopupPage extends StatelessWidget {
                                       fontSize: 18,
                                     ),
                                     child: Text(
-                                        'Please wait, the transaction is being processed.'),
+                                      'Please wait\nthe transaction is being processed.',
+                                      textAlign: TextAlign.center,
+                                    ),
                                   ),
                                   loadingPage(),
                                 ],
