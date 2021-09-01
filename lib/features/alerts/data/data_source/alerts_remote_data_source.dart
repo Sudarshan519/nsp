@@ -29,6 +29,8 @@ abstract class AlertRemoteDataSource {
 
   Future<List<WeatherModel>> getWeather();
   Future<AlertPlacesModel> getAlertPlaces();
+
+  ///This method not only gets place from GPS but also registers firebase token for alert notification
   Future<PlaceModel> getPlaceFromGPS();
 }
 
@@ -92,7 +94,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
     final url = "${config.alertBaseUrl}$uri?$queryString";
 
     try {
-      response = await client.get(
+      response = await http.get(
         Uri.parse(url),
         headers: _header,
       );
@@ -220,6 +222,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
     }
   }
 
+  ///This method not only gets place from GPS but also registers firebase token for alert notification
   @override
   Future<PlaceModel> getPlaceFromGPS() async {
     http.Response response;

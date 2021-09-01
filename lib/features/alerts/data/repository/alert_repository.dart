@@ -120,6 +120,7 @@ class AlertRepositoryImpl implements AlertRepository {
     }
   }
 
+  ///This method not only gets place from GPS but also registers firebase token for alert notification
   @override
   Future<Either<ApiFailure, Place>> getPlaceFromGPS() async {
     try {

@@ -52,12 +52,15 @@ class VolcanoListPage extends StatelessWidget {
         ),
       child: Column(
         children: [
-          ListView.builder(
+          ListView.separated(
             primary: false,
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: alerts.length,
+            separatorBuilder: (context, index) => const Divider(
+              height: 1,
+            ),
             itemBuilder: (context, index) {
               return AlertWidget(
                 alert: alerts[index],

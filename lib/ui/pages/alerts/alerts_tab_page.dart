@@ -32,7 +32,7 @@ class AlertsTabPage extends StatelessWidget {
               loaded: (_) => _AlertsTab(),
               setLocation: (fail) {
                 SchedulerBinding.instance?.addPostFrameCallback((_) {
-                  FlushbarHelper.createError(
+                  FlushbarHelper.createInformation(
                       duration: const Duration(seconds: 4),
                       message: fail.failure.map(
                           serverError: (serverError) => serverError.message,

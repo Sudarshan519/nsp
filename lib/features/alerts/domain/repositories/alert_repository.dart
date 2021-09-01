@@ -18,5 +18,7 @@ abstract class AlertRepository {
   });
   Future<Either<ApiFailure, List<WeatherInfo>>> getWeather();
   Future<Either<ApiFailure, AlertPlaces>> getAlertPlaces();
+
+  ///This method not only gets place from GPS but also registers firebase token for alert notification
   Future<Either<ApiFailure, Place>> getPlaceFromGPS();
 }

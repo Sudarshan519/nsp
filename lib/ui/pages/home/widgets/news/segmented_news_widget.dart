@@ -252,19 +252,6 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
     });
   }
 
-  Widget _showNewsWithAlerts() {
-    return Column(
-      children: [
-        SizedBox(
-            height: height * 0.14,
-            child: _latestAlertBody(context, isHorizontal: true)),
-        const Divider(
-          height: 1,
-        )
-      ],
-    );
-  }
-
   Widget _newsData(List<NewsItem> newsList, {bool showAlerts = false}) {
     return ShadowBoxWidget(
       margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -272,7 +259,7 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (showAlerts) _showNewsWithAlerts(),
+          if (showAlerts) _latestAlertBody(context, isHorizontal: true),
           ListView.builder(
             primary: false,
             physics: const NeverScrollableScrollPhysics(),
@@ -312,15 +299,15 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   Widget _latestAlertBody(BuildContext context, {bool isHorizontal = false}) {
     return BlocBuilder<GetAlertsBloc, GetAlertsState>(
         builder: (context, state) {
+      print('state is' + state.toString());
       return state.map(
         initial: (_) => const SizedBox.shrink(),
         loading: (_) => SizedBox(
           height: 70,
           child: loadingPage(),
         ),
-        loadingWithData: (data) => !isHorizontal
-            ? _showAlertList(data.alerts)
-            : _showAlertListHorizontal(data.alerts),
+        loadingWithData: (data) =>
+            !isHorizontal ? _showAlertList(data.alerts) : const SizedBox(),
         success: (success) => !isHorizontal
             ? _showAlertList(success.alerts)
             : _showAlertListHorizontal(success.alerts),
@@ -335,14 +322,17 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
         selectLocationButton(),
         ShadowBoxWidget(
           margin: const EdgeInsets.symmetric(horizontal: 16),
-          padding: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.only(bottom: 16, top: 12),
           child: Column(
             children: [
-              ListView.builder(
+              ListView.separated(
                 primary: false,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: alerts.length,
+                separatorBuilder: (context, index) => const Divider(
+                  height: 1,
+                ),
                 itemBuilder: (context, index) {
                   return AlertWidget(
                     alert: alerts[index],
@@ -379,57 +369,82 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
       //showing only first 5 alerts
       displayList = alerts.sublist(0, 6);
     }
-    return Stack(
+    return Column(
       children: [
-        CarouselSlider.builder(
-          carouselController: controller,
-          options: CarouselOptions(
-            height: 400,
-            viewportFraction: 1,
-            disableCenter: true,
-          ),
-          itemCount: displayList.length,
-          itemBuilder:
-              (BuildContext context, int itemIndex, int pageViewIndex) {
-            return Column(
-              children: [
-                AlertWidget(alert: displayList[itemIndex]),
-                Row(
+        Container(
+          padding: const EdgeInsets.only(top: 6),
+          height: height * 0.14,
+          child: Stack(
+            alignment: Alignment.topRight,
+            children: [
+              CarouselSlider.builder(
+                carouselController: controller,
+                options: CarouselOptions(
+                  height: 400,
+                  viewportFraction: 1,
+                  disableCenter: true,
+                ),
+                itemCount: displayList.length,
+                itemBuilder:
+                    (BuildContext context, int itemIndex, int pageViewIndex) {
+                  return Column(
+                    children: [
+                      AlertWidget(alert: displayList[itemIndex]),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List<Widget>.generate(
+                            displayList.length,
+                            (index) => Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 2),
+                                  child: Icon(
+                                    index == itemIndex
+                                        ? Icons.circle_rounded
+                                        : Icons.circle_outlined,
+                                    size: 10,
+                                  ),
+                                )),
+                      )
+                    ],
+                  );
+                },
+              ),
+              Transform.translate(
+                offset: const Offset(-20, 0),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: List<Widget>.generate(
-                      displayList.length,
-                      (index) => Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 2),
-                            child: Icon(
-                              index == itemIndex
-                                  ? Icons.circle_rounded
-                                  : Icons.circle_outlined,
-                              size: 10,
-                            ),
-                          )),
-                )
-              ],
-            );
-          },
-        ),
-        Transform.translate(
-          offset: const Offset(-4, 0),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: InkWell(
-                onTap: () => controller.previousPage(),
-                child: const Icon(Icons.chevron_left)),
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    GestureDetector(
+                        onTap: () => controller.previousPage(),
+                        child: Container(
+                            height: 12,
+                            color: Colors.grey.shade300,
+                            child: const Icon(
+                              Icons.chevron_left,
+                              size: 12,
+                            ))),
+                    const SizedBox(
+                      width: 2,
+                    ),
+                    GestureDetector(
+                        onTap: () => controller.nextPage(),
+                        child: Container(
+                            height: 12,
+                            color: Colors.grey.shade300,
+                            child: const Icon(
+                              Icons.chevron_right,
+                              size: 12,
+                            ))),
+                  ],
+                ),
+              )
+            ],
           ),
         ),
-        Transform.translate(
-          offset: const Offset(4, 0),
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: InkWell(
-                onTap: () => controller.nextPage(),
-                child: const Icon(Icons.chevron_right)),
-          ),
-        ),
+        const Divider(
+          height: 1,
+        )
       ],
     );
   }

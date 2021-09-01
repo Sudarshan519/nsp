@@ -32,6 +32,9 @@ abstract class AuthLocalDataSource {
 
   Place? getAlertLocation();
   void setAlertLocation(PlaceModel? location);
+
+  String? getFCMToken();
+  void setFCMToken(String token);
 }
 
 @LazySingleton(as: AuthLocalDataSource)
@@ -122,6 +125,16 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
       final location = json.encode(city.toJson());
       preferences.setString(AuthPreferenceKeys.alert_location, location);
     }
+  }
+
+  @override
+  void setFCMToken(String token) {
+    preferences.setString(AuthPreferenceKeys.fcmToken, token);
+  }
+
+  @override
+  String? getFCMToken() {
+    preferences.getString(AuthPreferenceKeys.fcmToken);
   }
 
   // User Details

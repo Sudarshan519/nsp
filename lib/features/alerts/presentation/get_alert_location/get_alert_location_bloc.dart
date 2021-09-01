@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/core/notification/push_notification_manager.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_places_model.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
@@ -29,8 +30,18 @@ class GetAlertLocationBloc
     GetAlertLocationEvent event,
   ) async* {
     yield* event.map(getlocation: (_) async* {
+      ///This method not only gets place from GPS but also registers firebase token for alert notification
+
       yield const _Initial();
-      city = getIt<AuthLocalDataSource>().getAlertLocation();
+      final authSrc = getIt<AuthLocalDataSource>();
+      final oldToken = authSrc.getFCMToken().toString();
+      final curentToken = getIt<PushNotificationManager>().fireBaseToken;
+      if (oldToken != curentToken) {
+        getPlaceFromGPS(NoParams());
+      }
+
+      city = authSrc.getAlertLocation();
+
       if (city != null) {
         yield _Loaded(city!.name);
       } else {

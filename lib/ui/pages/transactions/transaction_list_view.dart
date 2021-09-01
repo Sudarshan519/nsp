@@ -464,6 +464,8 @@ class TransactionViewItem extends StatelessWidget {
         transaction.transactionName.toString(),
         textScaleFactor: 0.74,
         style: const TextStyle(fontWeight: FontWeight.w700),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
       ),
       subtitle: Text(
         '''${transaction.transactionType}\n${DateTimeFormatter.formatDate(transaction.createdAt.toString())} - ${DateTimeFormatter.formatTime(transaction.createdAt.toString())}''',

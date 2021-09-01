@@ -99,7 +99,7 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                               if (country.toLowerCase() != 'jp') {
                                 await cntx.popRoute();
 
-                                FlushbarHelper.createError(
+                                FlushbarHelper.createInformation(
                                         message:
                                             'This feature is only available if you are in Japan. Please select city from address list.')
                                     .show(context);

@@ -41,6 +41,7 @@ class WalletApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<GetAlertLocationBloc>()
             ..add(const GetAlertLocationEvent.getlocation()),
+          lazy: false,
         ),
         BlocProvider(
           create: (context) => getIt<LatestNewsBloc>()

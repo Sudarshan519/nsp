@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/notification/navigate_notification.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/main.dart';
@@ -28,6 +29,10 @@ class PushNotificationManager {
 
   String get fireBaseToken {
     return _token;
+  }
+
+  void _saveToken() {
+    getIt<AuthLocalDataSource>().setFCMToken(_token);
   }
 
   Future initialise() async {
@@ -85,6 +90,7 @@ class PushNotificationManager {
       _token = await _firebaseMessaging.getToken() ?? '';
 
       debugPrint("FirebaseMessaging token: $_token");
+      _saveToken();
     } catch (ex) {
       debugPrint(ex.toString());
       return;
