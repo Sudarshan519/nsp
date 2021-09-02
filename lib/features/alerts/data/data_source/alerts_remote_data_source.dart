@@ -10,7 +10,6 @@ import 'package:wallet_app/features/alerts/data/constants/constant.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_model.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_places_model.dart';
 import 'package:wallet_app/features/alerts/data/models/weather_model.dart';
-import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -27,7 +26,7 @@ abstract class AlertRemoteDataSource {
     required Map<String, String> params,
   });
 
-  Future<List<WeatherModel>> getWeather();
+  Future<List<WeatherModel>> getWeather({required Map<String, dynamic> params});
   Future<AlertPlacesModel> getAlertPlaces();
 
   ///This method not only gets place from GPS but also registers firebase token for alert notification
@@ -139,26 +138,9 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   }
 
   @override
-  Future<List<WeatherModel>> getWeather() async {
+  Future<List<WeatherModel>> getWeather(
+      {required Map<String, dynamic> params}) async {
     http.Response response;
-
-    final data = getIt<AuthLocalDataSource>().getAlertLocation();
-
-    final params = {
-      "client-name": AlertAppConstant.clientName,
-      "client-token": AlertAppConstant.clientToken,
-      'type': '2',
-      'lang': 'en',
-    };
-    if (data != null) {
-      params.addAll({
-        if (data.regionCode != -1) 'region_code': data.regionCode.toString(),
-        if (data.cityCode != -1) 'city_code': data.cityCode.toString(),
-        if (data.prefectureCode != -1)
-          'prefecture_code': data.prefectureCode.toString(),
-        if (data.villageCode != -1) 'village_code': data.villageCode.toString(),
-      });
-    }
 
     final String queryString = Uri(queryParameters: params).query;
 

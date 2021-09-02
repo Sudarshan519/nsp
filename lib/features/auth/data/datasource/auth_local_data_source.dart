@@ -33,6 +33,9 @@ abstract class AuthLocalDataSource {
   Place? getAlertLocation();
   void setAlertLocation(PlaceModel? location);
 
+  List<Place> getOtherPrefectures();
+  void setOtherPrefectures(List<Place> otherPrefectures);
+
   String? getFCMToken();
   void setFCMToken(String token);
 }
@@ -211,5 +214,41 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
       debugPrint(ex.toString());
       throw CacheException();
     }
+  }
+
+  @override
+  void setOtherPrefectures(List<Place> otherPrefectures) {
+    final list = otherPrefectures
+        .map((e) => json.encode((e as PlaceModel).toJson()))
+        .toList();
+
+    preferences.setStringList(AuthPreferenceKeys.other_prefectures, list);
+  }
+
+  @override
+  List<Place> getOtherPrefectures() {
+    final List<Place> list = [];
+    final data =
+        preferences.getStringList(AuthPreferenceKeys.other_prefectures);
+    try {
+      if (data != null) {
+        data.forEach((element) {
+          final jsondata = json.decode(element) as Map<String, dynamic>;
+          final place = PlaceModel.fromJson(jsondata);
+          list.add(place);
+        });
+      }
+    } on Exception catch (ex) {
+      logger.log(
+        className: "AuthLocalDataSource",
+        functionName: "getOtherPrefectures()",
+        errorText: "Error getting other prefecture  from secure storage",
+        errorMessage: ex.toString(),
+      );
+      debugPrint(ex.toString());
+      // TODO
+    }
+
+    return list;
   }
 }

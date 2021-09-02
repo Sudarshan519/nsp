@@ -7,7 +7,7 @@ import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_save_
 import 'package:wallet_app/ui/pages/alerts/alerts_page.dart';
 import 'package:wallet_app/ui/pages/alerts/alerts_tab_page.dart';
 import 'package:wallet_app/ui/pages/alerts/detail/alert_detail_page.dart';
-import 'package:wallet_app/ui/pages/alerts/location/city_list_page.dart';
+import 'package:wallet_app/ui/pages/alerts/location/alert_prefecture_chooser.dart';
 import 'package:wallet_app/ui/pages/auth/forgot_password_screen.dart';
 import 'package:wallet_app/ui/pages/auth/login_screen.dart';
 import 'package:wallet_app/ui/pages/auth/register_screen.dart';
@@ -70,7 +70,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: AlertsTabPage),
     AutoRoute(page: AlertDetailPage),
     AutoRoute(page: AlertDetailFomApi),
-    AutoRoute(page: AlertCityChooser),
+    AutoRoute(page: AlertPrefectureChooser),
     AutoRoute(page: AddBalancePage),
     AutoRoute(page: StripePaymentCardSelectionPage),
     AutoRoute(page: StripeNewCardPaymentPage),

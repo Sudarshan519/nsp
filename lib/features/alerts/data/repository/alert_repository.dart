@@ -9,6 +9,7 @@ import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/alerts/domain/entity/weather_info.dart';
 import 'package:wallet_app/features/alerts/domain/repositories/alert_repository.dart';
+import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/injections/injection.dart';
 
@@ -26,44 +27,38 @@ class AlertRepositoryImpl implements AlertRepository {
   Future<Either<ApiFailure, List<Alert>>> getAlerts({
     required int limit,
   }) {
-    return _getAlerts(request: () {
-      final params = _getParams(limit: limit);
-      final data = getIt<AuthLocalDataSource>().getAlertLocation();
-
-      if (data != null) {
-        params.addAll({
-          if (data.regionCode != -1) 'region_code': data.regionCode.toString(),
-          if (data.cityCode != -1) 'city_code': data.cityCode.toString(),
-          if (data.prefectureCode != -1)
-            'prefecture_code': data.prefectureCode.toString(),
-          if (data.villageCode != -1)
-            'village_code': data.villageCode.toString(),
-        });
-      }
-      return dataSource.getAlerts(params: params);
-    });
+    return _getAlerts(
+        request: (params) {
+          return dataSource.getAlerts(params: params);
+        },
+        limit: limit);
   }
 
   @override
   Future<Either<ApiFailure, List<Alert>>> getEarthquake(
       {required int limit, String? code}) {
-    return _getAlerts(request: () {
-      return dataSource.getEarthquakes(
-          params: _getParams(limit: limit, code: code));
-    });
+    return _getAlerts(
+        request: (params) {
+          return dataSource.getEarthquakes(params: params);
+        },
+        limit: limit,
+        code: code);
   }
 
   @override
   Future<Either<ApiFailure, List<Alert>>> getVolcanoes(
       {required int limit, String? code}) {
-    return _getAlerts(request: () {
-      return dataSource.getVolcanoes(
-          params: _getParams(limit: limit, code: code));
-    });
+    return _getAlerts(
+        request: (params) {
+          return dataSource.getVolcanoes(params: params);
+        },
+        limit: limit,
+        code: code);
   }
 
-  Map<String, String> _getParams({required int limit, String? code}) {
-    return {
+  Map<String, String> _getParams(
+      {required int limit, String? code, Place? data}) {
+    final params = {
       "lang": AlertAppConstant.lang,
       "limit": "$limit",
       "from": AlertAppConstant.from,
@@ -72,18 +67,45 @@ class AlertRepositoryImpl implements AlertRepository {
       "client-token": AlertAppConstant.clientToken,
       if (code != null) 'code': code
     };
+
+    if (data != null) {
+      params.addAll({
+        if (data.regionCode != -1) 'region_code': data.regionCode.toString(),
+        if (data.cityCode != -1) 'city_code': data.cityCode.toString(),
+        if (data.prefectureCode != -1)
+          'prefecture_code': data.prefectureCode.toString(),
+        if (data.villageCode != -1) 'village_code': data.villageCode.toString(),
+      });
+    }
+
+    return params;
   }
 
-  Future<Either<ApiFailure, List<Alert>>> _getAlerts({
-    required Future<List<Alert>> Function() request,
-  }) async {
+  Future<Either<ApiFailure, List<Alert>>> _getAlerts(
+      {required Future<List<Alert>> Function(Map<String, String> params)
+          request,
+      required int limit,
+      String? code}) async {
     try {
-      return Right(await request());
+      final List<Alert> output = [];
+      final individualAlert = getIt<AuthLocalDataSource>().getAlertLocation();
+      final groupAlert = getIt<GetAlertLocationBloc>().otherPrefectures;
+      final datalist = [individualAlert, ...groupAlert];
+
+      //since there is no api to get details of multiple city/prefacture code at once,
+      //we are hitting api request in a loop and returning the output as a single list
+
+      for (final element in datalist) {
+        final params = _getParams(limit: limit, code: code, data: element);
+        final res = await request(params);
+        output.addAll(res);
+      }
+      return Right(output);
     } on ServerException catch (ex) {
       logger.log(
         className: "AlertRepository",
-        functionName: "getAlerts()",
-        errorText: "Error on getting alerts",
+        functionName: "getVolcanoes()",
+        errorText: "Error on getting alert",
         errorMessage: ex.toString(),
       );
       return Left(ApiFailure.serverError(message: ex.message));
@@ -92,8 +114,29 @@ class AlertRepositoryImpl implements AlertRepository {
 
   @override
   Future<Either<ApiFailure, List<WeatherInfo>>> getWeather() async {
+    ///Old params
+    //  final params = {
+    //   "client-name": AlertAppConstant.clientName,
+    //   "client-token": AlertAppConstant.clientToken,
+    //   'type': '2',
+    //   'lang': 'en',
+    // };
     try {
-      return Right(await dataSource.getWeather());
+      final List<WeatherInfo> output = [];
+      final individualAlert = getIt<AuthLocalDataSource>().getAlertLocation();
+      final groupAlert = getIt<GetAlertLocationBloc>().otherPrefectures;
+      final datalist = [individualAlert, ...groupAlert];
+
+      //since there is no api to get details of multiple city/prefacture code at once,
+      //we are hitting api request in a loop and returning the output as a single list
+
+      for (final element in datalist) {
+        final params = _getParams(limit: 10, data: element);
+        params['type'] = '2';
+        final res = await dataSource.getWeather(params: params);
+        output.addAll(res);
+      }
+      return Right(output);
     } on ServerException catch (ex) {
       logger.log(
         className: "AlertRepository",

@@ -138,8 +138,7 @@ class __AlertsTabState extends State<_AlertsTab>
         actions: [
           IconButton(
               onPressed: () {
-                context
-                    .read<GetAlertLocationBloc>()
+                getIt<GetAlertLocationBloc>()
                     .add(const GetAlertLocationEvent.removePlace());
               },
               icon: const Icon(

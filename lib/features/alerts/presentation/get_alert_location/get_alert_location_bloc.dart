@@ -16,7 +16,7 @@ part 'get_alert_location_event.dart';
 part 'get_alert_location_state.dart';
 part 'get_alert_location_bloc.freezed.dart';
 
-@injectable
+@singleton
 class GetAlertLocationBloc
     extends Bloc<GetAlertLocationEvent, GetAlertLocationState> {
   GetAlertLocationBloc(this.getPlaceFromGPS) : super(const _Initial());
@@ -24,6 +24,7 @@ class GetAlertLocationBloc
   final GetPlaceFromGPS getPlaceFromGPS;
 
   Place? city;
+  List<Place> otherPrefectures = [];
 
   @override
   Stream<GetAlertLocationState> mapEventToState(
@@ -35,6 +36,7 @@ class GetAlertLocationBloc
       yield const _Initial();
       final authSrc = getIt<AuthLocalDataSource>();
       final oldToken = authSrc.getFCMToken().toString();
+      otherPrefectures = authSrc.getOtherPrefectures();
       final curentToken = getIt<PushNotificationManager>().fireBaseToken;
       if (oldToken != curentToken) {
         getPlaceFromGPS(NoParams());
@@ -69,6 +71,9 @@ class GetAlertLocationBloc
 
         return _Loaded(data.name);
       });
+    }, setOtherPrefectures: (e) async* {
+      getIt<AuthLocalDataSource>().setOtherPrefectures(e.otherPrefectures);
+      otherPrefectures = e.otherPrefectures;
     });
   }
 }

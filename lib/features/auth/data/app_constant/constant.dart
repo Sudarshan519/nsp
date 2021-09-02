@@ -17,5 +17,6 @@ class AuthPreferenceKeys {
   static const appleUser = "apple_user";
   static const kycVerificationPromptDate = 'kyc_prompt_date';
   static const alert_location = 'alert_location';
+  static const other_prefectures = 'other_prefectures';
   static const fcmToken = 'fcm_token';
 }

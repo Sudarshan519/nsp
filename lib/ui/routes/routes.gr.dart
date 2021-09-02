@@ -37,7 +37,7 @@ import '../pages/add_balance/payment_page/stripe/stripe_save_card_payment_page.d
 import '../pages/alerts/alerts_page.dart' as _i23;
 import '../pages/alerts/alerts_tab_page.dart' as _i24;
 import '../pages/alerts/detail/alert_detail_page.dart' as _i25;
-import '../pages/alerts/location/city_list_page.dart' as _i26;
+import '../pages/alerts/location/alert_prefecture_chooser.dart' as _i26;
 import '../pages/auth/forgot_password_screen.dart' as _i5;
 import '../pages/auth/login_screen.dart' as _i4;
 import '../pages/auth/register_screen.dart' as _i7;
@@ -266,10 +266,12 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<AlertDetailFomApiArgs>();
           return _i25.AlertDetailFomApi(key: args.key, id: args.id);
         }),
-    AlertCityChooser.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    AlertPrefectureChooser.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return const _i26.AlertCityChooser();
+        builder: (data) {
+          final args = data.argsAs<AlertPrefectureChooserArgs>();
+          return _i26.AlertPrefectureChooser(
+              selectMultiplePrefectures: args.selectMultiplePrefectures);
         }),
     AddBalanceRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -416,8 +418,10 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     ChangePasswordRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i45.ChangePasswordPage();
+        builder: (data) {
+          final args = data.argsAs<ChangePasswordRouteArgs>(
+              orElse: () => const ChangePasswordRouteArgs());
+          return _i45.ChangePasswordPage(key: args.key);
         })
   };
 
@@ -459,7 +463,8 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(AlertsTabRoute.name, path: '/alerts-tab-page'),
         _i1.RouteConfig(AlertDetailRoute.name, path: '/alert-detail-page'),
         _i1.RouteConfig(AlertDetailFomApi.name, path: '/alert-detail-fom-api'),
-        _i1.RouteConfig(AlertCityChooser.name, path: '/alert-city-chooser'),
+        _i1.RouteConfig(AlertPrefectureChooser.name,
+            path: '/alert-prefecture-chooser'),
         _i1.RouteConfig(AddBalanceRoute.name, path: '/add-balance-page'),
         _i1.RouteConfig(StripePaymentCardSelectionRoute.name,
             path: '/stripe-payment-card-selection-page'),
@@ -975,10 +980,21 @@ class AlertDetailFomApiArgs {
   final String id;
 }
 
-class AlertCityChooser extends _i1.PageRouteInfo {
-  const AlertCityChooser() : super(name, path: '/alert-city-chooser');
+class AlertPrefectureChooser
+    extends _i1.PageRouteInfo<AlertPrefectureChooserArgs> {
+  AlertPrefectureChooser({required bool selectMultiplePrefectures})
+      : super(name,
+            path: '/alert-prefecture-chooser',
+            args: AlertPrefectureChooserArgs(
+                selectMultiplePrefectures: selectMultiplePrefectures));
 
-  static const String name = 'AlertCityChooser';
+  static const String name = 'AlertPrefectureChooser';
+}
+
+class AlertPrefectureChooserArgs {
+  const AlertPrefectureChooserArgs({required this.selectMultiplePrefectures});
+
+  final bool selectMultiplePrefectures;
 }
 
 class AddBalanceRoute extends _i1.PageRouteInfo<AddBalanceRouteArgs> {
@@ -1343,8 +1359,17 @@ class SettingsRoute extends _i1.PageRouteInfo {
   static const String name = 'SettingsRoute';
 }
 
-class ChangePasswordRoute extends _i1.PageRouteInfo {
-  const ChangePasswordRoute() : super(name, path: '/change-password-page');
+class ChangePasswordRoute extends _i1.PageRouteInfo<ChangePasswordRouteArgs> {
+  ChangePasswordRoute({_i2.Key? key})
+      : super(name,
+            path: '/change-password-page',
+            args: ChangePasswordRouteArgs(key: key));
 
   static const String name = 'ChangePasswordRoute';
+}
+
+class ChangePasswordRouteArgs {
+  const ChangePasswordRouteArgs({this.key});
+
+  final _i2.Key? key;
 }

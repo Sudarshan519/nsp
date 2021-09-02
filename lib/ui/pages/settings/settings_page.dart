@@ -56,7 +56,7 @@ class SettingsPage extends StatelessWidget {
       MoreItem(
           imageName: "icon-profile",
           title: "Change Password",
-          onTap: () => context.pushRoute(const ChangePasswordRoute())),
+          onTap: () => context.pushRoute(ChangePasswordRoute())),
     ];
     return Scaffold(
       appBar: AppBar(

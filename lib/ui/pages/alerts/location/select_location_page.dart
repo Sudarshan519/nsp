@@ -6,10 +6,10 @@ import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
@@ -22,12 +22,14 @@ class SelectLocationPage extends StatefulWidget {
 
 class _SelectLocationPageState extends State<SelectLocationPage> {
   Place? selectedCity;
+  List<Place> otherPrefectures = [];
 
   @override
   void initState() {
     super.initState();
     setState(() {
-      selectedCity = context.read<GetAlertLocationBloc>().city;
+      selectedCity = getIt<GetAlertLocationBloc>().city;
+      otherPrefectures = getIt<GetAlertLocationBloc>().otherPrefectures;
     });
   }
 
@@ -37,9 +39,9 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
       if (selectedCity == null) {
         context.popRoute();
       } else {
-        context
-            .read<GetAlertLocationBloc>()
-            .add(GetAlertLocationEvent.setCity(selectedCity!));
+        getIt<GetAlertLocationBloc>()
+          ..add(GetAlertLocationEvent.setOtherPrefectures(otherPrefectures))
+          ..add(GetAlertLocationEvent.setCity(selectedCity!));
       }
     }
 
@@ -72,7 +74,11 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.location_city),
+                        const Text('Primary location: '),
+                        const Icon(
+                          Icons.location_city,
+                          size: 20,
+                        ),
                         const SizedBox(width: 8),
                         Text(selectedCity?.name ?? '')
                       ],
@@ -109,7 +115,7 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                                   .getForcedLocation();
                               location.fold((position) {
                                 setState(() {
-                                  context.read<GetAlertLocationBloc>().add(
+                                  getIt<GetAlertLocationBloc>().add(
                                       const GetAlertLocationEvent
                                           .getPlaceFromGPS());
                                 });
@@ -126,8 +132,9 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                           CupertinoActionSheetAction(
                             onPressed: () async {
                               cntx.popRoute();
-                              final result = await context
-                                  .pushRoute(const AlertCityChooser());
+                              final result = await context.pushRoute(
+                                  AlertPrefectureChooser(
+                                      selectMultiplePrefectures: false));
                               if (result != null) {
                                 setState(() {
                                   selectedCity = result as Place;
@@ -154,7 +161,39 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
                     shape: const StadiumBorder(),
                   ),
                   child: Text(
-                    '${selectedCity == null ? 'Select' : 'Change'} location',
+                    '${selectedCity == null ? 'Select' : 'Change'} Primary Alert location',
+                    style: const TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                const Divider(
+                  thickness: 2,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                      otherPrefectures.isEmpty
+                          ? 'No other prefectures selected'
+                          : '${otherPrefectures.length} Prefecture(s) Selected.',
+                      textAlign: TextAlign.center),
+                ),
+                OutlinedButton(
+                  onPressed: () async {
+                    final result = await context.pushRoute(
+                        AlertPrefectureChooser(
+                            selectMultiplePrefectures: true));
+                    if (result != null) {
+                      setState(() {
+                        otherPrefectures = result as List<Place>;
+                      });
+                    }
+                  },
+                  style: OutlinedButton.styleFrom(
+                    shape: const StadiumBorder(),
+                  ),
+                  child: Text(
+                    '${otherPrefectures.isEmpty ? 'Select' : 'Change'} Other Alert location',
                     style: const TextStyle(
                       color: Colors.black,
                     ),
