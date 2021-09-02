@@ -36,6 +36,11 @@ class VolcanoListPage extends StatelessWidget {
     required List<Alert> alerts,
     required bool isLoading,
   }) {
+    if (alerts.isEmpty) {
+      return const Center(
+        child: Text("No data available"),
+      );
+    }
     return SingleChildScrollView(
       controller: _scrollController
         ..addListener(

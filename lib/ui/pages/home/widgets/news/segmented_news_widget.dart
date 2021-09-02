@@ -6,7 +6,6 @@ import 'package:sliver_tools/sliver_tools.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bloc.dart';
-import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/news_for_you/news_bloc.dart';
@@ -239,7 +238,7 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
       return state.map(
           initial: (_) => const SizedBox(),
           loaded: (_) => const SizedBox(),
-          setLocation: (fail) {
+          makeChanges: (fail) {
             return Padding(
               padding: const EdgeInsets.only(bottom: 14.0),
               child: CustomButton(

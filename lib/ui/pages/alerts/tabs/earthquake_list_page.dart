@@ -33,6 +33,11 @@ class EarthquakeListPage extends StatelessWidget {
     required List<Alert> alerts,
     bool isLoading = false,
   }) {
+    if (alerts.isEmpty) {
+      return const Center(
+        child: Text("No data available"),
+      );
+    }
     return SingleChildScrollView(
       controller: _scrollController
         ..addListener(

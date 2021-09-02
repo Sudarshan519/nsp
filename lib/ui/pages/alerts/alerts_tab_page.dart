@@ -9,11 +9,11 @@ import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bl
 import 'package:wallet_app/features/alerts/presentation/get_earthquakes/get_earthquakes_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_weathers/get_weathers_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/alerts/alert_settings/alert_setting_page.dart';
 import 'package:wallet_app/ui/pages/alerts/tabs/weather_list_page.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
-import 'location/select_location_page.dart';
 import 'tabs/alert_list_page.dart';
 import 'tabs/earthquake_list_page.dart';
 import 'tabs/volcano_list_page.dart';
@@ -30,7 +30,7 @@ class AlertsTabPage extends StatelessWidget {
           return state.map(
               initial: (_) => loadingPage(),
               loaded: (_) => _AlertsTab(),
-              setLocation: (fail) {
+              makeChanges: (fail) {
                 SchedulerBinding.instance?.addPostFrameCallback((_) {
                   FlushbarHelper.createInformation(
                       duration: const Duration(seconds: 4),
@@ -41,7 +41,7 @@ class AlertsTabPage extends StatelessWidget {
                               AppConstants.noNetwork)).show(context);
                 });
 
-                return const SelectLocationPage();
+                return const AlertSettingsPage();
               });
         },
       ),

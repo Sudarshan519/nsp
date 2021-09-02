@@ -19,4 +19,5 @@ class AuthPreferenceKeys {
   static const alert_location = 'alert_location';
   static const other_prefectures = 'other_prefectures';
   static const fcmToken = 'fcm_token';
+  static const earthquake_threshold = 'earthquake_threshold';
 }

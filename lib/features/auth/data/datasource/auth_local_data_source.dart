@@ -38,6 +38,9 @@ abstract class AuthLocalDataSource {
 
   String? getFCMToken();
   void setFCMToken(String token);
+
+  double getEarthquakeThreshold();
+  void setEarthquakeThreshold(double value);
 }
 
 @LazySingleton(as: AuthLocalDataSource)
@@ -250,5 +253,16 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
     }
 
     return list;
+  }
+
+  @override
+  void setEarthquakeThreshold(double value) {
+    preferences.setDouble(AuthPreferenceKeys.earthquake_threshold, value);
+  }
+
+  @override
+  double getEarthquakeThreshold() {
+    return preferences.getDouble(AuthPreferenceKeys.earthquake_threshold) ??
+        Values.DEFAULT_THRESHOLD;
   }
 }

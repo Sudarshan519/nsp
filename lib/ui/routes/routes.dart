@@ -4,10 +4,10 @@ import 'package:wallet_app/ui/pages/add_balance/payment_page/esewa/esewa_topup_p
 import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_new_card_payment_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_save_card_payment_page.dart';
+import 'package:wallet_app/ui/pages/alerts/alert_settings/alert_prefecture_chooser.dart';
 import 'package:wallet_app/ui/pages/alerts/alerts_page.dart';
 import 'package:wallet_app/ui/pages/alerts/alerts_tab_page.dart';
 import 'package:wallet_app/ui/pages/alerts/detail/alert_detail_page.dart';
-import 'package:wallet_app/ui/pages/alerts/location/alert_prefecture_chooser.dart';
 import 'package:wallet_app/ui/pages/auth/forgot_password_screen.dart';
 import 'package:wallet_app/ui/pages/auth/login_screen.dart';
 import 'package:wallet_app/ui/pages/auth/register_screen.dart';

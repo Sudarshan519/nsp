@@ -54,6 +54,9 @@ class Values {
   static const int MIN_RECHARGE = 10; //NPR
   static const int MAX_RECHARGE = 5000; //NPR
 
+  //double constants
+  static const double DEFAULT_THRESHOLD = 3.5; //magnitudes
+
   //String constants
   static const EN_JAPAN = 'japan';
   static const EN_NEPAL = 'nepal';

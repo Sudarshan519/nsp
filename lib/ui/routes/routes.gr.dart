@@ -34,10 +34,10 @@ import '../pages/add_balance/payment_page/stripe/stripe_new_card_payment_page.da
     as _i29;
 import '../pages/add_balance/payment_page/stripe/stripe_save_card_payment_page.dart'
     as _i30;
+import '../pages/alerts/alert_settings/alert_prefecture_chooser.dart' as _i26;
 import '../pages/alerts/alerts_page.dart' as _i23;
 import '../pages/alerts/alerts_tab_page.dart' as _i24;
 import '../pages/alerts/detail/alert_detail_page.dart' as _i25;
-import '../pages/alerts/location/alert_prefecture_chooser.dart' as _i26;
 import '../pages/auth/forgot_password_screen.dart' as _i5;
 import '../pages/auth/login_screen.dart' as _i4;
 import '../pages/auth/register_screen.dart' as _i7;

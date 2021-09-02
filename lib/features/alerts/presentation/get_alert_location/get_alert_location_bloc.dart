@@ -47,7 +47,7 @@ class GetAlertLocationBloc
       if (city != null) {
         yield _Loaded(city!.name);
       } else {
-        yield const _SetLocation(
+        yield const _MakeChanges(
             ApiFailure.serverError(message: 'Please set alert location!'));
       }
     }, setCity: (e) async* {
@@ -57,14 +57,14 @@ class GetAlertLocationBloc
       yield _Loaded(e.city.name);
     }, removePlace: (e) async* {
       yield const _Initial();
-      yield const _SetLocation(ApiFailure.serverError(
+      yield const _MakeChanges(ApiFailure.serverError(
           message: 'Please Set or Change alert location!'));
     }, getPlaceFromGPS: (e) async* {
       yield const _Initial();
 
       final result = await getPlaceFromGPS(NoParams());
       yield result.fold((fail) {
-        return _SetLocation(fail);
+        return _MakeChanges(fail);
       }, (data) {
         city = data;
         getIt<AuthLocalDataSource>().setAlertLocation(data as PlaceModel);

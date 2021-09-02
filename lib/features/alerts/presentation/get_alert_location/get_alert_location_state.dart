@@ -5,5 +5,5 @@ class GetAlertLocationState with _$GetAlertLocationState {
   const factory GetAlertLocationState.initial() = _Initial;
   const factory GetAlertLocationState.loaded(String location) = _Loaded;
   const factory GetAlertLocationState.setLocation(ApiFailure failure) =
-      _SetLocation;
+      _MakeChanges;
 }
