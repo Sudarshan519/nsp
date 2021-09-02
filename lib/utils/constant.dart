@@ -44,6 +44,8 @@ class AppConstants {
 
   static const verfifyKYC =
       'As per the guidelines of NRB, all customers of BNPJ need to complete and verify KYC to get unrestricted transaction limit. \nPlease tap here to complete the KYC details.';
+
+  static const passwordChanged = 'Your Password has been changed successfully!';
 }
 
 // ignore: avoid_classes_with_only_static_members

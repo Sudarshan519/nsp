@@ -6,8 +6,10 @@ import 'package:wallet_app/features/auth/domain/usecase/change_password.dart';
 import 'package:wallet_app/features/auth/presentation/password/change_password/change_password_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -97,11 +99,17 @@ class ChangePasswordPage extends StatelessWidget {
                       });
                     } else if (state is Success) {
                       SchedulerBinding.instance?.addPostFrameCallback((_) {
-                        FlushbarHelper.createSuccess(
-                                message: 'Password Changed Successfully!')
-                            .show(context);
-
-                        context.popRoute();
+                        showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (_) => PopUpSuccessOverLay(
+                            title: "Success",
+                            message: AppConstants.passwordChanged,
+                            onPressed: () {
+                              context.router.navigate(const TabBarRoute());
+                            },
+                          ),
+                        );
                       });
                     }
 

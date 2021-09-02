@@ -15,6 +15,8 @@ import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
 
+import 'auth_local_data_source.dart';
+
 abstract class AuthRemoteDataSource {
   /// Calls the https://base_url/login/ endpoint
   ///
@@ -297,6 +299,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     Map<String, dynamic> body,
   ) async {
     final url = "${config.baseURL}${config.apiPath}$uri";
+    final accessToken =
+        (await getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
+
+    header["Authorization"] = "Bearer $accessToken";
 
     http.Response response;
     try {
