@@ -18,6 +18,7 @@ class InputTextWidget extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final int maxLines;
   final int minLines;
+  final bool testX;
 
   const InputTextWidget({
     Key? key,
@@ -36,6 +37,7 @@ class InputTextWidget extends StatelessWidget {
     this.inputFormatters,
     this.maxLines = 1,
     this.minLines = 1,
+    this.testX = false,
   }) : super(key: key);
 
   @override
@@ -55,6 +57,8 @@ class InputTextWidget extends StatelessWidget {
             initialValue: value,
             enabled: isEnable,
             decoration: InputDecoration(
+              contentPadding: EdgeInsets.zero,
+              suffix: testX ? Icon(Icons.ac_unit) : SizedBox(),
               isDense: true,
               border: InputBorder.none,
               hintText: hintText,

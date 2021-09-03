@@ -19,8 +19,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   bool isFetching = false;
   int _page = 1;
   // bool _hasReachedEnd = false;
+
   final String _from = DateTimeFormatter.formatDateToApi(
-      DateTime.now().subtract(const Duration(days: 7)));
+      DateTime.now().subtract(const Duration(days: 30)));
   final String _to = DateTimeFormatter.formatDateToApi(DateTime.now());
   final List<TransactionItem> _data = [];
 

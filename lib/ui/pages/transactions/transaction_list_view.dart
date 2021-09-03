@@ -47,7 +47,7 @@ class TransactionBuilder extends StatefulWidget {
 
 class _TransactionBuilderState extends State<TransactionBuilder>
     with SingleTickerProviderStateMixin {
-  DateTime from = DateTime.now().subtract(const Duration(days: 7));
+  DateTime from = DateTime.now().subtract(const Duration(days: 30));
   DateTime to = DateTime.now();
   TabController? _tabController;
   List<TransactionItem> _activeList = [];

@@ -348,7 +348,7 @@ class _DetailMapView extends StatelessWidget {
       markers: Set<Marker>.of(markers.values),
       initialCameraPosition: CameraPosition(
         target: LatLng(lat, lng),
-        zoom: 12,
+        zoom: 17,
       ),
       myLocationButtonEnabled: false,
       zoomControlsEnabled: false,

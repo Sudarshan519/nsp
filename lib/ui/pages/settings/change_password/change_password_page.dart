@@ -45,6 +45,7 @@ class ChangePasswordPage extends StatelessWidget {
                       title: 'Current Password',
                       child: InputTextWidget(
                         obscureText: true,
+                        testX: true,
                         hintText: 'Password',
                         onChanged: (text) {
                           oldPw = text;
@@ -114,7 +115,7 @@ class ChangePasswordPage extends StatelessWidget {
                     }
 
                     return CustomButton(
-                      title: 'Change',
+                      title: 'Change Password',
                       onTap: () {
                         FocusScope.of(context).unfocus();
                         blocContext.read<ChangePasswordBloc>().add(

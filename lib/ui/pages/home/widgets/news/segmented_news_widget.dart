@@ -373,82 +373,85 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
       displayList = alerts.sublist(0, limit - 1);
     }
     const arrowSize = 22.0;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            GestureDetector(
-                onTap: () => controller.previousPage(),
-                child: Container(
-                    height: arrowSize,
-                    color: Colors.grey.shade300,
-                    child: const Icon(
-                      Icons.chevron_left,
-                      size: arrowSize,
-                    ))),
-            const SizedBox(
-              width: 7,
-            ),
-            GestureDetector(
-                onTap: () => controller.nextPage(),
-                child: Container(
-                    height: arrowSize,
-                    color: Colors.grey.shade300,
-                    child: const Icon(
-                      Icons.chevron_right,
-                      size: arrowSize,
-                    ))),
-            const SizedBox(
-              width: 16,
-            ),
-          ],
-        ),
-        Container(
-          padding: const EdgeInsets.only(top: 6),
-          height: height * 0.14,
-          child: CarouselSlider.builder(
-            carouselController: controller,
-            options: CarouselOptions(
-              height: 400,
-              viewportFraction: 1,
-              disableCenter: true,
-            ),
-            itemCount: displayList.length,
-            itemBuilder:
-                (BuildContext context, int itemIndex, int pageViewIndex) {
-              return Column(
-                children: [
-                  AlertWidget(alert: displayList[itemIndex]),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List<Widget>.generate(
-                        displayList.length,
-                        (index) => Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 2),
-                              child: Icon(
-                                index == itemIndex
-                                    ? Icons.circle_rounded
-                                    : Icons.circle_outlined,
-                                size: 10,
-                              ),
-                            )),
-                  )
-                ],
-              );
-            },
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              GestureDetector(
+                  onTap: () => controller.previousPage(),
+                  child: Container(
+                      height: arrowSize,
+                      color: Colors.grey.shade300,
+                      child: const Icon(
+                        Icons.chevron_left,
+                        size: arrowSize,
+                      ))),
+              const SizedBox(
+                width: 7,
+              ),
+              GestureDetector(
+                  onTap: () => controller.nextPage(),
+                  child: Container(
+                      height: arrowSize,
+                      color: Colors.grey.shade300,
+                      child: const Icon(
+                        Icons.chevron_right,
+                        size: arrowSize,
+                      ))),
+              const SizedBox(
+                width: 16,
+              ),
+            ],
           ),
-        ),
-        const Divider(
-          height: 1,
-        ),
-        SizedBox(
-          height: 5,
-        )
-      ],
+          Container(
+            padding: const EdgeInsets.only(top: 6),
+            height: height * 0.14,
+            child: CarouselSlider.builder(
+              carouselController: controller,
+              options: CarouselOptions(
+                height: 400,
+                viewportFraction: 1,
+                disableCenter: true,
+              ),
+              itemCount: displayList.length,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) {
+                return Column(
+                  children: [
+                    AlertWidget(alert: displayList[itemIndex]),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List<Widget>.generate(
+                          displayList.length,
+                          (index) => Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 2),
+                                child: Icon(
+                                  index == itemIndex
+                                      ? Icons.circle_rounded
+                                      : Icons.circle_outlined,
+                                  size: 10,
+                                ),
+                              )),
+                    )
+                  ],
+                );
+              },
+            ),
+          ),
+          const Divider(
+            height: 1,
+          ),
+          const SizedBox(
+            height: 4,
+          )
+        ],
+      ),
     );
   }
 }

@@ -69,12 +69,12 @@ class __AlertsTabState extends State<_AlertsTab>
     Tab(
       icon: SvgPicture.asset(
         "assets/images/alerts/latest-alerts.svg",
-        height: 20.0,
+        height: 17.0,
       ),
       child: const Text(
         "Latest Alerts",
         style: TextStyle(
-          fontSize: 10,
+          fontSize: 9,
         ),
         textAlign: TextAlign.center,
       ),
@@ -82,33 +82,33 @@ class __AlertsTabState extends State<_AlertsTab>
     Tab(
       icon: SvgPicture.asset(
         "assets/images/alerts/earthquake-info.svg",
-        height: 20.0,
+        height: 17.0,
       ),
       child: const Text(
         "Earthquake Info",
-        style: TextStyle(fontSize: 10),
+        style: TextStyle(fontSize: 9),
         textAlign: TextAlign.center,
       ),
     ),
     Tab(
       icon: SvgPicture.asset(
         "assets/images/alerts/volcano-alerts.svg",
-        height: 20.0,
+        height: 17.0,
       ),
       child: const Text(
         "Volcano Alert",
-        style: TextStyle(fontSize: 10),
+        style: TextStyle(fontSize: 9),
         textAlign: TextAlign.center,
       ),
     ),
     Tab(
       icon: SvgPicture.asset(
         "assets/images/alerts/weather-info.svg",
-        height: 20.0,
+        height: 17.0,
       ),
       child: const Text(
         "Weather Info",
-        style: TextStyle(fontSize: 10),
+        style: TextStyle(fontSize: 9),
         textAlign: TextAlign.center,
       ),
     ),
