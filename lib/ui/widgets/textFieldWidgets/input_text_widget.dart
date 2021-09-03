@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class InputTextWidget extends StatelessWidget {
+class InputTextWidget extends StatefulWidget {
   final String hintText;
   final bool obscureText;
   final String value;
@@ -18,7 +18,9 @@ class InputTextWidget extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final int maxLines;
   final int minLines;
-  final bool testX;
+
+  ///Only active if [obscureText] = true
+  final bool showHideTextOption;
 
   const InputTextWidget({
     Key? key,
@@ -37,31 +39,54 @@ class InputTextWidget extends StatelessWidget {
     this.inputFormatters,
     this.maxLines = 1,
     this.minLines = 1,
-    this.testX = false,
+    this.showHideTextOption = false,
   }) : super(key: key);
+
+  @override
+  _InputTextWidgetState createState() => _InputTextWidgetState();
+}
+
+class _InputTextWidgetState extends State<InputTextWidget> {
+  bool textvisible = false;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        if (prefixIcon != null)
+        if (widget.prefixIcon != null)
           Column(
             children: [
-              prefixIcon!,
+              widget.prefixIcon!,
               const SizedBox(width: 10),
             ],
           ),
         Expanded(
           child: TextFormField(
-            obscureText: obscureText,
-            initialValue: value,
-            enabled: isEnable,
+            textAlignVertical: TextAlignVertical.center,
+            obscureText: (widget.showHideTextOption && widget.obscureText)
+                ? !textvisible
+                : widget.obscureText,
+            initialValue: widget.value,
+            enabled: widget.isEnable,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.zero,
-              suffix: testX ? Icon(Icons.ac_unit) : SizedBox(),
+              contentPadding: EdgeInsets.only(
+                  top: widget.showHideTextOption ? 2 : 6, bottom: 6),
               isDense: true,
+              suffix: widget.showHideTextOption
+                  ? GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          textvisible = !textvisible;
+                        });
+                      },
+                      child: Icon(
+                        !textvisible ? Icons.visibility : Icons.visibility_off,
+                        size: 18,
+                      ),
+                    )
+                  : const SizedBox(),
               border: InputBorder.none,
-              hintText: hintText,
+              hintText: widget.hintText,
               hintStyle: TextStyle(
                 fontSize: 14.0,
                 fontWeight: FontWeight.w300,
@@ -73,23 +98,23 @@ class InputTextWidget extends StatelessWidget {
               fontWeight: FontWeight.w400,
               fontSize: 14.0,
             ),
-            inputFormatters: inputFormatters,
-            validator: validator,
+            inputFormatters: widget.inputFormatters,
+            validator: widget.validator,
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            keyboardType: textInputType,
-            textInputAction: textInputAction,
-            onChanged: onChanged,
-            onEditingComplete: onEditingCompleted,
-            textAlign: textAlign ?? TextAlign.start,
-            maxLines: maxLines,
-            minLines: minLines,
+            keyboardType: widget.textInputType,
+            textInputAction: widget.textInputAction,
+            onChanged: widget.onChanged,
+            onEditingComplete: widget.onEditingCompleted,
+            textAlign: widget.textAlign ?? TextAlign.start,
+            maxLines: widget.maxLines,
+            minLines: widget.minLines,
           ),
         ),
-        if (suffixIcon != null)
+        if (widget.suffixIcon != null)
           Column(
             children: [
               const SizedBox(width: 2),
-              suffixIcon!,
+              widget.suffixIcon!,
             ],
           ),
       ],
