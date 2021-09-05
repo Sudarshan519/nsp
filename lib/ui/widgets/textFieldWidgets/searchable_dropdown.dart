@@ -833,7 +833,7 @@ class _SearchChoicesState<T> extends State<SearchChoices<T>> {
         ? prepareWidget(widget.disabledHint, parameter: updateParent)
         : SizedBox(
             //Height of dropdown button
-            height: 34,
+            height: 32,
             child: InkWell(
                 key: Key(
                     "clickableResultPlaceHolder"), //this key is used for running automated tests

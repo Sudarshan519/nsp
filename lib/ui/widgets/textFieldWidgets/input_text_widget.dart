@@ -48,76 +48,80 @@ class InputTextWidget extends StatefulWidget {
 
 class _InputTextWidgetState extends State<InputTextWidget> {
   bool textvisible = false;
+  final height = 32.0;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        if (widget.prefixIcon != null)
-          Column(
-            children: [
-              widget.prefixIcon!,
-              const SizedBox(width: 10),
-            ],
-          ),
-        Expanded(
-          child: TextFormField(
-            textAlignVertical: TextAlignVertical.center,
-            obscureText: (widget.showHideTextOption && widget.obscureText)
-                ? !textvisible
-                : widget.obscureText,
-            initialValue: widget.value,
-            enabled: widget.isEnable,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(
-                  top: widget.showHideTextOption ? 2 : 6, bottom: 6),
-              isDense: true,
-              suffix: widget.showHideTextOption
-                  ? GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          textvisible = !textvisible;
-                        });
-                      },
-                      child: Icon(
-                        !textvisible ? Icons.visibility : Icons.visibility_off,
-                        size: 18,
-                      ),
-                    )
-                  : const SizedBox(),
-              border: InputBorder.none,
-              hintText: widget.hintText,
-              hintStyle: TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.w300,
-                color: Palette.textFieldPlaceholderColor,
+    return SizedBox(
+        height: height,
+        child: Row(
+          children: [
+            if (widget.prefixIcon != null)
+              Column(
+                children: [
+                  widget.prefixIcon!,
+                  const SizedBox(width: 10),
+                ],
+              ),
+            Expanded(
+              child: TextFormField(
+                textAlignVertical: TextAlignVertical.center,
+                obscureText: (widget.showHideTextOption && widget.obscureText)
+                    ? !textvisible
+                    : widget.obscureText,
+                initialValue: widget.value,
+                enabled: widget.isEnable,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(bottom: height / 2),
+                  // isDense:true,
+                  suffixIcon: widget.showHideTextOption
+                      ? GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              textvisible = !textvisible;
+                            });
+                          },
+                          child: Icon(
+                            !textvisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            size: 18,
+                          ),
+                        )
+                      : const SizedBox(),
+                  border: InputBorder.none,
+                  hintText: widget.hintText,
+                  hintStyle: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    color: Palette.textFieldPlaceholderColor,
+                  ),
+                ),
+                style: TextStyle(
+                  color: Palette.blackTextColor,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14.0,
+                ),
+                inputFormatters: widget.inputFormatters,
+                validator: widget.validator,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                keyboardType: widget.textInputType,
+                textInputAction: widget.textInputAction,
+                onChanged: widget.onChanged,
+                onEditingComplete: widget.onEditingCompleted,
+                textAlign: widget.textAlign ?? TextAlign.start,
+                maxLines: widget.maxLines,
+                minLines: widget.minLines,
               ),
             ),
-            style: TextStyle(
-              color: Palette.blackTextColor,
-              fontWeight: FontWeight.w400,
-              fontSize: 14.0,
-            ),
-            inputFormatters: widget.inputFormatters,
-            validator: widget.validator,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            keyboardType: widget.textInputType,
-            textInputAction: widget.textInputAction,
-            onChanged: widget.onChanged,
-            onEditingComplete: widget.onEditingCompleted,
-            textAlign: widget.textAlign ?? TextAlign.start,
-            maxLines: widget.maxLines,
-            minLines: widget.minLines,
-          ),
-        ),
-        if (widget.suffixIcon != null)
-          Column(
-            children: [
-              const SizedBox(width: 2),
-              widget.suffixIcon!,
-            ],
-          ),
-      ],
-    );
+            if (widget.suffixIcon != null)
+              Column(
+                children: [
+                  const SizedBox(width: 2),
+                  widget.suffixIcon!,
+                ],
+              ),
+          ],
+        ));
   }
 }
