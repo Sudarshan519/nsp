@@ -12,6 +12,7 @@ import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -255,11 +256,12 @@ class _AmountWidget extends StatelessWidget {
           return TextWidetWithLabelAndChild(
             title: "Amount",
             child: InputTextWidget(
+              inputFormatters: [CurrencyInputFormatter()],
               hintText: "¥ 100",
               textInputType: TextInputType.number,
               value: state.amount,
               onChanged: (value) => context.read<TopupViaStripeBloc>().add(
-                    TopupViaStripeEvent.changeAmount(value),
+                    TopupViaStripeEvent.changeAmount(value.replaceAll(',', '')),
                   ),
             ),
           );

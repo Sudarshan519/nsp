@@ -13,6 +13,7 @@ import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_chi
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
@@ -305,12 +306,13 @@ class _AmountWidget extends StatelessWidget {
             key: state.key,
             title: "Enter Amount",
             child: InputTextWidget(
+              inputFormatters: [CurrencyInputFormatter()],
               hintText: "रू 1000",
               textInputType: TextInputType.number,
               value: state.amount,
               onChanged: (value) => context
                   .read<PrabhuPayFormCubit>()
-                  .updateAmountFromForm(value),
+                  .updateAmountFromForm(value.replaceAll(',', '')),
             ),
           );
         },

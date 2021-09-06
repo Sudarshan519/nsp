@@ -57,11 +57,9 @@ class _InputTextWidgetState extends State<InputTextWidget> {
         child: Row(
           children: [
             if (widget.prefixIcon != null)
-              Column(
-                children: [
-                  widget.prefixIcon!,
-                  const SizedBox(width: 10),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(right: 4),
+                child: widget.prefixIcon,
               ),
             Expanded(
               child: TextFormField(
@@ -114,13 +112,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                 minLines: widget.minLines,
               ),
             ),
-            if (widget.suffixIcon != null)
-              Column(
-                children: [
-                  const SizedBox(width: 2),
-                  widget.suffixIcon!,
-                ],
-              ),
+            if (widget.suffixIcon != null) widget.suffixIcon!,
           ],
         ));
   }

@@ -14,6 +14,7 @@ import 'package:wallet_app/features/transaction/presentation/transaction/transac
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
+import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -274,11 +275,13 @@ class _AmountWidget extends StatelessWidget {
             key: state.key,
             title: "Enter Amount",
             child: InputTextWidget(
+              inputFormatters: [CurrencyInputFormatter()],
               hintText: "रू 1000",
-              textInputType: TextInputType.phone,
+              textInputType: TextInputType.number,
               value: state.amount,
-              onChanged: (value) =>
-                  context.read<EsewaFormCubit>().updateAmountFromForm(value),
+              onChanged: (value) => context
+                  .read<EsewaFormCubit>()
+                  .updateAmountFromForm(value.replaceAll(',', '')),
             ),
           );
         },
