@@ -126,7 +126,7 @@ class _TransactionBuilderState extends State<TransactionBuilder>
             _searchWidget(),
             if (_showFilter) _dateFilterWidget(context),
             if (listToShow.isEmpty)
-              const InfoWidget(message: 'No data available')
+              const InfoWidget(message: 'No transaction data available')
             else
               TransactionListView(items: listToShow)
           ],
@@ -385,26 +385,28 @@ class InfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        // width: 500,
-        padding: const EdgeInsets.all(22.0),
-        child: Column(
-          children: [
-            const Icon(
-              Icons.info,
-              size: 25,
-            ),
-            const SizedBox(
-              height: 7,
-            ),
-            Text(
-              message,
-              maxLines: 2,
-              textScaleFactor: 0.8,
-            )
-          ],
-        ),
+    return Container(
+      // width: 500,
+      padding: const EdgeInsets.all(22.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 60,
+          ),
+          const Icon(
+            Icons.info,
+            size: 26,
+          ),
+          const SizedBox(
+            height: 7,
+          ),
+          Text(
+            message,
+            maxLines: 2,
+            textScaleFactor: 0.84,
+          )
+        ],
       ),
     );
   }
