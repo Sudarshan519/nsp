@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
@@ -9,6 +10,34 @@ class GeoLocationManager {
   }
 
   String? _latLng;
+
+  ///makes sure to ask for location persmission when denied
+  ///
+  ///and open location services if turned off
+  Future<Either<Position, String>> getForcedLocation() async {
+    final isLocationServiceEnabled =
+        await Geolocator.isLocationServiceEnabled();
+    if (!isLocationServiceEnabled) {
+      await Geolocator.openLocationSettings();
+      return const Right('Please turn on location settings!');
+    }
+
+    var perm = await Geolocator.checkPermission();
+    if (perm == LocationPermission.deniedForever ||
+        perm == LocationPermission.denied) {
+      perm = await Geolocator.requestPermission();
+      if (perm == LocationPermission.deniedForever ||
+          perm == LocationPermission.denied) {
+        return const Right('Please enable location permission!');
+      }
+    }
+    final position = await GeolocatorPlatform.instance.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.bestForNavigation,
+        forceAndroidLocationManager: true);
+    _latLng = '${position.latitude}:${position.longitude}';
+
+    return Left(position);
+  }
 
   Future initialise() async {
     LocationPermission permission;

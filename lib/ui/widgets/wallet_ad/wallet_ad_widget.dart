@@ -14,10 +14,13 @@ class WalletAdWidget extends StatelessWidget {
     Widget _googleAd(Admob? admob) {
       if (admob != null && (admob.banner?.status ?? false)) {
         return Container(
+          width: MediaQuery.of(context).size.width,
           height: height,
           color: Colors.transparent,
           child: AdWidget(
             ad: WalletAdService.creategoogleAd(
+                height: height.toInt(),
+                width: MediaQuery.of(context).size.width.truncate(),
                 bannerId: admob.banner?.name ?? '',
                 onSuccess: (ad) {
                   context.read<AdsBloc>().add(AdsEvent.refreshAd(

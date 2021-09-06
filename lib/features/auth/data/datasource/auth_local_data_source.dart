@@ -6,6 +6,8 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/logger/logger.dart';
+import 'package:wallet_app/features/alerts/data/models/alert_places_model.dart';
+import 'package:wallet_app/features/alerts/domain/entity/alert_places.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
@@ -27,6 +29,9 @@ abstract class AuthLocalDataSource {
   Future<Map<String, dynamic>> getAppleUser();
   DateTime? getKycPromptDate();
   void setKycPromptDate();
+
+  Place? getAlertLocation();
+  void setAlertLocation(PlaceModel? location);
 }
 
 @LazySingleton(as: AuthLocalDataSource)
@@ -99,6 +104,24 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
     final result = preferences.setString(
         AuthPreferenceKeys.kycVerificationPromptDate,
         DateTime.now().toString());
+  }
+
+  @override
+  Place? getAlertLocation() {
+    final location = preferences.getString(AuthPreferenceKeys.alert_location);
+    if (location != null) {
+      return PlaceModel.fromJson(json.decode(location) as Map<String, dynamic>);
+    }
+  }
+
+  @override
+  void setAlertLocation(PlaceModel? city) {
+    if (city == null) {
+      preferences.remove(AuthPreferenceKeys.alert_location);
+    } else {
+      final location = json.encode(city.toJson());
+      preferences.setString(AuthPreferenceKeys.alert_location, location);
+    }
   }
 
   // User Details

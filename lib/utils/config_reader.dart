@@ -11,6 +11,7 @@ abstract class ConfigReader {
   String get resumeBaseUrl;
   String get alertBaseUrl;
   String get apiPath;
+  String get bosaiCloudUrl;
   bool get isDebugApp;
 }
 
@@ -40,6 +41,14 @@ class ConfigReaderImpl implements ConfigReader {
       return "";
     }
     return _config?['mirai_life_base_url'] as String? ?? "";
+  }
+
+  @override
+  String get bosaiCloudUrl {
+    if (_config == null) {
+      return "";
+    }
+    return _config?['bosai_cloud_url'] as String? ?? "";
   }
 
   @override

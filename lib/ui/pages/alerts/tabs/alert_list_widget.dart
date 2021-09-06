@@ -13,17 +13,26 @@ class AlertWidget extends StatelessWidget {
     required this.alert,
   }) : super(key: key);
 
+  String detailtext(bool isEarthQuake) {
+    final time = alert.occurredValue ?? '';
+    final detail = isEarthQuake
+        ? "Maximum seismic intensity ${alert.magnitudeValue}"
+        : "${alert.levelTitle} ${alert.levelValue} (Do not approach the volcano)";
+    final combine = '$time\n$detail';
+    return combine;
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 0.1;
     final isEarthQuake = alert.label?.toLowerCase() == "earthquake";
     return ListTile(
       onTap: () => context.router.push(AlertDetailRoute(alert: alert)),
-      contentPadding: const EdgeInsets.all(12),
+      contentPadding:
+          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
       leading: Container(
         width: 70,
         height: 50,
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         decoration: BoxDecoration(
           color: Palette.primary,
           borderRadius: BorderRadius.circular(15),
@@ -65,31 +74,16 @@ class AlertWidget extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 3,
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 6.0),
+        child: Text(
+          detailtext(isEarthQuake),
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: Palette.black.withOpacity(0.5),
           ),
-          Text(
-            alert.occurredValue ?? '',
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: Palette.black.withOpacity(0.5),
-            ),
-          ),
-          Text(
-            isEarthQuake
-                ? "Maximum seismic intensity ${alert.magnitudeValue}"
-                : "${alert.levelTitle} ${alert.levelValue} (Do not approach the volcano)",
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: Palette.black.withOpacity(0.5),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

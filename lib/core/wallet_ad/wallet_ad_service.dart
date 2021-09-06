@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:facebook_audience_network/facebook_audience_network.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -21,10 +20,12 @@ class WalletAdService {
 
   static BannerAd creategoogleAd(
       {required String bannerId,
+      required int width,
+      required int height,
       required Function(LoadAdError) onError,
       required Function(Ad) onSuccess}) {
     return BannerAd(
-        size: AdSize.fullBanner,
+        size: AdSize(height: height, width: width),
         adUnitId: bannerId,
         listener: BannerAdListener(
           onAdClosed: (ad) {},

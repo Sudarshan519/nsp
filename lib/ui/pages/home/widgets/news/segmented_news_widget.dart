@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sliver_tools/sliver_tools.dart';
@@ -237,17 +238,9 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
       child: Column(
         children: [
           if (showAlerts)
-            Column(
-              children: [
-                Container(
-                    margin: const EdgeInsets.only(left: 5),
-                    height: 82,
-                    child: _latestAlertBody(context, isHorizontal: true)),
-                const Divider(
-                  thickness: 0.8,
-                )
-              ],
-            ),
+            SizedBox(
+                height: 110,
+                child: _latestAlertBody(context, isHorizontal: true)),
           ListView.builder(
             primary: false,
             physics: const NeverScrollableScrollPhysics(),
@@ -345,18 +338,34 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   }
 
   Widget _showAlertListHorizontal(List<Alert> alerts) {
-    return ListView.builder(
-      primary: false,
-      scrollDirection: Axis.horizontal,
-      itemCount: alerts.length,
-      itemBuilder: (context, index) {
-        return SizedBox(
-          width: MediaQuery.of(context).size.width * 0.899,
-          child: AlertWidget(
-            alert: alerts[index],
+    final controller = CarouselController();
+    return Column(
+      children: [
+        CarouselSlider(
+          carouselController: controller,
+          options: CarouselOptions(
+            height: 70,
+            viewportFraction: 1,
           ),
-        );
-      },
+          items: alerts.map((alert) {
+            return AlertWidget(alert: alert);
+          }).toList(),
+        ),
+        Row(
+          children: [
+            InkWell(
+                onTap: () => controller.previousPage(),
+                child: const Icon(Icons.chevron_left)),
+            const Spacer(),
+            InkWell(
+                onTap: () => controller.nextPage(),
+                child: const Icon(Icons.chevron_right)),
+          ],
+        ),
+        const Divider(
+          height: 0.8,
+        )
+      ],
     );
   }
 }

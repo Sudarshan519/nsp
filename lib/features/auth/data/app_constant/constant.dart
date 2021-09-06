@@ -15,4 +15,5 @@ class AuthPreferenceKeys {
   static const userDetails = "user_details";
   static const appleUser = "apple_user";
   static const kycVerificationPromptDate = 'kyc_prompt_date';
+  static const alert_location = 'alert_location';
 }

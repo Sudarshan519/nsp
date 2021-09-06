@@ -296,8 +296,10 @@ class AlertDetailPage extends StatelessWidget {
 class _DetailMapView extends StatelessWidget {
   final double lat;
   final double lng;
+  final Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
+  final MarkerId markerId = const MarkerId('pin_point');
 
-  const _DetailMapView({
+  _DetailMapView({
     Key? key,
     required this.lat,
     required this.lng,
@@ -305,7 +307,16 @@ class _DetailMapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // creating a new MARKER
+    final Marker marker = Marker(
+      markerId: markerId,
+      position: LatLng(lat, lng),
+      infoWindow: const InfoWindow(title: 'Alert Point'),
+    );
+    markers[markerId] = marker;
+
     return GoogleMap(
+      markers: Set<Marker>.of(markers.values),
       initialCameraPosition: CameraPosition(
         target: LatLng(lat, lng),
         zoom: 12,
