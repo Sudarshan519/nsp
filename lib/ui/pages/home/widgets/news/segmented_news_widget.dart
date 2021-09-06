@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
+import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bloc.dart';
 import 'package:wallet_app/features/news/domain/entity/news_item.dart';
 import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
@@ -33,6 +34,7 @@ class SegmentedNewsViewWidget extends StatefulWidget {
 
 class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   late int _selectedIndex;
+  double height = 0;
 
   @override
   void initState() {
@@ -48,6 +50,8 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+
     return MultiSliver(
       children: [
         _header(context),
@@ -185,10 +189,7 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   Widget _forYouBody(BuildContext context) {
     return BlocBuilder<NewsBloc, NewsState>(builder: (context, state) {
       return state.map(
-        loading: (_) => SizedBox(
-          height: 70,
-          child: loadingPage(),
-        ),
+        loading: (_) => const SizedBox(),
         loadingWith: (data) {
           final newsList = data.offlinedata;
           return _newsData(newsList);
@@ -231,50 +232,70 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
     });
   }
 
-  Widget _newsData(List<NewsItem> newsList, {bool showAlerts = false}) {
-    return ShadowBoxWidget(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Column(
-        children: [
-          if (showAlerts)
-            SizedBox(
-                height: 110,
-                child: _latestAlertBody(context, isHorizontal: true)),
-          ListView.builder(
-            primary: false,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: newsList.length,
-            itemBuilder: (context, index) {
-              return NewsItemWidget(
-                newsItem: newsList[index],
-              );
-            },
-          ),
-          SizedBox(
-            height: 10,
-            child: loadingPage(),
-          ),
-          Center(
-            child: CustomButton(
-              title: "View All",
-              textStyle: TextStyle(
-                color: Palette.white,
-                fontSize: 10,
-                fontWeight: FontWeight.w600,
+  Widget selectLocationButton() {
+    return BlocBuilder<GetAlertLocationBloc, GetAlertLocationState>(
+        builder: (context, state) {
+      return state.map(
+          initial: (_) => const SizedBox(),
+          loaded: (_) => const SizedBox(),
+          makeChanges: (fail) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 14.0),
+              child: CustomButton(
+                title: 'Set Alert Location',
+                onTap: () => context.pushRoute(const AlertsTabRoute()),
+                svgAsset: 'assets/images/resume/mapMarker.svg',
               ),
-              onTap: () {
-                DefaultTabController.of(context)?.animateTo(2);
-                if (_selectedIndex == 1) {
-                  widget.changeNewsTabPage(1);
-                }
-                widget.changeTabPage(2);
-              },
-            ),
+            );
+          });
+    });
+  }
+
+  Widget _newsData(List<NewsItem> newsList, {bool showAlerts = false}) {
+    return Column(
+      children: [
+        if (showAlerts) _latestAlertBody(context, isHorizontal: true),
+        ShadowBoxWidget(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.only(bottom: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ListView.builder(
+                primary: false,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: newsList.length,
+                itemBuilder: (context, index) {
+                  return NewsItemWidget(
+                    newsItem: newsList[index],
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: CustomButton(
+                  title: "View All",
+                  textStyle: TextStyle(
+                    color: Palette.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  onTap: () {
+                    DefaultTabController.of(context)?.animateTo(2);
+                    if (_selectedIndex == 1) {
+                      widget.changeNewsTabPage(1);
+                    }
+                    widget.changeTabPage(2);
+                  },
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -287,9 +308,8 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
           height: 70,
           child: loadingPage(),
         ),
-        loadingWithData: (data) => !isHorizontal
-            ? _showAlertList(data.alerts)
-            : _showAlertListHorizontal(data.alerts),
+        loadingWithData: (data) =>
+            !isHorizontal ? _showAlertList(data.alerts) : const SizedBox(),
         success: (success) => !isHorizontal
             ? _showAlertList(success.alerts)
             : _showAlertListHorizontal(success.alerts),
@@ -299,73 +319,139 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
   }
 
   Widget _showAlertList(List<Alert> alerts) {
-    return ShadowBoxWidget(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Column(
-        children: [
-          ListView.builder(
-            primary: false,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: alerts.length,
-            itemBuilder: (context, index) {
-              return AlertWidget(
-                alert: alerts[index],
-              );
-            },
-          ),
-          SizedBox(
-            height: 10,
-            child: loadingPage(),
-          ),
-          Center(
-            child: CustomButton(
-              title: "View All",
-              textStyle: TextStyle(
-                color: Palette.white,
-                fontSize: 10,
-                fontWeight: FontWeight.w600,
+    return Column(
+      children: [
+        selectLocationButton(),
+        ShadowBoxWidget(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.only(bottom: 16, top: 12),
+          child: Column(
+            children: [
+              ListView.separated(
+                primary: false,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: alerts.length,
+                separatorBuilder: (context, index) => const Divider(
+                  height: 1,
+                ),
+                itemBuilder: (context, index) {
+                  return AlertWidget(
+                    alert: alerts[index],
+                  );
+                },
               ),
-              onTap: () {
-                context.pushRoute(const AlertsTabRoute());
-              },
-            ),
+              SizedBox(
+                height: 10,
+                child: loadingPage(),
+              ),
+              Center(
+                child: CustomButton(
+                  title: "View All",
+                  textStyle: TextStyle(
+                    color: Palette.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  onTap: () => context.pushRoute(const AlertsTabRoute()),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _showAlertListHorizontal(List<Alert> alerts) {
+    var displayList = alerts;
     final controller = CarouselController();
-    return Column(
-      children: [
-        CarouselSlider(
-          carouselController: controller,
-          options: CarouselOptions(
-            height: 70,
-            viewportFraction: 1,
+    const limit = 5;
+
+    if (displayList.length > limit) {
+      ///showing only first [limit] alerts
+      displayList = alerts.sublist(0, limit - 1);
+    }
+    const arrowSize = 22.0;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              GestureDetector(
+                  onTap: () => controller.previousPage(),
+                  child: Container(
+                      height: arrowSize,
+                      color: Colors.grey.shade300,
+                      child: const Icon(
+                        Icons.chevron_left,
+                        size: arrowSize,
+                      ))),
+              const SizedBox(
+                width: 7,
+              ),
+              GestureDetector(
+                  onTap: () => controller.nextPage(),
+                  child: Container(
+                      height: arrowSize,
+                      color: Colors.grey.shade300,
+                      child: const Icon(
+                        Icons.chevron_right,
+                        size: arrowSize,
+                      ))),
+              const SizedBox(
+                width: 16,
+              ),
+            ],
           ),
-          items: alerts.map((alert) {
-            return AlertWidget(alert: alert);
-          }).toList(),
-        ),
-        Row(
-          children: [
-            InkWell(
-                onTap: () => controller.previousPage(),
-                child: const Icon(Icons.chevron_left)),
-            const Spacer(),
-            InkWell(
-                onTap: () => controller.nextPage(),
-                child: const Icon(Icons.chevron_right)),
-          ],
-        ),
-        const Divider(
-          height: 0.8,
-        )
-      ],
+          Container(
+            padding: const EdgeInsets.only(top: 6),
+            height: height * 0.14,
+            child: CarouselSlider.builder(
+              carouselController: controller,
+              options: CarouselOptions(
+                height: 400,
+                viewportFraction: 1,
+                disableCenter: true,
+              ),
+              itemCount: displayList.length,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) {
+                return Column(
+                  children: [
+                    AlertWidget(alert: displayList[itemIndex]),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List<Widget>.generate(
+                          displayList.length,
+                          (index) => Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 2),
+                                child: Icon(
+                                  index == itemIndex
+                                      ? Icons.circle_rounded
+                                      : Icons.circle_outlined,
+                                  size: 10,
+                                ),
+                              )),
+                    )
+                  ],
+                );
+              },
+            ),
+          ),
+          const Divider(
+            height: 1,
+          ),
+          const SizedBox(
+            height: 4,
+          )
+        ],
+      ),
     );
   }
 }

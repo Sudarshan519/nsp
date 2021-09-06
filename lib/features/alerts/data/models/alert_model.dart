@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
 
-List<AlertModel> alertModelFromJson(String str) =>
-    List<AlertModel>.from((json.decode(str) as Iterable)
-        .map((x) => AlertModel.fromJson(x as Map<String, dynamic>)));
+List<AlertModel> alertModelFromJson(String str) {
+  final jsondata = json.decode(str) as Iterable;
+  return List<AlertModel>.from(
+      jsondata.map((x) => AlertModel.fromJson(x as Map<String, dynamic>)));
+}
 
 class AlertModel extends Alert {
   const AlertModel({

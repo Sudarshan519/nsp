@@ -24,29 +24,29 @@ class AlertWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width * 0.1;
+    final size = MediaQuery.of(context).size;
     final isEarthQuake = alert.label?.toLowerCase() == "earthquake";
     return ListTile(
       onTap: () => context.router.push(AlertDetailRoute(alert: alert)),
       contentPadding:
-          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+          const EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),
       leading: Container(
-        width: 70,
-        height: 50,
-        decoration: BoxDecoration(
-          color: Palette.primary,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Center(
-          child: SvgPicture.asset(
-            isEarthQuake
-                ? "assets/images/alerts/earthquake-info.svg"
-                : "assets/images/alerts/volcano-alerts.svg",
-            color: Palette.white,
-            height: width,
+          padding: const EdgeInsets.all(2),
+          // width: 50,
+          // height: 50,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            color: Palette.primary,
           ),
-        ),
-      ),
+          child: SizedBox(
+            child: SvgPicture.asset(
+              isEarthQuake
+                  ? "assets/images/alerts/earthquake-info.svg"
+                  : "assets/images/alerts/volcano-alerts.svg",
+              fit: BoxFit.scaleDown,
+              color: Colors.white,
+            ),
+          )),
       trailing: isEarthQuake
           ? CircleAvatar(
               radius: 18,
@@ -67,23 +67,22 @@ class AlertWidget extends StatelessWidget {
         isEarthQuake
             ? alert.epicenterValue ?? ""
             : alert.volcanoNameValue ?? "",
-        style: const TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.bold,
-        ),
+        textScaleFactor: 0.74,
+        style: const TextStyle(fontWeight: FontWeight.w700),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
-      subtitle: Padding(
-        padding: const EdgeInsets.only(top: 6.0),
-        child: Text(
-          detailtext(isEarthQuake),
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            color: Palette.black.withOpacity(0.5),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 4,
           ),
-        ),
+          Text(
+            detailtext(isEarthQuake),
+            textScaleFactor: 0.8,
+          ),
+        ],
       ),
     );
   }

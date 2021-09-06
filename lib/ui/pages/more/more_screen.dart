@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/notification/push_notification_manager.dart';
@@ -13,6 +12,8 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/pop_up/pop_up_confirmation.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
+import 'more_item.dart';
+
 class MorePage extends StatelessWidget {
   MorePage({
     Key? key,
@@ -21,7 +22,7 @@ class MorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _profileData = _getProfileList(context);
+    final _listItemData = _getItemList(context);
     return Scaffold(
       appBar: HomeAppBar(
         scrollController: scrollController,
@@ -40,14 +41,10 @@ class MorePage extends StatelessWidget {
                 child: ListView.builder(
                   padding: const EdgeInsets.all(0),
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: _profileData.length,
+                  itemCount: _listItemData.length,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return _ProfileItem(
-                      imageName: _profileData[index].image,
-                      title: _profileData[index].title,
-                      onTap: _profileData[index].onTap,
-                    );
+                    return _listItemData[index];
                   },
                 ),
               ),
@@ -58,89 +55,52 @@ class MorePage extends StatelessWidget {
     );
   }
 
-  List<_ProfileData> _getProfileList(BuildContext context) {
+  List<Widget> _getItemList(BuildContext context) {
     return [
-      _ProfileData(
-        image: "icon-profile",
+      MoreItem(
+        imageName: "icon-profile",
         title: "Profile",
         onTap: () => context.pushRoute(const ProfileRoute()),
       ),
 
-      _ProfileData(
-        image: "icon-coupon",
+      MoreItem(
+        imageName: "icon-coupon",
         title: "Coupons",
         onTap: () => context.pushRoute(const CouponRoute()),
       ),
-      _ProfileData(
-        image: "icon-jap-manner",
+      MoreItem(
+        imageName: "icon-jap-manner",
         title: "Japanese Manners",
         onTap: () => context.pushRoute(JapaneseMannerRoute()),
       ),
-      _ProfileData(
-        image: "icon-partner",
+      MoreItem(
+        imageName: "icon-partner",
         title: "Partner Services",
         onTap: () => context.pushRoute(PartnerServicesRoute()),
       ),
-      _ProfileData(
-        image: "icon-alerts",
+      MoreItem(
+        imageName: "icon-alerts",
         title: "Alerts",
         onTap: () => context.pushRoute(const AlertsTabRoute()),
       ),
-      // _ProfileData(
-      //   image: "icon-about",
+      MoreItem(
+        imageName: "icon-partner",
+        title: "Settings",
+        onTap: () => context.pushRoute(const SettingsRoute()),
+      ),
+      // MoreItem(
+      //   imageName:"icon-about",
       //   title: "About",
       //   onTap: () {},
       // ),
-      // _ProfileData(
-      //   image: "icon-contact",
+      // MoreItem(
+      //   imageName:"icon-contact",
       //   title: "Contact",
       //   onTap: () {},
       // ),
-      _ProfileData(
-        image: "icon-terms",
-        title: "Refund Policy",
-        onTap: () {
-          context.pushRoute(
-            AppWebViewRoute(
-                url: "https://bnpj.jp/refund-policy", title: "Refund Policy"),
-          );
-        },
-      ),
-      _ProfileData(
-        image: "icon-terms",
-        title: "Transactions Law",
-        onTap: () {
-          context.pushRoute(
-            AppWebViewRoute(
-                url: "https://bnpj.jp/transactions-law",
-                title: "Transactions Law"),
-          );
-        },
-      ),
-      _ProfileData(
-        image: "icon-privacy-policy",
-        title: "Privacy Policy",
-        onTap: () {
-          context.pushRoute(
-            AppWebViewRoute(
-                url: "https://bnpj.jp/privacy-policy", title: "Privacy Policy"),
-          );
-        },
-      ),
-      _ProfileData(
-        image: "icon-terms",
-        title: "Terms and Conditions",
-        onTap: () {
-          context.pushRoute(
-            AppWebViewRoute(
-              url: "https://bnpj.jp/terms-conditions",
-              title: "Terms and Conditions",
-            ),
-          );
-        },
-      ),
-      _ProfileData(
-        image: "icon-logout",
+
+      MoreItem(
+        imageName: "icon-logout",
         title: "Logout",
         onTap: () {
           showDialog(
@@ -161,58 +121,4 @@ class MorePage extends StatelessWidget {
       ),
     ];
   }
-}
-
-class _ProfileItem extends StatelessWidget {
-  final String imageName;
-  final String title;
-  final Function() onTap;
-
-  const _ProfileItem({
-    Key? key,
-    required this.imageName,
-    required this.title,
-    required this.onTap,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-        child: Row(
-          children: [
-            SvgPicture.asset(
-              "assets/images/more/$imageName.svg",
-              height: 30.0,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              title,
-              style: TextStyle(
-                color: Palette.black,
-                fontSize: 12,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ProfileData {
-  final String image;
-  final String title;
-  final Function() onTap;
-
-  _ProfileData({
-    required this.image,
-    required this.title,
-    required this.onTap,
-  });
 }

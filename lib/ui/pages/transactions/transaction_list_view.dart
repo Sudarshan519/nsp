@@ -47,7 +47,7 @@ class TransactionBuilder extends StatefulWidget {
 
 class _TransactionBuilderState extends State<TransactionBuilder>
     with SingleTickerProviderStateMixin {
-  DateTime from = DateTime.now().subtract(const Duration(days: 7));
+  DateTime from = DateTime.now().subtract(const Duration(days: 30));
   DateTime to = DateTime.now();
   TabController? _tabController;
   List<TransactionItem> _activeList = [];
@@ -118,16 +118,19 @@ class _TransactionBuilderState extends State<TransactionBuilder>
         _searchController.text.isEmpty ? _activeList : _searchList;
 
     return Expanded(
-      child: Column(
-        children: [
-          _tabBar(),
-          _searchWidget(),
-          if (_showFilter) _dateFilterWidget(context),
-          if (listToShow.isEmpty)
-            const InfoWidget(message: 'No data available')
-          else
-            TransactionListView(items: listToShow)
-        ],
+      child: Scrollbar(
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            _tabBar(),
+            _searchWidget(),
+            if (_showFilter) _dateFilterWidget(context),
+            if (listToShow.isEmpty)
+              const InfoWidget(message: 'No transaction data available')
+            else
+              TransactionListView(items: listToShow)
+          ],
+        ),
       ),
     );
   }
@@ -382,26 +385,28 @@ class InfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        // width: 500,
-        padding: const EdgeInsets.all(22.0),
-        child: Column(
-          children: [
-            const Icon(
-              Icons.info,
-              size: 25,
-            ),
-            const SizedBox(
-              height: 7,
-            ),
-            Text(
-              message,
-              maxLines: 2,
-              textScaleFactor: 0.8,
-            )
-          ],
-        ),
+    return Container(
+      // width: 500,
+      padding: const EdgeInsets.all(22.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 60,
+          ),
+          const Icon(
+            Icons.info,
+            size: 26,
+          ),
+          const SizedBox(
+            height: 7,
+          ),
+          Text(
+            message,
+            maxLines: 2,
+            textScaleFactor: 0.84,
+          )
+        ],
       ),
     );
   }
@@ -413,23 +418,21 @@ class TransactionListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ShadowBoxWidget(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
-        margin: const EdgeInsets.symmetric(vertical: 11, horizontal: 10),
-        child: ListView.separated(
-          shrinkWrap: true,
-          // physics: const NeverScrollableScrollPhysics(),
-          itemCount: items.length,
-          separatorBuilder: (context, index) => const Divider(
-            indent: 12,
-            endIndent: 12,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            final transaction = items[index];
-            return TransactionViewItem(transaction: transaction);
-          },
+    return ShadowBoxWidget(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
+      margin: const EdgeInsets.symmetric(vertical: 11, horizontal: 10),
+      child: ListView.separated(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: items.length,
+        separatorBuilder: (context, index) => const Divider(
+          indent: 12,
+          endIndent: 12,
         ),
+        itemBuilder: (BuildContext context, int index) {
+          final transaction = items[index];
+          return TransactionViewItem(transaction: transaction);
+        },
       ),
     );
   }
@@ -464,6 +467,8 @@ class TransactionViewItem extends StatelessWidget {
         transaction.transactionName.toString(),
         textScaleFactor: 0.74,
         style: const TextStyle(fontWeight: FontWeight.w700),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
       ),
       subtitle: Text(
         '''${transaction.transactionType}\n${DateTimeFormatter.formatDate(transaction.createdAt.toString())} - ${DateTimeFormatter.formatTime(transaction.createdAt.toString())}''',

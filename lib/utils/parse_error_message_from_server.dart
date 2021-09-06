@@ -22,7 +22,11 @@ String? errorMessageFromServer(String message) {
     // search for a error key which is another json object
     final errorJson = data['error'] as Map<String, dynamic>;
     if (errorJson.length == 1) {
-      return errorJson.values.first as String;
+      if (errorJson.values.first is String) {
+        return errorJson.values.first as String;
+      } else {
+        return (errorJson.values.first as List<dynamic>).first.toString();
+      }
     }
 
     // get first key of the json error

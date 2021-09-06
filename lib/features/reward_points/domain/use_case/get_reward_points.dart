@@ -3,7 +3,6 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
-import 'package:wallet_app/features/reward_points/domain/entity/reward_point_item.dart';
 import 'package:wallet_app/features/reward_points/domain/entity/reward_points.dart';
 import 'package:wallet_app/features/reward_points/domain/repository/reward_point_repository.dart';
 

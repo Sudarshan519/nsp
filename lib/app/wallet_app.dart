@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/features/ads/presentation/get_ads/ads_bloc.dart';
+import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/favourite_news/favourite_news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
@@ -36,6 +37,11 @@ class WalletApp extends StatelessWidget {
             ..add(
               const NewsEvent.fetchNewsData(),
             ),
+        ),
+        BlocProvider(
+          create: (context) => getIt<GetAlertLocationBloc>()
+            ..add(const GetAlertLocationEvent.getlocation()),
+          lazy: false,
         ),
         BlocProvider(
           create: (context) => getIt<LatestNewsBloc>()

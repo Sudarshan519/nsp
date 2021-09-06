@@ -6,6 +6,8 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
 import 'package:wallet_app/features/alerts/domain/usecase/get_alerts.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
+import 'package:wallet_app/injections/injection.dart';
 
 part 'get_alerts_event.dart';
 part 'get_alerts_state.dart';
@@ -64,7 +66,13 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
         alerts.addAll(_alerts);
         // alerts = alerts.toSet().toList();
         isFetching = false;
-        return _Success(alerts);
+        final earthquakeThreshold =
+            getIt<AuthLocalDataSource>().getEarthquakeThreshold();
+        final filteredList = alerts
+            .where((element) =>
+                (element.magnitudeValue ?? 0) >= earthquakeThreshold)
+            .toList();
+        return _Success(filteredList);
       },
     );
   }

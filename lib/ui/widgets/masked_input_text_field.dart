@@ -1,4 +1,6 @@
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 
 class MaskedTextInputFormatter extends TextInputFormatter {
   final String mask;
@@ -28,5 +30,22 @@ class MaskedTextInputFormatter extends TextInputFormatter {
       }
     }
     return newValue;
+  }
+}
+
+class CurrencyInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    if (newValue.selection.baseOffset == 0) {
+      return newValue;
+    }
+
+    final String newText = currencyFormatterString(
+        value: newValue.text.replaceAll(',', ''), showSymbol: false);
+
+    return newValue.copyWith(
+        text: newText,
+        selection: TextSelection.collapsed(offset: newText.length));
   }
 }

@@ -12,6 +12,7 @@ import 'package:wallet_app/features/auth/data/datasource/auth_remote_data_source
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
 import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';
 import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dart';
+import 'package:wallet_app/features/auth/domain/usecase/change_password.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 @LazySingleton(as: AuthRepository)
@@ -281,6 +282,15 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Either<ApiFailure, Unit>> changePassword({
+    required ChangePasswordParams params,
+  }) {
+    return _postMethod(request: () {
+      return remoteDataSource.changePassword(params: params);
+    });
+  }
+
+  @override
   Future<Either<ApiFailure, Unit>> verifyEmail({
     required String email,
     required String code,
@@ -304,7 +314,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<ApiFailure, Unit>> changePassword({
+  Future<Either<ApiFailure, Unit>> resetPassword({
     required String email,
     required String code,
     required String password,

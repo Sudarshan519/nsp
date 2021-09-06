@@ -5,5 +5,7 @@ class GetAlertLocationEvent with _$GetAlertLocationEvent {
   const factory GetAlertLocationEvent.getlocation() = _Getlocation;
   const factory GetAlertLocationEvent.getPlaceFromGPS() = _GetPlaceFromGPS;
   const factory GetAlertLocationEvent.setCity(Place city) = _SetCity;
+  const factory GetAlertLocationEvent.setOtherPrefectures(
+      List<Place> otherPrefectures) = _SetOtherPrefectures;
   const factory GetAlertLocationEvent.removePlace() = _RemovePlace;
 }

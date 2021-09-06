@@ -9,11 +9,11 @@ import 'package:wallet_app/features/alerts/presentation/get_alerts/get_alerts_bl
 import 'package:wallet_app/features/alerts/presentation/get_earthquakes/get_earthquakes_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_weathers/get_weathers_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/alerts/alert_settings/alert_setting_page.dart';
 import 'package:wallet_app/ui/pages/alerts/tabs/weather_list_page.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
-import 'location/select_location_page.dart';
 import 'tabs/alert_list_page.dart';
 import 'tabs/earthquake_list_page.dart';
 import 'tabs/volcano_list_page.dart';
@@ -25,30 +25,25 @@ class AlertsTabPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: BlocProvider(
-        create: (_) => getIt<GetAlertLocationBloc>()
-          ..add(const GetAlertLocationEvent.getlocation()),
-        child: BlocConsumer<GetAlertLocationBloc, GetAlertLocationState>(
-          listener: (_, state) {},
-          builder: (context, state) {
-            return state.map(
-                initial: (_) => loadingPage(),
-                loaded: (_) => _AlertsTab(),
-                failure: (fail) {
-                  SchedulerBinding.instance?.addPostFrameCallback((_) {
-                    FlushbarHelper.createError(
-                        duration: const Duration(seconds: 4),
-                        message: fail.failure.map(
-                            serverError: (serverError) => serverError.message,
-                            invalidUser: (error) => 'Invalid User',
-                            noInternetConnection: (noInternetConnection) =>
-                                AppConstants.noNetwork)).show(context);
-                  });
-
-                  return const SelectLocationPage();
+      child: BlocBuilder<GetAlertLocationBloc, GetAlertLocationState>(
+        builder: (context, state) {
+          return state.map(
+              initial: (_) => loadingPage(),
+              loaded: (_) => _AlertsTab(),
+              makeChanges: (fail) {
+                SchedulerBinding.instance?.addPostFrameCallback((_) {
+                  FlushbarHelper.createInformation(
+                      duration: const Duration(seconds: 4),
+                      message: fail.failure.map(
+                          serverError: (serverError) => serverError.message,
+                          invalidUser: (error) => 'Invalid User',
+                          noInternetConnection: (noInternetConnection) =>
+                              AppConstants.noNetwork)).show(context);
                 });
-          },
-        ),
+
+                return const AlertSettingsPage();
+              });
+        },
       ),
     );
   }
@@ -74,12 +69,12 @@ class __AlertsTabState extends State<_AlertsTab>
     Tab(
       icon: SvgPicture.asset(
         "assets/images/alerts/latest-alerts.svg",
-        height: 20.0,
+        height: 17.0,
       ),
       child: const Text(
         "Latest Alerts",
         style: TextStyle(
-          fontSize: 10,
+          fontSize: 9,
         ),
         textAlign: TextAlign.center,
       ),
@@ -87,33 +82,33 @@ class __AlertsTabState extends State<_AlertsTab>
     Tab(
       icon: SvgPicture.asset(
         "assets/images/alerts/earthquake-info.svg",
-        height: 20.0,
+        height: 17.0,
       ),
       child: const Text(
         "Earthquake Info",
-        style: TextStyle(fontSize: 10),
+        style: TextStyle(fontSize: 9),
         textAlign: TextAlign.center,
       ),
     ),
     Tab(
       icon: SvgPicture.asset(
         "assets/images/alerts/volcano-alerts.svg",
-        height: 20.0,
+        height: 17.0,
       ),
       child: const Text(
         "Volcano Alert",
-        style: TextStyle(fontSize: 10),
+        style: TextStyle(fontSize: 9),
         textAlign: TextAlign.center,
       ),
     ),
     Tab(
       icon: SvgPicture.asset(
         "assets/images/alerts/weather-info.svg",
-        height: 20.0,
+        height: 17.0,
       ),
       child: const Text(
         "Weather Info",
-        style: TextStyle(fontSize: 10),
+        style: TextStyle(fontSize: 9),
         textAlign: TextAlign.center,
       ),
     ),
@@ -143,8 +138,7 @@ class __AlertsTabState extends State<_AlertsTab>
         actions: [
           IconButton(
               onPressed: () {
-                context
-                    .read<GetAlertLocationBloc>()
+                getIt<GetAlertLocationBloc>()
                     .add(const GetAlertLocationEvent.removePlace());
               },
               icon: const Icon(

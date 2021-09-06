@@ -21,7 +21,7 @@ class GetVolcanoes
   Future<Either<ApiFailure, List<Alert>>> call(
       GetVolcanoesParams params) async {
     if (await networkInfo.isConnected) {
-      return repository.getVolcanoes(limit: params.limit);
+      return repository.getVolcanoes(limit: params.limit, code: params.code);
     } else {
       return const Left(ApiFailure.noInternetConnection());
     }
@@ -30,8 +30,10 @@ class GetVolcanoes
 
 class GetVolcanoesParams {
   final int limit;
+  String? code;
 
   GetVolcanoesParams({
     required this.limit,
+    this.code,
   });
 }

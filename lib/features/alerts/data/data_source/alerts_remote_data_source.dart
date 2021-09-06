@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
@@ -11,7 +10,6 @@ import 'package:wallet_app/features/alerts/data/constants/constant.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_model.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_places_model.dart';
 import 'package:wallet_app/features/alerts/data/models/weather_model.dart';
-import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -28,8 +26,10 @@ abstract class AlertRemoteDataSource {
     required Map<String, String> params,
   });
 
-  Future<List<WeatherModel>> getWeather();
+  Future<List<WeatherModel>> getWeather({required Map<String, dynamic> params});
   Future<AlertPlacesModel> getAlertPlaces();
+
+  ///This method not only gets place from GPS but also registers firebase token for alert notification
   Future<PlaceModel> getPlaceFromGPS();
 }
 
@@ -42,7 +42,6 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   final _header = {
     'Accept': 'application/json',
     "Content-Type": "application/json",
-    'x-api-key': AlertAppConstant.API_KEY,
   };
 
   AlertRemoteDataSourceImpl({
@@ -65,8 +64,11 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   Future<List<AlertModel>> getEarthquakes({
     required Map<String, String> params,
   }) {
+    final url = params.containsKey('code')
+        ? AlertApiEndpoints.getEarthquakeDetails
+        : AlertApiEndpoints.getEarthquakes;
     return _getAlertList(
-      uri: AlertApiEndpoints.getEarthquakes,
+      uri: url,
       params: params,
     );
   }
@@ -91,7 +93,7 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
     final url = "${config.alertBaseUrl}$uri?$queryString";
 
     try {
-      response = await client.get(
+      response = await http.get(
         Uri.parse(url),
         headers: _header,
       );
@@ -136,26 +138,9 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
   }
 
   @override
-  Future<List<WeatherModel>> getWeather() async {
+  Future<List<WeatherModel>> getWeather(
+      {required Map<String, dynamic> params}) async {
     http.Response response;
-
-    final data = getIt<AuthLocalDataSource>().getAlertLocation();
-
-    final params = {
-      "client-name": AlertAppConstant.clientName,
-      "client-token": AlertAppConstant.clientToken,
-      'type': '2',
-      'lang': 'en'
-    };
-    if (data != null) {
-      params.addAll({
-        if (data.regionCode != -1) 'region_code': data.regionCode.toString(),
-        if (data.cityCode != -1) 'city_code': data.cityCode.toString(),
-        if (data.prefectureCode != -1)
-          'prefecture_code': data.prefectureCode.toString(),
-        if (data.villageCode != -1) 'village_code': data.villageCode.toString(),
-      });
-    }
 
     final String queryString = Uri(queryParameters: params).query;
 
@@ -219,29 +204,32 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
     }
   }
 
+  ///This method not only gets place from GPS but also registers firebase token for alert notification
   @override
   Future<PlaceModel> getPlaceFromGPS() async {
     http.Response response;
     final gps = getIt<GeoLocationManager>().gps.split(':');
     final token = getIt<PushNotificationManager>().fireBaseToken;
     final params = {
+      "client-name": AlertAppConstant.clientName,
+      "client-token": AlertAppConstant.clientToken,
       "old_destination": token,
       "new_destination": token,
-      "number": 1,
+      "number": '1',
       "device": Platform.operatingSystem,
-      "is_push": 0,
-      "is_debug": 0,
+      "is_push": '1',
       "lang": "en",
-      "lat_lon": {"lat": gps[0], "lon": gps[1]}
+      "lat": gps[0],
+      "lon": gps[1]
     };
-
-    final url = "${config.bosaiCloudUrl}${AlertApiEndpoints.getPlacefromGPS}";
+    final String queryString = Uri(queryParameters: params).query;
+    final url =
+        "${config.alertBaseUrl}${AlertApiEndpoints.getPlacefromGPS}?$queryString";
 
     try {
-      response = await client.post(
+      response = await client.get(
         Uri.parse(url),
         headers: _header,
-        body: json.encode(params),
       );
     } catch (ex) {
       logger.log(
@@ -298,12 +286,14 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
     final params = {
       "type": 'prefecture',
       "lang": 'en',
+      "client-name": AlertAppConstant.clientName,
+      "client-token": AlertAppConstant.clientToken,
     };
 
     final String queryString = Uri(queryParameters: params).query;
 
     final url =
-        "${config.bosaiCloudUrl}${AlertApiEndpoints.getListOfPlaces}?$queryString";
+        "${config.alertBaseUrl}${AlertApiEndpoints.getListOfPlaces}?$queryString";
 
     try {
       response = await client.get(

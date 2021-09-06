@@ -8,13 +8,17 @@ abstract class AlertRepository {
   Future<Either<ApiFailure, List<Alert>>> getAlerts({
     required int limit,
   });
-  Future<Either<ApiFailure, List<Alert>>> getEarthquaked({
+  Future<Either<ApiFailure, List<Alert>>> getEarthquake({
     required int limit,
+    String? code,
   });
   Future<Either<ApiFailure, List<Alert>>> getVolcanoes({
     required int limit,
+    String? code,
   });
   Future<Either<ApiFailure, List<WeatherInfo>>> getWeather();
   Future<Either<ApiFailure, AlertPlaces>> getAlertPlaces();
+
+  ///This method not only gets place from GPS but also registers firebase token for alert notification
   Future<Either<ApiFailure, Place>> getPlaceFromGPS();
 }

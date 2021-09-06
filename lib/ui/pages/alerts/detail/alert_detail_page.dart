@@ -1,8 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:wallet_app/features/alerts/domain/entity/alert_model.dart';
+import 'package:wallet_app/features/alerts/presentation/get_disaster_detail/get_disaster_detail_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+
+class AlertDetailFomApi extends StatelessWidget {
+  final String id;
+  const AlertDetailFomApi({Key? key, required this.id}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => getIt<GetDisasterDetailBloc>()
+        ..add(
+          GetDisasterDetailEvent.fetch(id),
+        ),
+      child: BlocBuilder<GetDisasterDetailBloc, GetDisasterDetailState>(
+        buildWhen: (previous, current) => previous != current,
+        builder: (context, state) {
+          return state.map(
+              loading: (e) => Scaffold(body: loadingPage()),
+              failure: (e) => const SizedBox(),
+              success: (e) => AlertDetailPage(
+                    alert: e.alerts.first,
+                  ));
+        },
+      ),
+    );
+  }
+}
 
 class AlertDetailPage extends StatelessWidget {
   final Alert alert;
@@ -319,7 +348,7 @@ class _DetailMapView extends StatelessWidget {
       markers: Set<Marker>.of(markers.values),
       initialCameraPosition: CameraPosition(
         target: LatLng(lat, lng),
-        zoom: 12,
+        zoom: 17,
       ),
       myLocationButtonEnabled: false,
       zoomControlsEnabled: false,

@@ -8,7 +8,6 @@ import 'package:wallet_app/features/profile/update_profile/presentations/bloc/up
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/balance_and_points.dart';
 import 'package:wallet_app/ui/pages/resume/widgets/image_edit_widget.dart';
-import 'package:wallet_app/ui/widgets/image_loader_view.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 

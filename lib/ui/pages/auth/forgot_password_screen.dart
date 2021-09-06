@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wallet_app/features/auth/presentation/password_reset/password_reset_bloc.dart';
+import 'package:wallet_app/features/auth/presentation/password/password_reset/password_reset_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/auth/widgets/forgot_password_form.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';

@@ -31,7 +31,7 @@ class PlaceModel extends Place {
   PlaceModel({
     required String type,
     required int villageCode,
-    required String nameEn,
+    required String name,
     required int prefectureCode,
     required int regionCode,
     required int cityCode,
@@ -39,7 +39,7 @@ class PlaceModel extends Place {
             type: type,
             cityCode: cityCode,
             villageCode: villageCode,
-            nameEn: nameEn,
+            name: name,
             prefectureCode: prefectureCode,
             regionCode: regionCode);
 
@@ -49,7 +49,7 @@ class PlaceModel extends Place {
         : json;
     return PlaceModel(
       type: (json["type"] as String?) ?? (type ?? ''),
-      nameEn: (json["name_en"] ?? '') as String,
+      name: (json["name"] ?? '') as String,
       prefectureCode: type == PlaceType.prefecture
           ? (json["code"] ?? -1) as int
           : (json["prefecture_code"] ?? -1) as int,
@@ -66,7 +66,7 @@ class PlaceModel extends Place {
   Map<String, dynamic> toJson() => {
         "type": type,
         "code": villageCode,
-        "name_en": nameEn,
+        "name": name,
         "prefecture_code": prefectureCode,
         "region_code": regionCode,
         "city_code": cityCode,

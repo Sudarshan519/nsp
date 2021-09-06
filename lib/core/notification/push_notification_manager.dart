@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/notification/navigate_notification.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/main.dart';
@@ -28,6 +29,10 @@ class PushNotificationManager {
 
   String get fireBaseToken {
     return _token;
+  }
+
+  void _saveToken() {
+    getIt<AuthLocalDataSource>().setFCMToken(_token);
   }
 
   Future initialise() async {
@@ -85,6 +90,7 @@ class PushNotificationManager {
       _token = await _firebaseMessaging.getToken() ?? '';
 
       debugPrint("FirebaseMessaging token: $_token");
+      _saveToken();
     } catch (ex) {
       debugPrint(ex.toString());
       return;
@@ -125,20 +131,18 @@ Future _selectNotification(String? payload,
     //Wait for some time to ensure the app is initialized  well, then open notification
     await Future.delayed(const Duration(seconds: 1));
   }
-
+  if (payload == null) return;
   try {
-    if (payload == null) return;
     final data = json.decode(payload);
-    final type = data['notification_type'] as String?;
+    final type = (data['notification_type'] ?? data['type']) as String?;
     final id = data['product_id'] ?? '0';
     final image = data['banner'] as String?;
-    final message = data['message'] as String?;
+    final message = (data['message'] ?? data['body']) as String?;
     final title = data['title'] as String?;
     final redirect = data['redirect'] as String?;
     final utilType = data['Utility_type'] as String?;
     final key = appRouter.navigatorKey;
     if (key.currentContext != null && type != null) {
-      //TODO: make context routeable to autoRoute
       navigate(
           key.currentContext!,
           NotificationItem(
@@ -148,9 +152,11 @@ Future _selectNotification(String? payload,
               image: image,
               message: message,
               utilityType: utilType,
-              redirectUrl: redirect));
+              redirectUrl: redirect),
+          data: data as Map<String, dynamic>);
     }
   } catch (ex) {
+    debugPrint('ERROR pasring notification jSON Data');
     debugPrint(ex.toString());
   }
 }

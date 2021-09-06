@@ -33,6 +33,11 @@ class AlertListPage extends StatelessWidget {
     required List<Alert> alerts,
     bool isLoading = false,
   }) {
+    if (alerts.isEmpty) {
+      return const Center(
+        child: Text("No data available"),
+      );
+    }
     return SingleChildScrollView(
       controller: _scrollController
         ..addListener(
@@ -49,12 +54,15 @@ class AlertListPage extends StatelessWidget {
         ),
       child: Column(
         children: [
-          ListView.builder(
+          ListView.separated(
             primary: false,
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: alerts.length,
+            separatorBuilder: (context, index) => const Divider(
+              height: 1,
+            ),
             itemBuilder: (context, index) {
               return AlertWidget(
                 alert: alerts[index],

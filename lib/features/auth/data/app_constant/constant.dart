@@ -8,6 +8,7 @@ class AuthApiEndpoints {
   static const emailActivationCode = "/email/activation/code/";
   static const getNewVerificationCode = "/email/password/reset/code/";
   static const resetPassword = "/email/password/reset/";
+  static const updatePassword = "/email/password/update/";
 }
 
 class AuthPreferenceKeys {
@@ -16,4 +17,7 @@ class AuthPreferenceKeys {
   static const appleUser = "apple_user";
   static const kycVerificationPromptDate = 'kyc_prompt_date';
   static const alert_location = 'alert_location';
+  static const other_prefectures = 'other_prefectures';
+  static const fcmToken = 'fcm_token';
+  static const earthquake_threshold = 'earthquake_threshold';
 }

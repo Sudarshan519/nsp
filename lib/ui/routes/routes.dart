@@ -4,10 +4,10 @@ import 'package:wallet_app/ui/pages/add_balance/payment_page/esewa/esewa_topup_p
 import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_new_card_payment_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_save_card_payment_page.dart';
+import 'package:wallet_app/ui/pages/alerts/alert_settings/alert_prefecture_chooser.dart';
 import 'package:wallet_app/ui/pages/alerts/alerts_page.dart';
 import 'package:wallet_app/ui/pages/alerts/alerts_tab_page.dart';
 import 'package:wallet_app/ui/pages/alerts/detail/alert_detail_page.dart';
-import 'package:wallet_app/ui/pages/alerts/location/city_list_page.dart';
 import 'package:wallet_app/ui/pages/auth/forgot_password_screen.dart';
 import 'package:wallet_app/ui/pages/auth/login_screen.dart';
 import 'package:wallet_app/ui/pages/auth/register_screen.dart';
@@ -17,6 +17,8 @@ import 'package:wallet_app/ui/pages/coupons/coupon_page.dart';
 import 'package:wallet_app/ui/pages/notification/notification_detail_page.dart';
 import 'package:wallet_app/ui/pages/reward_point/reward_point_home.dart';
 import 'package:wallet_app/ui/pages/search/search_home.dart';
+import 'package:wallet_app/ui/pages/settings/change_password/change_password_page.dart';
+import 'package:wallet_app/ui/pages/settings/settings_page.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/topup/topup_page.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_detail.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_page.dart';
@@ -67,7 +69,8 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: AlertsPage),
     AutoRoute(page: AlertsTabPage),
     AutoRoute(page: AlertDetailPage),
-    AutoRoute(page: AlertCityChooser),
+    AutoRoute(page: AlertDetailFomApi),
+    AutoRoute(page: AlertPrefectureChooser),
     AutoRoute(page: AddBalancePage),
     AutoRoute(page: StripePaymentCardSelectionPage),
     AutoRoute(page: StripeNewCardPaymentPage),
@@ -88,6 +91,8 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: ServiceDetailPageFromAPI),
     AutoRoute(page: SearchPage),
     AutoRoute(page: RewardPointsHome),
+    AutoRoute(page: SettingsPage),
+    AutoRoute(page: ChangePasswordPage),
   ],
 )
 class $AppRouter {}

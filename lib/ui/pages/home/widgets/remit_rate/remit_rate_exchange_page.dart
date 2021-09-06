@@ -4,8 +4,10 @@ import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/features/home/domain/entities/remit_rate.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
+import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
+import 'package:wallet_app/utils/currency_formater.dart';
 
 import 'graphs/remit_graph_page.dart';
 import 'more_remit_service_charge.dart';
@@ -133,6 +135,7 @@ class _RemitExchangeProceGeneratorState
           child: TextWidetWithLabelAndChild(
             title: "From",
             child: InputTextWidget(
+              inputFormatters: [CurrencyInputFormatter()],
               hintText: "1000",
               textInputType:
                   const TextInputType.numberWithOptions(signed: true),
@@ -187,6 +190,7 @@ class _RemitExchangeProceGeneratorState
             key: UniqueKey(),
             title: "To",
             child: InputTextWidget(
+              inputFormatters: [CurrencyInputFormatter()],
               hintText: "1000",
               textInputType: TextInputType.number,
               value: _toValue,
@@ -208,18 +212,20 @@ class _RemitExchangeProceGeneratorState
 
   void changeAmount(String amount) {
     try {
-      final doubleAmount = double.parse(amount);
+      final doubleAmount = double.parse(amount.replaceAll(',', ''));
       if (!_hasSwapped) {
         setState(() {
           _fromValue = amount;
           final doubleFromValue = doubleAmount * _rate;
-          _toValue = doubleFromValue.toStringAsFixed(0);
+          _toValue = currencyFormatterString(
+              value: doubleFromValue.toStringAsFixed(0), showSymbol: false);
         });
       } else {
         setState(() {
           _fromValue = amount;
           final doubleFromValue = doubleAmount * _reverseRate;
-          _toValue = doubleFromValue.toStringAsFixed(0);
+          _toValue = currencyFormatterString(
+              value: doubleFromValue.toStringAsFixed(0), showSymbol: false);
         });
       }
       AnalyticsService.logEvent(FirebaseEvents.CURRENCY_CONVERT);

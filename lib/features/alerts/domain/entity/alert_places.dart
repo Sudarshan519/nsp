@@ -14,14 +14,14 @@ class Place {
   Place({
     required this.type,
     required this.villageCode,
-    required this.nameEn,
+    required this.name,
     required this.prefectureCode,
     required this.regionCode,
     required this.cityCode,
   });
   final String type;
   final int villageCode;
-  final String nameEn;
+  final String name;
   final int prefectureCode;
   final int regionCode;
   final int cityCode;

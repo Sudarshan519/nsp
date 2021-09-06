@@ -38,7 +38,7 @@ class ResetPasswordUseCase
       );
     }
 
-    return repository.changePassword(
+    return repository.resetPassword(
       email: params.email,
       code: params.code,
       password: params.password,

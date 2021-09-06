@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';
+import 'package:wallet_app/features/auth/domain/usecase/change_password.dart';
 
 abstract class AuthRepository {
   // For sign in purpose
@@ -42,11 +43,14 @@ abstract class AuthRepository {
   });
 
   Future<Either<ApiFailure, Unit>> getPasswordResetCode(String email);
-  Future<Either<ApiFailure, Unit>> changePassword({
+  Future<Either<ApiFailure, Unit>> resetPassword({
     required String email,
     required String code,
     required String password,
     required String verificationPassword,
+  });
+  Future<Either<ApiFailure, Unit>> changePassword({
+    required ChangePasswordParams params,
   });
 
   Future<Unit> logoutUser();

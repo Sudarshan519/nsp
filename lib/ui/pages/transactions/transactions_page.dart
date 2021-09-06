@@ -21,26 +21,11 @@ class TransactionPage extends StatelessWidget {
         elevation: 0,
       ),
       body: Column(
-        children: [
-          // const BalanceWidget(),
-          const BNPJCard(),
-          const SizedBox(height: 10),
-          const Text(
-            'Latest Transactions',
-            style: TextStyle(fontWeight: FontWeight.w700),
-          ),
-          body(),
+        children: const [
+          BNPJCard(),
+          TransactionListPage(),
         ],
       ),
     );
-  }
-
-  Widget body() {
-    // return Expanded(
-    //   child: Container(
-    //     color: Colors.red,
-    //   ),
-    // );
-    return const TransactionListPage();
   }
 }
