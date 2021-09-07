@@ -36,7 +36,7 @@ abstract class AuthLocalDataSource {
   List<Place> getOtherPrefectures();
   void setOtherPrefectures(List<Place> otherPrefectures);
 
-  String? getFCMToken();
+  String getFCMToken();
   void setFCMToken(String token);
 
   double getEarthquakeThreshold();
@@ -139,8 +139,8 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   }
 
   @override
-  String? getFCMToken() {
-    preferences.getString(AuthPreferenceKeys.fcmToken);
+  String getFCMToken() {
+    return preferences.getString(AuthPreferenceKeys.fcmToken) ?? '';
   }
 
   // User Details

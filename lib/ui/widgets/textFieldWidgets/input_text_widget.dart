@@ -18,6 +18,7 @@ class InputTextWidget extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final int maxLines;
   final int minLines;
+  final int maxlength;
 
   ///Only active if [obscureText] = true
   final bool showHideTextOption;
@@ -39,6 +40,7 @@ class InputTextWidget extends StatefulWidget {
     this.inputFormatters,
     this.maxLines = 1,
     this.minLines = 1,
+    this.maxlength = 25,
     this.showHideTextOption = false,
   }) : super(key: key);
 
@@ -63,15 +65,14 @@ class _InputTextWidgetState extends State<InputTextWidget> {
               ),
             Expanded(
               child: TextFormField(
-                textAlignVertical: TextAlignVertical.center,
                 obscureText: (widget.showHideTextOption && widget.obscureText)
                     ? !textvisible
                     : widget.obscureText,
                 initialValue: widget.value,
                 enabled: widget.isEnable,
+                maxLength: widget.maxLines < 2 ? widget.maxlength : null,
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(bottom: height / 2),
-                  // isDense:true,
+                  // contentPadding: EdgeInsets.only(bottom: height / 2),
                   suffixIcon: widget.showHideTextOption
                       ? GestureDetector(
                           onTap: () {
@@ -86,9 +87,10 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                             size: 18,
                           ),
                         )
-                      : const SizedBox(),
+                      : null,
                   border: InputBorder.none,
                   hintText: widget.hintText,
+                  counterText: "",
                   hintStyle: TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.w300,

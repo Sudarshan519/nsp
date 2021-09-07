@@ -109,7 +109,7 @@ class Values {
     "Apr",
     "May",
     "Jun",
-    "July",
+    "Jul",
     "Aug",
     "Sep",
     "Oct",

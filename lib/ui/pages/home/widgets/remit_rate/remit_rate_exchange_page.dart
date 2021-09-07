@@ -137,6 +137,7 @@ class _RemitExchangeProceGeneratorState
             child: InputTextWidget(
               inputFormatters: [CurrencyInputFormatter()],
               hintText: "1000",
+              maxlength: 10,
               textInputType:
                   const TextInputType.numberWithOptions(signed: true),
               textInputAction: TextInputAction.done,
