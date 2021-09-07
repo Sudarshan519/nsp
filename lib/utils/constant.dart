@@ -125,3 +125,10 @@ class Values {
   static final smartCellRegx =
       RegExp(r'^(961|988)\d{7}$', caseSensitive: false);
 }
+
+class SignupMethod {
+  static const email = 'EMAIL';
+  static const google = 'GOOGLE';
+  static const facebook = 'FACEBOOK';
+  static const apple = 'APPLE';
+}

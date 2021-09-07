@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:wallet_app/ui/pages/about_us/about_us.dart';
 import 'package:wallet_app/ui/pages/add_balance/add_balance.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/esewa/esewa_topup_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart';
@@ -93,6 +94,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: RewardPointsHome),
     AutoRoute(page: SettingsPage),
     AutoRoute(page: ChangePasswordPage),
+    AutoRoute(page: AboutUsPage),
   ],
 )
 class $AppRouter {}

@@ -89,11 +89,7 @@ class MorePage extends StatelessWidget {
         title: "Settings",
         onTap: () => context.pushRoute(const SettingsRoute()),
       ),
-      // MoreItem(
-      //   imageName:"icon-about",
-      //   title: "About",
-      //   onTap: () {},
-      // ),
+
       // MoreItem(
       //   imageName:"icon-contact",
       //   title: "Contact",

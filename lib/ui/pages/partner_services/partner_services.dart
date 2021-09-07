@@ -27,7 +27,6 @@ class PartnerServicesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 14,
         title: const Text(
           'Partner Services',
           style: TextStyle(color: Colors.white),
