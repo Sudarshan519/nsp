@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/ui/pages/more/more_item.dart';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/utils/constant.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final signupMethod = context
+        .read<HomePageDataBloc>()
+        .homeData
+        ?.userDetail
+        ?.signupMethod
+        .toString()
+        .toUpperCase();
+
     final moreitems = [
       MoreItem(
         imageName: "icon-terms",
@@ -54,9 +65,15 @@ class SettingsPage extends StatelessWidget {
         },
       ),
       MoreItem(
-          imageName: "icon-profile",
-          title: "Change Password",
-          onTap: () => context.pushRoute(ChangePasswordRoute())),
+        imageName: "icon-about",
+        title: "About",
+        onTap: () => context.pushRoute(const AboutUsRoute()),
+      ),
+      if (signupMethod == SignupMethod.email)
+        MoreItem(
+            imageName: "icon-profile",
+            title: "Change Password",
+            onTap: () => context.pushRoute(ChangePasswordRoute())),
     ];
     return Scaffold(
       appBar: AppBar(

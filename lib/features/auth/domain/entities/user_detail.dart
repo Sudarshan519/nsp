@@ -56,6 +56,7 @@ class UserDetail extends Equatable {
     this.purchaseConversionRate,
     this.notificationCount,
     this.requestLocation,
+    this.signupMethod,
   });
 
   final String? firstName;
@@ -113,6 +114,7 @@ class UserDetail extends Equatable {
   final double? purchaseConversionRate;
   final int? notificationCount;
   final String? requestLocation;
+  final String? signupMethod;
 
   @override
   List<Object> get props => [];
