@@ -365,6 +365,7 @@ class _MotivationInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Motivations and Appeal Points",
         child: InputTextWidget(
+          maxLines: 2,
           hintText: "Motivations and Appeal Points",
           validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.motivationsSpecialSkills,

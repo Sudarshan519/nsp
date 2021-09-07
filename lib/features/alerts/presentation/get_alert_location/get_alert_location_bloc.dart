@@ -38,7 +38,7 @@ class GetAlertLocationBloc
       final oldToken = authSrc.getFCMToken().toString();
       otherPrefectures = authSrc.getOtherPrefectures();
       final curentToken = getIt<PushNotificationManager>().fireBaseToken;
-      if (oldToken != curentToken) {
+      if (oldToken != curentToken && oldToken.isNotEmpty) {
         getPlaceFromGPS(NoParams());
       }
 

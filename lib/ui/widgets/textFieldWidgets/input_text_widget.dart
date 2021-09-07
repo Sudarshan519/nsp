@@ -50,10 +50,11 @@ class InputTextWidget extends StatefulWidget {
 
 class _InputTextWidgetState extends State<InputTextWidget> {
   bool textvisible = false;
-  final height = 32.0;
 
   @override
   Widget build(BuildContext context) {
+    final height = 32.0 * widget.maxLines;
+
     return SizedBox(
         height: height,
         child: Row(
@@ -72,7 +73,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                 enabled: widget.isEnable,
                 maxLength: widget.maxLines < 2 ? widget.maxlength : null,
                 decoration: InputDecoration(
-                  // contentPadding: EdgeInsets.only(bottom: height / 2),
+                  contentPadding: EdgeInsets.only(bottom: height / 2),
                   suffixIcon: widget.showHideTextOption
                       ? GestureDetector(
                           onTap: () {
