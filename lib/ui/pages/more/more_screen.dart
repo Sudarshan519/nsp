@@ -5,6 +5,7 @@ import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/notification/push_notification_manager.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/auth/domain/usecase/logout_user.dart';
+import 'package:wallet_app/handlers/session_handler.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/home_appbar.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_page_header.dart';
@@ -109,11 +110,8 @@ class MorePage extends StatelessWidget {
             builder: (_) => PopUpConfirmation(
               message: 'Are you sure to Logout?',
               onConfirmed: () {
-                AnalyticsService.logEvent(FirebaseEvents.LOGOUT);
-                getIt<LogoutUser>().call(NoParams());
                 context.popRoute();
-                context.router.replace(const LoginRoute());
-                getIt<PushNotificationManager>().removeToken();
+                SessionHandler.logout();
               },
             ),
           );

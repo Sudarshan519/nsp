@@ -9,6 +9,7 @@ import 'package:wallet_app/features/home/data/app_constant/constant.dart';
 import 'package:wallet_app/features/home/data/model/home_data_model.dart';
 import 'package:wallet_app/features/home/data/model/home_response_model.dart';
 import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
+import 'package:wallet_app/handlers/api_response_handler.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -42,11 +43,7 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
   @override
   Future<HomeResponseModel> getHomePageData() async {
     final url = "${config.baseURL}${config.apiPath}${HomeApiEndpoints.getHome}";
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _headers["Authorization"] = "Bearer $accessToken";
 
@@ -71,40 +68,48 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
 
     final statusCode = response.statusCode;
 
-    if (statusCode == 200) {
-      final responseBody = utf8.decode(response.bodyBytes);
+    return APIResponseHandler.handle<HomeResponseModel>(
+        httpStatusCode: statusCode,
+        onSuccess: () {
+          final responseBody = utf8.decode(response.bodyBytes);
 
-      List<HomeResponseModel> homeResponse;
-      try {
-        homeResponse = homeResponseModelFromJson(responseBody);
-      } catch (ex) {
-        logger.log(
-          className: "HomePageRemoteDataSource",
-          functionName: "getHomePageData()",
-          errorText: "Error casting from json to homeResponseModel",
-          errorMessage: ex.toString(),
-        );
-        throw const ServerException(message: AppConstants.someThingWentWrong);
-      }
+          List<HomeResponseModel> homeResponse;
+          try {
+            homeResponse = homeResponseModelFromJson(responseBody);
+          } catch (ex) {
+            logger.log(
+              className: "HomePageRemoteDataSource",
+              functionName: "getHomePageData()",
+              errorText: "Error casting from json to homeResponseModel",
+              errorMessage: ex.toString(),
+            );
+            throw const ServerException(
+                message: AppConstants.someThingWentWrong);
+          }
 
-      final userDetails = homeResponse.first.userDetail as UserDetailModel?;
-      final homeData = homeResponse.last.homeData as List<HomeDataModel>?;
+          final userDetails = homeResponse.first.userDetail as UserDetailModel?;
+          final homeData = homeResponse.last.homeData as List<HomeDataModel>?;
 
-      if (userDetails != null) {
-        auth.saveUserDetail(userDetails);
-      }
+          if (userDetails != null) {
+            auth.saveUserDetail(userDetails);
+          }
 
-      return HomeResponseModel(userDetail: userDetails, homeData: homeData);
-    } else {
-      logger.log(
-        className: "HomePageRemoteDataSource",
-        functionName: "getHomePageData()",
-        errorText: "Error on API status code: $statusCode",
-        errorMessage: response.body,
-      );
-      throw ServerException(
-          message: errorMessageFromServer(response.body) ??
-              AppConstants.someThingWentWrong);
-    }
+          return HomeResponseModel(userDetail: userDetails, homeData: homeData);
+        },
+        retryFunction: () {
+          getHomePageData();
+          throw const ServerException(message: AppConstants.sessionExpired);
+        },
+        other: () {
+          logger.log(
+            className: "HomePageRemoteDataSource",
+            functionName: "getHomePageData()",
+            errorText: "Error on API status code: $statusCode",
+            errorMessage: response.body,
+          );
+          throw ServerException(
+              message: errorMessageFromServer(response.body) ??
+                  AppConstants.someThingWentWrong);
+        });
   }
 }

@@ -1,7 +1,7 @@
 import 'dart:convert';
+import 'package:wallet_app/features/auth/data/model/user_detail_model.dart';
 import 'package:wallet_app/features/home/domain/entities/home_response.dart';
 
-import '../../../auth/data/model/user_detail_model.dart';
 import 'home_data_model.dart';
 
 List<HomeResponseModel> homeResponseModelFromJson(String str) =>

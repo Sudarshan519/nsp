@@ -62,7 +62,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     final resumeType = type.toString().split('.').last;
     final url =
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.deleteResumeData}$id/$resumeType";
-    final accessToken = (await auth.getWalletUser()).accessToken;
+    final accessToken = auth.getWalletUser().accessToken;
 
     if (accessToken == null || accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have access token
@@ -108,7 +108,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     http.Response response;
     final url =
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.getResume}";
-    final accessToken = (await auth.getWalletUser()).accessToken;
+    final accessToken = auth.getWalletUser().accessToken;
 
     if (accessToken == null || accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have access token
@@ -228,7 +228,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     http.Response response;
     final url =
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.updateProfile}$lang";
-    final accessToken = (await auth.getWalletUser()).accessToken;
+    final accessToken = auth.getWalletUser().accessToken;
 
     if (accessToken == null || accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have uuid

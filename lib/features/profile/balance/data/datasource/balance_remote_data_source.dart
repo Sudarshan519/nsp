@@ -41,7 +41,7 @@ class BalanceRemoteDataSourceImpl implements BalanceRemoteDataSource {
     final url =
         "${config.baseURL}${config.apiPath}${BalanceApiEndpoints.getBalance}";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
+    final accessToken = auth.getWalletUser().accessToken;
 
     if (accessToken == null || accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have access token

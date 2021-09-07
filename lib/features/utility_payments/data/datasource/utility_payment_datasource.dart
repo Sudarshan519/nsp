@@ -64,11 +64,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.topup}$type";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
 
@@ -180,11 +176,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.payMiraiSubscription}";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
 

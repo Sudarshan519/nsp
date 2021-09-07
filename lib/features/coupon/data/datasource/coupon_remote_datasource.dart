@@ -134,11 +134,7 @@ class CouponRemoteDataSourceImpl implements CouponRemoteDataSource {
 
     http.Response response;
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _headers["Authorization"] = "Bearer $accessToken";
 
@@ -204,11 +200,7 @@ class CouponRemoteDataSourceImpl implements CouponRemoteDataSource {
 
     http.Response response;
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _headers["Authorization"] = "Bearer $accessToken";
 
@@ -274,11 +266,7 @@ class CouponRemoteDataSourceImpl implements CouponRemoteDataSource {
 
     http.Response response;
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _headers["Authorization"] = "Bearer $accessToken";
 

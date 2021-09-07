@@ -19,7 +19,7 @@ abstract class AuthLocalDataSource {
   //
   // Throws [PlatformException] for platform Error
   // Throus [UserSessionNotAvailableException] if not found on the storage
-  Future<WalletUserModel> getWalletUser();
+  WalletUserModel getWalletUser();
   Future delete();
 
   Future saveUserDetail(UserDetailModel user);
@@ -56,7 +56,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   });
 
   @override
-  Future<WalletUserModel> getWalletUser() async {
+  WalletUserModel getWalletUser() {
     try {
       final value = preferences.getString(AuthPreferenceKeys.walletUser);
       if (value == null) {
