@@ -300,7 +300,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   ) async {
     final url = "${config.baseURL}${config.apiPath}$uri";
     final accessToken =
-        (await getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
+        (getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
 
     header["Authorization"] = "Bearer $accessToken";
 

@@ -58,7 +58,19 @@ class _AlertSettingsPageState extends State<AlertSettingsPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(
-              height: 80,
+              height: 60,
+            ),
+            Text(
+              'NOTIFICATION PREFERENCE',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Palette.black,
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             Text(
               'It is recommended to select the area that you are planning to stay or visit ( eg. area in which your accomodation is located)',
@@ -70,7 +82,7 @@ class _AlertSettingsPageState extends State<AlertSettingsPage> {
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
             if (selectedCity != null)
               Padding(
@@ -162,7 +174,8 @@ class _AlertSettingsPageState extends State<AlertSettingsPage> {
                 );
               },
               style: OutlinedButton.styleFrom(
-                shape: const StadiumBorder(),
+                shape: const StadiumBorder(
+                    side: BorderSide(width: 2.0, color: Colors.black)),
               ),
               child: Text(
                 '${selectedCity == null ? 'Select' : 'Change'} Primary Alert location',
@@ -173,12 +186,22 @@ class _AlertSettingsPageState extends State<AlertSettingsPage> {
             ),
             const Divider(
               thickness: 4,
+              height: 30,
+            ),
+            Text(
+              'ALERT VIEWS PREFECENCE',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Palette.black,
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
                   otherPrefectures.isEmpty
-                      ? 'No other prefectures selected'
+                      ? 'Here you can set and select prefectures to see the list of alert and warnings '
                       : '${otherPrefectures.length} Prefecture(s) Selected.',
                   textAlign: TextAlign.center),
             ),
@@ -204,6 +227,7 @@ class _AlertSettingsPageState extends State<AlertSettingsPage> {
             ),
             const Divider(
               thickness: 4,
+              height: 30,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

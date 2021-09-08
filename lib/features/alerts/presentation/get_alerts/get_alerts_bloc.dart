@@ -68,11 +68,12 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
         isFetching = false;
         final earthquakeThreshold =
             getIt<AuthLocalDataSource>().getEarthquakeThreshold();
-        final filteredList = alerts
-            .where((element) =>
-                (element.magnitudeValue ?? 0) >= earthquakeThreshold)
-            .toList();
-        return _Success(filteredList);
+
+        alerts.removeWhere((element) =>
+            element.label.toString().toLowerCase() == 'earthquake' &&
+            (element.magnitudeValue ?? 0) < earthquakeThreshold);
+
+        return _Success(alerts);
       },
     );
   }

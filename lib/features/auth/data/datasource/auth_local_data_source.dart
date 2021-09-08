@@ -110,8 +110,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
 
   @override
   void setKycPromptDate() {
-    final result = preferences.setString(
-        AuthPreferenceKeys.kycVerificationPromptDate,
+    preferences.setString(AuthPreferenceKeys.kycVerificationPromptDate,
         DateTime.now().toString());
   }
 

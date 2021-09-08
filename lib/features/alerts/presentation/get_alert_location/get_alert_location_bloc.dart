@@ -58,7 +58,7 @@ class GetAlertLocationBloc
     }, removePlace: (e) async* {
       yield const _Initial();
       yield const _MakeChanges(ApiFailure.serverError(
-          message: 'Please Set or Change alert location!'));
+          message: 'Please Set or Change alert locations!'));
     }, getPlaceFromGPS: (e) async* {
       yield const _Initial();
 

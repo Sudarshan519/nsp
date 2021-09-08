@@ -53,7 +53,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final height = 32.0 * widget.maxLines;
+    final height = 31.0 * (widget.maxLines > 1 ? widget.maxLines * 0.6 : 1);
 
     return SizedBox(
         height: height,
@@ -71,9 +71,11 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                     : widget.obscureText,
                 initialValue: widget.value,
                 enabled: widget.isEnable,
-                maxLength: widget.maxLines < 2 ? widget.maxlength : null,
+                maxLength: widget.maxlength,
+                maxLines: widget.maxLines,
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(bottom: height / 2),
+                  contentPadding: EdgeInsets.zero,
+                  isDense: true,
                   suffixIcon: widget.showHideTextOption
                       ? GestureDetector(
                           onTap: () {
@@ -111,8 +113,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                 onChanged: widget.onChanged,
                 onEditingComplete: widget.onEditingCompleted,
                 textAlign: widget.textAlign ?? TextAlign.start,
-                maxLines: widget.maxLines,
-                minLines: widget.minLines,
+                // textAlignVertical: TextAlignVertical.top,
               ),
             ),
             if (widget.suffixIcon != null) widget.suffixIcon!,

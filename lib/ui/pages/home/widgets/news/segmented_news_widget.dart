@@ -410,7 +410,7 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
           ),
           Container(
             padding: const EdgeInsets.only(top: 6),
-            height: height * 0.14,
+            height: height * 0.117,
             child: CarouselSlider.builder(
               carouselController: controller,
               options: CarouselOptions(
@@ -424,21 +424,6 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
                 return Column(
                   children: [
                     AlertWidget(alert: displayList[itemIndex]),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List<Widget>.generate(
-                          displayList.length,
-                          (index) => Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 2),
-                                child: Icon(
-                                  index == itemIndex
-                                      ? Icons.circle_rounded
-                                      : Icons.circle_outlined,
-                                  size: 10,
-                                ),
-                              )),
-                    )
                   ],
                 );
               },
@@ -446,10 +431,8 @@ class _SegmentedNewsViewWidgetState extends State<SegmentedNewsViewWidget> {
           ),
           const Divider(
             height: 1,
+            thickness: 1,
           ),
-          const SizedBox(
-            height: 4,
-          )
         ],
       ),
     );

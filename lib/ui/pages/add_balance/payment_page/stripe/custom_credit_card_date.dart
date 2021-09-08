@@ -141,7 +141,7 @@ class _CustomCCDateWidgetState extends State<CustomCCDateWidget> {
         },
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-          height: 40,
+          height: 38,
           decoration: BoxDecoration(
             border: Border.all(
               color: Palette.dividerColor,
