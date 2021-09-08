@@ -96,10 +96,7 @@ class HomePageRemoteDataSourceImpl implements HomePageRemoteDataSource {
 
           return HomeResponseModel(userDetail: userDetails, homeData: homeData);
         },
-        retryFunction: () {
-          getHomePageData();
-          throw const ServerException(message: AppConstants.sessionExpired);
-        },
+        retryFunction: () => getHomePageData(),
         other: () {
           logger.log(
             className: "HomePageRemoteDataSource",

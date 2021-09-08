@@ -7,6 +7,7 @@ import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/profile/balance/data/app_constants/constant.dart';
 import 'package:wallet_app/features/profile/balance/data/model/user_balance_mode.dart';
+import 'package:wallet_app/handlers/api_response_handler.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -66,30 +67,34 @@ class BalanceRemoteDataSourceImpl implements BalanceRemoteDataSource {
         message: ex.toString(),
       );
     }
-
-    if (response.statusCode == 200) {
-      final responseBody = utf8.decode(response.bodyBytes);
-      try {
-        return userBalanceModelFromJson(responseBody);
-      } catch (ex) {
-        logger.log(
-          className: "BalanceRemoteDataSource",
-          functionName: "getBalance()",
-          errorText: "Error casting from json to balance",
-          errorMessage: ex.toString(),
-        );
-        throw const ServerException(message: AppConstants.someThingWentWrong);
-      }
-    } else {
-      logger.log(
-        className: "BalanceRemoteDataSource",
-        functionName: "getBalance()",
-        errorText: "Error on API status code: ${response.statusCode}",
-        errorMessage: response.body,
-      );
-      throw ServerException(
-          message: errorMessageFromServerWithMessage(response.body) ??
-              AppConstants.someThingWentWrong);
-    }
+    return APIResponseHandler.handle<UserBalanceModel>(
+        httpStatusCode: response.statusCode,
+        onSuccess: () {
+          final responseBody = utf8.decode(response.bodyBytes);
+          try {
+            return userBalanceModelFromJson(responseBody);
+          } catch (ex) {
+            logger.log(
+              className: "BalanceRemoteDataSource",
+              functionName: "getBalance()",
+              errorText: "Error casting from json to balance",
+              errorMessage: ex.toString(),
+            );
+            throw const ServerException(
+                message: AppConstants.someThingWentWrong);
+          }
+        },
+        retryFunction: () => getBalance(),
+        other: () {
+          logger.log(
+            className: "BalanceRemoteDataSource",
+            functionName: "getBalance()",
+            errorText: "Error on API status code: ${response.statusCode}",
+            errorMessage: response.body,
+          );
+          throw ServerException(
+              message: errorMessageFromServerWithMessage(response.body) ??
+                  AppConstants.someThingWentWrong);
+        });
   }
 }

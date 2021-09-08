@@ -74,8 +74,10 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                 maxLength: widget.maxlength,
                 maxLines: widget.maxLines,
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.zero,
-                  isDense: true,
+                  contentPadding: widget.maxLines > 1
+                      ? EdgeInsets.zero
+                      : EdgeInsets.only(bottom: height / 2),
+                  // isDense: true,
                   suffixIcon: widget.showHideTextOption
                       ? GestureDetector(
                           onTap: () {

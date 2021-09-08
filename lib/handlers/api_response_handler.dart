@@ -11,11 +11,12 @@ import 'package:http/http.dart' as http;
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 
+///class to handle different http status
 class APIResponseHandler {
   static Future<Type> handle<Type>({
     required int httpStatusCode,
     required Type Function() onSuccess,
-    required Type Function() retryFunction,
+    required Future<Type> Function() retryFunction,
     required Type Function() other,
   }) async {
     switch (httpStatusCode) {

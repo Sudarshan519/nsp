@@ -32,8 +32,10 @@ class AboutUsPage extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: '$url$suffix',
               progressIndicatorBuilder: (context, url, progress) {
-                return CircularProgressIndicator(
-                  value: progress.progress,
+                return Center(
+                  child: CircularProgressIndicator(
+                    value: progress.progress,
+                  ),
                 );
               },
             ),
