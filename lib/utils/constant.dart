@@ -119,11 +119,17 @@ class Values {
   ];
 
   //others
-  static final ntcRegx = RegExp(r'^(984|985|986|)\d{7}$', caseSensitive: false);
-  static final ncellRegx =
-      RegExp(r'^(980|981|982)\d{7}$', caseSensitive: false);
-  static final smartCellRegx =
-      RegExp(r'^(961|988)\d{7}$', caseSensitive: false);
+  static final ntcRegx = RegExp(r'^9(84|85|86)\d{7}$', caseSensitive: false);
+  static final ntcLandLineRegex = RegExp(r'^\d{8}$', caseSensitive: false);
+  static final ncellRegx = RegExp(r'^9(80|81|82)\d{7}$', caseSensitive: false);
+  static final smartCellRegx = RegExp(r'^9(61|88)\d{7}$', caseSensitive: false);
+
+  static final List<RegExp> allRegex = [
+    ntcRegx,
+    ncellRegx,
+    smartCellRegx,
+    ntcLandLineRegex
+  ];
 }
 
 class SignupMethod {

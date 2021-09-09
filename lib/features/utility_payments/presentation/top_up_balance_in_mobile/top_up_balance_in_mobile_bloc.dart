@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/utility_payments/domain/entities/utility_payments.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/topup_balance_for_mobile.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -31,9 +32,6 @@ class TopUpBalanceInMobileBloc
     yield* event.map(
       changePhoneNumber: (e) async* {
         yield _mapChangePhoneNumberEventToState(e);
-      },
-      changePhoneNumberViaContact: (e) async* {
-        yield _mapChangePhoneNumberViaContactEventToState(e);
       },
       changeAmount: (e) async* {
         yield _mapChangeAmountEventToState(e);
@@ -65,6 +63,9 @@ class TopUpBalanceInMobileBloc
       topup: (e) async* {
         yield* _mapTopupEventToState(e);
       },
+      setPayData: (e) async* {
+        yield _mapSetPayDataEventToState(e);
+      },
     );
   }
 
@@ -79,10 +80,17 @@ class TopUpBalanceInMobileBloc
       amount = Values.SMARTCELL_TOPUP.contains(state.amount) ? amount : '';
     }
 
+    final isValid = type.isNotEmpty &&
+        state.paydata.name
+            .toString()
+            .toLowerCase()
+            .contains(type.toLowerCase());
+
     return state.copyWith(
       amount: amount,
       number: _changePhoneNumber.number,
       type: type,
+      isNumberValid: isValid,
       coupon: '',
       discountPercentage: 0,
       rewardPointFromCoupon: 0,
@@ -90,30 +98,13 @@ class TopUpBalanceInMobileBloc
     );
   }
 
-  TopUpBalanceInMobileState _mapChangePhoneNumberViaContactEventToState(
-      _ChangePhoneNumberViaContact _changePhoneNumberViaContact) {
-    final type = getType(fromNumber: _changePhoneNumberViaContact.number);
-
-    var amount = state.amount;
-
-    //making sure the amount is within the list of smart cell if any other amt is entered when mart cell number is entered
-    if (type == Values.SMARTCELL) {
-      amount = Values.SMARTCELL_TOPUP.contains(state.amount) ? amount : '';
-    }
-
+  TopUpBalanceInMobileState _mapSetPayDataEventToState(_SetPayData _payData) {
     return state.copyWith(
-      key: UniqueKey(),
-      amount: amount,
-      number: _changePhoneNumberViaContact.number,
-      type: type,
-      coupon: '',
-      discountPercentage: 0,
-      rewardPointFromCoupon: 0,
+      paydata: _payData.paydata,
       failureOrSuccessOption: none(),
     );
   }
 
-  //xxx
   TopUpBalanceInMobileState _mapProductIdEventToState(
       _SetProductId _setProductId) {
     return state.copyWith(
@@ -241,19 +232,13 @@ class TopUpBalanceInMobileBloc
   }
 
   String getType({required String fromNumber}) {
-    if (fromNumber.length < 9) {
-      return '';
-    }
-
     if (Values.ntcRegx.hasMatch(fromNumber)) {
       return Values.NTC;
-    }
-
-    if (Values.ncellRegx.hasMatch(fromNumber)) {
+    } else if (Values.ntcLandLineRegex.hasMatch(fromNumber)) {
+      return Values.NTC;
+    } else if (Values.ncellRegx.hasMatch(fromNumber)) {
       return Values.NCELL;
-    }
-
-    if (Values.smartCellRegx.hasMatch(fromNumber)) {
+    } else if (Values.smartCellRegx.hasMatch(fromNumber)) {
       return Values.SMARTCELL;
     }
 

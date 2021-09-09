@@ -37,8 +37,6 @@ class _TopUpPageState extends State<TopUpPage> {
   double _conversionRate = 1.067;
   late UtilityPaymentsModel _payData;
 
-  List<UtilityPaymentsModel> paymentData = [];
-
   @override
   void initState() {
     _isConfirmPage = false;
@@ -50,13 +48,6 @@ class _TopUpPageState extends State<TopUpPage> {
     if (homedata != null) {
       _conversionRate =
           1 / (homedata.userDetail?.purchaseConversionRate ?? 1.067);
-
-      paymentData = List<UtilityPaymentsModel>.from((homedata.homeData!
-              .firstWhere(
-                  (element) => element.type.toString().contains('utility'))
-              .data as Iterable)
-          .map(
-              (x) => UtilityPaymentsModel.fromJson(x as Map<String, dynamic>)));
     }
   }
 
@@ -80,6 +71,9 @@ class _TopUpPageState extends State<TopUpPage> {
                         ),
                       )
                       ..add(
+                        TopUpBalanceInMobileEvent.setPayData(widget.payData),
+                      )
+                      ..add(
                         TopUpBalanceInMobileEvent.setRewardPoint(
                           _payData.rewardPoint ?? 0.0,
                         ),
@@ -98,7 +92,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 child: Scaffold(
                   appBar: AppBar(
                     title: Text(
-                      "Topup",
+                      widget.payData.name ?? "Topup",
                       style: TextStyle(
                         color: Palette.white,
                       ),
@@ -240,9 +234,12 @@ class _TopUpPageState extends State<TopUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            MobileNumberTextField(paymentData),
-            TypeOfNumber(paymentData),
-            if (state.type == Values.SMARTCELL)
+            MobileNumberTextField(),
+            TypeOfNumber(),
+            if (state.paydata.name
+                .toString()
+                .toLowerCase()
+                .contains(Values.SMARTCELL))
               AmountDropDownField(
                 conversionRate: _conversionRate,
               )
@@ -251,7 +248,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 conversionRate: _conversionRate,
               ),
             const SizedBox(height: 20),
-            couponcodeWidget(),
+            if (state.isNumberValid) couponcodeWidget(),
             const SizedBox(height: 20),
             TransactionDetail(
               conversionRate: _conversionRate,
@@ -260,6 +257,13 @@ class _TopUpPageState extends State<TopUpPage> {
             ProceedButton(
               callback: () {
                 try {
+                  if (!state.isNumberValid) {
+                    FlushbarHelper.createError(
+                            message: 'The phone number you entered is invalid!')
+                        .show(context);
+                    return;
+                  }
+
                   final amtNPR = amtAfterDiscountDeduction(state);
                   final int amtJPY = amtNPR ~/ _conversionRate;
 

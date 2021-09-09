@@ -61,7 +61,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
           children: [
             if (widget.prefixIcon != null)
               Padding(
-                padding: const EdgeInsets.only(right: 4),
+                padding: const EdgeInsets.only(right: 4, bottom: 2),
                 child: widget.prefixIcon,
               ),
             Expanded(

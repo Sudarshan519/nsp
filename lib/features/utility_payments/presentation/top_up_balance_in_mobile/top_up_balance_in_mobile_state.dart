@@ -3,6 +3,7 @@ part of 'top_up_balance_in_mobile_bloc.dart';
 @freezed
 class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
   const factory TopUpBalanceInMobileState({
+    required UtilityPayment paydata,
     required Key key,
     required String number,
     required String productId,
@@ -15,11 +16,13 @@ class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
     required double rewardPoint,
     required double rewardPointFromCoupon,
     required bool isSubmitting,
+    required bool isNumberValid,
     required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
   }) = _TopUpBalanceInMobileState;
 
   factory TopUpBalanceInMobileState.initial() => TopUpBalanceInMobileState(
         key: UniqueKey(),
+        paydata: UtilityPayment(id: -1, name: ''),
         productId: '',
         number: '',
         type: '',
@@ -31,6 +34,7 @@ class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
         rewardPoint: 0,
         rewardPointFromCoupon: 0,
         isSubmitting: false,
+        isNumberValid: false,
         failureOrSuccessOption: none(),
       );
 }

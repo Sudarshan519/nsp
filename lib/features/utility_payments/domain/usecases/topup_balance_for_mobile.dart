@@ -19,10 +19,6 @@ class TopUpBalanceForMobile
   @override
   Future<Either<ApiFailure, Unit>> call(
       TopUpBalanceForMobileParams params) async {
-    if (params.number.length != 10) {
-      return const Left(
-          ApiFailure.serverError(message: "Invalid Phone Number."));
-    }
     if (params.type.isEmpty) {
       return const Left(
           ApiFailure.serverError(message: "Invalid Phone Number."));
@@ -49,9 +45,6 @@ class TopUpBalanceForMobile
   }
 
   ApiFailure? validate(TopUpBalanceForMobileParams params) {
-    if (params.number.length != 10) {
-      return const ApiFailure.serverError(message: "Invalid Phone Number.");
-    }
     if (params.type.isEmpty) {
       return const ApiFailure.serverError(message: "Invalid Phone Number.");
     }

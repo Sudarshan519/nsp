@@ -4,3 +4,8 @@ class UtilityPaymentsApiEndpoints {
   static const payMiraiSubscription =
       "/available_services/purchase_package/mirai";
 }
+
+class UtilityPayementType {
+  static const balanceTopup = 'topup_balance';
+  static const mirai = 'mirai';
+}
