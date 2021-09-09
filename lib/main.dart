@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/device_info/device_information_manager.dart';
 import 'package:wallet_app/core/wallet_ad/wallet_ad_service.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -17,6 +18,7 @@ final appRouter = AppRouter();
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WalletAdService.init();
+  DeviceInfoManager.init();
   await configureInjection(Environment.prod);
 
   /// for registering the factory.

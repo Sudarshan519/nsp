@@ -16,6 +16,7 @@ import 'package:wallet_app/ui/pages/auth/validate_user_screen.dart';
 import 'package:wallet_app/ui/pages/banner_detail_page/banner_detail_page.dart';
 import 'package:wallet_app/ui/pages/coupons/coupon_page.dart';
 import 'package:wallet_app/ui/pages/notification/notification_detail_page.dart';
+import 'package:wallet_app/ui/pages/notification/user_devices_page.dart';
 import 'package:wallet_app/ui/pages/reward_point/reward_point_home.dart';
 import 'package:wallet_app/ui/pages/search/search_home.dart';
 import 'package:wallet_app/ui/pages/settings/change_password/change_password_page.dart';
@@ -95,6 +96,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: SettingsPage),
     AutoRoute(page: ChangePasswordPage),
     AutoRoute(page: AboutUsPage),
+    AutoRoute(page: UserDevicesListPage),
   ],
 )
 class $AppRouter {}

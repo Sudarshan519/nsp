@@ -5,10 +5,12 @@ import 'package:wallet_app/core/notification/navigate_notification.dart';
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/notifications/presentation/notification/notifications_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/time_ago/time_ago.dart' as date_time;
+import 'package:auto_route/auto_route.dart';
 
 class NotificationListPage extends StatelessWidget {
   @override
@@ -16,15 +18,24 @@ class NotificationListPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          centerTitle: true,
-          leading: const BackButton(
-            color: Colors.white,
-          ),
-          title: const Text(
-            'Notification',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
+            centerTitle: true,
+            leading: const BackButton(
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Notification',
+              style: TextStyle(color: Colors.white),
+            ),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    context.pushRoute(const UserDevicesListRoute());
+                  },
+                  icon: const Icon(
+                    Icons.settings,
+                    color: Colors.white,
+                  ))
+            ]),
         body: BlocProvider(
           create: (_) => getIt<NotificationsBloc>()
             ..add(

@@ -86,12 +86,13 @@ dependencies:
   marquee: ^2.2.0
   firebase_analytics: ^8.2.0
   image_cropper: ^1.4.1
+  device_info_plus: ^2.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   auto_route_generator: ^2.1.0                
-  build_runner: ^2.0.3                
+  build_runner: ^2.1.2                
   freezed: ^0.14.2               
   injectable_generator: ^1.4.0                      
   lint: ^1.5.3                

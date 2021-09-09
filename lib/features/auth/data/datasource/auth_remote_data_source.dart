@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
+import 'package:wallet_app/core/device_info/device_information_manager.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/geo_location/geo_location.dart';
 import 'package:wallet_app/core/logger/logger.dart';
@@ -192,6 +193,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     body["firebaseToken"] = getIt<PushNotificationManager>().fireBaseToken;
     body["gps"] = getIt<GeoLocationManager>().gps;
+    body['device_id'] = DeviceInfoManager.device.toString();
 
     try {
       response = await client.post(
