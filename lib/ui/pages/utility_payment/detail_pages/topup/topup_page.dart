@@ -66,17 +66,7 @@ class _TopUpPageState extends State<TopUpPage> {
                   BlocProvider(
                     create: (context) => getIt<TopUpBalanceInMobileBloc>()
                       ..add(
-                        TopUpBalanceInMobileEvent.setCashbackpercentage(
-                          _payData.cashbackPer ?? 0.0,
-                        ),
-                      )
-                      ..add(
                         TopUpBalanceInMobileEvent.setPayData(widget.payData),
-                      )
-                      ..add(
-                        TopUpBalanceInMobileEvent.setRewardPoint(
-                          _payData.rewardPoint ?? 0.0,
-                        ),
                       ),
                   ),
                   BlocProvider(
@@ -207,11 +197,12 @@ class _TopUpPageState extends State<TopUpPage> {
                   TopUpBalanceInMobileEvent.setDiscountpercentage(
                       double.parse(couponCode?.cashback ?? '0.0')),
                 );
+
             var doubleAmount = double.parse(state.amount);
             final discountAmount =
                 doubleAmount * (state.discountPercentage / 100);
             final cashbackAmount =
-                doubleAmount * (state.cashbackPercentage / 100);
+                doubleAmount * ((state.paydata.cashbackPer ?? 0.0) / 100);
 
             doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
 
@@ -317,7 +308,8 @@ class _TopUpPageState extends State<TopUpPage> {
 
           doubleAmount = amtAfterDiscountDeduction(state);
 
-          final rewardPoint = doubleAmount * (state.rewardPoint / 100);
+          final rewardPoint =
+              doubleAmount * ((state.paydata.rewardPoint ?? 0.0) / 100);
 
           final conversionValue = doubleAmount / _conversionRate;
           return Container(
@@ -330,12 +322,12 @@ class _TopUpPageState extends State<TopUpPage> {
                 const SizedBox(height: 5),
                 TransactionAmountInNPRField(),
                 const SizedBox(height: 5),
-                if (state.cashbackPercentage > 0)
+                if ((state.paydata.cashbackPer ?? 0.0) > 0)
                   Column(
                     children: [
                       TransactionDetailRow(
                         title: 'Cashback',
-                        value: "${state.cashbackPercentage} %",
+                        value: "${state.paydata.cashbackPer ?? 0.0} %",
                       ),
                       const SizedBox(height: 5),
                     ],
@@ -350,7 +342,8 @@ class _TopUpPageState extends State<TopUpPage> {
                       const SizedBox(height: 5),
                     ],
                   ),
-                if (state.rewardPoint > 0 || state.rewardPointFromCoupon > 0)
+                if ((state.paydata.rewardPoint ?? 0.0) > 0 ||
+                    state.rewardPointFromCoupon > 0)
                   Column(
                     children: [
                       TransactionDetailRow(
@@ -395,7 +388,8 @@ double amtAfterDiscountDeduction(TopUpBalanceInMobileState state) {
   var doubleAmount = double.parse(state.amount);
   try {
     final discountAmount = doubleAmount * (state.discountPercentage / 100);
-    final cashbackAmount = doubleAmount * (state.cashbackPercentage / 100);
+    final cashbackAmount =
+        doubleAmount * ((state.paydata.cashbackPer ?? 0.0) / 100);
 
     doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
     return doubleAmount;

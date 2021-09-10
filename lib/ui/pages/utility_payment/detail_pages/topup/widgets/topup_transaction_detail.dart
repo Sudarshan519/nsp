@@ -78,7 +78,8 @@ class TransactionDetail extends StatelessWidget {
         }
 
         doubleAmount = amtAfterDiscountDeduction(state);
-        final rewardPoint = doubleAmount * (state.rewardPoint / 100);
+        final rewardPoint =
+            doubleAmount * ((state.paydata.cashbackPer ?? 0.0) / 100);
 
         final conversionValue = doubleAmount / conversionRate;
         return Column(
@@ -116,7 +117,7 @@ class TransactionDetail extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  if (state.cashbackPercentage > 0)
+                  if ((state.paydata.cashbackPer ?? 0.0) > 0)
                     Column(
                       children: [
                         Row(
@@ -131,7 +132,7 @@ class TransactionDetail extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${state.cashbackPercentage} %",
+                              "${state.paydata.cashbackPer ?? 0.0} %",
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
@@ -170,7 +171,8 @@ class TransactionDetail extends StatelessWidget {
                         const SizedBox(height: 10),
                       ],
                     ),
-                  if (state.rewardPoint > 0 || state.rewardPointFromCoupon > 0)
+                  if ((state.paydata.rewardPoint ?? 0.0) > 0 ||
+                      state.rewardPointFromCoupon > 0)
                     Column(
                       children: [
                         Row(
@@ -323,7 +325,7 @@ class MobileNumberField extends StatelessWidget {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
         return TransactionDetailRow(
-          title: 'Mobile Number',
+          title: '${state.isLandline ? 'Landline' : 'Mobile'} Number',
           value: state.number,
           isValueBold: true,
         );
@@ -408,13 +410,9 @@ class ConfirmButton extends StatelessWidget {
       builder: (context, state) {
         return InkWell(
           onTap: () {
-            if (state.productId.isNotEmpty) {
-              context
-                  .read<TopUpBalanceInMobileBloc>()
-                  .add(const TopUpBalanceInMobileEvent.topup());
-            } else {
-              //TODO: show no product found or mismatch
-            }
+            context
+                .read<TopUpBalanceInMobileBloc>()
+                .add(const TopUpBalanceInMobileEvent.topup());
           },
           child: Container(
             height: 40,

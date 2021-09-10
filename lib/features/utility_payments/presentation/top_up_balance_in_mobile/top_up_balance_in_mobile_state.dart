@@ -11,14 +11,13 @@ class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
     required String amount,
     required String convertedJpyAmount,
     required String coupon,
-    required double cashbackPercentage,
     required double discountPercentage,
-    required double rewardPoint,
     required double rewardPointFromCoupon,
     required bool isSubmitting,
     required bool isNumberValid,
     required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
   }) = _TopUpBalanceInMobileState;
+  const TopUpBalanceInMobileState._();
 
   factory TopUpBalanceInMobileState.initial() => TopUpBalanceInMobileState(
         key: UniqueKey(),
@@ -29,12 +28,13 @@ class TopUpBalanceInMobileState with _$TopUpBalanceInMobileState {
         amount: '',
         convertedJpyAmount: '0.0',
         coupon: '',
-        cashbackPercentage: 0,
         discountPercentage: 0,
-        rewardPoint: 0,
         rewardPointFromCoupon: 0,
         isSubmitting: false,
         isNumberValid: false,
         failureOrSuccessOption: none(),
       );
+
+  bool get isLandline =>
+      paydata.name.toString().toLowerCase().contains('landline');
 }

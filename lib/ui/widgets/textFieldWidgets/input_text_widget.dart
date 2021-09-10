@@ -19,6 +19,7 @@ class InputTextWidget extends StatefulWidget {
   final int maxLines;
   final int minLines;
   final int maxlength;
+  final String prefixText;
 
   ///Only active if [obscureText] = true
   final bool showHideTextOption;
@@ -42,6 +43,7 @@ class InputTextWidget extends StatefulWidget {
     this.minLines = 1,
     this.maxlength = 25,
     this.showHideTextOption = false,
+    this.prefixText = '',
   }) : super(key: key);
 
   @override
@@ -61,7 +63,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
           children: [
             if (widget.prefixIcon != null)
               Padding(
-                padding: const EdgeInsets.only(right: 4, bottom: 2),
+                padding: const EdgeInsets.only(right: 4),
                 child: widget.prefixIcon,
               ),
             Expanded(
@@ -74,6 +76,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                 maxLength: widget.maxlength,
                 maxLines: widget.maxLines,
                 decoration: InputDecoration(
+                  prefix: Text(widget.prefixText),
                   contentPadding: widget.maxLines > 1
                       ? EdgeInsets.zero
                       : EdgeInsets.only(bottom: height / 2),

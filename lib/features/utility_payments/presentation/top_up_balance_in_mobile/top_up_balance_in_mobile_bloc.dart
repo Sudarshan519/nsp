@@ -39,20 +39,11 @@ class TopUpBalanceInMobileBloc
       changeconvertedJpyAmount: (e) async* {
         yield _mapChangeconvertedJpyAmountEventToState(e);
       },
-      setProductId: (e) async* {
-        yield _mapProductIdEventToState(e);
-      },
       changeCoupon: (e) async* {
         yield _mapChangecCouponCodeEventToState(e);
       },
-      setCashbackpercentage: (e) async* {
-        yield _mapSetCashbackpercentageEventToState(e);
-      },
       setDiscountpercentage: (e) async* {
         yield _mapSetDiscountpercentageEventToState(e);
-      },
-      setRewardPoint: (e) async* {
-        yield _mapSetRewardPointsEventToState(e);
       },
       setRewardPointFromCoupon: (e) async* {
         yield _mapSetRewardPointsFromCouponEventToState(e);
@@ -87,13 +78,11 @@ class TopUpBalanceInMobileBloc
             .contains(type.toLowerCase());
 
     return state.copyWith(
+      key: _changePhoneNumber.fromContactPicker ? UniqueKey() : state.key,
       amount: amount,
       number: _changePhoneNumber.number,
       type: type,
       isNumberValid: isValid,
-      coupon: '',
-      discountPercentage: 0,
-      rewardPointFromCoupon: 0,
       failureOrSuccessOption: none(),
     );
   }
@@ -101,14 +90,6 @@ class TopUpBalanceInMobileBloc
   TopUpBalanceInMobileState _mapSetPayDataEventToState(_SetPayData _payData) {
     return state.copyWith(
       paydata: _payData.paydata,
-      failureOrSuccessOption: none(),
-    );
-  }
-
-  TopUpBalanceInMobileState _mapProductIdEventToState(
-      _SetProductId _setProductId) {
-    return state.copyWith(
-      productId: _setProductId.productId,
       failureOrSuccessOption: none(),
     );
   }
@@ -137,26 +118,10 @@ class TopUpBalanceInMobileBloc
     );
   }
 
-  TopUpBalanceInMobileState _mapSetCashbackpercentageEventToState(
-      _SetCashbackpercentage _setCashbackpercentage) {
-    return state.copyWith(
-      cashbackPercentage: _setCashbackpercentage.percentage,
-      failureOrSuccessOption: none(),
-    );
-  }
-
   TopUpBalanceInMobileState _mapSetDiscountpercentageEventToState(
       _SetDiscountpercentage _setDiscountpercentage) {
     return state.copyWith(
       discountPercentage: _setDiscountpercentage.percentage,
-      failureOrSuccessOption: none(),
-    );
-  }
-
-  TopUpBalanceInMobileState _mapSetRewardPointsEventToState(
-      _SetRedeemPoint _setRedeemPoint) {
-    return state.copyWith(
-      rewardPoint: _setRedeemPoint.point,
       failureOrSuccessOption: none(),
     );
   }
@@ -210,9 +175,9 @@ class TopUpBalanceInMobileBloc
 
     result = await topUpBalanceForMobile(
       TopUpBalanceForMobileParams(
-        productId: state.productId,
+        productId: (state.paydata.id ?? 0).toString(),
         amount: state.amount,
-        number: state.number,
+        number: (state.isLandline ? '0' : '') + state.number,
         type: state.type,
         coupon: state.coupon,
       ),

@@ -16,9 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TopUpBalanceInMobileEventTearOff {
   const _$TopUpBalanceInMobileEventTearOff();
 
-  _ChangePhoneNumber changePhoneNumber(String number) {
+  _ChangePhoneNumber changePhoneNumber(
+      {required String number, required bool fromContactPicker}) {
     return _ChangePhoneNumber(
-      number,
+      number: number,
+      fromContactPicker: fromContactPicker,
     );
   }
 
@@ -34,27 +36,9 @@ class _$TopUpBalanceInMobileEventTearOff {
     );
   }
 
-  _SetProductId setProductId(String productId) {
-    return _SetProductId(
-      productId,
-    );
-  }
-
-  _SetCashbackpercentage setCashbackpercentage(double percentage) {
-    return _SetCashbackpercentage(
-      percentage,
-    );
-  }
-
   _SetDiscountpercentage setDiscountpercentage(double percentage) {
     return _SetDiscountpercentage(
       percentage,
-    );
-  }
-
-  _SetRedeemPoint setRewardPoint(double point) {
-    return _SetRedeemPoint(
-      point,
     );
   }
 
@@ -92,13 +76,11 @@ const $TopUpBalanceInMobileEvent = _$TopUpBalanceInMobileEventTearOff();
 mixin _$TopUpBalanceInMobileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
@@ -108,13 +90,10 @@ mixin _$TopUpBalanceInMobileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -128,12 +107,8 @@ mixin _$TopUpBalanceInMobileEvent {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -148,10 +123,7 @@ mixin _$TopUpBalanceInMobileEvent {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -184,7 +156,7 @@ abstract class _$ChangePhoneNumberCopyWith<$Res> {
   factory _$ChangePhoneNumberCopyWith(
           _ChangePhoneNumber value, $Res Function(_ChangePhoneNumber) then) =
       __$ChangePhoneNumberCopyWithImpl<$Res>;
-  $Res call({String number});
+  $Res call({String number, bool fromContactPicker});
 }
 
 /// @nodoc
@@ -201,12 +173,17 @@ class __$ChangePhoneNumberCopyWithImpl<$Res>
   @override
   $Res call({
     Object? number = freezed,
+    Object? fromContactPicker = freezed,
   }) {
     return _then(_ChangePhoneNumber(
-      number == freezed
+      number: number == freezed
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as String,
+      fromContactPicker: fromContactPicker == freezed
+          ? _value.fromContactPicker
+          : fromContactPicker // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -214,14 +191,17 @@ class __$ChangePhoneNumberCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangePhoneNumber implements _ChangePhoneNumber {
-  const _$_ChangePhoneNumber(this.number);
+  const _$_ChangePhoneNumber(
+      {required this.number, required this.fromContactPicker});
 
   @override
   final String number;
+  @override
+  final bool fromContactPicker;
 
   @override
   String toString() {
-    return 'TopUpBalanceInMobileEvent.changePhoneNumber(number: $number)';
+    return 'TopUpBalanceInMobileEvent.changePhoneNumber(number: $number, fromContactPicker: $fromContactPicker)';
   }
 
   @override
@@ -229,12 +209,17 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
     return identical(this, other) ||
         (other is _ChangePhoneNumber &&
             (identical(other.number, number) ||
-                const DeepCollectionEquality().equals(other.number, number)));
+                const DeepCollectionEquality().equals(other.number, number)) &&
+            (identical(other.fromContactPicker, fromContactPicker) ||
+                const DeepCollectionEquality()
+                    .equals(other.fromContactPicker, fromContactPicker)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(number);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(number) ^
+      const DeepCollectionEquality().hash(fromContactPicker);
 
   @JsonKey(ignore: true)
   @override
@@ -244,32 +229,27 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
     required TResult Function() topup,
     required TResult Function(UtilityPayment paydata) setPayData,
   }) {
-    return changePhoneNumber(number);
+    return changePhoneNumber(number, fromContactPicker);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -278,7 +258,7 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
     required TResult orElse(),
   }) {
     if (changePhoneNumber != null) {
-      return changePhoneNumber(number);
+      return changePhoneNumber(number, fromContactPicker);
     }
     return orElse();
   }
@@ -289,12 +269,8 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -312,10 +288,7 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -331,9 +304,12 @@ class _$_ChangePhoneNumber implements _ChangePhoneNumber {
 }
 
 abstract class _ChangePhoneNumber implements TopUpBalanceInMobileEvent {
-  const factory _ChangePhoneNumber(String number) = _$_ChangePhoneNumber;
+  const factory _ChangePhoneNumber(
+      {required String number,
+      required bool fromContactPicker}) = _$_ChangePhoneNumber;
 
   String get number => throw _privateConstructorUsedError;
+  bool get fromContactPicker => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangePhoneNumberCopyWith<_ChangePhoneNumber> get copyWith =>
       throw _privateConstructorUsedError;
@@ -404,13 +380,11 @@ class _$_ChangeAmount implements _ChangeAmount {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
@@ -423,13 +397,10 @@ class _$_ChangeAmount implements _ChangeAmount {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -449,12 +420,8 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -472,10 +439,7 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -564,13 +528,11 @@ class _$_ChangeCoupon implements _ChangeCoupon {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
@@ -583,13 +545,10 @@ class _$_ChangeCoupon implements _ChangeCoupon {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -609,12 +568,8 @@ class _$_ChangeCoupon implements _ChangeCoupon {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -632,10 +587,7 @@ class _$_ChangeCoupon implements _ChangeCoupon {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -656,330 +608,6 @@ abstract class _ChangeCoupon implements TopUpBalanceInMobileEvent {
   String get coupon => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeCouponCopyWith<_ChangeCoupon> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$SetProductIdCopyWith<$Res> {
-  factory _$SetProductIdCopyWith(
-          _SetProductId value, $Res Function(_SetProductId) then) =
-      __$SetProductIdCopyWithImpl<$Res>;
-  $Res call({String productId});
-}
-
-/// @nodoc
-class __$SetProductIdCopyWithImpl<$Res>
-    extends _$TopUpBalanceInMobileEventCopyWithImpl<$Res>
-    implements _$SetProductIdCopyWith<$Res> {
-  __$SetProductIdCopyWithImpl(
-      _SetProductId _value, $Res Function(_SetProductId) _then)
-      : super(_value, (v) => _then(v as _SetProductId));
-
-  @override
-  _SetProductId get _value => super._value as _SetProductId;
-
-  @override
-  $Res call({
-    Object? productId = freezed,
-  }) {
-    return _then(_SetProductId(
-      productId == freezed
-          ? _value.productId
-          : productId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_SetProductId implements _SetProductId {
-  const _$_SetProductId(this.productId);
-
-  @override
-  final String productId;
-
-  @override
-  String toString() {
-    return 'TopUpBalanceInMobileEvent.setProductId(productId: $productId)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _SetProductId &&
-            (identical(other.productId, productId) ||
-                const DeepCollectionEquality()
-                    .equals(other.productId, productId)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(productId);
-
-  @JsonKey(ignore: true)
-  @override
-  _$SetProductIdCopyWith<_SetProductId> get copyWith =>
-      __$SetProductIdCopyWithImpl<_SetProductId>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
-    required TResult Function(String amount) changeAmount,
-    required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
-    required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
-    required TResult Function(double point) setRewardPointFromCoupon,
-    required TResult Function(String amount) changeconvertedJpyAmount,
-    required TResult Function() validate,
-    required TResult Function() topup,
-    required TResult Function(UtilityPayment paydata) setPayData,
-  }) {
-    return setProductId(productId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
-    TResult Function(String amount)? changeAmount,
-    TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
-    TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
-    TResult Function(double point)? setRewardPointFromCoupon,
-    TResult Function(String amount)? changeconvertedJpyAmount,
-    TResult Function()? validate,
-    TResult Function()? topup,
-    TResult Function(UtilityPayment paydata)? setPayData,
-    required TResult orElse(),
-  }) {
-    if (setProductId != null) {
-      return setProductId(productId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
-    required TResult Function(_ChangeAmount value) changeAmount,
-    required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
-    required TResult Function(_SetDiscountpercentage value)
-        setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
-    required TResult Function(_SetRedeemPointFromCoupon value)
-        setRewardPointFromCoupon,
-    required TResult Function(_ChangeconvertedJpyAmount value)
-        changeconvertedJpyAmount,
-    required TResult Function(_Validate value) validate,
-    required TResult Function(_Topup value) topup,
-    required TResult Function(_SetPayData value) setPayData,
-  }) {
-    return setProductId(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
-    TResult Function(_ChangeAmount value)? changeAmount,
-    TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
-    TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
-    TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
-    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
-    TResult Function(_Validate value)? validate,
-    TResult Function(_Topup value)? topup,
-    TResult Function(_SetPayData value)? setPayData,
-    required TResult orElse(),
-  }) {
-    if (setProductId != null) {
-      return setProductId(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetProductId implements TopUpBalanceInMobileEvent {
-  const factory _SetProductId(String productId) = _$_SetProductId;
-
-  String get productId => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$SetProductIdCopyWith<_SetProductId> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$SetCashbackpercentageCopyWith<$Res> {
-  factory _$SetCashbackpercentageCopyWith(_SetCashbackpercentage value,
-          $Res Function(_SetCashbackpercentage) then) =
-      __$SetCashbackpercentageCopyWithImpl<$Res>;
-  $Res call({double percentage});
-}
-
-/// @nodoc
-class __$SetCashbackpercentageCopyWithImpl<$Res>
-    extends _$TopUpBalanceInMobileEventCopyWithImpl<$Res>
-    implements _$SetCashbackpercentageCopyWith<$Res> {
-  __$SetCashbackpercentageCopyWithImpl(_SetCashbackpercentage _value,
-      $Res Function(_SetCashbackpercentage) _then)
-      : super(_value, (v) => _then(v as _SetCashbackpercentage));
-
-  @override
-  _SetCashbackpercentage get _value => super._value as _SetCashbackpercentage;
-
-  @override
-  $Res call({
-    Object? percentage = freezed,
-  }) {
-    return _then(_SetCashbackpercentage(
-      percentage == freezed
-          ? _value.percentage
-          : percentage // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_SetCashbackpercentage implements _SetCashbackpercentage {
-  const _$_SetCashbackpercentage(this.percentage);
-
-  @override
-  final double percentage;
-
-  @override
-  String toString() {
-    return 'TopUpBalanceInMobileEvent.setCashbackpercentage(percentage: $percentage)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _SetCashbackpercentage &&
-            (identical(other.percentage, percentage) ||
-                const DeepCollectionEquality()
-                    .equals(other.percentage, percentage)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(percentage);
-
-  @JsonKey(ignore: true)
-  @override
-  _$SetCashbackpercentageCopyWith<_SetCashbackpercentage> get copyWith =>
-      __$SetCashbackpercentageCopyWithImpl<_SetCashbackpercentage>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
-    required TResult Function(String amount) changeAmount,
-    required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
-    required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
-    required TResult Function(double point) setRewardPointFromCoupon,
-    required TResult Function(String amount) changeconvertedJpyAmount,
-    required TResult Function() validate,
-    required TResult Function() topup,
-    required TResult Function(UtilityPayment paydata) setPayData,
-  }) {
-    return setCashbackpercentage(percentage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
-    TResult Function(String amount)? changeAmount,
-    TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
-    TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
-    TResult Function(double point)? setRewardPointFromCoupon,
-    TResult Function(String amount)? changeconvertedJpyAmount,
-    TResult Function()? validate,
-    TResult Function()? topup,
-    TResult Function(UtilityPayment paydata)? setPayData,
-    required TResult orElse(),
-  }) {
-    if (setCashbackpercentage != null) {
-      return setCashbackpercentage(percentage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
-    required TResult Function(_ChangeAmount value) changeAmount,
-    required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
-    required TResult Function(_SetDiscountpercentage value)
-        setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
-    required TResult Function(_SetRedeemPointFromCoupon value)
-        setRewardPointFromCoupon,
-    required TResult Function(_ChangeconvertedJpyAmount value)
-        changeconvertedJpyAmount,
-    required TResult Function(_Validate value) validate,
-    required TResult Function(_Topup value) topup,
-    required TResult Function(_SetPayData value) setPayData,
-  }) {
-    return setCashbackpercentage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
-    TResult Function(_ChangeAmount value)? changeAmount,
-    TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
-    TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
-    TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
-    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
-    TResult Function(_Validate value)? validate,
-    TResult Function(_Topup value)? topup,
-    TResult Function(_SetPayData value)? setPayData,
-    required TResult orElse(),
-  }) {
-    if (setCashbackpercentage != null) {
-      return setCashbackpercentage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetCashbackpercentage implements TopUpBalanceInMobileEvent {
-  const factory _SetCashbackpercentage(double percentage) =
-      _$_SetCashbackpercentage;
-
-  double get percentage => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$SetCashbackpercentageCopyWith<_SetCashbackpercentage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1050,13 +678,11 @@ class _$_SetDiscountpercentage implements _SetDiscountpercentage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
@@ -1069,13 +695,10 @@ class _$_SetDiscountpercentage implements _SetDiscountpercentage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -1095,12 +718,8 @@ class _$_SetDiscountpercentage implements _SetDiscountpercentage {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -1118,10 +737,7 @@ class _$_SetDiscountpercentage implements _SetDiscountpercentage {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -1143,166 +759,6 @@ abstract class _SetDiscountpercentage implements TopUpBalanceInMobileEvent {
   double get percentage => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SetDiscountpercentageCopyWith<_SetDiscountpercentage> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$SetRedeemPointCopyWith<$Res> {
-  factory _$SetRedeemPointCopyWith(
-          _SetRedeemPoint value, $Res Function(_SetRedeemPoint) then) =
-      __$SetRedeemPointCopyWithImpl<$Res>;
-  $Res call({double point});
-}
-
-/// @nodoc
-class __$SetRedeemPointCopyWithImpl<$Res>
-    extends _$TopUpBalanceInMobileEventCopyWithImpl<$Res>
-    implements _$SetRedeemPointCopyWith<$Res> {
-  __$SetRedeemPointCopyWithImpl(
-      _SetRedeemPoint _value, $Res Function(_SetRedeemPoint) _then)
-      : super(_value, (v) => _then(v as _SetRedeemPoint));
-
-  @override
-  _SetRedeemPoint get _value => super._value as _SetRedeemPoint;
-
-  @override
-  $Res call({
-    Object? point = freezed,
-  }) {
-    return _then(_SetRedeemPoint(
-      point == freezed
-          ? _value.point
-          : point // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_SetRedeemPoint implements _SetRedeemPoint {
-  const _$_SetRedeemPoint(this.point);
-
-  @override
-  final double point;
-
-  @override
-  String toString() {
-    return 'TopUpBalanceInMobileEvent.setRewardPoint(point: $point)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _SetRedeemPoint &&
-            (identical(other.point, point) ||
-                const DeepCollectionEquality().equals(other.point, point)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(point);
-
-  @JsonKey(ignore: true)
-  @override
-  _$SetRedeemPointCopyWith<_SetRedeemPoint> get copyWith =>
-      __$SetRedeemPointCopyWithImpl<_SetRedeemPoint>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
-    required TResult Function(String amount) changeAmount,
-    required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
-    required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
-    required TResult Function(double point) setRewardPointFromCoupon,
-    required TResult Function(String amount) changeconvertedJpyAmount,
-    required TResult Function() validate,
-    required TResult Function() topup,
-    required TResult Function(UtilityPayment paydata) setPayData,
-  }) {
-    return setRewardPoint(point);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
-    TResult Function(String amount)? changeAmount,
-    TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
-    TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
-    TResult Function(double point)? setRewardPointFromCoupon,
-    TResult Function(String amount)? changeconvertedJpyAmount,
-    TResult Function()? validate,
-    TResult Function()? topup,
-    TResult Function(UtilityPayment paydata)? setPayData,
-    required TResult orElse(),
-  }) {
-    if (setRewardPoint != null) {
-      return setRewardPoint(point);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
-    required TResult Function(_ChangeAmount value) changeAmount,
-    required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
-    required TResult Function(_SetDiscountpercentage value)
-        setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
-    required TResult Function(_SetRedeemPointFromCoupon value)
-        setRewardPointFromCoupon,
-    required TResult Function(_ChangeconvertedJpyAmount value)
-        changeconvertedJpyAmount,
-    required TResult Function(_Validate value) validate,
-    required TResult Function(_Topup value) topup,
-    required TResult Function(_SetPayData value) setPayData,
-  }) {
-    return setRewardPoint(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
-    TResult Function(_ChangeAmount value)? changeAmount,
-    TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
-    TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
-    TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
-    TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
-    TResult Function(_Validate value)? validate,
-    TResult Function(_Topup value)? topup,
-    TResult Function(_SetPayData value)? setPayData,
-    required TResult orElse(),
-  }) {
-    if (setRewardPoint != null) {
-      return setRewardPoint(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetRedeemPoint implements TopUpBalanceInMobileEvent {
-  const factory _SetRedeemPoint(double point) = _$_SetRedeemPoint;
-
-  double get point => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$SetRedeemPointCopyWith<_SetRedeemPoint> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1373,13 +829,11 @@ class _$_SetRedeemPointFromCoupon implements _SetRedeemPointFromCoupon {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
@@ -1392,13 +846,10 @@ class _$_SetRedeemPointFromCoupon implements _SetRedeemPointFromCoupon {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -1418,12 +869,8 @@ class _$_SetRedeemPointFromCoupon implements _SetRedeemPointFromCoupon {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -1441,10 +888,7 @@ class _$_SetRedeemPointFromCoupon implements _SetRedeemPointFromCoupon {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -1536,13 +980,11 @@ class _$_ChangeconvertedJpyAmount implements _ChangeconvertedJpyAmount {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
@@ -1555,13 +997,10 @@ class _$_ChangeconvertedJpyAmount implements _ChangeconvertedJpyAmount {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -1581,12 +1020,8 @@ class _$_ChangeconvertedJpyAmount implements _ChangeconvertedJpyAmount {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -1604,10 +1039,7 @@ class _$_ChangeconvertedJpyAmount implements _ChangeconvertedJpyAmount {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -1670,13 +1102,11 @@ class _$_Validate implements _Validate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
@@ -1689,13 +1119,10 @@ class _$_Validate implements _Validate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -1715,12 +1142,8 @@ class _$_Validate implements _Validate {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -1738,10 +1161,7 @@ class _$_Validate implements _Validate {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -1798,13 +1218,11 @@ class _$_Topup implements _Topup {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
@@ -1817,13 +1235,10 @@ class _$_Topup implements _Topup {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -1843,12 +1258,8 @@ class _$_Topup implements _Topup {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -1866,10 +1277,7 @@ class _$_Topup implements _Topup {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -1953,13 +1361,11 @@ class _$_SetPayData implements _SetPayData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String number) changePhoneNumber,
+    required TResult Function(String number, bool fromContactPicker)
+        changePhoneNumber,
     required TResult Function(String amount) changeAmount,
     required TResult Function(String coupon) changeCoupon,
-    required TResult Function(String productId) setProductId,
-    required TResult Function(double percentage) setCashbackpercentage,
     required TResult Function(double percentage) setDiscountpercentage,
-    required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function(String amount) changeconvertedJpyAmount,
     required TResult Function() validate,
@@ -1972,13 +1378,10 @@ class _$_SetPayData implements _SetPayData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String number)? changePhoneNumber,
+    TResult Function(String number, bool fromContactPicker)? changePhoneNumber,
     TResult Function(String amount)? changeAmount,
     TResult Function(String coupon)? changeCoupon,
-    TResult Function(String productId)? setProductId,
-    TResult Function(double percentage)? setCashbackpercentage,
     TResult Function(double percentage)? setDiscountpercentage,
-    TResult Function(double point)? setRewardPoint,
     TResult Function(double point)? setRewardPointFromCoupon,
     TResult Function(String amount)? changeconvertedJpyAmount,
     TResult Function()? validate,
@@ -1998,12 +1401,8 @@ class _$_SetPayData implements _SetPayData {
     required TResult Function(_ChangePhoneNumber value) changePhoneNumber,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_ChangeCoupon value) changeCoupon,
-    required TResult Function(_SetProductId value) setProductId,
-    required TResult Function(_SetCashbackpercentage value)
-        setCashbackpercentage,
     required TResult Function(_SetDiscountpercentage value)
         setDiscountpercentage,
-    required TResult Function(_SetRedeemPoint value) setRewardPoint,
     required TResult Function(_SetRedeemPointFromCoupon value)
         setRewardPointFromCoupon,
     required TResult Function(_ChangeconvertedJpyAmount value)
@@ -2021,10 +1420,7 @@ class _$_SetPayData implements _SetPayData {
     TResult Function(_ChangePhoneNumber value)? changePhoneNumber,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_ChangeCoupon value)? changeCoupon,
-    TResult Function(_SetProductId value)? setProductId,
-    TResult Function(_SetCashbackpercentage value)? setCashbackpercentage,
     TResult Function(_SetDiscountpercentage value)? setDiscountpercentage,
-    TResult Function(_SetRedeemPoint value)? setRewardPoint,
     TResult Function(_SetRedeemPointFromCoupon value)? setRewardPointFromCoupon,
     TResult Function(_ChangeconvertedJpyAmount value)? changeconvertedJpyAmount,
     TResult Function(_Validate value)? validate,
@@ -2061,9 +1457,7 @@ class _$TopUpBalanceInMobileStateTearOff {
       required String amount,
       required String convertedJpyAmount,
       required String coupon,
-      required double cashbackPercentage,
       required double discountPercentage,
-      required double rewardPoint,
       required double rewardPointFromCoupon,
       required bool isSubmitting,
       required bool isNumberValid,
@@ -2077,9 +1471,7 @@ class _$TopUpBalanceInMobileStateTearOff {
       amount: amount,
       convertedJpyAmount: convertedJpyAmount,
       coupon: coupon,
-      cashbackPercentage: cashbackPercentage,
       discountPercentage: discountPercentage,
-      rewardPoint: rewardPoint,
       rewardPointFromCoupon: rewardPointFromCoupon,
       isSubmitting: isSubmitting,
       isNumberValid: isNumberValid,
@@ -2101,9 +1493,7 @@ mixin _$TopUpBalanceInMobileState {
   String get amount => throw _privateConstructorUsedError;
   String get convertedJpyAmount => throw _privateConstructorUsedError;
   String get coupon => throw _privateConstructorUsedError;
-  double get cashbackPercentage => throw _privateConstructorUsedError;
   double get discountPercentage => throw _privateConstructorUsedError;
-  double get rewardPoint => throw _privateConstructorUsedError;
   double get rewardPointFromCoupon => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isNumberValid => throw _privateConstructorUsedError;
@@ -2129,9 +1519,7 @@ abstract class $TopUpBalanceInMobileStateCopyWith<$Res> {
       String amount,
       String convertedJpyAmount,
       String coupon,
-      double cashbackPercentage,
       double discountPercentage,
-      double rewardPoint,
       double rewardPointFromCoupon,
       bool isSubmitting,
       bool isNumberValid,
@@ -2157,9 +1545,7 @@ class _$TopUpBalanceInMobileStateCopyWithImpl<$Res>
     Object? amount = freezed,
     Object? convertedJpyAmount = freezed,
     Object? coupon = freezed,
-    Object? cashbackPercentage = freezed,
     Object? discountPercentage = freezed,
-    Object? rewardPoint = freezed,
     Object? rewardPointFromCoupon = freezed,
     Object? isSubmitting = freezed,
     Object? isNumberValid = freezed,
@@ -2198,17 +1584,9 @@ class _$TopUpBalanceInMobileStateCopyWithImpl<$Res>
           ? _value.coupon
           : coupon // ignore: cast_nullable_to_non_nullable
               as String,
-      cashbackPercentage: cashbackPercentage == freezed
-          ? _value.cashbackPercentage
-          : cashbackPercentage // ignore: cast_nullable_to_non_nullable
-              as double,
       discountPercentage: discountPercentage == freezed
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
-              as double,
-      rewardPoint: rewardPoint == freezed
-          ? _value.rewardPoint
-          : rewardPoint // ignore: cast_nullable_to_non_nullable
               as double,
       rewardPointFromCoupon: rewardPointFromCoupon == freezed
           ? _value.rewardPointFromCoupon
@@ -2246,9 +1624,7 @@ abstract class _$TopUpBalanceInMobileStateCopyWith<$Res>
       String amount,
       String convertedJpyAmount,
       String coupon,
-      double cashbackPercentage,
       double discountPercentage,
-      double rewardPoint,
       double rewardPointFromCoupon,
       bool isSubmitting,
       bool isNumberValid,
@@ -2277,9 +1653,7 @@ class __$TopUpBalanceInMobileStateCopyWithImpl<$Res>
     Object? amount = freezed,
     Object? convertedJpyAmount = freezed,
     Object? coupon = freezed,
-    Object? cashbackPercentage = freezed,
     Object? discountPercentage = freezed,
-    Object? rewardPoint = freezed,
     Object? rewardPointFromCoupon = freezed,
     Object? isSubmitting = freezed,
     Object? isNumberValid = freezed,
@@ -2318,17 +1692,9 @@ class __$TopUpBalanceInMobileStateCopyWithImpl<$Res>
           ? _value.coupon
           : coupon // ignore: cast_nullable_to_non_nullable
               as String,
-      cashbackPercentage: cashbackPercentage == freezed
-          ? _value.cashbackPercentage
-          : cashbackPercentage // ignore: cast_nullable_to_non_nullable
-              as double,
       discountPercentage: discountPercentage == freezed
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
-              as double,
-      rewardPoint: rewardPoint == freezed
-          ? _value.rewardPoint
-          : rewardPoint // ignore: cast_nullable_to_non_nullable
               as double,
       rewardPointFromCoupon: rewardPointFromCoupon == freezed
           ? _value.rewardPointFromCoupon
@@ -2352,7 +1718,7 @@ class __$TopUpBalanceInMobileStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
+class _$_TopUpBalanceInMobileState extends _TopUpBalanceInMobileState {
   const _$_TopUpBalanceInMobileState(
       {required this.paydata,
       required this.key,
@@ -2362,13 +1728,12 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
       required this.amount,
       required this.convertedJpyAmount,
       required this.coupon,
-      required this.cashbackPercentage,
       required this.discountPercentage,
-      required this.rewardPoint,
       required this.rewardPointFromCoupon,
       required this.isSubmitting,
       required this.isNumberValid,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : super._();
 
   @override
   final UtilityPayment paydata;
@@ -2387,11 +1752,7 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
   @override
   final String coupon;
   @override
-  final double cashbackPercentage;
-  @override
   final double discountPercentage;
-  @override
-  final double rewardPoint;
   @override
   final double rewardPointFromCoupon;
   @override
@@ -2403,7 +1764,7 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
 
   @override
   String toString() {
-    return 'TopUpBalanceInMobileState(paydata: $paydata, key: $key, number: $number, productId: $productId, type: $type, amount: $amount, convertedJpyAmount: $convertedJpyAmount, coupon: $coupon, cashbackPercentage: $cashbackPercentage, discountPercentage: $discountPercentage, rewardPoint: $rewardPoint, rewardPointFromCoupon: $rewardPointFromCoupon, isSubmitting: $isSubmitting, isNumberValid: $isNumberValid, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'TopUpBalanceInMobileState(paydata: $paydata, key: $key, number: $number, productId: $productId, type: $type, amount: $amount, convertedJpyAmount: $convertedJpyAmount, coupon: $coupon, discountPercentage: $discountPercentage, rewardPointFromCoupon: $rewardPointFromCoupon, isSubmitting: $isSubmitting, isNumberValid: $isNumberValid, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -2429,15 +1790,9 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
                     .equals(other.convertedJpyAmount, convertedJpyAmount)) &&
             (identical(other.coupon, coupon) ||
                 const DeepCollectionEquality().equals(other.coupon, coupon)) &&
-            (identical(other.cashbackPercentage, cashbackPercentage) ||
-                const DeepCollectionEquality()
-                    .equals(other.cashbackPercentage, cashbackPercentage)) &&
             (identical(other.discountPercentage, discountPercentage) ||
                 const DeepCollectionEquality()
                     .equals(other.discountPercentage, discountPercentage)) &&
-            (identical(other.rewardPoint, rewardPoint) ||
-                const DeepCollectionEquality()
-                    .equals(other.rewardPoint, rewardPoint)) &&
             (identical(other.rewardPointFromCoupon, rewardPointFromCoupon) ||
                 const DeepCollectionEquality().equals(
                     other.rewardPointFromCoupon, rewardPointFromCoupon)) &&
@@ -2463,9 +1818,7 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
       const DeepCollectionEquality().hash(amount) ^
       const DeepCollectionEquality().hash(convertedJpyAmount) ^
       const DeepCollectionEquality().hash(coupon) ^
-      const DeepCollectionEquality().hash(cashbackPercentage) ^
       const DeepCollectionEquality().hash(discountPercentage) ^
-      const DeepCollectionEquality().hash(rewardPoint) ^
       const DeepCollectionEquality().hash(rewardPointFromCoupon) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(isNumberValid) ^
@@ -2479,7 +1832,7 @@ class _$_TopUpBalanceInMobileState implements _TopUpBalanceInMobileState {
               this, _$identity);
 }
 
-abstract class _TopUpBalanceInMobileState implements TopUpBalanceInMobileState {
+abstract class _TopUpBalanceInMobileState extends TopUpBalanceInMobileState {
   const factory _TopUpBalanceInMobileState(
           {required UtilityPayment paydata,
           required Key key,
@@ -2489,14 +1842,13 @@ abstract class _TopUpBalanceInMobileState implements TopUpBalanceInMobileState {
           required String amount,
           required String convertedJpyAmount,
           required String coupon,
-          required double cashbackPercentage,
           required double discountPercentage,
-          required double rewardPoint,
           required double rewardPointFromCoupon,
           required bool isSubmitting,
           required bool isNumberValid,
           required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
       _$_TopUpBalanceInMobileState;
+  const _TopUpBalanceInMobileState._() : super._();
 
   @override
   UtilityPayment get paydata => throw _privateConstructorUsedError;
@@ -2515,11 +1867,7 @@ abstract class _TopUpBalanceInMobileState implements TopUpBalanceInMobileState {
   @override
   String get coupon => throw _privateConstructorUsedError;
   @override
-  double get cashbackPercentage => throw _privateConstructorUsedError;
-  @override
   double get discountPercentage => throw _privateConstructorUsedError;
-  @override
-  double get rewardPoint => throw _privateConstructorUsedError;
   @override
   double get rewardPointFromCoupon => throw _privateConstructorUsedError;
   @override

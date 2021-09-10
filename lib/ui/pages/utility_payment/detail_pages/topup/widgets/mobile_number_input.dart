@@ -15,20 +15,20 @@ class MobileNumberTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
-        final isLandline =
-            state.paydata.name.toString().toLowerCase().contains('landline');
-
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               key: state.key,
               child: TextWidetWithLabelAndChild(
-                title: isLandline ? 'Landline (8 digits)' : "Mobile (10 digit)",
+                title: state.isLandline
+                    ? 'Landline (8 digits)'
+                    : "Mobile (10 digit)",
                 child: InputTextWidget(
-                  prefixIcon: Text(isLandline ? '0 -' : '977 -'),
-                  hintText: isLandline ? '148xxxxx' : "98XXXXXXXX",
-                  maxlength: isLandline ? 8 : 10,
+                  key: state.key,
+                  prefixText: state.isLandline ? '0 - ' : '977 - ',
+                  hintText: state.isLandline ? '148xxxxx' : "98XXXXXXXX",
+                  maxlength: state.isLandline ? 8 : 10,
                   textInputType: TextInputType.number,
                   value: state.number,
                   inputFormatters: [
@@ -36,7 +36,8 @@ class MobileNumberTextField extends StatelessWidget {
                   ],
                   onChanged: (value) => context
                       .read<TopUpBalanceInMobileBloc>()
-                      .add(TopUpBalanceInMobileEvent.changePhoneNumber(value)),
+                      .add(TopUpBalanceInMobileEvent.changePhoneNumber(
+                          number: value, fromContactPicker: false)),
                   suffixIcon: InkWell(
                     onTap: () async {
                       final phoneNumber = await handleContact(context);
@@ -47,7 +48,7 @@ class MobileNumberTextField extends StatelessWidget {
                       } else {
                         context.read<TopUpBalanceInMobileBloc>().add(
                             TopUpBalanceInMobileEvent.changePhoneNumber(
-                                phoneNumber));
+                                number: phoneNumber, fromContactPicker: true));
                       }
                     },
                     child: SvgPicture.asset(
@@ -98,12 +99,12 @@ class MobileNumberTextField extends StatelessWidget {
           .replaceAll(' ', '');
 
       if (number.startsWith('977')) {
-        number.replaceFirst('977', '');
+        number = number.replaceFirst('977', '');
       }
 
       //For land line, removing 0 if number is = 014876232
       if (number.startsWith('0')) {
-        number.replaceFirst('0', '');
+        number = number.replaceFirst('0', '');
       }
 
       // // taking the last 10 digits of the num if there is any type of prefix like country code etc
