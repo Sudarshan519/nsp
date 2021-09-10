@@ -45,7 +45,7 @@ class GetUserDevicesBloc
           (fail) => _FailureWithData(fail, _devices),
           (data) {
             _devices.removeWhere((element) => element.id == e.id);
-            return _Loaded(_devices, 'Device Successfully!');
+            return _Loaded(_devices, 'Device deleted Successfully!');
           },
         );
       },
