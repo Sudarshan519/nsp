@@ -15,7 +15,7 @@ part 'get_volcanoes_bloc.freezed.dart';
 class GetVolcanoesBloc extends Bloc<GetVolcanoesEvent, GetVolcanoesState> {
   final GetVolcanoes getVolcanoes;
   List<Alert> alerts = [];
-  int limit = 10;
+  int offset = 0;
   bool hasReachedEnd = false;
   bool isFetching = false;
 
@@ -39,7 +39,7 @@ class GetVolcanoesBloc extends Bloc<GetVolcanoesEvent, GetVolcanoesState> {
         if (hasReachedEnd) {
           yield _Success(alerts);
         } else {
-          limit = limit + 10;
+          offset = offset + alerts.length;
           yield* _changeFetchEventToMap();
         }
       },
@@ -51,15 +51,15 @@ class GetVolcanoesBloc extends Bloc<GetVolcanoesEvent, GetVolcanoesState> {
       yield _LoadingWithData(alerts);
     }
 
-    final result = await getVolcanoes(GetVolcanoesParams(limit: limit));
+    final result = await getVolcanoes(GetVolcanoesParams(offset: offset));
 
     yield result.fold(
       (failure) => _Failure(failure),
-      (_alerts) {
-        if (alerts.length == _alerts.length) {
+      (_newAlerts) {
+        if (alerts.length == _newAlerts.length) {
           hasReachedEnd = false;
         }
-        alerts.addAll(_alerts);
+        alerts.addAll(_newAlerts);
         // alerts = alerts.toSet().toList();
         isFetching = false;
         return _Success(alerts);

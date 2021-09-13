@@ -5,6 +5,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 class InputTextWidget extends StatefulWidget {
   final String hintText;
   final bool obscureText;
+  final bool autoFocus;
   final String value;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -30,6 +31,7 @@ class InputTextWidget extends StatefulWidget {
     required this.onChanged,
     required this.value,
     this.prefixIcon,
+    this.autoFocus = false,
     this.suffixIcon,
     this.obscureText = false,
     this.isEnable = true,
@@ -68,6 +70,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
               ),
             Expanded(
               child: TextFormField(
+                autofocus: widget.autoFocus,
                 obscureText: (widget.showHideTextOption && widget.obscureText)
                     ? !textvisible
                     : widget.obscureText,

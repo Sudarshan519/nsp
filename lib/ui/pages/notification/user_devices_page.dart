@@ -10,6 +10,7 @@ import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/ui/widgets/pop_up/pop_up_confirmation.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:wallet_app/utils/date_time_formatter.dart';
 
 class UserDevicesListPage extends StatelessWidget {
   const UserDevicesListPage({Key? key}) : super(key: key);
@@ -54,8 +55,17 @@ class _UserDevices extends StatelessWidget {
               child: ListTile(
                 leading: const Icon(Icons.phone_iphone),
                 title: Text(item.deviceInfo.name),
-                subtitle:
-                    isCurrentDevice ? const Text('(current device)') : null,
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 5),
+                    if (isCurrentDevice) const Text('(current device)'),
+                    Text('Last Login: ' +
+                        (item.lastLogin.isNotEmpty
+                            ? ('${DateTimeFormatter.formatDate(item.lastLogin)} ${DateTimeFormatter.formatTime(item.lastLogin)}')
+                            : 'Unknown'))
+                  ],
+                ),
                 trailing: isCurrentDevice
                     ? null
                     : InkWell(

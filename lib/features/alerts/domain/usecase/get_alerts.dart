@@ -19,7 +19,7 @@ class GetAlerts implements Usecase<ApiFailure, List<Alert>, GetAlertsParams> {
   @override
   Future<Either<ApiFailure, List<Alert>>> call(GetAlertsParams params) async {
     if (await networkInfo.isConnected) {
-      return repository.getAlerts(limit: params.limit);
+      return repository.getAlerts(page: params.page);
     } else {
       return const Left(ApiFailure.noInternetConnection());
     }
@@ -27,9 +27,9 @@ class GetAlerts implements Usecase<ApiFailure, List<Alert>, GetAlertsParams> {
 }
 
 class GetAlertsParams {
-  final int limit;
+  final int page;
 
   GetAlertsParams({
-    required this.limit,
+    required this.page,
   });
 }

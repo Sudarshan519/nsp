@@ -22,7 +22,7 @@ class GetEarthquakes
   Future<Either<ApiFailure, List<Alert>>> call(
       GetEarthquakesParams params) async {
     if (await networkInfo.isConnected) {
-      return repository.getEarthquake(limit: params.limit, code: params.code);
+      return repository.getEarthquake(offset: params.offset, code: params.code);
     } else {
       return const Left(ApiFailure.noInternetConnection());
     }
@@ -30,11 +30,11 @@ class GetEarthquakes
 }
 
 class GetEarthquakesParams {
-  final int limit;
+  final int offset;
   String? code;
 
   GetEarthquakesParams({
-    required this.limit,
+    required this.offset,
     this.code,
   });
 }

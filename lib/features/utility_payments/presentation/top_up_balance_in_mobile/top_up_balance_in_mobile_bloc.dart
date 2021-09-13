@@ -177,7 +177,7 @@ class TopUpBalanceInMobileBloc
       TopUpBalanceForMobileParams(
         productId: (state.paydata.id ?? 0).toString(),
         amount: state.amount,
-        number: (state.isLandline ? '0' : '') + state.number,
+        number: state.number,
         type: state.type,
         coupon: state.coupon,
       ),
@@ -199,7 +199,8 @@ class TopUpBalanceInMobileBloc
   String getType({required String fromNumber}) {
     if (Values.ntcRegx.hasMatch(fromNumber)) {
       return Values.NTC;
-    } else if (Values.ntcLandLineRegex.hasMatch(fromNumber)) {
+    } else if (state.isLandline &&
+        Values.ntcLandLineRegex.hasMatch(fromNumber)) {
       return Values.NTC;
     } else if (Values.ncellRegx.hasMatch(fromNumber)) {
       return Values.NCELL;

@@ -6,15 +6,15 @@ import 'package:wallet_app/features/alerts/domain/entity/weather_info.dart';
 
 abstract class AlertRepository {
   Future<Either<ApiFailure, List<Alert>>> getAlerts({
-    required int limit,
+    required int page,
   });
   Future<Either<ApiFailure, List<Alert>>> getEarthquake({
-    required int limit,
     String? code,
+    required int offset,
   });
   Future<Either<ApiFailure, List<Alert>>> getVolcanoes({
-    required int limit,
     String? code,
+    required int offset,
   });
   Future<Either<ApiFailure, List<WeatherInfo>>> getWeather();
   Future<Either<ApiFailure, AlertPlaces>> getAlertPlaces();

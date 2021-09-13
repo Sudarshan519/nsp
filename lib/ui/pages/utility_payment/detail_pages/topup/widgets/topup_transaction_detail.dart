@@ -326,7 +326,7 @@ class MobileNumberField extends StatelessWidget {
       builder: (context, state) {
         return TransactionDetailRow(
           title: '${state.isLandline ? 'Landline' : 'Mobile'} Number',
-          value: state.number,
+          value: (state.isLandline ? '0' : '') + state.number,
           isValueBold: true,
         );
       },
