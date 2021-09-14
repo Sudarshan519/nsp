@@ -59,10 +59,7 @@ class AlertRepositoryImpl implements AlertRepository {
         getIt<AuthLocalDataSource>().getAlertLocation();
     final List<Place> groupAlert =
         getIt<GetAlertLocationBloc>().otherPrefectures;
-    final List<Place> datalist = [
-      if (individualAlert != null) individualAlert,
-      ...groupAlert
-    ];
+    final List<Place> datalist = groupAlert;
 
     final List<int> prefectureCodeList = [];
     final List<int> cityCodeList = [];
@@ -70,8 +67,9 @@ class AlertRepositoryImpl implements AlertRepository {
     final List<int> villageCodeList = [];
 
     for (final item in datalist) {
-      if (item.prefectureCode != -1)
+      if (item.prefectureCode != -1) {
         prefectureCodeList.add(item.prefectureCode);
+      }
       if (item.cityCode != -1) cityCodeList.add(item.cityCode);
       if (item.regionCode != -1) regionCodeList.add(item.regionCode);
       if (item.villageCode != -1) villageCodeList.add(item.villageCode);
@@ -131,7 +129,8 @@ class AlertRepositoryImpl implements AlertRepository {
       final List<WeatherInfo> output = [];
       final individualAlert = getIt<AuthLocalDataSource>().getAlertLocation();
       final groupAlert = getIt<GetAlertLocationBloc>().otherPrefectures;
-      final datalist = [individualAlert, ...groupAlert];
+      // final datalist = [individualAlert, ...groupAlert];
+      final datalist = groupAlert;
 
       //since there is no api to get details of multiple city/prefacture code at once,
       //we are hitting api request in a loop and returning the output as a single list

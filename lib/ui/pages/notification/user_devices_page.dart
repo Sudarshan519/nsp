@@ -60,10 +60,8 @@ class _UserDevices extends StatelessWidget {
                   children: [
                     const SizedBox(height: 5),
                     if (isCurrentDevice) const Text('(current device)'),
-                    Text('Last Login: ' +
-                        (item.lastLogin.isNotEmpty
-                            ? ('${DateTimeFormatter.formatDate(item.lastLogin)} ${DateTimeFormatter.formatTime(item.lastLogin)}')
-                            : 'Unknown'))
+                    Text(
+                        'Last Login: ${item.lastLogin.isNotEmpty ? ('${DateTimeFormatter.formatDate(item.lastLogin)} - ${DateTimeFormatter.formatTime(item.lastLogin)}') : 'Unknown'}')
                   ],
                 ),
                 trailing: isCurrentDevice

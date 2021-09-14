@@ -31,8 +31,8 @@ class PushNotificationManager {
     return _token;
   }
 
-  void _saveToken() {
-    getIt<AuthLocalDataSource>().setFCMToken(_token);
+  Future setToken() async {
+    _token = await _firebaseMessaging.getToken() ?? '';
   }
 
   Future initialise() async {
@@ -42,6 +42,7 @@ class PushNotificationManager {
 
   Future removeToken() async {
     await _firebaseMessaging.deleteToken();
+    _token = '';
     getIt<AuthLocalDataSource>().setFCMToken('');
   }
 
@@ -88,10 +89,7 @@ class PushNotificationManager {
     _firebaseMessaging.requestPermission();
 
     try {
-      _token = await _firebaseMessaging.getToken() ?? '';
-
-      debugPrint("FirebaseMessaging token: $_token");
-      _saveToken();
+      setToken();
     } catch (ex) {
       debugPrint(ex.toString());
       return;

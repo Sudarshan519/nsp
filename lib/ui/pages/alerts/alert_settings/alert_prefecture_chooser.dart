@@ -202,7 +202,9 @@ class __AlertPrefectureChooserState extends State<_AlertPrefectureChooser> {
               CustomButton(
                   title: 'Done',
                   onTap: () {
-                    context.popRoute(otherPrefectures);
+                    //should return true if all prefectures are selected,
+                    //but should return a list if only some are selected
+                    context.popRoute(_allSelected ? true : otherPrefectures);
                   })
           ]),
       body: Column(

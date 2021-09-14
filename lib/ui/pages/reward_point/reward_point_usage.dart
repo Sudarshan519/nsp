@@ -24,7 +24,6 @@ class RewardPointUsage extends StatelessWidget {
           return state.map(
             loading: (a) => loadingPage(),
             loadingWith: (a) => loadingPage(),
-
             loaded: (data) => ShadowBoxWidget(
               margin: const EdgeInsets.all(8),
               child: Scrollbar(
@@ -40,7 +39,9 @@ class RewardPointUsage extends StatelessWidget {
                 ),
               ),
             ),
-            failure: (a) => loadingPage(), //  Text('failure'),
+            failure: (a) => const Center(
+              child: Text('Failed To load data!'),
+            ),
           );
         },
       ),

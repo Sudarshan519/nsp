@@ -23,14 +23,15 @@ class RewardPointListPage extends StatelessWidget {
         builder: (context, state) {
           return state.map(
             loading: (a) => loadingPage(),
-
             loadingWith: (data) => _RewardPointListView(
               items: data.rewardPointData.rewardPoints ?? [],
               isloading: true,
             ),
             loaded: (data) => _RewardPointListView(
                 items: data.rewardPointData.rewardPoints ?? []),
-            failure: (a) => loadingPage(), //  Text('failure'),
+            failure: (a) => const Center(
+              child: Text('Failed To load data!'),
+            ),
           );
         },
       ),

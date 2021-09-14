@@ -20,7 +20,7 @@ abstract class PartnerServicesRemoteDataSource {
     String? page,
     int? id,
   });
-  Future<List<ServicesCategoryModel>> getJapaneseMannerCategories();
+  Future<List<ServicesCategoryModel>> getPartnerServicesCategories();
   Future<Unit> purchasePackage(PurchasePackageParams params);
 }
 
@@ -110,7 +110,7 @@ class PartnerServicesRemoteDataSourceImpl
   }
 
   @override
-  Future<List<ServicesCategoryModel>> getJapaneseMannerCategories() async {
+  Future<List<ServicesCategoryModel>> getPartnerServicesCategories() async {
     final url =
         "${config.baseURL}${config.apiPath}${PartnerServicesApiEndpoints.getPartnerServicesCategories}";
     http.Response response;

@@ -23,6 +23,8 @@ class AlertSettingsPage extends StatefulWidget {
 
 class _AlertSettingsPageState extends State<AlertSettingsPage> {
   Place? selectedCity;
+
+  ///Empty list means all are selected
   List<Place> otherPrefectures = [];
   double _earthquakeThreshold = Values.DEFAULT_THRESHOLD;
 
@@ -217,20 +219,45 @@ class _AlertSettingsPageState extends State<AlertSettingsPage> {
               ),
               const SizedBox(height: 16),
               _cardView(heading: 'ALERT VIEWS PREFECENCE', items: [
+                const SizedBox(
+                  height: 6,
+                ),
+                const Text(
+                    'Here you can set and select prefectures to see the list of alert and warnings ',
+                    textScaleFactor: 0.95,
+                    textAlign: TextAlign.center),
+                const SizedBox(
+                  height: 10,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                      otherPrefectures.isEmpty
-                          ? 'Here you can set and select prefectures to see the list of alert and warnings '
-                          : '${otherPrefectures.length} Prefecture(s) Selected.',
-                      textAlign: TextAlign.center),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.location_city,
+                        size: 20,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                          '${otherPrefectures.isEmpty ? 'All' : otherPrefectures.length} Prefecture(s) Selected.',
+                          textAlign: TextAlign.center),
+                    ],
+                  ),
                 ),
                 OutlinedButton(
                   onPressed: () async {
                     final result = await context.pushRoute(
                         AlertPrefectureChooser(
                             selectMultiplePrefectures: true));
-                    if (result != null) {
+
+                    //will return true if all prefectures are selected,
+                    //but will return a list if only some are selected
+                    if (result == true) {
+                      setState(() {
+                        otherPrefectures = [];
+                      });
+                    } else if (result != null) {
                       setState(() {
                         otherPrefectures = result as List<Place>;
                       });

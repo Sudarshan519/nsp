@@ -191,7 +191,17 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     final url = "${config.baseURL}${config.apiPath}$uri";
 
-    body["firebaseToken"] = getIt<PushNotificationManager>().fireBaseToken;
+    final pushNotif = getIt<PushNotificationManager>();
+
+    var token = '';
+    token = pushNotif.fireBaseToken;
+
+    if (token.isEmpty) {
+      await pushNotif.setToken();
+      token = pushNotif.fireBaseToken;
+    }
+
+    body["firebaseToken"] = token;
     body["gps"] = getIt<GeoLocationManager>().gps;
     body['device_id'] = DeviceInfoManager.device.toString();
 

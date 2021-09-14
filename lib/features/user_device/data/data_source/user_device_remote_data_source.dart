@@ -38,7 +38,7 @@ class UserDeviceRemoteDataSourceImpl implements UserDeviceRemoteDataSource {
   @override
   Future<Unit> deleteDevice(int id) async {
     final url =
-        "${config.baseURL}${config.apiPath}${UserDeviceConstant.userDevicesDelete}/$id";
+        "${config.baseURL}${config.apiPath}${UserDeviceConstant.userDevicesDelete}$id";
     final accessToken =
         getIt<AuthLocalDataSource>().getWalletUser().accessToken;
 
