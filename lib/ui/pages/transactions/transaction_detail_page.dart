@@ -109,6 +109,7 @@ class TransactionDetailPage extends StatelessWidget {
                 children: [
                   Text(
                     currencyFormatter(
+                        decimalDigits: 1,
                         value: item.topupAmount ?? 0,
                         symbol: item.currency ?? ''),
                     style: const TextStyle(
@@ -187,8 +188,8 @@ class TransactionDetailPage extends StatelessWidget {
             ]),
             TableRow(children: [
               _tableRowItem('Amount:'),
-              _tableRowItem(
-                  currencyFormatter(value: item.topupAmount ?? 0, symbol: '¥')),
+              _tableRowItem(currencyFormatter(
+                  decimalDigits: 1, value: item.topupAmount ?? 0, symbol: '¥')),
             ]),
             TableRow(children: [
               _tableRowItem('Currency:'),

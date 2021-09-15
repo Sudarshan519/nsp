@@ -23,7 +23,7 @@ class TopupViaStripeState with _$TopupViaStripeState {
         expYear: '',
         amount: '',
         purpose: '',
-        saveCard: false,
+        saveCard: true,
         isSubmitting: false,
         failureOrSuccessOption: none(),
       );

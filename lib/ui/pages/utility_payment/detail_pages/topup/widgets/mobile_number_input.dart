@@ -27,7 +27,7 @@ class MobileNumberTextField extends StatelessWidget {
                 child: InputTextWidget(
                   autoFocus: true,
                   key: state.key,
-                  prefixText: state.isLandline ? '0 - ' : '977 - ',
+                  prefixText: state.isLandline ? '0' : '977 - ',
                   hintText: state.isLandline ? '148xxxxx' : "98XXXXXXXX",
                   maxlength: state.isLandline ? 8 : 10,
                   textInputType: TextInputType.number,

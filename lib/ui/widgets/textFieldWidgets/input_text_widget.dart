@@ -79,7 +79,10 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                 maxLength: widget.maxlength,
                 maxLines: widget.maxLines,
                 decoration: InputDecoration(
-                  prefix: Text(widget.prefixText),
+                  prefix: Text(
+                    widget.prefixText,
+                    style: const TextStyle(color: Colors.black),
+                  ),
                   contentPadding: widget.maxLines > 1
                       ? EdgeInsets.zero
                       : EdgeInsets.only(bottom: height / 2),

@@ -40,7 +40,7 @@ class RewardPointsRemoteDataSourceImpl implements RewardPointsRemoteDataSource {
     http.Response response;
 
     final url =
-        "${config.baseURL}${config.apiPath}${RewardPointApiEndpoints.getRewardPoints}?page=${params.page.toString()}}";
+        "${config.baseURL}${config.apiPath}${RewardPointApiEndpoints.getRewardPoints}?page=${params.page}";
 
     final accessToken = auth.getWalletUser().accessToken;
 

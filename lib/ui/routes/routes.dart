@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:wallet_app/ui/pages/about_us/about_us.dart';
 import 'package:wallet_app/ui/pages/add_balance/add_balance.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/esewa/esewa_topup_page.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/stripe_card_selection_page.dart';
@@ -19,7 +18,9 @@ import 'package:wallet_app/ui/pages/notification/notification_detail_page.dart';
 import 'package:wallet_app/ui/pages/notification/user_devices_page.dart';
 import 'package:wallet_app/ui/pages/reward_point/reward_point_home.dart';
 import 'package:wallet_app/ui/pages/search/search_home.dart';
+import 'package:wallet_app/ui/pages/settings/about_us/about_us.dart';
 import 'package:wallet_app/ui/pages/settings/change_password/change_password_page.dart';
+import 'package:wallet_app/ui/pages/settings/contact_us.dart/contact_us_page.dart';
 import 'package:wallet_app/ui/pages/settings/settings_page.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/topup/topup_page.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_detail.dart';
@@ -96,6 +97,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: SettingsPage),
     AutoRoute(page: ChangePasswordPage),
     AutoRoute(page: AboutUsPage),
+    AutoRoute(page: ContactUsPage),
     AutoRoute(page: UserDevicesListPage),
   ],
 )

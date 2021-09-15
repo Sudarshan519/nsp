@@ -3,6 +3,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/ui/pages/more/more_item.dart';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:wallet_app/ui/pages/settings/contact_us.dart/contact_us_page.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,11 @@ class SettingsPage extends StatelessWidget {
         .toUpperCase();
 
     final moreitems = [
+      if (signupMethod == SignupMethod.email)
+        MoreItem(
+            imageName: "icon-profile",
+            title: "Change Password",
+            onTap: () => context.pushRoute(ChangePasswordRoute())),
       MoreItem(
         imageName: "icon-terms",
         title: "Refund Policy",
@@ -65,15 +71,15 @@ class SettingsPage extends StatelessWidget {
         },
       ),
       MoreItem(
+        imageName: "icon-contact",
+        title: "Contact Us",
+        onTap: () => context.pushRoute(const ContactUsRoute()),
+      ),
+      MoreItem(
         imageName: "icon-about",
-        title: "About",
+        title: "About Us",
         onTap: () => context.pushRoute(const AboutUsRoute()),
       ),
-      if (signupMethod == SignupMethod.email)
-        MoreItem(
-            imageName: "icon-profile",
-            title: "Change Password",
-            onTap: () => context.pushRoute(ChangePasswordRoute())),
     ];
     return Scaffold(
       appBar: AppBar(
