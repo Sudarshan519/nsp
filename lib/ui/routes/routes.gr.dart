@@ -50,7 +50,7 @@ import '../pages/japanese_manner/japanese_manner_page.dart' as _i21;
 import '../pages/news/detail_page/news_detail.dart' as _i16;
 import '../pages/notification/notification_detail_page.dart' as _i41;
 import '../pages/notification/notification_list.dart' as _i38;
-import '../pages/notification/user_devices_page.dart' as _i48;
+import '../pages/settings/device_management/user_devices_page.dart' as _i48;
 import '../pages/partner_services/buy_package.dart' as _i39;
 import '../pages/partner_services/partner_service_payment/partner_service_payment.dart'
     as _i35;

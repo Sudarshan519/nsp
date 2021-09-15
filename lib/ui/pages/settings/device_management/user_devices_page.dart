@@ -51,8 +51,8 @@ class _UserDevices extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(12.0),
               child: Text(
-                'Mobile devices that have logged into your account.',
-                textScaleFactor: 0.92,
+                'Mobile devices that are logged into your account.',
+                textScaleFactor: 0.86,
                 textAlign: TextAlign.center,
               ),
             ),

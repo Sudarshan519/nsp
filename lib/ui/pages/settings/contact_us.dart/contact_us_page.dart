@@ -1,6 +1,8 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:wallet_app/features/contact_us/presentation/contact_us/contact_us_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -14,6 +16,7 @@ import 'package:provider/provider.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:url_launcher/url_launcher.dart' as launcher;
 
 class ContactUsPage extends StatelessWidget {
   const ContactUsPage({Key? key}) : super(key: key);
@@ -47,8 +50,7 @@ class ContactUsPage extends StatelessWidget {
                       context: context,
                       builder: (_) => PopUpSuccessOverLay(
                         title: "Success",
-                        message:
-                            'Your message has been succesfully deliivered!',
+                        message: 'Your message has been succesfully delivered!',
                         onPressed: () {
                           context.router.navigate(const TabBarRoute());
                         },
@@ -80,19 +82,39 @@ class ContactUsPage extends StatelessWidget {
             formWidget(),
             Card(
               child: ListTile(
-                leading: Icon(Icons.location_on, color: Palette.primary),
-                title: Text('Visit Us'),
-                subtitle: Text(
-                    'NAX Building 9F, Shinkawa 1-3-2, Chuo-ku , Tokyo 104-0033'),
+                onTap: () => launcher.launch('mailto:info@bnpj.jp'),
+                leading: Icon(Icons.email, color: Palette.primary),
+                title: const Text('Mail Us'),
+                subtitle: const Text('info@bnpj.jp'),
               ),
             ),
             Card(
               child: ListTile(
-                leading: Icon(Icons.email, color: Palette.primary),
-                title: Text('Mail Us'),
-                subtitle: Text('info@bnpj.jp'),
+                onTap: () => launcher.launch('tel:03-6222-8365'),
+                leading: Icon(Icons.call, color: Palette.primary),
+                title: const Text('Call Us'),
+                subtitle: const Text('03-6222-8365'),
               ),
             ),
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.location_on, color: Palette.primary),
+                title: const Text('Visit Us'),
+                subtitle: const Text(
+                    'NAX Building 9F, Shinkawa 1-3-2, Chuo-ku , Tokyo 104-0033'),
+              ),
+            ),
+            const SizedBox(height: 8),
+            const SizedBox(
+              height: 300,
+              child: GoogleMap(
+                  initialCameraPosition: CameraPosition(
+                      target: LatLng(
+                        35.6773408,
+                        139.7774822,
+                      ),
+                      zoom: 17)),
+            )
           ],
         ),
       ),

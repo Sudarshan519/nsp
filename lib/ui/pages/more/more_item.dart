@@ -5,10 +5,12 @@ import 'package:wallet_app/ui/widgets/colors.dart';
 class MoreItem extends StatelessWidget {
   final String imageName;
   final String title;
+  final Color? color;
   final Function() onTap;
 
   const MoreItem({
     Key? key,
+    this.color,
     required this.imageName,
     required this.title,
     required this.onTap,
@@ -24,6 +26,7 @@ class MoreItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               "assets/images/more/$imageName.svg",
+              color: color,
               height: 30.0,
             ),
             const SizedBox(

@@ -3,8 +3,8 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/ui/pages/more/more_item.dart';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:wallet_app/ui/pages/settings/contact_us.dart/contact_us_page.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +22,11 @@ class SettingsPage extends StatelessWidget {
         .toUpperCase();
 
     final moreitems = [
+      MoreItem(
+          color: Palette.primary,
+          imageName: "icon-notify",
+          title: "Device Management",
+          onTap: () => context.pushRoute(const UserDevicesListRoute())),
       if (signupMethod == SignupMethod.email)
         MoreItem(
             imageName: "icon-profile",
