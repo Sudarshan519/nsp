@@ -11,6 +11,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
+import 'detail_pages/electricity/nea_page.dart';
+
 class UtilityPamentWidget extends StatelessWidget {
   final List<UtilityPaymentsModel> paymentData;
 
@@ -69,14 +71,26 @@ class GridItem extends StatelessWidget {
       onTap: () {
         final type = paymentData.paymentType ?? '';
 
-        if (type == UtilityPayementType.balanceTopup) {
-          context.pushRoute(
-            TopUpRoute(payData: paymentData),
-          );
-        } else if (type == UtilityPayementType.mirai) {
-          context.pushRoute(
-            PartnerServicePaymentRoute(payData: paymentData),
-          );
+        switch (type) {
+          case UtilityPayementType.balanceTopup:
+            context.pushRoute(
+              TopUpRoute(payData: paymentData),
+            );
+            break;
+
+          case UtilityPayementType.mirai:
+            context.pushRoute(
+              PartnerServicePaymentRoute(payData: paymentData),
+            );
+            break;
+
+          case UtilityPayementType.electricity:
+            context.pushRoute(
+              NEAPaymentRoute(payData: paymentData),
+            );
+            break;
+
+          default:
         }
       },
       child: Column(

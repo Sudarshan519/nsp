@@ -5,7 +5,10 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/partner_services/data/model/service_subscription_model.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
 import 'package:wallet_app/features/utility_payments/data/datasource/utility_payment_datasource.dart';
+import 'package:wallet_app/features/utility_payments/domain/entities/nea_customer_info.dart';
+import 'package:wallet_app/features/utility_payments/domain/entities/nea_office.dart';
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
 
 @LazySingleton(as: UtilityPaymentRepository)
 class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
@@ -69,6 +72,34 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
             coupon: coupon,
             productId: productId),
       );
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, List<NEAOffice>>> getNEAOffices() async {
+    try {
+      return Right(await dataSource.getNeaOffices());
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, NeaCustomerInfo>> enquiryNea(
+      EnquiryNeaParams params) async {
+    try {
+      return Right(await dataSource.enquiryNea(params));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> payNea(NeaCustomerInfo params) async {
+    try {
+      return Right(await dataSource.payNea(params));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }

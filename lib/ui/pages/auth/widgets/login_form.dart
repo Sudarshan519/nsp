@@ -85,6 +85,7 @@ class _EmailInput extends StatelessWidget {
       builder: (context, state) {
         return LoginTextFormDecoration(
           child: InputTextWidget(
+            maxlength: 32,
             key: const Key('loginForm_passwordInput_textField'),
             hintText: "Email",
             value: state.emailAddress,
