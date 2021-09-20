@@ -78,6 +78,8 @@
 	<string>Bluetooth is used to share local files to nearest devices.</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Calendars are used to choose dates while filling up the forms.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>App needs permission to authentication payment process</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Use this info for auto filling data in the resume</string>
 	<key>NSLocationAlwaysUsageDescription</key>

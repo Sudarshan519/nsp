@@ -126,10 +126,10 @@ Widget _infoWidget(
     required String title,
     required String description,
     void Function()? onTap}) {
-  return Card(
-      child: Padding(
-    padding: const EdgeInsets.all(12.0),
-    child: Row(
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 8),
+    child: ShadowBoxWidget(
+        child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Icon(icon, color: Palette.primary),
@@ -153,8 +153,8 @@ Widget _infoWidget(
           ),
         ),
       ],
-    ),
-  ));
+    )),
+  );
 }
 
 class _FormBody extends StatelessWidget {
