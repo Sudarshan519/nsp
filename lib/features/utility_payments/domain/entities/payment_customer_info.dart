@@ -1,5 +1,5 @@
-class NeaCustomerInfo {
-  NeaCustomerInfo({
+class PaymentCustomerInfo {
+  PaymentCustomerInfo({
     required this.billNumber,
     required this.dueDate,
     required this.amount,

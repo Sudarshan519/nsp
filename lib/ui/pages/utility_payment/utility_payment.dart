@@ -89,6 +89,11 @@ class GridItem extends StatelessWidget {
               NEAPaymentRoute(payData: paymentData),
             );
             break;
+          case UtilityPayementType.khanepani:
+            context.pushRoute(
+              KhanepaniPaymentRoute(payData: paymentData),
+            );
+            break;
 
           default:
         }

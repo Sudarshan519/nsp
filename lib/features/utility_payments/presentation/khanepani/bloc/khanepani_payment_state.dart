@@ -1,8 +1,8 @@
-part of 'nea_payment_bloc.dart';
+part of 'khanepani_payment_bloc.dart';
 
 @freezed
-class NeaPaymentState with _$NeaPaymentState {
-  const factory NeaPaymentState({
+class KhanepaniPaymentState with _$KhanepaniPaymentState {
+  const factory KhanepaniPaymentState({
     required String customerId,
     required String scNo,
     required String productId,
@@ -13,9 +13,9 @@ class NeaPaymentState with _$NeaPaymentState {
     required Key key,
     required PaymentCustomerInfoModel? customerInfo,
     required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
-  }) = _NeaPaymentState;
+  }) = _KhanepaniPaymentState;
 
-  factory NeaPaymentState.initial() => NeaPaymentState(
+  factory KhanepaniPaymentState.initial() => KhanepaniPaymentState(
         customerId: '',
         scNo: '',
         productId: '',

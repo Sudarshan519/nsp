@@ -7,12 +7,12 @@ import 'package:wallet_app/features/utility_payments/domain/entities/payment_off
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 
 @lazySingleton
-class GetNeaOffice
+class GetKhanepaniOffices
     implements Usecase<ApiFailure, List<PaymentOffice>, NoParams> {
   final NetworkInfo networkInfo;
   final UtilityPaymentRepository repository;
 
-  GetNeaOffice({
+  GetKhanepaniOffices({
     required this.networkInfo,
     required this.repository,
   });
@@ -25,6 +25,6 @@ class GetNeaOffice
       return const Left(ApiFailure.noInternetConnection());
     }
 
-    return repository.getNeaPaymentOffices();
+    return repository.getKhanepaniPaymentOffices();
   }
 }

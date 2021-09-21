@@ -9,23 +9,24 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_office.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/pay_nea.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/pay_khanepani.dart';
 
-part 'nea_payment_event.dart';
-part 'nea_payment_state.dart';
-part 'nea_payment_bloc.freezed.dart';
+part 'khanepani_payment_event.dart';
+part 'khanepani_payment_state.dart';
+part 'khanepani_payment_bloc.freezed.dart';
 
 @injectable
-class NeaPaymentBloc extends Bloc<NeaPaymentEvent, NeaPaymentState> {
-  final EnquiryNea enquiryNea;
-  final PayNea payNea;
-  NeaPaymentBloc(this.enquiryNea, this.payNea)
-      : super(NeaPaymentState.initial());
+class KhanepaniPaymentBloc
+    extends Bloc<KhanepaniPaymentEvent, KhanepaniPaymentState> {
+  final EnquireKhanepani enquiryKhanepani;
+  final PayKhanepani payKhanepani;
+  KhanepaniPaymentBloc(this.enquiryKhanepani, this.payKhanepani)
+      : super(KhanepaniPaymentState.initial());
 
   @override
-  Stream<NeaPaymentState> mapEventToState(
-    NeaPaymentEvent event,
+  Stream<KhanepaniPaymentState> mapEventToState(
+    KhanepaniPaymentEvent event,
   ) async* {
     yield* event.map(started: (e) async* {
       yield state.copyWith(
@@ -56,7 +57,7 @@ class NeaPaymentBloc extends Bloc<NeaPaymentEvent, NeaPaymentState> {
       yield state.copyWith(
         isLoading: true,
       );
-      final result = await enquiryNea(EnquiryNeaParams(
+      final result = await enquiryKhanepani(EnquireKhanepaniParams(
         officeCode: state.selectedOffice.officeCode,
         account: state.scNo,
         customerId: state.customerId,
@@ -86,7 +87,7 @@ class NeaPaymentBloc extends Bloc<NeaPaymentEvent, NeaPaymentState> {
         isLoading: true,
       );
       if (state.customerInfo == null) return;
-      final result = await payNea(state.customerInfo!);
+      final result = await payKhanepani(state.customerInfo!);
       yield result.fold(
           (fail) => state.copyWith(
                 scNo: state.scNo,

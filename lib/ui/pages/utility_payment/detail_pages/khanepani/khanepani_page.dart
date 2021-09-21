@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:wallet_app/features/utility_payments/presentation/electricity/bloc/nea_payment_bloc.dart';
-import 'package:wallet_app/features/utility_payments/presentation/electricity/nea_offices/nea_offices_bloc.dart';
+import 'package:wallet_app/features/utility_payments/presentation/khanepani/bloc/khanepani_payment_bloc.dart';
+import 'package:wallet_app/features/utility_payments/presentation/khanepani/khanepani_offices/khanepani_offices_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/widgets/bill_info_view.dart';
@@ -18,45 +18,47 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_do
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
 
-class NEAPaymentPage extends StatelessWidget {
+class KhanepaniPaymentPage extends StatelessWidget {
   final UtilityPaymentsModel payData;
-  const NEAPaymentPage({Key? key, required this.payData}) : super(key: key);
+  const KhanepaniPaymentPage({Key? key, required this.payData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: BlocProvider(
-          create: (context) =>
-              getIt<NeaOfficesBloc>()..add(const NeaOfficesEvent.fetch()),
-          child: BlocBuilder<NeaOfficesBloc, NeaOfficesState>(
+          create: (context) => getIt<KhanepaniOfficesBloc>()
+            ..add(const KhanepaniOfficesEvent.fetch()),
+          child: BlocBuilder<KhanepaniOfficesBloc, KhanepaniOfficesState>(
             builder: (context, state) {
               return state.map(
                   loading: (_) => loadingPage(),
                   loaded: (data) {
                     return BlocProvider(
-                      create: (context) => getIt<NeaPaymentBloc>()
-                        ..add(NeaPaymentEvent.started(
+                      create: (context) => getIt<KhanepaniPaymentBloc>()
+                        ..add(KhanepaniPaymentEvent.started(
                             data.offices, payData.id.toString())),
                       child: _NEABody(),
                     );
                   },
                   failure: (fail) {
                     return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const BackButton(
-                            color: Colors.black,
-                          ),
-                          const SizedBox(height: 70),
-                          errorView(
-                              errorType: ErrorType.other,
-                              onRefresh: () {
-                                context
-                                    .read<NeaOfficesBloc>()
-                                    .add(const NeaOfficesEvent.fetch());
-                              }),
-                        ]);
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const BackButton(
+                          color: Colors.black,
+                        ),
+                        const SizedBox(height: 70),
+                        errorView(
+                            errorType: ErrorType.other,
+                            onRefresh: () {
+                              context
+                                  .read<KhanepaniOfficesBloc>()
+                                  .add(const KhanepaniOfficesEvent.fetch());
+                            }),
+                      ],
+                    );
                   });
             },
           ),
@@ -69,16 +71,17 @@ class NEAPaymentPage extends StatelessWidget {
 class _NEABody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget _neaBody(NeaPaymentState state) {
+    Widget _neaBody(KhanepaniPaymentState state) {
       if (state.isLoading) return loadingPage();
 
       if (state.customerInfo != null) {
         return BillInfoView(
-          customer: state.customerInfo!,
-          onBillPay: () {
-            context.read<NeaPaymentBloc>().add(const NeaPaymentEvent.payBill());
-          },
-        );
+            customer: state.customerInfo!,
+            onBillPay: () {
+              context
+                  .read<KhanepaniPaymentBloc>()
+                  .add(const KhanepaniPaymentEvent.payBill());
+            });
       }
 
       return SingleChildScrollView(
@@ -104,8 +107,8 @@ class _NEABody extends StatelessWidget {
                                 (element) => element.officeName == officeName)
                             .first;
                         context
-                            .read<NeaPaymentBloc>()
-                            .add(NeaPaymentEvent.changeOffice(office));
+                            .read<KhanepaniPaymentBloc>()
+                            .add(KhanepaniPaymentEvent.changeOffice(office));
                       },
                     ),
                   ),
@@ -116,21 +119,21 @@ class _NEABody extends StatelessWidget {
                       hintText: 'XXXXX',
                       onChanged: (val) {
                         context
-                            .read<NeaPaymentBloc>()
-                            .add(NeaPaymentEvent.customerID(val.trim()));
+                            .read<KhanepaniPaymentBloc>()
+                            .add(KhanepaniPaymentEvent.customerID(val.trim()));
                       },
                       value: state.customerId,
                     ),
                   ),
                   const SizedBox(height: 8),
                   TextWidetWithLabelAndChild(
-                    title: 'SC. No.',
+                    title: 'Account Number',
                     child: InputTextWidget(
-                      hintText: 'XXX.XXX.XXX',
+                      hintText: 'XXXXX',
                       onChanged: (val) {
                         context
-                            .read<NeaPaymentBloc>()
-                            .add(NeaPaymentEvent.changeScNum(val.trim()));
+                            .read<KhanepaniPaymentBloc>()
+                            .add(KhanepaniPaymentEvent.changeScNum(val.trim()));
                       },
                       value: state.scNo,
                     ),
@@ -143,15 +146,15 @@ class _NEABody extends StatelessWidget {
                 title: 'Proceed',
                 onTap: () {
                   context
-                      .read<NeaPaymentBloc>()
-                      .add(const NeaPaymentEvent.enquire());
+                      .read<KhanepaniPaymentBloc>()
+                      .add(const KhanepaniPaymentEvent.enquire());
                 })
           ],
         ),
       );
     }
 
-    return BlocConsumer<NeaPaymentBloc, NeaPaymentState>(
+    return BlocConsumer<KhanepaniPaymentBloc, KhanepaniPaymentState>(
         listener: (context, state) {
       if (state.paymentComplete) {
         showDialog(
@@ -191,12 +194,12 @@ class _NEABody extends StatelessWidget {
                     context.popRoute();
                   } else {
                     context
-                        .read<NeaPaymentBloc>()
-                        .add(const NeaPaymentEvent.resetCustomerInfo());
+                        .read<KhanepaniPaymentBloc>()
+                        .add(const KhanepaniPaymentEvent.resetCustomerInfo());
                   }
                 }),
             title: const Text(
-              'NEA Bill payment',
+              'Water Supply Bill',
               style: TextStyle(color: Colors.white),
             ),
           ),
