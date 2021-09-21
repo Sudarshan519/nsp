@@ -199,7 +199,7 @@ class _NEABody extends StatelessWidget {
                   }
                 }),
             title: const Text(
-              'NEA Bill payment',
+              'Water Supply Bill',
               style: TextStyle(color: Colors.white),
             ),
           ),
