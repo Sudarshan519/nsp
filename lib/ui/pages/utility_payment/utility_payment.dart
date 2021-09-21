@@ -11,8 +11,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
-import 'detail_pages/electricity/nea_page.dart';
-
 class UtilityPamentWidget extends StatelessWidget {
   final List<UtilityPaymentsModel> paymentData;
 
@@ -103,6 +101,7 @@ class GridItem extends StatelessWidget {
           if (paymentData.image != null)
             Container(
               height: 60,
+              width: 120,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
@@ -111,7 +110,7 @@ class GridItem extends StatelessWidget {
               ),
               child: CachedNetworkImage(
                   imageUrl: _baseURL + paymentData.image!,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fitHeight,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Container(
                         color: Palette.primaryBackground,

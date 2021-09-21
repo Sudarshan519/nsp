@@ -11,6 +11,13 @@ class LocalAuthService {
 
   static Future<_LocalAuthResponse> authenticate(String message) async {
     try {
+      final isSupported = await _localAuth.isDeviceSupported();
+      if (!isSupported) {
+        return _LocalAuthResponse(
+            success: false,
+            message:
+                'This device is does not support biometric authentication!');
+      }
       final canCheck = await _localAuth.canCheckBiometrics;
       if (!canCheck) {
         return _LocalAuthResponse(
