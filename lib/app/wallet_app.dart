@@ -31,6 +31,11 @@ class WalletApp extends StatelessWidget {
             ..add(
               const SplashEvent.authCheckRequested(),
             ),
+        ),BlocProvider(
+          create: (_) => getIt<HomePageDataBloc>()
+            ..add(
+              const HomePageDataEvent.fetch(),
+            ),
         ),
         BlocProvider(
           create: (context) => getIt<NewsBloc>()
@@ -59,12 +64,7 @@ class WalletApp extends StatelessWidget {
           create: (context) => getIt<ResumeWatcherBloc>()
             ..add(const ResumeWatcherEvent.getResumeData()),
         ),
-        BlocProvider(
-          create: (_) => getIt<HomePageDataBloc>()
-            ..add(
-              const HomePageDataEvent.fetch(),
-            ),
-        ),
+    
         BlocProvider(
           create: (_) => getIt<NewsGenreBloc>()
             ..add(
@@ -80,12 +80,14 @@ class WalletApp extends StatelessWidget {
         BlocProvider(
           create: (_) => getIt<TransactionBloc>()
             ..add(const TransactionEvent.fetchTransactionData()),
+          lazy: true,
         ),
         BlocProvider(
           create: (_) => getIt<GetBalanceBloc>()
             ..add(
               const GetBalanceEvent.fetchBalance(),
             ),
+          lazy: true,
         ),
         BlocProvider(
           create: (_) => getIt<AdsBloc>()
