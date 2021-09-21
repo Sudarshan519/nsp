@@ -7,19 +7,20 @@ import 'package:wallet_app/features/utility_payments/data/models/payment_custome
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 
 @lazySingleton
-class EnquiryNea
-    implements Usecase<ApiFailure, PaymentCustomerInfoModel, EnquiryNeaParams> {
+class EnquireKhanepani
+    implements
+        Usecase<ApiFailure, PaymentCustomerInfoModel, EnquireKhanepaniParams> {
   final NetworkInfo networkInfo;
   final UtilityPaymentRepository repository;
 
-  EnquiryNea({
+  EnquireKhanepani({
     required this.networkInfo,
     required this.repository,
   });
 
   @override
   Future<Either<ApiFailure, PaymentCustomerInfoModel>> call(
-      EnquiryNeaParams params) async {
+      EnquireKhanepaniParams params) async {
     final isConnected = await networkInfo.isConnected;
 
     if (!isConnected) {
@@ -34,17 +35,17 @@ class EnquiryNea
 
     //todo check for validations
 
-    return repository.enquiryNea(params);
+    return repository.enquiryKhanepani(params);
   }
 }
 
-class EnquiryNeaParams {
+class EnquireKhanepaniParams {
   final String officeCode;
   final String account;
   final String customerId;
   final String productId;
 
-  EnquiryNeaParams(
+  EnquireKhanepaniParams(
       {required this.officeCode,
       required this.account,
       required this.customerId,

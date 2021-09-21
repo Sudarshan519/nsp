@@ -7,23 +7,24 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_office.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/get_nea_offices.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/get_khanepani_offices.dart';
 
-part 'nea_offices_event.dart';
-part 'nea_offices_state.dart';
-part 'nea_offices_bloc.freezed.dart';
+part 'khanepani_offices_event.dart';
+part 'khanepani_offices_state.dart';
+part 'khanepani_offices_bloc.freezed.dart';
 
 @injectable
-class NeaOfficesBloc extends Bloc<NeaOfficesEvent, NeaOfficesState> {
-  final GetNeaOffice getNeaOffice;
-  NeaOfficesBloc(this.getNeaOffice) : super(const _Loading());
+class KhanepaniOfficesBloc
+    extends Bloc<KhanepaniOfficesEvent, KhanepaniOfficesState> {
+  final GetKhanepaniOffices getKhanepaniOffice;
+  KhanepaniOfficesBloc(this.getKhanepaniOffice) : super(const _Loading());
 
   @override
-  Stream<NeaOfficesState> mapEventToState(
-    NeaOfficesEvent event,
+  Stream<KhanepaniOfficesState> mapEventToState(
+    KhanepaniOfficesEvent event,
   ) async* {
     yield* event.map(fetch: (e) async* {
-      final result = await getNeaOffice(NoParams());
+      final result = await getKhanepaniOffice(NoParams());
       yield result.fold(
         (fail) => _Failure(fail),
         (data) => _Loaded(data),

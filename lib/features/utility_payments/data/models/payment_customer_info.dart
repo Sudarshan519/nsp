@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'package:wallet_app/features/utility_payments/domain/entities/nea_customer_info.dart';
+import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 
-NeaCustomerInfoModel neaCustomerInfoFromJson(String str) =>
-    NeaCustomerInfoModel.fromJson(
+PaymentCustomerInfoModel neaCustomerInfoFromJson(String str) =>
+    PaymentCustomerInfoModel.fromJson(
         json.decode(str)['data'] as Map<String, dynamic>);
 
-class NeaCustomerInfoModel extends NeaCustomerInfo {
-  NeaCustomerInfoModel({
+class PaymentCustomerInfoModel extends PaymentCustomerInfo {
+  PaymentCustomerInfoModel({
     required String billNumber,
     required String dueDate,
     required String amount,
@@ -31,8 +31,8 @@ class NeaCustomerInfoModel extends NeaCustomerInfo {
           productId: productId,
         );
 
-  factory NeaCustomerInfoModel.fromJson(Map<String, dynamic> json) =>
-      NeaCustomerInfoModel(
+  factory PaymentCustomerInfoModel.fromJson(Map<String, dynamic> json) =>
+      PaymentCustomerInfoModel(
         billNumber: json["bill_number"] as String? ?? '',
         dueDate: json["due_date"] as String? ?? '',
         amount: json["amount"] as String? ?? '',

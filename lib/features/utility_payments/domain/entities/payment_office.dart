@@ -1,8 +1,8 @@
-class NEAOffice {
+class PaymentOffice {
   final String officeName;
   final String officeCode;
 
-  NEAOffice({
+  PaymentOffice({
     required this.officeName,
     required this.officeCode,
   });
