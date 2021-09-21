@@ -9,6 +9,7 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/widgets/bill_info_view.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/error_widgets.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
@@ -82,71 +83,89 @@ class _NEABody extends StatelessWidget {
       }
 
       return SingleChildScrollView(
-        child: Column(
-          children: [
-            ShadowBoxWidget(
-              margin: const EdgeInsets.all(12),
-              child: Column(
-                children: [
-                  TextWidetWithLabelAndChild(
-                    title: 'Select Counter Office',
-                    child: CustomSearchableDropDownWidget(
-                      value: state.selectedOffice.officeName.isEmpty
-                          ? null
-                          : state.selectedOffice.officeName,
-                      hintText: state.selectedOffice.officeName.isEmpty
-                          ? 'Select Counter'
-                          : state.selectedOffice.officeName,
-                      options: state.offices.map((e) => e.officeName).toList(),
-                      onChanged: (officeName) {
-                        final office = state.offices
-                            .where(
-                                (element) => element.officeName == officeName)
-                            .first;
-                        context
-                            .read<NeaPaymentBloc>()
-                            .add(NeaPaymentEvent.changeOffice(office));
-                      },
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            children: [
+              ShadowBoxWidget(
+                child: Column(
+                  children: [
+                    TextWidetWithLabelAndChild(
+                      title: 'Select Counter Office',
+                      child: CustomSearchableDropDownWidget(
+                        value: state.selectedOffice.officeName.isEmpty
+                            ? null
+                            : state.selectedOffice.officeName,
+                        hintText: state.selectedOffice.officeName.isEmpty
+                            ? 'Select Counter'
+                            : state.selectedOffice.officeName,
+                        options:
+                            state.offices.map((e) => e.officeName).toList(),
+                        onChanged: (officeName) {
+                          final office = state.offices
+                              .where(
+                                  (element) => element.officeName == officeName)
+                              .first;
+                          context
+                              .read<NeaPaymentBloc>()
+                              .add(NeaPaymentEvent.changeOffice(office));
+                        },
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  TextWidetWithLabelAndChild(
-                    title: 'Customer ID',
-                    child: InputTextWidget(
-                      hintText: 'XXXXX',
-                      onChanged: (val) {
-                        context
-                            .read<NeaPaymentBloc>()
-                            .add(NeaPaymentEvent.customerID(val.trim()));
-                      },
-                      value: state.customerId,
+                    const SizedBox(height: 8),
+                    TextWidetWithLabelAndChild(
+                      title: 'Customer ID',
+                      child: InputTextWidget(
+                        hintText: '',
+                        onChanged: (val) {
+                          context
+                              .read<NeaPaymentBloc>()
+                              .add(NeaPaymentEvent.customerID(val.trim()));
+                        },
+                        value: state.customerId,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  TextWidetWithLabelAndChild(
-                    title: 'SC. No.',
-                    child: InputTextWidget(
-                      hintText: 'XXX.XXX.XXX',
-                      onChanged: (val) {
-                        context
-                            .read<NeaPaymentBloc>()
-                            .add(NeaPaymentEvent.changeScNum(val.trim()));
-                      },
-                      value: state.scNo,
+                    const SizedBox(height: 8),
+                    TextWidetWithLabelAndChild(
+                      title: 'SC. No.',
+                      child: InputTextWidget(
+                        hintText: 'XXX.XXX.XXX',
+                        onChanged: (val) {
+                          context
+                              .read<NeaPaymentBloc>()
+                              .add(NeaPaymentEvent.changeScNum(val.trim()));
+                        },
+                        value: state.scNo,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            CustomButton(
-                title: 'Proceed',
+              const SizedBox(height: 22),
+              InkWell(
                 onTap: () {
                   context
                       .read<NeaPaymentBloc>()
                       .add(const NeaPaymentEvent.enquire());
-                })
-          ],
+                },
+                child: Container(
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Palette.primary,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Proceed",
+                      style: TextStyle(
+                        color: Palette.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }
