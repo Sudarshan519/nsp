@@ -1,6 +1,8 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/features/utility_payments/presentation/electricity/bloc/nea_payment_bloc.dart';
@@ -173,6 +175,10 @@ class _NEABody extends StatelessWidget {
     return BlocConsumer<NeaPaymentBloc, NeaPaymentState>(
         listener: (context, state) {
       if (state.paymentComplete) {
+        getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
+
+        getIt<TransactionBloc>()
+            .add(const TransactionEvent.fetchTransactionData());
         showDialog(
           barrierDismissible: false,
           context: context,
