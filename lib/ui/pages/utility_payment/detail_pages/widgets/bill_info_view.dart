@@ -58,7 +58,7 @@ class BillInfoView extends StatelessWidget {
 
                   return _listItem(
                       Icons.money,
-                      '${currencyFormatter(value: jpy)} - (${currencyFormatter(value: rupees, symbol: 'NPR')})',
+                      '${currencyFormatter(value: rupees, symbol: 'NPR')} - (${currencyFormatter(value: jpy)})',
                       'Amount');
                 },
               ),
