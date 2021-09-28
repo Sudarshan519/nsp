@@ -21,6 +21,8 @@ import 'package:wallet_app/ui/pages/search/search_home.dart';
 import 'package:wallet_app/ui/pages/settings/about_us/about_us.dart';
 import 'package:wallet_app/ui/pages/settings/change_password/change_password_page.dart';
 import 'package:wallet_app/ui/pages/settings/contact_us.dart/contact_us_page.dart';
+import 'package:wallet_app/ui/pages/settings/security/security_page.dart';
+import 'package:wallet_app/ui/pages/settings/security/set_mpin_page.dart';
 import 'package:wallet_app/ui/pages/settings/settings_page.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/electricity/nea_page.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/khanepani/khanepani_page.dart';
@@ -103,6 +105,8 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: UserDevicesListPage),
     AutoRoute(page: NEAPaymentPage),
     AutoRoute(page: KhanepaniPaymentPage),
+    AutoRoute(page: SecurityPage),
+    AutoRoute(page: SetMpinPage),
   ],
 )
 class $AppRouter {}

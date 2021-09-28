@@ -12,11 +12,17 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'app/wallet_app.dart';
 import 'core/geo_location/geo_location.dart';
 import 'core/notification/push_notification_manager.dart';
+import 'core/payment_auth/payment_auth_service.dart';
 import 'utils/config_reader.dart';
 
 final appRouter = AppRouter();
 
 Future main() async {
+  await appInitializations();
+  runApp(WalletApp());
+}
+
+Future appInitializations() async {
   WidgetsFlutterBinding.ensureInitialized();
   WalletAdService.init();
   DeviceInfoManager.init();
@@ -34,11 +40,10 @@ Future main() async {
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   await getIt<PushNotificationManager>().initialise();
   await getIt<GeoLocationManager>().initialise();
-
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(WalletApp());
+  PaymentAuthService.init();
 }

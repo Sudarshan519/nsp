@@ -21,4 +21,6 @@ class AuthPreferenceKeys {
   static const other_prefectures = 'other_prefectures';
   static const fcmToken = 'fcm_token';
   static const earthquake_threshold = 'earthquake_threshold';
+  static const payment_authentication_prompt = 'payment_authentication_prompt';
+  static const default_payment_auth_type = 'default_payment_auth_type';
 }

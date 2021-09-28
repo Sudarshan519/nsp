@@ -39,8 +39,13 @@ abstract class AuthLocalDataSource {
   String getFCMToken();
   void setFCMToken(String token);
 
+  bool hasSetMpinPromptShown();
+
   double getEarthquakeThreshold();
   void setEarthquakeThreshold(double value);
+
+  void setDefaultPaymentAuth(String type);
+  String getDefautltPaymentAuth();
 }
 
 @LazySingleton(as: AuthLocalDataSource)
@@ -263,5 +268,30 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   double getEarthquakeThreshold() {
     return preferences.getDouble(AuthPreferenceKeys.earthquake_threshold) ??
         Values.DEFAULT_THRESHOLD;
+  }
+
+  @override
+  bool hasSetMpinPromptShown() {
+    final value =
+        preferences.getBool(AuthPreferenceKeys.payment_authentication_prompt);
+    if (value == null) {
+      preferences.setBool(
+          AuthPreferenceKeys.payment_authentication_prompt, true);
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  @override
+  String getDefautltPaymentAuth() {
+    return preferences
+            .getString(AuthPreferenceKeys.default_payment_auth_type) ??
+        '';
+  }
+
+  @override
+  void setDefaultPaymentAuth(String type) {
+    preferences.setString(AuthPreferenceKeys.default_payment_auth_type, type);
   }
 }
