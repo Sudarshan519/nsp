@@ -56,7 +56,8 @@ class UserDetail extends Equatable {
       this.purchaseConversionRate,
       this.notificationCount,
       this.requestLocation,
-      this.otpNumber,
+      this.isMobileVerified,
+      this.isEmailVerified,
       this.signupMethod,
       this.isMpinSet});
 
@@ -115,9 +116,13 @@ class UserDetail extends Equatable {
   final double? purchaseConversionRate;
   final int? notificationCount;
   final String? requestLocation;
-  final String? otpNumber;
+  final bool? isMobileVerified;
+  final bool? isEmailVerified;
   final bool? isMpinSet;
   final String? signupMethod;
+
+  bool get canSendOtp =>
+      (isEmailVerified ?? false) || (isMobileVerified ?? false);
 
   @override
   List<Object> get props => [];

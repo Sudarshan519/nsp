@@ -81,6 +81,16 @@ abstract class AuthRemoteDataSource {
     required String password,
     required String verificationPassword,
   });
+
+  Future<Unit> getPhoneOtp(String number);
+  Future<Unit> verifyPhone({
+    required String phone,
+    required String code,
+  });
+
+  Future<Unit> setMpin({
+    required String mpin,
+  });
 }
 
 @LazySingleton(as: AuthRemoteDataSource)
@@ -300,6 +310,60 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     };
     return _postRequestForAuth(
       AuthApiEndpoints.updatePassword,
+      _header,
+      body,
+    );
+  }
+
+  @override
+  Future<Unit> setMpin({
+    required String mpin,
+  }) async {
+    final body = {
+      "mpin": mpin,
+    };
+
+    return unit;
+
+    //TODO: implemement backend
+    return _postRequestForAuth(
+      AuthApiEndpoints.setMpin,
+      _header,
+      body,
+    );
+  }
+
+  @override
+  Future<Unit> getPhoneOtp(String number) async {
+    final body = {
+      "phone": number,
+    };
+
+    return unit;
+
+    //TODO: implemement backend
+    return _postRequestForAuth(
+      AuthApiEndpoints.getPhoneOtp,
+      _header,
+      body,
+    );
+  }
+
+  @override
+  Future<Unit> verifyPhone({
+    required String phone,
+    required String code,
+  }) async {
+    final body = {
+      "phone": phone,
+      'code': code,
+    };
+
+    return unit;
+
+    //TODO: implemement backend
+    return _postRequestForAuth(
+      AuthApiEndpoints.verifyPhoneOtp,
       _header,
       body,
     );

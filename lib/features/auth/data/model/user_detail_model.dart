@@ -52,7 +52,8 @@ class UserDetailModel extends UserDetail {
     required String? requestLocation,
     required bool? isMpinSet,
     required String? signupMethod,
-    required String? otpNumber,
+    required bool? isMobileVerified,
+    required bool? isEmailVerified,
     required int? smartPitNo,
     required bool? isKycVerified,
     ResumeOptionsModel? options,
@@ -117,7 +118,8 @@ class UserDetailModel extends UserDetail {
           requestLocation: requestLocation,
           signupMethod: signupMethod,
           isMpinSet: isMpinSet,
-          otpNumber: otpNumber,
+          isMobileVerified: isMobileVerified,
+          isEmailVerified: isEmailVerified,
         );
 
   factory UserDetailModel.fromJson(Map<String, dynamic> json) =>
@@ -177,7 +179,8 @@ class UserDetailModel extends UserDetail {
           smartPitNo: json["smart_pit_no"] as int?,
           isKycVerified: json["is_kyc_verified"] as bool?,
           isMpinSet: (json["mpin_set"] as bool?) ?? false,
-          otpNumber: json["otp_number"] as String?,
+          isMobileVerified: json["is_mobile_verified"] as bool?,
+          isEmailVerified: json["is_email_verified"] as bool?,
           options: json["options"] == null
               ? null
               : ResumeOptionsModel.fromJson(
@@ -442,6 +445,7 @@ extension UserDetailExt on UserDetail {
       notificationCount: notificationCount,
       requestLocation: requestLocation,
       signupMethod: signupMethod,
-      otpNumber: otpNumber,
+      isMobileVerified: isMobileVerified,
+      isEmailVerified: isEmailVerified,
       isMpinSet: isMpinSet);
 }

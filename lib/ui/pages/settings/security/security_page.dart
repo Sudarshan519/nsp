@@ -1,9 +1,10 @@
+import 'package:another_flushbar/flushbar.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/core/payment_auth/payment_auth_service.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/auth/auth_widgets.dart';
 
 class SecurityPage extends StatefulWidget {
   const SecurityPage({Key? key}) : super(key: key);
@@ -15,6 +16,9 @@ class SecurityPage extends StatefulWidget {
 class _SecurityPageState extends State<SecurityPage> {
   @override
   Widget build(BuildContext context) {
+    final user = getIt<HomePageDataBloc>().homeData?.userDetail;
+    final hasMpinSet = user?.isMpinSet ?? false;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -39,6 +43,12 @@ class _SecurityPageState extends State<SecurityPage> {
                       padding: const EdgeInsets.all(6.0),
                       child: ListTile(
                           onTap: () async {
+                            if (!hasMpinSet) {
+                              FlushbarHelper.createInformation(
+                                      message: 'Plase Set MPin first')
+                                  .show(context);
+                              return;
+                            }
                             if (isSelected) {
                               PaymentAuthService.setSelectedAuthType(
                                   PaymentAuthType.m_pin);
@@ -75,6 +85,12 @@ class _SecurityPageState extends State<SecurityPage> {
                       padding: const EdgeInsets.all(6.0),
                       child: ListTile(
                           onTap: () async {
+                            if (!hasMpinSet) {
+                              FlushbarHelper.createInformation(
+                                      message: 'Plase Set MPin first')
+                                  .show(context);
+                              return;
+                            }
                             if (isSelected) {
                               PaymentAuthService.setSelectedAuthType(
                                   PaymentAuthType.m_pin);
@@ -103,17 +119,15 @@ class _SecurityPageState extends State<SecurityPage> {
               ),
             Builder(
               builder: (context) {
-                bool hasSet =
-                    getIt<HomePageDataBloc>().homeData?.userDetail?.isMpinSet ??
-                        false;
                 return Card(
                   child: ListTile(
-                    onTap: () {
-                      context.pushRoute(const SetMpinRoute());
+                    onTap: () async {
+                      await AuthWidgets.gotoVerificationPage(context);
+                      setState(() {});
                     },
                     title: const Text('MPin'),
                     subtitle: Text(
-                        '${hasSet ? 'Change' : 'Set'} MPin for transaction or payment'),
+                        '${hasMpinSet ? 'Change' : 'Set'} MPin for transaction or payment'),
                     leading: const Icon(Icons.pin_rounded),
                   ),
                 );

@@ -9,6 +9,7 @@ class AppConstants {
 
   static const codeErrorMessage =
       "Please use code in your email to activate your account";
+  static const codeSent = "Pin code sent to the given phone number";
 
   static const resumeDownloadStarted = "Your resume download has been started.";
   static const resumeShareStarted = "Fetching your resume...";

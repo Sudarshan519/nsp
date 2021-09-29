@@ -4,12 +4,22 @@ class AuthApiEndpoints {
   static const facebookLogin = "/login/facebook/";
   static const googleLogin = "/login/google/";
   static const postRegister = "/register/";
+
+  //for phone verification
+  static const getPhoneOtp = "/phone/otp/";
+  static const verifyPhoneOtp = "/phone/verify/";
+
+  //for email
   static const verifyEmail = "/email/verify/";
   static const emailActivationCode = "/email/activation/code/";
+
+  //for password
   static const getNewVerificationCode = "/email/password/reset/code/";
   static const resetPassword = "/email/password/reset/";
   static const updatePassword = "/email/password/update/";
   static const refreshToken = "/token/refresh/";
+
+  static const setMpin = "/mpin/";
 }
 
 class AuthPreferenceKeys {

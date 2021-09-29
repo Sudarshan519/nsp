@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
           loaded: (success) {
             final isMpinSet = success.data.userDetail?.isMpinSet ?? false;
             if (!isMpinSet) {
-              showSetMpinPrompt();
+              AuthWidgets.showSetMpinPrompt();
             }
             return _homePageSilver(
                 context, success.data.homeData, success.data.userDetail);

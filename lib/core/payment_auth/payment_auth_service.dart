@@ -66,17 +66,17 @@ class PaymentAuthService {
   }
 
   static Future<PaymentAuthResponse> _authenticateUsingMpin() async {
-    final hasSetMpin =
-        getIt<HomePageDataBloc>().homeData?.userDetail?.isMpinSet ?? false;
+    final user = getIt<HomePageDataBloc>().homeData?.userDetail;
+    final hasSetMpin = user?.isMpinSet ?? false;
 
     if (!hasSetMpin) {
-      final result = await showSetMpinPrompt(force: true);
+      final result = await AuthWidgets.showSetMpinPrompt(force: true);
       if (result == null) {
         return PaymentAuthResponse(
             success: false, message: 'MPin not set by user');
       }
     }
-    final result = await displayMPinDIalog();
+    final result = await AuthWidgets.displayMPinDIalog();
     return PaymentAuthResponse(
         success: result.success, message: result.message);
   }

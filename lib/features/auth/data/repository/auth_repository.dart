@@ -364,4 +364,28 @@ class AuthRepositoryImpl implements AuthRepository {
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
+
+  @override
+  Future<Either<ApiFailure, Unit>> getPhoneOtp({required String number}) async {
+    return _postMethod(request: () {
+      return remoteDataSource.getPhoneOtp(number);
+    });
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> verifyPhone(
+      {required String phone, required String code}) async {
+    return _postMethod(request: () {
+      return remoteDataSource.verifyPhone(code: code, phone: phone);
+    });
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> setMpin({
+    required String mpin,
+  }) async {
+    return _postMethod(request: () {
+      return remoteDataSource.setMpin(mpin: mpin);
+    });
+  }
 }
