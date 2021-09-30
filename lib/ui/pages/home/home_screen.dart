@@ -72,10 +72,10 @@ class HomePage extends StatelessWidget {
             success.data.userDetail,
           ),
           loaded: (success) {
-            final isMpinSet = success.data.userDetail?.isMpinSet ?? false;
-            if (!isMpinSet) {
-              AuthWidgets.showSetMpinPrompt();
-            }
+            // final isMpinSet = success.data.userDetail?.isMpinSet ?? false;
+            // if (!isMpinSet) {
+            //   AuthWidgets.showSetMpinPrompt();
+            // }
             return _homePageSilver(
                 context, success.data.homeData, success.data.userDetail);
           },
