@@ -134,7 +134,7 @@ class TopupViaStripeBloc
     result = await topUpViaStripe(
       TopUpViaStripeParams(
         name: state.name,
-        cardNumber: state.cardNumber,
+        cardNumber: state.cardNumber.replaceAll(' ', ''),
         cvc: state.cvc,
         expYear: state.expYear,
         amount: state.amount,

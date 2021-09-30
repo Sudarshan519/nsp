@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -104,8 +106,10 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                       : null,
                   border: InputBorder.none,
                   hintText: widget.hintText,
+
                   counterText: "",
                   hintStyle: TextStyle(
+                    fontFeatures: const [FontFeature.tabularFigures()],
                     fontSize: 14.0,
                     fontWeight: FontWeight.w300,
                     color: Palette.textFieldPlaceholderColor,
@@ -115,6 +119,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                   color: Palette.blackTextColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 14.0,
+                  fontFeatures: const [FontFeature.tabularFigures()],
                 ),
                 inputFormatters: widget.inputFormatters,
                 validator: widget.validator,
