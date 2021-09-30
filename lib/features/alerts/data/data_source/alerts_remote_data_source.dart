@@ -10,6 +10,7 @@ import 'package:wallet_app/features/alerts/data/constants/constant.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_model.dart';
 import 'package:wallet_app/features/alerts/data/models/alert_places_model.dart';
 import 'package:wallet_app/features/alerts/data/models/weather_model.dart';
+import 'package:wallet_app/handlers/api_response_handler.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -111,30 +112,35 @@ class AlertRemoteDataSourceImpl implements AlertRemoteDataSource {
 
     final statusCode = response.statusCode;
 
-    if (statusCode == 200) {
-      final responseBody = utf8.decode(response.bodyBytes);
-      try {
-        return alertModelFromJson(responseBody);
-      } catch (ex) {
-        logger.log(
-          className: "AlertRemoteDataSource",
-          functionName: "_getAlertList()",
-          errorText: "Error casting from json to alert model",
-          errorMessage: ex.toString(),
-        );
-        throw const ServerException(message: AppConstants.someThingWentWrong);
-      }
-    } else {
-      logger.log(
-        className: "AlertRemoteDataSource",
-        functionName: "_getAlertList()",
-        errorText: "Error on API status code: $statusCode",
-        errorMessage: response.body,
-      );
-      throw ServerException(
-          message: errorMessageFromServer(response.body) ??
-              AppConstants.someThingWentWrong);
-    }
+    return APIResponseHandler.handle(
+        httpStatusCode: statusCode,
+        onSuccess: () {
+          final responseBody = utf8.decode(response.bodyBytes);
+          try {
+            return alertModelFromJson(responseBody);
+          } catch (ex) {
+            logger.log(
+              className: "AlertRemoteDataSource",
+              functionName: "_getAlertList()",
+              errorText: "Error casting from json to alert model",
+              errorMessage: ex.toString(),
+            );
+            throw const ServerException(
+                message: AppConstants.someThingWentWrong);
+          }
+        },
+        retryFunction: () => _getAlertList(uri: uri, params: params),
+        other: () {
+          logger.log(
+            className: "AlertRemoteDataSource",
+            functionName: "_getAlertList()",
+            errorText: "Error on API status code: $statusCode",
+            errorMessage: response.body,
+          );
+          throw ServerException(
+              message: errorMessageFromServer(response.body) ??
+                  AppConstants.someThingWentWrong);
+        });
   }
 
   @override

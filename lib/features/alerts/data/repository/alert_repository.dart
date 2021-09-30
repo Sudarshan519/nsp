@@ -25,86 +25,90 @@ class AlertRepositoryImpl implements AlertRepository {
 
   @override
   Future<Either<ApiFailure, List<Alert>>> getAlerts({
-    required int limit,
+    required int page,
   }) {
     return _getAlerts(
-        request: (params) {
-          return dataSource.getAlerts(params: params);
-        },
-        limit: limit);
+      request: () {
+        return dataSource.getAlerts(params: _getParams(page: page));
+      },
+    );
   }
 
   @override
-  Future<Either<ApiFailure, List<Alert>>> getEarthquake(
-      {required int limit, String? code}) {
-    return _getAlerts(
-        request: (params) {
-          return dataSource.getEarthquakes(params: params);
-        },
-        limit: limit,
-        code: code);
+  Future<Either<ApiFailure, List<Alert>>> getEarthquake({
+    String? code,
+    required int offset,
+  }) {
+    final params = _getParams(code: code, offset: offset);
+    return _getAlerts(request: () {
+      return dataSource.getEarthquakes(params: params);
+    });
   }
 
   @override
-  Future<Either<ApiFailure, List<Alert>>> getVolcanoes(
-      {required int limit, String? code}) {
-    return _getAlerts(
-        request: (params) {
-          return dataSource.getVolcanoes(params: params);
-        },
-        limit: limit,
-        code: code);
+  Future<Either<ApiFailure, List<Alert>>> getVolcanoes({
+    String? code,
+    required int offset,
+  }) {
+    final params = _getParams(code: code, offset: offset);
+    return _getAlerts(request: () => dataSource.getVolcanoes(params: params));
   }
 
-  Map<String, String> _getParams(
-      {required int limit, String? code, Place? data}) {
+  Map<String, String> _getParams({int? page, int? offset, String? code}) {
+    final Place? individualAlert =
+        getIt<AuthLocalDataSource>().getAlertLocation();
+    final List<Place> groupAlert =
+        getIt<GetAlertLocationBloc>().otherPrefectures;
+    final List<Place> datalist = groupAlert;
+
+    final List<int> prefectureCodeList = [];
+    final List<int> cityCodeList = [];
+    final List<int> regionCodeList = [];
+    final List<int> villageCodeList = [];
+
+    for (final item in datalist) {
+      if (item.prefectureCode != -1) {
+        prefectureCodeList.add(item.prefectureCode);
+      }
+      if (item.cityCode != -1) cityCodeList.add(item.cityCode);
+      if (item.regionCode != -1) regionCodeList.add(item.regionCode);
+      if (item.villageCode != -1) villageCodeList.add(item.villageCode);
+    }
+
     final params = {
       "lang": AlertAppConstant.lang,
-      "limit": "$limit",
+      "limit": "10",
+      if (offset != null) 'offset': '$offset',
+      if (page != null) 'page': '$page',
       "from": AlertAppConstant.from,
       "to": AlertAppConstant.to,
       "client-name": AlertAppConstant.clientName,
       "client-token": AlertAppConstant.clientToken,
-      if (code != null) 'code': code
+      if (code != null) 'code': code,
+      if (prefectureCodeList.isNotEmpty)
+        'prefectures': prefectureCodeList.toSet().toList().toString(),
+      if (cityCodeList.isNotEmpty)
+        'cities': cityCodeList.toSet().toList().toString(),
+      if (regionCodeList.isNotEmpty)
+        'regions': regionCodeList.toSet().toList().toString(),
+      if (villageCodeList.isNotEmpty)
+        'villages': villageCodeList.toSet().toList().toString(),
     };
-
-    if (data != null) {
-      params.addAll({
-        if (data.regionCode != -1) 'region_code': data.regionCode.toString(),
-        if (data.cityCode != -1) 'city_code': data.cityCode.toString(),
-        if (data.prefectureCode != -1)
-          'prefecture_code': data.prefectureCode.toString(),
-        if (data.villageCode != -1) 'village_code': data.villageCode.toString(),
-      });
-    }
 
     return params;
   }
 
-  Future<Either<ApiFailure, List<Alert>>> _getAlerts(
-      {required Future<List<Alert>> Function(Map<String, String> params)
-          request,
-      required int limit,
-      String? code}) async {
+  Future<Either<ApiFailure, List<Alert>>> _getAlerts({
+    required Future<List<Alert>> Function() request,
+  }) async {
     try {
-      final List<Alert> output = [];
-      final individualAlert = getIt<AuthLocalDataSource>().getAlertLocation();
-      final groupAlert = getIt<GetAlertLocationBloc>().otherPrefectures;
-      final datalist = [individualAlert, ...groupAlert];
+      final result = await request();
 
-      //since there is no api to get details of multiple city/prefacture code at once,
-      //we are hitting api request in a loop and returning the output as a single list
-
-      for (final element in datalist) {
-        final params = _getParams(limit: limit, code: code, data: element);
-        final res = await request(params);
-        output.addAll(res);
-      }
-      return Right(output);
+      return Right(result);
     } on ServerException catch (ex) {
       logger.log(
         className: "AlertRepository",
-        functionName: "getVolcanoes()",
+        functionName: "_getAlerts()",
         errorText: "Error on getting alert",
         errorMessage: ex.toString(),
       );
@@ -125,13 +129,14 @@ class AlertRepositoryImpl implements AlertRepository {
       final List<WeatherInfo> output = [];
       final individualAlert = getIt<AuthLocalDataSource>().getAlertLocation();
       final groupAlert = getIt<GetAlertLocationBloc>().otherPrefectures;
-      final datalist = [individualAlert, ...groupAlert];
+      // final datalist = [individualAlert, ...groupAlert];
+      final datalist = groupAlert;
 
       //since there is no api to get details of multiple city/prefacture code at once,
       //we are hitting api request in a loop and returning the output as a single list
 
       for (final element in datalist) {
-        final params = _getParams(limit: 10, data: element);
+        final params = _getParams();
         params['type'] = '2';
         final res = await dataSource.getWeather(params: params);
         output.addAll(res);

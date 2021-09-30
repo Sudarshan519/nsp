@@ -5,6 +5,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 class InputTextWidget extends StatefulWidget {
   final String hintText;
   final bool obscureText;
+  final bool autoFocus;
   final String value;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -18,6 +19,8 @@ class InputTextWidget extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final int maxLines;
   final int minLines;
+  final int maxlength;
+  final String prefixText;
 
   ///Only active if [obscureText] = true
   final bool showHideTextOption;
@@ -28,6 +31,7 @@ class InputTextWidget extends StatefulWidget {
     required this.onChanged,
     required this.value,
     this.prefixIcon,
+    this.autoFocus = false,
     this.suffixIcon,
     this.obscureText = false,
     this.isEnable = true,
@@ -39,7 +43,9 @@ class InputTextWidget extends StatefulWidget {
     this.inputFormatters,
     this.maxLines = 1,
     this.minLines = 1,
+    this.maxlength = 25,
     this.showHideTextOption = false,
+    this.prefixText = '',
   }) : super(key: key);
 
   @override
@@ -48,10 +54,11 @@ class InputTextWidget extends StatefulWidget {
 
 class _InputTextWidgetState extends State<InputTextWidget> {
   bool textvisible = false;
-  final height = 32.0;
 
   @override
   Widget build(BuildContext context) {
+    final height = 31.0 * (widget.maxLines > 1 ? widget.maxLines * 0.6 : 1);
+
     return SizedBox(
         height: height,
         child: Row(
@@ -63,15 +70,23 @@ class _InputTextWidgetState extends State<InputTextWidget> {
               ),
             Expanded(
               child: TextFormField(
-                textAlignVertical: TextAlignVertical.center,
+                autofocus: widget.autoFocus,
                 obscureText: (widget.showHideTextOption && widget.obscureText)
                     ? !textvisible
                     : widget.obscureText,
                 initialValue: widget.value,
                 enabled: widget.isEnable,
+                maxLength: widget.maxlength,
+                maxLines: widget.maxLines,
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(bottom: height / 2),
-                  // isDense:true,
+                  prefix: Text(
+                    widget.prefixText,
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                  contentPadding: widget.maxLines > 1
+                      ? EdgeInsets.zero
+                      : EdgeInsets.only(bottom: height / 2),
+                  // isDense: true,
                   suffixIcon: widget.showHideTextOption
                       ? GestureDetector(
                           onTap: () {
@@ -86,9 +101,10 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                             size: 18,
                           ),
                         )
-                      : const SizedBox(),
+                      : null,
                   border: InputBorder.none,
                   hintText: widget.hintText,
+                  counterText: "",
                   hintStyle: TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.w300,
@@ -108,8 +124,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                 onChanged: widget.onChanged,
                 onEditingComplete: widget.onEditingCompleted,
                 textAlign: widget.textAlign ?? TextAlign.start,
-                maxLines: widget.maxLines,
-                minLines: widget.minLines,
+                // textAlignVertical: TextAlignVertical.top,
               ),
             ),
             if (widget.suffixIcon != null) widget.suffixIcon!,

@@ -19,9 +19,6 @@ class AmountTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
-        if (state.number.isEmpty) {
-          return const SizedBox.shrink();
-        }
         return Column(
           children: [
             TextWidetWithLabelAndChild(

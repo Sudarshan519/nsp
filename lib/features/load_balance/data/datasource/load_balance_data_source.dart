@@ -83,11 +83,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     final url =
         "${config.baseURL}${config.apiPath}${LoadBalanceApiEndpoints.getListOfPaymentTypes}";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
 
@@ -296,12 +292,8 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
   }) async {
     final url = "${config.baseURL}${config.apiPath}$endpoint";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
+    final accessToken = auth.getWalletUser().accessToken;
     final userId = (await auth.getUserDetail()).uuid;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
 
     if (userId?.isEmpty ?? true) {
       //TODO: user id is empty we have to redirect to login page.
@@ -366,11 +358,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     final url =
         "${config.baseURL}${config.apiPath}${LoadBalanceApiEndpoints.deleteCreditCard}$cardId";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
 
@@ -413,11 +401,7 @@ class LoadBalanceDataSourceImpl implements LoadBalanceDataSource {
     final url =
         "${config.baseURL}${config.apiPath}${LoadBalanceApiEndpoints.stripeRefund}";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
 

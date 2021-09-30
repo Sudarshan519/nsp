@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/core/local_auth/local_auth_service.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/load_balance/domain/repositories/load_balance_repositories.dart';
@@ -62,6 +63,12 @@ class TopUpViaStripe
     if (amount < 100) {
       return const Left(ApiFailure.serverError(
           message: "Topup amount should be greater than 100"));
+    }
+
+    final bioResult = await LocalAuthService.authenticate(
+        'Please Verify authentication for Stripe Payment');
+    if (!bioResult.success) {
+      return Left(ApiFailure.serverError(message: bioResult.message));
     }
 
     return repository.topupViaStripe(

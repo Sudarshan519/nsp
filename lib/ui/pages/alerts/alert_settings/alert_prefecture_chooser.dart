@@ -112,14 +112,17 @@ class __AlertPrefectureChooserState extends State<_AlertPrefectureChooser> {
     }
 
     Widget getTrailingWidget(Place prefecture) {
-      if (otherPrefectures.contains(prefecture) &&
-          widget.selectMultiplePrefectures) {
-        return const Icon(
-          Icons.check_circle_rounded,
-          color: Colors.blue,
-        );
+      if (!widget.selectMultiplePrefectures) {
+        return const SizedBox();
       }
-      return const SizedBox();
+      final isSelected = otherPrefectures.contains(prefecture);
+      return Transform.translate(
+        offset: const Offset(5, 0),
+        child: Icon(
+          isSelected ? Icons.check_circle_rounded : Icons.circle_outlined,
+          color: isSelected ? Palette.primary : Colors.black,
+        ),
+      );
     }
 
     Widget cityList() {
@@ -199,7 +202,9 @@ class __AlertPrefectureChooserState extends State<_AlertPrefectureChooser> {
               CustomButton(
                   title: 'Done',
                   onTap: () {
-                    context.popRoute(otherPrefectures);
+                    //should return true if all prefectures are selected,
+                    //but should return a list if only some are selected
+                    context.popRoute(_allSelected ? true : otherPrefectures);
                   })
           ]),
       body: Column(
@@ -210,7 +215,7 @@ class __AlertPrefectureChooserState extends State<_AlertPrefectureChooser> {
               const SizedBox(width: 5),
               Expanded(
                 child: SizedBox(
-                    height: 40,
+                    height: 35,
                     child: TextField(
                       textAlignVertical: TextAlignVertical.center,
                       controller: _search,
@@ -228,26 +233,32 @@ class __AlertPrefectureChooserState extends State<_AlertPrefectureChooser> {
                       },
                       decoration: const InputDecoration(
                         contentPadding: EdgeInsets.zero,
-                        prefixIcon: Icon(Icons.search),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          size: 22,
+                        ),
                         hintText: 'Search',
                         border: OutlineInputBorder(),
                       ),
                     )),
               ),
-              const SizedBox(width: 5),
-              if (widget.selectMultiplePrefectures) const Text('All'),
+              const SizedBox(width: 3),
               if (widget.selectMultiplePrefectures)
-                Checkbox(
-                    value: _allSelected,
-                    onChanged: (val) {
-                      setState(() {
-                        if (val ?? true) {
-                          selectAll();
-                        } else {
-                          deSelectAll();
-                        }
-                      });
-                    })
+                Transform.scale(
+                  scale: 1.8,
+                  child: Checkbox(
+                      activeColor: Palette.primary,
+                      value: _allSelected,
+                      onChanged: (val) {
+                        setState(() {
+                          if (val ?? true) {
+                            selectAll();
+                          } else {
+                            deSelectAll();
+                          }
+                        });
+                      }),
+                )
             ],
           ),
           cityList()

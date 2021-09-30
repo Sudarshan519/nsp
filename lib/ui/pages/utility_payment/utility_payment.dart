@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_app/features/utility_payments/data/constants/constant.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/category_title_text.dart';
@@ -67,16 +68,32 @@ class GridItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         final type = paymentData.paymentType ?? '';
-        if (type.toLowerCase() == 'topup_balance') {
-          context.pushRoute(
-            TopUpRoute(payData: paymentData),
-          );
-        }
 
-        if (type.toLowerCase() == 'mirai') {
-          context.pushRoute(
-            PartnerServicePaymentRoute(payData: paymentData),
-          );
+        switch (type) {
+          case UtilityPayementType.balanceTopup:
+            context.pushRoute(
+              TopUpRoute(payData: paymentData),
+            );
+            break;
+
+          case UtilityPayementType.mirai:
+            context.pushRoute(
+              PartnerServicePaymentRoute(payData: paymentData),
+            );
+            break;
+
+          case UtilityPayementType.electricity:
+            context.pushRoute(
+              NEAPaymentRoute(payData: paymentData),
+            );
+            break;
+          case UtilityPayementType.khanepani:
+            context.pushRoute(
+              KhanepaniPaymentRoute(payData: paymentData),
+            );
+            break;
+
+          default:
         }
       },
       child: Column(
@@ -84,6 +101,7 @@ class GridItem extends StatelessWidget {
           if (paymentData.image != null)
             Container(
               height: 60,
+              width: 120,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
@@ -92,7 +110,7 @@ class GridItem extends StatelessWidget {
               ),
               child: CachedNetworkImage(
                   imageUrl: _baseURL + paymentData.image!,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fitHeight,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Container(
                         color: Palette.primaryBackground,

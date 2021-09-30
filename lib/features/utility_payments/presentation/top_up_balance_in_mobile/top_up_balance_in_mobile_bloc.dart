@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/utility_payments/domain/entities/utility_payments.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/topup_balance_for_mobile.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -32,29 +33,17 @@ class TopUpBalanceInMobileBloc
       changePhoneNumber: (e) async* {
         yield _mapChangePhoneNumberEventToState(e);
       },
-      changePhoneNumberViaContact: (e) async* {
-        yield _mapChangePhoneNumberViaContactEventToState(e);
-      },
       changeAmount: (e) async* {
         yield _mapChangeAmountEventToState(e);
       },
       changeconvertedJpyAmount: (e) async* {
         yield _mapChangeconvertedJpyAmountEventToState(e);
       },
-      setProductId: (e) async* {
-        yield _mapProductIdEventToState(e);
-      },
       changeCoupon: (e) async* {
         yield _mapChangecCouponCodeEventToState(e);
       },
-      setCashbackpercentage: (e) async* {
-        yield _mapSetCashbackpercentageEventToState(e);
-      },
       setDiscountpercentage: (e) async* {
         yield _mapSetDiscountpercentageEventToState(e);
-      },
-      setRewardPoint: (e) async* {
-        yield _mapSetRewardPointsEventToState(e);
       },
       setRewardPointFromCoupon: (e) async* {
         yield _mapSetRewardPointsFromCouponEventToState(e);
@@ -64,6 +53,9 @@ class TopUpBalanceInMobileBloc
       },
       topup: (e) async* {
         yield* _mapTopupEventToState(e);
+      },
+      setPayData: (e) async* {
+        yield _mapSetPayDataEventToState(e);
       },
     );
   }
@@ -79,45 +71,25 @@ class TopUpBalanceInMobileBloc
       amount = Values.SMARTCELL_TOPUP.contains(state.amount) ? amount : '';
     }
 
+    final isValid = type.isNotEmpty &&
+        state.paydata.name
+            .toString()
+            .toLowerCase()
+            .contains(type.toLowerCase());
+
     return state.copyWith(
+      key: _changePhoneNumber.fromContactPicker ? UniqueKey() : state.key,
       amount: amount,
       number: _changePhoneNumber.number,
       type: type,
-      coupon: '',
-      discountPercentage: 0,
-      rewardPointFromCoupon: 0,
+      isNumberValid: isValid,
       failureOrSuccessOption: none(),
     );
   }
 
-  TopUpBalanceInMobileState _mapChangePhoneNumberViaContactEventToState(
-      _ChangePhoneNumberViaContact _changePhoneNumberViaContact) {
-    final type = getType(fromNumber: _changePhoneNumberViaContact.number);
-
-    var amount = state.amount;
-
-    //making sure the amount is within the list of smart cell if any other amt is entered when mart cell number is entered
-    if (type == Values.SMARTCELL) {
-      amount = Values.SMARTCELL_TOPUP.contains(state.amount) ? amount : '';
-    }
-
+  TopUpBalanceInMobileState _mapSetPayDataEventToState(_SetPayData _payData) {
     return state.copyWith(
-      key: UniqueKey(),
-      amount: amount,
-      number: _changePhoneNumberViaContact.number,
-      type: type,
-      coupon: '',
-      discountPercentage: 0,
-      rewardPointFromCoupon: 0,
-      failureOrSuccessOption: none(),
-    );
-  }
-
-  //xxx
-  TopUpBalanceInMobileState _mapProductIdEventToState(
-      _SetProductId _setProductId) {
-    return state.copyWith(
-      productId: _setProductId.productId,
+      paydata: _payData.paydata,
       failureOrSuccessOption: none(),
     );
   }
@@ -146,26 +118,10 @@ class TopUpBalanceInMobileBloc
     );
   }
 
-  TopUpBalanceInMobileState _mapSetCashbackpercentageEventToState(
-      _SetCashbackpercentage _setCashbackpercentage) {
-    return state.copyWith(
-      cashbackPercentage: _setCashbackpercentage.percentage,
-      failureOrSuccessOption: none(),
-    );
-  }
-
   TopUpBalanceInMobileState _mapSetDiscountpercentageEventToState(
       _SetDiscountpercentage _setDiscountpercentage) {
     return state.copyWith(
       discountPercentage: _setDiscountpercentage.percentage,
-      failureOrSuccessOption: none(),
-    );
-  }
-
-  TopUpBalanceInMobileState _mapSetRewardPointsEventToState(
-      _SetRedeemPoint _setRedeemPoint) {
-    return state.copyWith(
-      rewardPoint: _setRedeemPoint.point,
       failureOrSuccessOption: none(),
     );
   }
@@ -219,7 +175,7 @@ class TopUpBalanceInMobileBloc
 
     result = await topUpBalanceForMobile(
       TopUpBalanceForMobileParams(
-        productId: state.productId,
+        productId: (state.paydata.id ?? 0).toString(),
         amount: state.amount,
         number: state.number,
         type: state.type,
@@ -241,19 +197,14 @@ class TopUpBalanceInMobileBloc
   }
 
   String getType({required String fromNumber}) {
-    if (fromNumber.length < 9) {
-      return '';
-    }
-
     if (Values.ntcRegx.hasMatch(fromNumber)) {
       return Values.NTC;
-    }
-
-    if (Values.ncellRegx.hasMatch(fromNumber)) {
+    } else if (state.isLandline &&
+        Values.ntcLandLineRegex.hasMatch(fromNumber)) {
+      return Values.NTC;
+    } else if (Values.ncellRegx.hasMatch(fromNumber)) {
       return Values.NCELL;
-    }
-
-    if (Values.smartCellRegx.hasMatch(fromNumber)) {
+    } else if (Values.smartCellRegx.hasMatch(fromNumber)) {
       return Values.SMARTCELL;
     }
 

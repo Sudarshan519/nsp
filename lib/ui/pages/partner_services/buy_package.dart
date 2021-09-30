@@ -144,6 +144,7 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                         .add(PurchasePackageEvent.changeCustomerName(value)),
                   ),
                 ),
+                const SizedBox(height: 14),
                 TextWidetWithLabelAndChild(
                   title: 'Customer ID / email',
                   isRequired: true,
@@ -155,6 +156,7 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                     value: state.customerId,
                   ),
                 ),
+                const SizedBox(height: 14),
                 TextWidetWithLabelAndChild(
                   title: 'Amount',
                   isRequired: true,
@@ -167,6 +169,7 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                     textInputType: TextInputType.number,
                   ),
                 ),
+                const SizedBox(height: 14),
                 TextWidetWithLabelAndChild(
                   title: 'Remarks',
                   child: TextFormField(

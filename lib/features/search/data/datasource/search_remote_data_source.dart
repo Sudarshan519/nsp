@@ -41,11 +41,7 @@ class SearchPageRemoteDataSourceImpl implements SearchPageRemoteDataSource {
   Future<List<SearchDataModel>> getSearchPageData(String searchText) async {
     final url =
         "${config.baseURL}${config.apiPath}${SearchApiEndpoints.search}$searchText";
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _headers["Authorization"] = "Bearer $accessToken";
 

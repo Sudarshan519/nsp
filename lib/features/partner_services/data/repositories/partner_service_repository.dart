@@ -40,7 +40,7 @@ class PartnerServicesRepositoryImpl implements PartnerServicesRepository {
   Future<Either<ApiFailure, List<ServicesCategory>>>
       getPartnerServicesCategories() async {
     try {
-      final categories = await remoteDataSource.getJapaneseMannerCategories();
+      final categories = await remoteDataSource.getPartnerServicesCategories();
       categories.insert(
           0, const ServicesCategoryModel(id: null, categoryName: "All"));
       return Right(categories);

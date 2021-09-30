@@ -9,6 +9,7 @@ import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.
 import 'package:wallet_app/features/resume/data/app_constant/constant.dart';
 import 'package:wallet_app/features/resume/data/model/resume_model.dart';
 import 'package:wallet_app/features/resume/domain/entities/resume_model.dart';
+import 'package:wallet_app/handlers/api_response_handler.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -62,7 +63,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     final resumeType = type.toString().split('.').last;
     final url =
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.deleteResumeData}$id/$resumeType";
-    final accessToken = (await auth.getWalletUser()).accessToken;
+    final accessToken = auth.getWalletUser().accessToken;
 
     if (accessToken == null || accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have access token
@@ -108,7 +109,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     http.Response response;
     final url =
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.getResume}";
-    final accessToken = (await auth.getWalletUser()).accessToken;
+    final accessToken = auth.getWalletUser().accessToken;
 
     if (accessToken == null || accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have access token
@@ -134,30 +135,35 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
       );
     }
 
-    if (response.statusCode == 200) {
-      final responseBody = utf8.decode(response.bodyBytes);
-      try {
-        return resumeFromJson(responseBody);
-      } catch (ex) {
-        logger.log(
-          className: "ResumeRemoteDataSource",
-          functionName: "getResumeData()",
-          errorText: "Error casting from json to Resume",
-          errorMessage: ex.toString(),
-        );
-        throw const ServerException(message: AppConstants.someThingWentWrong);
-      }
-    } else {
-      logger.log(
-        className: "ResumeRemoteDataSource",
-        functionName: "getResumeData()",
-        errorText: "Error on API status code: ${response.statusCode}",
-        errorMessage: response.body,
-      );
-      throw ServerException(
-          message: errorMessageFromServerWithMessage(response.body) ??
-              AppConstants.someThingWentWrong);
-    }
+    return APIResponseHandler.handle(
+        httpStatusCode: response.statusCode,
+        onSuccess: () {
+          final responseBody = utf8.decode(response.bodyBytes);
+          try {
+            return resumeFromJson(responseBody);
+          } catch (ex) {
+            logger.log(
+              className: "ResumeRemoteDataSource",
+              functionName: "getResumeData()",
+              errorText: "Error casting from json to Resume",
+              errorMessage: ex.toString(),
+            );
+            throw const ServerException(
+                message: AppConstants.someThingWentWrong);
+          }
+        },
+        retryFunction: () => getResumeData(),
+        other: () {
+          logger.log(
+            className: "ResumeRemoteDataSource",
+            functionName: "getResumeData()",
+            errorText: "Error on API status code: ${response.statusCode}",
+            errorMessage: response.body,
+          );
+          throw ServerException(
+              message: errorMessageFromServerWithMessage(response.body) ??
+                  AppConstants.someThingWentWrong);
+        });
   }
 
   @override
@@ -228,7 +234,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
     http.Response response;
     final url =
         "${config.baseURL}${config.apiPath}${ResumeApiEndpoints.updateProfile}$lang";
-    final accessToken = (await auth.getWalletUser()).accessToken;
+    final accessToken = auth.getWalletUser().accessToken;
 
     if (accessToken == null || accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have uuid

@@ -1,5 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/resume/presentation/resume_watcher/resume_watcher_bloc.dart';
@@ -44,16 +45,16 @@ class ResumeTabBarScreenState extends State<ResumeTabBarScreen>
         if (state.isLoading) {
           return loadingPage();
         }
-        state.failureOrSuccessOption.fold(
-            () {},
-            (fail) => {
-                  FlushbarHelper.createError(
-                      message: fail.map(
-                    serverError: (error) => error.message,
-                    invalidUser: (_) => AppConstants.someThingWentWrong,
-                    noInternetConnection: (_) => AppConstants.noNetwork,
-                  )).show(context)
-                });
+        state.failureOrSuccessOption.fold(() {}, (fail) {
+          SchedulerBinding.instance?.addPostFrameCallback((_) {
+            FlushbarHelper.createError(
+                message: fail.map(
+              serverError: (error) => error.message,
+              invalidUser: (_) => AppConstants.someThingWentWrong,
+              noInternetConnection: (_) => AppConstants.noNetwork,
+            )).show(context);
+          });
+        });
         return _resumeTabBody(context, state);
       },
     );

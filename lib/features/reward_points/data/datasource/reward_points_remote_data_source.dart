@@ -40,9 +40,9 @@ class RewardPointsRemoteDataSourceImpl implements RewardPointsRemoteDataSource {
     http.Response response;
 
     final url =
-        "${config.baseURL}${config.apiPath}${RewardPointApiEndpoints.getRewardPoints}";
+        "${config.baseURL}${config.apiPath}${RewardPointApiEndpoints.getRewardPoints}?page=${params.page}";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
+    final accessToken = auth.getWalletUser().accessToken;
 
     if (accessToken == null || accessToken.isEmpty) {
       //TODO: route user to login page as the user does not have access token

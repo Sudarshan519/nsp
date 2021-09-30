@@ -9,6 +9,11 @@ import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:wallet_app/features/partner_services/data/model/service_subscription_model.dart';
 import 'package:wallet_app/features/utility_payments/data/constants/constant.dart';
+import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
+import 'package:wallet_app/features/utility_payments/data/models/payment_office_model.dart';
+import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -32,6 +37,17 @@ abstract class UtilityPaymentDataSource {
     required String coupon,
     required int productId,
   });
+
+  //for nea
+  Future<List<PaymentOfficeModel>> getNeaOffices();
+  Future<Unit> payNea(PaymentCustomerInfoModel customerData);
+  Future<PaymentCustomerInfoModel> enquiryNea(EnquiryNeaParams params);
+
+  //for khanepani
+  Future<List<PaymentOfficeModel>> getKhanepaniOffices();
+  Future<Unit> payKhanepani(PaymentCustomerInfoModel customerData);
+  Future<PaymentCustomerInfoModel> enquiryKhanepani(
+      EnquireKhanepaniParams params);
 }
 
 @LazySingleton(as: UtilityPaymentDataSource)
@@ -64,11 +80,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.topup}$type";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
 
@@ -180,11 +192,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.payMiraiSubscription}";
 
-    final accessToken = (await auth.getWalletUser()).accessToken;
-
-    if (accessToken?.isEmpty ?? true) {
-      //TODO: user access token is empty we have to redirect to login page.
-    }
+    final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
 
@@ -223,6 +231,307 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
 
       throw ServerException(
         message: errorMessageFromServerWithError(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<List<PaymentOfficeModel>> getNeaOffices() async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.neaOffices}";
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    try {
+      response = await client.get(
+        Uri.parse(url),
+        headers: _header,
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200) {
+      try {
+        final jsonBody = json.decode(response.body) as Map<String, dynamic>;
+
+        final data = jsonBody['data'];
+        return List<PaymentOfficeModel>.from((data as Iterable).map(
+            (x) => PaymentOfficeModel.fromJson(x as Map<String, dynamic>)));
+      } catch (ex) {
+        logger.log(
+          className: "UtilityPaymentDataSource",
+          functionName: "getNeaOffices()",
+          errorText: "Error on getting nea offices",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(
+          message: AppConstants.someThingWentWrong,
+        );
+      }
+    } else if (statusCode == 404) {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "getNeaOffices() ",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw const ServerException(
+        message: "Subscription id did not match. Please try again.",
+      );
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "getNeaOffices()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+        message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<PaymentCustomerInfoModel> enquiryNea(EnquiryNeaParams params) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.neaDetail}";
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+    final body = json.encode(params.toJson());
+
+    http.Response response;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: body,
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200) {
+      try {
+        return neaCustomerInfoFromJson(response.body);
+      } catch (ex) {
+        logger.log(
+          className: "UtilityPaymentDataSource",
+          functionName: "getNeaOffices()",
+          errorText: "Error on getting nea offices",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(
+          message: AppConstants.someThingWentWrong,
+        );
+      }
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "getNeaOffices()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+        message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<Unit> payNea(PaymentCustomerInfoModel customerData) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.neaPay}";
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+    final body = json.encode(customerData.toJson());
+
+    http.Response response;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: body,
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200) {
+      return unit;
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "payNea()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+        message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<List<PaymentOfficeModel>> getKhanepaniOffices() async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.khanepaniOffices}";
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    try {
+      response = await client.get(
+        Uri.parse(url),
+        headers: _header,
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200) {
+      try {
+        final jsonBody = json.decode(response.body) as Map<String, dynamic>;
+
+        final data = jsonBody['data'];
+        return List<PaymentOfficeModel>.from((data as Iterable).map(
+            (x) => PaymentOfficeModel.fromJson(x as Map<String, dynamic>)));
+      } catch (ex) {
+        logger.log(
+          className: "UtilityPaymentDataSource",
+          functionName: "getKhanepaniOffices()",
+          errorText: "Error on getting khanepani offices",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(
+          message: AppConstants.someThingWentWrong,
+        );
+      }
+    } else if (statusCode == 404) {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "getKhanepaniOffices() ",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw const ServerException(
+        message: "Subscription id did not match. Please try again.",
+      );
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "getKhanepaniOffices()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+        message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<Unit> payKhanepani(PaymentCustomerInfoModel customerData) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.khanepaniPay}";
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+    final body = json.encode(customerData.toJson());
+
+    http.Response response;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: body,
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200) {
+      return unit;
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "payKhanepani()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+        message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<PaymentCustomerInfoModel> enquiryKhanepani(
+      EnquireKhanepaniParams params) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.khanepaniDetail}";
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+    final body = json.encode(params.toJson());
+
+    http.Response response;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: body,
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200) {
+      try {
+        return neaCustomerInfoFromJson(response.body);
+      } catch (ex) {
+        logger.log(
+          className: "UtilityPaymentDataSource",
+          functionName: "enquiryKhanepani()",
+          errorText: "Error on getting khanepani user details",
+          errorMessage: ex.toString(),
+        );
+        throw const ServerException(
+          message: AppConstants.someThingWentWrong,
+        );
+      }
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "enquiryKhanepani()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+      throw ServerException(
+        message: errorMessageFromServer(response.body) ??
             AppConstants.someThingWentWrong,
       );
     }

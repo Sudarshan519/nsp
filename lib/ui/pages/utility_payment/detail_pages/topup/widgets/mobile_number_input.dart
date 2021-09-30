@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttercontactpicker/fluttercontactpicker.dart';
-import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/features/utility_payments/presentation/top_up_balance_in_mobile/top_up_balance_in_mobile_bloc.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
@@ -12,12 +11,8 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 class MobileNumberTextField extends StatelessWidget {
-  final List<UtilityPaymentsModel> paymentData;
-  const MobileNumberTextField(this.paymentData);
-
   @override
   Widget build(BuildContext context) {
-    //get phone contacts
     return BlocBuilder<TopUpBalanceInMobileBloc, TopUpBalanceInMobileState>(
       builder: (context, state) {
         return Row(
@@ -26,9 +21,15 @@ class MobileNumberTextField extends StatelessWidget {
             Expanded(
               key: state.key,
               child: TextWidetWithLabelAndChild(
-                title: "Mobile (10 digit)",
+                title: state.isLandline
+                    ? 'Landline (8 digits)'
+                    : "Mobile (10 digit)",
                 child: InputTextWidget(
-                  hintText: "98XXXXXXXX",
+                  autoFocus: true,
+                  key: state.key,
+                  prefixText: state.isLandline ? '0' : '977 - ',
+                  hintText: state.isLandline ? '148xxxxx' : "98XXXXXXXX",
+                  maxlength: state.isLandline ? 8 : 10,
                   textInputType: TextInputType.number,
                   value: state.number,
                   inputFormatters: [
@@ -36,7 +37,8 @@ class MobileNumberTextField extends StatelessWidget {
                   ],
                   onChanged: (value) => context
                       .read<TopUpBalanceInMobileBloc>()
-                      .add(TopUpBalanceInMobileEvent.changePhoneNumber(value)),
+                      .add(TopUpBalanceInMobileEvent.changePhoneNumber(
+                          number: value, fromContactPicker: false)),
                   suffixIcon: InkWell(
                     onTap: () async {
                       final phoneNumber = await handleContact(context);
@@ -46,8 +48,8 @@ class MobileNumberTextField extends StatelessWidget {
                             .show(context);
                       } else {
                         context.read<TopUpBalanceInMobileBloc>().add(
-                            TopUpBalanceInMobileEvent
-                                .changePhoneNumberViaContact(phoneNumber));
+                            TopUpBalanceInMobileEvent.changePhoneNumber(
+                                number: phoneNumber, fromContactPicker: true));
                       }
                     },
                     child: SvgPicture.asset(
@@ -83,12 +85,12 @@ class MobileNumberTextField extends StatelessWidget {
       //         message: "Please provide contact read permission")
       //     .show(context);
       // await Future.delayed(const Duration(seconds: 2));
-      FlutterContactPicker.requestPermission();
+      final res = await FlutterContactPicker.requestPermission();
+      if (!res) return '';
     }
     final PhoneContact contact = await FlutterContactPicker.pickPhoneContact();
     if (contact.phoneNumber != null) {
       var number = contact.phoneNumber!.number.toString();
-      if (number.length < 10) return '';
 
       number = number
           .replaceAll('+', '')
@@ -97,16 +99,22 @@ class MobileNumberTextField extends StatelessWidget {
           .replaceAll('-', '')
           .replaceAll(' ', '');
 
-      // taking the last 10 digits of the num if there is any type of prefix like country code etc
-      number = number.substring(number.length - 10);
+      if (number.startsWith('977')) {
+        number = number.replaceFirst('977', '');
+      }
+
+      //For land line, removing 0 if number is = 014876232
+      if (number.startsWith('0')) {
+        number = number.replaceFirst('0', '');
+      }
+
+      // // taking the last 10 digits of the num if there is any type of prefix like country code etc
+      // number = number.substring(number.length - 10);
 
       //checking if the num is compatible with our providers
-      if (Values.ntcRegx.hasMatch(number) ||
-          Values.ncellRegx.hasMatch(number) ||
-          Values.smartCellRegx.hasMatch(number)) {
-        return number;
-      }
-      return "";
+      final isCompatible =
+          Values.allRegex.any((element) => element.hasMatch(number));
+      return isCompatible ? number : '';
     }
     return "";
   }

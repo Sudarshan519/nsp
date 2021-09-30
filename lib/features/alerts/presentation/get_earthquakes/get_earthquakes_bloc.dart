@@ -19,7 +19,7 @@ class GetEarthquakesBloc
   final GetEarthquakes getEarthquakes;
 
   List<Alert> alerts = [];
-  int limit = 10;
+  int offset = 0;
   bool hasReachedEnd = false;
   bool isFetching = false;
 
@@ -43,7 +43,7 @@ class GetEarthquakesBloc
         if (hasReachedEnd) {
           yield _Success(alerts);
         } else {
-          limit = limit + 10;
+          offset = offset + alerts.length;
           yield* _changeFetchEventToMap();
         }
       },
@@ -55,15 +55,15 @@ class GetEarthquakesBloc
       yield _LoadingWithData(alerts);
     }
 
-    final result = await getEarthquakes(GetEarthquakesParams(limit: limit));
+    final result = await getEarthquakes(GetEarthquakesParams(offset: offset));
 
     yield result.fold(
       (failure) => _Failure(failure),
-      (_alerts) {
-        if (alerts.length == _alerts.length) {
+      (_newAlerts) {
+        if (alerts.length == _newAlerts.length) {
           hasReachedEnd = false;
         }
-        alerts.addAll(_alerts);
+        alerts.addAll(_newAlerts);
         // alerts = alerts.toSet().toList();
         isFetching = false;
         final earthquakeThreshold =

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
+import 'package:wallet_app/core/device_info/device_information_manager.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/geo_location/geo_location.dart';
 import 'package:wallet_app/core/logger/logger.dart';
@@ -190,8 +191,19 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     final url = "${config.baseURL}${config.apiPath}$uri";
 
-    body["firebaseToken"] = getIt<PushNotificationManager>().fireBaseToken;
+    final pushNotif = getIt<PushNotificationManager>();
+
+    var token = '';
+    token = pushNotif.fireBaseToken;
+
+    if (token.isEmpty) {
+      await pushNotif.setToken();
+      token = pushNotif.fireBaseToken;
+    }
+
+    body["firebaseToken"] = token;
     body["gps"] = getIt<GeoLocationManager>().gps;
+    body['device_id'] = DeviceInfoManager.device.toString();
 
     try {
       response = await client.post(
@@ -300,7 +312,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   ) async {
     final url = "${config.baseURL}${config.apiPath}$uri";
     final accessToken =
-        (await getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
+        (getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
 
     header["Authorization"] = "Bearer $accessToken";
 

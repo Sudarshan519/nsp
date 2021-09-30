@@ -37,8 +37,6 @@ class _TopUpPageState extends State<TopUpPage> {
   double _conversionRate = 1.067;
   late UtilityPaymentsModel _payData;
 
-  List<UtilityPaymentsModel> paymentData = [];
-
   @override
   void initState() {
     _isConfirmPage = false;
@@ -50,13 +48,6 @@ class _TopUpPageState extends State<TopUpPage> {
     if (homedata != null) {
       _conversionRate =
           1 / (homedata.userDetail?.purchaseConversionRate ?? 1.067);
-
-      paymentData = List<UtilityPaymentsModel>.from((homedata.homeData!
-              .firstWhere(
-                  (element) => element.type.toString().contains('utility'))
-              .data as Iterable)
-          .map(
-              (x) => UtilityPaymentsModel.fromJson(x as Map<String, dynamic>)));
     }
   }
 
@@ -75,14 +66,7 @@ class _TopUpPageState extends State<TopUpPage> {
                   BlocProvider(
                     create: (context) => getIt<TopUpBalanceInMobileBloc>()
                       ..add(
-                        TopUpBalanceInMobileEvent.setCashbackpercentage(
-                          _payData.cashbackPer ?? 0.0,
-                        ),
-                      )
-                      ..add(
-                        TopUpBalanceInMobileEvent.setRewardPoint(
-                          _payData.rewardPoint ?? 0.0,
-                        ),
+                        TopUpBalanceInMobileEvent.setPayData(widget.payData),
                       ),
                   ),
                   BlocProvider(
@@ -98,7 +82,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 child: Scaffold(
                   appBar: AppBar(
                     title: Text(
-                      "Topup",
+                      widget.payData.name ?? "Topup",
                       style: TextStyle(
                         color: Palette.white,
                       ),
@@ -213,11 +197,12 @@ class _TopUpPageState extends State<TopUpPage> {
                   TopUpBalanceInMobileEvent.setDiscountpercentage(
                       double.parse(couponCode?.cashback ?? '0.0')),
                 );
+
             var doubleAmount = double.parse(state.amount);
             final discountAmount =
                 doubleAmount * (state.discountPercentage / 100);
             final cashbackAmount =
-                doubleAmount * (state.cashbackPercentage / 100);
+                doubleAmount * ((state.paydata.cashbackPer ?? 0.0) / 100);
 
             doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
 
@@ -240,9 +225,12 @@ class _TopUpPageState extends State<TopUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            MobileNumberTextField(paymentData),
-            TypeOfNumber(paymentData),
-            if (state.type == Values.SMARTCELL)
+            MobileNumberTextField(),
+            TypeOfNumber(),
+            if (state.paydata.name
+                .toString()
+                .toLowerCase()
+                .contains(Values.SMARTCELL))
               AmountDropDownField(
                 conversionRate: _conversionRate,
               )
@@ -251,7 +239,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 conversionRate: _conversionRate,
               ),
             const SizedBox(height: 20),
-            couponcodeWidget(),
+            if (state.isNumberValid) couponcodeWidget(),
             const SizedBox(height: 20),
             TransactionDetail(
               conversionRate: _conversionRate,
@@ -260,6 +248,13 @@ class _TopUpPageState extends State<TopUpPage> {
             ProceedButton(
               callback: () {
                 try {
+                  if (!state.isNumberValid) {
+                    FlushbarHelper.createError(
+                            message: 'The phone number you entered is invalid!')
+                        .show(context);
+                    return;
+                  }
+
                   final amtNPR = amtAfterDiscountDeduction(state);
                   final int amtJPY = amtNPR ~/ _conversionRate;
 
@@ -313,7 +308,8 @@ class _TopUpPageState extends State<TopUpPage> {
 
           doubleAmount = amtAfterDiscountDeduction(state);
 
-          final rewardPoint = doubleAmount * (state.rewardPoint / 100);
+          final rewardPoint =
+              doubleAmount * ((state.paydata.rewardPoint ?? 0.0) / 100);
 
           final conversionValue = doubleAmount / _conversionRate;
           return Container(
@@ -326,12 +322,12 @@ class _TopUpPageState extends State<TopUpPage> {
                 const SizedBox(height: 5),
                 TransactionAmountInNPRField(),
                 const SizedBox(height: 5),
-                if (state.cashbackPercentage > 0)
+                if ((state.paydata.cashbackPer ?? 0.0) > 0)
                   Column(
                     children: [
                       TransactionDetailRow(
                         title: 'Cashback',
-                        value: "${state.cashbackPercentage} %",
+                        value: "${state.paydata.cashbackPer ?? 0.0} %",
                       ),
                       const SizedBox(height: 5),
                     ],
@@ -346,7 +342,8 @@ class _TopUpPageState extends State<TopUpPage> {
                       const SizedBox(height: 5),
                     ],
                   ),
-                if (state.rewardPoint > 0 || state.rewardPointFromCoupon > 0)
+                if ((state.paydata.rewardPoint ?? 0.0) > 0 ||
+                    state.rewardPointFromCoupon > 0)
                   Column(
                     children: [
                       TransactionDetailRow(
@@ -391,7 +388,8 @@ double amtAfterDiscountDeduction(TopUpBalanceInMobileState state) {
   var doubleAmount = double.parse(state.amount);
   try {
     final discountAmount = doubleAmount * (state.discountPercentage / 100);
-    final cashbackAmount = doubleAmount * (state.cashbackPercentage / 100);
+    final cashbackAmount =
+        doubleAmount * ((state.paydata.cashbackPer ?? 0.0) / 100);
 
     doubleAmount = doubleAmount - (discountAmount + cashbackAmount);
     return doubleAmount;

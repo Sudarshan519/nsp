@@ -54,7 +54,7 @@ class __ForYouCategorySelectionPageState
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(16.0),
-      child: Column(
+      child: ListView(
         children: [
           const Text(
             "Subscribe to topics of interest to surface the stories you wanted to read",
@@ -69,7 +69,6 @@ class __ForYouCategorySelectionPageState
               widget.genres,
             ),
           ),
-          const Spacer(),
           const SizedBox(height: 10),
           InkWell(
             onTap: () {

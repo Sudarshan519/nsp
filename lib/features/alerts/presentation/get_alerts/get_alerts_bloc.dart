@@ -18,7 +18,7 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
   final GetAlerts getAlerts;
 
   List<Alert> alerts = [];
-  int limit = 10;
+  int page = 1;
   bool hasReachedEnd = false;
   bool isFetching = false;
 
@@ -34,7 +34,6 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
       fetch: (e) async* {
         hasReachedEnd = false;
         isFetching = true;
-        limit = 10;
         yield const _Loading();
         yield* _changeFetchEventToMap();
       },
@@ -43,7 +42,7 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
         if (hasReachedEnd) {
           yield _Success(alerts);
         } else {
-          limit = limit + 10;
+          page = page + 1;
           yield* _changeFetchEventToMap();
         }
       },
@@ -55,7 +54,7 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
       yield _LoadingWithData(alerts);
     }
 
-    final result = await getAlerts(GetAlertsParams(limit: limit));
+    final result = await getAlerts(GetAlertsParams(page: page));
 
     yield result.fold(
       (failure) => _Failure(failure),
@@ -68,11 +67,12 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
         isFetching = false;
         final earthquakeThreshold =
             getIt<AuthLocalDataSource>().getEarthquakeThreshold();
-        final filteredList = alerts
-            .where((element) =>
-                (element.magnitudeValue ?? 0) >= earthquakeThreshold)
-            .toList();
-        return _Success(filteredList);
+
+        alerts.removeWhere((element) =>
+            element.label.toString().toLowerCase() == 'earthquake' &&
+            (element.magnitudeValue ?? 0) < earthquakeThreshold);
+
+        return _Success(alerts);
       },
     );
   }

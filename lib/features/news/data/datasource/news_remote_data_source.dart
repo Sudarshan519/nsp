@@ -8,6 +8,7 @@ import 'package:wallet_app/features/news/data/app_constant/constant.dart';
 import 'package:wallet_app/features/news/data/model/news_genre_model.dart';
 import 'package:wallet_app/features/news/data/model/news_model.dart';
 import 'package:wallet_app/features/news/data/model/news_preference_model.dart';
+import 'package:wallet_app/handlers/api_response_handler.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 
@@ -224,24 +225,27 @@ class NewsRemoteDataSource implements NewsRemoteDataSourceProtocol {
         message: ex.toString(),
       );
     }
-
-    if (response.statusCode == 200) {
-      final responseBody = utf8.decode(response.bodyBytes);
-      final newsModel = newsModelFromJson(responseBody);
-      if (newsModel != null) {
-        return newsModel;
-      }
-      throw const ServerException(message: AppConstants.someThingWentWrong);
-    } else {
-      final errorModel = newsModelFromJson(response.body);
-      logger.log(
-        className: "NewsRemoteDataSource",
-        functionName: "getNews()",
-        errorText: "Error on API status code: ${response.statusCode}",
-        errorMessage: response.body,
-      );
-      throw ServerException(
-          message: errorModel?.error ?? AppConstants.someThingWentWrong);
-    }
+    return APIResponseHandler.handle(
+        httpStatusCode: response.statusCode,
+        onSuccess: () {
+          final responseBody = utf8.decode(response.bodyBytes);
+          final newsModel = newsModelFromJson(responseBody);
+          if (newsModel != null) {
+            return newsModel;
+          }
+          throw const ServerException(message: AppConstants.someThingWentWrong);
+        },
+        retryFunction: () => _getNews(url: url),
+        other: () {
+          final errorModel = newsModelFromJson(response.body);
+          logger.log(
+            className: "NewsRemoteDataSource",
+            functionName: "getNews()",
+            errorText: "Error on API status code: ${response.statusCode}",
+            errorMessage: response.body,
+          );
+          throw ServerException(
+              message: errorModel?.error ?? AppConstants.someThingWentWrong);
+        });
   }
 }

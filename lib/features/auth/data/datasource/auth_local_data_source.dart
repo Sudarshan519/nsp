@@ -19,7 +19,7 @@ abstract class AuthLocalDataSource {
   //
   // Throws [PlatformException] for platform Error
   // Throus [UserSessionNotAvailableException] if not found on the storage
-  Future<WalletUserModel> getWalletUser();
+  WalletUserModel getWalletUser();
   Future delete();
 
   Future saveUserDetail(UserDetailModel user);
@@ -36,7 +36,7 @@ abstract class AuthLocalDataSource {
   List<Place> getOtherPrefectures();
   void setOtherPrefectures(List<Place> otherPrefectures);
 
-  String? getFCMToken();
+  String getFCMToken();
   void setFCMToken(String token);
 
   double getEarthquakeThreshold();
@@ -56,7 +56,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   });
 
   @override
-  Future<WalletUserModel> getWalletUser() async {
+  WalletUserModel getWalletUser() {
     try {
       final value = preferences.getString(AuthPreferenceKeys.walletUser);
       if (value == null) {
@@ -110,8 +110,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
 
   @override
   void setKycPromptDate() {
-    final result = preferences.setString(
-        AuthPreferenceKeys.kycVerificationPromptDate,
+    preferences.setString(AuthPreferenceKeys.kycVerificationPromptDate,
         DateTime.now().toString());
   }
 
@@ -139,8 +138,8 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   }
 
   @override
-  String? getFCMToken() {
-    preferences.getString(AuthPreferenceKeys.fcmToken);
+  String getFCMToken() {
+    return preferences.getString(AuthPreferenceKeys.fcmToken) ?? '';
   }
 
   // User Details

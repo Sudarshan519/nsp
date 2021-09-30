@@ -250,7 +250,7 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Either<ApiFailure, WalletUser>> getWalletUser() async {
     try {
-      return Right(await localDataSource.getWalletUser());
+      return Right(localDataSource.getWalletUser());
     } catch (ex) {
       logger.log(
         className: "AuthRepository",

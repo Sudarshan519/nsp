@@ -3,6 +3,7 @@ class AppConstants {
   static const someThingWentWrong =
       "Unfortunately something went wrong. Please try again later.";
   static const cancelledByUser = "The process is cancelled by user.";
+  static const sessionExpired = 'Session Expired! Pleae login again';
 
   static const noNetwork = "Looks like you are not connected to the internet";
 
@@ -55,7 +56,7 @@ class Values {
   static const int MAX_RECHARGE = 5000; //NPR
 
   //double constants
-  static const double DEFAULT_THRESHOLD = 3.5; //magnitudes
+  static const double DEFAULT_THRESHOLD = 3.0; //magnitudes
 
   //String constants
   static const EN_JAPAN = 'japan';
@@ -109,7 +110,7 @@ class Values {
     "Apr",
     "May",
     "Jun",
-    "July",
+    "Jul",
     "Aug",
     "Sep",
     "Oct",
@@ -118,9 +119,24 @@ class Values {
   ];
 
   //others
-  static final ntcRegx = RegExp(r'^(984|985|986|)\d{7}$', caseSensitive: false);
-  static final ncellRegx =
-      RegExp(r'^(980|981|982)\d{7}$', caseSensitive: false);
+  static final ntcRegx =
+      RegExp(r'^9(74|75|84|85|86)\d{7}$', caseSensitive: false);
+  static final ntcLandLineRegex = RegExp(r'^\d{8}$', caseSensitive: false);
+  static final ncellRegx = RegExp(r'^9(80|81|82)\d{7}$', caseSensitive: false);
   static final smartCellRegx =
-      RegExp(r'^(961|988)\d{7}$', caseSensitive: false);
+      RegExp(r'^9(61|62|88)\d{7}$', caseSensitive: false);
+
+  static final List<RegExp> allRegex = [
+    ntcRegx,
+    ncellRegx,
+    smartCellRegx,
+    ntcLandLineRegex
+  ];
+}
+
+class SignupMethod {
+  static const email = 'EMAIL';
+  static const google = 'GOOGLE';
+  static const facebook = 'FACEBOOK';
+  static const apple = 'APPLE';
 }

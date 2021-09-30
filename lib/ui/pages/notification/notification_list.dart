@@ -16,15 +16,14 @@ class NotificationListPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          centerTitle: true,
-          leading: const BackButton(
-            color: Colors.white,
-          ),
-          title: const Text(
-            'Notification',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
+            centerTitle: true,
+            leading: const BackButton(
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Notification',
+              style: TextStyle(color: Colors.white),
+            )),
         body: BlocProvider(
           create: (_) => getIt<NotificationsBloc>()
             ..add(

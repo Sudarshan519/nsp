@@ -41,8 +41,8 @@ class GetDisasterDetailBloc
   Stream<GetDisasterDetailState> _changeFetchEventToMap(String code) async* {
     Either<ApiFailure, List<Alert>> result;
     result = await (NotificationType.earthquake == code
-        ? getEarthquakes(GetEarthquakesParams(limit: 0, code: code))
-        : getVolcanoes(GetVolcanoesParams(limit: 0, code: code)));
+        ? getEarthquakes(GetEarthquakesParams(offset: 0, code: code))
+        : getVolcanoes(GetVolcanoesParams(offset: 0, code: code)));
 
     yield result.fold(
       (failure) => _Failure(failure),

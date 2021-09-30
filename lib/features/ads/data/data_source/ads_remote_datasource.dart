@@ -9,6 +9,7 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
 import 'package:http/http.dart' as http;
+import 'package:wallet_app/handlers/api_response_handler.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -62,34 +63,38 @@ class AdsRemoteDataSourceImpl implements AdsRemoteDataSource {
     }
 
     final statusCode = response.statusCode;
+    return APIResponseHandler.handle(
+        httpStatusCode: statusCode,
+        onSuccess: () {
+          final responseBody = utf8.decode(response.bodyBytes);
+          try {
+            final jsonData = json.decode(responseBody) as Map<String, dynamic>;
 
-    if (statusCode == 200) {
-      final responseBody = utf8.decode(response.bodyBytes);
-      try {
-        final jsonData = json.decode(responseBody) as Map<String, dynamic>;
-
-        final ads = AdsModel.fromJson(jsonData);
-        return ads;
-      } catch (ex) {
-        logger.log(
-     className: "AdsRemoteDataSource",
-        functionName: "getAds()",
-          errorText: "Error casting from json to ads",
-          errorMessage: ex.toString(),
-        );
-        throw const ServerException(message: AppConstants.someThingWentWrong);
-      }
-    } else {
-      logger.log(
-         className: "AdsRemoteDataSource",
-        functionName: "getAds()",
-        errorText: "Error on API status code: $statusCode",
-        errorMessage: response.body,
-      );
-      throw ServerException(
-        message: errorMessageFromServer(response.body) ??
-            AppConstants.someThingWentWrong,
-      );
-    }
+            final ads = AdsModel.fromJson(jsonData);
+            return ads;
+          } catch (ex) {
+            logger.log(
+              className: "AdsRemoteDataSource",
+              functionName: "getAds()",
+              errorText: "Error casting from json to ads",
+              errorMessage: ex.toString(),
+            );
+            throw const ServerException(
+                message: AppConstants.someThingWentWrong);
+          }
+        },
+        retryFunction: () => getAds(),
+        other: () {
+          logger.log(
+            className: "AdsRemoteDataSource",
+            functionName: "getAds()",
+            errorText: "Error on API status code: $statusCode",
+            errorMessage: response.body,
+          );
+          throw ServerException(
+            message: errorMessageFromServer(response.body) ??
+                AppConstants.someThingWentWrong,
+          );
+        });
   }
 }

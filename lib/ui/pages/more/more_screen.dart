@@ -1,11 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:wallet_app/core/analytcs/analytics_service.dart';
-import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
-import 'package:wallet_app/core/notification/push_notification_manager.dart';
-import 'package:wallet_app/core/usecase/usecase.dart';
-import 'package:wallet_app/features/auth/domain/usecase/logout_user.dart';
-import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/handlers/session_handler.dart';
 import 'package:wallet_app/ui/pages/home/home_appbar.dart';
 import 'package:wallet_app/ui/pages/home/widgets/home_page_header.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -62,7 +57,6 @@ class MorePage extends StatelessWidget {
         title: "Profile",
         onTap: () => context.pushRoute(const ProfileRoute()),
       ),
-
       MoreItem(
         imageName: "icon-coupon",
         title: "Coupons",
@@ -88,17 +82,6 @@ class MorePage extends StatelessWidget {
         title: "Settings",
         onTap: () => context.pushRoute(const SettingsRoute()),
       ),
-      // MoreItem(
-      //   imageName:"icon-about",
-      //   title: "About",
-      //   onTap: () {},
-      // ),
-      // MoreItem(
-      //   imageName:"icon-contact",
-      //   title: "Contact",
-      //   onTap: () {},
-      // ),
-
       MoreItem(
         imageName: "icon-logout",
         title: "Logout",
@@ -109,11 +92,8 @@ class MorePage extends StatelessWidget {
             builder: (_) => PopUpConfirmation(
               message: 'Are you sure to Logout?',
               onConfirmed: () {
-                AnalyticsService.logEvent(FirebaseEvents.LOGOUT);
-                getIt<LogoutUser>().call(NoParams());
                 context.popRoute();
-                context.router.replace(const LoginRoute());
-                getIt<PushNotificationManager>().removeToken();
+                SessionHandler.logout();
               },
             ),
           );
