@@ -70,8 +70,8 @@ class PaymentAuthService {
     final hasSetMpin = user?.isMpinSet ?? false;
 
     if (!hasSetMpin) {
-      final result = await AuthWidgets.showSetMpinPrompt(force: true);
-      if (result == null) {
+      final result = await AuthWidgets.showSetMpinPrompt(force: true) ?? false;
+      if (result != true) {
         return PaymentAuthResponse(
             success: false, message: 'MPin not set by user');
       }

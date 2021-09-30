@@ -113,7 +113,10 @@ class _VerifyNumberState extends State<VerifyNumber> {
                                   children: [
                                     const Padding(
                                       padding: EdgeInsets.all(12.0),
-                                      child: Text('Enter Pin Code'),
+                                      child: Text(
+                                        'Enter OTP code that you received in your phone.',
+                                        textScaleFactor: 0.9,
+                                      ),
                                     ),
                                     PinTextWidget(
                                       onChanged: (s) {

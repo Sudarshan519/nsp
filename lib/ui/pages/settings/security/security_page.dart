@@ -65,7 +65,7 @@ class _SecurityPageState extends State<SecurityPage> {
                           },
                           title: const Text('Fingerprint'),
                           subtitle: Text(
-                              '${isSelected ? 'Remove' : 'Set'} fingerprint for transaction or payment'),
+                              '${isSelected ? 'Disable' : 'Enable'} fingerprint for transaction or payment'),
                           leading: const Icon(Icons.fingerprint),
                           trailing: isSelected
                               ? const Icon(Icons.check_circle,
@@ -107,7 +107,7 @@ class _SecurityPageState extends State<SecurityPage> {
                           },
                           title: const Text('Face ID'),
                           subtitle: Text(
-                              '${isSelected ? 'Set' : 'Remove'} Face ID for transaction or payment'),
+                              '${isSelected ? 'Enable' : 'Disable'} Face ID for transaction or payment'),
                           leading: const Icon(Icons.face_outlined),
                           trailing: isSelected
                               ? const Icon(Icons.check_circle,

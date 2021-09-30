@@ -82,7 +82,7 @@ dependencies:
   facebook_audience_network: ^1.0.0-nullsafety.0
   flutter_khalti: ^1.1.0
   flutter_web_browser: ^0.15.0
-  webview_flutter: ^2.0.12
+  webview_flutter: ^2.0.13
   marquee: ^2.2.0
   firebase_analytics: ^8.2.0
   image_cropper: ^1.4.1
