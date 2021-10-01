@@ -13,7 +13,7 @@ class AboutUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final url = getIt<ConfigReader>().baseURL;
+    final configReader = getIt<ConfigReader>();
     final bodyData = context.read<HomePageDataBloc>().homeData?.homeData;
 
     Widget aboutData(List<HomeData> bodyData) {
@@ -30,7 +30,7 @@ class AboutUsPage extends StatelessWidget {
         return ListView(
           children: [
             CachedNetworkImage(
-              imageUrl: '$url$suffix',
+              imageUrl: '${configReader.baseURL}$suffix',
               progressIndicatorBuilder: (context, url, progress) {
                 return Center(
                   child: CircularProgressIndicator(
@@ -38,6 +38,15 @@ class AboutUsPage extends StatelessWidget {
                   ),
                 );
               },
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Text(
+                  'App Version: ${configReader.appVersion.split('+').first}',
+                  style: const TextStyle(color: Colors.black54),
+                ),
+              ),
             ),
             ShadowBoxWidget(
                 margin: const EdgeInsets.all(20),

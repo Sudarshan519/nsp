@@ -31,7 +31,7 @@ class SignupFormWidget extends StatelessWidget {
           },
         ),
         const SizedBox(
-          height: 18,
+          height: 26,
         ),
         _LastNameInput(
           callBack: () {
@@ -39,7 +39,7 @@ class SignupFormWidget extends StatelessWidget {
           },
         ),
         const SizedBox(
-          height: 18,
+          height: 26,
         ),
         _EmailInput(
           callBack: () {
@@ -47,7 +47,7 @@ class SignupFormWidget extends StatelessWidget {
           },
         ),
         const SizedBox(
-          height: 18,
+          height: 26,
         ),
         _PasswordInput(
           callBack: () {
@@ -55,7 +55,7 @@ class SignupFormWidget extends StatelessWidget {
           },
         ),
         const SizedBox(
-          height: 18,
+          height: 26,
         ),
         _ConfirmPasswordInput(
           callBack: () {

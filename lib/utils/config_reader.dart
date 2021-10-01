@@ -10,6 +10,7 @@ abstract class ConfigReader {
   String get resumeBaseUrl;
   String get alertBaseUrl;
   String get apiPath;
+  String get appVersion;
   bool get isDebugApp;
 }
 
@@ -55,6 +56,14 @@ class ConfigReaderImpl implements ConfigReader {
       return true;
     }
     return _config?['is_debug'] as bool? ?? true;
+  }
+
+  @override
+  String get appVersion {
+    if (_config == null) {
+      return "";
+    }
+    return _config?['app_version'] as String? ?? "";
   }
 
   @override

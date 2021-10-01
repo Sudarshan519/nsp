@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/app_update/update_service.dart';
 import 'package:wallet_app/core/device_info/device_information_manager.dart';
 import 'package:wallet_app/core/wallet_ad/wallet_ad_service.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -46,4 +47,5 @@ Future appInitializations() async {
   ]);
 
   PaymentAuthService.init();
+  UpdateService.init();
 }
