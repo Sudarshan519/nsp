@@ -87,7 +87,9 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                   ),
                   contentPadding: widget.maxLines > 1
                       ? EdgeInsets.zero
-                      : EdgeInsets.only(bottom: height / 2),
+                      : widget.validator != null && widget.prefixIcon == null
+                          ? EdgeInsets.only(bottom: height / 6)
+                          : EdgeInsets.only(bottom: height / 2),
                   // isDense: true,
                   suffixIcon: widget.showHideTextOption
                       ? GestureDetector(

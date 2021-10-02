@@ -38,6 +38,7 @@ The repo is missing the config/app_config.json which content is simillar to
     "mirai_life_base_url" : "https://app.mirailifecare.com"
 }
 
+Dont forget in update app version in the config.json file after version is changed!
 This json is injected at the build time from CI/CD. Thus the url consistancy is maintained at the buildtime.
 
 To generate APP_CONFIG with appbase url and pass it to the CI/CD
