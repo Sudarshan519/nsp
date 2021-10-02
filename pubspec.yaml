@@ -62,7 +62,7 @@ dependencies:
   google_sign_in: ^5.0.3                
   http: ^0.13.3               
   image_picker: ^0.8.3+1   
-  ime_pay: ^0.0.6             
+  # ime_pay: ^0.0.6             
   injectable: ^1.4.0    
   internet_connection_checker: ^0.0.1            
   kana_kit: ^2.0.0                              
@@ -79,7 +79,7 @@ dependencies:
   url_launcher: ^6.0.3                
   youtube_player_flutter: ^8.0.0
   google_mobile_ads: ^0.13.4
-  facebook_audience_network: ^1.0.0-nullsafety.0
+  # facebook_audience_network: ^1.0.0-nullsafety.0
   flutter_khalti: ^1.1.0
   flutter_web_browser: ^0.15.0
   webview_flutter: ^2.0.13

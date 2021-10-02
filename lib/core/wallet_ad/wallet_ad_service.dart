@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:facebook_audience_network/facebook_audience_network.dart';
+// import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -15,7 +15,7 @@ class WalletAdService {
     MobileAds.instance.initialize();
 
     //db6d3152-8ca2-40f8-adaf-590926de0bfe
-    FacebookAudienceNetwork.init();
+    // FacebookAudienceNetwork.init();
   }
 
   static BannerAd creategoogleAd(
@@ -47,29 +47,30 @@ class WalletAdService {
       {required String id,
       required Function(dynamic) onError,
       required Function onSuccess}) {
-    return FacebookBannerAd(
-      // placementId: getUseablePlacementID(val.ads.facebookAd?.overlay?.name),
-      placementId: _getUseablePlacementID(id),
-      listener: (result, value) {
-        switch (result) {
-          case BannerAdResult.ERROR:
-            // debugPrint("Error: $value");
-            onError(value);
+    return const SizedBox.shrink();
+    // return FacebookBannerAd(
+    //   // placementId: getUseablePlacementID(val.ads.facebookAd?.overlay?.name),
+    //   placementId: _getUseablePlacementID(id),
+    //   listener: (result, value) {
+    //     switch (result) {
+    //       case BannerAdResult.ERROR:
+    //         // debugPrint("Error: $value");
+    //         onError(value);
 
-            break;
-          case BannerAdResult.LOADED:
-            // debugPrint("Loaded: $value");
-            onSuccess();
-            break;
-          case BannerAdResult.CLICKED:
-            // debugPrint("Clicked: $value");
-            break;
-          case BannerAdResult.LOGGING_IMPRESSION:
-            // debugPrint("Logging Impression: $value");
-            break;
-        }
-      },
-    );
+    //         break;
+    //       case BannerAdResult.LOADED:
+    //         // debugPrint("Loaded: $value");
+    //         onSuccess();
+    //         break;
+    //       case BannerAdResult.CLICKED:
+    //         // debugPrint("Clicked: $value");
+    //         break;
+    //       case BannerAdResult.LOGGING_IMPRESSION:
+    //         // debugPrint("Logging Impression: $value");
+    //         break;
+    //     }
+    //   },
+    // );
   }
 
   static String _getUseablePlacementID(String? idFromApi) {
