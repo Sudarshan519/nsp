@@ -1,5 +1,5 @@
 class AppUpdateConstants {
-  static const versionCheck = '/version/check/';
+  static const versionCheck = '/version/check';
 }
 
 class AppUpdateAction {

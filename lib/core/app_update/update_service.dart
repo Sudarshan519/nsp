@@ -63,10 +63,13 @@ class UpdateService {
                         showDismiss: canPop,
                         icon: Icons.system_update,
                         actionText: hasUpdate ? 'Update' : '',
-                        onAction: () {
-                          launcher.launch(
-                              Platform.isAndroid ? playStoreUrl : appStoreUrl);
-                        },
+                        onAction: isUnderMaintenance
+                            ? null
+                            : () {
+                                launcher.launch(Platform.isAndroid
+                                    ? playStoreUrl
+                                    : appStoreUrl);
+                              },
                       ));
                 },
               );

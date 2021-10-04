@@ -110,7 +110,7 @@ class CustomDialogState extends State<CustomDialog>
                         height: 40,
                         width: 120,
                         child: TextButton(
-                          onPressed: widget.onAction!,
+                          onPressed: widget.onAction,
                           style: TextButton.styleFrom(
                             backgroundColor: Colors.deepPurple.shade900,
                             shape: RoundedRectangleBorder(
