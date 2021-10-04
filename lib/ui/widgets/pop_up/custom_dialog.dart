@@ -112,7 +112,7 @@ class CustomDialogState extends State<CustomDialog>
                         child: TextButton(
                           onPressed: widget.onAction,
                           style: TextButton.styleFrom(
-                            backgroundColor: Colors.deepPurple.shade900,
+                            backgroundColor: Palette.confirmButtonColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ),

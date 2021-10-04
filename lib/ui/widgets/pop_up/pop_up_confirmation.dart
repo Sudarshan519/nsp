@@ -106,7 +106,7 @@ class PopUpConfirmationState extends State<PopUpConfirmation>
                       child: TextButton(
                         onPressed: widget.onConfirmed,
                         style: TextButton.styleFrom(
-                          backgroundColor: Colors.deepPurple.shade900,
+                          backgroundColor: Palette.confirmButtonColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
                           ),
