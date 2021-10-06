@@ -55,9 +55,13 @@ class _SecurityPageState extends State<SecurityPage> {
                             } else {
                               final result =
                                   await PaymentAuthService.verifyBiometrics();
-                              if (result) {
+                              if (result.success) {
                                 PaymentAuthService.setSelectedAuthType(
                                     PaymentAuthType.fingerprint);
+                              } else {
+                                FlushbarHelper.createError(
+                                        message: result.result)
+                                    .show(context);
                               }
                             }
 
@@ -97,9 +101,13 @@ class _SecurityPageState extends State<SecurityPage> {
                             } else {
                               final result =
                                   await PaymentAuthService.verifyBiometrics();
-                              if (result) {
+                              if (result.success) {
                                 PaymentAuthService.setSelectedAuthType(
-                                    PaymentAuthType.face_id);
+                                    PaymentAuthType.fingerprint);
+                              } else {
+                                FlushbarHelper.createError(
+                                        message: result.result)
+                                    .show(context);
                               }
                             }
 

@@ -8,7 +8,11 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/pop_up/custom_dialog.dart';
 
 final _context = appRouter.navigatorKey.currentContext;
-final _error = PaymentAuthResponse(success: false, message: 'Canceled by User');
+final _error = PaymentAuthResponse(
+  success: false,
+  result: 'Canceled by User',
+  type: PaymentAuthType.m_pin,
+);
 
 class AuthWidgets {
   static Future<PaymentAuthResponse?> showSetMpinPrompt(
@@ -33,8 +37,11 @@ class AuthWidgets {
         onAction: () async {
           final result = await gotoVerificationPage(context);
           if (result == true) {
-            context.popRoute(
-                PaymentAuthResponse(success: true, message: 'Success'));
+            context.popRoute(PaymentAuthResponse(
+              success: true,
+              result: 'Success',
+              type: PaymentAuthType.m_pin,
+            ));
           } else {
             context.popRoute(_error);
           }
@@ -85,8 +92,11 @@ class AuthWidgets {
                     onPressed: () {
                       if (controller.text.length == 4) {
                         response = PaymentAuthResponse(
-                            success: true, message: 'Success');
-                        context.popRoute();
+                          success: true,
+                          result: controller.text,
+                          type: PaymentAuthType.m_pin,
+                        );
+                        context.popRoute(response);
                       }
                     },
                     child: const Text('Confirm')),

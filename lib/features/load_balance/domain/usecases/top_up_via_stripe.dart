@@ -68,19 +68,21 @@ class TopUpViaStripe
     final paymentAuthRes = await PaymentAuthService.authenticate(
         'Please Verify authentication for Stripe Payment');
     if (!paymentAuthRes.success) {
-      return Left(ApiFailure.serverError(message: paymentAuthRes.message));
+      return Left(ApiFailure.serverError(message: paymentAuthRes.result));
     }
 
     return repository.topupViaStripe(
-      name: params.name,
-      cardNumber: params.cardNumber,
-      cvc: params.cvc,
-      expYear: expiry.last,
-      expMonth: expiry.first,
-      amount: params.amount,
-      saveCard: params.saveCard,
-      isSavedCard: params.isSavedCard,
-    );
+        name: params.name,
+        cardNumber: params.cardNumber,
+        cvc: params.cvc,
+        expYear: expiry.last,
+        expMonth: expiry.first,
+        amount: params.amount,
+        saveCard: params.saveCard,
+        isSavedCard: params.isSavedCard,
+        mpin: paymentAuthRes.type == PaymentAuthType.m_pin
+            ? paymentAuthRes.result
+            : null);
   }
 }
 

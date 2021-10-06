@@ -32,10 +32,10 @@ class SettingsPage extends StatelessWidget {
             imageName: "icon-profile",
             title: "Change Password",
             onTap: () => context.pushRoute(ChangePasswordRoute())),
-      // MoreItem(
-      //     imageName: "icon-privacy-policy",
-      //     title: "Security",
-      //     onTap: () => context.pushRoute(const SecurityRoute())),
+      MoreItem(
+          imageName: "icon-privacy-policy",
+          title: "Security",
+          onTap: () => context.pushRoute(const SecurityRoute())),
       MoreItem(
         imageName: "icon-terms",
         title: "Refund Policy",

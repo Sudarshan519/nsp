@@ -12,7 +12,6 @@ import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_chi
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/widgets/bill_info_view.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/error_widgets.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
@@ -138,6 +137,20 @@ class _NEABody extends StatelessWidget {
                               .add(NeaPaymentEvent.changeScNum(val.trim()));
                         },
                         value: state.scNo,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    TextWidetWithLabelAndChild(
+                      title: 'Mobile Number',
+                      child: InputTextWidget(
+                        textInputType: TextInputType.number,
+                        maxlength: 10,
+                        hintText: '98XXXXXXXX',
+                        onChanged: (val) {
+                          context.read<NeaPaymentBloc>().add(
+                              NeaPaymentEvent.changeMobileNumber(val.trim()));
+                        },
+                        value: state.mobileNumber,
                       ),
                     ),
                   ],

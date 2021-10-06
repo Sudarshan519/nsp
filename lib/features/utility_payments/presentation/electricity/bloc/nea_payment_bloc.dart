@@ -7,7 +7,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
-import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_office.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/pay_nea.dart';
@@ -32,6 +31,12 @@ class NeaPaymentBloc extends Bloc<NeaPaymentEvent, NeaPaymentState> {
         offices: e.offices,
         productId: e.productId,
         key: UniqueKey(),
+        failureOrSuccessOption: none(),
+      );
+    }, changeMobileNumber: (e) async* {
+      yield state.copyWith(
+        mobileNumber: e.mobileNumber,
+        key: state.key,
         failureOrSuccessOption: none(),
       );
     }, changeOffice: (e) async* {
@@ -61,6 +66,7 @@ class NeaPaymentBloc extends Bloc<NeaPaymentEvent, NeaPaymentState> {
         account: state.scNo,
         customerId: state.customerId,
         productId: state.productId,
+        mobileNumber: state.mobileNumber,
       ));
       yield result.fold(
           (fail) => state.copyWith(
@@ -70,12 +76,14 @@ class NeaPaymentBloc extends Bloc<NeaPaymentEvent, NeaPaymentState> {
                 productId: state.productId,
                 failureOrSuccessOption: optionOf(Left(fail)),
                 isLoading: false,
+                mobileNumber: state.mobileNumber,
               ),
           (data) => state.copyWith(
                 customerInfo: data,
                 scNo: state.scNo,
                 customerId: state.customerId,
                 productId: state.productId,
+                mobileNumber: state.mobileNumber,
                 key: UniqueKey(),
                 isLoading: false,
                 failureOrSuccessOption: optionOf(const Right(unit)),

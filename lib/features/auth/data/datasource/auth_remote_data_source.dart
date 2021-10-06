@@ -91,6 +91,9 @@ abstract class AuthRemoteDataSource {
   Future<Unit> setMpin({
     required String mpin,
   });
+  Future<Unit> verifyMpin({
+    required String mpin,
+  });
 }
 
 @LazySingleton(as: AuthRemoteDataSource)
@@ -323,11 +326,23 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       "mpin": mpin,
     };
 
-    return unit;
-
-    //TODO: implemement backend
     return _postRequestForAuth(
       AuthApiEndpoints.setMpin,
+      _header,
+      body,
+    );
+  }
+
+  @override
+  Future<Unit> verifyMpin({
+    required String mpin,
+  }) async {
+    final body = {
+      "mpin": mpin,
+    };
+
+    return _postRequestForAuth(
+      AuthApiEndpoints.verifyMpin,
       _header,
       body,
     );
@@ -339,9 +354,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       "phone": number,
     };
 
-    return unit;
-
-    //TODO: implemement backend
     return _postRequestForAuth(
       AuthApiEndpoints.getPhoneOtp,
       _header,
@@ -359,9 +371,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       'code': code,
     };
 
-    return unit;
-
-    //TODO: implemement backend
     return _postRequestForAuth(
       AuthApiEndpoints.verifyPhoneOtp,
       _header,

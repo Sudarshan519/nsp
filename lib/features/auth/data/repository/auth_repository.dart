@@ -388,4 +388,13 @@ class AuthRepositoryImpl implements AuthRepository {
       return remoteDataSource.setMpin(mpin: mpin);
     });
   }
+
+  @override
+  Future<Either<ApiFailure, Unit>> verifyMpin({
+    required String mpin,
+  }) async {
+    return _postMethod(request: () {
+      return remoteDataSource.verifyMpin(mpin: mpin);
+    });
+  }
 }

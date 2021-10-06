@@ -41,6 +41,9 @@ abstract class AuthRepository {
   Future<Either<ApiFailure, Unit>> setMpin({
     required String mpin,
   });
+  Future<Either<ApiFailure, Unit>> verifyMpin({
+    required String mpin,
+  });
 
   Future<Either<ApiFailure, Unit>> getPhoneOtp({required String number});
 

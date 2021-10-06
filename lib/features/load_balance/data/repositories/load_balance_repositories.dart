@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_remote_data_source.dart';
 import 'package:wallet_app/features/load_balance/data/datasource/load_balance_data_source.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/domain/repositories/load_balance_repositories.dart';
@@ -9,9 +10,11 @@ import 'package:wallet_app/features/load_balance/domain/repositories/load_balanc
 @LazySingleton(as: LoadBalanceRepositories)
 class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
   final LoadBalanceDataSource dataSource;
+  final AuthRemoteDataSource authRemoteDataSource;
 
   LoadBalanceRepositoriesImpl({
     required this.dataSource,
+    required this.authRemoteDataSource,
   });
 
   @override
@@ -46,8 +49,13 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
     required String amount,
     required bool saveCard,
     required bool isSavedCard,
+    String? mpin,
   }) async {
     try {
+      if (mpin != null) {
+        await authRemoteDataSource.verifyMpin(mpin: mpin);
+      }
+
       return Right(
         await dataSource.topupViaStripe(
           name: name,

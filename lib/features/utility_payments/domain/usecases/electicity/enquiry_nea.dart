@@ -5,6 +5,7 @@ import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 @lazySingleton
 class EnquiryNea
@@ -29,7 +30,12 @@ class EnquiryNea
         params.customerId.isEmpty ||
         params.officeCode.isEmpty) {
       return const Left(
-          ServerError(message: 'PLease enter value in all fields!'));
+          ServerError(message: 'Please enter value in all fields!'));
+    }
+    final isValid =
+        Values.allRegex.any((element) => element.hasMatch(params.mobileNumber));
+    if (!isValid) {
+      return const Left(ServerError(message: 'Mobile number invalid!'));
     }
 
     //todo check for validations
@@ -43,17 +49,21 @@ class EnquiryNeaParams {
   final String account;
   final String customerId;
   final String productId;
+  final String mobileNumber;
 
-  EnquiryNeaParams(
-      {required this.officeCode,
-      required this.account,
-      required this.customerId,
-      required this.productId});
+  EnquiryNeaParams({
+    required this.officeCode,
+    required this.account,
+    required this.customerId,
+    required this.productId,
+    required this.mobileNumber,
+  });
 
   Map<String, dynamic> toJson() => {
         'office_code': officeCode,
         'account': account,
         'customer_id': customerId,
         'product_id': productId,
+        'mobile_number': mobileNumber,
       };
 }

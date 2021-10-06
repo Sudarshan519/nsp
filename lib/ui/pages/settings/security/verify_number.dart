@@ -30,11 +30,27 @@ class _VerifyNumberState extends State<VerifyNumber> {
     super.initState();
     // not letting to edit textfield if phone number is already verified
     setState(() {
-      _isEditable = _homeBloc.homeData?.userDetail?.isMobileVerified ?? true;
+      final isMobileVerified =
+          (_homeBloc.homeData?.userDetail?.isMobileVerified) ?? false;
+      _isEditable = !isMobileVerified;
       if (!_isEditable) {
-        _phone = _homeBloc.homeData?.userDetail?.mobile ?? '';
+        _phone = _homeBloc.homeData?.userDetail?.otpMobilePhone ?? '';
+        if (_phone.length > 3) {
+          _phone = hideNumber(_phone);
+        }
       }
     });
+  }
+
+  String hideNumber(String number) {
+    const lastCharToShow = 3;
+
+    final suffix = number.substring(number.length - lastCharToShow);
+
+    final prefix =
+        List.generate(number.length - lastCharToShow, (int index) => '*')
+            .join();
+    return prefix + suffix;
   }
 
   @override

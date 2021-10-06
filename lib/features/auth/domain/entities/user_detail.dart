@@ -8,6 +8,7 @@ class UserDetail extends Equatable {
       this.furigana,
       this.email,
       this.mobile,
+      this.otpMobilePhone,
       this.uuid,
       this.avatar,
       this.balance,
@@ -66,6 +67,7 @@ class UserDetail extends Equatable {
   final String? furigana;
   final String? email;
   final String? mobile;
+  final String? otpMobilePhone;
   final String? uuid;
   final String? avatar;
   final double? balance;

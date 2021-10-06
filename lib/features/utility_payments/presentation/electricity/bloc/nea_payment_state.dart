@@ -5,6 +5,7 @@ class NeaPaymentState with _$NeaPaymentState {
   const factory NeaPaymentState({
     required String customerId,
     required String scNo,
+    required String mobileNumber,
     required String productId,
     required PaymentOffice selectedOffice,
     required List<PaymentOffice> offices,
@@ -19,6 +20,7 @@ class NeaPaymentState with _$NeaPaymentState {
         customerId: '',
         scNo: '',
         productId: '',
+        mobileNumber: '',
         offices: [],
         selectedOffice: PaymentOffice(officeName: '', officeCode: ''),
         isLoading: false,
