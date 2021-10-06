@@ -26,7 +26,7 @@ class SetMpin implements Usecase<ApiFailure, Unit, SetMpinParams> {
     }
     if (params.verifyMpin != params.mpin) {
       return const Left(
-        ApiFailure.serverError(message: "The given pins do not match!."),
+        ApiFailure.serverError(message: "The given pins do not match!"),
       );
     }
 

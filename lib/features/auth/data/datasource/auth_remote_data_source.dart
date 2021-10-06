@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:another_flushbar/flushbar.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
@@ -12,6 +14,7 @@ import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
 import 'package:wallet_app/features/auth/domain/usecase/change_password.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/main.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -410,6 +413,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     final statusCode = response.statusCode;
 
     if (statusCode == 200) {
+      //temporary code remove later
+      if (response.body.contains('otp_code')) {
+        var context = appRouter.navigatorKey.currentContext;
+        if (context != null) {
+          FlushbarHelper.createInformation(message: response.body)
+              .show(context);
+        }
+      }
       return unit;
     } else {
       logger.log(

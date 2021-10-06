@@ -5,6 +5,7 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/main.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/pop_up/custom_dialog.dart';
 
 final _context = appRouter.navigatorKey.currentContext;
@@ -68,49 +69,74 @@ class AuthWidgets {
     var response = _error;
     if (_context == null) return response;
 
-    final controller = TextEditingController();
-
-    await showDialog(
+    final textController = TextEditingController();
+    await showModalBottomSheet(
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20.0))),
         context: _context!,
-        builder: (context) {
-          return AlertDialog(
-              title: const Text('Enter MPin'),
-              content: TextField(
-                autofocus: true,
-                style: const TextStyle(
-                  letterSpacing: 5.0,
-                ),
-                maxLength: 4,
-                keyboardType: TextInputType.number,
-                obscureText: true,
-                textAlign: TextAlign.center,
-                controller: controller,
-                decoration: const InputDecoration(hintText: "Code"),
+        isScrollControlled: true,
+        builder: (context) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                    child: Text(
+                      'Confirm MPIN',
+                      style:
+                          TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  TextField(
+                    obscureText: true,
+                    controller: textController,
+                    keyboardType: TextInputType.number,
+                    maxLength: 4,
+                    style: const TextStyle(fontSize: 26, letterSpacing: 7),
+                    decoration: const InputDecoration(
+                        labelText: 'Enter 4 digit MPIN',
+                        labelStyle: TextStyle(fontSize: 16, letterSpacing: 1)),
+                    autofocus: true,
+                  ),
+                  const SizedBox(height: 4.0),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom),
+                    child: InkWell(
+                      onTap: () {
+                        if (textController.text.length == 4) {
+                          response = PaymentAuthResponse(
+                            success: true,
+                            result: textController.text,
+                            type: PaymentAuthType.m_pin,
+                          );
+                          context.popRoute(response);
+                        }
+                      },
+                      child: Container(
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Palette.primary,
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "Proceed",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
+                ],
               ),
-              actions: <Widget>[
-                TextButton(
-                    onPressed: () {
-                      if (controller.text.length == 4) {
-                        response = PaymentAuthResponse(
-                          success: true,
-                          result: controller.text,
-                          type: PaymentAuthType.m_pin,
-                        );
-                        context.popRoute(response);
-                      }
-                    },
-                    child: const Text('Confirm')),
-                TextButton(
-                    onPressed: () {
-                      response = _error;
-                      context.popRoute();
-                    },
-                    child: const Text(
-                      'Cancel',
-                      style: TextStyle(color: Colors.red),
-                    )),
-              ]);
-        });
+            ));
+
+    //
+
     return response;
   }
 }

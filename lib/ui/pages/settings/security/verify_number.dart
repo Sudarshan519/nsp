@@ -45,6 +45,10 @@ class _VerifyNumberState extends State<VerifyNumber> {
   String hideNumber(String number) {
     const lastCharToShow = 3;
 
+    if (number.startsWith('0')) {
+      number.replaceFirst('0', '');
+    }
+
     final suffix = number.substring(number.length - lastCharToShow);
 
     final prefix =
@@ -111,8 +115,10 @@ class _VerifyNumberState extends State<VerifyNumber> {
                                 Column(
                                   children: [
                                     TextWidetWithLabelAndChild(
-                                        title: 'Japanese Mobile Number',
+                                        title: 'JP Mobile Number (10 digits)',
                                         child: InputTextWidget(
+                                          autoFocus: true,
+                                          prefixText: '0 - ',
                                           isEnable: _isEditable,
                                           textInputType: TextInputType.number,
                                           maxlength: 10,

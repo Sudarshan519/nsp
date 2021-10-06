@@ -123,10 +123,14 @@ class Values {
   //others
   static final ntcRegx =
       RegExp(r'^9(74|75|84|85|86)\d{7}$', caseSensitive: false);
-  static final ntcLandLineRegex = RegExp(r'^\d{8}$', caseSensitive: false);
-  static final ncellRegx = RegExp(r'^9(80|81|82)\d{7}$', caseSensitive: false);
-  static final smartCellRegx =
+  static RegExp get ntcLandLineRegex =>
+      RegExp(r'^\d{8}$', caseSensitive: false);
+  static RegExp get ncellRegx =>
+      RegExp(r'^9(80|81|82)\d{7}$', caseSensitive: false);
+  static RegExp get smartCellRegx =>
       RegExp(r'^9(61|62|88)\d{7}$', caseSensitive: false);
+  static RegExp get japaneseMobileNumber =>
+      RegExp(r'^0(90|80)\d{8}$', caseSensitive: false);
 
   static final List<RegExp> allRegex = [
     ntcRegx,

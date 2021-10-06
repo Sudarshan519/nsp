@@ -1,10 +1,10 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/core/payment_auth/payment_auth_service.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/auth/auth_widgets.dart';
+import 'package:wallet_app/ui/widgets/colors.dart';
 
 class SecurityPage extends StatefulWidget {
   const SecurityPage({Key? key}) : super(key: key);
@@ -40,7 +40,7 @@ class _SecurityPageState extends State<SecurityPage> {
                       PaymentAuthType.fingerprint;
                   return Card(
                     child: Padding(
-                      padding: const EdgeInsets.all(6.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: ListTile(
                           onTap: () async {
                             if (!hasMpinSet) {
@@ -72,8 +72,7 @@ class _SecurityPageState extends State<SecurityPage> {
                               '${isSelected ? 'Disable' : 'Enable'} fingerprint for transaction or payment'),
                           leading: const Icon(Icons.fingerprint),
                           trailing: isSelected
-                              ? const Icon(Icons.check_circle,
-                                  color: Colors.blue)
+                              ? Icon(Icons.check_circle, color: Palette.primary)
                               : const SizedBox()),
                     ),
                   );
@@ -86,7 +85,7 @@ class _SecurityPageState extends State<SecurityPage> {
                       PaymentAuthType.face_id;
                   return Card(
                     child: Padding(
-                      padding: const EdgeInsets.all(6.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: ListTile(
                           onTap: () async {
                             if (!hasMpinSet) {
@@ -118,8 +117,7 @@ class _SecurityPageState extends State<SecurityPage> {
                               '${isSelected ? 'Enable' : 'Disable'} Face ID for transaction or payment'),
                           leading: const Icon(Icons.face_outlined),
                           trailing: isSelected
-                              ? const Icon(Icons.check_circle,
-                                  color: Colors.blue)
+                              ? Icon(Icons.check_circle, color: Palette.primary)
                               : const SizedBox()),
                     ),
                   );
@@ -128,15 +126,22 @@ class _SecurityPageState extends State<SecurityPage> {
             Builder(
               builder: (context) {
                 return Card(
-                  child: ListTile(
-                    onTap: () async {
-                      await AuthWidgets.gotoVerificationPage(context);
-                      setState(() {});
-                    },
-                    title: const Text('MPin'),
-                    subtitle: Text(
-                        '${hasMpinSet ? 'Change' : 'Set'} MPin for transaction or payment'),
-                    leading: const Icon(Icons.pin_rounded),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: ListTile(
+                      onTap: () async {
+                        await AuthWidgets.gotoVerificationPage(context);
+                        setState(() {});
+                      },
+                      title: const Text('MPin'),
+                      subtitle: Text(
+                          '${hasMpinSet ? 'Change' : 'Set'} MPin for transaction or payment'),
+                      leading: const Icon(Icons.pin_rounded),
+                      trailing: Icon(
+                        Icons.chevron_right,
+                        color: Palette.primary,
+                      ),
+                    ),
                   ),
                 );
               },

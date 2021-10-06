@@ -43,10 +43,14 @@ class VerifyPhoneBloc extends Bloc<VerifyPhoneEvent, VerifyPhoneState> {
     _pin = _changePin.pin;
   }
 
+  String _formatNumber(String number) {
+    return '0$number';
+  }
+
   Stream<VerifyPhoneState> _mapVerifyEvenToState(_Verify _verify) async* {
     yield const _Loading();
     final result = await verifyPhone(VerifyPhoneParams(
-      phone: _verify.phone,
+      phone: _formatNumber(_verify.phone),
       code: _pin,
     ));
 
@@ -61,7 +65,7 @@ class VerifyPhoneBloc extends Bloc<VerifyPhoneEvent, VerifyPhoneState> {
 
   Stream<VerifyPhoneState> _mapResendEvenToState(_Resend _resend) async* {
     yield const _Loading();
-    final result = await requestPhoneOtp(_resend.phone);
+    final result = await requestPhoneOtp(_formatNumber(_resend.phone));
     yield result.fold(
       (failure) => _Failure(failure),
       (r) => const _CodeSent(),
