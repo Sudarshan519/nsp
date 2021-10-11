@@ -667,7 +667,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
           logger: get<_i12.Logger>()));
   gh.lazySingleton<_i113.UtilityPaymentRepository>(() =>
       _i114.UtilityPaymentRepositoryImpl(
-          dataSource: get<_i112.UtilityPaymentDataSource>()));
+          dataSource: get<_i112.UtilityPaymentDataSource>(),
+          authRemoteDataSource: get<_i26.AuthRemoteDataSource>()));
   gh.lazySingleton<_i115.VerifyCoupon>(() => _i115.VerifyCoupon(
       networkInfo: get<_i14.NetworkInfo>(),
       repository: get<_i38.CouponRepository>()));

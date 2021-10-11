@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
-import 'package:wallet_app/core/payment_auth/payment_auth_service.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/load_balance/domain/repositories/load_balance_repositories.dart';
 
@@ -65,24 +64,16 @@ class TopUpViaStripe
           message: "Topup amount should be greater than 100"));
     }
 
-    final paymentAuthRes = await PaymentAuthService.authenticate(
-        'Please Verify authentication for Stripe Payment');
-    if (!paymentAuthRes.success) {
-      return Left(ApiFailure.serverError(message: paymentAuthRes.result));
-    }
-
     return repository.topupViaStripe(
-        name: params.name,
-        cardNumber: params.cardNumber,
-        cvc: params.cvc,
-        expYear: expiry.last,
-        expMonth: expiry.first,
-        amount: params.amount,
-        saveCard: params.saveCard,
-        isSavedCard: params.isSavedCard,
-        mpin: paymentAuthRes.type == PaymentAuthType.m_pin
-            ? paymentAuthRes.result
-            : null);
+      name: params.name,
+      cardNumber: params.cardNumber,
+      cvc: params.cvc,
+      expYear: expiry.last,
+      expMonth: expiry.first,
+      amount: params.amount,
+      saveCard: params.saveCard,
+      isSavedCard: params.isSavedCard,
+    );
   }
 }
 

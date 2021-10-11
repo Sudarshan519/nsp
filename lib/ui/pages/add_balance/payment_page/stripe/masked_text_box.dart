@@ -36,6 +36,8 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
     _currentHint = widget.maskText.substring(_outputText.length);
     Future.delayed(const Duration(seconds: 1), () {
       width = MediaQuery.of(context).size.width;
+      var heigth = MediaQuery.of(context).size.height;
+      var a = 5;
 
       _updateHint(_outputText);
     });
@@ -47,6 +49,8 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
     String value,
   ) {
     setState(() {
+      var mediaquery = MediaQuery.of(context);
+
       _outputText = value;
       gap = 0.0;
 
@@ -58,7 +62,8 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
       _currentHint = widget.maskText.substring(_outputText.length);
       for (var i = 0; i < _outputText.length; i++) {
         final char = _outputText[i];
-        final marginVal = width * (char == ' ' ? 0.014 : 0.023);
+        final marginVal = width * (char == ' ' ? 0.015 : 0.0242); //0.23
+        // final marginVal = width * (char == ' ' ? 0.014 : 0.255);
         gap += marginVal;
       }
     });

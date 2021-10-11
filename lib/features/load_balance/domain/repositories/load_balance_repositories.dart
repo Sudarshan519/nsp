@@ -14,7 +14,6 @@ abstract class LoadBalanceRepositories {
     required String amount,
     required bool saveCard,
     required bool isSavedCard,
-    String? mpin,
   });
   Future<Either<ApiFailure, Unit>> refundStripe({required String referenceId});
 

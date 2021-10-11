@@ -16,7 +16,7 @@ import 'package:wallet_app/utils/constant.dart';
 ///class to handle different http status
 class APIResponseHandler {
   static bool _isrequestingToken = false;
-  static bool _needToFetch = true;
+  static bool _shouldExit = false;
 
   static Future<Type> handle<Type>({
     required int httpStatusCode,
@@ -37,7 +37,7 @@ class APIResponseHandler {
         while (_isrequestingToken) {
           debugPrint('Fetch already in progress, please wait $funcName');
 
-          if (!_needToFetch) {
+          if (_shouldExit) {
             debugPrint('No need to fetch refresh token for $funcName');
             return retryFunction();
           }
@@ -59,7 +59,7 @@ class APIResponseHandler {
           headers: headers,
           body: json.encode({'refresh': user.refreshToken}),
         );
-        _isrequestingToken = false;
+        // _isrequestingToken = false;
 
         if (res.statusCode == 200) {
           //todo parse accesstoken
@@ -67,7 +67,7 @@ class APIResponseHandler {
           await auth.save(WalletUserModel.fromLocalStorage(
             user.toJSON()..['access_token'] = accessToken,
           ));
-          _needToFetch = false;
+          _shouldExit = true;
 
           debugPrint('token fetch by function $funcName');
           debugPrint('fetched token in: $accessToken');
