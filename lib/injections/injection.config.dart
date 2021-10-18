@@ -519,8 +519,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
           logger: get<_i12.Logger>()));
   gh.lazySingleton<_i63.LoadBalanceRepositories>(() =>
       _i64.LoadBalanceRepositoriesImpl(
-          dataSource: get<_i62.LoadBalanceDataSource>(),
-          authRemoteDataSource: get<_i26.AuthRemoteDataSource>()));
+          dataSource: get<_i62.LoadBalanceDataSource>()));
   gh.lazySingleton<_i65.LocationInformationLocalDataSourceProtocol>(() =>
       _i65.LocationInformationLocalDataSource(
           client: get<_i3.Client>(),
@@ -667,8 +666,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
           logger: get<_i12.Logger>()));
   gh.lazySingleton<_i113.UtilityPaymentRepository>(() =>
       _i114.UtilityPaymentRepositoryImpl(
-          dataSource: get<_i112.UtilityPaymentDataSource>(),
-          authRemoteDataSource: get<_i26.AuthRemoteDataSource>()));
+          dataSource: get<_i112.UtilityPaymentDataSource>()));
   gh.lazySingleton<_i115.VerifyCoupon>(() => _i115.VerifyCoupon(
       networkInfo: get<_i14.NetworkInfo>(),
       repository: get<_i38.CouponRepository>()));

@@ -62,8 +62,8 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
       _currentHint = widget.maskText.substring(_outputText.length);
       for (var i = 0; i < _outputText.length; i++) {
         final char = _outputText[i];
-        final marginVal = width * (char == ' ' ? 0.0145 : 0.0236); //0.23
-        // final marginVal = width * (char == ' ' ? 0.014 : 0.255);
+        final marginVal = width * (char == ' ' ? 0.0145 : 0.0235);
+        // final marginVal = width * (char == ' ' ? 0.014 : 0.23);
         gap += marginVal;
       }
     });

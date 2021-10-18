@@ -2,8 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
-import 'package:wallet_app/core/payment_auth/payment_auth_service.dart';
-import 'package:wallet_app/features/auth/data/datasource/auth_remote_data_source.dart';
 import 'package:wallet_app/features/load_balance/data/datasource/load_balance_data_source.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/domain/repositories/load_balance_repositories.dart';
@@ -11,11 +9,9 @@ import 'package:wallet_app/features/load_balance/domain/repositories/load_balanc
 @LazySingleton(as: LoadBalanceRepositories)
 class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
   final LoadBalanceDataSource dataSource;
-  final AuthRemoteDataSource authRemoteDataSource;
 
   LoadBalanceRepositoriesImpl({
     required this.dataSource,
-    required this.authRemoteDataSource,
   });
 
   @override
@@ -34,15 +30,6 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
   Future<Either<ApiFailure, Unit>> refundStripe(
       {required String referenceId}) async {
     try {
-      final paymentAuthRes = await PaymentAuthService.authenticate(
-          'Please Verify authentication for Payment');
-      if (!paymentAuthRes.success) {
-        return Left(ApiFailure.serverError(message: paymentAuthRes.result));
-      }
-      if (paymentAuthRes.type == PaymentAuthType.m_pin) {
-        final mpin = paymentAuthRes.result;
-        await authRemoteDataSource.verifyMpin(mpin: mpin);
-      }
       return Right(await dataSource.refundStripe(referenceId: referenceId));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
@@ -61,12 +48,6 @@ class LoadBalanceRepositoriesImpl implements LoadBalanceRepositories {
     required bool isSavedCard,
   }) async {
     try {
-      final paymentAuthRes = await PaymentAuthService.authenticate(
-          'Please Verify authentication for Payment');
-      if (!paymentAuthRes.success) {
-        return Left(ApiFailure.serverError(message: paymentAuthRes.result));
-      }
-
       return Right(
         await dataSource.topupViaStripe(
           name: name,

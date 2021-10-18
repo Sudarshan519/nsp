@@ -35,7 +35,7 @@ class PurchaseSubscriptionFromPartnerService
     }
 
     final paymentAuthRes = await PaymentAuthService.authenticate(
-        'Please Verify authentication for Stripe Payment');
+        'Please Verify authentication for Payment');
     if (!paymentAuthRes.success) {
       return Left(ApiFailure.serverError(message: paymentAuthRes.result));
     }
