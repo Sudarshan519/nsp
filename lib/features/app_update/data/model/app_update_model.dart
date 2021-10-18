@@ -10,10 +10,11 @@ class AppUpdateModel extends AppUpdate {
         );
 
   factory AppUpdateModel.fromJson(Map<String, dynamic> json) {
+    final data = json['versions'].first;
     return AppUpdateModel(
         android:
-            UpdateDataModel.fromJson(json['android'] as Map<String, dynamic>),
-        ios: UpdateDataModel.fromJson(json['ios'] as Map<String, dynamic>));
+            UpdateDataModel.fromJson(data['android'] as Map<String, dynamic>),
+        ios: UpdateDataModel.fromJson(data['ios'] as Map<String, dynamic>));
   }
 }
 
@@ -33,8 +34,8 @@ class UpdateDataModel extends UpdateData {
   factory UpdateDataModel.fromJson(Map<String, dynamic> json) {
     return UpdateDataModel(
       title: json['title'] as String? ?? '',
-      latestVersion: json['latest_version'] as String? ?? '',
-      updateMessage: json['update_message'] as String? ?? '',
+      latestVersion: json['version'] as String? ?? '',
+      updateMessage: json['message'] as String? ?? '',
       updateAction: json['update_action'] as String? ?? '',
     );
   }
