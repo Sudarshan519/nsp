@@ -85,6 +85,7 @@ class ForgetPasswordFormWidget extends StatelessWidget {
         const SizedBox(height: 50),
         LoginTextFormDecoration(
           child: InputTextWidget(
+            maxlength: 35,
             hintText: "Email Address",
             textInputType: TextInputType.emailAddress,
             value: "",
@@ -147,6 +148,7 @@ class ForgetPasswordFormWidget extends StatelessWidget {
           const SizedBox(height: 50),
           LoginTextFormDecoration(
             child: InputTextWidget(
+              maxlength: 35,
               hintText: "Email Address",
               textInputType: TextInputType.emailAddress,
               value: _email,

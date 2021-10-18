@@ -454,6 +454,7 @@ class _EmailInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Email",
         child: InputTextWidget(
+          maxlength: 35,
           hintText: "Email",
           textInputType: TextInputType.emailAddress,
           validator: Validator.isNotEmptyAndMinimumCharacterLong,

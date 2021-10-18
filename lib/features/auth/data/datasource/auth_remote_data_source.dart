@@ -413,6 +413,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       );
       throw ServerException(
         message: ex.toString(),
+        
       );
     }
     final statusCode = response.statusCode;

@@ -102,10 +102,10 @@ class _VerifyNumberState extends State<VerifyNumber> {
             );
           },
           builder: (context, state) {
-            return SingleChildScrollView(
-              child: (state == const VerifyPhoneState.loading())
-                  ? loadingPage()
-                  : Column(
+            return (state == const VerifyPhoneState.loading())
+                ? Center(child: loadingPage())
+                : SingleChildScrollView(
+                    child: Column(
                       children: [
                         ShadowBoxWidget(
                           margin: const EdgeInsets.all(16),
@@ -189,7 +189,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
                         ),
                       ],
                     ),
-            );
+                  );
           },
         ),
       ),

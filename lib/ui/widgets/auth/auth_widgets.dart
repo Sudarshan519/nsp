@@ -105,6 +105,9 @@ class AuthWidgets {
                             style:
                                 const TextStyle(fontSize: 22, letterSpacing: 6),
                             decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Palette.primary)),
                                 labelText: 'Enter 4 digit MPIN',
                                 errorText: errortext,
                                 labelStyle: const TextStyle(

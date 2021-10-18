@@ -76,7 +76,7 @@ class SetMpinPage extends StatelessWidget {
             },
             builder: (blocContext, state) {
               return state == const SetMpinState.loading()
-                  ? loadingPage()
+                  ? Center(child: loadingPage())
                   : Column(
                       children: [
                         ShadowBoxWidget(
