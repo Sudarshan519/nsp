@@ -277,6 +277,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.verifyEmail,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 
@@ -289,6 +290,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.emailActivationCode,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 
@@ -301,6 +303,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.getNewVerificationCode,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 
@@ -383,13 +386,16 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Future<Unit> _postRequestForAuth(
     String uri,
     Map<String, String> header,
-    Map<String, dynamic> body,
-  ) async {
+    Map<String, dynamic> body, {
+    bool tokenRequired = true,
+  }) async {
     final url = "${config.baseURL}${config.apiPath}$uri";
     final accessToken =
         (getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
 
-    header["Authorization"] = "Bearer $accessToken";
+    if (tokenRequired) {
+      header["Authorization"] = "Bearer $accessToken";
+    }
 
     http.Response response;
     try {
