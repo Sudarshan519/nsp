@@ -5,6 +5,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
+import 'package:wallet_app/core/payment_auth/payment_auth_service.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/domain/usecases/verify_khalti_top_up.dart';
 import 'package:wallet_app/features/load_balance/presentations/khalti/khalti_form/khalti_form_cubit.dart';
@@ -188,6 +189,12 @@ class KhaltiTopupPage extends StatelessWidget {
     if (method.publicKey == null) {
       FlushbarHelper.createError(message: "Error in Khalti Payment.")
           .show(context);
+    }
+    final paymentAuthRes = await PaymentAuthService.authenticate(
+        'Please Verify authentication for Stripe Payment');
+    if (!paymentAuthRes.success) {
+      FlushbarHelper.createError(message: paymentAuthRes.result).show(context);
+      return;
     }
 
     final FlutterKhalti _flutterKhalti = FlutterKhalti.configure(

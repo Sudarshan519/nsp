@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
+import 'package:wallet_app/core/payment_auth/payment_auth_service.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
@@ -31,6 +32,12 @@ class PurchaseSubscriptionFromPartnerService
     if (params.invoice.isEmpty) {
       return const Left(ApiFailure.serverError(
           message: "Please select at least one invoice"));
+    }
+
+    final paymentAuthRes = await PaymentAuthService.authenticate(
+        'Please Verify authentication for Payment');
+    if (!paymentAuthRes.success) {
+      return Left(ApiFailure.serverError(message: paymentAuthRes.result));
     }
 
     return repository.paymentForPackagesPurchase(

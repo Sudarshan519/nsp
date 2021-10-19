@@ -147,6 +147,7 @@ class _EmailInput extends StatelessWidget {
             previous.emailAddress != current.emailAddress,
         builder: (context, state) => LoginTextFormDecoration(
           child: InputTextWidget(
+            maxlength: 35,
             hintText: "Email Address",
             value: state.emailAddress,
             textInputType: TextInputType.emailAddress,

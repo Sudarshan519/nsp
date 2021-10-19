@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
+import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 
@@ -36,6 +39,8 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
     _currentHint = widget.maskText.substring(_outputText.length);
     Future.delayed(const Duration(seconds: 1), () {
       width = MediaQuery.of(context).size.width;
+      // var heigth = MediaQuery.of(context).size.height;
+      // var a = 5;
 
       _updateHint(_outputText);
     });
@@ -43,23 +48,37 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
     super.initState();
   }
 
-  void _updateHint(
-    String value,
-  ) {
+  void _updateHint(String value) {
     setState(() {
+      // var mediaquery = MediaQuery.of(context);
+
       _outputText = value;
       gap = 0.0;
 
       if (_outputText.isEmpty) {
         _currentHint = widget.maskText;
-
         return;
       }
       _currentHint = widget.maskText.substring(_outputText.length);
       for (var i = 0; i < _outputText.length; i++) {
         final char = _outputText[i];
-        final marginVal = width * (char == ' ' ? 0.014 : 0.023);
-        gap += marginVal;
+
+        final size = _textSize(
+          char,
+          TextStyle(
+            color: Palette.blackTextColor,
+            fontWeight: FontWeight.w400,
+            fontSize: 14.0,
+            fontFeatures: const [FontFeature.tabularFigures()],
+          ),
+        );
+
+        // final marginVal = width * (char == ' ' ? 0.0145 : 0.0235);
+        // final marginVal = width * (char == ' ' ? 0.014 : 0.23);
+        // gap += marginVal;
+
+        gap += size.width + 1.2; // 8 padding
+        print(gap);
       }
     });
   }
@@ -101,5 +120,14 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
         ],
       ),
     );
+  }
+
+  Size _textSize(String text, TextStyle style) {
+    final TextPainter textPainter = TextPainter(
+        text: TextSpan(text: text, style: style),
+        maxLines: 1,
+        textDirection: TextDirection.ltr)
+      ..layout();
+    return textPainter.size;
   }
 }

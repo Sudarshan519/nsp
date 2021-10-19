@@ -5,6 +5,7 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 @lazySingleton
 class RequestPhoneOtp implements Usecase<ApiFailure, Unit, String> {
@@ -21,6 +22,11 @@ class RequestPhoneOtp implements Usecase<ApiFailure, Unit, String> {
     if (number.isEmpty) {
       return const Left(
         ApiFailure.serverError(message: "Number cannot be empty."),
+      );
+    }
+    if (!Values.japaneseMobileNumber.hasMatch(number)) {
+      return const Left(
+        ApiFailure.serverError(message: "Invalid Number"),
       );
     }
 

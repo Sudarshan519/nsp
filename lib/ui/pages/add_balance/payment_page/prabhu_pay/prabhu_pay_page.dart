@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
+import 'package:wallet_app/core/payment_auth/payment_auth_service.dart';
 import 'package:wallet_app/features/load_balance/domain/entities/payment_method.dart';
 import 'package:wallet_app/features/load_balance/presentations/prabhu_pay/prabhu_pay_form/prabhu_pay_form_cubit.dart';
 import 'package:wallet_app/features/load_balance/presentations/prabhu_pay/verify_prabhu_pay_topup/verify_prabhu_pay_topup_bloc.dart';
@@ -238,6 +239,12 @@ class PrabhuPayTopupPage extends StatelessWidget {
             .show(context);
         return;
       }
+    }
+    final paymentAuthRes = await PaymentAuthService.authenticate(
+        'Please Verify authentication for Stripe Payment');
+    if (!paymentAuthRes.success) {
+      FlushbarHelper.createError(message: paymentAuthRes.result).show(context);
+      return;
     }
 
     AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_PRABHU);

@@ -115,6 +115,8 @@ PODS:
     - Khalti
   - flutter_local_notifications (0.0.1):
     - Flutter
+  - flutter_pdfview (1.0.2):
+    - Flutter
   - flutter_secure_storage (3.3.1):
     - Flutter
   - flutter_web_browser (0.15.0):
@@ -245,6 +247,7 @@ DEPENDENCIES:
   - flutter_inappwebview (from `.symlinks/plugins/flutter_inappwebview/ios`)
   - flutter_khalti (from `.symlinks/plugins/flutter_khalti/ios`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
+  - flutter_pdfview (from `.symlinks/plugins/flutter_pdfview/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - flutter_web_browser (from `.symlinks/plugins/flutter_web_browser/ios`)
   - fluttercontactpicker (from `.symlinks/plugins/fluttercontactpicker/ios`)
@@ -325,6 +328,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_khalti/ios"
   flutter_local_notifications:
     :path: ".symlinks/plugins/flutter_local_notifications/ios"
+  flutter_pdfview:
+    :path: ".symlinks/plugins/flutter_pdfview/ios"
   flutter_secure_storage:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
   flutter_web_browser:
@@ -394,6 +399,7 @@ SPEC CHECKSUMS:
   flutter_inappwebview: b036e8535743f16c9b7a87d8ee95474316c2e39d
   flutter_khalti: c70c64d38dec649c9cd26ef977bc24f42d90933b
   flutter_local_notifications: 7cd09cf71c37bf050743143c909b7af3be710652
+  flutter_pdfview: 25f53dd6097661e6395b17de506e6060585946bd
   flutter_secure_storage: 13f6922f952b86b4366d875ea5ab550235fa51ec
   flutter_web_browser: 0b70d2826626b6b227c3e66181be9395ee281fde
   fluttercontactpicker: 19a188b3af83771d3165eae1ceb78242e76bde37

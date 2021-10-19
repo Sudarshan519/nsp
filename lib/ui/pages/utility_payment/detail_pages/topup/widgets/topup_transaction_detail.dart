@@ -233,6 +233,29 @@ class TransactionDetail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
+                        'Transacion Service Charge',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                      //TODO: impl service charge
+                      Text(
+                        '0.5',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Palette.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
                         'Total Paying Amount (JPY)',
                         style: TextStyle(
                           fontSize: 12,

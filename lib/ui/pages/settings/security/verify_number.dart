@@ -30,11 +30,31 @@ class _VerifyNumberState extends State<VerifyNumber> {
     super.initState();
     // not letting to edit textfield if phone number is already verified
     setState(() {
-      _isEditable = _homeBloc.homeData?.userDetail?.isMobileVerified ?? true;
+      final isMobileVerified =
+          (_homeBloc.homeData?.userDetail?.isMobileVerified) ?? false;
+      _isEditable = !isMobileVerified;
       if (!_isEditable) {
-        _phone = _homeBloc.homeData?.userDetail?.mobile ?? '';
+        _phone = _homeBloc.homeData?.userDetail?.otpMobilePhone ?? '';
+        if (_phone.length > 3) {
+          _phone = hideNumber(_phone);
+        }
       }
     });
+  }
+
+  String hideNumber(String number) {
+    const lastCharToShow = 3;
+
+    if (number.startsWith('0')) {
+      number.replaceFirst('0', '');
+    }
+
+    final suffix = number.substring(number.length - lastCharToShow);
+
+    final prefix =
+        List.generate(number.length - lastCharToShow, (int index) => '*')
+            .join();
+    return prefix + suffix;
   }
 
   @override
@@ -82,10 +102,10 @@ class _VerifyNumberState extends State<VerifyNumber> {
             );
           },
           builder: (context, state) {
-            return SingleChildScrollView(
-              child: (state == const VerifyPhoneState.loading())
-                  ? loadingPage()
-                  : Column(
+            return (state == const VerifyPhoneState.loading())
+                ? Center(child: loadingPage())
+                : SingleChildScrollView(
+                    child: Column(
                       children: [
                         ShadowBoxWidget(
                           margin: const EdgeInsets.all(16),
@@ -95,8 +115,10 @@ class _VerifyNumberState extends State<VerifyNumber> {
                                 Column(
                                   children: [
                                     TextWidetWithLabelAndChild(
-                                        title: 'Japanese Mobile Number',
+                                        title: 'JP Mobile Number (10 digits)',
                                         child: InputTextWidget(
+                                          autoFocus: true,
+                                          prefixText: '0 - ',
                                           isEnable: _isEditable,
                                           textInputType: TextInputType.number,
                                           maxlength: 10,
@@ -167,7 +189,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
                         ),
                       ],
                     ),
-            );
+                  );
           },
         ),
       ),

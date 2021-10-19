@@ -8,6 +8,7 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
+import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -57,15 +58,25 @@ class SetMpinPage extends StatelessWidget {
                 loading: (_) {},
                 success: (_) async {
                   _homeBloc.add(const HomePageDataEvent.fetch());
+
+                  await showDialog(
+                    barrierDismissible: false,
+                    context: context,
+                    builder: (_) => PopUpSuccessOverLay(
+                      title: 'Success',
+                      message: 'Mpin set Successfully!',
+                      onPressed: () {
+                        context.popRoute(true);
+                      },
+                    ),
+                  );
                   context.popRoute(true);
-                  // FlushbarHelper.createSuccess(message: 'Mpin Set Success')
-                  //     .show(context);
                 },
               );
             },
             builder: (blocContext, state) {
               return state == const SetMpinState.loading()
-                  ? loadingPage()
+                  ? Center(child: loadingPage())
                   : Column(
                       children: [
                         ShadowBoxWidget(

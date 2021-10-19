@@ -6,7 +6,6 @@ import 'package:wallet_app/features/partner_services/data/model/service_subscrip
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
 import 'package:wallet_app/features/utility_payments/data/datasource/utility_payment_datasource.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
-import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_office.dart';
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';

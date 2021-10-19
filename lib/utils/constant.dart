@@ -48,6 +48,7 @@ class AppConstants {
       'As per the guidelines of NRB, all customers of BNPJ need to complete and verify KYC to get unrestricted transaction limit. \nPlease tap here to complete the KYC details.';
 
   static const passwordChanged = 'Your Password has been changed successfully!';
+  static const mpinNotMatched = 'Invalid MPin!';
 }
 
 // ignore: avoid_classes_with_only_static_members
@@ -122,10 +123,14 @@ class Values {
   //others
   static final ntcRegx =
       RegExp(r'^9(74|75|84|85|86)\d{7}$', caseSensitive: false);
-  static final ntcLandLineRegex = RegExp(r'^\d{8}$', caseSensitive: false);
-  static final ncellRegx = RegExp(r'^9(80|81|82)\d{7}$', caseSensitive: false);
-  static final smartCellRegx =
+  static RegExp get ntcLandLineRegex =>
+      RegExp(r'^\d{8}$', caseSensitive: false);
+  static RegExp get ncellRegx =>
+      RegExp(r'^9(80|81|82)\d{7}$', caseSensitive: false);
+  static RegExp get smartCellRegx =>
       RegExp(r'^9(61|62|88)\d{7}$', caseSensitive: false);
+  static RegExp get japaneseMobileNumber =>
+      RegExp(r'^0(90|80)\d{8}$', caseSensitive: false);
 
   static final List<RegExp> allRegex = [
     ntcRegx,

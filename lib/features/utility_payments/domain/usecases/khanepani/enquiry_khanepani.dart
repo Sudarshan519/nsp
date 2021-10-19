@@ -30,7 +30,7 @@ class EnquireKhanepani
         params.customerId.isEmpty ||
         params.officeCode.isEmpty) {
       return const Left(
-          ServerError(message: 'PLease enter value in all fields!'));
+          ServerError(message: 'Please enter value in all fields!'));
     }
 
     //todo check for validations

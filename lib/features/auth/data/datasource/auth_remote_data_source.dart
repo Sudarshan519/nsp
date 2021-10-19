@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
@@ -12,6 +13,7 @@ import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
 import 'package:wallet_app/features/auth/domain/usecase/change_password.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/main.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/parse_error_message_from_server.dart';
@@ -89,6 +91,9 @@ abstract class AuthRemoteDataSource {
   });
 
   Future<Unit> setMpin({
+    required String mpin,
+  });
+  Future<Unit> verifyMpin({
     required String mpin,
   });
 }
@@ -272,6 +277,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.verifyEmail,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 
@@ -284,6 +290,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.emailActivationCode,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 
@@ -296,6 +303,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.getNewVerificationCode,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 
@@ -323,11 +331,23 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       "mpin": mpin,
     };
 
-    return unit;
-
-    //TODO: implemement backend
     return _postRequestForAuth(
       AuthApiEndpoints.setMpin,
+      _header,
+      body,
+    );
+  }
+
+  @override
+  Future<Unit> verifyMpin({
+    required String mpin,
+  }) async {
+    final body = {
+      "mpin": mpin,
+    };
+
+    return _postRequestForAuth(
+      AuthApiEndpoints.verifyMpin,
       _header,
       body,
     );
@@ -339,9 +359,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       "phone": number,
     };
 
-    return unit;
-
-    //TODO: implemement backend
     return _postRequestForAuth(
       AuthApiEndpoints.getPhoneOtp,
       _header,
@@ -359,9 +376,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       'code': code,
     };
 
-    return unit;
-
-    //TODO: implemement backend
     return _postRequestForAuth(
       AuthApiEndpoints.verifyPhoneOtp,
       _header,
@@ -372,13 +386,16 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Future<Unit> _postRequestForAuth(
     String uri,
     Map<String, String> header,
-    Map<String, dynamic> body,
-  ) async {
+    Map<String, dynamic> body, {
+    bool tokenRequired = true,
+  }) async {
     final url = "${config.baseURL}${config.apiPath}$uri";
     final accessToken =
         (getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
 
-    header["Authorization"] = "Bearer $accessToken";
+    if (tokenRequired) {
+      header["Authorization"] = "Bearer $accessToken";
+    }
 
     http.Response response;
     try {
@@ -396,11 +413,20 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       );
       throw ServerException(
         message: ex.toString(),
+        
       );
     }
     final statusCode = response.statusCode;
 
     if (statusCode == 200) {
+      //temporary code remove later
+      if (response.body.contains('otp_code')) {
+        var context = appRouter.navigatorKey.currentContext;
+        if (context != null) {
+          FlushbarHelper.createInformation(message: response.body)
+              .show(context);
+        }
+      }
       return unit;
     } else {
       logger.log(

@@ -173,17 +173,23 @@
 //       return;
 //     }
 
-//     //checking if verified
-//     if (!isVerified) {
-//       final sum = amountDoubleInRupees + balance;
-//       if (method.balanceLimit != null && sum >= method.balanceLimit!) {
-//         FlushbarHelper.createError(
-//                 message: AppConstants.verifyKycTransaction(
-//                     method.balanceLimit.toString()))
-//             .show(context);
-//         return;
-//       }
-//     }
+    //checking if verified
+    // if (!isVerified) {
+    //   final sum = amountDoubleInRupees + balance;
+    //   if (method.balanceLimit != null && sum >= method.balanceLimit!) {
+    //     FlushbarHelper.createError(
+    //             message: AppConstants.verifyKycTransaction(
+    //                 method.balanceLimit.toString()))
+    //         .show(context);
+    //     return;
+    //   }
+    // }
+    // final paymentAuthRes = await PaymentAuthService.authenticate(
+    //     'Please Verify authentication for Stripe Payment');
+    // if (!paymentAuthRes.success) {
+    //   FlushbarHelper.createError(message: paymentAuthRes.result).show(context);
+    //   return;
+    // }
 
 //     final ImePay _imePay = ImePay(
 //       merchantCode: method.module ?? '',

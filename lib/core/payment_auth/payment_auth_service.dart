@@ -46,42 +46,63 @@ class PaymentAuthService {
     }
   }
 
-  static Future<bool> verifyBiometrics() async {
+  static Future<PaymentAuthResponse> verifyBiometrics() async {
     try {
-      return _localAuth.authenticate(
+      var res = await _localAuth.authenticate(
           localizedReason: 'Verify your biometrics', biometricOnly: true);
-    } catch (e) {
+
+      return PaymentAuthResponse(
+          success: res,
+          type: hasFingerPrintReader
+              ? PaymentAuthType.fingerprint
+              : PaymentAuthType.face_id,
+          result: res ? 'Verified!' : 'Could not verify');
+    } on PlatformException catch (e) {
       debugPrint(e.toString());
-      return false;
+      return PaymentAuthResponse(
+        result: e.message ?? 'Failed to authenticate',
+        success: false,
+        type: hasFingerPrintReader
+            ? PaymentAuthType.fingerprint
+            : PaymentAuthType.face_id,
+      );
     }
   }
 
   static Future<PaymentAuthResponse> authenticate(String message) async {
-    return PaymentAuthResponse(success: true, message: 'success');
+    return PaymentAuthResponse(
+        success: true, result: 'success', type: PaymentAuthType.m_pin);
 
     //temprariry disabled
-    if ((hasFaceId || hasFingerPrintReader) &&
-        (primaryAuthType == PaymentAuthType.face_id ||
-            primaryAuthType == PaymentAuthType.fingerprint)) {
-      return _authenticateUsingBioMetrics(message);
+    if (hasSetMpin) {
+      if ((hasFaceId || hasFingerPrintReader) &&
+          (primaryAuthType == PaymentAuthType.face_id ||
+              primaryAuthType == PaymentAuthType.fingerprint)) {
+        return _authenticateUsingBioMetrics(message);
+      }
     }
     return _authenticateUsingMpin();
   }
 
-  static Future<PaymentAuthResponse> _authenticateUsingMpin() async {
+  static bool get hasSetMpin {
     final user = getIt<HomePageDataBloc>().homeData?.userDetail;
-    final hasSetMpin = user?.isMpinSet ?? false;
+    return user?.isMpinSet ?? false;
+  }
 
+  static Future<PaymentAuthResponse> _authenticateUsingMpin() async {
     if (!hasSetMpin) {
-      final result = await AuthWidgets.showSetMpinPrompt(force: true) ?? false;
-      if (result != true) {
+      final result = await AuthWidgets.showSetMpinPrompt(force: true);
+      if (result == null) {
         return PaymentAuthResponse(
-            success: false, message: 'MPin not set by user');
+          success: false,
+          result: 'MPin not set by user',
+          type: PaymentAuthType.m_pin,
+        );
+      } else if (result is PaymentAuthResponse && !result.success) {
+        return result;
       }
     }
-    final result = await AuthWidgets.displayMPinDIalog();
-    return PaymentAuthResponse(
-        success: result.success, message: result.message);
+    return AuthWidgets.displayMPinDIalog();
   }
 
   static Future<PaymentAuthResponse> _authenticateUsingBioMetrics(
@@ -92,21 +113,28 @@ class PaymentAuthService {
       final isSupported = await _localAuth.isDeviceSupported();
       if (!isSupported) {
         return PaymentAuthResponse(
-            success: false,
-            message:
-                'This device is does not support biometric authentication!');
+          success: false,
+          result: 'This device is does not support biometric authentication!',
+          type: PaymentAuthType.fingerprint,
+        );
       }
       final canCheck = await _localAuth.canCheckBiometrics;
       if (!canCheck) {
         return PaymentAuthResponse(
-            success: false, message: 'Cant Check for biometrics');
+          success: false,
+          result: 'Cant Check for biometrics',
+          type: PaymentAuthType.fingerprint,
+        );
       }
 
       final devices = await _localAuth.getAvailableBiometrics();
 
       if (devices.isEmpty) {
         return PaymentAuthResponse(
-            success: false, message: 'No biometrics for this device');
+          success: false,
+          result: 'No biometrics for this device',
+          type: PaymentAuthType.fingerprint,
+        );
       }
       // var biometricOnly = false;
       // if (Platform.isAndroid && DeviceInfoManager.apiLevel < 29) {
@@ -121,7 +149,13 @@ class PaymentAuthService {
               const IOSAuthMessages(cancelButton: 'Use Password/MPin'));
 
       if (authenticated) {
-        return PaymentAuthResponse(success: authenticated, message: 'Success!');
+        return PaymentAuthResponse(
+          success: authenticated,
+          result: 'Success!',
+          type: hasFingerPrintReader
+              ? PaymentAuthType.fingerprint
+              : PaymentAuthType.face_id,
+        );
       } else {
         return _authenticateUsingMpin();
       }
@@ -146,20 +180,36 @@ class PaymentAuthService {
           message = 'Unknown Error';
       }
 
-      return PaymentAuthResponse(success: false, message: e.message ?? message);
-      // TODO
+      return PaymentAuthResponse(
+        success: false,
+        result: e.message ?? message,
+        type: hasFingerPrintReader
+            ? PaymentAuthType.fingerprint
+            : PaymentAuthType.face_id,
+      );
     } catch (e) {
       debugPrint(e.toString());
-      return PaymentAuthResponse(success: false, message: 'Unknown error');
+      return PaymentAuthResponse(
+        success: false,
+        result: 'Unknown error',
+        type: hasFingerPrintReader
+            ? PaymentAuthType.fingerprint
+            : PaymentAuthType.face_id,
+      );
     }
   }
 }
 
 class PaymentAuthResponse {
   final bool success;
-  final String message;
+  final String result;
+  final PaymentAuthType type;
 
-  PaymentAuthResponse({required this.success, required this.message});
+  PaymentAuthResponse({
+    required this.success,
+    required this.result,
+    required this.type,
+  });
 }
 
 enum PaymentAuthType { fingerprint, face_id, m_pin }

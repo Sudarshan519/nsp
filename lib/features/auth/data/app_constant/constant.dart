@@ -6,8 +6,8 @@ class AuthApiEndpoints {
   static const postRegister = "/register/";
 
   //for phone verification
-  static const getPhoneOtp = "/phone/otp/";
-  static const verifyPhoneOtp = "/phone/verify/";
+  static const getPhoneOtp = "/phone/otp";
+  static const verifyPhoneOtp = "/phone/verify/otp";
 
   //for email
   static const verifyEmail = "/email/verify/";
@@ -19,7 +19,8 @@ class AuthApiEndpoints {
   static const updatePassword = "/email/password/update/";
   static const refreshToken = "/token/refresh/";
 
-  static const setMpin = "/mpin/";
+  static const setMpin = "/phone/set/mpin";
+  static const verifyMpin = "/phone/verify/mpin";
 }
 
 class AuthPreferenceKeys {

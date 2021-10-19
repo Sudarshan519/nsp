@@ -38,7 +38,7 @@ class TopUpBalanceForMobile
     final paymentAuthRes = await PaymentAuthService.authenticate(
         'Please Verify authentication for Topup');
     if (!paymentAuthRes.success) {
-      return Left(ApiFailure.serverError(message: paymentAuthRes.message));
+      return Left(ApiFailure.serverError(message: paymentAuthRes.result));
     }
 
     return repository.topupBalance(
