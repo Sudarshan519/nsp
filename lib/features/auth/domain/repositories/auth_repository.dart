@@ -33,6 +33,19 @@ abstract class AuthRepository {
     required String email,
     required String code,
   });
+  Future<Either<ApiFailure, Unit>> verifyPhone({
+    required String phone,
+    required String code,
+  });
+
+  Future<Either<ApiFailure, Unit>> setMpin({
+    required String mpin,
+  });
+  Future<Either<ApiFailure, Unit>> verifyMpin({
+    required String mpin,
+  });
+
+  Future<Either<ApiFailure, Unit>> getPhoneOtp({required String number});
 
   Future<Either<ApiFailure, Unit>> getNewEmailActivationCode({
     required String email,

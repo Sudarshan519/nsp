@@ -1,16 +1,16 @@
 class PaymentCustomerInfo {
-  PaymentCustomerInfo({
-    required this.billNumber,
-    required this.dueDate,
-    required this.amount,
-    required this.refstan,
-    required this.customerName,
-    required this.date,
-    required this.account,
-    required this.officeCode,
-    required this.customerId,
-    required this.productId,
-  });
+  PaymentCustomerInfo(
+      {required this.billNumber,
+      required this.dueDate,
+      required this.amount,
+      required this.refstan,
+      required this.customerName,
+      required this.date,
+      required this.account,
+      required this.officeCode,
+      required this.customerId,
+      required this.productId,
+      required this.mobileNumber});
 
   final String billNumber;
   final String dueDate;
@@ -22,4 +22,5 @@ class PaymentCustomerInfo {
   final String officeCode;
   final String customerId;
   final String productId;
+  final String mobileNumber;
 }

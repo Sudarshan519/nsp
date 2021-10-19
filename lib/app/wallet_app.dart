@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/features/ads/presentation/get_ads/ads_bloc.dart';
 import 'package:wallet_app/features/alerts/presentation/get_alert_location/get_alert_location_bloc.dart';
+import 'package:wallet_app/features/app_update/presentation/app_update/app_update_bloc.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
 import 'package:wallet_app/features/news/presentation/favourite_news/favourite_news_bloc.dart';
 import 'package:wallet_app/features/news/presentation/latest_news/latest_news_bloc.dart';
@@ -31,7 +32,14 @@ class WalletApp extends StatelessWidget {
             ..add(
               const SplashEvent.authCheckRequested(),
             ),
-        ),BlocProvider(
+        ),
+        BlocProvider(
+          create: (context) => getIt<AppUpdateBloc>()
+            ..add(
+              const AppUpdateEvent.checkForUpdates(),
+            ),
+        ),
+        BlocProvider(
           create: (_) => getIt<HomePageDataBloc>()
             ..add(
               const HomePageDataEvent.fetch(),
@@ -64,7 +72,6 @@ class WalletApp extends StatelessWidget {
           create: (context) => getIt<ResumeWatcherBloc>()
             ..add(const ResumeWatcherEvent.getResumeData()),
         ),
-    
         BlocProvider(
           create: (_) => getIt<NewsGenreBloc>()
             ..add(

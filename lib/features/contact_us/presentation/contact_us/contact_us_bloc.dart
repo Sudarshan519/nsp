@@ -8,6 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/contact_us/domain/use_case/contact_us.dart';
+import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
+import 'package:wallet_app/injections/injection.dart';
 
 part 'contact_us_event.dart';
 part 'contact_us_state.dart';
@@ -24,26 +26,31 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
   ) async* {
     yield* event.map(
       setInital: (e) async* {
-        yield state.copyWith(key: UniqueKey(), name: e.name, email: e.email);
+        final detail = getIt<HomePageDataBloc>().homeData?.userDetail;
+        final name = '${detail?.firstName ?? ''} ${detail?.lastName ?? ''}';
+        final email = detail?.email ?? '';
+
+        yield state.copyWith(
+          key: UniqueKey(),
+          name: name,
+          email: email,
+        );
       },
       changeName: (e) async* {
         yield state.copyWith(
           name: e.name,
-          key: state.key,
           failureOrSuccessOption: none(),
         );
       },
       changeEmail: (e) async* {
         yield state.copyWith(
           email: e.email,
-          key: state.key,
           failureOrSuccessOption: none(),
         );
       },
       changeMessage: (e) async* {
         yield state.copyWith(
           message: e.message,
-          key: state.key,
           failureOrSuccessOption: none(),
         );
       },
@@ -56,18 +63,19 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
         ));
 
         yield result.fold(
-            (fail) => state.copyWith(
-                  failureOrSuccessOption: optionOf(Left(fail)),
-                  isLoading: false,
-                ),
-            (r) => state.copyWith(
-                  name: '',
-                  email: '',
-                  message: '',
-                  key: UniqueKey(),
-                  isLoading: false,
-                  failureOrSuccessOption: optionOf(Right(r)),
-                ));
+          (fail) => state.copyWith(
+            failureOrSuccessOption: optionOf(Left(fail)),
+            isLoading: false,
+          ),
+          (success) => state.copyWith(
+            name: '',
+            email: '',
+            message: '',
+            key: UniqueKey(),
+            isLoading: false,
+            failureOrSuccessOption: optionOf(Right(success)),
+          ),
+        );
       },
     );
   }

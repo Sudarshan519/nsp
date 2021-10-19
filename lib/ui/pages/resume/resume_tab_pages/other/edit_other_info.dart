@@ -272,6 +272,7 @@ class _SelfPrInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Self PR",
         child: InputTextWidget(
+          maxlength: 250,
           hintText: "Self PR",
           validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.selfPR,
@@ -365,6 +366,7 @@ class _MotivationInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Motivations and Appeal Points",
         child: InputTextWidget(
+          maxlength: 250,
           maxLines: 3,
           hintText: "Motivations and Appeal Points",
           validator: Validator.isNotEmptyAndMinimumCharacterLong,
@@ -569,6 +571,7 @@ class _SpecialConditionInputField extends StatelessWidget {
       builder: (context, state) => TextWidetWithLabelAndChild(
         title: "Special Conditions or Request if any",
         child: InputTextWidget(
+          maxlength: 250,
           hintText: "Follow as per company rules and regulations.",
           validator: Validator.isNotEmptyAndMinimumCharacterLong,
           value: state.specialConditions,

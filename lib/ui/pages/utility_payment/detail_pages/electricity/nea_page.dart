@@ -1,6 +1,8 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
+import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/features/utility_payments/presentation/electricity/bloc/nea_payment_bloc.dart';
@@ -10,7 +12,6 @@ import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_chi
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/widgets/bill_info_view.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
-import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/error_widgets.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/ui/widgets/pop_up/pop_up_success_overlay.dart';
@@ -138,6 +139,20 @@ class _NEABody extends StatelessWidget {
                         value: state.scNo,
                       ),
                     ),
+                    const SizedBox(height: 8),
+                    TextWidetWithLabelAndChild(
+                      title: 'Mobile Number',
+                      child: InputTextWidget(
+                        textInputType: TextInputType.number,
+                        maxlength: 10,
+                        hintText: '98XXXXXXXX',
+                        onChanged: (val) {
+                          context.read<NeaPaymentBloc>().add(
+                              NeaPaymentEvent.changeMobileNumber(val.trim()));
+                        },
+                        value: state.mobileNumber,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -173,6 +188,10 @@ class _NEABody extends StatelessWidget {
     return BlocConsumer<NeaPaymentBloc, NeaPaymentState>(
         listener: (context, state) {
       if (state.paymentComplete) {
+        getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
+
+        getIt<TransactionBloc>()
+            .add(const TransactionEvent.fetchTransactionData());
         showDialog(
           barrierDismissible: false,
           context: context,

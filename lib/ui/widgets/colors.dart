@@ -22,6 +22,7 @@ class Palette {
   static Color textFieldPlaceholderColor = HexColor.fromHex('#8C8C8C');
 
   static Color appGreenColor = HexColor.fromHex('#13D219');
+  static Color confirmButtonColor = HexColor.fromHex('#34b044');
 }
 
 extension HexColor on Color {

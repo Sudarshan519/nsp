@@ -18,6 +18,7 @@ class PaymentCustomerInfoModel extends PaymentCustomerInfo {
     required String officeCode,
     required String customerId,
     required String productId,
+    required String mobileNumber,
   }) : super(
           billNumber: billNumber,
           dueDate: dueDate,
@@ -29,6 +30,7 @@ class PaymentCustomerInfoModel extends PaymentCustomerInfo {
           officeCode: officeCode,
           customerId: customerId,
           productId: productId,
+          mobileNumber: mobileNumber,
         );
 
   factory PaymentCustomerInfoModel.fromJson(Map<String, dynamic> json) =>
@@ -43,6 +45,7 @@ class PaymentCustomerInfoModel extends PaymentCustomerInfo {
         officeCode: json["office_code"] as String? ?? '',
         customerId: json["customer_id"] as String? ?? '',
         productId: json["product_id"] as String? ?? '',
+        mobileNumber: json["mobile_number"] as String? ?? '',
       );
 
   Map<String, dynamic> toJson() => {
@@ -56,5 +59,6 @@ class PaymentCustomerInfoModel extends PaymentCustomerInfo {
         "office_code": officeCode,
         "customer_id": customerId,
         "product_id": productId,
+        'mobile_number': mobileNumber
       };
 }

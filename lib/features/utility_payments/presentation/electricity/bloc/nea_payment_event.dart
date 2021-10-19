@@ -8,6 +8,8 @@ class NeaPaymentEvent with _$NeaPaymentEvent {
       _ChangeOffice;
   const factory NeaPaymentEvent.customerID(String customerId) = _CustomerID;
   const factory NeaPaymentEvent.changeScNum(String changeScNum) = _ChangeScNum;
+  const factory NeaPaymentEvent.changeMobileNumber(String mobileNumber) =
+      _ChangeMobileNumber;
   const factory NeaPaymentEvent.resetCustomerInfo() = _ResetCustomerInfo;
   const factory NeaPaymentEvent.enquire() = _Enquire;
   const factory NeaPaymentEvent.payBill() = _PayBill;

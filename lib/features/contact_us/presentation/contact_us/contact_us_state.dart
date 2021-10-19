@@ -12,11 +12,11 @@ class ContactUsState with _$ContactUsState {
   }) = _ContactUsState;
 
   factory ContactUsState.initial() => ContactUsState(
+        key: UniqueKey(),
         name: '',
         email: '',
         message: '',
         isLoading: false,
         failureOrSuccessOption: none(),
-        key: UniqueKey(),
       );
 }

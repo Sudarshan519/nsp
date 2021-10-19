@@ -8,6 +8,7 @@ import 'package:wallet_app/features/profile/balance/presentation/get_balance_blo
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/custom_credit_card_date.dart';
+import 'package:wallet_app/ui/pages/add_balance/payment_page/stripe/masked_text_box.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
@@ -108,9 +109,9 @@ class StripeNewCardPaymentPage extends StatelessWidget {
                   children: [
                     _NameWidget(),
                     const SizedBox(height: 20),
-                    _CreditCardWidget(),
+                    const _CreditCardWidget(),
                     const SizedBox(height: 20),
-                    _ExpiresWidget(),
+                    const _ExpiresWidget(),
                     const SizedBox(height: 20),
                     _CvcWidget(),
                     const SizedBox(height: 20),
@@ -159,6 +160,9 @@ class _NameWidget extends StatelessWidget {
 }
 
 class _CreditCardWidget extends StatelessWidget {
+  const _CreditCardWidget({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) =>
       BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
@@ -168,17 +172,11 @@ class _CreditCardWidget extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Credit Card Number',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 12),
-              CustomCCNumberInputWidget(
+              MaskedInputField(
+                maskText: 'XXXX XXXX XXXX XXXX',
+                separator: ' ',
+                title: 'Credit Card Number',
                 initVal: state.cardNumber,
-                width: MediaQuery.of(context).size.width,
                 onChanged: (val) {
                   context
                       .read<TopupViaStripeBloc>()
@@ -192,6 +190,9 @@ class _CreditCardWidget extends StatelessWidget {
 }
 
 class _ExpiresWidget extends StatelessWidget {
+  const _ExpiresWidget({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) =>
       BlocBuilder<TopupViaStripeBloc, TopupViaStripeState>(
@@ -200,17 +201,11 @@ class _ExpiresWidget extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Expires At',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 12),
-              CustomCCDateWidget(
-                initVal: state.expYear.replaceAll('/', ''),
-                width: MediaQuery.of(context).size.width,
+              MaskedInputField(
+                maskText: 'mm/yyyy',
+                separator: '/',
+                title: 'Expires At',
+                initVal: state.expYear,
                 onChanged: (val) {
                   context
                       .read<TopupViaStripeBloc>()

@@ -5,17 +5,9 @@ description: A new Flutter project.
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.1.1+13
+version: 1.1.3+14 # Dont forget in update app version in the config.json file after version is changed!
+
+
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -31,6 +23,7 @@ dependencies:
     git:
       url: https://github.com/AdiD253/pdf_viewer.git
       ref: pdf-viewer-file-fix
+  flutter_cached_pdfview: ^0.4.0-nullsafety
   assorted_layout_widgets: ^5.0.2     
   another_flushbar: ^1.10.24          
   auto_route: ^2.2.0                
@@ -64,7 +57,7 @@ dependencies:
   image_picker: ^0.8.3+1   
   ime_pay: ^0.0.6             
   injectable: ^1.4.0    
-  internet_connection_checker: ^0.0.1            
+  internet_connection_checker: ^0.0.1+2           
   kana_kit: ^2.0.0                              
   multi_select_flutter: ^4.0.0                
   path_provider: ^2.0.1                
@@ -82,13 +75,14 @@ dependencies:
   facebook_audience_network: ^1.0.0-nullsafety.0
   flutter_khalti: ^1.1.0
   flutter_web_browser: ^0.15.0
-  webview_flutter: ^2.0.12
+  webview_flutter: ^2.0.13
   marquee: ^2.2.0
   firebase_analytics: ^8.2.0
   image_cropper: ^1.4.1
   device_info_plus: ^2.1.0
   local_auth: ^1.1.7
   firebase_crashlytics: ^2.2.1
+  package_info_plus: ^1.0.6
 
 dev_dependencies:
   flutter_test:

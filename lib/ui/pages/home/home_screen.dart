@@ -18,6 +18,7 @@ import 'package:wallet_app/ui/pages/home/home_appbar.dart';
 import 'package:wallet_app/ui/pages/home/widgets/kyc_update_prompt.dart';
 import 'package:wallet_app/ui/pages/home/widgets/my_resume.dart';
 import 'package:wallet_app/ui/pages/utility_payment/utility_payment.dart';
+import 'package:wallet_app/ui/widgets/auth/auth_widgets.dart';
 import 'package:wallet_app/ui/widgets/error_widgets.dart';
 import 'package:wallet_app/ui/widgets/wallet_ad/wallet_ad_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -70,8 +71,14 @@ class HomePage extends StatelessWidget {
             success.data.homeData,
             success.data.userDetail,
           ),
-          loaded: (success) => _homePageSilver(
-              context, success.data.homeData, success.data.userDetail),
+          loaded: (success) {
+            final isMpinSet = success.data.userDetail?.isMpinSet ?? false;
+            if (!isMpinSet) {
+              AuthWidgets.showSetMpinPrompt();
+            }
+            return _homePageSilver(
+                context, success.data.homeData, success.data.userDetail);
+          },
           failure: (error) {
             Future.delayed(
               Duration.zero,
