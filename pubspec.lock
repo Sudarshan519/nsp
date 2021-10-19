@@ -349,9 +349,11 @@ packages:
   esewa_pnp:
     dependency: "direct main"
     description:
-      path: "../sdk/esewa_pnp"
-      relative: true
-    source: path
+      path: "."
+      ref: null-safety
+      resolved-ref: "607f65a6069da6c5df8954dd01d2a27af72c846f"
+      url: "https://github.com/asisadh/esewa_pnp.git"
+    source: git
     version: "1.0.5"
   fading_edge_scrollview:
     dependency: transitive

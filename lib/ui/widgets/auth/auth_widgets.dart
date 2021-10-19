@@ -74,7 +74,7 @@ class AuthWidgets {
 
     final textController = TextEditingController();
     var isLoading = false;
-    var errortext = '';
+    String? errortext;
     await showModalBottomSheet(
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(20.0))),
@@ -106,6 +106,9 @@ class AuthWidgets {
                                 const TextStyle(fontSize: 22, letterSpacing: 6),
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Palette.primary)),
+                                focusedBorder: OutlineInputBorder(
                                     borderSide:
                                         BorderSide(color: Palette.primary)),
                                 labelText: 'Enter 4 digit MPIN',
