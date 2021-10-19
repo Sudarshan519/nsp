@@ -70,6 +70,10 @@ class PaymentAuthService {
   }
 
   static Future<PaymentAuthResponse> authenticate(String message) async {
+    return PaymentAuthResponse(
+        success: true, result: 'success', type: PaymentAuthType.m_pin);
+
+    //temprariry disabled
     if (hasSetMpin) {
       if ((hasFaceId || hasFingerPrintReader) &&
           (primaryAuthType == PaymentAuthType.face_id ||
