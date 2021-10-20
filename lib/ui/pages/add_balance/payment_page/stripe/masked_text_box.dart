@@ -77,14 +77,11 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
         // final marginVal = width * (char == ' ' ? 0.014 : 0.23);
         // gap += marginVal;
 
-<<<<<<< HEAD
         // final padding = char == ' ' ? 1.2 : 0;
         final padding = (i % 4 == 0 && i != 0) ? 2 : 0;
 
         gap += size.width + padding; // + 1.2; //  padding
-=======
-        gap += size.width + 1.25; // 8 padding
->>>>>>> 3c9b1222e5f9f91fa2adf0279944db99a0b54abb
+        // gap += size.width + 1.25; // 8 padding
         print(gap);
       }
     });
