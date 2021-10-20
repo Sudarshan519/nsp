@@ -390,10 +390,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     bool tokenRequired = true,
   }) async {
     final url = "${config.baseURL}${config.apiPath}$uri";
-    final accessToken =
-        (getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
 
     if (tokenRequired) {
+      final accessToken =
+          (getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
       header["Authorization"] = "Bearer $accessToken";
     }
 
@@ -413,7 +413,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       );
       throw ServerException(
         message: ex.toString(),
-        
       );
     }
     final statusCode = response.statusCode;
