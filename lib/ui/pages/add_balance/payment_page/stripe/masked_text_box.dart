@@ -78,11 +78,11 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
         // gap += marginVal;
 
         // final padding = char == ' ' ? 1.2 : 0;
-        final padding = (i % 4 == 0 && i != 0) ? 2 : 0;
+        // final padding = (i % 4 == 0 && i != 0) ? 2 : 0;
 
-        gap += size.width + padding; // + 1.2; //  padding
-        // gap += size.width + 1.25; // 8 padding
-        print(gap);
+        // gap += size.width; // + padding; // + 1.2; //  padding
+        // gap += 10;
+        gap += (i % 4 == 0 && i != 0) ? 5 : 10;
       }
     });
   }
@@ -128,10 +128,10 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
 
   Size _textSize(String text, TextStyle style) {
     final TextPainter textPainter = TextPainter(
-        text: TextSpan(text: text, style: style),
-        maxLines: 1,
-        textDirection: TextDirection.ltr)
-      ..layout();
+      text: TextSpan(text: text, style: style),
+      maxLines: 1,
+      textDirection: TextDirection.ltr,
+    )..layout();
     return textPainter.size;
   }
 }

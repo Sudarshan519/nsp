@@ -173,7 +173,8 @@ class _CreditCardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MaskedInputField(
-                maskText: 'XXXX XXXX XXXX XXXX',
+                // maskText: 'XXXX XXXX XXXX XXXX',
+                maskText: '4242 4242 4242 4242',
                 separator: ' ',
                 title: 'Credit Card Number',
                 initVal: state.cardNumber,

@@ -79,7 +79,9 @@ class TransactionDetail extends StatelessWidget {
 
         doubleAmount = amtAfterDiscountDeduction(state);
         final rewardPoint =
-            doubleAmount * ((state.paydata.cashbackPer ?? 0.0) / 100);
+            doubleAmount * ((state.paydata.rewardPoint ?? 0.0) / 100);
+
+        final totalRewardPoints = rewardPoint + state.rewardPointFromCoupon;
 
         final conversionValue = doubleAmount / conversionRate;
         return Column(
@@ -171,8 +173,7 @@ class TransactionDetail extends StatelessWidget {
                         const SizedBox(height: 10),
                       ],
                     ),
-                  if ((state.paydata.rewardPoint ?? 0.0) > 0 ||
-                      state.rewardPointFromCoupon > 0)
+                  if (totalRewardPoints > 0)
                     Column(
                       children: [
                         Row(
@@ -187,7 +188,7 @@ class TransactionDetail extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${(rewardPoint + state.rewardPointFromCoupon).toStringAsFixed(1)} Pts.",
+                              "$totalRewardPoints Pts.",
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
@@ -228,29 +229,30 @@ class TransactionDetail extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Transacion Service Charge',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
-                        ),
-                      ),
-                      //TODO: impl service charge
-                      Text(
-                        '0.5',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Palette.white,
-                        ),
-                      ),
-                    ],
-                  ),
+                  //TODO: impl service charge
+                  // const SizedBox(height: 10),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Text(
+                  //       'Transacion Service Charge',
+                  //       style: TextStyle(
+                  //         fontSize: 12,
+                  //         fontWeight: FontWeight.w600,
+                  //         color: Palette.white,
+                  //       ),
+                  //     ),
+                  //     //TODO: impl service charge
+                  //     Text(
+                  //       '0.5',
+                  //       style: TextStyle(
+                  //         fontSize: 12,
+                  //         fontWeight: FontWeight.w600,
+                  //         color: Palette.white,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

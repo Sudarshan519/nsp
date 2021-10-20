@@ -356,10 +356,10 @@ class _TopUpPageState extends State<TopUpPage> {
                   ),
                 const SizedBox(height: 5),
                 //TODO: impl service charge
-                const TransactionDetailRow(
-                  title: 'Transaction Service Charge',
-                  value: "0.5",
-                ),
+                // const TransactionDetailRow(
+                //   title: 'Transaction Service Charge',
+                //   value: "0.5",
+                // ),
                 const SizedBox(height: 5),
                 TransactionDetailRow(
                   title: 'Transaction Amount (NPR)',
