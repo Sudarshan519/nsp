@@ -38,9 +38,7 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
 
     _currentHint = widget.maskText.substring(_outputText.length);
     Future.delayed(const Duration(seconds: 1), () {
-      width = MediaQuery.of(context).size.width;
       // var heigth = MediaQuery.of(context).size.height;
-      // var a = 5;
 
       _updateHint(_outputText);
     });
@@ -89,21 +87,43 @@ class _MaskedInputFieldState extends State<MaskedInputField> {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.height);
     return TextWidetWithLabelAndChild(
       title: widget.title,
       child: Stack(
         children: [
+          // Container(
+          //   margin: EdgeInsets.only(left: gap),
+          //   child: IgnorePointer(
+          //     child: InputTextWidget(
+          //       hintText: _currentHint,
+          //       textInputType: TextInputType.number,
+          //       value: '',
+          //       onChanged: (value) {},
+          //     ),
+          //   ),
+          // ),
           Container(
-            margin: EdgeInsets.only(left: gap),
-            child: IgnorePointer(
-              child: InputTextWidget(
-                hintText: _currentHint,
-                textInputType: TextInputType.number,
-                value: '',
-                onChanged: (value) {},
-              ),
-            ),
+            height: 31.0,
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.0008),
+            child: Row(
+                children: List.generate(
+                    widget.maskText.length,
+                    (index) => Text(
+                          widget.maskText[index],
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14.0,
+                              fontFeatures: const [
+                                FontFeature.tabularFigures()
+                              ],
+                              color: _outputText.length - 1 < index
+                                  ? Colors.black54
+                                  : Colors.transparent),
+                        ))),
           ),
+
           InputTextWidget(
             hintText: "",
             textInputType: TextInputType.number,
