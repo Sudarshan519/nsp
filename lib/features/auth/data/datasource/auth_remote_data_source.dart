@@ -448,6 +448,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.getNewVerificationCode,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 
@@ -469,6 +470,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.resetPassword,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 }
