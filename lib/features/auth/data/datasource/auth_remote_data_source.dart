@@ -390,10 +390,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     bool tokenRequired = true,
   }) async {
     final url = "${config.baseURL}${config.apiPath}$uri";
-    final accessToken =
-        (getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
 
     if (tokenRequired) {
+      final accessToken =
+          (getIt<AuthLocalDataSource>().getWalletUser()).accessToken;
       header["Authorization"] = "Bearer $accessToken";
     }
 
@@ -448,6 +448,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.getNewVerificationCode,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 
@@ -469,6 +470,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       AuthApiEndpoints.resetPassword,
       _header,
       body,
+      tokenRequired: false,
     );
   }
 }

@@ -174,6 +174,7 @@ class _CreditCardWidget extends StatelessWidget {
             children: [
               MaskedInputField(
                 maskText: 'XXXX XXXX XXXX XXXX',
+                // maskText: '4242 4242 4242 4242',
                 separator: ' ',
                 title: 'Credit Card Number',
                 initVal: state.cardNumber,

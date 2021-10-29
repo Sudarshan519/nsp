@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
@@ -24,67 +26,51 @@ class MaskedInputField extends StatefulWidget {
 }
 
 class _MaskedInputFieldState extends State<MaskedInputField> {
-  var _currentHint = '';
   var _outputText = '';
-  double gap = 0.0;
-  double width = 0;
 
   @override
   void initState() {
     _outputText = widget.initVal;
 
-    _currentHint = widget.maskText.substring(_outputText.length);
     Future.delayed(const Duration(seconds: 1), () {
-      width = MediaQuery.of(context).size.width;
-      var heigth = MediaQuery.of(context).size.height;
-      var a = 5;
-
       _updateHint(_outputText);
     });
 
     super.initState();
   }
 
-  void _updateHint(
-    String value,
-  ) {
+  void _updateHint(String value) {
     setState(() {
-      var mediaquery = MediaQuery.of(context);
-
       _outputText = value;
-      gap = 0.0;
-
-      if (_outputText.isEmpty) {
-        _currentHint = widget.maskText;
-
-        return;
-      }
-      _currentHint = widget.maskText.substring(_outputText.length);
-      for (var i = 0; i < _outputText.length; i++) {
-        final char = _outputText[i];
-        final marginVal = width * (char == ' ' ? 0.0145 : 0.0235);
-        // final marginVal = width * (char == ' ' ? 0.014 : 0.23);
-        gap += marginVal;
-      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.height);
     return TextWidetWithLabelAndChild(
       title: widget.title,
       child: Stack(
         children: [
           Container(
-            margin: EdgeInsets.only(left: gap),
-            child: IgnorePointer(
-              child: InputTextWidget(
-                hintText: _currentHint,
-                textInputType: TextInputType.number,
-                value: '',
-                onChanged: (value) {},
-              ),
-            ),
+            height: 31.0,
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.0008),
+            child: Row(
+                children: List.generate(
+                    widget.maskText.length,
+                    (index) => Text(
+                          widget.maskText[index],
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14.0,
+                              fontFeatures: const [
+                                FontFeature.tabularFigures()
+                              ],
+                              color: _outputText.length - 1 < index
+                                  ? Colors.black54
+                                  : Colors.transparent),
+                        ))),
           ),
           InputTextWidget(
             hintText: "",

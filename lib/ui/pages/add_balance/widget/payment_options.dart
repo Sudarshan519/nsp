@@ -137,24 +137,24 @@ class _PaymentOptionsState extends State<PaymentOptions> {
       case "ime_pay":
         AnalyticsService.logEvent(FirebaseEvents.IME_PAY_PAGE);
 
-        showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16),
-              topRight: Radius.circular(16),
-            ),
-          ),
-          builder: (BuildContext context) {
-            return ImePayTopupPage(
-                method: paymentMethod,
-                userId: widget.userId,
-                conversionRate: widget.conversionRate,
-                balance: widget.balance,
-                isVerified: widget.isVerified);
-          },
-        );
+        // showModalBottomSheet(
+        //   context: context,
+        //   isScrollControlled: true,
+        //   shape: const RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.only(
+        //       topLeft: Radius.circular(16),
+        //       topRight: Radius.circular(16),
+        //     ),
+        //   ),
+        //   builder: (BuildContext context) {
+        //     return ImePayTopupPage(
+        //         method: paymentMethod,
+        //         userId: widget.userId,
+        //         conversionRate: widget.conversionRate,
+        //         balance: widget.balance,
+        //         isVerified: widget.isVerified);
+        //   },
+        // );
         break;
       case "khalti":
         AnalyticsService.logEvent(FirebaseEvents.KHALTI_PAGE);
