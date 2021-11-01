@@ -6,7 +6,11 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
+import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/auth/domain/auth_routes/auth_routes.dart';
+import 'package:wallet_app/features/auth/domain/usecase/sign_in_with_apple.dart';
+import 'package:wallet_app/features/auth/domain/usecase/sign_in_with_facebook.dart';
+import 'package:wallet_app/features/auth/domain/usecase/sign_in_with_google.dart';
 import 'package:wallet_app/features/auth/domain/usecase/sign_up_user.dart';
 
 part 'sign_up_form_event.dart';
@@ -17,9 +21,15 @@ part 'sign_up_form_bloc.freezed.dart';
 @injectable
 class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
   final SignUpWithEmailPasswordAndUserDetail signUpWithEmailUsecase;
+  final SignInWithApple signInWithApple;
+  final SignInWithFacebook signInWithFacebook;
+  final SignInWithGoogle signInWithGoogle;
 
   SignUpFormBloc({
     required this.signUpWithEmailUsecase,
+    required this.signInWithApple,
+    required this.signInWithFacebook,
+    required this.signInWithGoogle,
   }) : super(SignUpFormState.initial());
 
   @override
@@ -50,6 +60,15 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
       },
       signUpWithEmailPasswordAndOtherPressed: (e) async* {
         yield* _mapSignupSubmittedToState(e);
+      },
+      signUpWithApplePressed: (e) async* {
+        yield* _mapSignInWithApplePressed(e);
+      },
+      signUpWithFacebookPressed: (e) async* {
+        yield* _mapSignInWithFacebookPressed(e);
+      },
+      signUpWithGooglePressed: (e) async* {
+        yield* _mapSignInWithGooglePressed(e);
       },
     );
   }
@@ -125,13 +144,74 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
     ));
 
     failureOrSuccess = result.fold(
-        (failure) => Left(failure),
-        (success) =>
-            Right(AuthRoutes.showEmailVerificationScreen(state.emailAddress))
-        // : Right(
-        //     AuthRoutes.showEmailVerificationScreen(state.emailAddress),
-        //   ),
-        );
+      (failure) => Left(failure),
+      (success) => Right(
+        AuthRoutes.showEmailVerificationScreen(state.emailAddress),
+      ),
+    );
+
+    yield state.copyWith(
+      isSubmitting: false,
+      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<SignUpFormState> _mapSignInWithGooglePressed(
+      _SignUpWithGooglePressed _signInWithGooglePressed) async* {
+    Either<ApiFailure, AuthRoutes> failureOrSuccess;
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
+
+    final result = await signInWithGoogle(NoParams());
+
+    failureOrSuccess = result.fold(
+      (l) => Left(l),
+      (r) => const Right(AuthRoutes.showHomeScreen()),
+    );
+
+    yield state.copyWith(
+      isSubmitting: false,
+      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<SignUpFormState> _mapSignInWithFacebookPressed(
+      _SignUpWithFacebookPressed _signInWithFacebookPressed) async* {
+    Either<ApiFailure, AuthRoutes> failureOrSuccess;
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
+
+    final result = await signInWithFacebook(NoParams());
+
+    failureOrSuccess = result.fold(
+      (l) => Left(l),
+      (r) => const Right(AuthRoutes.showHomeScreen()),
+    );
+
+    yield state.copyWith(
+      isSubmitting: false,
+      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<SignUpFormState> _mapSignInWithApplePressed(
+      _SignUpWithApplePressed _signInWithApplePressed) async* {
+    Either<ApiFailure, AuthRoutes> failureOrSuccess;
+    yield state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
+
+    final result = await signInWithApple(NoParams());
+
+    failureOrSuccess = result.fold(
+      (l) => Left(l),
+      (r) => const Right(AuthRoutes.showHomeScreen()),
+    );
 
     yield state.copyWith(
       isSubmitting: false,

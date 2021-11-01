@@ -13,4 +13,10 @@ class SignUpFormEvent with _$SignUpFormEvent {
   const factory SignUpFormEvent.showConfirmPassword() = _ShowConfirmPassword;
   const factory SignUpFormEvent.signUpWithEmailPasswordAndOtherPressed() =
       _SignUpWithEmailPasswordAndOtherPressed;
+  const factory SignUpFormEvent.signUpWithGooglePressed() =
+      _SignUpWithGooglePressed;
+  const factory SignUpFormEvent.signUpWithFacebookPressed() =
+      _SignUpWithFacebookPressed;
+  const factory SignUpFormEvent.signUpWithApplePressed() =
+      _SignUpWithApplePressed;
 }

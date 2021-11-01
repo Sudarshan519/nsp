@@ -880,8 +880,10 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       signInWithFacebook: get<_i94.SignInWithFacebook>(),
       signInWithGoogle: get<_i95.SignInWithGoogle>()));
   gh.factory<_i194.SignUpFormBloc>(() => _i194.SignUpFormBloc(
-      signUpWithEmailUsecase:
-          get<_i96.SignUpWithEmailPasswordAndUserDetail>()));
+      signUpWithEmailUsecase: get<_i96.SignUpWithEmailPasswordAndUserDetail>(),
+      signInWithApple: get<_i92.SignInWithApple>(),
+      signInWithFacebook: get<_i94.SignInWithFacebook>(),
+      signInWithGoogle: get<_i95.SignInWithGoogle>()));
   gh.factory<_i195.SubscriptionForPartnerServiceBloc>(() =>
       _i195.SubscriptionForPartnerServiceBloc(
           getSubscriptionDetailForPartnerService:
