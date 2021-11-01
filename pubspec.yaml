@@ -62,7 +62,10 @@ dependencies:
   multi_select_flutter: ^4.0.0                
   path_provider: ^2.0.1                
   permission_handler: ^8.1.4+2                
-  share: ^2.0.1                
+  share: ^2.0.1      
+  shared_data:
+    git:
+      url: https://aashishadhikari@bitbucket.org/aashishadhikari/flutter-data-share.git 
   shared_preferences: ^2.0.5                
   sign_in_with_apple: ^3.2.0
   sliver_tools: ^0.2.5              

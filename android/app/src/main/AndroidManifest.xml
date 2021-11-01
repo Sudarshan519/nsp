@@ -20,7 +20,8 @@
         tools:replace="android:allowBackup"
         android:requestLegacyExternalStorage="true"
         android:networkSecurityConfig="@xml/network_security_config"
-
+        android:sharedUserId="@string/shared_user_id"
+        android:sharedUserLabel="@string/shared_user_label"
         >
         <activity
             android:name=".MainActivity"

@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_data/shared_data.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
@@ -19,12 +20,14 @@ import 'package:wallet_app/utils/constant.dart';
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
   final AuthLocalDataSource localDataSource;
+  final SharedData bnpjSharedData;
   final GoogleSignIn googleSignIn;
   final Logger logger;
 
   AuthRepositoryImpl({
     required this.remoteDataSource,
     required this.localDataSource,
+    required this.bnpjSharedData,
     required this.googleSignIn,
     required this.logger,
   });
@@ -337,6 +340,10 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final userData = await request();
       localDataSource.save(userData);
+
+      bnpjSharedData.setString("access_token", userData.accessToken ?? "");
+      bnpjSharedData.setString("refresh_token", userData.refreshToken ?? "");
+
       return Right(userData);
     } on ServerException catch (ex) {
       logger.log(
