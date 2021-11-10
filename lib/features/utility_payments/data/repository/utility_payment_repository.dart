@@ -136,4 +136,24 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
+
+  @override
+  Future<Either<ApiFailure, dynamic>> enquiryIsp(
+      {required String username}) async {
+    // TODO: implement enquiryIsp
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> paySimTv(
+      {required String custId,
+      required String amount,
+      required String productId}) async {
+    try {
+      return Right(await dataSource.paySimTv(
+          custId: custId, amount: amount, productId: productId));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
 }

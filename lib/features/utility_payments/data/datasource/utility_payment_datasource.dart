@@ -48,6 +48,15 @@ abstract class UtilityPaymentDataSource {
   Future<Unit> payKhanepani(PaymentCustomerInfoModel customerData);
   Future<PaymentCustomerInfoModel> enquiryKhanepani(
       EnquireKhanepaniParams params);
+
+  //for isp
+  Future<dynamic> enquiryIsp(String user);
+
+  //for Simtv
+  Future<Unit> paySimTv(
+      {required String custId,
+      required String amount,
+      required String productId});
 }
 
 @LazySingleton(as: UtilityPaymentDataSource)
@@ -532,6 +541,60 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       );
       throw ServerException(
         message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<dynamic> enquiryIsp(String user) async {
+    return '';
+  }
+
+  @override
+  Future<Unit> paySimTv(
+      {required String custId,
+      required String amount,
+      required String productId}) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.simTVPay}";
+
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    final params = {
+      'account': custId,
+      "amount": amount,
+      "product_id": productId,
+      "gps": getIt<GeoLocationManager>().gps, //optional
+    };
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(params),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200 || statusCode == 201) {
+      return unit;
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "paySimTv()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+
+      throw ServerException(
+        message: errorMessageFromServerWithError(response.body) ??
             AppConstants.someThingWentWrong,
       );
     }

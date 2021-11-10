@@ -92,6 +92,11 @@ class GridItem extends StatelessWidget {
               KhanepaniPaymentRoute(payData: paymentData),
             );
             break;
+          case UtilityPayementType.simtv:
+            context.pushRoute(
+              SimTVRoute(payData: paymentData),
+            );
+            break;
 
           default:
         }

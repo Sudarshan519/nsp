@@ -36,4 +36,10 @@ abstract class UtilityPaymentRepository {
     required String coupon,
     required int productId,
   });
+
+  Future<Either<ApiFailure, dynamic>> enquiryIsp({required String username});
+  Future<Either<ApiFailure, Unit>> paySimTv(
+      {required String custId,
+      required String amount,
+      required String productId});
 }
