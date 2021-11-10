@@ -58,6 +58,18 @@ class _$SignUpFormEventTearOff {
       signUpWithEmailPasswordAndOtherPressed() {
     return const _SignUpWithEmailPasswordAndOtherPressed();
   }
+
+  _SignUpWithGooglePressed signUpWithGooglePressed() {
+    return const _SignUpWithGooglePressed();
+  }
+
+  _SignUpWithFacebookPressed signUpWithFacebookPressed() {
+    return const _SignUpWithFacebookPressed();
+  }
+
+  _SignUpWithApplePressed signUpWithApplePressed() {
+    return const _SignUpWithApplePressed();
+  }
 }
 
 /// @nodoc
@@ -75,6 +87,9 @@ mixin _$SignUpFormEvent {
     required TResult Function(String password) changeConfirmPassword,
     required TResult Function() showConfirmPassword,
     required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +102,9 @@ mixin _$SignUpFormEvent {
     TResult Function(String password)? changeConfirmPassword,
     TResult Function()? showConfirmPassword,
     TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -102,6 +120,12 @@ mixin _$SignUpFormEvent {
     required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
         signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -115,6 +139,10 @@ mixin _$SignUpFormEvent {
     TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
         signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -210,6 +238,9 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     required TResult Function(String password) changeConfirmPassword,
     required TResult Function() showConfirmPassword,
     required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
   }) {
     return changeFirstName(name);
   }
@@ -225,6 +256,9 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     TResult Function(String password)? changeConfirmPassword,
     TResult Function()? showConfirmPassword,
     TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changeFirstName != null) {
@@ -246,6 +280,12 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
         signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
   }) {
     return changeFirstName(this);
   }
@@ -262,6 +302,10 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
         signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changeFirstName != null) {
@@ -353,6 +397,9 @@ class _$_ChangeLastName implements _ChangeLastName {
     required TResult Function(String password) changeConfirmPassword,
     required TResult Function() showConfirmPassword,
     required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
   }) {
     return changeLastName(name);
   }
@@ -368,6 +415,9 @@ class _$_ChangeLastName implements _ChangeLastName {
     TResult Function(String password)? changeConfirmPassword,
     TResult Function()? showConfirmPassword,
     TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changeLastName != null) {
@@ -389,6 +439,12 @@ class _$_ChangeLastName implements _ChangeLastName {
     required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
         signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
   }) {
     return changeLastName(this);
   }
@@ -405,6 +461,10 @@ class _$_ChangeLastName implements _ChangeLastName {
     TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
         signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changeLastName != null) {
@@ -496,6 +556,9 @@ class _$_ChangeEmail implements _ChangeEmail {
     required TResult Function(String password) changeConfirmPassword,
     required TResult Function() showConfirmPassword,
     required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
   }) {
     return changeEmail(email);
   }
@@ -511,6 +574,9 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult Function(String password)? changeConfirmPassword,
     TResult Function()? showConfirmPassword,
     TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changeEmail != null) {
@@ -532,6 +598,12 @@ class _$_ChangeEmail implements _ChangeEmail {
     required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
         signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
   }) {
     return changeEmail(this);
   }
@@ -548,6 +620,10 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
         signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changeEmail != null) {
@@ -640,6 +716,9 @@ class _$_ChangePassword implements _ChangePassword {
     required TResult Function(String password) changeConfirmPassword,
     required TResult Function() showConfirmPassword,
     required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
   }) {
     return changePassword(password);
   }
@@ -655,6 +734,9 @@ class _$_ChangePassword implements _ChangePassword {
     TResult Function(String password)? changeConfirmPassword,
     TResult Function()? showConfirmPassword,
     TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changePassword != null) {
@@ -676,6 +758,12 @@ class _$_ChangePassword implements _ChangePassword {
     required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
         signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
   }) {
     return changePassword(this);
   }
@@ -692,6 +780,10 @@ class _$_ChangePassword implements _ChangePassword {
     TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
         signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changePassword != null) {
@@ -758,6 +850,9 @@ class _$_ShowPassword implements _ShowPassword {
     required TResult Function(String password) changeConfirmPassword,
     required TResult Function() showConfirmPassword,
     required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
   }) {
     return showPassword();
   }
@@ -773,6 +868,9 @@ class _$_ShowPassword implements _ShowPassword {
     TResult Function(String password)? changeConfirmPassword,
     TResult Function()? showConfirmPassword,
     TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (showPassword != null) {
@@ -794,6 +892,12 @@ class _$_ShowPassword implements _ShowPassword {
     required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
         signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
   }) {
     return showPassword(this);
   }
@@ -810,6 +914,10 @@ class _$_ShowPassword implements _ShowPassword {
     TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
         signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (showPassword != null) {
@@ -898,6 +1006,9 @@ class _$_ChangeConfirmPassword implements _ChangeConfirmPassword {
     required TResult Function(String password) changeConfirmPassword,
     required TResult Function() showConfirmPassword,
     required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
   }) {
     return changeConfirmPassword(password);
   }
@@ -913,6 +1024,9 @@ class _$_ChangeConfirmPassword implements _ChangeConfirmPassword {
     TResult Function(String password)? changeConfirmPassword,
     TResult Function()? showConfirmPassword,
     TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changeConfirmPassword != null) {
@@ -934,6 +1048,12 @@ class _$_ChangeConfirmPassword implements _ChangeConfirmPassword {
     required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
         signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
   }) {
     return changeConfirmPassword(this);
   }
@@ -950,6 +1070,10 @@ class _$_ChangeConfirmPassword implements _ChangeConfirmPassword {
     TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
         signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (changeConfirmPassword != null) {
@@ -1017,6 +1141,9 @@ class _$_ShowConfirmPassword implements _ShowConfirmPassword {
     required TResult Function(String password) changeConfirmPassword,
     required TResult Function() showConfirmPassword,
     required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
   }) {
     return showConfirmPassword();
   }
@@ -1032,6 +1159,9 @@ class _$_ShowConfirmPassword implements _ShowConfirmPassword {
     TResult Function(String password)? changeConfirmPassword,
     TResult Function()? showConfirmPassword,
     TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (showConfirmPassword != null) {
@@ -1053,6 +1183,12 @@ class _$_ShowConfirmPassword implements _ShowConfirmPassword {
     required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
         signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
   }) {
     return showConfirmPassword(this);
   }
@@ -1069,6 +1205,10 @@ class _$_ShowConfirmPassword implements _ShowConfirmPassword {
     TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
         signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (showConfirmPassword != null) {
@@ -1136,6 +1276,9 @@ class _$_SignUpWithEmailPasswordAndOtherPressed
     required TResult Function(String password) changeConfirmPassword,
     required TResult Function() showConfirmPassword,
     required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
   }) {
     return signUpWithEmailPasswordAndOtherPressed();
   }
@@ -1151,6 +1294,9 @@ class _$_SignUpWithEmailPasswordAndOtherPressed
     TResult Function(String password)? changeConfirmPassword,
     TResult Function()? showConfirmPassword,
     TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (signUpWithEmailPasswordAndOtherPressed != null) {
@@ -1172,6 +1318,12 @@ class _$_SignUpWithEmailPasswordAndOtherPressed
     required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
         signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
   }) {
     return signUpWithEmailPasswordAndOtherPressed(this);
   }
@@ -1188,6 +1340,10 @@ class _$_SignUpWithEmailPasswordAndOtherPressed
     TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
         signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
     required TResult orElse(),
   }) {
     if (signUpWithEmailPasswordAndOtherPressed != null) {
@@ -1201,6 +1357,395 @@ abstract class _SignUpWithEmailPasswordAndOtherPressed
     implements SignUpFormEvent {
   const factory _SignUpWithEmailPasswordAndOtherPressed() =
       _$_SignUpWithEmailPasswordAndOtherPressed;
+}
+
+/// @nodoc
+abstract class _$SignUpWithGooglePressedCopyWith<$Res> {
+  factory _$SignUpWithGooglePressedCopyWith(_SignUpWithGooglePressed value,
+          $Res Function(_SignUpWithGooglePressed) then) =
+      __$SignUpWithGooglePressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SignUpWithGooglePressedCopyWithImpl<$Res>
+    extends _$SignUpFormEventCopyWithImpl<$Res>
+    implements _$SignUpWithGooglePressedCopyWith<$Res> {
+  __$SignUpWithGooglePressedCopyWithImpl(_SignUpWithGooglePressed _value,
+      $Res Function(_SignUpWithGooglePressed) _then)
+      : super(_value, (v) => _then(v as _SignUpWithGooglePressed));
+
+  @override
+  _SignUpWithGooglePressed get _value =>
+      super._value as _SignUpWithGooglePressed;
+}
+
+/// @nodoc
+
+class _$_SignUpWithGooglePressed implements _SignUpWithGooglePressed {
+  const _$_SignUpWithGooglePressed();
+
+  @override
+  String toString() {
+    return 'SignUpFormEvent.signUpWithGooglePressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _SignUpWithGooglePressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) changeFirstName,
+    required TResult Function(String name) changeLastName,
+    required TResult Function(String email) changeEmail,
+    required TResult Function(String password) changePassword,
+    required TResult Function() showPassword,
+    required TResult Function(String password) changeConfirmPassword,
+    required TResult Function() showConfirmPassword,
+    required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
+  }) {
+    return signUpWithGooglePressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? changeFirstName,
+    TResult Function(String name)? changeLastName,
+    TResult Function(String email)? changeEmail,
+    TResult Function(String password)? changePassword,
+    TResult Function()? showPassword,
+    TResult Function(String password)? changeConfirmPassword,
+    TResult Function()? showConfirmPassword,
+    TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
+    required TResult orElse(),
+  }) {
+    if (signUpWithGooglePressed != null) {
+      return signUpWithGooglePressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeFirstName value) changeFirstName,
+    required TResult Function(_ChangeLastName value) changeLastName,
+    required TResult Function(_ChangeEmail value) changeEmail,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_ShowPassword value) showPassword,
+    required TResult Function(_ChangeConfirmPassword value)
+        changeConfirmPassword,
+    required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
+    required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
+        signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
+  }) {
+    return signUpWithGooglePressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeFirstName value)? changeFirstName,
+    TResult Function(_ChangeLastName value)? changeLastName,
+    TResult Function(_ChangeEmail value)? changeEmail,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_ShowPassword value)? showPassword,
+    TResult Function(_ChangeConfirmPassword value)? changeConfirmPassword,
+    TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
+    TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
+        signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
+    required TResult orElse(),
+  }) {
+    if (signUpWithGooglePressed != null) {
+      return signUpWithGooglePressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignUpWithGooglePressed implements SignUpFormEvent {
+  const factory _SignUpWithGooglePressed() = _$_SignUpWithGooglePressed;
+}
+
+/// @nodoc
+abstract class _$SignUpWithFacebookPressedCopyWith<$Res> {
+  factory _$SignUpWithFacebookPressedCopyWith(_SignUpWithFacebookPressed value,
+          $Res Function(_SignUpWithFacebookPressed) then) =
+      __$SignUpWithFacebookPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SignUpWithFacebookPressedCopyWithImpl<$Res>
+    extends _$SignUpFormEventCopyWithImpl<$Res>
+    implements _$SignUpWithFacebookPressedCopyWith<$Res> {
+  __$SignUpWithFacebookPressedCopyWithImpl(_SignUpWithFacebookPressed _value,
+      $Res Function(_SignUpWithFacebookPressed) _then)
+      : super(_value, (v) => _then(v as _SignUpWithFacebookPressed));
+
+  @override
+  _SignUpWithFacebookPressed get _value =>
+      super._value as _SignUpWithFacebookPressed;
+}
+
+/// @nodoc
+
+class _$_SignUpWithFacebookPressed implements _SignUpWithFacebookPressed {
+  const _$_SignUpWithFacebookPressed();
+
+  @override
+  String toString() {
+    return 'SignUpFormEvent.signUpWithFacebookPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _SignUpWithFacebookPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) changeFirstName,
+    required TResult Function(String name) changeLastName,
+    required TResult Function(String email) changeEmail,
+    required TResult Function(String password) changePassword,
+    required TResult Function() showPassword,
+    required TResult Function(String password) changeConfirmPassword,
+    required TResult Function() showConfirmPassword,
+    required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
+  }) {
+    return signUpWithFacebookPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? changeFirstName,
+    TResult Function(String name)? changeLastName,
+    TResult Function(String email)? changeEmail,
+    TResult Function(String password)? changePassword,
+    TResult Function()? showPassword,
+    TResult Function(String password)? changeConfirmPassword,
+    TResult Function()? showConfirmPassword,
+    TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
+    required TResult orElse(),
+  }) {
+    if (signUpWithFacebookPressed != null) {
+      return signUpWithFacebookPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeFirstName value) changeFirstName,
+    required TResult Function(_ChangeLastName value) changeLastName,
+    required TResult Function(_ChangeEmail value) changeEmail,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_ShowPassword value) showPassword,
+    required TResult Function(_ChangeConfirmPassword value)
+        changeConfirmPassword,
+    required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
+    required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
+        signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
+  }) {
+    return signUpWithFacebookPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeFirstName value)? changeFirstName,
+    TResult Function(_ChangeLastName value)? changeLastName,
+    TResult Function(_ChangeEmail value)? changeEmail,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_ShowPassword value)? showPassword,
+    TResult Function(_ChangeConfirmPassword value)? changeConfirmPassword,
+    TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
+    TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
+        signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
+    required TResult orElse(),
+  }) {
+    if (signUpWithFacebookPressed != null) {
+      return signUpWithFacebookPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignUpWithFacebookPressed implements SignUpFormEvent {
+  const factory _SignUpWithFacebookPressed() = _$_SignUpWithFacebookPressed;
+}
+
+/// @nodoc
+abstract class _$SignUpWithApplePressedCopyWith<$Res> {
+  factory _$SignUpWithApplePressedCopyWith(_SignUpWithApplePressed value,
+          $Res Function(_SignUpWithApplePressed) then) =
+      __$SignUpWithApplePressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SignUpWithApplePressedCopyWithImpl<$Res>
+    extends _$SignUpFormEventCopyWithImpl<$Res>
+    implements _$SignUpWithApplePressedCopyWith<$Res> {
+  __$SignUpWithApplePressedCopyWithImpl(_SignUpWithApplePressed _value,
+      $Res Function(_SignUpWithApplePressed) _then)
+      : super(_value, (v) => _then(v as _SignUpWithApplePressed));
+
+  @override
+  _SignUpWithApplePressed get _value => super._value as _SignUpWithApplePressed;
+}
+
+/// @nodoc
+
+class _$_SignUpWithApplePressed implements _SignUpWithApplePressed {
+  const _$_SignUpWithApplePressed();
+
+  @override
+  String toString() {
+    return 'SignUpFormEvent.signUpWithApplePressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _SignUpWithApplePressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) changeFirstName,
+    required TResult Function(String name) changeLastName,
+    required TResult Function(String email) changeEmail,
+    required TResult Function(String password) changePassword,
+    required TResult Function() showPassword,
+    required TResult Function(String password) changeConfirmPassword,
+    required TResult Function() showConfirmPassword,
+    required TResult Function() signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function() signUpWithGooglePressed,
+    required TResult Function() signUpWithFacebookPressed,
+    required TResult Function() signUpWithApplePressed,
+  }) {
+    return signUpWithApplePressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? changeFirstName,
+    TResult Function(String name)? changeLastName,
+    TResult Function(String email)? changeEmail,
+    TResult Function(String password)? changePassword,
+    TResult Function()? showPassword,
+    TResult Function(String password)? changeConfirmPassword,
+    TResult Function()? showConfirmPassword,
+    TResult Function()? signUpWithEmailPasswordAndOtherPressed,
+    TResult Function()? signUpWithGooglePressed,
+    TResult Function()? signUpWithFacebookPressed,
+    TResult Function()? signUpWithApplePressed,
+    required TResult orElse(),
+  }) {
+    if (signUpWithApplePressed != null) {
+      return signUpWithApplePressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeFirstName value) changeFirstName,
+    required TResult Function(_ChangeLastName value) changeLastName,
+    required TResult Function(_ChangeEmail value) changeEmail,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_ShowPassword value) showPassword,
+    required TResult Function(_ChangeConfirmPassword value)
+        changeConfirmPassword,
+    required TResult Function(_ShowConfirmPassword value) showConfirmPassword,
+    required TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)
+        signUpWithEmailPasswordAndOtherPressed,
+    required TResult Function(_SignUpWithGooglePressed value)
+        signUpWithGooglePressed,
+    required TResult Function(_SignUpWithFacebookPressed value)
+        signUpWithFacebookPressed,
+    required TResult Function(_SignUpWithApplePressed value)
+        signUpWithApplePressed,
+  }) {
+    return signUpWithApplePressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeFirstName value)? changeFirstName,
+    TResult Function(_ChangeLastName value)? changeLastName,
+    TResult Function(_ChangeEmail value)? changeEmail,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_ShowPassword value)? showPassword,
+    TResult Function(_ChangeConfirmPassword value)? changeConfirmPassword,
+    TResult Function(_ShowConfirmPassword value)? showConfirmPassword,
+    TResult Function(_SignUpWithEmailPasswordAndOtherPressed value)?
+        signUpWithEmailPasswordAndOtherPressed,
+    TResult Function(_SignUpWithGooglePressed value)? signUpWithGooglePressed,
+    TResult Function(_SignUpWithFacebookPressed value)?
+        signUpWithFacebookPressed,
+    TResult Function(_SignUpWithApplePressed value)? signUpWithApplePressed,
+    required TResult orElse(),
+  }) {
+    if (signUpWithApplePressed != null) {
+      return signUpWithApplePressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignUpWithApplePressed implements SignUpFormEvent {
+  const factory _SignUpWithApplePressed() = _$_SignUpWithApplePressed;
 }
 
 /// @nodoc

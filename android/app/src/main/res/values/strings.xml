@@ -3,4 +3,6 @@
   <string name="app_name">BNPJ - Buy Now Pay Japan</string>
   <string name="facebook_app_id">160947809212135</string>
   <string name="fb_login_protocol_scheme">fb160947809212135</string>
+  <string name="shared_user_id">nsp.platz.nitv.com</string>
+  <string name="shared_user_label">nsp.platz.nitv.com</string>
 </resources>

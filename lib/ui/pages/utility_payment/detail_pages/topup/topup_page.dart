@@ -265,7 +265,7 @@ class _TopUpPageState extends State<TopUpPage> {
                                 'Amount should be at least NPR ${Values.MIN_RECHARGE} and less than ${Values.MAX_RECHARGE}')
                         .show(context);
                     return;
-                  } else if (amtJPY > _balanceJPY) {
+                  } else if (amtJPY > _balanceJPY.toInt()) {
                     FlushbarHelper.createError(message: 'Insufficient balance!')
                         .show(context);
                   } else {

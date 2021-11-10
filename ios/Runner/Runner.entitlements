@@ -8,5 +8,9 @@
 	<array>
 		<string>Default</string>
 	</array>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.nsp.3platz.nitv.com</string>
+	</array>
 </dict>
 </plist>
