@@ -5,7 +5,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
-import 'package:wallet_app/features/utility_payments/presentation/tv/mero_tv/mero_tv_bloc.dart';
+import 'package:wallet_app/features/utility_payments/presentation/tv/tv_payment_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
@@ -58,10 +58,10 @@ class TVPaymentPage extends StatelessWidget {
           1 / (homedata.userDetail?.purchaseConversionRate ?? 1.067);
     }
     return BlocProvider(
-      create: (context) => getIt<MeroTvBloc>()
-        ..add(MeroTvEvent.started(
+      create: (context) => getIt<TvPaymentBloc>()
+        ..add(TvPaymentEvent.started(
             payData.id.toString(), payData.paymentType.toString())),
-      child: BlocConsumer<MeroTvBloc, MeroTvState>(
+      child: BlocConsumer<TvPaymentBloc, TvPaymentState>(
         listener: (context, state) {
           state.failureOrSuccessOption.fold(
             () => {},
@@ -108,7 +108,7 @@ class TVPaymentPage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const SizedBox(height: 20),
-                          BlocBuilder<MeroTvBloc, MeroTvState>(
+                          BlocBuilder<TvPaymentBloc, TvPaymentState>(
                             buildWhen: (previous, current) =>
                                 previous.customerId != current.customerId,
                             builder: (context, state) {
@@ -120,8 +120,9 @@ class TVPaymentPage extends StatelessWidget {
                                       maxlength: 20,
                                       hintText: 'XXXXXXXXXX',
                                       onChanged: (id) {
-                                        context.read<MeroTvBloc>().add(
-                                            MeroTvEvent.changeCustomerId(id));
+                                        context.read<TvPaymentBloc>().add(
+                                            TvPaymentEvent.changeCustomerId(
+                                                id));
                                       },
                                       value: state.customerId));
                             },
@@ -129,7 +130,7 @@ class TVPaymentPage extends StatelessWidget {
                           const SizedBox(
                             height: 8,
                           ),
-                          BlocBuilder<MeroTvBloc, MeroTvState>(
+                          BlocBuilder<TvPaymentBloc, TvPaymentState>(
                             buildWhen: (previous, current) =>
                                 previous.selectedPackage !=
                                 current.selectedPackage,
@@ -205,14 +206,14 @@ class TVPaymentPage extends StatelessWidget {
                                                       });
 
                                                       context
-                                                          .read<MeroTvBloc>()
-                                                          .add(MeroTvEvent
+                                                          .read<TvPaymentBloc>()
+                                                          .add(TvPaymentEvent
                                                               .changePackage(
                                                                   package));
                                                     } else {
                                                       context
-                                                          .read<MeroTvBloc>()
-                                                          .add(const MeroTvEvent
+                                                          .read<TvPaymentBloc>()
+                                                          .add(const TvPaymentEvent
                                                                   .changePackage(
                                                               null));
                                                     }
@@ -226,10 +227,10 @@ class TVPaymentPage extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0)),
                             onPressed: () {
-                              context.read<MeroTvBloc>().add(
+                              context.read<TvPaymentBloc>().add(
                                   state.customerInfo == null
-                                      ? const MeroTvEvent.enquire()
-                                      : const MeroTvEvent.payBill());
+                                      ? const TvPaymentEvent.enquire()
+                                      : const TvPaymentEvent.payBill());
                             },
                             color: Palette.primary,
                             textColor: Colors.white,

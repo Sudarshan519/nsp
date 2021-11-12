@@ -14,8 +14,8 @@ import 'package:wallet_app/features/utility_payments/data/models/payment_office_
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/enquiry_tv.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/pay_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/enquiry_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/pay_tv.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';

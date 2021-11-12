@@ -1,8 +1,8 @@
-part of 'mero_tv_bloc.dart';
+part of 'tv_payment_bloc.dart';
 
 @freezed
-class MeroTvState with _$MeroTvState {
-  const factory MeroTvState({
+class TvPaymentState with _$TvPaymentState {
+  const factory TvPaymentState({
     required Key key,
     required String customerId,
     required String amount,
@@ -13,9 +13,9 @@ class MeroTvState with _$MeroTvState {
     PaymentCustomerInfoModel? customerInfo,
     Package? selectedPackage,
     required bool isPaymentComplete,
-  }) = _MeroTvState;
+  }) = _TvPaymentState;
 
-  factory MeroTvState.initial() => MeroTvState(
+  factory TvPaymentState.initial() => TvPaymentState(
         customerId: '',
         isSubmitting: false,
         productId: '',

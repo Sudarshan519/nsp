@@ -10,8 +10,8 @@ import 'package:wallet_app/features/utility_payments/domain/entities/payment_off
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/enquiry_tv.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/pay_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/enquiry_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/pay_tv.dart';
 
 @LazySingleton(as: UtilityPaymentRepository)
 class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {

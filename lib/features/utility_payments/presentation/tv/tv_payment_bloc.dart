@@ -7,22 +7,23 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/enquiry_tv.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/pay_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/enquiry_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/pay_tv.dart';
 
-part 'mero_tv_event.dart';
-part 'mero_tv_state.dart';
-part 'mero_tv_bloc.freezed.dart';
+part 'tv_payment_event.dart';
+part 'tv_payment_state.dart';
+part 'tv_payment_bloc.freezed.dart';
 
 @injectable
-class MeroTvBloc extends Bloc<MeroTvEvent, MeroTvState> {
+class TvPaymentBloc extends Bloc<TvPaymentEvent, TvPaymentState> {
   final PayMeroTv payMeroTv;
   final EnquiryTv enquireMerotv;
 
-  MeroTvBloc(this.payMeroTv, this.enquireMerotv) : super(MeroTvState.initial());
+  TvPaymentBloc(this.payMeroTv, this.enquireMerotv)
+      : super(TvPaymentState.initial());
 
   @override
-  Stream<MeroTvState> mapEventToState(MeroTvEvent event) async* {
+  Stream<TvPaymentState> mapEventToState(TvPaymentEvent event) async* {
     yield* event.map(
       started: (e) async* {
         yield state.copyWith(
