@@ -50,7 +50,7 @@ import 'package:wallet_app/ui/pages/splash/splash_screen.dart';
 import 'package:wallet_app/ui/pages/tab_bar/tab_bar_screen.dart';
 import 'package:wallet_app/ui/pages/transactions/transaction_detail_page.dart';
 import 'package:wallet_app/ui/pages/transactions/transactions_page.dart';
-import 'package:wallet_app/ui/pages/utility_payment/detail_pages/tv/sim_tv/sim_tv.dart';
+import 'package:wallet_app/ui/pages/utility_payment/detail_pages/tv/mero_tv/mero_tv.dart';
 import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
 
 @MaterialAutoRouter(
@@ -112,7 +112,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: SetMpinPage),
     AutoRoute(page: VerifyNumber),
     AutoRoute(page: IspPage),
-    AutoRoute(page: SimTVPage),
+    AutoRoute(page: MeroTVPage),
   ],
 )
 class $AppRouter {}

@@ -2,51 +2,55 @@ import 'dart:convert';
 
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 
-PaymentCustomerInfoModel neaCustomerInfoFromJson(String str) =>
+PaymentCustomerInfoModel paymentCustomerInfoFromJson(String str) =>
     PaymentCustomerInfoModel.fromJson(
         json.decode(str)['data'] as Map<String, dynamic>);
 
 class PaymentCustomerInfoModel extends PaymentCustomerInfo {
-  PaymentCustomerInfoModel({
-    required String billNumber,
-    required String dueDate,
-    required String amount,
-    required String refstan,
-    required String customerName,
-    required String date,
-    required String account,
-    required String officeCode,
-    required String customerId,
-    required String productId,
-    required String mobileNumber,
-  }) : super(
-          billNumber: billNumber,
-          dueDate: dueDate,
-          amount: amount,
-          refstan: refstan,
-          customerName: customerName,
-          date: date,
-          account: account,
-          officeCode: officeCode,
-          customerId: customerId,
-          productId: productId,
-          mobileNumber: mobileNumber,
-        );
+  PaymentCustomerInfoModel(
+      {required String billNumber,
+      required String dueDate,
+      required String amount,
+      required String refstan,
+      required String customerName,
+      required String date,
+      required String account,
+      required String officeCode,
+      required String customerId,
+      required String productId,
+      required String mobileNumber,
+      required List<Package> packages})
+      : super(
+            billNumber: billNumber,
+            dueDate: dueDate,
+            amount: amount,
+            refstan: refstan,
+            customerName: customerName,
+            date: date,
+            account: account,
+            officeCode: officeCode,
+            customerId: customerId,
+            productId: productId,
+            mobileNumber: mobileNumber,
+            packages: packages);
 
   factory PaymentCustomerInfoModel.fromJson(Map<String, dynamic> json) =>
       PaymentCustomerInfoModel(
-        billNumber: json["bill_number"] as String? ?? '',
-        dueDate: json["due_date"] as String? ?? '',
-        amount: json["amount"] as String? ?? '',
-        refstan: json["refstan"] as String? ?? '',
-        customerName: json["customer_name"] as String? ?? '',
-        date: json["date"] as String? ?? '',
-        account: json["account"] as String? ?? '',
-        officeCode: json["office_code"] as String? ?? '',
-        customerId: json["customer_id"] as String? ?? '',
-        productId: json["product_id"] as String? ?? '',
-        mobileNumber: json["mobile_number"] as String? ?? '',
-      );
+          billNumber: json["bill_number"] as String? ?? '',
+          dueDate: json["due_date"] as String? ?? '',
+          amount: json["amount"].toString(),
+          refstan: json["refstan"] as String? ?? '',
+          customerName: json["customer_name"] as String? ?? '',
+          date: json["date"] as String? ?? '',
+          account: json["account"] as String? ?? '',
+          officeCode: json["office_code"] as String? ?? '',
+          customerId: json["customer_id"] as String? ?? '',
+          productId: json["product_id"] as String? ?? '',
+          mobileNumber: json["mobile_number"] as String? ?? '',
+          packages: json["packages"] == null
+              ? []
+              : List<Package>.from((json["packages"] as Iterable)
+                  .map((x) => Package.fromJson(x as Map<String, dynamic>))));
 
   Map<String, dynamic> toJson() => {
         "bill_number": billNumber,

@@ -92,9 +92,9 @@ class GridItem extends StatelessWidget {
               KhanepaniPaymentRoute(payData: paymentData),
             );
             break;
-          case UtilityPayementType.simtv:
+          case UtilityPayementType.merotv:
             context.pushRoute(
-              SimTVRoute(payData: paymentData),
+              MeroTVRoute(payData: paymentData),
             );
             break;
 

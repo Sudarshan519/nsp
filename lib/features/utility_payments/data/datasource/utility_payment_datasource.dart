@@ -14,6 +14,7 @@ import 'package:wallet_app/features/utility_payments/data/models/payment_office_
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/enquiry_mero_tv.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -52,11 +53,12 @@ abstract class UtilityPaymentDataSource {
   //for isp
   Future<dynamic> enquiryIsp(String user);
 
-  //for Simtv
-  Future<Unit> paySimTv(
-      {required String custId,
-      required String amount,
-      required String productId});
+  //for Merotv
+  Future<PaymentCustomerInfoModel> enquiryMerotv(EnquireMeroTvParams params);
+
+  Future<Unit> payMeroTv(
+      {required Package selectedPackage,
+      required PaymentCustomerInfoModel customerData});
 }
 
 @LazySingleton(as: UtilityPaymentDataSource)
@@ -331,7 +333,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final statusCode = response.statusCode;
     if (statusCode == 200) {
       try {
-        return neaCustomerInfoFromJson(response.body);
+        return paymentCustomerInfoFromJson(response.body);
       } catch (ex) {
         logger.log(
           className: "UtilityPaymentDataSource",
@@ -520,7 +522,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final statusCode = response.statusCode;
     if (statusCode == 200) {
       try {
-        return neaCustomerInfoFromJson(response.body);
+        return paymentCustomerInfoFromJson(response.body);
       } catch (ex) {
         logger.log(
           className: "UtilityPaymentDataSource",
@@ -552,10 +554,9 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
   }
 
   @override
-  Future<Unit> paySimTv(
-      {required String custId,
-      required String amount,
-      required String productId}) async {
+  Future<Unit> payMeroTv(
+      {required Package selectedPackage,
+      required PaymentCustomerInfoModel customerData}) async {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.simTVPay}";
 
@@ -565,12 +566,9 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
 
     http.Response response;
 
-    final params = {
-      'account': custId,
-      "amount": amount,
-      "product_id": productId,
-      "gps": getIt<GeoLocationManager>().gps, //optional
-    };
+    final params = customerData.toJson();
+    params['package_id'] = selectedPackage.packageId;
+    params['amount'] = selectedPackage.amount;
 
     try {
       response = await client.post(
@@ -588,7 +586,54 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     } else {
       logger.log(
         className: "UtilityPaymentDataSource",
-        functionName: "paySimTv()",
+        functionName: "payMeroTv()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+
+      throw ServerException(
+        message: errorMessageFromServerWithError(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<PaymentCustomerInfoModel> enquiryMerotv(
+      EnquireMeroTvParams params) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.simTVEnquiry}";
+
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(params.toJson()),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200 || statusCode == 201) {
+      try {
+        return paymentCustomerInfoFromJson(response.body);
+      } catch (e) {
+        throw const ServerException(
+          message: AppConstants.someThingWentWrong,
+        );
+        // TODO
+      }
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "enquireMeroTv()",
         errorText: "Status code: $statusCode",
         errorMessage: response.body,
       );

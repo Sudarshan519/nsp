@@ -18,7 +18,15 @@ class UtilityPaymentsApiEndpoints {
   static const khanepaniDetail = '$_khanePani/get_detail';
   static const khanepaniPay = '$_khanePani/pay';
 
-  static const simTVPay = '/utility_payments/simtv/pay';
+  // Sim Tv
+  static const _simTV = '/utility_payments/merotv';
+  static const simTVEnquiry = '$_simTV/get_detail';
+  static const simTVPay = '$_simTV/pay';
+
+  // Dishhome Tv
+  static const _dishhomeTV = '/utility_payments/dishhome';
+  static const dishhomeTVEnquiry = '$_dishhomeTV/get_detail';
+  static const dishhomeTVPay = '$_dishhomeTV/pay';
 }
 
 class UtilityPayementType {
@@ -26,7 +34,6 @@ class UtilityPayementType {
   static const mirai = 'mirai';
   static const electricity = 'electricity';
   static const khanepani = 'khanepani';
-  static const simtv = 'simtv';
-  static const dishome = 'dishome';
   static const merotv = 'merotv';
+  static const dishhome = 'dishhome';
 }

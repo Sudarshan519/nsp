@@ -1,22 +1,26 @@
-part of 'sim_tv_bloc.dart';
+part of 'mero_tv_bloc.dart';
 
 @freezed
-class SimTvState with _$SimTvState {
-  const factory SimTvState({
+class MeroTvState with _$MeroTvState {
+  const factory MeroTvState({
     required Key key,
     required String customerId,
     required String amount,
     required String productId,
     required bool isSubmitting,
     required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
-  }) = _SimTvState;
+    PaymentCustomerInfoModel? customerInfo,
+    Package? selectedPackage,
+    required bool isPaymentComplete,
+  }) = _MeroTvState;
 
-  factory SimTvState.initial() => SimTvState(
+  factory MeroTvState.initial() => MeroTvState(
         customerId: '',
         isSubmitting: false,
         productId: '',
         amount: '',
         failureOrSuccessOption: none(),
         key: UniqueKey(),
+        isPaymentComplete: false,
       );
 }

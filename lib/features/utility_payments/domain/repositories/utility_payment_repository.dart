@@ -2,9 +2,11 @@ import 'package:dartz/dartz.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
+import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_office.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/enquiry_mero_tv.dart';
 
 abstract class UtilityPaymentRepository {
   Future<Either<ApiFailure, Unit>> topupBalance({
@@ -38,8 +40,11 @@ abstract class UtilityPaymentRepository {
   });
 
   Future<Either<ApiFailure, dynamic>> enquiryIsp({required String username});
-  Future<Either<ApiFailure, Unit>> paySimTv(
-      {required String custId,
-      required String amount,
-      required String productId});
+
+  //mero tv
+  Future<Either<ApiFailure, PaymentCustomerInfoModel>> enquiryMeroTv(
+      EnquireMeroTvParams params);
+  Future<Either<ApiFailure, Unit>> payMeroTv(
+      {required Package selectedPackage,
+      required PaymentCustomerInfoModel customerData});
 }

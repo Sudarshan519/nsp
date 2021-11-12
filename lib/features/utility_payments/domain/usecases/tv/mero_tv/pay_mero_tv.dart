@@ -4,29 +4,31 @@ import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/payment_auth/payment_auth_service.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
+import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
+import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 
 @lazySingleton
-class PaySimTv implements Usecase<ApiFailure, Unit, PaySimTvParams> {
+class PayMeroTv implements Usecase<ApiFailure, Unit, PayMeroTvParams> {
   final NetworkInfo networkInfo;
   final UtilityPaymentRepository repository;
 
-  PaySimTv({
+  PayMeroTv({
     required this.networkInfo,
     required this.repository,
   });
 
   @override
-  Future<Either<ApiFailure, Unit>> call(PaySimTvParams params) async {
+  Future<Either<ApiFailure, Unit>> call(PayMeroTvParams params) async {
     final isConnected = await networkInfo.isConnected;
 
     if (!isConnected) {
       return const Left(ApiFailure.noInternetConnection());
     }
 
-    if (params.customerId.isEmpty || params.amount.isEmpty) {
+    if (params.selectedPackage == null) {
       return const Left(
-          ApiFailure.serverError(message: 'Please enter all fields!'));
+          ApiFailure.serverError(message: 'Please select a Package'));
     }
 
     final paymentAuthRes = await PaymentAuthService.authenticate(
@@ -35,20 +37,15 @@ class PaySimTv implements Usecase<ApiFailure, Unit, PaySimTvParams> {
       return Left(ApiFailure.serverError(message: paymentAuthRes.result));
     }
 
-    return repository.paySimTv(
-        amount: params.amount,
-        custId: params.customerId,
-        productId: params.productId);
+    return repository.payMeroTv(
+        customerData: params.customerInfo,
+        selectedPackage: params.selectedPackage!);
   }
 }
 
-class PaySimTvParams {
-  final String customerId;
-  final String amount;
-  final String productId;
+class PayMeroTvParams {
+  final PaymentCustomerInfoModel customerInfo;
+  final Package? selectedPackage;
 
-  PaySimTvParams(
-      {required this.customerId,
-      required this.amount,
-      required this.productId});
+  PayMeroTvParams({required this.customerInfo, this.selectedPackage});
 }
