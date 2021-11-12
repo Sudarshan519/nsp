@@ -88,7 +88,8 @@ import '../pages/utility_payment/detail_pages/internet/isp_page.dart' as _i54;
 import '../pages/utility_payment/detail_pages/khanepani/khanepani_page.dart'
     as _i50;
 import '../pages/utility_payment/detail_pages/topup/topup_page.dart' as _i34;
-import '../pages/utility_payment/detail_pages/tv/mero_tv/mero_tv.dart' as _i55;
+import '../pages/utility_payment/detail_pages/tv/payment/tv_payment_page.dart'
+    as _i55;
 import '../pages/webview/app_web_view.dart' as _i17;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -486,11 +487,11 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<IspRouteArgs>();
           return _i54.IspPage(key: args.key, ispTitle: args.ispTitle);
         }),
-    MeroTVRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    TVPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<MeroTVRouteArgs>();
-          return _i55.MeroTVPage(key: args.key, payData: args.payData);
+          final args = data.argsAs<TVPaymentRouteArgs>();
+          return _i55.TVPaymentPage(key: args.key, payData: args.payData);
         })
   };
 
@@ -578,7 +579,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SetMpinRoute.name, path: '/set-mpin-page'),
         _i1.RouteConfig(VerifyNumber.name, path: '/verify-number'),
         _i1.RouteConfig(IspRoute.name, path: '/isp-page'),
-        _i1.RouteConfig(MeroTVRoute.name, path: '/mero-tv-page')
+        _i1.RouteConfig(TVPaymentRoute.name, path: '/t-vpayment-page')
       ];
 }
 
@@ -1552,17 +1553,17 @@ class IspRouteArgs {
   final String ispTitle;
 }
 
-class MeroTVRoute extends _i1.PageRouteInfo<MeroTVRouteArgs> {
-  MeroTVRoute({_i2.Key? key, required _i65.UtilityPaymentsModel payData})
+class TVPaymentRoute extends _i1.PageRouteInfo<TVPaymentRouteArgs> {
+  TVPaymentRoute({_i2.Key? key, required _i65.UtilityPaymentsModel payData})
       : super(name,
-            path: '/mero-tv-page',
-            args: MeroTVRouteArgs(key: key, payData: payData));
+            path: '/t-vpayment-page',
+            args: TVPaymentRouteArgs(key: key, payData: payData));
 
-  static const String name = 'MeroTVRoute';
+  static const String name = 'TVPaymentRoute';
 }
 
-class MeroTVRouteArgs {
-  const MeroTVRouteArgs({this.key, required this.payData});
+class TVPaymentRouteArgs {
+  const TVPaymentRouteArgs({this.key, required this.payData});
 
   final _i2.Key? key;
 

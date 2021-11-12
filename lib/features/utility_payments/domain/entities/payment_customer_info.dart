@@ -40,7 +40,11 @@ class Package {
 
   Package.fromJson(Map<String, dynamic> json) {
     packageId = (json['package_id'] as String?) ?? '';
-    amount = (json['amount'] as double?) ?? 0.0;
+    try {
+      amount = double.parse(json['amount'].toString());
+    } catch (e) {
+      amount = 0.0;
+    }
     packageName = (json['package_name'] as String?) ?? '';
   }
 

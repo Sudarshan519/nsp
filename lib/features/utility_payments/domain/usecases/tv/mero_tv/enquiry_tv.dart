@@ -7,19 +7,18 @@ import 'package:wallet_app/features/utility_payments/data/models/payment_custome
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 
 @lazySingleton
-class EnquiryMeroTv
-    implements Usecase<ApiFailure, dynamic, EnquireMeroTvParams> {
+class EnquiryTv implements Usecase<ApiFailure, dynamic, EnquireTvParams> {
   final NetworkInfo networkInfo;
   final UtilityPaymentRepository repository;
 
-  EnquiryMeroTv({
+  EnquiryTv({
     required this.networkInfo,
     required this.repository,
   });
 
   @override
   Future<Either<ApiFailure, PaymentCustomerInfoModel>> call(
-      EnquireMeroTvParams params) async {
+      EnquireTvParams params) async {
     final isConnected = await networkInfo.isConnected;
 
     if (!isConnected) {
@@ -30,15 +29,20 @@ class EnquiryMeroTv
           ServerError(message: 'Please enter account number or customer id!'));
     }
 
-    return repository.enquiryMeroTv(params);
+    return repository.enquiryTv(params);
   }
 }
 
-class EnquireMeroTvParams {
+class EnquireTvParams {
   final String account;
   final String productId;
+  final String provider;
 
-  EnquireMeroTvParams({required this.account, required this.productId});
+  EnquireTvParams({
+    required this.account,
+    required this.productId,
+    required this.provider,
+  });
 
   Map<String, dynamic> toJson() => {
         'account': account,

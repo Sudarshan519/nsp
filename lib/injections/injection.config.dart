@@ -317,7 +317,7 @@ import '../features/utility_payments/data/repository/utility_payment_repository.
 import '../features/utility_payments/domain/repositories/utility_payment_repository.dart'
     as _i114;
 import '../features/utility_payments/domain/usecases/electicity/enquiry_nea.dart'
-    as _i145;
+    as _i144;
 import '../features/utility_payments/domain/usecases/electicity/get_nea_offices.dart'
     as _i159;
 import '../features/utility_payments/domain/usecases/electicity/pay_nea.dart'
@@ -336,9 +336,9 @@ import '../features/utility_payments/domain/usecases/purchase_subscription_from_
     as _i190;
 import '../features/utility_payments/domain/usecases/topup_balance_for_mobile.dart'
     as _i199;
-import '../features/utility_payments/domain/usecases/tv/mero_tv/enquiry_mero_tv.dart'
-    as _i144;
-import '../features/utility_payments/domain/usecases/tv/mero_tv/pay_mero_tv.dart'
+import '../features/utility_payments/domain/usecases/tv/mero_tv/enquiry_tv.dart'
+    as _i145;
+import '../features/utility_payments/domain/usecases/tv/mero_tv/pay_tv.dart'
     as _i188;
 import '../features/utility_payments/presentation/electricity/bloc/nea_payment_bloc.dart'
     as _i217;
@@ -756,10 +756,10 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i143.EnquiryIsp>(() => _i143.EnquiryIsp(
       networkInfo: get<_i14.NetworkInfo>(),
       repository: get<_i114.UtilityPaymentRepository>()));
-  gh.lazySingleton<_i144.EnquiryMeroTv>(() => _i144.EnquiryMeroTv(
+  gh.lazySingleton<_i144.EnquiryNea>(() => _i144.EnquiryNea(
       networkInfo: get<_i14.NetworkInfo>(),
       repository: get<_i114.UtilityPaymentRepository>()));
-  gh.lazySingleton<_i145.EnquiryNea>(() => _i145.EnquiryNea(
+  gh.lazySingleton<_i145.EnquiryTv>(() => _i145.EnquiryTv(
       networkInfo: get<_i14.NetworkInfo>(),
       repository: get<_i114.UtilityPaymentRepository>()));
   gh.lazySingleton<_i146.GetAds>(() => _i146.GetAds(
@@ -945,10 +945,10 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
           getJpMannerDetail: get<_i214.GetJapaneseMannerDetail>()));
   gh.factory<_i215.KhanepaniPaymentBloc>(() => _i215.KhanepaniPaymentBloc(
       get<_i142.EnquireKhanepani>(), get<_i187.PayKhanepani>()));
-  gh.factory<_i216.MeroTvBloc>(() =>
-      _i216.MeroTvBloc(get<_i188.PayMeroTv>(), get<_i144.EnquiryMeroTv>()));
+  gh.factory<_i216.MeroTvBloc>(
+      () => _i216.MeroTvBloc(get<_i188.PayMeroTv>(), get<_i145.EnquiryTv>()));
   gh.factory<_i217.NeaPaymentBloc>(
-      () => _i217.NeaPaymentBloc(get<_i145.EnquiryNea>(), get<_i189.PayNea>()));
+      () => _i217.NeaPaymentBloc(get<_i144.EnquiryNea>(), get<_i189.PayNea>()));
   gh.factory<_i218.NotificationsBloc>(() =>
       _i218.NotificationsBloc(getNotifications: get<_i207.GetNotifications>()));
   gh.factory<_i219.RewardPointBloc>(() =>

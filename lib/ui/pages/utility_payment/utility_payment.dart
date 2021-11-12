@@ -94,7 +94,22 @@ class GridItem extends StatelessWidget {
             break;
           case UtilityPayementType.merotv:
             context.pushRoute(
-              MeroTVRoute(payData: paymentData),
+              TVPaymentRoute(payData: paymentData),
+            );
+            break;
+          case UtilityPayementType.dishhome:
+            context.pushRoute(
+              TVPaymentRoute(payData: paymentData),
+            );
+            break;
+          case UtilityPayementType.simtv:
+            context.pushRoute(
+              TVPaymentRoute(payData: paymentData),
+            );
+            break;
+          case UtilityPayementType.prabhutv:
+            context.pushRoute(
+              TVPaymentRoute(payData: paymentData),
             );
             break;
 

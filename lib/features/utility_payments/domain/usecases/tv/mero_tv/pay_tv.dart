@@ -9,7 +9,7 @@ import 'package:wallet_app/features/utility_payments/domain/entities/payment_cus
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 
 @lazySingleton
-class PayMeroTv implements Usecase<ApiFailure, Unit, PayMeroTvParams> {
+class PayMeroTv implements Usecase<ApiFailure, Unit, PayTvParams> {
   final NetworkInfo networkInfo;
   final UtilityPaymentRepository repository;
 
@@ -19,7 +19,7 @@ class PayMeroTv implements Usecase<ApiFailure, Unit, PayMeroTvParams> {
   });
 
   @override
-  Future<Either<ApiFailure, Unit>> call(PayMeroTvParams params) async {
+  Future<Either<ApiFailure, Unit>> call(PayTvParams params) async {
     final isConnected = await networkInfo.isConnected;
 
     if (!isConnected) {
@@ -37,15 +37,18 @@ class PayMeroTv implements Usecase<ApiFailure, Unit, PayMeroTvParams> {
       return Left(ApiFailure.serverError(message: paymentAuthRes.result));
     }
 
-    return repository.payMeroTv(
-        customerData: params.customerInfo,
-        selectedPackage: params.selectedPackage!);
+    return repository.payTv(params);
   }
 }
 
-class PayMeroTvParams {
+class PayTvParams {
   final PaymentCustomerInfoModel customerInfo;
   final Package? selectedPackage;
+  final String provider;
 
-  PayMeroTvParams({required this.customerInfo, this.selectedPackage});
+  PayTvParams({
+    required this.customerInfo,
+    this.selectedPackage,
+    required this.provider,
+  });
 }

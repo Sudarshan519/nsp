@@ -18,10 +18,10 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
 
-class MeroTVPage extends StatelessWidget {
+class TVPaymentPage extends StatelessWidget {
   final UtilityPaymentsModel payData;
 
-  const MeroTVPage({Key? key, required this.payData}) : super(key: key);
+  const TVPaymentPage({Key? key, required this.payData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +58,9 @@ class MeroTVPage extends StatelessWidget {
           1 / (homedata.userDetail?.purchaseConversionRate ?? 1.067);
     }
     return BlocProvider(
-      create: (context) =>
-          getIt<MeroTvBloc>()..add(MeroTvEvent.started(payData.id.toString())),
+      create: (context) => getIt<MeroTvBloc>()
+        ..add(MeroTvEvent.started(
+            payData.id.toString(), payData.paymentType.toString())),
       child: BlocConsumer<MeroTvBloc, MeroTvState>(
         listener: (context, state) {
           state.failureOrSuccessOption.fold(
@@ -158,37 +159,64 @@ class MeroTVPage extends StatelessWidget {
                                                         _conversionRate)
                                                     .toStringAsFixed(1)),
                                         const SizedBox(height: 8),
-                                        TextWidetWithLabelAndChild(
-                                            title: 'Package',
-                                            child: CustomDropDownWidget(
-                                                hintText: state.selectedPackage
-                                                        ?.packageName ??
-                                                    'Select package',
-                                                options: state
-                                                    .customerInfo!.packages
-                                                    .map((e) => e.packageName)
-                                                    .toList(),
-                                                onChanged: (s) {
-                                                  if (s.isNotEmpty) {
-                                                    final package = state
-                                                        .customerInfo!.packages
-                                                        .firstWhere((element) =>
-                                                            element.packageName
-                                                                .contains(s));
+                                        if (state.customerInfo?.packages
+                                                .isNotEmpty ??
+                                            false)
+                                          TextWidetWithLabelAndChild(
+                                              title: 'Package',
+                                              child: CustomDropDownWidget(
+                                                  hintText: state
+                                                              .selectedPackage !=
+                                                          null
+                                                      ? (state
+                                                                  .selectedPackage
+                                                                  ?.packageName
+                                                                  .isNotEmpty ??
+                                                              false)
+                                                          ? state
+                                                              .selectedPackage!
+                                                              .packageName
+                                                          : (state
+                                                              .selectedPackage!
+                                                              .amount
+                                                              .toString())
+                                                      : 'Select package',
+                                                  options: state
+                                                      .customerInfo!.packages
+                                                      .map((e) => e.packageName
+                                                              .isNotEmpty
+                                                          ? e.packageName
+                                                          : e.amount.toString())
+                                                      .toList(),
+                                                  onChanged: (s) {
+                                                    if (s.isNotEmpty) {
+                                                      final package = state
+                                                          .customerInfo!
+                                                          .packages
+                                                          .firstWhere((e) {
+                                                        final check = e
+                                                                .packageName
+                                                                .isNotEmpty
+                                                            ? e.packageName
+                                                            : e.amount
+                                                                .toString();
 
-                                                    context
-                                                        .read<MeroTvBloc>()
-                                                        .add(MeroTvEvent
-                                                            .changePackage(
-                                                                package));
-                                                  } else {
-                                                    context
-                                                        .read<MeroTvBloc>()
-                                                        .add(const MeroTvEvent
-                                                                .changePackage(
-                                                            null));
-                                                  }
-                                                })),
+                                                        return s == check;
+                                                      });
+
+                                                      context
+                                                          .read<MeroTvBloc>()
+                                                          .add(MeroTvEvent
+                                                              .changePackage(
+                                                                  package));
+                                                    } else {
+                                                      context
+                                                          .read<MeroTvBloc>()
+                                                          .add(const MeroTvEvent
+                                                                  .changePackage(
+                                                              null));
+                                                    }
+                                                  })),
                                       ],
                                     );
                             },
@@ -223,13 +251,15 @@ class MeroTVPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
             style: const TextStyle(fontWeight: FontWeight.w600),
           ),
-          Text(value ?? ''),
+          const SizedBox(width: 8),
+          Flexible(child: Text(value ?? '', textAlign: TextAlign.right)),
         ],
       ),
     );

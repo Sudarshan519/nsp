@@ -14,7 +14,8 @@ import 'package:wallet_app/features/utility_payments/data/models/payment_office_
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/enquiry_mero_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/enquiry_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/pay_tv.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -54,11 +55,9 @@ abstract class UtilityPaymentDataSource {
   Future<dynamic> enquiryIsp(String user);
 
   //for Merotv
-  Future<PaymentCustomerInfoModel> enquiryMerotv(EnquireMeroTvParams params);
+  Future<PaymentCustomerInfoModel> enquiryTV(EnquireTvParams params);
 
-  Future<Unit> payMeroTv(
-      {required Package selectedPackage,
-      required PaymentCustomerInfoModel customerData});
+  Future<Unit> payTv(PayTvParams params);
 }
 
 @LazySingleton(as: UtilityPaymentDataSource)
@@ -554,11 +553,9 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
   }
 
   @override
-  Future<Unit> payMeroTv(
-      {required Package selectedPackage,
-      required PaymentCustomerInfoModel customerData}) async {
+  Future<Unit> payTv(PayTvParams params) async {
     final url =
-        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.simTVPay}";
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.tvPay(params.provider)}";
 
     final accessToken = auth.getWalletUser().accessToken;
 
@@ -566,15 +563,17 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
 
     http.Response response;
 
-    final params = customerData.toJson();
-    params['package_id'] = selectedPackage.packageId;
-    params['amount'] = selectedPackage.amount;
+    final body = params.customerInfo.toJson();
+    if (params.selectedPackage != null) {
+      body['package_id'] = params.selectedPackage!.packageId;
+      body['amount'] = params.selectedPackage!.amount;
+    }
 
     try {
       response = await client.post(
         Uri.parse(url),
         headers: _header,
-        body: json.encode(params),
+        body: json.encode(body),
       );
     } catch (ex) {
       throw ServerException(message: ex.toString());
@@ -586,7 +585,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     } else {
       logger.log(
         className: "UtilityPaymentDataSource",
-        functionName: "payMeroTv()",
+        functionName: "payTv()",
         errorText: "Status code: $statusCode",
         errorMessage: response.body,
       );
@@ -599,10 +598,9 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
   }
 
   @override
-  Future<PaymentCustomerInfoModel> enquiryMerotv(
-      EnquireMeroTvParams params) async {
+  Future<PaymentCustomerInfoModel> enquiryTV(EnquireTvParams params) async {
     final url =
-        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.simTVEnquiry}";
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.tvEnquiry(params.provider)}";
 
     final accessToken = auth.getWalletUser().accessToken;
 
@@ -625,6 +623,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       try {
         return paymentCustomerInfoFromJson(response.body);
       } catch (e) {
+        print(e.toString());
         throw const ServerException(
           message: AppConstants.someThingWentWrong,
         );

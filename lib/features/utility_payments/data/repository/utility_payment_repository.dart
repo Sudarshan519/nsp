@@ -6,12 +6,12 @@ import 'package:wallet_app/features/partner_services/data/model/service_subscrip
 import 'package:wallet_app/features/partner_services/domain/entities/service_subscription.dart';
 import 'package:wallet_app/features/utility_payments/data/datasource/utility_payment_datasource.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
-import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_office.dart';
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/enquiry_mero_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/enquiry_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/mero_tv/pay_tv.dart';
 
 @LazySingleton(as: UtilityPaymentRepository)
 class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
@@ -147,22 +147,19 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
   }
 
   @override
-  Future<Either<ApiFailure, Unit>> payMeroTv(
-      {required Package selectedPackage,
-      required PaymentCustomerInfoModel customerData}) async {
+  Future<Either<ApiFailure, Unit>> payTv(PayTvParams params) async {
     try {
-      return Right(await dataSource.payMeroTv(
-          selectedPackage: selectedPackage, customerData: customerData));
+      return Right(await dataSource.payTv(params));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
   }
 
   @override
-  Future<Either<ApiFailure, PaymentCustomerInfoModel>> enquiryMeroTv(
-      EnquireMeroTvParams params) async {
+  Future<Either<ApiFailure, PaymentCustomerInfoModel>> enquiryTv(
+      EnquireTvParams params) async {
     try {
-      return Right(await dataSource.enquiryMerotv(params));
+      return Right(await dataSource.enquiryTV(params));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }
