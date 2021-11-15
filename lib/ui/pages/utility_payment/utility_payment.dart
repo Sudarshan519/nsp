@@ -144,6 +144,21 @@ class GridItem extends StatelessWidget {
               ISPPaymentRoute(payData: paymentData),
             );
             break;
+          case UtilityPayementType.pals:
+            context.pushRoute(
+              ISPPaymentRoute(payData: paymentData),
+            );
+            break;
+          case UtilityPayementType.broadlink:
+            context.pushRoute(
+              ISPPaymentRoute(payData: paymentData),
+            );
+            break;
+          case UtilityPayementType.websurfer:
+            context.pushRoute(
+              ISPPaymentRoute(payData: paymentData),
+            );
+            break;
           //ISP end
 
           default:

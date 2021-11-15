@@ -11,6 +11,7 @@ import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
+import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
@@ -152,29 +153,45 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                                   ? const SizedBox()
                                   : Column(
                                       children: [
-                                        if (isConfirmPage)
-                                          infoView('Customer ID',
-                                              state.customerInfo?.account),
-                                        infoView('Customer Name',
-                                            state.customerInfo?.customerName),
-                                        infoView(
-                                            'Due Date',
-                                            DateTimeFormatter.formatDate(
-                                                state.customerInfo?.dueDate ??
-                                                    '')),
-                                        infoView(
-                                            'Amount NPR',
-                                            state.selectedPackage?.amount
-                                                    .toString() ??
-                                                'Select package'),
-                                        infoView(
-                                            'Amount JPY',
-                                            state.selectedPackage == null
-                                                ? 'Select package'
-                                                : (state.selectedPackage!
-                                                            .amount /
-                                                        _conversionRate)
-                                                    .toStringAsFixed(1)),
+                                        ShadowBoxWidget(
+                                          child: Column(
+                                            children: [
+                                              if (isConfirmPage)
+                                                infoView(
+                                                    'Customer ID',
+                                                    state
+                                                        .customerInfo?.account),
+                                              infoView(
+                                                  'Customer Name',
+                                                  state.customerInfo
+                                                      ?.customerName),
+                                              infoView(
+                                                  'Due Date',
+                                                  DateTimeFormatter.formatDate(
+                                                      state.customerInfo
+                                                              ?.dueDate ??
+                                                          '')),
+                                              if (state.selectedPackage != null)
+                                                infoView(
+                                                    'Amount NPR',
+                                                    state.selectedPackage
+                                                            ?.amount
+                                                            .toString() ??
+                                                        'Select package'),
+                                              if (state.selectedPackage != null)
+                                                infoView(
+                                                    'Amount JPY',
+                                                    state.selectedPackage ==
+                                                            null
+                                                        ? 'Select package'
+                                                        : (state.selectedPackage!
+                                                                    .amount /
+                                                                _conversionRate)
+                                                            .toStringAsFixed(
+                                                                1)),
+                                            ],
+                                          ),
+                                        ),
                                         const SizedBox(height: 8),
                                         if ((state.customerInfo?.packages
                                                     .isNotEmpty ??

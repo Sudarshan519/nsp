@@ -70,12 +70,14 @@ class TvPaymentBloc extends Bloc<TvPaymentEvent, TvPaymentState> {
             customerInfo: data,
             customerId: state.customerId,
             productId: state.productId,
-            selectedPackage: data.packages.isNotEmpty
+            selectedPackage: data.packages.length == 1
                 ? data.packages.first
-                : Package(
-                    packageId: '',
-                    amount: double.parse(data.amount),
-                    packageName: ''),
+                : data.packages.isEmpty
+                    ? Package(
+                        packageId: '',
+                        amount: double.parse(data.amount),
+                        packageName: '')
+                    : null,
             key: UniqueKey(),
             isSubmitting: false,
             failureOrSuccessOption: optionOf(const Right(unit)),

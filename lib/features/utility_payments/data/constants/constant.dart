@@ -46,4 +46,7 @@ class UtilityPayementType {
   static const prabhunet = 'prabhunet';
   static const arrownet = 'arrownet';
   static const loopnetwork = 'loopnetwork';
+  static const pals = 'pals';
+  static const websurfer = 'websurfer';
+  static const broadlink = 'broadlink';
 }
