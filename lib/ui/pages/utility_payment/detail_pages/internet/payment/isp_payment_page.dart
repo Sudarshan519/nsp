@@ -5,7 +5,7 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/profile/balance/presentation/get_balance_bloc.dart';
 import 'package:wallet_app/features/transaction/presentation/transaction/transaction_bloc.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
-import 'package:wallet_app/features/utility_payments/presentation/tv/tv_payment_bloc.dart';
+import 'package:wallet_app/features/utility_payments/presentation/isp/isp_payment_bloc.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/balance_widgets.dart';
 import 'package:wallet_app/ui/pages/add_balance/widget/text_widget_label_and_child.dart';
@@ -18,16 +18,16 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
 
-class TVPaymentPage extends StatefulWidget {
+class ISPPaymentPage extends StatefulWidget {
   final UtilityPaymentsModel payData;
 
-  const TVPaymentPage({Key? key, required this.payData}) : super(key: key);
+  const ISPPaymentPage({Key? key, required this.payData}) : super(key: key);
 
   @override
-  _TVPaymentPageState createState() => _TVPaymentPageState();
+  _ISPPaymentPageState createState() => _ISPPaymentPageState();
 }
 
-class _TVPaymentPageState extends State<TVPaymentPage> {
+class _ISPPaymentPageState extends State<ISPPaymentPage> {
   bool isConfirmPage = false;
   @override
   Widget build(BuildContext context) {
@@ -71,10 +71,10 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
           1 / (homedata.userDetail?.purchaseConversionRate ?? 1.067);
     }
     return BlocProvider(
-      create: (context) => getIt<TvPaymentBloc>()
-        ..add(TvPaymentEvent.started(widget.payData.id.toString(),
+      create: (context) => getIt<ISPPaymentBloc>()
+        ..add(ISPPaymentEvent.started(widget.payData.id.toString(),
             widget.payData.paymentType.toString())),
-      child: BlocConsumer<TvPaymentBloc, TvPaymentState>(
+      child: BlocConsumer<ISPPaymentBloc, ISPPaymentState>(
         listener: (context, state) {
           state.failureOrSuccessOption.fold(
             () => {},
@@ -122,7 +122,7 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                         children: [
                           const SizedBox(height: 20),
                           if (!isConfirmPage)
-                            BlocBuilder<TvPaymentBloc, TvPaymentState>(
+                            BlocBuilder<ISPPaymentBloc, ISPPaymentState>(
                               buildWhen: (previous, current) =>
                                   previous.customerId != current.customerId,
                               builder: (context, state) {
@@ -134,8 +134,8 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                                         maxlength: 22,
                                         hintText: 'Customer Id',
                                         onChanged: (id) {
-                                          context.read<TvPaymentBloc>().add(
-                                              TvPaymentEvent.changeCustomerId(
+                                          context.read<ISPPaymentBloc>().add(
+                                              ISPPaymentEvent.changeCustomerId(
                                                   id));
                                         },
                                         value: state.customerId));
@@ -144,7 +144,7 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                           const SizedBox(
                             height: 8,
                           ),
-                          BlocBuilder<TvPaymentBloc, TvPaymentState>(
+                          BlocBuilder<ISPPaymentBloc, ISPPaymentState>(
                             buildWhen: (previous, current) =>
                                 previous.selectedPackage !=
                                 current.selectedPackage,
@@ -224,14 +224,16 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                                                       });
 
                                                       context
-                                                          .read<TvPaymentBloc>()
-                                                          .add(TvPaymentEvent
+                                                          .read<
+                                                              ISPPaymentBloc>()
+                                                          .add(ISPPaymentEvent
                                                               .changePackage(
                                                                   package));
                                                     } else {
                                                       context
-                                                          .read<TvPaymentBloc>()
-                                                          .add(const TvPaymentEvent
+                                                          .read<
+                                                              ISPPaymentBloc>()
+                                                          .add(const ISPPaymentEvent
                                                                   .changePackage(
                                                               null));
                                                     }
@@ -247,16 +249,16 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                             onPressed: () {
                               if (state.customerInfo == null) {
                                 context
-                                    .read<TvPaymentBloc>()
-                                    .add(const TvPaymentEvent.enquire());
+                                    .read<ISPPaymentBloc>()
+                                    .add(const ISPPaymentEvent.enquire());
                               } else if (!isConfirmPage) {
                                 setState(() {
                                   isConfirmPage = true;
                                 });
                               } else {
                                 context
-                                    .read<TvPaymentBloc>()
-                                    .add(const TvPaymentEvent.payBill());
+                                    .read<ISPPaymentBloc>()
+                                    .add(const ISPPaymentEvent.payBill());
                               }
                             },
                             color: Palette.primary,

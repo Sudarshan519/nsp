@@ -24,6 +24,9 @@ class UtilityPaymentsApiEndpoints {
   static String tvPay(String provider) => '/utility_payments/$provider/pay';
 
   //Internet
+  static String ispEnquiry(String provider) =>
+      '/utility_payments/$provider/get_detail';
+  static String ispPay(String provider) => '/utility_payments/$provider/pay';
 }
 
 class UtilityPayementType {
@@ -36,4 +39,10 @@ class UtilityPayementType {
   static const dishhome = 'dishhome';
   static const simtv = 'simtv';
   static const prabhutv = 'prabhutv';
+
+  //internet
+  static const worldlink = 'worldlink';
+  static const vianet = 'vianet';
+  static const prabhunet = 'prabhunet';
+  static const arrownet = 'arrownet';
 }

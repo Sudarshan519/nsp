@@ -9,17 +9,17 @@ import 'package:wallet_app/features/utility_payments/domain/entities/payment_cus
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 
 @lazySingleton
-class PayTv implements Usecase<ApiFailure, Unit, PayTvParams> {
+class PayISP implements Usecase<ApiFailure, Unit, PayISPParams> {
   final NetworkInfo networkInfo;
   final UtilityPaymentRepository repository;
 
-  PayTv({
+  PayISP({
     required this.networkInfo,
     required this.repository,
   });
 
   @override
-  Future<Either<ApiFailure, Unit>> call(PayTvParams params) async {
+  Future<Either<ApiFailure, Unit>> call(PayISPParams params) async {
     final isConnected = await networkInfo.isConnected;
 
     if (!isConnected) {
@@ -32,21 +32,21 @@ class PayTv implements Usecase<ApiFailure, Unit, PayTvParams> {
     }
 
     final paymentAuthRes = await PaymentAuthService.authenticate(
-        'Please Verify authentication for ${params.provider} Payment');
+        'Please Verify authentication for ISP Payment');
     if (!paymentAuthRes.success) {
       return Left(ApiFailure.serverError(message: paymentAuthRes.result));
     }
 
-    return repository.payTv(params);
+    return repository.payISP(params);
   }
 }
 
-class PayTvParams {
+class PayISPParams {
   final PaymentCustomerInfoModel customerInfo;
   final Package? selectedPackage;
   final String provider;
 
-  PayTvParams({
+  PayISPParams({
     required this.customerInfo,
     this.selectedPackage,
     required this.provider,

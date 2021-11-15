@@ -84,7 +84,8 @@ import '../pages/transactions/transaction_detail_page.dart' as _i37;
 import '../pages/transactions/transactions_page.dart' as _i36;
 import '../pages/utility_payment/detail_pages/electricity/nea_page.dart'
     as _i49;
-import '../pages/utility_payment/detail_pages/internet/isp_page.dart' as _i54;
+import '../pages/utility_payment/detail_pages/internet/payment/isp_payment_page.dart'
+    as _i54;
 import '../pages/utility_payment/detail_pages/khanepani/khanepani_page.dart'
     as _i50;
 import '../pages/utility_payment/detail_pages/topup/topup_page.dart' as _i34;
@@ -481,11 +482,11 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return const _i53.VerifyNumber();
         }),
-    IspRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    ISPPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<IspRouteArgs>();
-          return _i54.IspPage(key: args.key, ispTitle: args.ispTitle);
+          final args = data.argsAs<ISPPaymentRouteArgs>();
+          return _i54.ISPPaymentPage(key: args.key, payData: args.payData);
         }),
     TVPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -578,7 +579,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SecurityRoute.name, path: '/security-page'),
         _i1.RouteConfig(SetMpinRoute.name, path: '/set-mpin-page'),
         _i1.RouteConfig(VerifyNumber.name, path: '/verify-number'),
-        _i1.RouteConfig(IspRoute.name, path: '/isp-page'),
+        _i1.RouteConfig(ISPPaymentRoute.name, path: '/i-sp-payment-page'),
         _i1.RouteConfig(TVPaymentRoute.name, path: '/t-vpayment-page')
       ];
 }
@@ -1536,21 +1537,21 @@ class VerifyNumber extends _i1.PageRouteInfo {
   static const String name = 'VerifyNumber';
 }
 
-class IspRoute extends _i1.PageRouteInfo<IspRouteArgs> {
-  IspRoute({_i2.Key? key, required String ispTitle})
+class ISPPaymentRoute extends _i1.PageRouteInfo<ISPPaymentRouteArgs> {
+  ISPPaymentRoute({_i2.Key? key, required _i65.UtilityPaymentsModel payData})
       : super(name,
-            path: '/isp-page',
-            args: IspRouteArgs(key: key, ispTitle: ispTitle));
+            path: '/i-sp-payment-page',
+            args: ISPPaymentRouteArgs(key: key, payData: payData));
 
-  static const String name = 'IspRoute';
+  static const String name = 'ISPPaymentRoute';
 }
 
-class IspRouteArgs {
-  const IspRouteArgs({this.key, required this.ispTitle});
+class ISPPaymentRouteArgs {
+  const ISPPaymentRouteArgs({this.key, required this.payData});
 
   final _i2.Key? key;
 
-  final String ispTitle;
+  final _i65.UtilityPaymentsModel payData;
 }
 
 class TVPaymentRoute extends _i1.PageRouteInfo<TVPaymentRouteArgs> {

@@ -26,7 +26,7 @@ import 'package:wallet_app/ui/pages/settings/security/set_mpin_page.dart';
 import 'package:wallet_app/ui/pages/settings/security/verify_number.dart';
 import 'package:wallet_app/ui/pages/settings/settings_page.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/electricity/nea_page.dart';
-import 'package:wallet_app/ui/pages/utility_payment/detail_pages/internet/isp_page.dart';
+import 'package:wallet_app/ui/pages/utility_payment/detail_pages/internet/payment/isp_payment_page.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/khanepani/khanepani_page.dart';
 import 'package:wallet_app/ui/pages/utility_payment/detail_pages/topup/topup_page.dart';
 import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_detail.dart';
@@ -111,7 +111,7 @@ import 'package:wallet_app/ui/pages/webview/app_web_view.dart';
     AutoRoute(page: SecurityPage),
     AutoRoute(page: SetMpinPage),
     AutoRoute(page: VerifyNumber),
-    AutoRoute(page: IspPage),
+    AutoRoute(page: ISPPaymentPage),
     AutoRoute(page: TVPaymentPage),
   ],
 )

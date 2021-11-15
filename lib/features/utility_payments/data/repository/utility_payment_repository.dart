@@ -9,6 +9,8 @@ import 'package:wallet_app/features/utility_payments/data/models/payment_custome
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_office.dart';
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/isp/enquiry_isp.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/isp/pay_isp.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/tv/enquiry_tv.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/tv/pay_tv.dart';
@@ -160,6 +162,25 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
       EnquireTvParams params) async {
     try {
       return Right(await dataSource.enquiryTV(params));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, Unit>> payISP(PayISPParams params) async {
+    try {
+      return Right(await dataSource.payISP(params));
+    } on ServerException catch (ex) {
+      return Left(ApiFailure.serverError(message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, PaymentCustomerInfoModel>> enquiryISP(
+      EnquireISPParams params) async {
+    try {
+      return Right(await dataSource.enquiryISP(params));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }

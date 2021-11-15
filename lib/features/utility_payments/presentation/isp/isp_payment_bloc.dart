@@ -7,23 +7,23 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet_app/core/failure/api_failure.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/enquiry_tv.dart';
-import 'package:wallet_app/features/utility_payments/domain/usecases/tv/pay_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/isp/enquiry_isp.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/isp/pay_isp.dart';
 
-part 'tv_payment_event.dart';
-part 'tv_payment_state.dart';
-part 'tv_payment_bloc.freezed.dart';
+part 'isp_payment_event.dart';
+part 'isp_payment_state.dart';
+part 'isp_payment_bloc.freezed.dart';
 
 @injectable
-class TvPaymentBloc extends Bloc<TvPaymentEvent, TvPaymentState> {
-  final PayTv payMeroTv;
-  final EnquiryTv enquireMerotv;
+class ISPPaymentBloc extends Bloc<ISPPaymentEvent, ISPPaymentState> {
+  final PayISP payISP;
+  final EnquiryISP enquireISP;
 
-  TvPaymentBloc(this.payMeroTv, this.enquireMerotv)
-      : super(TvPaymentState.initial());
+  ISPPaymentBloc(this.payISP, this.enquireISP)
+      : super(ISPPaymentState.initial());
 
   @override
-  Stream<TvPaymentState> mapEventToState(TvPaymentEvent event) async* {
+  Stream<ISPPaymentState> mapEventToState(ISPPaymentEvent event) async* {
     yield* event.map(
       started: (e) async* {
         yield state.copyWith(
@@ -54,7 +54,7 @@ class TvPaymentBloc extends Bloc<TvPaymentEvent, TvPaymentState> {
           failureOrSuccessOption: none(),
         );
 
-        final result = await enquireMerotv(EnquireTvParams(
+        final result = await enquireISP(EnquireISPParams(
             account: state.customerId,
             productId: state.productId,
             provider: state.provider));
@@ -95,7 +95,7 @@ class TvPaymentBloc extends Bloc<TvPaymentEvent, TvPaymentState> {
           isSubmitting: true,
         );
         if (state.customerInfo != null) {
-          final result = await payMeroTv(PayTvParams(
+          final result = await payISP(PayISPParams(
               provider: state.provider,
               selectedPackage: state.selectedPackage,
               customerInfo: state.customerInfo!));

@@ -5,6 +5,8 @@ import 'package:wallet_app/features/utility_payments/data/models/payment_custome
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/entities/payment_office.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/isp/enquiry_isp.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/isp/pay_isp.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/tv/enquiry_tv.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/tv/pay_tv.dart';
@@ -42,8 +44,12 @@ abstract class UtilityPaymentRepository {
 
   Future<Either<ApiFailure, dynamic>> enquiryIsp({required String username});
 
-  //mero tv
+  //tv
   Future<Either<ApiFailure, PaymentCustomerInfoModel>> enquiryTv(
       EnquireTvParams params);
   Future<Either<ApiFailure, Unit>> payTv(PayTvParams params);
+
+  Future<Either<ApiFailure, PaymentCustomerInfoModel>> enquiryISP(
+      EnquireISPParams params);
+  Future<Either<ApiFailure, Unit>> payISP(PayISPParams params);
 }

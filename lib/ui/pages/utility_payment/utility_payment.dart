@@ -92,6 +92,8 @@ class GridItem extends StatelessWidget {
               KhanepaniPaymentRoute(payData: paymentData),
             );
             break;
+
+          //TV section start
           case UtilityPayementType.merotv:
             context.pushRoute(
               TVPaymentRoute(payData: paymentData),
@@ -112,6 +114,32 @@ class GridItem extends StatelessWidget {
               TVPaymentRoute(payData: paymentData),
             );
             break;
+          //Tv Section end
+
+          //ISP start
+          case UtilityPayementType.worldlink:
+            context.pushRoute(
+              ISPPaymentRoute(payData: paymentData),
+            );
+            break;
+          case UtilityPayementType.vianet:
+            context.pushRoute(
+              ISPPaymentRoute(payData: paymentData),
+            );
+            break;
+
+          case UtilityPayementType.prabhunet:
+            context.pushRoute(
+              ISPPaymentRoute(payData: paymentData),
+            );
+
+            break;
+          case UtilityPayementType.arrownet:
+            context.pushRoute(
+              ISPPaymentRoute(payData: paymentData),
+            );
+            break;
+          //ISP end
 
           default:
         }
