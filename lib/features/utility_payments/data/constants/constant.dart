@@ -45,4 +45,5 @@ class UtilityPayementType {
   static const vianet = 'vianet';
   static const prabhunet = 'prabhunet';
   static const arrownet = 'arrownet';
+  static const loopnetwork = 'loopnetwork';
 }
