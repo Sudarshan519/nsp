@@ -130,7 +130,6 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                     title: 'Customer Id',
                                     child: InputTextWidget(
                                         isEnable: state.customerInfo == null,
-                                        textInputType: TextInputType.number,
                                         maxlength: 22,
                                         hintText: 'Customer Id',
                                         onChanged: (id) {
