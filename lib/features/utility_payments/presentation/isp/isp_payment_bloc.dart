@@ -70,14 +70,12 @@ class ISPPaymentBloc extends Bloc<ISPPaymentEvent, ISPPaymentState> {
             customerInfo: data,
             customerId: state.customerId,
             productId: state.productId,
-            selectedPackage: data.packages.length == 1
-                ? data.packages.first
-                : data.packages.isEmpty
-                    ? Package(
-                        packageId: '',
-                        amount: double.parse(data.amount),
-                        packageName: '')
-                    : null,
+            selectedPackage: data.packages.isEmpty
+                ? Package(
+                    packageId: '',
+                    amount: double.parse(data.amount),
+                    packageName: '')
+                : null,
             key: UniqueKey(),
             isSubmitting: false,
             failureOrSuccessOption: optionOf(const Right(unit)),

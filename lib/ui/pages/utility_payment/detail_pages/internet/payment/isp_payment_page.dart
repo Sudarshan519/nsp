@@ -268,9 +268,11 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                     .read<ISPPaymentBloc>()
                                     .add(const ISPPaymentEvent.enquire());
                               } else if (!isConfirmPage) {
-                                setState(() {
-                                  isConfirmPage = true;
-                                });
+                                if (state.selectedPackage != null) {
+                                  setState(() {
+                                    isConfirmPage = true;
+                                  });
+                                }
                               } else {
                                 context
                                     .read<ISPPaymentBloc>()

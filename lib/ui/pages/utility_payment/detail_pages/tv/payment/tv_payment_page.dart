@@ -266,9 +266,11 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                                     .read<TvPaymentBloc>()
                                     .add(const TvPaymentEvent.enquire());
                               } else if (!isConfirmPage) {
-                                setState(() {
-                                  isConfirmPage = true;
-                                });
+                                if (state.selectedPackage != null) {
+                                  setState(() {
+                                    isConfirmPage = true;
+                                  });
+                                }
                               } else {
                                 context
                                     .read<TvPaymentBloc>()
