@@ -8,7 +8,7 @@ Widget loadingPage() {
   return Padding(
     padding: const EdgeInsets.all(10.0),
     child: Center(
-      child: Platform.isAndroid
+      child: Platform.isIOS
           ? const CupertinoActivityIndicator()
           : CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(Palette.primary),
