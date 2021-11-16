@@ -6,18 +6,36 @@ import 'package:wallet_app/features/utility_payments/data/models/utility_payment
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/home/widgets/category_title_text.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
+import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
-class UtilityPamentWidget extends StatelessWidget {
+class UtilityPamentWidget extends StatefulWidget {
   final List<UtilityPaymentsModel> paymentData;
 
   const UtilityPamentWidget({
     Key? key,
     required this.paymentData,
   }) : super(key: key);
+
+  @override
+  _UtilityPamentWidgetState createState() => _UtilityPamentWidgetState();
+}
+
+class _UtilityPamentWidgetState extends State<UtilityPamentWidget> {
+  bool _isExpanded = false;
+  static const _itemThreshold = 6;
+  bool get _canExpand => widget.paymentData.length > _itemThreshold;
+
+  List<UtilityPaymentsModel> getItems() {
+    if (!_canExpand || _isExpanded) {
+      return widget.paymentData;
+    } else {
+      return widget.paymentData.sublist(0, _itemThreshold);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,21 +49,33 @@ class UtilityPamentWidget extends StatelessWidget {
           ShadowBoxWidget(
             padding: const EdgeInsets.all(10),
             margin: EdgeInsets.zero,
-            child: GridView.count(
-              padding: EdgeInsets.zero,
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              crossAxisCount: 3,
-              mainAxisSpacing: 12,
-              crossAxisSpacing: 20,
-              childAspectRatio: 1 / 0.86,
-              children: paymentData
-                  .map(
-                    (e) => GridItem(
-                      paymentData: e,
-                    ),
-                  )
-                  .toList(),
+            child: Column(
+              children: [
+                GridView.count(
+                  padding: EdgeInsets.zero,
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 12,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 1 / 0.86,
+                  children: getItems()
+                      .map(
+                        (e) => GridItem(
+                          paymentData: e,
+                        ),
+                      )
+                      .toList(),
+                ),
+                if (_canExpand)
+                  CustomButton(
+                      title: 'View ${_isExpanded ? 'Less' : 'More'}',
+                      onTap: () {
+                        setState(() {
+                          _isExpanded = !_isExpanded;
+                        });
+                      })
+              ],
             ),
           ),
         ],
@@ -71,93 +101,61 @@ class GridItem extends StatelessWidget {
 
         switch (type) {
           case UtilityPayementType.balanceTopup:
-            context.pushRoute(
-              TopUpRoute(payData: paymentData),
-            );
+            context.pushRoute(TopUpRoute(payData: paymentData));
             break;
 
           case UtilityPayementType.mirai:
-            context.pushRoute(
-              PartnerServicePaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(PartnerServicePaymentRoute(payData: paymentData));
             break;
 
           case UtilityPayementType.electricity:
-            context.pushRoute(
-              NEAPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(NEAPaymentRoute(payData: paymentData));
             break;
           case UtilityPayementType.khanepani:
-            context.pushRoute(
-              KhanepaniPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(KhanepaniPaymentRoute(payData: paymentData));
             break;
 
           //TV section start
           case UtilityPayementType.merotv:
-            context.pushRoute(
-              TVPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(TVPaymentRoute(payData: paymentData));
             break;
           case UtilityPayementType.dishhome:
-            context.pushRoute(
-              TVPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(TVPaymentRoute(payData: paymentData));
             break;
           case UtilityPayementType.simtv:
-            context.pushRoute(
-              TVPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(TVPaymentRoute(payData: paymentData));
             break;
           case UtilityPayementType.prabhutv:
-            context.pushRoute(
-              TVPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(TVPaymentRoute(payData: paymentData));
             break;
           //Tv Section end
 
           //ISP start
           case UtilityPayementType.worldlink:
-            context.pushRoute(
-              ISPPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(ISPPaymentRoute(payData: paymentData));
             break;
           case UtilityPayementType.vianet:
-            context.pushRoute(
-              ISPPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(ISPPaymentRoute(payData: paymentData));
             break;
 
           case UtilityPayementType.prabhunet:
-            context.pushRoute(
-              ISPPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(ISPPaymentRoute(payData: paymentData));
 
             break;
           case UtilityPayementType.arrownet:
-            context.pushRoute(
-              ISPPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(ISPPaymentRoute(payData: paymentData));
             break;
           case UtilityPayementType.loopnetwork:
-            context.pushRoute(
-              ISPPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(ISPPaymentRoute(payData: paymentData));
             break;
           case UtilityPayementType.pals:
-            context.pushRoute(
-              ISPPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(ISPPaymentRoute(payData: paymentData));
             break;
           case UtilityPayementType.broadlink:
-            context.pushRoute(
-              ISPPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(ISPPaymentRoute(payData: paymentData));
             break;
           case UtilityPayementType.websurfer:
-            context.pushRoute(
-              ISPPaymentRoute(payData: paymentData),
-            );
+            context.pushRoute(ISPPaymentRoute(payData: paymentData));
             break;
           //ISP end
 
@@ -178,7 +176,7 @@ class GridItem extends StatelessWidget {
               ),
               child: CachedNetworkImage(
                   imageUrl: _baseURL + paymentData.image!,
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.contain,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Container(
                         color: Palette.primaryBackground,
@@ -190,10 +188,7 @@ class GridItem extends StatelessWidget {
                         ),
                       ),
                   errorWidget: (_, __, ___) {
-                    return Image.asset(
-                      'assets/images/navigation_bar/u1.png',
-                      fit: BoxFit.cover,
-                    );
+                    return const CircularProgressIndicator.adaptive();
                   }),
             ),
           const SizedBox(height: 3),
