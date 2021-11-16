@@ -47,6 +47,6 @@ class EnquireISPParams {
   Map<String, dynamic> toJson() => {
         'account': account,
         'product_id': productId,
-        'amount': 500, // static
+        'amount': 0, // static
       };
 }

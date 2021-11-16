@@ -272,6 +272,10 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                   setState(() {
                                     isConfirmPage = true;
                                   });
+                                } else {
+                                  FlushbarHelper.createError(
+                                          message: 'Please select a package!')
+                                      .show(context);
                                 }
                               } else {
                                 context

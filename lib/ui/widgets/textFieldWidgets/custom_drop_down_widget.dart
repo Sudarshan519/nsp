@@ -63,10 +63,7 @@ class CustomDropDownWidget extends StatelessWidget {
                 value: value,
                 child: Align(
                   alignment: alignment ?? Alignment.centerLeft,
-                  child: Text(
-                    value,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  child: Text(value, overflow: TextOverflow.visible),
                 ),
               );
             }).toList(),

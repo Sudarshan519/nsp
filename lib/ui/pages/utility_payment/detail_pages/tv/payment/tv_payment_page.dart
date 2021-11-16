@@ -270,6 +270,10 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                                   setState(() {
                                     isConfirmPage = true;
                                   });
+                                } else {
+                                  FlushbarHelper.createError(
+                                          message: 'Please select a package!')
+                                      .show(context);
                                 }
                               } else {
                                 context

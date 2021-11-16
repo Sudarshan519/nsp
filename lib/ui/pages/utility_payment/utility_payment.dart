@@ -13,11 +13,13 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
 class UtilityPamentWidget extends StatefulWidget {
+  final Function() onViewLess;
   final List<UtilityPaymentsModel> paymentData;
 
   const UtilityPamentWidget({
     Key? key,
     required this.paymentData,
+    required this.onViewLess,
   }) : super(key: key);
 
   @override
@@ -68,13 +70,19 @@ class _UtilityPamentWidgetState extends State<UtilityPamentWidget> {
                       .toList(),
                 ),
                 if (_canExpand)
-                  CustomButton(
-                      title: 'View ${_isExpanded ? 'Less' : 'More'}',
-                      onTap: () {
-                        setState(() {
-                          _isExpanded = !_isExpanded;
-                        });
-                      })
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CustomButton(
+                        title: 'View ${_isExpanded ? 'Less' : 'More'}',
+                        onTap: () {
+                          if (_isExpanded) {
+                            widget.onViewLess();
+                          }
+                          setState(() {
+                            _isExpanded = !_isExpanded;
+                          });
+                        }),
+                  )
               ],
             ),
           ),
