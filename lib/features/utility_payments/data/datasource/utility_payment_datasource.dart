@@ -11,7 +11,6 @@ import 'package:wallet_app/features/partner_services/data/model/service_subscrip
 import 'package:wallet_app/features/utility_payments/data/constants/constant.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_office_model.dart';
-import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/isp/enquiry_isp.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/isp/pay_isp.dart';
@@ -367,15 +366,15 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
-    final body = json.encode(customerData.toJson());
-
+    final body = customerData.toJson();
+    body["gps"] = getIt<GeoLocationManager>().gps;
     http.Response response;
 
     try {
       response = await client.post(
         Uri.parse(url),
         headers: _header,
-        body: body,
+        body: json.encode(body),
       );
     } catch (ex) {
       throw ServerException(message: ex.toString());
@@ -467,7 +466,8 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
-    final body = json.encode(customerData.toJson());
+    final body = customerData.toJson();
+    body["gps"] = getIt<GeoLocationManager>().gps;
 
     http.Response response;
 
@@ -475,7 +475,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       response = await client.post(
         Uri.parse(url),
         headers: _header,
-        body: body,
+        body: json.encode(body),
       );
     } catch (ex) {
       throw ServerException(message: ex.toString());
@@ -550,11 +550,6 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
   }
 
   @override
-  Future<dynamic> enquiryIsp(String user) async {
-    return '';
-  }
-
-  @override
   Future<Unit> payTv(PayTvParams params) async {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.tvPay(params.provider)}";
@@ -570,6 +565,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       body['package_id'] = params.selectedPackage!.packageId;
       body['amount'] = params.selectedPackage!.amount;
     }
+    body["gps"] = getIt<GeoLocationManager>().gps;
 
     try {
       response = await client.post(
@@ -662,6 +658,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       body['package_id'] = params.selectedPackage!.packageId;
       body['amount'] = params.selectedPackage!.amount;
     }
+    body["gps"] = getIt<GeoLocationManager>().gps;
 
     try {
       response = await client.post(
