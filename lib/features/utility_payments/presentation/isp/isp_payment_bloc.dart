@@ -19,6 +19,8 @@ class ISPPaymentBloc extends Bloc<ISPPaymentEvent, ISPPaymentState> {
   final PayISP payISP;
   final EnquiryISP enquireISP;
 
+  bool isPhoneRequired = false;
+
   ISPPaymentBloc(this.payISP, this.enquireISP)
       : super(ISPPaymentState.initial());
 
@@ -55,9 +57,11 @@ class ISPPaymentBloc extends Bloc<ISPPaymentEvent, ISPPaymentState> {
         );
 
         final result = await enquireISP(EnquireISPParams(
-            account: state.customerId,
-            productId: state.productId,
-            provider: state.provider));
+          account: state.customerId,
+          productId: state.productId,
+          provider: state.provider,
+          phone: isPhoneRequired ? state.phone : null,
+        ));
         yield result.fold(
             (fail) => state.copyWith(
                   key: state.key,
@@ -115,6 +119,16 @@ class ISPPaymentBloc extends Bloc<ISPPaymentEvent, ISPPaymentState> {
                     failureOrSuccessOption: optionOf(Right(data)),
                   ));
         }
+      },
+      setIsPhoneRequired: (value) async* {
+        isPhoneRequired = value.value;
+      },
+      changePhone: (value) async* {
+        yield state.copyWith(
+          key: state.key,
+          phone: value.phone,
+          failureOrSuccessOption: none(),
+        );
       },
     );
   }

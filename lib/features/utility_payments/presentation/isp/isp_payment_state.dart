@@ -12,6 +12,7 @@ class ISPPaymentState with _$ISPPaymentState {
     required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
     PaymentCustomerInfoModel? customerInfo,
     Package? selectedPackage,
+    required String phone,
     required bool isPaymentComplete,
   }) = _ISPPaymentState;
 
@@ -20,6 +21,7 @@ class ISPPaymentState with _$ISPPaymentState {
         isSubmitting: false,
         productId: '',
         amount: '',
+        phone: '',
         provider: '',
         failureOrSuccessOption: none(),
         key: UniqueKey(),

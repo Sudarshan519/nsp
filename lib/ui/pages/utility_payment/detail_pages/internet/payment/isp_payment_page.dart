@@ -22,7 +22,12 @@ import 'package:wallet_app/utils/date_time_formatter.dart';
 class ISPPaymentPage extends StatefulWidget {
   final UtilityPaymentsModel payData;
 
-  const ISPPaymentPage({Key? key, required this.payData}) : super(key: key);
+  final bool isPhoneRequired;
+  const ISPPaymentPage({
+    Key? key,
+    required this.payData,
+    this.isPhoneRequired = false,
+  }) : super(key: key);
 
   @override
   _ISPPaymentPageState createState() => _ISPPaymentPageState();
@@ -74,7 +79,8 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
     return BlocProvider(
       create: (context) => getIt<ISPPaymentBloc>()
         ..add(ISPPaymentEvent.started(widget.payData.id.toString(),
-            widget.payData.paymentType.toString())),
+            widget.payData.paymentType.toString()))
+        ..add(ISPPaymentEvent.setIsPhoneRequired(widget.isPhoneRequired)),
       child: BlocConsumer<ISPPaymentBloc, ISPPaymentState>(
         listener: (context, state) {
           state.failureOrSuccessOption.fold(
@@ -141,6 +147,20 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                         value: state.customerId));
                               },
                             ),
+                          if (!isConfirmPage && widget.isPhoneRequired)
+                            TextWidetWithLabelAndChild(
+                              title: 'Mobile Number',
+                              child: InputTextWidget(
+                                textInputType: TextInputType.number,
+                                maxlength: 13,
+                                hintText: '97798XXXXXXXX',
+                                onChanged: (val) {
+                                  context.read<ISPPaymentBloc>().add(
+                                      ISPPaymentEvent.changePhone(val.trim()));
+                                },
+                                value: state.phone,
+                              ),
+                            ),
                           const SizedBox(
                             height: 8,
                           ),
@@ -200,8 +220,8 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                           TextWidetWithLabelAndChild(
                                               title: 'Package',
                                               child: CustomDropDownWidget(
-                                                  hintText: state
-                                                              .selectedPackage !=
+                                                  hintText: 'Select Package',
+                                                  value: state.selectedPackage !=
                                                           null
                                                       ? (state
                                                                   .selectedPackage

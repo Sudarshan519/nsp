@@ -134,7 +134,6 @@ class _SearchBodyState extends State<SearchBody> {
 
               if (data.isNotEmpty) {
                 return UtilityPamentWidget(
-                  onViewLess: () {},
                   paymentData: data,
                 );
               }

@@ -13,13 +13,13 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
 class UtilityPamentWidget extends StatefulWidget {
-  final Function() onViewLess;
+  final Function()? onViewLess;
   final List<UtilityPaymentsModel> paymentData;
 
   const UtilityPamentWidget({
     Key? key,
     required this.paymentData,
-    required this.onViewLess,
+    this.onViewLess,
   }) : super(key: key);
 
   @override
@@ -71,12 +71,14 @@ class _UtilityPamentWidgetState extends State<UtilityPamentWidget> {
                 ),
                 if (_canExpand)
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(top: 8, bottom: 5),
                     child: CustomButton(
                         title: 'View ${_isExpanded ? 'Less' : 'More'}',
                         onTap: () {
                           if (_isExpanded) {
-                            widget.onViewLess();
+                            if (widget.onViewLess != null) {
+                              widget.onViewLess!();
+                            }
                           }
                           setState(() {
                             _isExpanded = !_isExpanded;
@@ -164,6 +166,10 @@ class GridItem extends StatelessWidget {
             break;
           case UtilityPayementType.websurfer:
             context.pushRoute(ISPPaymentRoute(payData: paymentData));
+            break;
+          case UtilityPayementType.subisu:
+            context.pushRoute(
+                ISPPaymentRoute(payData: paymentData, isPhoneRequired: true));
             break;
           //ISP end
 

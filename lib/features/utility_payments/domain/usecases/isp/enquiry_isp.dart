@@ -5,6 +5,7 @@ import 'package:wallet_app/core/network/newtork_info.dart';
 import 'package:wallet_app/core/usecase/usecase.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/repositories/utility_payment_repository.dart';
+import 'package:wallet_app/utils/constant.dart';
 
 @lazySingleton
 class EnquiryISP implements Usecase<ApiFailure, dynamic, EnquireISPParams> {
@@ -28,6 +29,11 @@ class EnquiryISP implements Usecase<ApiFailure, dynamic, EnquireISPParams> {
       return const Left(
           ServerError(message: 'Please enter account number or customer id!'));
     }
+    if (params.phone != null) {
+      if (params.phone.toString().isEmpty) {
+        return const Left(ServerError(message: 'Please enter phone number!'));
+      }
+    }
 
     return repository.enquiryISP(params);
   }
@@ -37,16 +43,19 @@ class EnquireISPParams {
   final String account;
   final String productId;
   final String provider;
+  final String? phone;
 
   EnquireISPParams({
     required this.account,
     required this.productId,
     required this.provider,
+    required this.phone,
   });
 
   Map<String, dynamic> toJson() => {
         'account': account,
         'product_id': productId,
         'amount': 0, // static
+        if (phone != null) 'mobile_number': phone
       };
 }

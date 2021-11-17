@@ -200,8 +200,8 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                                           TextWidetWithLabelAndChild(
                                               title: 'Package',
                                               child: CustomDropDownWidget(
-                                                  hintText: state
-                                                              .selectedPackage !=
+                                                  hintText: 'Select Package',
+                                                  value: state.selectedPackage !=
                                                           null
                                                       ? (state
                                                                   .selectedPackage

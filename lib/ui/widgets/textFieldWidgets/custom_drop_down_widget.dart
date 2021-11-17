@@ -40,17 +40,15 @@ class CustomDropDownWidget extends StatelessWidget {
       children: [
         SizedBox(
           height: 34,
-          child: DropdownButtonFormField<String>(
+          child: DropdownButton<String>(
             isExpanded: isExpanded,
-            value: (value ?? "").isEmpty ? null : value,
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.only(bottom: 12),
-              border: InputBorder.none,
-              hintText: hintText,
-              hintStyle: TextStyle(
+            underline: const SizedBox(),
+            hint: Text(
+              value ?? 'Select your option',
+              style: TextStyle(
+                color: Palette.blackTextColor,
+                fontWeight: FontWeight.w400,
                 fontSize: 14.0,
-                fontWeight: FontWeight.w300,
-                color: Palette.textFieldPlaceholderColor,
               ),
             ),
             style: TextStyle(
