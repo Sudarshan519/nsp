@@ -22,11 +22,14 @@ import 'package:wallet_app/utils/date_time_formatter.dart';
 class ISPPaymentPage extends StatefulWidget {
   final UtilityPaymentsModel payData;
 
-  final bool isPhoneRequired;
+  final bool? isPhoneRequired;
+  final bool? isCustomerIdRequired;
+
   const ISPPaymentPage({
     Key? key,
     required this.payData,
     this.isPhoneRequired = false,
+    this.isCustomerIdRequired = false,
   }) : super(key: key);
 
   @override
@@ -79,8 +82,7 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
     return BlocProvider(
       create: (context) => getIt<ISPPaymentBloc>()
         ..add(ISPPaymentEvent.started(widget.payData.id.toString(),
-            widget.payData.paymentType.toString()))
-        ..add(ISPPaymentEvent.setIsPhoneRequired(widget.isPhoneRequired)),
+            widget.payData.paymentType.toString())),
       child: BlocConsumer<ISPPaymentBloc, ISPPaymentState>(
         listener: (context, state) {
           state.failureOrSuccessOption.fold(
@@ -131,6 +133,48 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                           if (!isConfirmPage)
                             BlocBuilder<ISPPaymentBloc, ISPPaymentState>(
                               buildWhen: (previous, current) =>
+                                  previous.accountNumber !=
+                                  current.accountNumber,
+                              builder: (context, state) {
+                                return TextWidetWithLabelAndChild(
+                                    title: widget.isCustomerIdRequired ?? false
+                                        ? 'Username'
+                                        : 'Account Number',
+                                    child: InputTextWidget(
+                                        maxlength: 22,
+                                        isEnable: state.customerInfo == null,
+                                        hintText:
+                                            widget.isCustomerIdRequired ?? false
+                                                ? 'Username'
+                                                : 'Account Number',
+                                        onChanged: (id) {
+                                          context.read<ISPPaymentBloc>().add(
+                                              ISPPaymentEvent
+                                                  .changeAccountNumber(id));
+                                        },
+                                        value: state.accountNumber));
+                              },
+                            ),
+                          if (!isConfirmPage &&
+                              (widget.isPhoneRequired ?? false))
+                            TextWidetWithLabelAndChild(
+                              title: 'Mobile Number',
+                              child: InputTextWidget(
+                                isEnable: state.customerInfo == null,
+                                textInputType: TextInputType.number,
+                                maxlength: 10,
+                                hintText: '98XXXXXXXX',
+                                onChanged: (val) {
+                                  context.read<ISPPaymentBloc>().add(
+                                      ISPPaymentEvent.changePhone(val.trim()));
+                                },
+                                value: state.phone ?? '',
+                              ),
+                            ),
+                          if (!isConfirmPage &&
+                              (widget.isCustomerIdRequired ?? false))
+                            BlocBuilder<ISPPaymentBloc, ISPPaymentState>(
+                              buildWhen: (previous, current) =>
                                   previous.customerId != current.customerId,
                               builder: (context, state) {
                                 return TextWidetWithLabelAndChild(
@@ -144,22 +188,8 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                               ISPPaymentEvent.changeCustomerId(
                                                   id));
                                         },
-                                        value: state.customerId));
+                                        value: state.customerId ?? ''));
                               },
-                            ),
-                          if (!isConfirmPage && widget.isPhoneRequired)
-                            TextWidetWithLabelAndChild(
-                              title: 'Mobile Number',
-                              child: InputTextWidget(
-                                textInputType: TextInputType.number,
-                                maxlength: 13,
-                                hintText: '97798XXXXXXXX',
-                                onChanged: (val) {
-                                  context.read<ISPPaymentBloc>().add(
-                                      ISPPaymentEvent.changePhone(val.trim()));
-                                },
-                                value: state.phone,
-                              ),
                             ),
                           const SizedBox(
                             height: 8,

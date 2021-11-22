@@ -4,24 +4,24 @@ part of 'isp_payment_bloc.dart';
 class ISPPaymentState with _$ISPPaymentState {
   const factory ISPPaymentState({
     required Key key,
-    required String customerId,
+    required String accountNumber,
     required String amount,
     required String productId,
     required String provider,
     required bool isSubmitting,
     required Option<Either<ApiFailure, Unit>> failureOrSuccessOption,
+    required bool isPaymentComplete,
     PaymentCustomerInfoModel? customerInfo,
     Package? selectedPackage,
-    required String phone,
-    required bool isPaymentComplete,
+    String? phone,
+    String? customerId,
   }) = _ISPPaymentState;
 
   factory ISPPaymentState.initial() => ISPPaymentState(
-        customerId: '',
+        accountNumber: '',
         isSubmitting: false,
         productId: '',
         amount: '',
-        phone: '',
         provider: '',
         failureOrSuccessOption: none(),
         key: UniqueKey(),

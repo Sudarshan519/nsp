@@ -35,6 +35,12 @@ class EnquiryISP implements Usecase<ApiFailure, dynamic, EnquireISPParams> {
       }
     }
 
+    if (params.customerId != null) {
+      if (params.customerId.toString().isEmpty) {
+        return const Left(ServerError(message: 'Please enter Customer ID'));
+      }
+    }
+
     return repository.enquiryISP(params);
   }
 }
@@ -44,18 +50,22 @@ class EnquireISPParams {
   final String productId;
   final String provider;
   final String? phone;
+  final String? customerId;
 
   EnquireISPParams({
     required this.account,
     required this.productId,
     required this.provider,
     required this.phone,
+    required this.customerId,
   });
 
   Map<String, dynamic> toJson() => {
         'account': account,
         'product_id': productId,
         'amount': 0, // static
-        if (phone != null) 'mobile_number': phone
+        //optional params
+        if (phone != null) 'mobile_number': '977$phone',
+        if (customerId != null) 'customer_id': customerId,
       };
 }

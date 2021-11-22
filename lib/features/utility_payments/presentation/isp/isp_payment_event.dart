@@ -6,10 +6,11 @@ class ISPPaymentEvent with _$ISPPaymentEvent {
     String productId,
     String provider,
   ) = _Started;
+  const factory ISPPaymentEvent.changeAccountNumber(String accountNumber) =
+      _ChangeAccountNumber;
   const factory ISPPaymentEvent.changeCustomerId(String customerId) =
-      _CustomerID;
-  const factory ISPPaymentEvent.setIsPhoneRequired(bool value) =
-      _SetIsPhoneRequired;
+      _ChangeCustomerId;
+
   const factory ISPPaymentEvent.changeAmount(String amount) = _ChangeAmount;
   const factory ISPPaymentEvent.changePhone(String phone) = _ChangePhone;
 

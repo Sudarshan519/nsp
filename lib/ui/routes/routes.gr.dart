@@ -489,7 +489,8 @@ class AppRouter extends _i1.RootStackRouter {
           return _i54.ISPPaymentPage(
               key: args.key,
               payData: args.payData,
-              isPhoneRequired: args.isPhoneRequired);
+              isPhoneRequired: args.isPhoneRequired,
+              isCustomerIdRequired: args.isCustomerIdRequired);
         }),
     TVPaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -1544,24 +1545,33 @@ class ISPPaymentRoute extends _i1.PageRouteInfo<ISPPaymentRouteArgs> {
   ISPPaymentRoute(
       {_i2.Key? key,
       required _i65.UtilityPaymentsModel payData,
-      bool isPhoneRequired = false})
+      bool? isPhoneRequired,
+      bool? isCustomerIdRequired})
       : super(name,
             path: '/i-sp-payment-page',
             args: ISPPaymentRouteArgs(
-                key: key, payData: payData, isPhoneRequired: isPhoneRequired));
+                key: key,
+                payData: payData,
+                isPhoneRequired: isPhoneRequired,
+                isCustomerIdRequired: isCustomerIdRequired));
 
   static const String name = 'ISPPaymentRoute';
 }
 
 class ISPPaymentRouteArgs {
   const ISPPaymentRouteArgs(
-      {this.key, required this.payData, this.isPhoneRequired = false});
+      {this.key,
+      required this.payData,
+      this.isPhoneRequired,
+      this.isCustomerIdRequired});
 
   final _i2.Key? key;
 
   final _i65.UtilityPaymentsModel payData;
 
-  final bool isPhoneRequired;
+  final bool? isPhoneRequired;
+
+  final bool? isCustomerIdRequired;
 }
 
 class TVPaymentRoute extends _i1.PageRouteInfo<TVPaymentRouteArgs> {
