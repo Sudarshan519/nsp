@@ -1,5 +1,6 @@
 class PaymentCustomerInfo {
   PaymentCustomerInfo({
+    required this.sessionId,
     required this.billNumber,
     required this.dueDate,
     required this.amount,
@@ -25,6 +26,7 @@ class PaymentCustomerInfo {
   final String customerId;
   final String productId;
   final String mobileNumber;
+  final int? sessionId;
   final List<Package> packages;
 }
 

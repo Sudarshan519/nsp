@@ -7,32 +7,35 @@ PaymentCustomerInfoModel paymentCustomerInfoFromJson(String str) =>
         json.decode(str)['data'] as Map<String, dynamic>);
 
 class PaymentCustomerInfoModel extends PaymentCustomerInfo {
-  PaymentCustomerInfoModel(
-      {required String billNumber,
-      required String dueDate,
-      required String amount,
-      required String refstan,
-      required String customerName,
-      required String date,
-      required String account,
-      required String officeCode,
-      required String customerId,
-      required String productId,
-      required String mobileNumber,
-      required List<Package> packages})
-      : super(
-            billNumber: billNumber,
-            dueDate: dueDate,
-            amount: amount,
-            refstan: refstan,
-            customerName: customerName,
-            date: date,
-            account: account,
-            officeCode: officeCode,
-            customerId: customerId,
-            productId: productId,
-            mobileNumber: mobileNumber,
-            packages: packages);
+  PaymentCustomerInfoModel({
+    required String billNumber,
+    required String dueDate,
+    required String amount,
+    required String refstan,
+    required String customerName,
+    required String date,
+    required String account,
+    required String officeCode,
+    required String customerId,
+    required String productId,
+    required String mobileNumber,
+    required List<Package> packages,
+    required int? sessionId,
+  }) : super(
+          billNumber: billNumber,
+          dueDate: dueDate,
+          amount: amount,
+          refstan: refstan,
+          customerName: customerName,
+          date: date,
+          account: account,
+          officeCode: officeCode,
+          customerId: customerId,
+          productId: productId,
+          mobileNumber: mobileNumber,
+          packages: packages,
+          sessionId: sessionId,
+        );
 
   factory PaymentCustomerInfoModel.fromJson(Map<String, dynamic> json) =>
       PaymentCustomerInfoModel(
@@ -47,6 +50,7 @@ class PaymentCustomerInfoModel extends PaymentCustomerInfo {
           customerId: json["customer_id"] as String? ?? '',
           productId: json["product_id"] as String? ?? '',
           mobileNumber: json["mobile_number"] as String? ?? '',
+          sessionId: json["session_id"] as int? ?? 0,
           packages: json["packages"] == null
               ? []
               : List<Package>.from((json["packages"] as Iterable)
@@ -63,6 +67,7 @@ class PaymentCustomerInfoModel extends PaymentCustomerInfo {
         "office_code": officeCode,
         "customer_id": customerId,
         "product_id": productId,
-        'mobile_number': mobileNumber
+        'mobile_number': mobileNumber,
+        'session_id': sessionId,
       };
 }
