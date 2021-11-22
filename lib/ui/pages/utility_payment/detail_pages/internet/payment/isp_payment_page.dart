@@ -138,15 +138,12 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                               builder: (context, state) {
                                 return TextWidetWithLabelAndChild(
                                     title: widget.isCustomerIdRequired ?? false
-                                        ? 'Username'
-                                        : 'Account Number',
+                                        ? 'Account Number'
+                                        : 'Username',
                                     child: InputTextWidget(
                                         maxlength: 22,
                                         isEnable: state.customerInfo == null,
-                                        hintText:
-                                            widget.isCustomerIdRequired ?? false
-                                                ? 'Username'
-                                                : 'Account Number',
+                                        hintText: '',
                                         onChanged: (id) {
                                           context.read<ISPPaymentBloc>().add(
                                               ISPPaymentEvent
@@ -182,7 +179,7 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                     child: InputTextWidget(
                                         isEnable: state.customerInfo == null,
                                         maxlength: 22,
-                                        hintText: 'Customer Id',
+                                        hintText: '',
                                         onChanged: (id) {
                                           context.read<ISPPaymentBloc>().add(
                                               ISPPaymentEvent.changeCustomerId(
