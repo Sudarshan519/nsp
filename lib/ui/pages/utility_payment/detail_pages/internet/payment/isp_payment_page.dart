@@ -24,12 +24,14 @@ class ISPPaymentPage extends StatefulWidget {
 
   final bool? isPhoneRequired;
   final bool? isCustomerIdRequired;
+  final bool? isAmountRequired;
 
   const ISPPaymentPage({
     Key? key,
     required this.payData,
     this.isPhoneRequired = false,
     this.isCustomerIdRequired = false,
+    this.isAmountRequired = false,
   }) : super(key: key);
 
   @override
@@ -43,7 +45,7 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          widget.payData.name ?? 'TV',
+          widget.payData.name ?? 'ISP Payment',
           style: TextStyle(
             color: Palette.white,
           ),
@@ -73,16 +75,32 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
   }
 
   Widget body() {
-    double _conversionRate = 1.067;
+    double _conversionRate = 1.067; //fallback
     final homedata = getIt<HomePageDataBloc>().homeData;
     if (homedata != null) {
       _conversionRate =
           1 / (homedata.userDetail?.purchaseConversionRate ?? 1.067);
     }
     return BlocProvider(
-      create: (context) => getIt<ISPPaymentBloc>()
-        ..add(ISPPaymentEvent.started(widget.payData.id.toString(),
-            widget.payData.paymentType.toString())),
+      create: (context) {
+        final ispBloc = getIt<ISPPaymentBloc>()
+          ..add(ISPPaymentEvent.started(widget.payData.id.toString(),
+              widget.payData.paymentType.toString()));
+
+        if (widget.isAmountRequired ?? false) {
+          ispBloc.add(const ISPPaymentEvent.changeAmount(''));
+        }
+
+        if (widget.isCustomerIdRequired ?? false) {
+          ispBloc.add(const ISPPaymentEvent.changeCustomerId(''));
+        }
+
+        if (widget.isPhoneRequired ?? false) {
+          ispBloc.add(const ISPPaymentEvent.changePhone(''));
+        }
+
+        return ispBloc;
+      },
       child: BlocConsumer<ISPPaymentBloc, ISPPaymentState>(
         listener: (context, state) {
           state.failureOrSuccessOption.fold(
@@ -188,6 +206,27 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                         value: state.customerId ?? ''));
                               },
                             ),
+                          if (!isConfirmPage &&
+                              (widget.isAmountRequired ?? false))
+                            BlocBuilder<ISPPaymentBloc, ISPPaymentState>(
+                              buildWhen: (previous, current) =>
+                                  previous.amount != current.amount,
+                              builder: (context, state) {
+                                return TextWidetWithLabelAndChild(
+                                    title: 'Amount',
+                                    child: InputTextWidget(
+                                        isEnable: state.customerInfo == null,
+                                        textInputType: TextInputType.number,
+                                        maxlength: 5,
+                                        hintText: '',
+                                        onChanged: (amt) {
+                                          context.read<ISPPaymentBloc>().add(
+                                              ISPPaymentEvent.changeAmount(
+                                                  amt));
+                                        },
+                                        value: state.amount ?? ''));
+                              },
+                            ),
                           const SizedBox(
                             height: 8,
                           ),
@@ -205,9 +244,17 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                             children: [
                                               if (isConfirmPage)
                                                 infoView(
-                                                    'Customer ID',
+                                                    'Username',
                                                     state
                                                         .customerInfo?.account),
+                                              if (state.customerInfo
+                                                      ?.mobileNumber !=
+                                                  null)
+                                                infoView(
+                                                    'Mobile',
+                                                    state.customerInfo
+                                                            ?.mobileNumber ??
+                                                        ''),
                                               infoView(
                                                   'Customer Name',
                                                   state.customerInfo

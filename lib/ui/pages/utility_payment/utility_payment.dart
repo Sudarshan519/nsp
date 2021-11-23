@@ -169,8 +169,11 @@ class GridItem extends StatelessWidget {
                 payData: paymentData, isCustomerIdRequired: true));
             break;
           case UtilityPayementType.subisu:
-            context.pushRoute(
-                ISPPaymentRoute(payData: paymentData, isPhoneRequired: true));
+            context.pushRoute(ISPPaymentRoute(
+              payData: paymentData,
+              isPhoneRequired: true,
+              isAmountRequired: true,
+            ));
             break;
           //ISP end
 

@@ -67,12 +67,16 @@ class ISPPaymentBloc extends Bloc<ISPPaymentEvent, ISPPaymentState> {
           provider: state.provider,
           phone: state.phone,
           customerId: state.customerId,
+          amount: state.amount,
         ));
         yield result.fold(
             (fail) => state.copyWith(
-                  key: state.key,
-                  customerId: state.customerId,
                   productId: state.productId,
+                  provider: state.provider,
+                  phone: state.phone,
+                  customerId: state.customerId,
+                  amount: state.amount,
+                  key: state.key,
                   failureOrSuccessOption: optionOf(Left(fail)),
                   isSubmitting: false,
                 ), (data) {

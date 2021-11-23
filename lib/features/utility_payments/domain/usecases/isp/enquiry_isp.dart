@@ -30,8 +30,18 @@ class EnquiryISP implements Usecase<ApiFailure, dynamic, EnquireISPParams> {
           ServerError(message: 'Please enter account number or customer id!'));
     }
     if (params.phone != null) {
-      if (params.phone.toString().isEmpty) {
+      final phn = params.phone.toString();
+
+      if (phn.isEmpty) {
         return const Left(ServerError(message: 'Please enter phone number!'));
+      }
+      if (phn.length < 10) {
+        return const Left(ServerError(message: 'Invalid phone number!'));
+      }
+    }
+    if (params.amount != null) {
+      if (params.amount.toString().isEmpty) {
+        return const Left(ServerError(message: 'Please enter amount!'));
       }
     }
 
@@ -51,6 +61,7 @@ class EnquireISPParams {
   final String provider;
   final String? phone;
   final String? customerId;
+  final String? amount;
 
   EnquireISPParams({
     required this.account,
@@ -58,12 +69,13 @@ class EnquireISPParams {
     required this.provider,
     required this.phone,
     required this.customerId,
+    required this.amount,
   });
 
   Map<String, dynamic> toJson() => {
         'account': account,
         'product_id': productId,
-        'amount': 0, // static
+        'amount': amount ?? 0, // static
         //optional params
         if (phone != null) 'mobile_number': '977$phone',
         if (customerId != null) 'customer_id': customerId,
