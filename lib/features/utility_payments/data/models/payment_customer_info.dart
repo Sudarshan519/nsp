@@ -19,23 +19,24 @@ class PaymentCustomerInfoModel extends PaymentCustomerInfo {
     required String customerId,
     required String productId,
     required String mobileNumber,
+    required String currentPlan,
     required List<Package> packages,
     required int? sessionId,
   }) : super(
-          billNumber: billNumber,
-          dueDate: dueDate,
-          amount: amount,
-          refstan: refstan,
-          customerName: customerName,
-          date: date,
-          account: account,
-          officeCode: officeCode,
-          customerId: customerId,
-          productId: productId,
-          mobileNumber: mobileNumber,
-          packages: packages,
-          sessionId: sessionId,
-        );
+            billNumber: billNumber,
+            dueDate: dueDate,
+            amount: amount,
+            refstan: refstan,
+            customerName: customerName,
+            date: date,
+            account: account,
+            officeCode: officeCode,
+            customerId: customerId,
+            productId: productId,
+            mobileNumber: mobileNumber,
+            packages: packages,
+            sessionId: sessionId,
+            currentPlan: currentPlan);
 
   factory PaymentCustomerInfoModel.fromJson(Map<String, dynamic> json) {
     return PaymentCustomerInfoModel(
@@ -51,6 +52,7 @@ class PaymentCustomerInfoModel extends PaymentCustomerInfo {
         productId: json["product_id"] as String? ?? '',
         mobileNumber: json["mobile_number"] as String? ?? '',
         sessionId: json["session_id"] as int? ?? 0,
+        currentPlan: (json["current_plan"] as String?) ?? '',
         packages: json["packages"] == null
             ? []
             : List<Package>.from((json["packages"] as Iterable)
