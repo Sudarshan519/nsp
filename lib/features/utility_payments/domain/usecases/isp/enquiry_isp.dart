@@ -26,8 +26,7 @@ class EnquiryISP implements Usecase<ApiFailure, dynamic, EnquireISPParams> {
       return const Left(ApiFailure.noInternetConnection());
     }
     if (params.account.isEmpty) {
-      return const Left(
-          ServerError(message: 'Please enter account number or customer id!'));
+      return const Left(ServerError(message: 'Please enter username'));
     }
     if (params.phone != null) {
       final phn = params.phone.toString();

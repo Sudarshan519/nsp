@@ -12,6 +12,7 @@ class PaymentCustomerInfo {
     required this.customerId,
     required this.productId,
     required this.mobileNumber,
+    required this.currentPlan,
     required this.packages,
   });
 
@@ -26,6 +27,7 @@ class PaymentCustomerInfo {
   final String customerId;
   final String productId;
   final String mobileNumber;
+  final String currentPlan;
   final int? sessionId;
   final List<Package> packages;
 }

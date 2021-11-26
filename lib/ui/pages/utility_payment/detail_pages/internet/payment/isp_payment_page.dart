@@ -161,7 +161,10 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                     child: InputTextWidget(
                                         maxlength: 22,
                                         isEnable: state.customerInfo == null,
-                                        hintText: '',
+                                        hintText:
+                                            widget.isCustomerIdRequired ?? false
+                                                ? 'Account Number'
+                                                : 'Username',
                                         onChanged: (id) {
                                           context.read<ISPPaymentBloc>().add(
                                               ISPPaymentEvent
@@ -197,7 +200,7 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                     child: InputTextWidget(
                                         isEnable: state.customerInfo == null,
                                         maxlength: 22,
-                                        hintText: '',
+                                        hintText: 'Customer Id',
                                         onChanged: (id) {
                                           context.read<ISPPaymentBloc>().add(
                                               ISPPaymentEvent.changeCustomerId(
@@ -218,7 +221,7 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                         isEnable: state.customerInfo == null,
                                         textInputType: TextInputType.number,
                                         maxlength: 5,
-                                        hintText: '',
+                                        hintText: 'Amount',
                                         onChanged: (amt) {
                                           context.read<ISPPaymentBloc>().add(
                                               ISPPaymentEvent.changeAmount(
@@ -247,18 +250,19 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                                     'Username',
                                                     state
                                                         .customerInfo?.account),
-                                              if (state.customerInfo
-                                                      ?.mobileNumber !=
-                                                  null)
-                                                infoView(
-                                                    'Mobile',
-                                                    state.customerInfo
-                                                            ?.mobileNumber ??
-                                                        ''),
                                               infoView(
                                                   'Customer Name',
                                                   state.customerInfo
                                                       ?.customerName),
+                                              if (state
+                                                      .customerInfo
+                                                      ?.currentPlan
+                                                      .isNotEmpty ??
+                                                  false)
+                                                infoView(
+                                                    'Current Plan',
+                                                    state.customerInfo
+                                                        ?.currentPlan),
                                               infoView(
                                                   'Due Date',
                                                   DateTimeFormatter.formatDate(
@@ -275,14 +279,10 @@ class _ISPPaymentPageState extends State<ISPPaymentPage> {
                                               if (state.selectedPackage != null)
                                                 infoView(
                                                     'Amount JPY',
-                                                    state.selectedPackage ==
-                                                            null
-                                                        ? 'Select package'
-                                                        : (state.selectedPackage!
-                                                                    .amount /
-                                                                _conversionRate)
-                                                            .toStringAsFixed(
-                                                                1)),
+                                                    (state.selectedPackage!
+                                                                .amount /
+                                                            _conversionRate)
+                                                        .toStringAsFixed(1)),
                                             ],
                                           ),
                                         ),

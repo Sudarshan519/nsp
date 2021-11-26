@@ -132,7 +132,7 @@ class _TVPaymentPageState extends State<TVPaymentPage> {
                                     child: InputTextWidget(
                                         isEnable: state.customerInfo == null,
                                         maxlength: 22,
-                                        hintText: '',
+                                        hintText: 'Customer Id',
                                         onChanged: (id) {
                                           context.read<TvPaymentBloc>().add(
                                               TvPaymentEvent.changeCustomerId(
