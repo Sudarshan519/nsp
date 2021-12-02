@@ -49,5 +49,6 @@ class UtilityPayementType {
   static const pals = 'pals';
   static const websurfer = 'websurfer';
   static const broadlink = 'broadlink';
+  static const skytv = 'skytv';
   static const subisu = 'subisu';
 }

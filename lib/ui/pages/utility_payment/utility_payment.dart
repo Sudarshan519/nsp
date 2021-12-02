@@ -164,6 +164,9 @@ class GridItem extends StatelessWidget {
           case UtilityPayementType.broadlink:
             context.pushRoute(ISPPaymentRoute(payData: paymentData));
             break;
+          case UtilityPayementType.skytv:
+            context.pushRoute(TVPaymentRoute(payData: paymentData));
+            break;
           case UtilityPayementType.websurfer:
             context.pushRoute(ISPPaymentRoute(
                 payData: paymentData, isCustomerIdRequired: true));
