@@ -340,7 +340,7 @@ packages:
     source: hosted
     version: "2.1.0"
   equatable:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: equatable
       url: "https://pub.dartlang.org"
@@ -527,14 +527,14 @@ packages:
       name: flutter_facebook_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.5.0"
+    version: "3.5.7"
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
       name: flutter_facebook_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.7.0"
+    version: "2.7.1"
   flutter_facebook_auth_web:
     dependency: transitive
     description:
@@ -1211,11 +1211,9 @@ packages:
   shared_data:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "95cc628805c2772fb123f7763b826ff582f99a9f"
-      url: "https://aashishadhikari@bitbucket.org/aashishadhikari/flutter-data-share.git"
-    source: git
+      path: "../sdk/shared_data"
+      relative: true
+    source: path
     version: "0.0.1"
   shared_preferences:
     dependency: "direct main"

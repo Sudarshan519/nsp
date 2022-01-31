@@ -5,7 +5,7 @@ description: A new Flutter project.
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.1.4+19 # Dont forget in update app version in the app_config.json file after version is changed!
+version: 1.1.4+20 # Dont forget in update app version in the app_config.json file after version is changed!
 
 
 
@@ -35,14 +35,14 @@ dependencies:
     git:
       url: https://github.com/asisadh/esewa_pnp.git
       ref: null-safety
-  equatable: ^2.0.0
+  # equatable: ^2.0.0
   firebase_core: ^1.4.0
   firebase_messaging: ^10.0.3
   fl_chart: ^0.36.1                           
   flutter_bloc: ^7.0.0  
   fluttercontactpicker: ^4.4.0              
   flutter_downloader: ^1.6.1      
-  flutter_facebook_auth: ^3.5.0             
+  flutter_facebook_auth: ^3.5.7         
   flutter_html: ^2.0.0  
   flutter_local_notifications: ^8.0.0              
   flutter_secure_storage: ^4.2.0 
@@ -64,8 +64,9 @@ dependencies:
   permission_handler: ^8.1.4+2                
   share: ^2.0.1      
   shared_data:
-    git:
-      url: https://aashishadhikari@bitbucket.org/aashishadhikari/flutter-data-share.git 
+    path: ../sdk/shared_data
+    # git:
+    #   url: https://aashishadhikari@bitbucket.org/aashishadhikari/flutter-data-share.git 
   shared_preferences: ^2.0.5                
   sign_in_with_apple: ^3.2.0
   sliver_tools: ^0.2.5              

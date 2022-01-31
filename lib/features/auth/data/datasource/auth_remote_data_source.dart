@@ -216,9 +216,41 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       token = pushNotif.fireBaseToken;
     }
 
-    body["firebaseToken"] = token;
-    body["gps"] = getIt<GeoLocationManager>().gps;
-    body['device_id'] = DeviceInfoManager.device.toString();
+    if (token.isNotEmpty) {
+      body["firebaseToken"] = token;
+    } else {
+      logger.log(
+        className: "AuthRemoteDataSource",
+        functionName: "_postLoginRegister()",
+        errorText: "Error in  login and register",
+        errorMessage: "token is empty",
+      );
+    }
+
+    final gps = getIt<GeoLocationManager>().gps;
+    final deviceId = DeviceInfoManager.device.toString();
+
+    if (gps.isNotEmpty) {
+      body["gps"] = getIt<GeoLocationManager>().gps;
+    } else {
+      logger.log(
+        className: "AuthRemoteDataSource",
+        functionName: "_postLoginRegister()",
+        errorText: "Error in  login and register",
+        errorMessage: "gps is empty",
+      );
+    }
+
+    if (deviceId.isNotEmpty) {
+      body['device_id'] = DeviceInfoManager.device.toString();
+    } else {
+      logger.log(
+        className: "AuthRemoteDataSource",
+        functionName: "_postLoginRegister()",
+        errorText: "Error in  login and register",
+        errorMessage: "device id is empty",
+      );
+    }
 
     try {
       response = await client.post(

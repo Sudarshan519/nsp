@@ -15,6 +15,7 @@ import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';
 import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:wallet_app/features/auth/domain/usecase/change_password.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'dart:io' show Platform;
 
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
@@ -341,8 +342,13 @@ class AuthRepositoryImpl implements AuthRepository {
       final userData = await request();
       localDataSource.save(userData);
 
-      bnpjSharedData.setString("access_token", userData.accessToken ?? "");
-      bnpjSharedData.setString("refresh_token", userData.refreshToken ?? "");
+      if (Platform.isAndroid) {
+        bnpjSharedData.setAccessTokenAndRefreshToken(
+            userData.accessToken ?? "", userData.refreshToken ?? "");
+      } else if (Platform.isIOS) {
+        bnpjSharedData.setString("access_token", userData.accessToken ?? "");
+        bnpjSharedData.setString("refresh_token", userData.refreshToken ?? "");
+      }
 
       return Right(userData);
     } on ServerException catch (ex) {

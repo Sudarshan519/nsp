@@ -61,7 +61,8 @@ class PrabhuPayTopupPage extends StatelessWidget {
           loading: (_) {},
           success: (success) async {
             bool? successResult = false;
-            successResult = await context.pushRoute(AppWebViewRoute(
+            successResult = await context.pushRoute(
+              AppWebViewRoute(
                 url: success.url,
                 title: 'Prabhu Pay',
                 urlListner: (url) async {
@@ -75,28 +76,29 @@ class PrabhuPayTopupPage extends StatelessWidget {
                       transitionDuration: const Duration(milliseconds: 400),
                       pageBuilder: (_, __, ___) {
                         return WillPopScope(
-                            onWillPop: () async {
-                              return successResult ?? false;
-                            },
-                            child: SizedBox.expand(
-                              // Makes widget fullscreen
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const DefaultTextStyle(
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                    ),
-                                    child: Text(
-                                      'Please wait\nthe transaction is being processed.',
-                                      textAlign: TextAlign.center,
-                                    ),
+                          onWillPop: () async {
+                            return successResult ?? false;
+                          },
+                          child: SizedBox.expand(
+                            // Makes widget fullscreen
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const DefaultTextStyle(
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
                                   ),
-                                  loadingPage(),
-                                ],
-                              ),
-                            ));
+                                  child: Text(
+                                    'Please wait\nthe transaction is being processed.',
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                loadingPage(),
+                              ],
+                            ),
+                          ),
+                        );
                       },
                     );
                   }
@@ -106,7 +108,9 @@ class PrabhuPayTopupPage extends StatelessWidget {
                     await context.popRoute(); //dismiss dialog
                     context.popRoute(true); //dismiss webview
                   }
-                })) as bool?;
+                },
+              ),
+            ) as bool?;
 
             if (successResult != null && successResult! == true) {
               AnalyticsService.logEvent(FirebaseEvents.PAYMENT_VIA_PRABHU,
