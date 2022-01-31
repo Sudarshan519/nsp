@@ -10,18 +10,14 @@ PODS:
     - Flutter
   - esewa_pnp (1.0.0):
     - Flutter
-  - FBSDKCoreKit (11.0.1):
-    - FBSDKCoreKit/Core (= 11.0.1)
-  - FBSDKCoreKit/Core (11.0.1):
-    - FBSDKCoreKit_Basics (~> 11.0.1)
-  - FBSDKCoreKit_Basics (11.0.1):
-    - FBSDKCoreKit_Basics/Basics (= 11.0.1)
-  - FBSDKCoreKit_Basics/Basics (11.0.1)
-  - FBSDKLoginKit (11.0.1):
-    - FBSDKLoginKit/Login (= 11.0.1)
-  - FBSDKLoginKit/Login (11.0.1):
-    - FBSDKCoreKit (~> 11.0.1)
-    - FBSDKCoreKit_Basics (~> 11.0.1)
+  - FBAEMKit (12.1.0):
+    - FBSDKCoreKit_Basics (= 12.1.0)
+  - FBSDKCoreKit (12.1.0):
+    - FBAEMKit (= 12.1.0)
+    - FBSDKCoreKit_Basics (= 12.1.0)
+  - FBSDKCoreKit_Basics (12.1.0)
+  - FBSDKLoginKit (12.1.0):
+    - FBSDKCoreKit (= 12.1.0)
   - Firebase/Analytics (8.7.0):
     - Firebase/Core
   - Firebase/Core (8.7.0):
@@ -72,10 +68,10 @@ PODS:
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
-  - FirebaseCoreDiagnostics (8.8.0):
-    - GoogleDataTransport (~> 9.0)
-    - GoogleUtilities/Environment (~> 7.4)
-    - GoogleUtilities/Logger (~> 7.4)
+  - FirebaseCoreDiagnostics (8.10.0):
+    - GoogleDataTransport (~> 9.1)
+    - GoogleUtilities/Environment (~> 7.6)
+    - GoogleUtilities/Logger (~> 7.6)
     - nanopb (~> 2.30908.0)
   - FirebaseCrashlytics (8.7.0):
     - FirebaseCore (~> 8.0)
@@ -84,10 +80,10 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - FirebaseInstallations (8.8.0):
+  - FirebaseInstallations (8.10.0):
     - FirebaseCore (~> 8.0)
-    - GoogleUtilities/Environment (~> 7.4)
-    - GoogleUtilities/UserDefaults (~> 7.4)
+    - GoogleUtilities/Environment (~> 7.6)
+    - GoogleUtilities/UserDefaults (~> 7.6)
     - PromisesObjC (< 3.0, >= 1.2)
   - FirebaseMessaging (8.7.0):
     - FirebaseCore (~> 8.0)
@@ -101,9 +97,9 @@ PODS:
   - Flutter (1.0.0)
   - flutter_downloader (0.0.1):
     - Flutter
-  - flutter_facebook_auth (2.0.0):
-    - FBSDKCoreKit (~> 11.0.0)
-    - FBSDKLoginKit (~> 11.0.0)
+  - flutter_facebook_auth (3.5.3):
+    - FBSDKCoreKit (~> 12.1.0)
+    - FBSDKLoginKit (~> 12.1.0)
     - Flutter
   - flutter_inappwebview (0.0.1):
     - Flutter
@@ -155,38 +151,38 @@ PODS:
     - GoogleUtilities/Network (~> 7.4)
     - "GoogleUtilities/NSData+zlib (~> 7.4)"
     - nanopb (~> 2.30908.0)
-  - GoogleDataTransport (9.1.0):
+  - GoogleDataTransport (9.1.2):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleMaps (5.1.0):
-    - GoogleMaps/Maps (= 5.1.0)
-  - GoogleMaps/Base (5.1.0)
-  - GoogleMaps/Maps (5.1.0):
+  - GoogleMaps (5.2.0):
+    - GoogleMaps/Maps (= 5.2.0)
+  - GoogleMaps/Base (5.2.0)
+  - GoogleMaps/Maps (5.2.0):
     - GoogleMaps/Base
   - GoogleSignIn (5.0.2):
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleUserMessagingPlatform (2.0.0)
-  - GoogleUtilities/AppDelegateSwizzler (7.5.2):
+  - GoogleUtilities/AppDelegateSwizzler (7.6.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.5.2):
+  - GoogleUtilities/Environment (7.6.0):
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/Logger (7.5.2):
+  - GoogleUtilities/Logger (7.6.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.5.2):
+  - GoogleUtilities/MethodSwizzler (7.6.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (7.5.2):
+  - GoogleUtilities/Network (7.6.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.5.2)"
-  - GoogleUtilities/Reachability (7.5.2):
+  - "GoogleUtilities/NSData+zlib (7.6.0)"
+  - GoogleUtilities/Reachability (7.6.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (7.5.2):
+  - GoogleUtilities/UserDefaults (7.6.0):
     - GoogleUtilities/Logger
   - GTMAppAuth (1.2.2):
     - AppAuth/Core (~> 1.4)
@@ -197,7 +193,7 @@ PODS:
     - TOCropViewController (~> 2.6.0)
   - image_picker (0.0.1):
     - Flutter
-  - IQKeyboardManager (6.5.6)
+  - IQKeyboardManager (6.5.9)
   - Khalti (1.0.17)
   - local_auth (0.0.1):
     - Flutter
@@ -280,6 +276,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AppAuth
+    - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
     - FBSDKLoginKit
@@ -388,9 +385,10 @@ SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
   esewa_pnp: 9c61e6be5134cd5bbaff0fd8f5051365f88ab8d6
-  FBSDKCoreKit: 38c9e29a3f1436362acacff6486d3a28628c288f
-  FBSDKCoreKit_Basics: 06780a4a12e16596bde8406add02c6aa1bf38616
-  FBSDKLoginKit: 8243e04c590c38b85c69fcf09d1234514d2475c3
+  FBAEMKit: 56c0bb9b42e3747cd82b67934f0c2b19325382ea
+  FBSDKCoreKit: 75368765d9c2303073145a7925dfaa9d60bcd77b
+  FBSDKCoreKit_Basics: 39865aff97e5f6951a78fb3e89dc4460e35e1895
+  FBSDKLoginKit: e993f97c7cc794c5da4056d8aec3c3d66033a727
   Firebase: bc9325d5ee2041524bac78a5213d0e530c651309
   firebase_analytics: 72e3c5d712e43eeb0cb6f194f7cc10bc81e7d3fe
   firebase_core: f5ac1f2726a2bd0468cea0161eddeea3d83d7e3e
@@ -398,13 +396,13 @@ SPEC CHECKSUMS:
   firebase_messaging: 913806702e39c8be50b2bc75b39b668dd5ebd992
   FirebaseAnalytics: 52768800c2add1d84b751420cb4caaf8195f2c41
   FirebaseCore: f4804c1d3f4bbbefc88904d15653038f2c99ddf7
-  FirebaseCoreDiagnostics: fe77f42da6329d6d83d21fd9d621a6b704413bfc
+  FirebaseCoreDiagnostics: 56fb7216d87e0e6ec2feddefa9d8a392fe8b2c18
   FirebaseCrashlytics: 6fac03d1eef054833b71c929c93ab95c12989728
-  FirebaseInstallations: 2563cb18a723ef9c6ef18318a49519b75dce613c
+  FirebaseInstallations: 830327b45345ffc859eaa9c17bcd5ae893fd5425
   FirebaseMessaging: 93227dd71d7888e200baef65043f81acb2b6596e
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   flutter_downloader: 058b9c41564a90500f67f3e432e3524613a7fd83
-  flutter_facebook_auth: abc044072738b7baa90d80583dabdb1211614f0d
+  flutter_facebook_auth: dfd6b2563406c538098e2127512d385c9ffd70ad
   flutter_inappwebview: bfd58618f49dc62f2676de690fc6dcda1d6c3721
   flutter_khalti: 2fc15052ce144f35737618481743af4e47dc5632
   flutter_local_notifications: 0c0b1ae97e741e1521e4c1629a459d04b9aec743
@@ -419,16 +417,16 @@ SPEC CHECKSUMS:
   google_mobile_ads: b3a22ee82112a9f06eea4435c71a97d104e0d271
   google_sign_in: 6bd214b9c154f881422f5fe27b66aaa7bbd580cc
   GoogleAppMeasurement: 2be61ce546ad074dbe4dd545f222ac6033bb1d9e
-  GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
-  GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
+  GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
+  GoogleMaps: 025272d5876d3b32604e5c080dc25eaf68764693
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
-  GoogleUtilities: 8de2a97a17e15b6b98e38e8770e2d129a57c0040
+  GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   image_cropper: f1668dd8d2cad2d357955caad15a40547856edcb
   image_picker: e06f7a68f000bd36f552c1847e33cda96ed31f1f
-  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  IQKeyboardManager: 241cc94ccabc9deb8f8bd7d12f00d73288d13ecc
   Khalti: 77f3170ebed03ce6e6af65230997a0a0516c0796
   local_auth: 25938960984c3a7f6e3253e3f8d962fdd16852bd
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -451,4 +449,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: cddb9a99248e060d48388ddd119cddec2f79247c
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.0
