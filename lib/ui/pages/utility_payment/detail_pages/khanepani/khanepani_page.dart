@@ -31,7 +31,7 @@ class KhanepaniPaymentPage extends StatelessWidget {
       child: Scaffold(
         body: BlocProvider(
           create: (context) => getIt<KhanepaniOfficesBloc>()
-            ..add(const KhanepaniOfficesEvent.fetch()),
+            ..add(KhanepaniOfficesEvent.fetch(payData.id.toString())),
           child: BlocBuilder<KhanepaniOfficesBloc, KhanepaniOfficesState>(
             builder: (context, state) {
               return state.map(
@@ -55,9 +55,9 @@ class KhanepaniPaymentPage extends StatelessWidget {
                         errorView(
                             errorType: ErrorType.other,
                             onRefresh: () {
-                              context
-                                  .read<KhanepaniOfficesBloc>()
-                                  .add(const KhanepaniOfficesEvent.fetch());
+                              context.read<KhanepaniOfficesBloc>().add(
+                                  KhanepaniOfficesEvent.fetch(
+                                      payData.id.toString()));
                             }),
                       ],
                     );

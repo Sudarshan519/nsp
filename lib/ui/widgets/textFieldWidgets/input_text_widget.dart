@@ -45,7 +45,7 @@ class InputTextWidget extends StatefulWidget {
     this.inputFormatters,
     this.maxLines = 1,
     this.minLines = 1,
-    this.maxlength = 25,
+    this.maxlength = 75,
     this.showHideTextOption = false,
     this.prefixText = '',
   }) : super(key: key);

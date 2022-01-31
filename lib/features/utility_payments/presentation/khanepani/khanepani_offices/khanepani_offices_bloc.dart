@@ -24,7 +24,8 @@ class KhanepaniOfficesBloc
     KhanepaniOfficesEvent event,
   ) async* {
     yield* event.map(fetch: (e) async* {
-      final result = await getKhanepaniOffice(NoParams());
+      final result = await getKhanepaniOffice(
+          GetKhanepaniOfficesParams(productId: e.productId));
       yield result.fold(
         (fail) => _Failure(fail),
         (data) => _Loaded(data),
