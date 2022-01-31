@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
+import 'package:wallet_app/core/device_info/device_information_manager.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/core/logger/logger.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
@@ -16,6 +17,7 @@ import 'package:wallet_app/utils/constant.dart';
 abstract class UserDeviceRemoteDataSource {
   Future<List<UserDeviceModel>> getUserDevices();
   Future<Unit> deleteDevice(int id);
+  Future<Unit> updateToken({required String refresh, required String access});
 }
 
 @LazySingleton(as: UserDeviceRemoteDataSource)
@@ -108,6 +110,50 @@ class UserDeviceRemoteDataSourceImpl implements UserDeviceRemoteDataSource {
         className: "UserDeviceRemoteDataSource",
         functionName: "getUserDevices()",
         errorText: "Error getting user devices",
+        errorMessage: e.toString(),
+      );
+      throw const ServerException(message: AppConstants.someThingWentWrong);
+    }
+  }
+
+  @override
+  Future<Unit> updateToken(
+      {required String refresh, required String access}) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UserDeviceConstant.updateToken}";
+    final accessToken =
+        getIt<AuthLocalDataSource>().getWalletUser().accessToken;
+    final body = {
+      "device_id": DeviceInfoManager.device.toString(),
+      "access": access,
+      "refresh": refresh
+    };
+
+    // _headers["Authorization"] = "Bearer $accessToken";
+    try {
+      final response = await client.post(Uri.parse(url),
+          headers: _headers, body: json.encode(body));
+      return APIResponseHandler.handle<Unit>(
+          httpStatusCode: response.statusCode,
+          onSuccess: () {
+            return unit;
+          },
+          retryFunction: () => updateToken(access: access, refresh: refresh),
+          other: () {
+            logger.log(
+              className: "UserDeviceRemoteDataSource",
+              functionName: "updateToken()",
+              errorText: "Error on API status code: ${response.statusCode}",
+              errorMessage: response.body,
+            );
+            throw const ServerException(
+                message: AppConstants.someThingWentWrong);
+          });
+    } catch (e) {
+      logger.log(
+        className: "UserDeviceRemoteDataSource",
+        functionName: "updateToken()",
+        errorText: "Error updating token of user device",
         errorMessage: e.toString(),
       );
       throw const ServerException(message: AppConstants.someThingWentWrong);

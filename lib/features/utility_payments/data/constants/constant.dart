@@ -17,6 +17,16 @@ class UtilityPaymentsApiEndpoints {
   static const khanepaniOffices = '$_khanePani/get_branches';
   static const khanepaniDetail = '$_khanePani/get_detail';
   static const khanepaniPay = '$_khanePani/pay';
+
+//TV
+  static String tvEnquiry(String provider) =>
+      '/utility_payments/$provider/get_detail';
+  static String tvPay(String provider) => '/utility_payments/$provider/pay';
+
+  //Internet
+  static String ispEnquiry(String provider) =>
+      '/utility_payments/$provider/get_detail';
+  static String ispPay(String provider) => '/utility_payments/$provider/pay';
 }
 
 class UtilityPayementType {
@@ -24,4 +34,21 @@ class UtilityPayementType {
   static const mirai = 'mirai';
   static const electricity = 'electricity';
   static const khanepani = 'khanepani';
+  //tv
+  static const merotv = 'merotv';
+  static const dishhome = 'dishhome';
+  static const simtv = 'simtv';
+  static const prabhutv = 'prabhutv';
+
+  //internet
+  static const worldlink = 'worldlink';
+  static const vianet = 'vianet';
+  static const prabhunet = 'prabhunet';
+  static const arrownet = 'arrownet';
+  static const loopnetwork = 'loopnetwork';
+  static const pals = 'pals';
+  static const websurfer = 'websurfer';
+  static const broadlink = 'broadlink';
+  static const skytv = 'skytv';
+  static const subisu = 'subisu';
 }

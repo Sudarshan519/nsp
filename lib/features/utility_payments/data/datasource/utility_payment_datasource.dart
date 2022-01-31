@@ -11,9 +11,12 @@ import 'package:wallet_app/features/partner_services/data/model/service_subscrip
 import 'package:wallet_app/features/utility_payments/data/constants/constant.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/data/models/payment_office_model.dart';
-import 'package:wallet_app/features/utility_payments/domain/entities/payment_customer_info.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/enquiry_nea.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/isp/enquiry_isp.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/isp/pay_isp.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/enquiry_tv.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/tv/pay_tv.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
@@ -48,6 +51,14 @@ abstract class UtilityPaymentDataSource {
   Future<Unit> payKhanepani(PaymentCustomerInfoModel customerData);
   Future<PaymentCustomerInfoModel> enquiryKhanepani(
       EnquireKhanepaniParams params);
+
+  //for TV
+  Future<PaymentCustomerInfoModel> enquiryTV(EnquireTvParams params);
+  Future<Unit> payTv(PayTvParams params);
+
+  //for ISP
+  Future<PaymentCustomerInfoModel> enquiryISP(EnquireISPParams params);
+  Future<Unit> payISP(PayISPParams params);
 }
 
 @LazySingleton(as: UtilityPaymentDataSource)
@@ -322,7 +333,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final statusCode = response.statusCode;
     if (statusCode == 200) {
       try {
-        return neaCustomerInfoFromJson(response.body);
+        return paymentCustomerInfoFromJson(response.body);
       } catch (ex) {
         logger.log(
           className: "UtilityPaymentDataSource",
@@ -355,15 +366,15 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
-    final body = json.encode(customerData.toJson());
-
+    final body = customerData.toJson();
+    body["gps"] = getIt<GeoLocationManager>().gps;
     http.Response response;
 
     try {
       response = await client.post(
         Uri.parse(url),
         headers: _header,
-        body: body,
+        body: json.encode(body),
       );
     } catch (ex) {
       throw ServerException(message: ex.toString());
@@ -455,7 +466,8 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final accessToken = auth.getWalletUser().accessToken;
 
     _header["Authorization"] = "Bearer $accessToken";
-    final body = json.encode(customerData.toJson());
+    final body = customerData.toJson();
+    body["gps"] = getIt<GeoLocationManager>().gps;
 
     http.Response response;
 
@@ -463,7 +475,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       response = await client.post(
         Uri.parse(url),
         headers: _header,
-        body: body,
+        body: json.encode(body),
       );
     } catch (ex) {
       throw ServerException(message: ex.toString());
@@ -511,7 +523,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     final statusCode = response.statusCode;
     if (statusCode == 200) {
       try {
-        return neaCustomerInfoFromJson(response.body);
+        return paymentCustomerInfoFromJson(response.body);
       } catch (ex) {
         logger.log(
           className: "UtilityPaymentDataSource",
@@ -532,6 +544,192 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
       );
       throw ServerException(
         message: errorMessageFromServer(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<Unit> payTv(PayTvParams params) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.tvPay(params.provider)}";
+
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    final body = params.customerInfo.toJson();
+    if (params.selectedPackage != null) {
+      body['package_id'] = params.selectedPackage!.packageId;
+      body['amount'] = params.selectedPackage!.amount;
+    }
+    body["gps"] = getIt<GeoLocationManager>().gps;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(body),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200 || statusCode == 201) {
+      return unit;
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "payTv()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+
+      throw ServerException(
+        message: errorMessageFromServerWithError(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<PaymentCustomerInfoModel> enquiryTV(EnquireTvParams params) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.tvEnquiry(params.provider)}";
+
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(params.toJson()),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200 || statusCode == 201) {
+      try {
+        return paymentCustomerInfoFromJson(response.body);
+      } catch (e) {
+        print(e.toString());
+        throw const ServerException(
+          message: AppConstants.someThingWentWrong,
+        );
+        // TODO
+      }
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "enquireMeroTv()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+
+      throw ServerException(
+        message: errorMessageFromServerWithError(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<Unit> payISP(PayISPParams params) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.tvPay(params.provider)}";
+
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    final body = params.customerInfo.toJson();
+    if (params.selectedPackage != null) {
+      body['package_id'] = params.selectedPackage!.packageId;
+      body['amount'] = params.selectedPackage!.amount;
+    }
+    body["gps"] = getIt<GeoLocationManager>().gps;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(body),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200 || statusCode == 201) {
+      return unit;
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "payTv()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+
+      throw ServerException(
+        message: errorMessageFromServerWithError(response.body) ??
+            AppConstants.someThingWentWrong,
+      );
+    }
+  }
+
+  @override
+  Future<PaymentCustomerInfoModel> enquiryISP(EnquireISPParams params) async {
+    final url =
+        "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.tvEnquiry(params.provider)}";
+
+    final accessToken = auth.getWalletUser().accessToken;
+
+    _header["Authorization"] = "Bearer $accessToken";
+
+    http.Response response;
+
+    try {
+      response = await client.post(
+        Uri.parse(url),
+        headers: _header,
+        body: json.encode(params.toJson()),
+      );
+    } catch (ex) {
+      throw ServerException(message: ex.toString());
+    }
+
+    final statusCode = response.statusCode;
+    if (statusCode == 200 || statusCode == 201) {
+      try {
+        return paymentCustomerInfoFromJson(response.body);
+      } catch (e) {
+        print(e.toString());
+        throw const ServerException(
+          message: AppConstants.someThingWentWrong,
+        );
+        // TODO
+      }
+    } else {
+      logger.log(
+        className: "UtilityPaymentDataSource",
+        functionName: "enquireMeroTv()",
+        errorText: "Status code: $statusCode",
+        errorMessage: response.body,
+      );
+
+      throw ServerException(
+        message: errorMessageFromServerWithError(response.body) ??
             AppConstants.someThingWentWrong,
       );
     }

@@ -215,6 +215,13 @@ class HomePage extends StatelessWidget {
         if (data.isNotEmpty) {
           return UtilityPamentWidget(
             paymentData: data,
+            onViewLess: () {
+              scrollController.animateTo(
+                0.0,
+                curve: Curves.easeOut,
+                duration: const Duration(milliseconds: 1),
+              );
+            },
           );
         }
 

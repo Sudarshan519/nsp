@@ -5,7 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:wallet_app/core/exceptions/exceptions.dart';
 import 'package:wallet_app/features/auth/data/app_constant/constant.dart';
 import 'package:wallet_app/features/auth/data/datasource/auth_local_data_source.dart';
+import 'package:wallet_app/features/auth/data/datasource/auth_remote_data_source.dart';
 import 'package:wallet_app/features/auth/data/model/wallet_user_model.dart';
+import 'package:wallet_app/features/user_device/data/data_source/user_device_remote_data_source.dart';
 import 'package:wallet_app/handlers/session_handler.dart';
 import 'package:wallet_app/injections/injection.dart';
 import 'package:http/http.dart' as http;
@@ -67,6 +69,9 @@ class APIResponseHandler {
           await auth.save(WalletUserModel.fromLocalStorage(
             user.toJSON()..['access_token'] = accessToken,
           ));
+
+          await getIt<UserDeviceRemoteDataSource>().updateToken(
+              refresh: user.refreshToken.toString(), access: accessToken);
           _shouldExit = true;
 
           debugPrint('token fetch by function $funcName');

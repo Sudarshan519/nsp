@@ -5,9 +5,7 @@ description: A new Flutter project.
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.1.4+20 # Dont forget in update app version in the app_config.json file after version is changed!
-
-
+version: 1.1.5+21 # Dont forget in update app version in the app_config.json file after version is changed!
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
