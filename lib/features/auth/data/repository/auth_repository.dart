@@ -15,6 +15,7 @@ import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';
 import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:wallet_app/features/auth/domain/usecase/change_password.dart';
 import 'package:wallet_app/utils/constant.dart';
+import 'dart:io' show Platform;
 
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
@@ -247,6 +248,13 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Unit> logoutUser() async {
     await localDataSource.delete();
+    if (Platform.isAndroid) {
+      await bnpjSharedData.clearData();
+    } else {
+      await bnpjSharedData.clearData(key: 'access_token');
+      await bnpjSharedData.clearData(key: 'refresh_token');
+    }
+
     return unit;
   }
 
