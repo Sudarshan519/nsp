@@ -32,7 +32,11 @@ class PushNotificationManager {
   }
 
   Future setToken() async {
-    _token = await _firebaseMessaging.getToken() ?? '';
+   try {
+      _token = await _firebaseMessaging.getToken() ?? '';
+    } catch (ex) {
+      print(ex.toString());
+    }
   }
 
   Future initialise() async {

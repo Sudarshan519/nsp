@@ -134,14 +134,14 @@ class _SignupBody extends StatelessWidget {
                     height: 46,
                   ),
                   SignupFormWidget(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  _divider(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const SocialLoginWidget(isSignIn: false),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
+                  // _divider(),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
+                  // const SocialLoginWidget(isSignIn: false),
                   const SizedBox(
                     height: 56,
                   ),

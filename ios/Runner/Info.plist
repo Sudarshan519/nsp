@@ -57,6 +57,8 @@
 	<string>All files have been downloaded</string>
 	<key>FacebookAppID</key>
 	<string>160947809212135</string>
+	<key>FacebookClientToken</key>
+	<string>e9e401b0607e532c9ce5a9b015fb773b</string>
 	<key>FacebookDisplayName</key>
 	<string>BNPJ - Buy Now Pay Japan</string>
 	<key>GADApplicationIdentifier</key>
