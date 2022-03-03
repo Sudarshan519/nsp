@@ -349,13 +349,8 @@ class AuthRepositoryImpl implements AuthRepository {
       final userData = await request();
       localDataSource.save(userData);
 
-      if (Platform.isAndroid) {
-        bnpjSharedData.setAccessTokenAndRefreshToken(
-            userData.accessToken ?? "", userData.refreshToken ?? "");
-      } else if (Platform.isIOS) {
-        bnpjSharedData.setString("access_token", userData.accessToken ?? "");
-        bnpjSharedData.setString("refresh_token", userData.refreshToken ?? "");
-      }
+      bnpjSharedData.setString("access_token", userData.accessToken ?? "");
+      bnpjSharedData.setString("refresh_token", userData.refreshToken ?? "");
 
       return Right(userData);
     } on ServerException catch (ex) {
