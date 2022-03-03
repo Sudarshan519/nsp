@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -15,7 +17,6 @@ import 'package:wallet_app/features/auth/domain/entities/wallet_user.dart';
 import 'package:wallet_app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:wallet_app/features/auth/domain/usecase/change_password.dart';
 import 'package:wallet_app/utils/constant.dart';
-import 'dart:io' show Platform;
 
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {

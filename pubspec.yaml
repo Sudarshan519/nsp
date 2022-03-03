@@ -5,7 +5,7 @@ description: A new Flutter project.
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.1.7+24 # Dont forget in update app version in the app_config.json file after version is changed!
+version: 1.1.8+25 # Dont forget in update app version in the app_config.json file after version is changed!
 
 
 
@@ -19,10 +19,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  advance_pdf_viewer:
-    git:
-      url: https://github.com/AdiD253/pdf_viewer.git
-      ref: pdf-viewer-file-fix
+
   flutter_cached_pdfview: ^0.4.0-nullsafety
   assorted_layout_widgets: ^5.0.2     
   another_flushbar: ^1.10.24          
