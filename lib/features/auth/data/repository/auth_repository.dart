@@ -248,6 +248,13 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Unit> logoutUser() async {
     await localDataSource.delete();
+    if (Platform.isAndroid) {
+      await bnpjSharedData.clearData();
+    } else {
+      await bnpjSharedData.clearData(key: 'access_token');
+      await bnpjSharedData.clearData(key: 'refresh_token');
+    }
+
     return unit;
   }
 

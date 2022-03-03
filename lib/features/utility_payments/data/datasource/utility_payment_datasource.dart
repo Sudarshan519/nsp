@@ -15,6 +15,7 @@ import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/
 import 'package:wallet_app/features/utility_payments/domain/usecases/isp/enquiry_isp.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/isp/pay_isp.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/get_khanepani_offices.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/tv/enquiry_tv.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/tv/pay_tv.dart';
 import 'package:wallet_app/injections/injection.dart';
@@ -47,7 +48,8 @@ abstract class UtilityPaymentDataSource {
   Future<PaymentCustomerInfoModel> enquiryNea(EnquiryNeaParams params);
 
   //for khanepani
-  Future<List<PaymentOfficeModel>> getKhanepaniOffices();
+  Future<List<PaymentOfficeModel>> getKhanepaniOffices(
+      GetKhanepaniOfficesParams params);
   Future<Unit> payKhanepani(PaymentCustomerInfoModel customerData);
   Future<PaymentCustomerInfoModel> enquiryKhanepani(
       EnquireKhanepaniParams params);
@@ -398,7 +400,8 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
   }
 
   @override
-  Future<List<PaymentOfficeModel>> getKhanepaniOffices() async {
+  Future<List<PaymentOfficeModel>> getKhanepaniOffices(
+      GetKhanepaniOfficesParams params) async {
     final url =
         "${config.baseURL}${config.apiPath}${UtilityPaymentsApiEndpoints.khanepaniOffices}";
     final accessToken = auth.getWalletUser().accessToken;
@@ -406,11 +409,13 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
     _header["Authorization"] = "Bearer $accessToken";
 
     http.Response response;
+    var body = {'product_id': params.productId};
 
     try {
-      response = await client.get(
+      response = await client.post(
         Uri.parse(url),
         headers: _header,
+        body: json.encode(body),
       );
     } catch (ex) {
       throw ServerException(message: ex.toString());

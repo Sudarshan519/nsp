@@ -12,6 +12,7 @@ import 'package:wallet_app/features/utility_payments/domain/usecases/electicity/
 import 'package:wallet_app/features/utility_payments/domain/usecases/isp/enquiry_isp.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/isp/pay_isp.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/enquiry_khanepani.dart';
+import 'package:wallet_app/features/utility_payments/domain/usecases/khanepani/get_khanepani_offices.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/tv/enquiry_tv.dart';
 import 'package:wallet_app/features/utility_payments/domain/usecases/tv/pay_tv.dart';
 
@@ -112,10 +113,10 @@ class UtilityPaymentRepositoryImpl implements UtilityPaymentRepository {
   }
 
   @override
-  Future<Either<ApiFailure, List<PaymentOffice>>>
-      getKhanepaniPaymentOffices() async {
+  Future<Either<ApiFailure, List<PaymentOffice>>> getKhanepaniPaymentOffices(
+      GetKhanepaniOfficesParams params) async {
     try {
-      return Right(await dataSource.getKhanepaniOffices());
+      return Right(await dataSource.getKhanepaniOffices(params));
     } on ServerException catch (ex) {
       return Left(ApiFailure.serverError(message: ex.message));
     }

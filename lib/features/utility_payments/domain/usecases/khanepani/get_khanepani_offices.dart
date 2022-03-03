@@ -8,7 +8,8 @@ import 'package:wallet_app/features/utility_payments/domain/repositories/utility
 
 @lazySingleton
 class GetKhanepaniOffices
-    implements Usecase<ApiFailure, List<PaymentOffice>, NoParams> {
+    implements
+        Usecase<ApiFailure, List<PaymentOffice>, GetKhanepaniOfficesParams> {
   final NetworkInfo networkInfo;
   final UtilityPaymentRepository repository;
 
@@ -18,13 +19,20 @@ class GetKhanepaniOffices
   });
 
   @override
-  Future<Either<ApiFailure, List<PaymentOffice>>> call(NoParams params) async {
+  Future<Either<ApiFailure, List<PaymentOffice>>> call(
+      GetKhanepaniOfficesParams params) async {
     final isConnected = await networkInfo.isConnected;
 
     if (!isConnected) {
       return const Left(ApiFailure.noInternetConnection());
     }
 
-    return repository.getKhanepaniPaymentOffices();
+    return repository.getKhanepaniPaymentOffices(params);
   }
+}
+
+class GetKhanepaniOfficesParams {
+  final String productId;
+
+  GetKhanepaniOfficesParams({required this.productId});
 }
