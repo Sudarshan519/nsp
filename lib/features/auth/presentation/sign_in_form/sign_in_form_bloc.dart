@@ -68,14 +68,14 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   SignInFormState _mapChangeEmailToState(_EmailChanged _emailChanged) {
     return state.copyWith(
-      emailAddress: _emailChanged.email,
+      emailAddress: _emailChanged.email.trim(),
       authFailureOrSuccessOption: none(),
     );
   }
 
   SignInFormState _mapChangePasswordToState(_PasswordChanged _passwordChanged) {
     return state.copyWith(
-      password: _passwordChanged.password,
+      password: _passwordChanged.password.trim(),
       authFailureOrSuccessOption: none(),
     );
   }

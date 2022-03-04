@@ -60,12 +60,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
-       <provider
-           android:name="com.newitventure.shared_data.SharedDataContentProvider"
-           android:authorities="com.newitventure.shared_data"
-           android:enabled="true"
-           android:exported="true">
-        </provider>
+    
         
         <provider
           android:name="vn.hunghd.flutterdownloader.DownloadedFileProvider"

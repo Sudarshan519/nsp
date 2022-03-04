@@ -1190,7 +1190,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "90ef9e9565ec350b0a6a34ee4b8e638a4a4fb53a"
+      resolved-ref: fcc8606e40f125d2c9dcba0569b80d73e62e5ed0
       url: "https://aashishadhikari@bitbucket.org/aashishadhikari/flutter-data-share.git"
     source: git
     version: "0.0.1"
