@@ -9,6 +9,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
+import 'package:wallet_app/core/notification/push_notification_manager.dart';
+import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 import '../colors.dart';
@@ -205,29 +207,39 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
       Directory? externalDir;
 
       if (Platform.isAndroid) {
-        externalDir = await getExternalStorageDirectory();
+        // externalDir = await getExternalStorageDirectory();
+
+        externalDir = Directory('/storage/emulated/0/Download');
+
+        if (!externalDir.existsSync()) {
+          externalDir = await getExternalStorageDirectory();
+        }
+
+        print(externalDir?.path);
       } else if (Platform.isIOS) {
         externalDir = await getApplicationDocumentsDirectory();
       }
 
-      final String fileName = url.split('/').last;
+      // final String fileName = url.split('/').last;
 
       if (Platform.isAndroid) {
         if (externalDir != null) {
-          final path = '${externalDir.path}/$fileName';
+          final path = '${externalDir.path}/$_fileName';
           final file = File(path);
           final exists = await file.exists();
-          if (exists) {
-            await file.delete();
-          }
+          // if (exists) {
+          //   file.deleteSync();
+          // }
         }
       }
 
       if (externalDir != null) {
-        final _ = await FlutterDownloader.enqueue(
+        await FlutterDownloader.enqueue(
           url: url,
+          showNotification: false,
+          openFileFromNotification: false,
           savedDir: externalDir.path,
-          fileName: fileName,
+          fileName: _fileName,
         );
       }
 
@@ -239,6 +251,7 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
 
   static void downloadCallback(
       String id, DownloadTaskStatus status, int progress) {
+    print('Prog: $progress');
     if (status == DownloadTaskStatus.failed && progress == -1) {
       /// download failed mostly due to Server replied HTTP code: 416
       // TODO: retry download of the certain task
@@ -249,5 +262,22 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
     if (send != null) {
       send.send([id, status, progress]);
     }
+
+    if (status == DownloadTaskStatus.complete) {
+      try {
+        //await Future.delayed(const Duration(seconds: 2));
+
+        var notif = getIt<PushNotificationManager>();
+        notif.showNotification(
+            id: DateTime.now().second,
+            title: 'Title Resume DL',
+            body: 'Download success',
+            payload: {'path': '/storage/emulated/0/Download/$_fileName'});
+      } catch (ex) {
+        print(ex);
+      }
+    }
   }
 }
+
+const String _fileName = 'resume.pdf';

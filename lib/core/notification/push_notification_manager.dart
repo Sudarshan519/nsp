@@ -23,7 +23,7 @@ final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
 final _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
-@lazySingleton
+@singleton
 class PushNotificationManager {
   String _token = "";
 
@@ -32,7 +32,7 @@ class PushNotificationManager {
   }
 
   Future setToken() async {
-   try {
+    try {
       _token = await _firebaseMessaging.getToken() ?? '';
     } catch (ex) {
       print(ex.toString());
@@ -125,6 +125,28 @@ class PushNotificationManager {
       handleBackgroundIncomingNotification(initialMessage);
     }
   }
+
+  void showNotification({
+    required int id,
+    required String title,
+    required String body,
+    Map<String, dynamic>? payload,
+  }) {
+    _flutterLocalNotificationsPlugin.show(
+        id,
+        title,
+        body,
+        NotificationDetails(
+          android: AndroidNotificationDetails(_androidChannel.id,
+              _androidChannel.name, _androidChannel.description,
+              // icon: android.smallIcon ?? 'notification_logo'
+              icon: 'notification_logo'
+
+              // other properties...
+              ),
+        ),
+        payload: json.encode(body));
+  }
 }
 
 Future _selectNotification(String? payload,
@@ -171,21 +193,26 @@ Future<void> handleForegroundIncomingNotification(RemoteMessage message) async {
   // If `onMessage` is triggered with a notification, construct our own
   // local notification to show to users using the created channel.
   if (notification != null && android != null) {
-    _flutterLocalNotificationsPlugin.show(
-        notification.hashCode,
-        notification.title,
-        notification.body,
-        NotificationDetails(
-          android: AndroidNotificationDetails(
-            _androidChannel.id,
-            _androidChannel.name,
-            _androidChannel.description,
-            icon: android.smallIcon ?? 'notification_logo',
-
-            // other properties...
-          ),
-        ),
-        payload: json.encode(message.data));
+    getIt<PushNotificationManager>().showNotification(
+        id: notification.hashCode,
+        title: notification.title ?? '',
+        body: notification.body ?? '',
+        payload: message.data);
+    // _flutterLocalNotificationsPlugin.show(
+    //     notification.hashCode,
+    //     notification.title,
+    //     notification.body,
+    //     NotificationDetails(
+    //       android: AndroidNotificationDetails(
+    //         _androidChannel.id,
+    //         _androidChannel.name,
+    //         _androidChannel.description,
+    //         icon: android.smallIcon ?? 'notification_logo',
+    //
+    //         // other properties...
+    //       ),
+    //     ),
+    //     payload: json.encode(message.data));
   }
 }
 
