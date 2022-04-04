@@ -9,8 +9,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
 import 'package:wallet_app/core/analytcs/firebase_event_constants.dart';
-import 'package:wallet_app/core/notification/push_notification_manager.dart';
-import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 import '../colors.dart';
@@ -236,8 +234,6 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
       if (externalDir != null) {
         await FlutterDownloader.enqueue(
           url: url,
-          showNotification: false,
-          openFileFromNotification: false,
           savedDir: externalDir.path,
           fileName: _fileName,
         );
@@ -263,20 +259,20 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
       send.send([id, status, progress]);
     }
 
-    if (status == DownloadTaskStatus.complete) {
-      try {
-        //await Future.delayed(const Duration(seconds: 2));
-
-        var notif = getIt<PushNotificationManager>();
-        notif.showNotification(
-            id: DateTime.now().second,
-            title: 'Title Resume DL',
-            body: 'Download success',
-            payload: {'path': '/storage/emulated/0/Download/$_fileName'});
-      } catch (ex) {
-        print(ex);
-      }
-    }
+    // if (status == DownloadTaskStatus.complete) {
+    //   try {
+    //     //await Future.delayed(const Duration(seconds: 2));
+    //
+    //     var notif = getIt<PushNotificationManager>();
+    //     notif.showNotification(
+    //         id: DateTime.now().second,
+    //         title: 'Title Resume DL',
+    //         body: 'Download success',
+    //         payload: {'path': '/storage/emulated/0/Download/$_fileName'});
+    //   } catch (ex) {
+    //     print(ex);
+    //   }
+    // }
   }
 }
 
