@@ -5,6 +5,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 
+@RoutePage()
 class AlertsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

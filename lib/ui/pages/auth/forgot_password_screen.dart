@@ -6,7 +6,7 @@ import 'package:wallet_app/features/auth/presentation/password/password_reset/pa
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/pages/auth/widgets/forgot_password_form.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
-
+@RoutePage()
 class ForgotPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

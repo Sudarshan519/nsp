@@ -9,7 +9,7 @@ import 'package:wallet_app/ui/pages/auth/widgets/confirm_pin_form.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
-
+@RoutePage()
 class VerifyUserPage extends StatelessWidget {
   final String email;
 

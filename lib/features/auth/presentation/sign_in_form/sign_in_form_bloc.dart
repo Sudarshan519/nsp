@@ -30,7 +30,47 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     required this.signInWithApple,
     required this.signInWithFacebook,
     required this.signInWithGoogle,
-  }) : super(SignInFormState.initial());
+  }) : super(SignInFormState.initial()) {
+    on<_EmailChanged>((event, emit) {
+      emit(state.copyWith(
+        emailAddress: event.email.trim(),
+        authFailureOrSuccessOption: none(),
+      ));
+    });
+    on<_PasswordChanged>((event, emit) {
+      emit(state.copyWith(
+        password: event.password.trim(),
+        authFailureOrSuccessOption: none(),
+      ));
+    });
+    on<_SignInWithEmailAndPasswordPressed>(
+      (event, emit) async {
+        emit(state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ));
+
+        final result = await signInWithEmailUsecase(SignInParams(
+          username: state.emailAddress,
+          password: state.password,
+        ));
+        Either<ApiFailure, AuthRoutes> failureOrSuccess;
+        failureOrSuccess = result.fold(
+          (l) => Left(l),
+          (r) => (r.status ?? false)
+              ? const Right(AuthRoutes.showHomeScreen())
+              : Right(
+                  AuthRoutes.showEmailVerificationScreen(state.emailAddress),
+                ),
+        );
+
+        emit(state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: optionOf(failureOrSuccess),
+        ));
+      },
+    );
+  }
 
   @override
   Stream<SignInFormState> mapEventToState(
@@ -88,9 +128,11 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   }
 
   Stream<SignInFormState> _mapLoginSubmittedToState(
-      _SignInWithEmailAndPasswordPressed
-          _signInWithEmailAndPasswordPressed) async* {
+    _SignInWithEmailAndPasswordPressed _signInWithEmailAndPasswordPressed,
+  ) async* {
+    print("submitted");
     Either<ApiFailure, AuthRoutes> failureOrSuccess;
+
     yield state.copyWith(
       isSubmitting: true,
       authFailureOrSuccessOption: none(),

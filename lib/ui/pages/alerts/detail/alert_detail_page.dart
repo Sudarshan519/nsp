@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,9 +8,10 @@ import 'package:wallet_app/features/alerts/presentation/get_disaster_detail/get_
 import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class AlertDetailFomApi extends StatelessWidget {
+@RoutePage()
+class AlertDetailFomApiPage extends StatelessWidget {
   final String id;
-  const AlertDetailFomApi({Key? key, required this.id}) : super(key: key);
+  const AlertDetailFomApiPage({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class AlertDetailFomApi extends StatelessWidget {
   }
 }
 
+@RoutePage()
 class AlertDetailPage extends StatelessWidget {
   final Alert alert;
 

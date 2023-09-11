@@ -8,7 +8,7 @@ import 'package:wallet_app/ui/widgets/pop_up/pop_up_confirmation.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 import 'more_item.dart';
-
+@RoutePage()
 class MorePage extends StatelessWidget {
   MorePage({
     Key? key,

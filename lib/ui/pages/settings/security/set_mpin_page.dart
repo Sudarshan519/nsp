@@ -14,6 +14,7 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:auto_route/auto_route.dart';
 
+@RoutePage()
 class SetMpinPage extends StatelessWidget {
   SetMpinPage({Key? key}) : super(key: key);
 

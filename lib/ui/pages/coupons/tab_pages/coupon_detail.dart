@@ -8,6 +8,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
+ 
 class CouponDetail extends StatefulWidget {
   const CouponDetail({
     Key? key,
@@ -326,7 +327,7 @@ class _CouponDetailState extends State<CouponDetail> {
         ),
         child: Html(
           data: widget.coupon.termsConditions ?? '',
-          onLinkTap: (link, _, __, ___) {
+          onLinkTap: (link, _, __) {
             context.pushRoute(
               AppWebViewRoute(url: link ?? '', title: ""),
             );

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/core/analytcs/analytics_service.dart';
@@ -11,6 +12,7 @@ import 'package:wallet_app/ui/pages/transactions/transactions_page.dart';
 
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
+@RoutePage()
 class TabBarPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -123,10 +125,14 @@ class TabBarScreenState extends State<TabBarPage> {
 
     return [
       homePage!,
-      const ResumePage(),
-      NewsPage(),
-      const TransactionPage(),
-      MorePage(),
+      SizedBox(),
+      SizedBox(),
+      SizedBox(),
+      SizedBox(),
+      // const ResumePage(),
+      // NewsPage(),
+      // const TransactionPage(),
+      // MorePage(),
     ];
   }
 

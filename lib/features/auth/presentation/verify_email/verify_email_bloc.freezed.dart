@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'verify_email_bloc.dart';
 
@@ -10,33 +12,7 @@ part of 'verify_email_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$VerifyEmailEventTearOff {
-  const _$VerifyEmailEventTearOff();
-
-  _ChangePin changePin(String pin) {
-    return _ChangePin(
-      pin,
-    );
-  }
-
-  _Verify verify(String email) {
-    return _Verify(
-      email,
-    );
-  }
-
-  _Resend resend(String email) {
-    return _Resend(
-      email,
-    );
-  }
-}
-
-/// @nodoc
-const $VerifyEmailEvent = _$VerifyEmailEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$VerifyEmailEvent {
@@ -45,6 +21,13 @@ mixin _$VerifyEmailEvent {
     required TResult Function(String pin) changePin,
     required TResult Function(String email) verify,
     required TResult Function(String email) resend,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String pin)? changePin,
+    TResult? Function(String email)? verify,
+    TResult? Function(String email)? resend,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +46,13 @@ mixin _$VerifyEmailEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangePin value)? changePin,
+    TResult? Function(_Verify value)? verify,
+    TResult? Function(_Resend value)? resend,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePin value)? changePin,
     TResult Function(_Verify value)? verify,
@@ -76,43 +66,44 @@ mixin _$VerifyEmailEvent {
 abstract class $VerifyEmailEventCopyWith<$Res> {
   factory $VerifyEmailEventCopyWith(
           VerifyEmailEvent value, $Res Function(VerifyEmailEvent) then) =
-      _$VerifyEmailEventCopyWithImpl<$Res>;
+      _$VerifyEmailEventCopyWithImpl<$Res, VerifyEmailEvent>;
 }
 
 /// @nodoc
-class _$VerifyEmailEventCopyWithImpl<$Res>
+class _$VerifyEmailEventCopyWithImpl<$Res, $Val extends VerifyEmailEvent>
     implements $VerifyEmailEventCopyWith<$Res> {
   _$VerifyEmailEventCopyWithImpl(this._value, this._then);
 
-  final VerifyEmailEvent _value;
   // ignore: unused_field
-  final $Res Function(VerifyEmailEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangePinCopyWith<$Res> {
-  factory _$ChangePinCopyWith(
-          _ChangePin value, $Res Function(_ChangePin) then) =
-      __$ChangePinCopyWithImpl<$Res>;
+abstract class _$$_ChangePinCopyWith<$Res> {
+  factory _$$_ChangePinCopyWith(
+          _$_ChangePin value, $Res Function(_$_ChangePin) then) =
+      __$$_ChangePinCopyWithImpl<$Res>;
+  @useResult
   $Res call({String pin});
 }
 
 /// @nodoc
-class __$ChangePinCopyWithImpl<$Res>
-    extends _$VerifyEmailEventCopyWithImpl<$Res>
-    implements _$ChangePinCopyWith<$Res> {
-  __$ChangePinCopyWithImpl(_ChangePin _value, $Res Function(_ChangePin) _then)
-      : super(_value, (v) => _then(v as _ChangePin));
+class __$$_ChangePinCopyWithImpl<$Res>
+    extends _$VerifyEmailEventCopyWithImpl<$Res, _$_ChangePin>
+    implements _$$_ChangePinCopyWith<$Res> {
+  __$$_ChangePinCopyWithImpl(
+      _$_ChangePin _value, $Res Function(_$_ChangePin) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangePin get _value => super._value as _ChangePin;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pin = freezed,
+    Object? pin = null,
   }) {
-    return _then(_ChangePin(
-      pin == freezed
+    return _then(_$_ChangePin(
+      null == pin
           ? _value.pin
           : pin // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,19 +127,19 @@ class _$_ChangePin implements _ChangePin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangePin &&
-            (identical(other.pin, pin) ||
-                const DeepCollectionEquality().equals(other.pin, pin)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangePin &&
+            (identical(other.pin, pin) || other.pin == pin));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(pin);
+  int get hashCode => Object.hash(runtimeType, pin);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangePinCopyWith<_ChangePin> get copyWith =>
-      __$ChangePinCopyWithImpl<_ChangePin>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangePinCopyWith<_$_ChangePin> get copyWith =>
+      __$$_ChangePinCopyWithImpl<_$_ChangePin>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -158,6 +149,16 @@ class _$_ChangePin implements _ChangePin {
     required TResult Function(String email) resend,
   }) {
     return changePin(pin);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String pin)? changePin,
+    TResult? Function(String email)? verify,
+    TResult? Function(String email)? resend,
+  }) {
+    return changePin?.call(pin);
   }
 
   @override
@@ -186,6 +187,16 @@ class _$_ChangePin implements _ChangePin {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangePin value)? changePin,
+    TResult? Function(_Verify value)? verify,
+    TResult? Function(_Resend value)? resend,
+  }) {
+    return changePin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePin value)? changePin,
     TResult Function(_Verify value)? verify,
@@ -200,36 +211,36 @@ class _$_ChangePin implements _ChangePin {
 }
 
 abstract class _ChangePin implements VerifyEmailEvent {
-  const factory _ChangePin(String pin) = _$_ChangePin;
+  const factory _ChangePin(final String pin) = _$_ChangePin;
 
-  String get pin => throw _privateConstructorUsedError;
+  String get pin;
   @JsonKey(ignore: true)
-  _$ChangePinCopyWith<_ChangePin> get copyWith =>
+  _$$_ChangePinCopyWith<_$_ChangePin> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$VerifyCopyWith<$Res> {
-  factory _$VerifyCopyWith(_Verify value, $Res Function(_Verify) then) =
-      __$VerifyCopyWithImpl<$Res>;
+abstract class _$$_VerifyCopyWith<$Res> {
+  factory _$$_VerifyCopyWith(_$_Verify value, $Res Function(_$_Verify) then) =
+      __$$_VerifyCopyWithImpl<$Res>;
+  @useResult
   $Res call({String email});
 }
 
 /// @nodoc
-class __$VerifyCopyWithImpl<$Res> extends _$VerifyEmailEventCopyWithImpl<$Res>
-    implements _$VerifyCopyWith<$Res> {
-  __$VerifyCopyWithImpl(_Verify _value, $Res Function(_Verify) _then)
-      : super(_value, (v) => _then(v as _Verify));
+class __$$_VerifyCopyWithImpl<$Res>
+    extends _$VerifyEmailEventCopyWithImpl<$Res, _$_Verify>
+    implements _$$_VerifyCopyWith<$Res> {
+  __$$_VerifyCopyWithImpl(_$_Verify _value, $Res Function(_$_Verify) _then)
+      : super(_value, _then);
 
-  @override
-  _Verify get _value => super._value as _Verify;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? email = null,
   }) {
-    return _then(_Verify(
-      email == freezed
+    return _then(_$_Verify(
+      null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
@@ -253,19 +264,19 @@ class _$_Verify implements _Verify {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Verify &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Verify &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
+  int get hashCode => Object.hash(runtimeType, email);
 
   @JsonKey(ignore: true)
   @override
-  _$VerifyCopyWith<_Verify> get copyWith =>
-      __$VerifyCopyWithImpl<_Verify>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_VerifyCopyWith<_$_Verify> get copyWith =>
+      __$$_VerifyCopyWithImpl<_$_Verify>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -275,6 +286,16 @@ class _$_Verify implements _Verify {
     required TResult Function(String email) resend,
   }) {
     return verify(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String pin)? changePin,
+    TResult? Function(String email)? verify,
+    TResult? Function(String email)? resend,
+  }) {
+    return verify?.call(email);
   }
 
   @override
@@ -303,6 +324,16 @@ class _$_Verify implements _Verify {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangePin value)? changePin,
+    TResult? Function(_Verify value)? verify,
+    TResult? Function(_Resend value)? resend,
+  }) {
+    return verify?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePin value)? changePin,
     TResult Function(_Verify value)? verify,
@@ -317,35 +348,36 @@ class _$_Verify implements _Verify {
 }
 
 abstract class _Verify implements VerifyEmailEvent {
-  const factory _Verify(String email) = _$_Verify;
+  const factory _Verify(final String email) = _$_Verify;
 
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @JsonKey(ignore: true)
-  _$VerifyCopyWith<_Verify> get copyWith => throw _privateConstructorUsedError;
+  _$$_VerifyCopyWith<_$_Verify> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ResendCopyWith<$Res> {
-  factory _$ResendCopyWith(_Resend value, $Res Function(_Resend) then) =
-      __$ResendCopyWithImpl<$Res>;
+abstract class _$$_ResendCopyWith<$Res> {
+  factory _$$_ResendCopyWith(_$_Resend value, $Res Function(_$_Resend) then) =
+      __$$_ResendCopyWithImpl<$Res>;
+  @useResult
   $Res call({String email});
 }
 
 /// @nodoc
-class __$ResendCopyWithImpl<$Res> extends _$VerifyEmailEventCopyWithImpl<$Res>
-    implements _$ResendCopyWith<$Res> {
-  __$ResendCopyWithImpl(_Resend _value, $Res Function(_Resend) _then)
-      : super(_value, (v) => _then(v as _Resend));
+class __$$_ResendCopyWithImpl<$Res>
+    extends _$VerifyEmailEventCopyWithImpl<$Res, _$_Resend>
+    implements _$$_ResendCopyWith<$Res> {
+  __$$_ResendCopyWithImpl(_$_Resend _value, $Res Function(_$_Resend) _then)
+      : super(_value, _then);
 
-  @override
-  _Resend get _value => super._value as _Resend;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? email = null,
   }) {
-    return _then(_Resend(
-      email == freezed
+    return _then(_$_Resend(
+      null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
@@ -369,19 +401,19 @@ class _$_Resend implements _Resend {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Resend &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Resend &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
+  int get hashCode => Object.hash(runtimeType, email);
 
   @JsonKey(ignore: true)
   @override
-  _$ResendCopyWith<_Resend> get copyWith =>
-      __$ResendCopyWithImpl<_Resend>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ResendCopyWith<_$_Resend> get copyWith =>
+      __$$_ResendCopyWithImpl<_$_Resend>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -391,6 +423,16 @@ class _$_Resend implements _Resend {
     required TResult Function(String email) resend,
   }) {
     return resend(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String pin)? changePin,
+    TResult? Function(String email)? verify,
+    TResult? Function(String email)? resend,
+  }) {
+    return resend?.call(email);
   }
 
   @override
@@ -419,6 +461,16 @@ class _$_Resend implements _Resend {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangePin value)? changePin,
+    TResult? Function(_Verify value)? verify,
+    TResult? Function(_Resend value)? resend,
+  }) {
+    return resend?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePin value)? changePin,
     TResult Function(_Verify value)? verify,
@@ -433,42 +485,13 @@ class _$_Resend implements _Resend {
 }
 
 abstract class _Resend implements VerifyEmailEvent {
-  const factory _Resend(String email) = _$_Resend;
+  const factory _Resend(final String email) = _$_Resend;
 
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @JsonKey(ignore: true)
-  _$ResendCopyWith<_Resend> get copyWith => throw _privateConstructorUsedError;
+  _$$_ResendCopyWith<_$_Resend> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$VerifyEmailStateTearOff {
-  const _$VerifyEmailStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Verified verified() {
-    return const _Verified();
-  }
-
-  _CodeSent codeSent() {
-    return const _CodeSent();
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
-    );
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-}
-
-/// @nodoc
-const $VerifyEmailState = _$VerifyEmailStateTearOff();
 
 /// @nodoc
 mixin _$VerifyEmailState {
@@ -479,6 +502,15 @@ mixin _$VerifyEmailState {
     required TResult Function() codeSent,
     required TResult Function(ApiFailure failure) failure,
     required TResult Function() loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? verified,
+    TResult? Function()? codeSent,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -501,6 +533,15 @@ mixin _$VerifyEmailState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Verified value)? verified,
+    TResult? Function(_CodeSent value)? codeSent,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Verified value)? verified,
@@ -516,33 +557,33 @@ mixin _$VerifyEmailState {
 abstract class $VerifyEmailStateCopyWith<$Res> {
   factory $VerifyEmailStateCopyWith(
           VerifyEmailState value, $Res Function(VerifyEmailState) then) =
-      _$VerifyEmailStateCopyWithImpl<$Res>;
+      _$VerifyEmailStateCopyWithImpl<$Res, VerifyEmailState>;
 }
 
 /// @nodoc
-class _$VerifyEmailStateCopyWithImpl<$Res>
+class _$VerifyEmailStateCopyWithImpl<$Res, $Val extends VerifyEmailState>
     implements $VerifyEmailStateCopyWith<$Res> {
   _$VerifyEmailStateCopyWithImpl(this._value, this._then);
 
-  final VerifyEmailState _value;
   // ignore: unused_field
-  final $Res Function(VerifyEmailState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$VerifyEmailStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$VerifyEmailStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -557,7 +598,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -573,6 +615,18 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? verified,
+    TResult? Function()? codeSent,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? loading,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -605,6 +659,18 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Verified value)? verified,
+    TResult? Function(_CodeSent value)? codeSent,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Verified value)? verified,
@@ -625,19 +691,19 @@ abstract class _Initial implements VerifyEmailState {
 }
 
 /// @nodoc
-abstract class _$VerifiedCopyWith<$Res> {
-  factory _$VerifiedCopyWith(_Verified value, $Res Function(_Verified) then) =
-      __$VerifiedCopyWithImpl<$Res>;
+abstract class _$$_VerifiedCopyWith<$Res> {
+  factory _$$_VerifiedCopyWith(
+          _$_Verified value, $Res Function(_$_Verified) then) =
+      __$$_VerifiedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$VerifiedCopyWithImpl<$Res> extends _$VerifyEmailStateCopyWithImpl<$Res>
-    implements _$VerifiedCopyWith<$Res> {
-  __$VerifiedCopyWithImpl(_Verified _value, $Res Function(_Verified) _then)
-      : super(_value, (v) => _then(v as _Verified));
-
-  @override
-  _Verified get _value => super._value as _Verified;
+class __$$_VerifiedCopyWithImpl<$Res>
+    extends _$VerifyEmailStateCopyWithImpl<$Res, _$_Verified>
+    implements _$$_VerifiedCopyWith<$Res> {
+  __$$_VerifiedCopyWithImpl(
+      _$_Verified _value, $Res Function(_$_Verified) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -652,7 +718,8 @@ class _$_Verified implements _Verified {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Verified);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Verified);
   }
 
   @override
@@ -668,6 +735,18 @@ class _$_Verified implements _Verified {
     required TResult Function() loading,
   }) {
     return verified();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? verified,
+    TResult? Function()? codeSent,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? loading,
+  }) {
+    return verified?.call();
   }
 
   @override
@@ -700,6 +779,18 @@ class _$_Verified implements _Verified {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Verified value)? verified,
+    TResult? Function(_CodeSent value)? codeSent,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return verified?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Verified value)? verified,
@@ -720,19 +811,19 @@ abstract class _Verified implements VerifyEmailState {
 }
 
 /// @nodoc
-abstract class _$CodeSentCopyWith<$Res> {
-  factory _$CodeSentCopyWith(_CodeSent value, $Res Function(_CodeSent) then) =
-      __$CodeSentCopyWithImpl<$Res>;
+abstract class _$$_CodeSentCopyWith<$Res> {
+  factory _$$_CodeSentCopyWith(
+          _$_CodeSent value, $Res Function(_$_CodeSent) then) =
+      __$$_CodeSentCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$CodeSentCopyWithImpl<$Res> extends _$VerifyEmailStateCopyWithImpl<$Res>
-    implements _$CodeSentCopyWith<$Res> {
-  __$CodeSentCopyWithImpl(_CodeSent _value, $Res Function(_CodeSent) _then)
-      : super(_value, (v) => _then(v as _CodeSent));
-
-  @override
-  _CodeSent get _value => super._value as _CodeSent;
+class __$$_CodeSentCopyWithImpl<$Res>
+    extends _$VerifyEmailStateCopyWithImpl<$Res, _$_CodeSent>
+    implements _$$_CodeSentCopyWith<$Res> {
+  __$$_CodeSentCopyWithImpl(
+      _$_CodeSent _value, $Res Function(_$_CodeSent) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -747,7 +838,8 @@ class _$_CodeSent implements _CodeSent {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _CodeSent);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CodeSent);
   }
 
   @override
@@ -763,6 +855,18 @@ class _$_CodeSent implements _CodeSent {
     required TResult Function() loading,
   }) {
     return codeSent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? verified,
+    TResult? Function()? codeSent,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? loading,
+  }) {
+    return codeSent?.call();
   }
 
   @override
@@ -795,6 +899,18 @@ class _$_CodeSent implements _CodeSent {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Verified value)? verified,
+    TResult? Function(_CodeSent value)? codeSent,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return codeSent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Verified value)? verified,
@@ -815,29 +931,30 @@ abstract class _CodeSent implements VerifyEmailState {
 }
 
 /// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
+abstract class _$$_FailureCopyWith<$Res> {
+  factory _$$_FailureCopyWith(
+          _$_Failure value, $Res Function(_$_Failure) then) =
+      __$$_FailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res> extends _$VerifyEmailStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$VerifyEmailStateCopyWithImpl<$Res, _$_Failure>
+    implements _$$_FailureCopyWith<$Res> {
+  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+      : super(_value, _then);
 
-  @override
-  _Failure get _value => super._value as _Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_Failure(
-      failure == freezed
+    return _then(_$_Failure(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -845,6 +962,7 @@ class __$FailureCopyWithImpl<$Res> extends _$VerifyEmailStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -868,19 +986,19 @@ class _$_Failure implements _Failure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Failure &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -892,6 +1010,18 @@ class _$_Failure implements _Failure {
     required TResult Function() loading,
   }) {
     return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? verified,
+    TResult? Function()? codeSent,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? loading,
+  }) {
+    return failure?.call(this.failure);
   }
 
   @override
@@ -924,6 +1054,18 @@ class _$_Failure implements _Failure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Verified value)? verified,
+    TResult? Function(_CodeSent value)? codeSent,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Verified value)? verified,
@@ -940,28 +1082,27 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements VerifyEmailState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const factory _Failure(final ApiFailure failure) = _$_Failure;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$VerifyEmailStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$VerifyEmailStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -976,7 +1117,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -992,6 +1134,18 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? verified,
+    TResult? Function()? codeSent,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? loading,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -1020,6 +1174,18 @@ class _$_Loading implements _Loading {
     required TResult Function(_Loading value) loading,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Verified value)? verified,
+    TResult? Function(_CodeSent value)? codeSent,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return loading?.call(this);
   }
 
   @override

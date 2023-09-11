@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'api_failure.dart';
 
@@ -10,29 +12,7 @@ part of 'api_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ApiFailureTearOff {
-  const _$ApiFailureTearOff();
-
-  ServerError serverError({required String message}) {
-    return ServerError(
-      message: message,
-    );
-  }
-
-  InvalidUser invalidUser() {
-    return const InvalidUser();
-  }
-
-  NoInternetConnection noInternetConnection() {
-    return const NoInternetConnection();
-  }
-}
-
-/// @nodoc
-const $ApiFailure = _$ApiFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ApiFailure {
@@ -41,6 +21,13 @@ mixin _$ApiFailure {
     required TResult Function(String message) serverError,
     required TResult Function() invalidUser,
     required TResult Function() noInternetConnection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? serverError,
+    TResult? Function()? invalidUser,
+    TResult? Function()? noInternetConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +46,13 @@ mixin _$ApiFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(NoInternetConnection value)? noInternetConnection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(InvalidUser value)? invalidUser,
@@ -72,42 +66,44 @@ mixin _$ApiFailure {
 abstract class $ApiFailureCopyWith<$Res> {
   factory $ApiFailureCopyWith(
           ApiFailure value, $Res Function(ApiFailure) then) =
-      _$ApiFailureCopyWithImpl<$Res>;
+      _$ApiFailureCopyWithImpl<$Res, ApiFailure>;
 }
 
 /// @nodoc
-class _$ApiFailureCopyWithImpl<$Res> implements $ApiFailureCopyWith<$Res> {
+class _$ApiFailureCopyWithImpl<$Res, $Val extends ApiFailure>
+    implements $ApiFailureCopyWith<$Res> {
   _$ApiFailureCopyWithImpl(this._value, this._then);
 
-  final ApiFailure _value;
   // ignore: unused_field
-  final $Res Function(ApiFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $ServerErrorCopyWith<$Res> {
-  factory $ServerErrorCopyWith(
-          ServerError value, $Res Function(ServerError) then) =
-      _$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorCopyWith<$Res> {
+  factory _$$ServerErrorCopyWith(
+          _$ServerError value, $Res Function(_$ServerError) then) =
+      __$$ServerErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class _$ServerErrorCopyWithImpl<$Res> extends _$ApiFailureCopyWithImpl<$Res>
-    implements $ServerErrorCopyWith<$Res> {
-  _$ServerErrorCopyWithImpl(
-      ServerError _value, $Res Function(ServerError) _then)
-      : super(_value, (v) => _then(v as ServerError));
+class __$$ServerErrorCopyWithImpl<$Res>
+    extends _$ApiFailureCopyWithImpl<$Res, _$ServerError>
+    implements _$$ServerErrorCopyWith<$Res> {
+  __$$ServerErrorCopyWithImpl(
+      _$ServerError _value, $Res Function(_$ServerError) _then)
+      : super(_value, _then);
 
-  @override
-  ServerError get _value => super._value as ServerError;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
-    return _then(ServerError(
-      message: message == freezed
+    return _then(_$ServerError(
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -131,19 +127,19 @@ class _$ServerError implements ServerError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ServerError &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is _$ServerError &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
-  $ServerErrorCopyWith<ServerError> get copyWith =>
-      _$ServerErrorCopyWithImpl<ServerError>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ServerErrorCopyWith<_$ServerError> get copyWith =>
+      __$$ServerErrorCopyWithImpl<_$ServerError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -153,6 +149,16 @@ class _$ServerError implements ServerError {
     required TResult Function() noInternetConnection,
   }) {
     return serverError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? serverError,
+    TResult? Function()? invalidUser,
+    TResult? Function()? noInternetConnection,
+  }) {
+    return serverError?.call(message);
   }
 
   @override
@@ -181,6 +187,16 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(NoInternetConnection value)? noInternetConnection,
+  }) {
+    return serverError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(InvalidUser value)? invalidUser,
@@ -195,30 +211,28 @@ class _$ServerError implements ServerError {
 }
 
 abstract class ServerError implements ApiFailure {
-  const factory ServerError({required String message}) = _$ServerError;
+  const factory ServerError({required final String message}) = _$ServerError;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @JsonKey(ignore: true)
-  $ServerErrorCopyWith<ServerError> get copyWith =>
+  _$$ServerErrorCopyWith<_$ServerError> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $InvalidUserCopyWith<$Res> {
-  factory $InvalidUserCopyWith(
-          InvalidUser value, $Res Function(InvalidUser) then) =
-      _$InvalidUserCopyWithImpl<$Res>;
+abstract class _$$InvalidUserCopyWith<$Res> {
+  factory _$$InvalidUserCopyWith(
+          _$InvalidUser value, $Res Function(_$InvalidUser) then) =
+      __$$InvalidUserCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InvalidUserCopyWithImpl<$Res> extends _$ApiFailureCopyWithImpl<$Res>
-    implements $InvalidUserCopyWith<$Res> {
-  _$InvalidUserCopyWithImpl(
-      InvalidUser _value, $Res Function(InvalidUser) _then)
-      : super(_value, (v) => _then(v as InvalidUser));
-
-  @override
-  InvalidUser get _value => super._value as InvalidUser;
+class __$$InvalidUserCopyWithImpl<$Res>
+    extends _$ApiFailureCopyWithImpl<$Res, _$InvalidUser>
+    implements _$$InvalidUserCopyWith<$Res> {
+  __$$InvalidUserCopyWithImpl(
+      _$InvalidUser _value, $Res Function(_$InvalidUser) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -233,7 +247,8 @@ class _$InvalidUser implements InvalidUser {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InvalidUser);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InvalidUser);
   }
 
   @override
@@ -247,6 +262,16 @@ class _$InvalidUser implements InvalidUser {
     required TResult Function() noInternetConnection,
   }) {
     return invalidUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? serverError,
+    TResult? Function()? invalidUser,
+    TResult? Function()? noInternetConnection,
+  }) {
+    return invalidUser?.call();
   }
 
   @override
@@ -275,6 +300,16 @@ class _$InvalidUser implements InvalidUser {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(NoInternetConnection value)? noInternetConnection,
+  }) {
+    return invalidUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
     TResult Function(InvalidUser value)? invalidUser,
@@ -293,22 +328,19 @@ abstract class InvalidUser implements ApiFailure {
 }
 
 /// @nodoc
-abstract class $NoInternetConnectionCopyWith<$Res> {
-  factory $NoInternetConnectionCopyWith(NoInternetConnection value,
-          $Res Function(NoInternetConnection) then) =
-      _$NoInternetConnectionCopyWithImpl<$Res>;
+abstract class _$$NoInternetConnectionCopyWith<$Res> {
+  factory _$$NoInternetConnectionCopyWith(_$NoInternetConnection value,
+          $Res Function(_$NoInternetConnection) then) =
+      __$$NoInternetConnectionCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$NoInternetConnectionCopyWithImpl<$Res>
-    extends _$ApiFailureCopyWithImpl<$Res>
-    implements $NoInternetConnectionCopyWith<$Res> {
-  _$NoInternetConnectionCopyWithImpl(
-      NoInternetConnection _value, $Res Function(NoInternetConnection) _then)
-      : super(_value, (v) => _then(v as NoInternetConnection));
-
-  @override
-  NoInternetConnection get _value => super._value as NoInternetConnection;
+class __$$NoInternetConnectionCopyWithImpl<$Res>
+    extends _$ApiFailureCopyWithImpl<$Res, _$NoInternetConnection>
+    implements _$$NoInternetConnectionCopyWith<$Res> {
+  __$$NoInternetConnectionCopyWithImpl(_$NoInternetConnection _value,
+      $Res Function(_$NoInternetConnection) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -323,7 +355,8 @@ class _$NoInternetConnection implements NoInternetConnection {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is NoInternetConnection);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoInternetConnection);
   }
 
   @override
@@ -337,6 +370,16 @@ class _$NoInternetConnection implements NoInternetConnection {
     required TResult Function() noInternetConnection,
   }) {
     return noInternetConnection();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? serverError,
+    TResult? Function()? invalidUser,
+    TResult? Function()? noInternetConnection,
+  }) {
+    return noInternetConnection?.call();
   }
 
   @override
@@ -361,6 +404,16 @@ class _$NoInternetConnection implements NoInternetConnection {
     required TResult Function(NoInternetConnection value) noInternetConnection,
   }) {
     return noInternetConnection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(NoInternetConnection value)? noInternetConnection,
+  }) {
+    return noInternetConnection?.call(this);
   }
 
   @override

@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'home_page_data_bloc.dart';
 
@@ -10,31 +12,7 @@ part of 'home_page_data_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HomePageDataEventTearOff {
-  const _$HomePageDataEventTearOff();
-
-  _Fetch fetch() {
-    return const _Fetch();
-  }
-
-  _OnSpanShotEvent onSpanShotEvent(Either<ApiFailure, HomeResponse> event) {
-    return _OnSpanShotEvent(
-      event,
-    );
-  }
-
-  _OnCompletedEvent onCompletedEvent(Either<ApiFailure, HomeResponse> event) {
-    return _OnCompletedEvent(
-      event,
-    );
-  }
-}
-
-/// @nodoc
-const $HomePageDataEvent = _$HomePageDataEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HomePageDataEvent {
@@ -45,6 +23,13 @@ mixin _$HomePageDataEvent {
         onSpanShotEvent,
     required TResult Function(Either<ApiFailure, HomeResponse> event)
         onCompletedEvent,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(Either<ApiFailure, HomeResponse> event)? onSpanShotEvent,
+    TResult? Function(Either<ApiFailure, HomeResponse> event)? onCompletedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +48,13 @@ mixin _$HomePageDataEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_OnSpanShotEvent value)? onSpanShotEvent,
+    TResult? Function(_OnCompletedEvent value)? onCompletedEvent,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_OnSpanShotEvent value)? onSpanShotEvent,
@@ -76,33 +68,32 @@ mixin _$HomePageDataEvent {
 abstract class $HomePageDataEventCopyWith<$Res> {
   factory $HomePageDataEventCopyWith(
           HomePageDataEvent value, $Res Function(HomePageDataEvent) then) =
-      _$HomePageDataEventCopyWithImpl<$Res>;
+      _$HomePageDataEventCopyWithImpl<$Res, HomePageDataEvent>;
 }
 
 /// @nodoc
-class _$HomePageDataEventCopyWithImpl<$Res>
+class _$HomePageDataEventCopyWithImpl<$Res, $Val extends HomePageDataEvent>
     implements $HomePageDataEventCopyWith<$Res> {
   _$HomePageDataEventCopyWithImpl(this._value, this._then);
 
-  final HomePageDataEvent _value;
   // ignore: unused_field
-  final $Res Function(HomePageDataEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$FetchCopyWith<$Res> {
-  factory _$FetchCopyWith(_Fetch value, $Res Function(_Fetch) then) =
-      __$FetchCopyWithImpl<$Res>;
+abstract class _$$_FetchCopyWith<$Res> {
+  factory _$$_FetchCopyWith(_$_Fetch value, $Res Function(_$_Fetch) then) =
+      __$$_FetchCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$FetchCopyWithImpl<$Res> extends _$HomePageDataEventCopyWithImpl<$Res>
-    implements _$FetchCopyWith<$Res> {
-  __$FetchCopyWithImpl(_Fetch _value, $Res Function(_Fetch) _then)
-      : super(_value, (v) => _then(v as _Fetch));
-
-  @override
-  _Fetch get _value => super._value as _Fetch;
+class __$$_FetchCopyWithImpl<$Res>
+    extends _$HomePageDataEventCopyWithImpl<$Res, _$_Fetch>
+    implements _$$_FetchCopyWith<$Res> {
+  __$$_FetchCopyWithImpl(_$_Fetch _value, $Res Function(_$_Fetch) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -117,7 +108,8 @@ class _$_Fetch implements _Fetch {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Fetch);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Fetch);
   }
 
   @override
@@ -133,6 +125,16 @@ class _$_Fetch implements _Fetch {
         onCompletedEvent,
   }) {
     return fetch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(Either<ApiFailure, HomeResponse> event)? onSpanShotEvent,
+    TResult? Function(Either<ApiFailure, HomeResponse> event)? onCompletedEvent,
+  }) {
+    return fetch?.call();
   }
 
   @override
@@ -161,6 +163,16 @@ class _$_Fetch implements _Fetch {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_OnSpanShotEvent value)? onSpanShotEvent,
+    TResult? Function(_OnCompletedEvent value)? onCompletedEvent,
+  }) {
+    return fetch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_OnSpanShotEvent value)? onSpanShotEvent,
@@ -179,30 +191,29 @@ abstract class _Fetch implements HomePageDataEvent {
 }
 
 /// @nodoc
-abstract class _$OnSpanShotEventCopyWith<$Res> {
-  factory _$OnSpanShotEventCopyWith(
-          _OnSpanShotEvent value, $Res Function(_OnSpanShotEvent) then) =
-      __$OnSpanShotEventCopyWithImpl<$Res>;
+abstract class _$$_OnSpanShotEventCopyWith<$Res> {
+  factory _$$_OnSpanShotEventCopyWith(
+          _$_OnSpanShotEvent value, $Res Function(_$_OnSpanShotEvent) then) =
+      __$$_OnSpanShotEventCopyWithImpl<$Res>;
+  @useResult
   $Res call({Either<ApiFailure, HomeResponse> event});
 }
 
 /// @nodoc
-class __$OnSpanShotEventCopyWithImpl<$Res>
-    extends _$HomePageDataEventCopyWithImpl<$Res>
-    implements _$OnSpanShotEventCopyWith<$Res> {
-  __$OnSpanShotEventCopyWithImpl(
-      _OnSpanShotEvent _value, $Res Function(_OnSpanShotEvent) _then)
-      : super(_value, (v) => _then(v as _OnSpanShotEvent));
+class __$$_OnSpanShotEventCopyWithImpl<$Res>
+    extends _$HomePageDataEventCopyWithImpl<$Res, _$_OnSpanShotEvent>
+    implements _$$_OnSpanShotEventCopyWith<$Res> {
+  __$$_OnSpanShotEventCopyWithImpl(
+      _$_OnSpanShotEvent _value, $Res Function(_$_OnSpanShotEvent) _then)
+      : super(_value, _then);
 
-  @override
-  _OnSpanShotEvent get _value => super._value as _OnSpanShotEvent;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
   }) {
-    return _then(_OnSpanShotEvent(
-      event == freezed
+    return _then(_$_OnSpanShotEvent(
+      null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as Either<ApiFailure, HomeResponse>,
@@ -226,19 +237,19 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _OnSpanShotEvent &&
-            (identical(other.event, event) ||
-                const DeepCollectionEquality().equals(other.event, event)));
+        (other.runtimeType == runtimeType &&
+            other is _$_OnSpanShotEvent &&
+            (identical(other.event, event) || other.event == event));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(event);
+  int get hashCode => Object.hash(runtimeType, event);
 
   @JsonKey(ignore: true)
   @override
-  _$OnSpanShotEventCopyWith<_OnSpanShotEvent> get copyWith =>
-      __$OnSpanShotEventCopyWithImpl<_OnSpanShotEvent>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_OnSpanShotEventCopyWith<_$_OnSpanShotEvent> get copyWith =>
+      __$$_OnSpanShotEventCopyWithImpl<_$_OnSpanShotEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -250,6 +261,16 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
         onCompletedEvent,
   }) {
     return onSpanShotEvent(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(Either<ApiFailure, HomeResponse> event)? onSpanShotEvent,
+    TResult? Function(Either<ApiFailure, HomeResponse> event)? onCompletedEvent,
+  }) {
+    return onSpanShotEvent?.call(event);
   }
 
   @override
@@ -278,6 +299,16 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_OnSpanShotEvent value)? onSpanShotEvent,
+    TResult? Function(_OnCompletedEvent value)? onCompletedEvent,
+  }) {
+    return onSpanShotEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_OnSpanShotEvent value)? onSpanShotEvent,
@@ -292,41 +323,39 @@ class _$_OnSpanShotEvent implements _OnSpanShotEvent {
 }
 
 abstract class _OnSpanShotEvent implements HomePageDataEvent {
-  const factory _OnSpanShotEvent(Either<ApiFailure, HomeResponse> event) =
+  const factory _OnSpanShotEvent(final Either<ApiFailure, HomeResponse> event) =
       _$_OnSpanShotEvent;
 
-  Either<ApiFailure, HomeResponse> get event =>
-      throw _privateConstructorUsedError;
+  Either<ApiFailure, HomeResponse> get event;
   @JsonKey(ignore: true)
-  _$OnSpanShotEventCopyWith<_OnSpanShotEvent> get copyWith =>
+  _$$_OnSpanShotEventCopyWith<_$_OnSpanShotEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$OnCompletedEventCopyWith<$Res> {
-  factory _$OnCompletedEventCopyWith(
-          _OnCompletedEvent value, $Res Function(_OnCompletedEvent) then) =
-      __$OnCompletedEventCopyWithImpl<$Res>;
+abstract class _$$_OnCompletedEventCopyWith<$Res> {
+  factory _$$_OnCompletedEventCopyWith(
+          _$_OnCompletedEvent value, $Res Function(_$_OnCompletedEvent) then) =
+      __$$_OnCompletedEventCopyWithImpl<$Res>;
+  @useResult
   $Res call({Either<ApiFailure, HomeResponse> event});
 }
 
 /// @nodoc
-class __$OnCompletedEventCopyWithImpl<$Res>
-    extends _$HomePageDataEventCopyWithImpl<$Res>
-    implements _$OnCompletedEventCopyWith<$Res> {
-  __$OnCompletedEventCopyWithImpl(
-      _OnCompletedEvent _value, $Res Function(_OnCompletedEvent) _then)
-      : super(_value, (v) => _then(v as _OnCompletedEvent));
+class __$$_OnCompletedEventCopyWithImpl<$Res>
+    extends _$HomePageDataEventCopyWithImpl<$Res, _$_OnCompletedEvent>
+    implements _$$_OnCompletedEventCopyWith<$Res> {
+  __$$_OnCompletedEventCopyWithImpl(
+      _$_OnCompletedEvent _value, $Res Function(_$_OnCompletedEvent) _then)
+      : super(_value, _then);
 
-  @override
-  _OnCompletedEvent get _value => super._value as _OnCompletedEvent;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
+    Object? event = null,
   }) {
-    return _then(_OnCompletedEvent(
-      event == freezed
+    return _then(_$_OnCompletedEvent(
+      null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as Either<ApiFailure, HomeResponse>,
@@ -350,19 +379,19 @@ class _$_OnCompletedEvent implements _OnCompletedEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _OnCompletedEvent &&
-            (identical(other.event, event) ||
-                const DeepCollectionEquality().equals(other.event, event)));
+        (other.runtimeType == runtimeType &&
+            other is _$_OnCompletedEvent &&
+            (identical(other.event, event) || other.event == event));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(event);
+  int get hashCode => Object.hash(runtimeType, event);
 
   @JsonKey(ignore: true)
   @override
-  _$OnCompletedEventCopyWith<_OnCompletedEvent> get copyWith =>
-      __$OnCompletedEventCopyWithImpl<_OnCompletedEvent>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_OnCompletedEventCopyWith<_$_OnCompletedEvent> get copyWith =>
+      __$$_OnCompletedEventCopyWithImpl<_$_OnCompletedEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -374,6 +403,16 @@ class _$_OnCompletedEvent implements _OnCompletedEvent {
         onCompletedEvent,
   }) {
     return onCompletedEvent(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(Either<ApiFailure, HomeResponse> event)? onSpanShotEvent,
+    TResult? Function(Either<ApiFailure, HomeResponse> event)? onCompletedEvent,
+  }) {
+    return onCompletedEvent?.call(event);
   }
 
   @override
@@ -402,6 +441,16 @@ class _$_OnCompletedEvent implements _OnCompletedEvent {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_OnSpanShotEvent value)? onSpanShotEvent,
+    TResult? Function(_OnCompletedEvent value)? onCompletedEvent,
+  }) {
+    return onCompletedEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_OnSpanShotEvent value)? onSpanShotEvent,
@@ -416,56 +465,14 @@ class _$_OnCompletedEvent implements _OnCompletedEvent {
 }
 
 abstract class _OnCompletedEvent implements HomePageDataEvent {
-  const factory _OnCompletedEvent(Either<ApiFailure, HomeResponse> event) =
-      _$_OnCompletedEvent;
+  const factory _OnCompletedEvent(
+      final Either<ApiFailure, HomeResponse> event) = _$_OnCompletedEvent;
 
-  Either<ApiFailure, HomeResponse> get event =>
-      throw _privateConstructorUsedError;
+  Either<ApiFailure, HomeResponse> get event;
   @JsonKey(ignore: true)
-  _$OnCompletedEventCopyWith<_OnCompletedEvent> get copyWith =>
+  _$$_OnCompletedEventCopyWith<_$_OnCompletedEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$HomePageDataStateTearOff {
-  const _$HomePageDataStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _LoadingWithData loadingWithData(HomeResponse data) {
-    return _LoadingWithData(
-      data,
-    );
-  }
-
-  _Loaded loaded(HomeResponse data) {
-    return _Loaded(
-      data,
-    );
-  }
-
-  _FailureWithData failureWithData(ApiFailure failure, HomeResponse data) {
-    return _FailureWithData(
-      failure,
-      data,
-    );
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
-    );
-  }
-}
-
-/// @nodoc
-const $HomePageDataState = _$HomePageDataStateTearOff();
 
 /// @nodoc
 mixin _$HomePageDataState {
@@ -478,6 +485,16 @@ mixin _$HomePageDataState {
     required TResult Function(ApiFailure failure, HomeResponse data)
         failureWithData,
     required TResult Function(ApiFailure failure) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(HomeResponse data)? loadingWithData,
+    TResult? Function(HomeResponse data)? loaded,
+    TResult? Function(ApiFailure failure, HomeResponse data)? failureWithData,
+    TResult? Function(ApiFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -502,6 +519,16 @@ mixin _$HomePageDataState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_FailureWithData value)? failureWithData,
+    TResult? Function(_Failure value)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -518,33 +545,33 @@ mixin _$HomePageDataState {
 abstract class $HomePageDataStateCopyWith<$Res> {
   factory $HomePageDataStateCopyWith(
           HomePageDataState value, $Res Function(HomePageDataState) then) =
-      _$HomePageDataStateCopyWithImpl<$Res>;
+      _$HomePageDataStateCopyWithImpl<$Res, HomePageDataState>;
 }
 
 /// @nodoc
-class _$HomePageDataStateCopyWithImpl<$Res>
+class _$HomePageDataStateCopyWithImpl<$Res, $Val extends HomePageDataState>
     implements $HomePageDataStateCopyWith<$Res> {
   _$HomePageDataStateCopyWithImpl(this._value, this._then);
 
-  final HomePageDataState _value;
   // ignore: unused_field
-  final $Res Function(HomePageDataState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$HomePageDataStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$HomePageDataStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -559,7 +586,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -577,6 +605,19 @@ class _$_Initial implements _Initial {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(HomeResponse data)? loadingWithData,
+    TResult? Function(HomeResponse data)? loaded,
+    TResult? Function(ApiFailure failure, HomeResponse data)? failureWithData,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -611,6 +652,19 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_FailureWithData value)? failureWithData,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -632,19 +686,18 @@ abstract class _Initial implements HomePageDataState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$HomePageDataStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$HomePageDataStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -659,7 +712,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -677,6 +731,19 @@ class _$_Loading implements _Loading {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(HomeResponse data)? loadingWithData,
+    TResult? Function(HomeResponse data)? loaded,
+    TResult? Function(ApiFailure failure, HomeResponse data)? failureWithData,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -711,6 +778,19 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_FailureWithData value)? failureWithData,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -732,30 +812,29 @@ abstract class _Loading implements HomePageDataState {
 }
 
 /// @nodoc
-abstract class _$LoadingWithDataCopyWith<$Res> {
-  factory _$LoadingWithDataCopyWith(
-          _LoadingWithData value, $Res Function(_LoadingWithData) then) =
-      __$LoadingWithDataCopyWithImpl<$Res>;
+abstract class _$$_LoadingWithDataCopyWith<$Res> {
+  factory _$$_LoadingWithDataCopyWith(
+          _$_LoadingWithData value, $Res Function(_$_LoadingWithData) then) =
+      __$$_LoadingWithDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({HomeResponse data});
 }
 
 /// @nodoc
-class __$LoadingWithDataCopyWithImpl<$Res>
-    extends _$HomePageDataStateCopyWithImpl<$Res>
-    implements _$LoadingWithDataCopyWith<$Res> {
-  __$LoadingWithDataCopyWithImpl(
-      _LoadingWithData _value, $Res Function(_LoadingWithData) _then)
-      : super(_value, (v) => _then(v as _LoadingWithData));
+class __$$_LoadingWithDataCopyWithImpl<$Res>
+    extends _$HomePageDataStateCopyWithImpl<$Res, _$_LoadingWithData>
+    implements _$$_LoadingWithDataCopyWith<$Res> {
+  __$$_LoadingWithDataCopyWithImpl(
+      _$_LoadingWithData _value, $Res Function(_$_LoadingWithData) _then)
+      : super(_value, _then);
 
-  @override
-  _LoadingWithData get _value => super._value as _LoadingWithData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
-    return _then(_LoadingWithData(
-      data == freezed
+    return _then(_$_LoadingWithData(
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as HomeResponse,
@@ -779,19 +858,19 @@ class _$_LoadingWithData implements _LoadingWithData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadingWithData &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadingWithData &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
-  _$LoadingWithDataCopyWith<_LoadingWithData> get copyWith =>
-      __$LoadingWithDataCopyWithImpl<_LoadingWithData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_LoadingWithDataCopyWith<_$_LoadingWithData> get copyWith =>
+      __$$_LoadingWithDataCopyWithImpl<_$_LoadingWithData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -805,6 +884,19 @@ class _$_LoadingWithData implements _LoadingWithData {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loadingWithData(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(HomeResponse data)? loadingWithData,
+    TResult? Function(HomeResponse data)? loaded,
+    TResult? Function(ApiFailure failure, HomeResponse data)? failureWithData,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loadingWithData?.call(data);
   }
 
   @override
@@ -839,6 +931,19 @@ class _$_LoadingWithData implements _LoadingWithData {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_FailureWithData value)? failureWithData,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loadingWithData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -856,36 +961,36 @@ class _$_LoadingWithData implements _LoadingWithData {
 }
 
 abstract class _LoadingWithData implements HomePageDataState {
-  const factory _LoadingWithData(HomeResponse data) = _$_LoadingWithData;
+  const factory _LoadingWithData(final HomeResponse data) = _$_LoadingWithData;
 
-  HomeResponse get data => throw _privateConstructorUsedError;
+  HomeResponse get data;
   @JsonKey(ignore: true)
-  _$LoadingWithDataCopyWith<_LoadingWithData> get copyWith =>
+  _$$_LoadingWithDataCopyWith<_$_LoadingWithData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
+abstract class _$$_LoadedCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call({HomeResponse data});
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res> extends _$HomePageDataStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
+class __$$_LoadedCopyWithImpl<$Res>
+    extends _$HomePageDataStateCopyWithImpl<$Res, _$_Loaded>
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, _then);
 
-  @override
-  _Loaded get _value => super._value as _Loaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
-    return _then(_Loaded(
-      data == freezed
+    return _then(_$_Loaded(
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as HomeResponse,
@@ -909,19 +1014,19 @@ class _$_Loaded implements _Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Loaded &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Loaded &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -935,6 +1040,19 @@ class _$_Loaded implements _Loaded {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loaded(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(HomeResponse data)? loadingWithData,
+    TResult? Function(HomeResponse data)? loaded,
+    TResult? Function(ApiFailure failure, HomeResponse data)? failureWithData,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loaded?.call(data);
   }
 
   @override
@@ -969,6 +1087,19 @@ class _$_Loaded implements _Loaded {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_FailureWithData value)? failureWithData,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -986,45 +1117,45 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements HomePageDataState {
-  const factory _Loaded(HomeResponse data) = _$_Loaded;
+  const factory _Loaded(final HomeResponse data) = _$_Loaded;
 
-  HomeResponse get data => throw _privateConstructorUsedError;
+  HomeResponse get data;
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$FailureWithDataCopyWith<$Res> {
-  factory _$FailureWithDataCopyWith(
-          _FailureWithData value, $Res Function(_FailureWithData) then) =
-      __$FailureWithDataCopyWithImpl<$Res>;
+abstract class _$$_FailureWithDataCopyWith<$Res> {
+  factory _$$_FailureWithDataCopyWith(
+          _$_FailureWithData value, $Res Function(_$_FailureWithData) then) =
+      __$$_FailureWithDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure, HomeResponse data});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureWithDataCopyWithImpl<$Res>
-    extends _$HomePageDataStateCopyWithImpl<$Res>
-    implements _$FailureWithDataCopyWith<$Res> {
-  __$FailureWithDataCopyWithImpl(
-      _FailureWithData _value, $Res Function(_FailureWithData) _then)
-      : super(_value, (v) => _then(v as _FailureWithData));
+class __$$_FailureWithDataCopyWithImpl<$Res>
+    extends _$HomePageDataStateCopyWithImpl<$Res, _$_FailureWithData>
+    implements _$$_FailureWithDataCopyWith<$Res> {
+  __$$_FailureWithDataCopyWithImpl(
+      _$_FailureWithData _value, $Res Function(_$_FailureWithData) _then)
+      : super(_value, _then);
 
-  @override
-  _FailureWithData get _value => super._value as _FailureWithData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
-    Object? data = freezed,
+    Object? failure = null,
+    Object? data = null,
   }) {
-    return _then(_FailureWithData(
-      failure == freezed
+    return _then(_$_FailureWithData(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as HomeResponse,
@@ -1032,6 +1163,7 @@ class __$FailureWithDataCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -1057,24 +1189,20 @@ class _$_FailureWithData implements _FailureWithData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FailureWithData &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality()
-                    .equals(other.failure, failure)) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
+        (other.runtimeType == runtimeType &&
+            other is _$_FailureWithData &&
+            (identical(other.failure, failure) || other.failure == failure) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failure) ^
-      const DeepCollectionEquality().hash(data);
+  int get hashCode => Object.hash(runtimeType, failure, data);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
-      __$FailureWithDataCopyWithImpl<_FailureWithData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureWithDataCopyWith<_$_FailureWithData> get copyWith =>
+      __$$_FailureWithDataCopyWithImpl<_$_FailureWithData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1088,6 +1216,19 @@ class _$_FailureWithData implements _FailureWithData {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return failureWithData(this.failure, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(HomeResponse data)? loadingWithData,
+    TResult? Function(HomeResponse data)? loaded,
+    TResult? Function(ApiFailure failure, HomeResponse data)? failureWithData,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return failureWithData?.call(this.failure, data);
   }
 
   @override
@@ -1122,6 +1263,19 @@ class _$_FailureWithData implements _FailureWithData {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_FailureWithData value)? failureWithData,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return failureWithData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -1139,40 +1293,41 @@ class _$_FailureWithData implements _FailureWithData {
 }
 
 abstract class _FailureWithData implements HomePageDataState {
-  const factory _FailureWithData(ApiFailure failure, HomeResponse data) =
-      _$_FailureWithData;
+  const factory _FailureWithData(
+      final ApiFailure failure, final HomeResponse data) = _$_FailureWithData;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
-  HomeResponse get data => throw _privateConstructorUsedError;
+  ApiFailure get failure;
+  HomeResponse get data;
   @JsonKey(ignore: true)
-  _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
+  _$$_FailureWithDataCopyWith<_$_FailureWithData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
+abstract class _$$_FailureCopyWith<$Res> {
+  factory _$$_FailureCopyWith(
+          _$_Failure value, $Res Function(_$_Failure) then) =
+      __$$_FailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res> extends _$HomePageDataStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$HomePageDataStateCopyWithImpl<$Res, _$_Failure>
+    implements _$$_FailureCopyWith<$Res> {
+  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+      : super(_value, _then);
 
-  @override
-  _Failure get _value => super._value as _Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_Failure(
-      failure == freezed
+    return _then(_$_Failure(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -1180,6 +1335,7 @@ class __$FailureCopyWithImpl<$Res> extends _$HomePageDataStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -1203,19 +1359,19 @@ class _$_Failure implements _Failure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Failure &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1229,6 +1385,19 @@ class _$_Failure implements _Failure {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(HomeResponse data)? loadingWithData,
+    TResult? Function(HomeResponse data)? loaded,
+    TResult? Function(ApiFailure failure, HomeResponse data)? failureWithData,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return failure?.call(this.failure);
   }
 
   @override
@@ -1263,6 +1432,19 @@ class _$_Failure implements _Failure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_FailureWithData value)? failureWithData,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -1280,10 +1462,10 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements HomePageDataState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const factory _Failure(final ApiFailure failure) = _$_Failure;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }

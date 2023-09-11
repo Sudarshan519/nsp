@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'resume_watcher_bloc.dart';
 
@@ -10,35 +12,7 @@ part of 'resume_watcher_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResumeWatcherEventTearOff {
-  const _$ResumeWatcherEventTearOff();
-
-  _GetResumeData getResumeData() {
-    return const _GetResumeData();
-  }
-
-  _SetResumeData setResumeData() {
-    return const _SetResumeData();
-  }
-
-  _ChangeLanguage changeLanguage(String language) {
-    return _ChangeLanguage(
-      language,
-    );
-  }
-
-  _DeleteResumeData deleteResumeData(DeleteResumeDataParams params) {
-    return _DeleteResumeData(
-      params,
-    );
-  }
-}
-
-/// @nodoc
-const $ResumeWatcherEvent = _$ResumeWatcherEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ResumeWatcherEvent {
@@ -48,6 +22,14 @@ mixin _$ResumeWatcherEvent {
     required TResult Function() setResumeData,
     required TResult Function(String language) changeLanguage,
     required TResult Function(DeleteResumeDataParams params) deleteResumeData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getResumeData,
+    TResult? Function()? setResumeData,
+    TResult? Function(String language)? changeLanguage,
+    TResult? Function(DeleteResumeDataParams params)? deleteResumeData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +50,14 @@ mixin _$ResumeWatcherEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetResumeData value)? getResumeData,
+    TResult? Function(_SetResumeData value)? setResumeData,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
+    TResult? Function(_DeleteResumeData value)? deleteResumeData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetResumeData value)? getResumeData,
     TResult Function(_SetResumeData value)? setResumeData,
@@ -82,36 +72,34 @@ mixin _$ResumeWatcherEvent {
 abstract class $ResumeWatcherEventCopyWith<$Res> {
   factory $ResumeWatcherEventCopyWith(
           ResumeWatcherEvent value, $Res Function(ResumeWatcherEvent) then) =
-      _$ResumeWatcherEventCopyWithImpl<$Res>;
+      _$ResumeWatcherEventCopyWithImpl<$Res, ResumeWatcherEvent>;
 }
 
 /// @nodoc
-class _$ResumeWatcherEventCopyWithImpl<$Res>
+class _$ResumeWatcherEventCopyWithImpl<$Res, $Val extends ResumeWatcherEvent>
     implements $ResumeWatcherEventCopyWith<$Res> {
   _$ResumeWatcherEventCopyWithImpl(this._value, this._then);
 
-  final ResumeWatcherEvent _value;
   // ignore: unused_field
-  final $Res Function(ResumeWatcherEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$GetResumeDataCopyWith<$Res> {
-  factory _$GetResumeDataCopyWith(
-          _GetResumeData value, $Res Function(_GetResumeData) then) =
-      __$GetResumeDataCopyWithImpl<$Res>;
+abstract class _$$_GetResumeDataCopyWith<$Res> {
+  factory _$$_GetResumeDataCopyWith(
+          _$_GetResumeData value, $Res Function(_$_GetResumeData) then) =
+      __$$_GetResumeDataCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$GetResumeDataCopyWithImpl<$Res>
-    extends _$ResumeWatcherEventCopyWithImpl<$Res>
-    implements _$GetResumeDataCopyWith<$Res> {
-  __$GetResumeDataCopyWithImpl(
-      _GetResumeData _value, $Res Function(_GetResumeData) _then)
-      : super(_value, (v) => _then(v as _GetResumeData));
-
-  @override
-  _GetResumeData get _value => super._value as _GetResumeData;
+class __$$_GetResumeDataCopyWithImpl<$Res>
+    extends _$ResumeWatcherEventCopyWithImpl<$Res, _$_GetResumeData>
+    implements _$$_GetResumeDataCopyWith<$Res> {
+  __$$_GetResumeDataCopyWithImpl(
+      _$_GetResumeData _value, $Res Function(_$_GetResumeData) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -126,7 +114,8 @@ class _$_GetResumeData implements _GetResumeData {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _GetResumeData);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetResumeData);
   }
 
   @override
@@ -141,6 +130,17 @@ class _$_GetResumeData implements _GetResumeData {
     required TResult Function(DeleteResumeDataParams params) deleteResumeData,
   }) {
     return getResumeData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getResumeData,
+    TResult? Function()? setResumeData,
+    TResult? Function(String language)? changeLanguage,
+    TResult? Function(DeleteResumeDataParams params)? deleteResumeData,
+  }) {
+    return getResumeData?.call();
   }
 
   @override
@@ -171,6 +171,17 @@ class _$_GetResumeData implements _GetResumeData {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetResumeData value)? getResumeData,
+    TResult? Function(_SetResumeData value)? setResumeData,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
+    TResult? Function(_DeleteResumeData value)? deleteResumeData,
+  }) {
+    return getResumeData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetResumeData value)? getResumeData,
     TResult Function(_SetResumeData value)? setResumeData,
@@ -190,22 +201,19 @@ abstract class _GetResumeData implements ResumeWatcherEvent {
 }
 
 /// @nodoc
-abstract class _$SetResumeDataCopyWith<$Res> {
-  factory _$SetResumeDataCopyWith(
-          _SetResumeData value, $Res Function(_SetResumeData) then) =
-      __$SetResumeDataCopyWithImpl<$Res>;
+abstract class _$$_SetResumeDataCopyWith<$Res> {
+  factory _$$_SetResumeDataCopyWith(
+          _$_SetResumeData value, $Res Function(_$_SetResumeData) then) =
+      __$$_SetResumeDataCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SetResumeDataCopyWithImpl<$Res>
-    extends _$ResumeWatcherEventCopyWithImpl<$Res>
-    implements _$SetResumeDataCopyWith<$Res> {
-  __$SetResumeDataCopyWithImpl(
-      _SetResumeData _value, $Res Function(_SetResumeData) _then)
-      : super(_value, (v) => _then(v as _SetResumeData));
-
-  @override
-  _SetResumeData get _value => super._value as _SetResumeData;
+class __$$_SetResumeDataCopyWithImpl<$Res>
+    extends _$ResumeWatcherEventCopyWithImpl<$Res, _$_SetResumeData>
+    implements _$$_SetResumeDataCopyWith<$Res> {
+  __$$_SetResumeDataCopyWithImpl(
+      _$_SetResumeData _value, $Res Function(_$_SetResumeData) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -220,7 +228,8 @@ class _$_SetResumeData implements _SetResumeData {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SetResumeData);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SetResumeData);
   }
 
   @override
@@ -235,6 +244,17 @@ class _$_SetResumeData implements _SetResumeData {
     required TResult Function(DeleteResumeDataParams params) deleteResumeData,
   }) {
     return setResumeData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getResumeData,
+    TResult? Function()? setResumeData,
+    TResult? Function(String language)? changeLanguage,
+    TResult? Function(DeleteResumeDataParams params)? deleteResumeData,
+  }) {
+    return setResumeData?.call();
   }
 
   @override
@@ -265,6 +285,17 @@ class _$_SetResumeData implements _SetResumeData {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetResumeData value)? getResumeData,
+    TResult? Function(_SetResumeData value)? setResumeData,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
+    TResult? Function(_DeleteResumeData value)? deleteResumeData,
+  }) {
+    return setResumeData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetResumeData value)? getResumeData,
     TResult Function(_SetResumeData value)? setResumeData,
@@ -284,30 +315,29 @@ abstract class _SetResumeData implements ResumeWatcherEvent {
 }
 
 /// @nodoc
-abstract class _$ChangeLanguageCopyWith<$Res> {
-  factory _$ChangeLanguageCopyWith(
-          _ChangeLanguage value, $Res Function(_ChangeLanguage) then) =
-      __$ChangeLanguageCopyWithImpl<$Res>;
+abstract class _$$_ChangeLanguageCopyWith<$Res> {
+  factory _$$_ChangeLanguageCopyWith(
+          _$_ChangeLanguage value, $Res Function(_$_ChangeLanguage) then) =
+      __$$_ChangeLanguageCopyWithImpl<$Res>;
+  @useResult
   $Res call({String language});
 }
 
 /// @nodoc
-class __$ChangeLanguageCopyWithImpl<$Res>
-    extends _$ResumeWatcherEventCopyWithImpl<$Res>
-    implements _$ChangeLanguageCopyWith<$Res> {
-  __$ChangeLanguageCopyWithImpl(
-      _ChangeLanguage _value, $Res Function(_ChangeLanguage) _then)
-      : super(_value, (v) => _then(v as _ChangeLanguage));
+class __$$_ChangeLanguageCopyWithImpl<$Res>
+    extends _$ResumeWatcherEventCopyWithImpl<$Res, _$_ChangeLanguage>
+    implements _$$_ChangeLanguageCopyWith<$Res> {
+  __$$_ChangeLanguageCopyWithImpl(
+      _$_ChangeLanguage _value, $Res Function(_$_ChangeLanguage) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeLanguage get _value => super._value as _ChangeLanguage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? language = freezed,
+    Object? language = null,
   }) {
-    return _then(_ChangeLanguage(
-      language == freezed
+    return _then(_$_ChangeLanguage(
+      null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
@@ -331,20 +361,20 @@ class _$_ChangeLanguage implements _ChangeLanguage {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeLanguage &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeLanguage &&
             (identical(other.language, language) ||
-                const DeepCollectionEquality()
-                    .equals(other.language, language)));
+                other.language == language));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(language);
+  int get hashCode => Object.hash(runtimeType, language);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeLanguageCopyWith<_ChangeLanguage> get copyWith =>
-      __$ChangeLanguageCopyWithImpl<_ChangeLanguage>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeLanguageCopyWith<_$_ChangeLanguage> get copyWith =>
+      __$$_ChangeLanguageCopyWithImpl<_$_ChangeLanguage>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -355,6 +385,17 @@ class _$_ChangeLanguage implements _ChangeLanguage {
     required TResult Function(DeleteResumeDataParams params) deleteResumeData,
   }) {
     return changeLanguage(language);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getResumeData,
+    TResult? Function()? setResumeData,
+    TResult? Function(String language)? changeLanguage,
+    TResult? Function(DeleteResumeDataParams params)? deleteResumeData,
+  }) {
+    return changeLanguage?.call(language);
   }
 
   @override
@@ -385,6 +426,17 @@ class _$_ChangeLanguage implements _ChangeLanguage {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetResumeData value)? getResumeData,
+    TResult? Function(_SetResumeData value)? setResumeData,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
+    TResult? Function(_DeleteResumeData value)? deleteResumeData,
+  }) {
+    return changeLanguage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetResumeData value)? getResumeData,
     TResult Function(_SetResumeData value)? setResumeData,
@@ -400,39 +452,38 @@ class _$_ChangeLanguage implements _ChangeLanguage {
 }
 
 abstract class _ChangeLanguage implements ResumeWatcherEvent {
-  const factory _ChangeLanguage(String language) = _$_ChangeLanguage;
+  const factory _ChangeLanguage(final String language) = _$_ChangeLanguage;
 
-  String get language => throw _privateConstructorUsedError;
+  String get language;
   @JsonKey(ignore: true)
-  _$ChangeLanguageCopyWith<_ChangeLanguage> get copyWith =>
+  _$$_ChangeLanguageCopyWith<_$_ChangeLanguage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$DeleteResumeDataCopyWith<$Res> {
-  factory _$DeleteResumeDataCopyWith(
-          _DeleteResumeData value, $Res Function(_DeleteResumeData) then) =
-      __$DeleteResumeDataCopyWithImpl<$Res>;
+abstract class _$$_DeleteResumeDataCopyWith<$Res> {
+  factory _$$_DeleteResumeDataCopyWith(
+          _$_DeleteResumeData value, $Res Function(_$_DeleteResumeData) then) =
+      __$$_DeleteResumeDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({DeleteResumeDataParams params});
 }
 
 /// @nodoc
-class __$DeleteResumeDataCopyWithImpl<$Res>
-    extends _$ResumeWatcherEventCopyWithImpl<$Res>
-    implements _$DeleteResumeDataCopyWith<$Res> {
-  __$DeleteResumeDataCopyWithImpl(
-      _DeleteResumeData _value, $Res Function(_DeleteResumeData) _then)
-      : super(_value, (v) => _then(v as _DeleteResumeData));
+class __$$_DeleteResumeDataCopyWithImpl<$Res>
+    extends _$ResumeWatcherEventCopyWithImpl<$Res, _$_DeleteResumeData>
+    implements _$$_DeleteResumeDataCopyWith<$Res> {
+  __$$_DeleteResumeDataCopyWithImpl(
+      _$_DeleteResumeData _value, $Res Function(_$_DeleteResumeData) _then)
+      : super(_value, _then);
 
-  @override
-  _DeleteResumeData get _value => super._value as _DeleteResumeData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? params = freezed,
+    Object? params = null,
   }) {
-    return _then(_DeleteResumeData(
-      params == freezed
+    return _then(_$_DeleteResumeData(
+      null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
               as DeleteResumeDataParams,
@@ -456,19 +507,19 @@ class _$_DeleteResumeData implements _DeleteResumeData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DeleteResumeData &&
-            (identical(other.params, params) ||
-                const DeepCollectionEquality().equals(other.params, params)));
+        (other.runtimeType == runtimeType &&
+            other is _$_DeleteResumeData &&
+            (identical(other.params, params) || other.params == params));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(params);
+  int get hashCode => Object.hash(runtimeType, params);
 
   @JsonKey(ignore: true)
   @override
-  _$DeleteResumeDataCopyWith<_DeleteResumeData> get copyWith =>
-      __$DeleteResumeDataCopyWithImpl<_DeleteResumeData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_DeleteResumeDataCopyWith<_$_DeleteResumeData> get copyWith =>
+      __$$_DeleteResumeDataCopyWithImpl<_$_DeleteResumeData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -479,6 +530,17 @@ class _$_DeleteResumeData implements _DeleteResumeData {
     required TResult Function(DeleteResumeDataParams params) deleteResumeData,
   }) {
     return deleteResumeData(params);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getResumeData,
+    TResult? Function()? setResumeData,
+    TResult? Function(String language)? changeLanguage,
+    TResult? Function(DeleteResumeDataParams params)? deleteResumeData,
+  }) {
+    return deleteResumeData?.call(params);
   }
 
   @override
@@ -509,6 +571,17 @@ class _$_DeleteResumeData implements _DeleteResumeData {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetResumeData value)? getResumeData,
+    TResult? Function(_SetResumeData value)? setResumeData,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
+    TResult? Function(_DeleteResumeData value)? deleteResumeData,
+  }) {
+    return deleteResumeData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetResumeData value)? getResumeData,
     TResult Function(_SetResumeData value)? setResumeData,
@@ -524,49 +597,14 @@ class _$_DeleteResumeData implements _DeleteResumeData {
 }
 
 abstract class _DeleteResumeData implements ResumeWatcherEvent {
-  const factory _DeleteResumeData(DeleteResumeDataParams params) =
+  const factory _DeleteResumeData(final DeleteResumeDataParams params) =
       _$_DeleteResumeData;
 
-  DeleteResumeDataParams get params => throw _privateConstructorUsedError;
+  DeleteResumeDataParams get params;
   @JsonKey(ignore: true)
-  _$DeleteResumeDataCopyWith<_DeleteResumeData> get copyWith =>
+  _$$_DeleteResumeDataCopyWith<_$_DeleteResumeData> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$ResumeWatcherStateTearOff {
-  const _$ResumeWatcherStateTearOff();
-
-  _ResumeWatcherState call(
-      {required String language,
-      required PersonalInfo info,
-      required List<AcademicHistory> academics,
-      required List<WorkHistory> works,
-      required List<QualificationHistory> qualifications,
-      required ResumeOptions options,
-      required List<String> prefectures,
-      required List<String> provinces,
-      required bool hasResume,
-      required bool isLoading,
-      required Option<ApiFailure> failureOrSuccessOption}) {
-    return _ResumeWatcherState(
-      language: language,
-      info: info,
-      academics: academics,
-      works: works,
-      qualifications: qualifications,
-      options: options,
-      prefectures: prefectures,
-      provinces: provinces,
-      hasResume: hasResume,
-      isLoading: isLoading,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $ResumeWatcherState = _$ResumeWatcherStateTearOff();
 
 /// @nodoc
 mixin _$ResumeWatcherState {
@@ -593,7 +631,8 @@ mixin _$ResumeWatcherState {
 abstract class $ResumeWatcherStateCopyWith<$Res> {
   factory $ResumeWatcherStateCopyWith(
           ResumeWatcherState value, $Res Function(ResumeWatcherState) then) =
-      _$ResumeWatcherStateCopyWithImpl<$Res>;
+      _$ResumeWatcherStateCopyWithImpl<$Res, ResumeWatcherState>;
+  @useResult
   $Res call(
       {String language,
       PersonalInfo info,
@@ -609,84 +648,87 @@ abstract class $ResumeWatcherStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ResumeWatcherStateCopyWithImpl<$Res>
+class _$ResumeWatcherStateCopyWithImpl<$Res, $Val extends ResumeWatcherState>
     implements $ResumeWatcherStateCopyWith<$Res> {
   _$ResumeWatcherStateCopyWithImpl(this._value, this._then);
 
-  final ResumeWatcherState _value;
   // ignore: unused_field
-  final $Res Function(ResumeWatcherState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? language = freezed,
-    Object? info = freezed,
-    Object? academics = freezed,
-    Object? works = freezed,
-    Object? qualifications = freezed,
-    Object? options = freezed,
-    Object? prefectures = freezed,
-    Object? provinces = freezed,
-    Object? hasResume = freezed,
-    Object? isLoading = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? language = null,
+    Object? info = null,
+    Object? academics = null,
+    Object? works = null,
+    Object? qualifications = null,
+    Object? options = null,
+    Object? prefectures = null,
+    Object? provinces = null,
+    Object? hasResume = null,
+    Object? isLoading = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      language: language == freezed
+      language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      info: info == freezed
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as PersonalInfo,
-      academics: academics == freezed
+      academics: null == academics
           ? _value.academics
           : academics // ignore: cast_nullable_to_non_nullable
               as List<AcademicHistory>,
-      works: works == freezed
+      works: null == works
           ? _value.works
           : works // ignore: cast_nullable_to_non_nullable
               as List<WorkHistory>,
-      qualifications: qualifications == freezed
+      qualifications: null == qualifications
           ? _value.qualifications
           : qualifications // ignore: cast_nullable_to_non_nullable
               as List<QualificationHistory>,
-      options: options == freezed
+      options: null == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
               as ResumeOptions,
-      prefectures: prefectures == freezed
+      prefectures: null == prefectures
           ? _value.prefectures
           : prefectures // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      provinces: provinces == freezed
+      provinces: null == provinces
           ? _value.provinces
           : provinces // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      hasResume: hasResume == freezed
+      hasResume: null == hasResume
           ? _value.hasResume
           : hasResume // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<ApiFailure>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ResumeWatcherStateCopyWith<$Res>
+abstract class _$$_ResumeWatcherStateCopyWith<$Res>
     implements $ResumeWatcherStateCopyWith<$Res> {
-  factory _$ResumeWatcherStateCopyWith(
-          _ResumeWatcherState value, $Res Function(_ResumeWatcherState) then) =
-      __$ResumeWatcherStateCopyWithImpl<$Res>;
+  factory _$$_ResumeWatcherStateCopyWith(_$_ResumeWatcherState value,
+          $Res Function(_$_ResumeWatcherState) then) =
+      __$$_ResumeWatcherStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String language,
       PersonalInfo info,
@@ -702,72 +744,70 @@ abstract class _$ResumeWatcherStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ResumeWatcherStateCopyWithImpl<$Res>
-    extends _$ResumeWatcherStateCopyWithImpl<$Res>
-    implements _$ResumeWatcherStateCopyWith<$Res> {
-  __$ResumeWatcherStateCopyWithImpl(
-      _ResumeWatcherState _value, $Res Function(_ResumeWatcherState) _then)
-      : super(_value, (v) => _then(v as _ResumeWatcherState));
+class __$$_ResumeWatcherStateCopyWithImpl<$Res>
+    extends _$ResumeWatcherStateCopyWithImpl<$Res, _$_ResumeWatcherState>
+    implements _$$_ResumeWatcherStateCopyWith<$Res> {
+  __$$_ResumeWatcherStateCopyWithImpl(
+      _$_ResumeWatcherState _value, $Res Function(_$_ResumeWatcherState) _then)
+      : super(_value, _then);
 
-  @override
-  _ResumeWatcherState get _value => super._value as _ResumeWatcherState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? language = freezed,
-    Object? info = freezed,
-    Object? academics = freezed,
-    Object? works = freezed,
-    Object? qualifications = freezed,
-    Object? options = freezed,
-    Object? prefectures = freezed,
-    Object? provinces = freezed,
-    Object? hasResume = freezed,
-    Object? isLoading = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? language = null,
+    Object? info = null,
+    Object? academics = null,
+    Object? works = null,
+    Object? qualifications = null,
+    Object? options = null,
+    Object? prefectures = null,
+    Object? provinces = null,
+    Object? hasResume = null,
+    Object? isLoading = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_ResumeWatcherState(
-      language: language == freezed
+    return _then(_$_ResumeWatcherState(
+      language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      info: info == freezed
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as PersonalInfo,
-      academics: academics == freezed
-          ? _value.academics
+      academics: null == academics
+          ? _value._academics
           : academics // ignore: cast_nullable_to_non_nullable
               as List<AcademicHistory>,
-      works: works == freezed
-          ? _value.works
+      works: null == works
+          ? _value._works
           : works // ignore: cast_nullable_to_non_nullable
               as List<WorkHistory>,
-      qualifications: qualifications == freezed
-          ? _value.qualifications
+      qualifications: null == qualifications
+          ? _value._qualifications
           : qualifications // ignore: cast_nullable_to_non_nullable
               as List<QualificationHistory>,
-      options: options == freezed
+      options: null == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
               as ResumeOptions,
-      prefectures: prefectures == freezed
-          ? _value.prefectures
+      prefectures: null == prefectures
+          ? _value._prefectures
           : prefectures // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      provinces: provinces == freezed
-          ? _value.provinces
+      provinces: null == provinces
+          ? _value._provinces
           : provinces // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      hasResume: hasResume == freezed
+      hasResume: null == hasResume
           ? _value.hasResume
           : hasResume // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<ApiFailure>,
@@ -781,32 +821,67 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
   const _$_ResumeWatcherState(
       {required this.language,
       required this.info,
-      required this.academics,
-      required this.works,
-      required this.qualifications,
+      required final List<AcademicHistory> academics,
+      required final List<WorkHistory> works,
+      required final List<QualificationHistory> qualifications,
       required this.options,
-      required this.prefectures,
-      required this.provinces,
+      required final List<String> prefectures,
+      required final List<String> provinces,
       required this.hasResume,
       required this.isLoading,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : _academics = academics,
+        _works = works,
+        _qualifications = qualifications,
+        _prefectures = prefectures,
+        _provinces = provinces;
 
   @override
   final String language;
   @override
   final PersonalInfo info;
+  final List<AcademicHistory> _academics;
   @override
-  final List<AcademicHistory> academics;
+  List<AcademicHistory> get academics {
+    if (_academics is EqualUnmodifiableListView) return _academics;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_academics);
+  }
+
+  final List<WorkHistory> _works;
   @override
-  final List<WorkHistory> works;
+  List<WorkHistory> get works {
+    if (_works is EqualUnmodifiableListView) return _works;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_works);
+  }
+
+  final List<QualificationHistory> _qualifications;
   @override
-  final List<QualificationHistory> qualifications;
+  List<QualificationHistory> get qualifications {
+    if (_qualifications is EqualUnmodifiableListView) return _qualifications;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_qualifications);
+  }
+
   @override
   final ResumeOptions options;
+  final List<String> _prefectures;
   @override
-  final List<String> prefectures;
+  List<String> get prefectures {
+    if (_prefectures is EqualUnmodifiableListView) return _prefectures;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_prefectures);
+  }
+
+  final List<String> _provinces;
   @override
-  final List<String> provinces;
+  List<String> get provinces {
+    if (_provinces is EqualUnmodifiableListView) return _provinces;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_provinces);
+  }
+
   @override
   final bool hasResume;
   @override
@@ -822,102 +897,91 @@ class _$_ResumeWatcherState implements _ResumeWatcherState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResumeWatcherState &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ResumeWatcherState &&
             (identical(other.language, language) ||
-                const DeepCollectionEquality()
-                    .equals(other.language, language)) &&
-            (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)) &&
-            (identical(other.academics, academics) ||
-                const DeepCollectionEquality()
-                    .equals(other.academics, academics)) &&
-            (identical(other.works, works) ||
-                const DeepCollectionEquality().equals(other.works, works)) &&
-            (identical(other.qualifications, qualifications) ||
-                const DeepCollectionEquality()
-                    .equals(other.qualifications, qualifications)) &&
-            (identical(other.options, options) ||
-                const DeepCollectionEquality()
-                    .equals(other.options, options)) &&
-            (identical(other.prefectures, prefectures) ||
-                const DeepCollectionEquality()
-                    .equals(other.prefectures, prefectures)) &&
-            (identical(other.provinces, provinces) ||
-                const DeepCollectionEquality()
-                    .equals(other.provinces, provinces)) &&
+                other.language == language) &&
+            (identical(other.info, info) || other.info == info) &&
+            const DeepCollectionEquality()
+                .equals(other._academics, _academics) &&
+            const DeepCollectionEquality().equals(other._works, _works) &&
+            const DeepCollectionEquality()
+                .equals(other._qualifications, _qualifications) &&
+            (identical(other.options, options) || other.options == options) &&
+            const DeepCollectionEquality()
+                .equals(other._prefectures, _prefectures) &&
+            const DeepCollectionEquality()
+                .equals(other._provinces, _provinces) &&
             (identical(other.hasResume, hasResume) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasResume, hasResume)) &&
+                other.hasResume == hasResume) &&
             (identical(other.isLoading, isLoading) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLoading, isLoading)) &&
+                other.isLoading == isLoading) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(language) ^
-      const DeepCollectionEquality().hash(info) ^
-      const DeepCollectionEquality().hash(academics) ^
-      const DeepCollectionEquality().hash(works) ^
-      const DeepCollectionEquality().hash(qualifications) ^
-      const DeepCollectionEquality().hash(options) ^
-      const DeepCollectionEquality().hash(prefectures) ^
-      const DeepCollectionEquality().hash(provinces) ^
-      const DeepCollectionEquality().hash(hasResume) ^
-      const DeepCollectionEquality().hash(isLoading) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      language,
+      info,
+      const DeepCollectionEquality().hash(_academics),
+      const DeepCollectionEquality().hash(_works),
+      const DeepCollectionEquality().hash(_qualifications),
+      options,
+      const DeepCollectionEquality().hash(_prefectures),
+      const DeepCollectionEquality().hash(_provinces),
+      hasResume,
+      isLoading,
+      failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
-  _$ResumeWatcherStateCopyWith<_ResumeWatcherState> get copyWith =>
-      __$ResumeWatcherStateCopyWithImpl<_ResumeWatcherState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ResumeWatcherStateCopyWith<_$_ResumeWatcherState> get copyWith =>
+      __$$_ResumeWatcherStateCopyWithImpl<_$_ResumeWatcherState>(
+          this, _$identity);
 }
 
 abstract class _ResumeWatcherState implements ResumeWatcherState {
   const factory _ResumeWatcherState(
-          {required String language,
-          required PersonalInfo info,
-          required List<AcademicHistory> academics,
-          required List<WorkHistory> works,
-          required List<QualificationHistory> qualifications,
-          required ResumeOptions options,
-          required List<String> prefectures,
-          required List<String> provinces,
-          required bool hasResume,
-          required bool isLoading,
-          required Option<ApiFailure> failureOrSuccessOption}) =
+          {required final String language,
+          required final PersonalInfo info,
+          required final List<AcademicHistory> academics,
+          required final List<WorkHistory> works,
+          required final List<QualificationHistory> qualifications,
+          required final ResumeOptions options,
+          required final List<String> prefectures,
+          required final List<String> provinces,
+          required final bool hasResume,
+          required final bool isLoading,
+          required final Option<ApiFailure> failureOrSuccessOption}) =
       _$_ResumeWatcherState;
 
   @override
-  String get language => throw _privateConstructorUsedError;
+  String get language;
   @override
-  PersonalInfo get info => throw _privateConstructorUsedError;
+  PersonalInfo get info;
   @override
-  List<AcademicHistory> get academics => throw _privateConstructorUsedError;
+  List<AcademicHistory> get academics;
   @override
-  List<WorkHistory> get works => throw _privateConstructorUsedError;
+  List<WorkHistory> get works;
   @override
-  List<QualificationHistory> get qualifications =>
-      throw _privateConstructorUsedError;
+  List<QualificationHistory> get qualifications;
   @override
-  ResumeOptions get options => throw _privateConstructorUsedError;
+  ResumeOptions get options;
   @override
-  List<String> get prefectures => throw _privateConstructorUsedError;
+  List<String> get prefectures;
   @override
-  List<String> get provinces => throw _privateConstructorUsedError;
+  List<String> get provinces;
   @override
-  bool get hasResume => throw _privateConstructorUsedError;
+  bool get hasResume;
   @override
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoading;
   @override
-  Option<ApiFailure> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<ApiFailure> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$ResumeWatcherStateCopyWith<_ResumeWatcherState> get copyWith =>
+  _$$_ResumeWatcherStateCopyWith<_$_ResumeWatcherState> get copyWith =>
       throw _privateConstructorUsedError;
 }

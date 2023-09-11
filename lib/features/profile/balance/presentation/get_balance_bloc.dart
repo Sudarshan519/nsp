@@ -16,7 +16,19 @@ part 'get_balance_bloc.freezed.dart';
 class GetBalanceBloc extends Bloc<GetBalanceEvent, GetBalanceState> {
   GetBalanceBloc({
     required this.getBalance,
-  }) : super(const _Loading());
+  }) : super(const _Loading()) {
+    on<_FetchBalance>((event, emit) async {
+      emit(const _Loading());
+      final res = await getBalance.call(NoParams());
+
+      emit(res.fold((fail) {
+        return _Failure(fail);
+      }, (balance) {
+        _userbalance = balance;
+        return _Loaded(balance);
+      }));
+    });
+  }
 
   final GetBalance getBalance;
 

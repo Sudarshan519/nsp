@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'japanese_manner_categories_bloc.dart';
 
@@ -10,25 +12,18 @@ part of 'japanese_manner_categories_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$JapaneseMannerCategoriesEventTearOff {
-  const _$JapaneseMannerCategoriesEventTearOff();
-
-  _Fetch fetch() {
-    return const _Fetch();
-  }
-}
-
-/// @nodoc
-const $JapaneseMannerCategoriesEvent = _$JapaneseMannerCategoriesEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$JapaneseMannerCategoriesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +35,11 @@ mixin _$JapaneseMannerCategoriesEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,34 +55,34 @@ abstract class $JapaneseMannerCategoriesEventCopyWith<$Res> {
   factory $JapaneseMannerCategoriesEventCopyWith(
           JapaneseMannerCategoriesEvent value,
           $Res Function(JapaneseMannerCategoriesEvent) then) =
-      _$JapaneseMannerCategoriesEventCopyWithImpl<$Res>;
+      _$JapaneseMannerCategoriesEventCopyWithImpl<$Res,
+          JapaneseMannerCategoriesEvent>;
 }
 
 /// @nodoc
-class _$JapaneseMannerCategoriesEventCopyWithImpl<$Res>
+class _$JapaneseMannerCategoriesEventCopyWithImpl<$Res,
+        $Val extends JapaneseMannerCategoriesEvent>
     implements $JapaneseMannerCategoriesEventCopyWith<$Res> {
   _$JapaneseMannerCategoriesEventCopyWithImpl(this._value, this._then);
 
-  final JapaneseMannerCategoriesEvent _value;
   // ignore: unused_field
-  final $Res Function(JapaneseMannerCategoriesEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$FetchCopyWith<$Res> {
-  factory _$FetchCopyWith(_Fetch value, $Res Function(_Fetch) then) =
-      __$FetchCopyWithImpl<$Res>;
+abstract class _$$_FetchCopyWith<$Res> {
+  factory _$$_FetchCopyWith(_$_Fetch value, $Res Function(_$_Fetch) then) =
+      __$$_FetchCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$FetchCopyWithImpl<$Res>
-    extends _$JapaneseMannerCategoriesEventCopyWithImpl<$Res>
-    implements _$FetchCopyWith<$Res> {
-  __$FetchCopyWithImpl(_Fetch _value, $Res Function(_Fetch) _then)
-      : super(_value, (v) => _then(v as _Fetch));
-
-  @override
-  _Fetch get _value => super._value as _Fetch;
+class __$$_FetchCopyWithImpl<$Res>
+    extends _$JapaneseMannerCategoriesEventCopyWithImpl<$Res, _$_Fetch>
+    implements _$$_FetchCopyWith<$Res> {
+  __$$_FetchCopyWithImpl(_$_Fetch _value, $Res Function(_$_Fetch) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -97,7 +97,8 @@ class _$_Fetch implements _Fetch {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Fetch);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Fetch);
   }
 
   @override
@@ -109,6 +110,14 @@ class _$_Fetch implements _Fetch {
     required TResult Function() fetch,
   }) {
     return fetch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+  }) {
+    return fetch?.call();
   }
 
   @override
@@ -133,6 +142,14 @@ class _$_Fetch implements _Fetch {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+  }) {
+    return fetch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     required TResult orElse(),
@@ -149,34 +166,6 @@ abstract class _Fetch implements JapaneseMannerCategoriesEvent {
 }
 
 /// @nodoc
-class _$JapaneseMannerCategoriesStateTearOff {
-  const _$JapaneseMannerCategoriesStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Loaded loaded(List<JapaneseMannerCategory> categories) {
-    return _Loaded(
-      categories,
-    );
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
-    );
-  }
-}
-
-/// @nodoc
-const $JapaneseMannerCategoriesState = _$JapaneseMannerCategoriesStateTearOff();
-
-/// @nodoc
 mixin _$JapaneseMannerCategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -184,6 +173,14 @@ mixin _$JapaneseMannerCategoriesState {
     required TResult Function() loading,
     required TResult Function(List<JapaneseMannerCategory> categories) loaded,
     required TResult Function(ApiFailure failure) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<JapaneseMannerCategory> categories)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -204,6 +201,14 @@ mixin _$JapaneseMannerCategoriesState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -219,34 +224,35 @@ abstract class $JapaneseMannerCategoriesStateCopyWith<$Res> {
   factory $JapaneseMannerCategoriesStateCopyWith(
           JapaneseMannerCategoriesState value,
           $Res Function(JapaneseMannerCategoriesState) then) =
-      _$JapaneseMannerCategoriesStateCopyWithImpl<$Res>;
+      _$JapaneseMannerCategoriesStateCopyWithImpl<$Res,
+          JapaneseMannerCategoriesState>;
 }
 
 /// @nodoc
-class _$JapaneseMannerCategoriesStateCopyWithImpl<$Res>
+class _$JapaneseMannerCategoriesStateCopyWithImpl<$Res,
+        $Val extends JapaneseMannerCategoriesState>
     implements $JapaneseMannerCategoriesStateCopyWith<$Res> {
   _$JapaneseMannerCategoriesStateCopyWithImpl(this._value, this._then);
 
-  final JapaneseMannerCategoriesState _value;
   // ignore: unused_field
-  final $Res Function(JapaneseMannerCategoriesState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$JapaneseMannerCategoriesStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$JapaneseMannerCategoriesStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -261,7 +267,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -276,6 +283,17 @@ class _$_Initial implements _Initial {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<JapaneseMannerCategory> categories)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -306,6 +324,17 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -325,20 +354,18 @@ abstract class _Initial implements JapaneseMannerCategoriesState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res>
-    extends _$JapaneseMannerCategoriesStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$JapaneseMannerCategoriesStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -353,7 +380,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -368,6 +396,17 @@ class _$_Loading implements _Loading {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<JapaneseMannerCategory> categories)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -398,6 +437,17 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -417,29 +467,28 @@ abstract class _Loading implements JapaneseMannerCategoriesState {
 }
 
 /// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
+abstract class _$$_LoadedCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<JapaneseMannerCategory> categories});
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res>
-    extends _$JapaneseMannerCategoriesStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
+class __$$_LoadedCopyWithImpl<$Res>
+    extends _$JapaneseMannerCategoriesStateCopyWithImpl<$Res, _$_Loaded>
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, _then);
 
-  @override
-  _Loaded get _value => super._value as _Loaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categories = freezed,
+    Object? categories = null,
   }) {
-    return _then(_Loaded(
-      categories == freezed
-          ? _value.categories
+    return _then(_$_Loaded(
+      null == categories
+          ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<JapaneseMannerCategory>,
     ));
@@ -449,10 +498,16 @@ class __$LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.categories);
+  const _$_Loaded(final List<JapaneseMannerCategory> categories)
+      : _categories = categories;
 
+  final List<JapaneseMannerCategory> _categories;
   @override
-  final List<JapaneseMannerCategory> categories;
+  List<JapaneseMannerCategory> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
 
   @override
   String toString() {
@@ -462,20 +517,21 @@ class _$_Loaded implements _Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Loaded &&
-            (identical(other.categories, categories) ||
-                const DeepCollectionEquality()
-                    .equals(other.categories, categories)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Loaded &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(categories);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_categories));
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -486,6 +542,17 @@ class _$_Loaded implements _Loaded {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loaded(categories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<JapaneseMannerCategory> categories)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loaded?.call(categories);
   }
 
   @override
@@ -516,6 +583,17 @@ class _$_Loaded implements _Loaded {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -531,39 +609,40 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements JapaneseMannerCategoriesState {
-  const factory _Loaded(List<JapaneseMannerCategory> categories) = _$_Loaded;
+  const factory _Loaded(final List<JapaneseMannerCategory> categories) =
+      _$_Loaded;
 
-  List<JapaneseMannerCategory> get categories =>
-      throw _privateConstructorUsedError;
+  List<JapaneseMannerCategory> get categories;
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
+abstract class _$$_FailureCopyWith<$Res> {
+  factory _$$_FailureCopyWith(
+          _$_Failure value, $Res Function(_$_Failure) then) =
+      __$$_FailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res>
-    extends _$JapaneseMannerCategoriesStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$JapaneseMannerCategoriesStateCopyWithImpl<$Res, _$_Failure>
+    implements _$$_FailureCopyWith<$Res> {
+  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+      : super(_value, _then);
 
-  @override
-  _Failure get _value => super._value as _Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_Failure(
-      failure == freezed
+    return _then(_$_Failure(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -571,6 +650,7 @@ class __$FailureCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -594,19 +674,19 @@ class _$_Failure implements _Failure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Failure &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -617,6 +697,17 @@ class _$_Failure implements _Failure {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<JapaneseMannerCategory> categories)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return failure?.call(this.failure);
   }
 
   @override
@@ -647,6 +738,17 @@ class _$_Failure implements _Failure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -662,10 +764,10 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements JapaneseMannerCategoriesState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const factory _Failure(final ApiFailure failure) = _$_Failure;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }

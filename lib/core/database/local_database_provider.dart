@@ -39,7 +39,7 @@ class DBProviderImpl implements DBProvider {
   static const int _version = 2;
   Database? _database;
 
-  final _logger = getIt<Logger>();
+  // final _logger = getIt<Logger>();
 
   // @override
   @override
@@ -76,12 +76,12 @@ class DBProviderImpl implements DBProvider {
         await dbBatch.commit(noResult: true);
       });
     } catch (ex) {
-      _logger.log(
-        className: "DBProvider",
-        functionName: "open()",
-        errorText: "Error opening local daabase",
-        errorMessage: ex.toString(),
-      );
+      // _logger.log(
+      //   className: "DBProvider",
+      //   functionName: "open()",
+      //   errorText: "Error opening local daabase",
+      //   errorMessage: ex.toString(),
+      // );
     }
   }
 

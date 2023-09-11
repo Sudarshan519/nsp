@@ -6,6 +6,9 @@ import 'package:wallet_app/features/home/presentation/home_page_data/home_page_d
 import 'package:wallet_app/features/notifications/domain/entity/notification_item.dart';
 import 'package:wallet_app/features/utility_payments/data/models/utility_payments_model.dart';
 import 'package:wallet_app/injections/injection.dart';
+import 'package:wallet_app/ui/pages/alerts/detail/alert_detail_page.dart';
+import 'package:wallet_app/ui/pages/japanese_manner/japanese_manner_detail.dart';
+import 'package:wallet_app/ui/pages/transactions/transaction_detail_page.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 
 void navigate(BuildContext context, NotificationItem item,
@@ -16,7 +19,7 @@ void navigate(BuildContext context, NotificationItem item,
   switch (item.type) {
     case NotificationType.transaction:
       if (item.productId != null) {
-        context.pushRoute(TransactionDetailFromAPi(id: item.productId!));
+        context.pushRoute(TransactionDetailFromAPiRoute(id: item.productId!));
       }
       break;
 
@@ -32,32 +35,33 @@ void navigate(BuildContext context, NotificationItem item,
       break;
     case NotificationType.partnerService:
       if (item.productId != null) {
-        context.pushRoute(ServiceDetailRouteFromAPI(id: item.productId!));
+        context.pushRoute(ServiceDetailFromAPIRoute(id: item.productId!));
       }
       break;
 
     case NotificationType.jpManner:
       if (item.productId != null) {
-        context.pushRoute(JPMannerDetailFromAPi(id: item.productId!));
+        context.pushRoute(JPMannerDetailFromAPiRoute(id: item.productId!));
       }
       break;
     case NotificationType.earthquake:
       if (data != null) {
         context.pushRoute(
-            AlertDetailFomApi(id: data['earthquake_code'] as String));
+            AlertDetailFomApiRoute(id: data['earthquake_code'] as String));
       }
 
       break;
     case NotificationType.eruption:
       if (data != null) {
-        context
-            .pushRoute(AlertDetailFomApi(id: data['volcano_code'] as String));
+        context.pushRoute(
+            AlertDetailFomApiRoute(id: data['volcano_code'] as String));
       }
 
       break;
     case NotificationType.weather:
       if (data != null) {
-        context.pushRoute(AlertDetailFomApi(id: data['message_id'] as String));
+        context.pushRoute(
+            AlertDetailFomApiRoute(id: data['message_id'] as String));
       }
 
       break;

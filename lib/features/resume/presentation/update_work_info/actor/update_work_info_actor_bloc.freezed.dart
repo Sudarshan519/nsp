@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_work_info_actor_bloc.dart';
 
@@ -10,70 +12,7 @@ part of 'update_work_info_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UpdateWorkInfoActorEventTearOff {
-  const _$UpdateWorkInfoActorEventTearOff();
-
-  _ChangedNameOfCompany changedNameOfCompany(String company) {
-    return _ChangedNameOfCompany(
-      company,
-    );
-  }
-
-  _ChangedTypeOfCompany changedTypeOfCompany(String type) {
-    return _ChangedTypeOfCompany(
-      type,
-    );
-  }
-
-  _ChangedStartedYear changedStartedYear(String year) {
-    return _ChangedStartedYear(
-      year,
-    );
-  }
-
-  _ChangedStartedMonth changedStartedMonth(String month) {
-    return _ChangedStartedMonth(
-      month,
-    );
-  }
-
-  _ChangedEndYear changedEndYear(String year) {
-    return _ChangedEndYear(
-      year,
-    );
-  }
-
-  _ChangedEndMonth changedEndMonth(String month) {
-    return _ChangedEndMonth(
-      month,
-    );
-  }
-
-  _ChangedPurposeOfResign changedPurposeOfResign(String puropse) {
-    return _ChangedPurposeOfResign(
-      puropse,
-    );
-  }
-
-  _SetInitialState setInitialState(
-      WorkHistory workHistory, List<String> typeOfCompanyList, String lang) {
-    return _SetInitialState(
-      workHistory,
-      typeOfCompanyList,
-      lang,
-    );
-  }
-
-  _Save save() {
-    return const _Save();
-  }
-}
-
-/// @nodoc
-const $UpdateWorkInfoActorEvent = _$UpdateWorkInfoActorEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdateWorkInfoActorEvent {
@@ -90,6 +29,21 @@ mixin _$UpdateWorkInfoActorEvent {
             List<String> typeOfCompanyList, String lang)
         setInitialState,
     required TResult Function() save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -123,6 +77,19 @@ mixin _$UpdateWorkInfoActorEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -142,44 +109,46 @@ mixin _$UpdateWorkInfoActorEvent {
 abstract class $UpdateWorkInfoActorEventCopyWith<$Res> {
   factory $UpdateWorkInfoActorEventCopyWith(UpdateWorkInfoActorEvent value,
           $Res Function(UpdateWorkInfoActorEvent) then) =
-      _$UpdateWorkInfoActorEventCopyWithImpl<$Res>;
+      _$UpdateWorkInfoActorEventCopyWithImpl<$Res, UpdateWorkInfoActorEvent>;
 }
 
 /// @nodoc
-class _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
+class _$UpdateWorkInfoActorEventCopyWithImpl<$Res,
+        $Val extends UpdateWorkInfoActorEvent>
     implements $UpdateWorkInfoActorEventCopyWith<$Res> {
   _$UpdateWorkInfoActorEventCopyWithImpl(this._value, this._then);
 
-  final UpdateWorkInfoActorEvent _value;
   // ignore: unused_field
-  final $Res Function(UpdateWorkInfoActorEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangedNameOfCompanyCopyWith<$Res> {
-  factory _$ChangedNameOfCompanyCopyWith(_ChangedNameOfCompany value,
-          $Res Function(_ChangedNameOfCompany) then) =
-      __$ChangedNameOfCompanyCopyWithImpl<$Res>;
+abstract class _$$_ChangedNameOfCompanyCopyWith<$Res> {
+  factory _$$_ChangedNameOfCompanyCopyWith(_$_ChangedNameOfCompany value,
+          $Res Function(_$_ChangedNameOfCompany) then) =
+      __$$_ChangedNameOfCompanyCopyWithImpl<$Res>;
+  @useResult
   $Res call({String company});
 }
 
 /// @nodoc
-class __$ChangedNameOfCompanyCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedNameOfCompanyCopyWith<$Res> {
-  __$ChangedNameOfCompanyCopyWithImpl(
-      _ChangedNameOfCompany _value, $Res Function(_ChangedNameOfCompany) _then)
-      : super(_value, (v) => _then(v as _ChangedNameOfCompany));
+class __$$_ChangedNameOfCompanyCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedNameOfCompany>
+    implements _$$_ChangedNameOfCompanyCopyWith<$Res> {
+  __$$_ChangedNameOfCompanyCopyWithImpl(_$_ChangedNameOfCompany _value,
+      $Res Function(_$_ChangedNameOfCompany) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedNameOfCompany get _value => super._value as _ChangedNameOfCompany;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? company = freezed,
+    Object? company = null,
   }) {
-    return _then(_ChangedNameOfCompany(
-      company == freezed
+    return _then(_$_ChangedNameOfCompany(
+      null == company
           ? _value.company
           : company // ignore: cast_nullable_to_non_nullable
               as String,
@@ -203,19 +172,19 @@ class _$_ChangedNameOfCompany implements _ChangedNameOfCompany {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedNameOfCompany &&
-            (identical(other.company, company) ||
-                const DeepCollectionEquality().equals(other.company, company)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedNameOfCompany &&
+            (identical(other.company, company) || other.company == company));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(company);
+  int get hashCode => Object.hash(runtimeType, company);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedNameOfCompanyCopyWith<_ChangedNameOfCompany> get copyWith =>
-      __$ChangedNameOfCompanyCopyWithImpl<_ChangedNameOfCompany>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedNameOfCompanyCopyWith<_$_ChangedNameOfCompany> get copyWith =>
+      __$$_ChangedNameOfCompanyCopyWithImpl<_$_ChangedNameOfCompany>(
           this, _$identity);
 
   @override
@@ -234,6 +203,24 @@ class _$_ChangedNameOfCompany implements _ChangedNameOfCompany {
     required TResult Function() save,
   }) {
     return changedNameOfCompany(company);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedNameOfCompany?.call(company);
   }
 
   @override
@@ -277,6 +264,22 @@ class _$_ChangedNameOfCompany implements _ChangedNameOfCompany {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedNameOfCompany?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -297,39 +300,40 @@ class _$_ChangedNameOfCompany implements _ChangedNameOfCompany {
 }
 
 abstract class _ChangedNameOfCompany implements UpdateWorkInfoActorEvent {
-  const factory _ChangedNameOfCompany(String company) = _$_ChangedNameOfCompany;
+  const factory _ChangedNameOfCompany(final String company) =
+      _$_ChangedNameOfCompany;
 
-  String get company => throw _privateConstructorUsedError;
+  String get company;
   @JsonKey(ignore: true)
-  _$ChangedNameOfCompanyCopyWith<_ChangedNameOfCompany> get copyWith =>
+  _$$_ChangedNameOfCompanyCopyWith<_$_ChangedNameOfCompany> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedTypeOfCompanyCopyWith<$Res> {
-  factory _$ChangedTypeOfCompanyCopyWith(_ChangedTypeOfCompany value,
-          $Res Function(_ChangedTypeOfCompany) then) =
-      __$ChangedTypeOfCompanyCopyWithImpl<$Res>;
+abstract class _$$_ChangedTypeOfCompanyCopyWith<$Res> {
+  factory _$$_ChangedTypeOfCompanyCopyWith(_$_ChangedTypeOfCompany value,
+          $Res Function(_$_ChangedTypeOfCompany) then) =
+      __$$_ChangedTypeOfCompanyCopyWithImpl<$Res>;
+  @useResult
   $Res call({String type});
 }
 
 /// @nodoc
-class __$ChangedTypeOfCompanyCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedTypeOfCompanyCopyWith<$Res> {
-  __$ChangedTypeOfCompanyCopyWithImpl(
-      _ChangedTypeOfCompany _value, $Res Function(_ChangedTypeOfCompany) _then)
-      : super(_value, (v) => _then(v as _ChangedTypeOfCompany));
+class __$$_ChangedTypeOfCompanyCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedTypeOfCompany>
+    implements _$$_ChangedTypeOfCompanyCopyWith<$Res> {
+  __$$_ChangedTypeOfCompanyCopyWithImpl(_$_ChangedTypeOfCompany _value,
+      $Res Function(_$_ChangedTypeOfCompany) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedTypeOfCompany get _value => super._value as _ChangedTypeOfCompany;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
+    Object? type = null,
   }) {
-    return _then(_ChangedTypeOfCompany(
-      type == freezed
+    return _then(_$_ChangedTypeOfCompany(
+      null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
@@ -353,19 +357,19 @@ class _$_ChangedTypeOfCompany implements _ChangedTypeOfCompany {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedTypeOfCompany &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedTypeOfCompany &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(type);
+  int get hashCode => Object.hash(runtimeType, type);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedTypeOfCompanyCopyWith<_ChangedTypeOfCompany> get copyWith =>
-      __$ChangedTypeOfCompanyCopyWithImpl<_ChangedTypeOfCompany>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedTypeOfCompanyCopyWith<_$_ChangedTypeOfCompany> get copyWith =>
+      __$$_ChangedTypeOfCompanyCopyWithImpl<_$_ChangedTypeOfCompany>(
           this, _$identity);
 
   @override
@@ -384,6 +388,24 @@ class _$_ChangedTypeOfCompany implements _ChangedTypeOfCompany {
     required TResult Function() save,
   }) {
     return changedTypeOfCompany(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedTypeOfCompany?.call(type);
   }
 
   @override
@@ -427,6 +449,22 @@ class _$_ChangedTypeOfCompany implements _ChangedTypeOfCompany {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedTypeOfCompany?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -447,39 +485,39 @@ class _$_ChangedTypeOfCompany implements _ChangedTypeOfCompany {
 }
 
 abstract class _ChangedTypeOfCompany implements UpdateWorkInfoActorEvent {
-  const factory _ChangedTypeOfCompany(String type) = _$_ChangedTypeOfCompany;
+  const factory _ChangedTypeOfCompany(final String type) =
+      _$_ChangedTypeOfCompany;
 
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @JsonKey(ignore: true)
-  _$ChangedTypeOfCompanyCopyWith<_ChangedTypeOfCompany> get copyWith =>
+  _$$_ChangedTypeOfCompanyCopyWith<_$_ChangedTypeOfCompany> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedStartedYearCopyWith<$Res> {
-  factory _$ChangedStartedYearCopyWith(
-          _ChangedStartedYear value, $Res Function(_ChangedStartedYear) then) =
-      __$ChangedStartedYearCopyWithImpl<$Res>;
+abstract class _$$_ChangedStartedYearCopyWith<$Res> {
+  factory _$$_ChangedStartedYearCopyWith(_$_ChangedStartedYear value,
+          $Res Function(_$_ChangedStartedYear) then) =
+      __$$_ChangedStartedYearCopyWithImpl<$Res>;
+  @useResult
   $Res call({String year});
 }
 
 /// @nodoc
-class __$ChangedStartedYearCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedStartedYearCopyWith<$Res> {
-  __$ChangedStartedYearCopyWithImpl(
-      _ChangedStartedYear _value, $Res Function(_ChangedStartedYear) _then)
-      : super(_value, (v) => _then(v as _ChangedStartedYear));
+class __$$_ChangedStartedYearCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res, _$_ChangedStartedYear>
+    implements _$$_ChangedStartedYearCopyWith<$Res> {
+  __$$_ChangedStartedYearCopyWithImpl(
+      _$_ChangedStartedYear _value, $Res Function(_$_ChangedStartedYear) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedStartedYear get _value => super._value as _ChangedStartedYear;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = freezed,
+    Object? year = null,
   }) {
-    return _then(_ChangedStartedYear(
-      year == freezed
+    return _then(_$_ChangedStartedYear(
+      null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as String,
@@ -503,19 +541,20 @@ class _$_ChangedStartedYear implements _ChangedStartedYear {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedStartedYear &&
-            (identical(other.year, year) ||
-                const DeepCollectionEquality().equals(other.year, year)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedStartedYear &&
+            (identical(other.year, year) || other.year == year));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(year);
+  int get hashCode => Object.hash(runtimeType, year);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedStartedYearCopyWith<_ChangedStartedYear> get copyWith =>
-      __$ChangedStartedYearCopyWithImpl<_ChangedStartedYear>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedStartedYearCopyWith<_$_ChangedStartedYear> get copyWith =>
+      __$$_ChangedStartedYearCopyWithImpl<_$_ChangedStartedYear>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -533,6 +572,24 @@ class _$_ChangedStartedYear implements _ChangedStartedYear {
     required TResult Function() save,
   }) {
     return changedStartedYear(year);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedStartedYear?.call(year);
   }
 
   @override
@@ -576,6 +633,22 @@ class _$_ChangedStartedYear implements _ChangedStartedYear {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedStartedYear?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -596,39 +669,38 @@ class _$_ChangedStartedYear implements _ChangedStartedYear {
 }
 
 abstract class _ChangedStartedYear implements UpdateWorkInfoActorEvent {
-  const factory _ChangedStartedYear(String year) = _$_ChangedStartedYear;
+  const factory _ChangedStartedYear(final String year) = _$_ChangedStartedYear;
 
-  String get year => throw _privateConstructorUsedError;
+  String get year;
   @JsonKey(ignore: true)
-  _$ChangedStartedYearCopyWith<_ChangedStartedYear> get copyWith =>
+  _$$_ChangedStartedYearCopyWith<_$_ChangedStartedYear> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedStartedMonthCopyWith<$Res> {
-  factory _$ChangedStartedMonthCopyWith(_ChangedStartedMonth value,
-          $Res Function(_ChangedStartedMonth) then) =
-      __$ChangedStartedMonthCopyWithImpl<$Res>;
+abstract class _$$_ChangedStartedMonthCopyWith<$Res> {
+  factory _$$_ChangedStartedMonthCopyWith(_$_ChangedStartedMonth value,
+          $Res Function(_$_ChangedStartedMonth) then) =
+      __$$_ChangedStartedMonthCopyWithImpl<$Res>;
+  @useResult
   $Res call({String month});
 }
 
 /// @nodoc
-class __$ChangedStartedMonthCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedStartedMonthCopyWith<$Res> {
-  __$ChangedStartedMonthCopyWithImpl(
-      _ChangedStartedMonth _value, $Res Function(_ChangedStartedMonth) _then)
-      : super(_value, (v) => _then(v as _ChangedStartedMonth));
+class __$$_ChangedStartedMonthCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res, _$_ChangedStartedMonth>
+    implements _$$_ChangedStartedMonthCopyWith<$Res> {
+  __$$_ChangedStartedMonthCopyWithImpl(_$_ChangedStartedMonth _value,
+      $Res Function(_$_ChangedStartedMonth) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedStartedMonth get _value => super._value as _ChangedStartedMonth;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? month = freezed,
+    Object? month = null,
   }) {
-    return _then(_ChangedStartedMonth(
-      month == freezed
+    return _then(_$_ChangedStartedMonth(
+      null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
               as String,
@@ -652,19 +724,19 @@ class _$_ChangedStartedMonth implements _ChangedStartedMonth {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedStartedMonth &&
-            (identical(other.month, month) ||
-                const DeepCollectionEquality().equals(other.month, month)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedStartedMonth &&
+            (identical(other.month, month) || other.month == month));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(month);
+  int get hashCode => Object.hash(runtimeType, month);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedStartedMonthCopyWith<_ChangedStartedMonth> get copyWith =>
-      __$ChangedStartedMonthCopyWithImpl<_ChangedStartedMonth>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedStartedMonthCopyWith<_$_ChangedStartedMonth> get copyWith =>
+      __$$_ChangedStartedMonthCopyWithImpl<_$_ChangedStartedMonth>(
           this, _$identity);
 
   @override
@@ -683,6 +755,24 @@ class _$_ChangedStartedMonth implements _ChangedStartedMonth {
     required TResult Function() save,
   }) {
     return changedStartedMonth(month);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedStartedMonth?.call(month);
   }
 
   @override
@@ -726,6 +816,22 @@ class _$_ChangedStartedMonth implements _ChangedStartedMonth {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedStartedMonth?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -746,39 +852,39 @@ class _$_ChangedStartedMonth implements _ChangedStartedMonth {
 }
 
 abstract class _ChangedStartedMonth implements UpdateWorkInfoActorEvent {
-  const factory _ChangedStartedMonth(String month) = _$_ChangedStartedMonth;
+  const factory _ChangedStartedMonth(final String month) =
+      _$_ChangedStartedMonth;
 
-  String get month => throw _privateConstructorUsedError;
+  String get month;
   @JsonKey(ignore: true)
-  _$ChangedStartedMonthCopyWith<_ChangedStartedMonth> get copyWith =>
+  _$$_ChangedStartedMonthCopyWith<_$_ChangedStartedMonth> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedEndYearCopyWith<$Res> {
-  factory _$ChangedEndYearCopyWith(
-          _ChangedEndYear value, $Res Function(_ChangedEndYear) then) =
-      __$ChangedEndYearCopyWithImpl<$Res>;
+abstract class _$$_ChangedEndYearCopyWith<$Res> {
+  factory _$$_ChangedEndYearCopyWith(
+          _$_ChangedEndYear value, $Res Function(_$_ChangedEndYear) then) =
+      __$$_ChangedEndYearCopyWithImpl<$Res>;
+  @useResult
   $Res call({String year});
 }
 
 /// @nodoc
-class __$ChangedEndYearCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedEndYearCopyWith<$Res> {
-  __$ChangedEndYearCopyWithImpl(
-      _ChangedEndYear _value, $Res Function(_ChangedEndYear) _then)
-      : super(_value, (v) => _then(v as _ChangedEndYear));
+class __$$_ChangedEndYearCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res, _$_ChangedEndYear>
+    implements _$$_ChangedEndYearCopyWith<$Res> {
+  __$$_ChangedEndYearCopyWithImpl(
+      _$_ChangedEndYear _value, $Res Function(_$_ChangedEndYear) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedEndYear get _value => super._value as _ChangedEndYear;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = freezed,
+    Object? year = null,
   }) {
-    return _then(_ChangedEndYear(
-      year == freezed
+    return _then(_$_ChangedEndYear(
+      null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as String,
@@ -802,19 +908,19 @@ class _$_ChangedEndYear implements _ChangedEndYear {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedEndYear &&
-            (identical(other.year, year) ||
-                const DeepCollectionEquality().equals(other.year, year)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedEndYear &&
+            (identical(other.year, year) || other.year == year));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(year);
+  int get hashCode => Object.hash(runtimeType, year);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedEndYearCopyWith<_ChangedEndYear> get copyWith =>
-      __$ChangedEndYearCopyWithImpl<_ChangedEndYear>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedEndYearCopyWith<_$_ChangedEndYear> get copyWith =>
+      __$$_ChangedEndYearCopyWithImpl<_$_ChangedEndYear>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -832,6 +938,24 @@ class _$_ChangedEndYear implements _ChangedEndYear {
     required TResult Function() save,
   }) {
     return changedEndYear(year);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedEndYear?.call(year);
   }
 
   @override
@@ -875,6 +999,22 @@ class _$_ChangedEndYear implements _ChangedEndYear {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedEndYear?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -895,39 +1035,38 @@ class _$_ChangedEndYear implements _ChangedEndYear {
 }
 
 abstract class _ChangedEndYear implements UpdateWorkInfoActorEvent {
-  const factory _ChangedEndYear(String year) = _$_ChangedEndYear;
+  const factory _ChangedEndYear(final String year) = _$_ChangedEndYear;
 
-  String get year => throw _privateConstructorUsedError;
+  String get year;
   @JsonKey(ignore: true)
-  _$ChangedEndYearCopyWith<_ChangedEndYear> get copyWith =>
+  _$$_ChangedEndYearCopyWith<_$_ChangedEndYear> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedEndMonthCopyWith<$Res> {
-  factory _$ChangedEndMonthCopyWith(
-          _ChangedEndMonth value, $Res Function(_ChangedEndMonth) then) =
-      __$ChangedEndMonthCopyWithImpl<$Res>;
+abstract class _$$_ChangedEndMonthCopyWith<$Res> {
+  factory _$$_ChangedEndMonthCopyWith(
+          _$_ChangedEndMonth value, $Res Function(_$_ChangedEndMonth) then) =
+      __$$_ChangedEndMonthCopyWithImpl<$Res>;
+  @useResult
   $Res call({String month});
 }
 
 /// @nodoc
-class __$ChangedEndMonthCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedEndMonthCopyWith<$Res> {
-  __$ChangedEndMonthCopyWithImpl(
-      _ChangedEndMonth _value, $Res Function(_ChangedEndMonth) _then)
-      : super(_value, (v) => _then(v as _ChangedEndMonth));
+class __$$_ChangedEndMonthCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res, _$_ChangedEndMonth>
+    implements _$$_ChangedEndMonthCopyWith<$Res> {
+  __$$_ChangedEndMonthCopyWithImpl(
+      _$_ChangedEndMonth _value, $Res Function(_$_ChangedEndMonth) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedEndMonth get _value => super._value as _ChangedEndMonth;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? month = freezed,
+    Object? month = null,
   }) {
-    return _then(_ChangedEndMonth(
-      month == freezed
+    return _then(_$_ChangedEndMonth(
+      null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
               as String,
@@ -951,19 +1090,19 @@ class _$_ChangedEndMonth implements _ChangedEndMonth {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedEndMonth &&
-            (identical(other.month, month) ||
-                const DeepCollectionEquality().equals(other.month, month)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedEndMonth &&
+            (identical(other.month, month) || other.month == month));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(month);
+  int get hashCode => Object.hash(runtimeType, month);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedEndMonthCopyWith<_ChangedEndMonth> get copyWith =>
-      __$ChangedEndMonthCopyWithImpl<_ChangedEndMonth>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedEndMonthCopyWith<_$_ChangedEndMonth> get copyWith =>
+      __$$_ChangedEndMonthCopyWithImpl<_$_ChangedEndMonth>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -981,6 +1120,24 @@ class _$_ChangedEndMonth implements _ChangedEndMonth {
     required TResult Function() save,
   }) {
     return changedEndMonth(month);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedEndMonth?.call(month);
   }
 
   @override
@@ -1024,6 +1181,22 @@ class _$_ChangedEndMonth implements _ChangedEndMonth {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedEndMonth?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -1044,39 +1217,39 @@ class _$_ChangedEndMonth implements _ChangedEndMonth {
 }
 
 abstract class _ChangedEndMonth implements UpdateWorkInfoActorEvent {
-  const factory _ChangedEndMonth(String month) = _$_ChangedEndMonth;
+  const factory _ChangedEndMonth(final String month) = _$_ChangedEndMonth;
 
-  String get month => throw _privateConstructorUsedError;
+  String get month;
   @JsonKey(ignore: true)
-  _$ChangedEndMonthCopyWith<_ChangedEndMonth> get copyWith =>
+  _$$_ChangedEndMonthCopyWith<_$_ChangedEndMonth> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedPurposeOfResignCopyWith<$Res> {
-  factory _$ChangedPurposeOfResignCopyWith(_ChangedPurposeOfResign value,
-          $Res Function(_ChangedPurposeOfResign) then) =
-      __$ChangedPurposeOfResignCopyWithImpl<$Res>;
+abstract class _$$_ChangedPurposeOfResignCopyWith<$Res> {
+  factory _$$_ChangedPurposeOfResignCopyWith(_$_ChangedPurposeOfResign value,
+          $Res Function(_$_ChangedPurposeOfResign) then) =
+      __$$_ChangedPurposeOfResignCopyWithImpl<$Res>;
+  @useResult
   $Res call({String puropse});
 }
 
 /// @nodoc
-class __$ChangedPurposeOfResignCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedPurposeOfResignCopyWith<$Res> {
-  __$ChangedPurposeOfResignCopyWithImpl(_ChangedPurposeOfResign _value,
-      $Res Function(_ChangedPurposeOfResign) _then)
-      : super(_value, (v) => _then(v as _ChangedPurposeOfResign));
+class __$$_ChangedPurposeOfResignCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedPurposeOfResign>
+    implements _$$_ChangedPurposeOfResignCopyWith<$Res> {
+  __$$_ChangedPurposeOfResignCopyWithImpl(_$_ChangedPurposeOfResign _value,
+      $Res Function(_$_ChangedPurposeOfResign) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedPurposeOfResign get _value => super._value as _ChangedPurposeOfResign;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? puropse = freezed,
+    Object? puropse = null,
   }) {
-    return _then(_ChangedPurposeOfResign(
-      puropse == freezed
+    return _then(_$_ChangedPurposeOfResign(
+      null == puropse
           ? _value.puropse
           : puropse // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1100,19 +1273,19 @@ class _$_ChangedPurposeOfResign implements _ChangedPurposeOfResign {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedPurposeOfResign &&
-            (identical(other.puropse, puropse) ||
-                const DeepCollectionEquality().equals(other.puropse, puropse)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedPurposeOfResign &&
+            (identical(other.puropse, puropse) || other.puropse == puropse));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(puropse);
+  int get hashCode => Object.hash(runtimeType, puropse);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedPurposeOfResignCopyWith<_ChangedPurposeOfResign> get copyWith =>
-      __$ChangedPurposeOfResignCopyWithImpl<_ChangedPurposeOfResign>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedPurposeOfResignCopyWith<_$_ChangedPurposeOfResign> get copyWith =>
+      __$$_ChangedPurposeOfResignCopyWithImpl<_$_ChangedPurposeOfResign>(
           this, _$identity);
 
   @override
@@ -1131,6 +1304,24 @@ class _$_ChangedPurposeOfResign implements _ChangedPurposeOfResign {
     required TResult Function() save,
   }) {
     return changedPurposeOfResign(puropse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedPurposeOfResign?.call(puropse);
   }
 
   @override
@@ -1174,6 +1365,22 @@ class _$_ChangedPurposeOfResign implements _ChangedPurposeOfResign {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedPurposeOfResign?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -1194,51 +1401,50 @@ class _$_ChangedPurposeOfResign implements _ChangedPurposeOfResign {
 }
 
 abstract class _ChangedPurposeOfResign implements UpdateWorkInfoActorEvent {
-  const factory _ChangedPurposeOfResign(String puropse) =
+  const factory _ChangedPurposeOfResign(final String puropse) =
       _$_ChangedPurposeOfResign;
 
-  String get puropse => throw _privateConstructorUsedError;
+  String get puropse;
   @JsonKey(ignore: true)
-  _$ChangedPurposeOfResignCopyWith<_ChangedPurposeOfResign> get copyWith =>
+  _$$_ChangedPurposeOfResignCopyWith<_$_ChangedPurposeOfResign> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetInitialStateCopyWith<$Res> {
-  factory _$SetInitialStateCopyWith(
-          _SetInitialState value, $Res Function(_SetInitialState) then) =
-      __$SetInitialStateCopyWithImpl<$Res>;
+abstract class _$$_SetInitialStateCopyWith<$Res> {
+  factory _$$_SetInitialStateCopyWith(
+          _$_SetInitialState value, $Res Function(_$_SetInitialState) then) =
+      __$$_SetInitialStateCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {WorkHistory workHistory, List<String> typeOfCompanyList, String lang});
 }
 
 /// @nodoc
-class __$SetInitialStateCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
-    implements _$SetInitialStateCopyWith<$Res> {
-  __$SetInitialStateCopyWithImpl(
-      _SetInitialState _value, $Res Function(_SetInitialState) _then)
-      : super(_value, (v) => _then(v as _SetInitialState));
+class __$$_SetInitialStateCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res, _$_SetInitialState>
+    implements _$$_SetInitialStateCopyWith<$Res> {
+  __$$_SetInitialStateCopyWithImpl(
+      _$_SetInitialState _value, $Res Function(_$_SetInitialState) _then)
+      : super(_value, _then);
 
-  @override
-  _SetInitialState get _value => super._value as _SetInitialState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? workHistory = freezed,
-    Object? typeOfCompanyList = freezed,
-    Object? lang = freezed,
+    Object? workHistory = null,
+    Object? typeOfCompanyList = null,
+    Object? lang = null,
   }) {
-    return _then(_SetInitialState(
-      workHistory == freezed
+    return _then(_$_SetInitialState(
+      null == workHistory
           ? _value.workHistory
           : workHistory // ignore: cast_nullable_to_non_nullable
               as WorkHistory,
-      typeOfCompanyList == freezed
-          ? _value.typeOfCompanyList
+      null == typeOfCompanyList
+          ? _value._typeOfCompanyList
           : typeOfCompanyList // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      lang == freezed
+      null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1249,12 +1455,21 @@ class __$SetInitialStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SetInitialState implements _SetInitialState {
-  const _$_SetInitialState(this.workHistory, this.typeOfCompanyList, this.lang);
+  const _$_SetInitialState(
+      this.workHistory, final List<String> typeOfCompanyList, this.lang)
+      : _typeOfCompanyList = typeOfCompanyList;
 
   @override
   final WorkHistory workHistory;
+  final List<String> _typeOfCompanyList;
   @override
-  final List<String> typeOfCompanyList;
+  List<String> get typeOfCompanyList {
+    if (_typeOfCompanyList is EqualUnmodifiableListView)
+      return _typeOfCompanyList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_typeOfCompanyList);
+  }
+
   @override
   final String lang;
 
@@ -1266,28 +1481,24 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetInitialState &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SetInitialState &&
             (identical(other.workHistory, workHistory) ||
-                const DeepCollectionEquality()
-                    .equals(other.workHistory, workHistory)) &&
-            (identical(other.typeOfCompanyList, typeOfCompanyList) ||
-                const DeepCollectionEquality()
-                    .equals(other.typeOfCompanyList, typeOfCompanyList)) &&
-            (identical(other.lang, lang) ||
-                const DeepCollectionEquality().equals(other.lang, lang)));
+                other.workHistory == workHistory) &&
+            const DeepCollectionEquality()
+                .equals(other._typeOfCompanyList, _typeOfCompanyList) &&
+            (identical(other.lang, lang) || other.lang == lang));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(workHistory) ^
-      const DeepCollectionEquality().hash(typeOfCompanyList) ^
-      const DeepCollectionEquality().hash(lang);
+  int get hashCode => Object.hash(runtimeType, workHistory,
+      const DeepCollectionEquality().hash(_typeOfCompanyList), lang);
 
   @JsonKey(ignore: true)
   @override
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
-      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
+      __$$_SetInitialStateCopyWithImpl<_$_SetInitialState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1305,6 +1516,24 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function() save,
   }) {
     return setInitialState(workHistory, typeOfCompanyList, lang);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return setInitialState?.call(workHistory, typeOfCompanyList, lang);
   }
 
   @override
@@ -1348,6 +1577,22 @@ class _$_SetInitialState implements _SetInitialState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return setInitialState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -1368,32 +1613,31 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdateWorkInfoActorEvent {
-  const factory _SetInitialState(WorkHistory workHistory,
-      List<String> typeOfCompanyList, String lang) = _$_SetInitialState;
+  const factory _SetInitialState(
+      final WorkHistory workHistory,
+      final List<String> typeOfCompanyList,
+      final String lang) = _$_SetInitialState;
 
-  WorkHistory get workHistory => throw _privateConstructorUsedError;
-  List<String> get typeOfCompanyList => throw _privateConstructorUsedError;
-  String get lang => throw _privateConstructorUsedError;
+  WorkHistory get workHistory;
+  List<String> get typeOfCompanyList;
+  String get lang;
   @JsonKey(ignore: true)
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SaveCopyWith<$Res> {
-  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
-      __$SaveCopyWithImpl<$Res>;
+abstract class _$$_SaveCopyWith<$Res> {
+  factory _$$_SaveCopyWith(_$_Save value, $Res Function(_$_Save) then) =
+      __$$_SaveCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SaveCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res>
-    implements _$SaveCopyWith<$Res> {
-  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
-      : super(_value, (v) => _then(v as _Save));
-
-  @override
-  _Save get _value => super._value as _Save;
+class __$$_SaveCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorEventCopyWithImpl<$Res, _$_Save>
+    implements _$$_SaveCopyWith<$Res> {
+  __$$_SaveCopyWithImpl(_$_Save _value, $Res Function(_$_Save) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1408,7 +1652,8 @@ class _$_Save implements _Save {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Save);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Save);
   }
 
   @override
@@ -1430,6 +1675,24 @@ class _$_Save implements _Save {
     required TResult Function() save,
   }) {
     return save();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String company)? changedNameOfCompany,
+    TResult? Function(String type)? changedTypeOfCompany,
+    TResult? Function(String year)? changedStartedYear,
+    TResult? Function(String month)? changedStartedMonth,
+    TResult? Function(String year)? changedEndYear,
+    TResult? Function(String month)? changedEndMonth,
+    TResult? Function(String puropse)? changedPurposeOfResign,
+    TResult? Function(WorkHistory workHistory, List<String> typeOfCompanyList,
+            String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return save?.call();
   }
 
   @override
@@ -1473,6 +1736,22 @@ class _$_Save implements _Save {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfCompany value)? changedNameOfCompany,
+    TResult? Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
+    TResult? Function(_ChangedStartedYear value)? changedStartedYear,
+    TResult? Function(_ChangedStartedMonth value)? changedStartedMonth,
+    TResult? Function(_ChangedEndYear value)? changedEndYear,
+    TResult? Function(_ChangedEndMonth value)? changedEndMonth,
+    TResult? Function(_ChangedPurposeOfResign value)? changedPurposeOfResign,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfCompany value)? changedNameOfCompany,
     TResult Function(_ChangedTypeOfCompany value)? changedTypeOfCompany,
@@ -1495,47 +1774,6 @@ class _$_Save implements _Save {
 abstract class _Save implements UpdateWorkInfoActorEvent {
   const factory _Save() = _$_Save;
 }
-
-/// @nodoc
-class _$UpdateWorkInfoActorStateTearOff {
-  const _$UpdateWorkInfoActorStateTearOff();
-
-  _UpdateWorkInfoActorState call(
-      {required Key? key,
-      required String nameOfComapny,
-      required String companyType,
-      required String startedYear,
-      required String startedMonth,
-      required String endYear,
-      required String endMonth,
-      required String purposeOfResign,
-      required List<String> typeOfCompanyList,
-      required List<String> listOfYear,
-      required List<String> listOfYearWithRunning,
-      required bool isSubmitting,
-      required bool hasSetInitialData,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
-    return _UpdateWorkInfoActorState(
-      key: key,
-      nameOfComapny: nameOfComapny,
-      companyType: companyType,
-      startedYear: startedYear,
-      startedMonth: startedMonth,
-      endYear: endYear,
-      endMonth: endMonth,
-      purposeOfResign: purposeOfResign,
-      typeOfCompanyList: typeOfCompanyList,
-      listOfYear: listOfYear,
-      listOfYearWithRunning: listOfYearWithRunning,
-      isSubmitting: isSubmitting,
-      hasSetInitialData: hasSetInitialData,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $UpdateWorkInfoActorState = _$UpdateWorkInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdateWorkInfoActorState {
@@ -1564,7 +1802,8 @@ mixin _$UpdateWorkInfoActorState {
 abstract class $UpdateWorkInfoActorStateCopyWith<$Res> {
   factory $UpdateWorkInfoActorStateCopyWith(UpdateWorkInfoActorState value,
           $Res Function(UpdateWorkInfoActorState) then) =
-      _$UpdateWorkInfoActorStateCopyWithImpl<$Res>;
+      _$UpdateWorkInfoActorStateCopyWithImpl<$Res, UpdateWorkInfoActorState>;
+  @useResult
   $Res call(
       {Key? key,
       String nameOfComapny,
@@ -1583,99 +1822,104 @@ abstract class $UpdateWorkInfoActorStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
+class _$UpdateWorkInfoActorStateCopyWithImpl<$Res,
+        $Val extends UpdateWorkInfoActorState>
     implements $UpdateWorkInfoActorStateCopyWith<$Res> {
   _$UpdateWorkInfoActorStateCopyWithImpl(this._value, this._then);
 
-  final UpdateWorkInfoActorState _value;
   // ignore: unused_field
-  final $Res Function(UpdateWorkInfoActorState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? nameOfComapny = freezed,
-    Object? companyType = freezed,
-    Object? startedYear = freezed,
-    Object? startedMonth = freezed,
-    Object? endYear = freezed,
-    Object? endMonth = freezed,
-    Object? purposeOfResign = freezed,
-    Object? typeOfCompanyList = freezed,
-    Object? listOfYear = freezed,
-    Object? listOfYearWithRunning = freezed,
-    Object? isSubmitting = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? nameOfComapny = null,
+    Object? companyType = null,
+    Object? startedYear = null,
+    Object? startedMonth = null,
+    Object? endYear = null,
+    Object? endMonth = null,
+    Object? purposeOfResign = null,
+    Object? typeOfCompanyList = null,
+    Object? listOfYear = null,
+    Object? listOfYearWithRunning = null,
+    Object? isSubmitting = null,
+    Object? hasSetInitialData = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      nameOfComapny: nameOfComapny == freezed
+      nameOfComapny: null == nameOfComapny
           ? _value.nameOfComapny
           : nameOfComapny // ignore: cast_nullable_to_non_nullable
               as String,
-      companyType: companyType == freezed
+      companyType: null == companyType
           ? _value.companyType
           : companyType // ignore: cast_nullable_to_non_nullable
               as String,
-      startedYear: startedYear == freezed
+      startedYear: null == startedYear
           ? _value.startedYear
           : startedYear // ignore: cast_nullable_to_non_nullable
               as String,
-      startedMonth: startedMonth == freezed
+      startedMonth: null == startedMonth
           ? _value.startedMonth
           : startedMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      endYear: endYear == freezed
+      endYear: null == endYear
           ? _value.endYear
           : endYear // ignore: cast_nullable_to_non_nullable
               as String,
-      endMonth: endMonth == freezed
+      endMonth: null == endMonth
           ? _value.endMonth
           : endMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      purposeOfResign: purposeOfResign == freezed
+      purposeOfResign: null == purposeOfResign
           ? _value.purposeOfResign
           : purposeOfResign // ignore: cast_nullable_to_non_nullable
               as String,
-      typeOfCompanyList: typeOfCompanyList == freezed
+      typeOfCompanyList: null == typeOfCompanyList
           ? _value.typeOfCompanyList
           : typeOfCompanyList // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYear: listOfYear == freezed
+      listOfYear: null == listOfYear
           ? _value.listOfYear
           : listOfYear // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYearWithRunning: listOfYearWithRunning == freezed
+      listOfYearWithRunning: null == listOfYearWithRunning
           ? _value.listOfYearWithRunning
           : listOfYearWithRunning // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$UpdateWorkInfoActorStateCopyWith<$Res>
+abstract class _$$_UpdateWorkInfoActorStateCopyWith<$Res>
     implements $UpdateWorkInfoActorStateCopyWith<$Res> {
-  factory _$UpdateWorkInfoActorStateCopyWith(_UpdateWorkInfoActorState value,
-          $Res Function(_UpdateWorkInfoActorState) then) =
-      __$UpdateWorkInfoActorStateCopyWithImpl<$Res>;
+  factory _$$_UpdateWorkInfoActorStateCopyWith(
+          _$_UpdateWorkInfoActorState value,
+          $Res Function(_$_UpdateWorkInfoActorState) then) =
+      __$$_UpdateWorkInfoActorStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key? key,
       String nameOfComapny,
@@ -1694,88 +1938,86 @@ abstract class _$UpdateWorkInfoActorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UpdateWorkInfoActorStateCopyWithImpl<$Res>
-    extends _$UpdateWorkInfoActorStateCopyWithImpl<$Res>
-    implements _$UpdateWorkInfoActorStateCopyWith<$Res> {
-  __$UpdateWorkInfoActorStateCopyWithImpl(_UpdateWorkInfoActorState _value,
-      $Res Function(_UpdateWorkInfoActorState) _then)
-      : super(_value, (v) => _then(v as _UpdateWorkInfoActorState));
+class __$$_UpdateWorkInfoActorStateCopyWithImpl<$Res>
+    extends _$UpdateWorkInfoActorStateCopyWithImpl<$Res,
+        _$_UpdateWorkInfoActorState>
+    implements _$$_UpdateWorkInfoActorStateCopyWith<$Res> {
+  __$$_UpdateWorkInfoActorStateCopyWithImpl(_$_UpdateWorkInfoActorState _value,
+      $Res Function(_$_UpdateWorkInfoActorState) _then)
+      : super(_value, _then);
 
-  @override
-  _UpdateWorkInfoActorState get _value =>
-      super._value as _UpdateWorkInfoActorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? nameOfComapny = freezed,
-    Object? companyType = freezed,
-    Object? startedYear = freezed,
-    Object? startedMonth = freezed,
-    Object? endYear = freezed,
-    Object? endMonth = freezed,
-    Object? purposeOfResign = freezed,
-    Object? typeOfCompanyList = freezed,
-    Object? listOfYear = freezed,
-    Object? listOfYearWithRunning = freezed,
-    Object? isSubmitting = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? nameOfComapny = null,
+    Object? companyType = null,
+    Object? startedYear = null,
+    Object? startedMonth = null,
+    Object? endYear = null,
+    Object? endMonth = null,
+    Object? purposeOfResign = null,
+    Object? typeOfCompanyList = null,
+    Object? listOfYear = null,
+    Object? listOfYearWithRunning = null,
+    Object? isSubmitting = null,
+    Object? hasSetInitialData = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_UpdateWorkInfoActorState(
-      key: key == freezed
+    return _then(_$_UpdateWorkInfoActorState(
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      nameOfComapny: nameOfComapny == freezed
+      nameOfComapny: null == nameOfComapny
           ? _value.nameOfComapny
           : nameOfComapny // ignore: cast_nullable_to_non_nullable
               as String,
-      companyType: companyType == freezed
+      companyType: null == companyType
           ? _value.companyType
           : companyType // ignore: cast_nullable_to_non_nullable
               as String,
-      startedYear: startedYear == freezed
+      startedYear: null == startedYear
           ? _value.startedYear
           : startedYear // ignore: cast_nullable_to_non_nullable
               as String,
-      startedMonth: startedMonth == freezed
+      startedMonth: null == startedMonth
           ? _value.startedMonth
           : startedMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      endYear: endYear == freezed
+      endYear: null == endYear
           ? _value.endYear
           : endYear // ignore: cast_nullable_to_non_nullable
               as String,
-      endMonth: endMonth == freezed
+      endMonth: null == endMonth
           ? _value.endMonth
           : endMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      purposeOfResign: purposeOfResign == freezed
+      purposeOfResign: null == purposeOfResign
           ? _value.purposeOfResign
           : purposeOfResign // ignore: cast_nullable_to_non_nullable
               as String,
-      typeOfCompanyList: typeOfCompanyList == freezed
-          ? _value.typeOfCompanyList
+      typeOfCompanyList: null == typeOfCompanyList
+          ? _value._typeOfCompanyList
           : typeOfCompanyList // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYear: listOfYear == freezed
-          ? _value.listOfYear
+      listOfYear: null == listOfYear
+          ? _value._listOfYear
           : listOfYear // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYearWithRunning: listOfYearWithRunning == freezed
-          ? _value.listOfYearWithRunning
+      listOfYearWithRunning: null == listOfYearWithRunning
+          ? _value._listOfYearWithRunning
           : listOfYearWithRunning // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -1795,12 +2037,15 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
       required this.endYear,
       required this.endMonth,
       required this.purposeOfResign,
-      required this.typeOfCompanyList,
-      required this.listOfYear,
-      required this.listOfYearWithRunning,
+      required final List<String> typeOfCompanyList,
+      required final List<String> listOfYear,
+      required final List<String> listOfYearWithRunning,
       required this.isSubmitting,
       required this.hasSetInitialData,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : _typeOfCompanyList = typeOfCompanyList,
+        _listOfYear = listOfYear,
+        _listOfYearWithRunning = listOfYearWithRunning;
 
   @override
   final Key? key;
@@ -1818,12 +2063,32 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
   final String endMonth;
   @override
   final String purposeOfResign;
+  final List<String> _typeOfCompanyList;
   @override
-  final List<String> typeOfCompanyList;
+  List<String> get typeOfCompanyList {
+    if (_typeOfCompanyList is EqualUnmodifiableListView)
+      return _typeOfCompanyList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_typeOfCompanyList);
+  }
+
+  final List<String> _listOfYear;
   @override
-  final List<String> listOfYear;
+  List<String> get listOfYear {
+    if (_listOfYear is EqualUnmodifiableListView) return _listOfYear;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfYear);
+  }
+
+  final List<String> _listOfYearWithRunning;
   @override
-  final List<String> listOfYearWithRunning;
+  List<String> get listOfYearWithRunning {
+    if (_listOfYearWithRunning is EqualUnmodifiableListView)
+      return _listOfYearWithRunning;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfYearWithRunning);
+  }
+
   @override
   final bool isSubmitting;
   @override
@@ -1839,124 +2104,110 @@ class _$_UpdateWorkInfoActorState implements _UpdateWorkInfoActorState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateWorkInfoActorState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateWorkInfoActorState &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.nameOfComapny, nameOfComapny) ||
-                const DeepCollectionEquality()
-                    .equals(other.nameOfComapny, nameOfComapny)) &&
+                other.nameOfComapny == nameOfComapny) &&
             (identical(other.companyType, companyType) ||
-                const DeepCollectionEquality()
-                    .equals(other.companyType, companyType)) &&
+                other.companyType == companyType) &&
             (identical(other.startedYear, startedYear) ||
-                const DeepCollectionEquality()
-                    .equals(other.startedYear, startedYear)) &&
+                other.startedYear == startedYear) &&
             (identical(other.startedMonth, startedMonth) ||
-                const DeepCollectionEquality()
-                    .equals(other.startedMonth, startedMonth)) &&
-            (identical(other.endYear, endYear) ||
-                const DeepCollectionEquality()
-                    .equals(other.endYear, endYear)) &&
+                other.startedMonth == startedMonth) &&
+            (identical(other.endYear, endYear) || other.endYear == endYear) &&
             (identical(other.endMonth, endMonth) ||
-                const DeepCollectionEquality()
-                    .equals(other.endMonth, endMonth)) &&
+                other.endMonth == endMonth) &&
             (identical(other.purposeOfResign, purposeOfResign) ||
-                const DeepCollectionEquality()
-                    .equals(other.purposeOfResign, purposeOfResign)) &&
-            (identical(other.typeOfCompanyList, typeOfCompanyList) ||
-                const DeepCollectionEquality()
-                    .equals(other.typeOfCompanyList, typeOfCompanyList)) &&
-            (identical(other.listOfYear, listOfYear) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfYear, listOfYear)) &&
-            (identical(other.listOfYearWithRunning, listOfYearWithRunning) ||
-                const DeepCollectionEquality().equals(
-                    other.listOfYearWithRunning, listOfYearWithRunning)) &&
+                other.purposeOfResign == purposeOfResign) &&
+            const DeepCollectionEquality()
+                .equals(other._typeOfCompanyList, _typeOfCompanyList) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfYear, _listOfYear) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfYearWithRunning, _listOfYearWithRunning) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
+                other.isSubmitting == isSubmitting) &&
             (identical(other.hasSetInitialData, hasSetInitialData) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
+                other.hasSetInitialData == hasSetInitialData) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(nameOfComapny) ^
-      const DeepCollectionEquality().hash(companyType) ^
-      const DeepCollectionEquality().hash(startedYear) ^
-      const DeepCollectionEquality().hash(startedMonth) ^
-      const DeepCollectionEquality().hash(endYear) ^
-      const DeepCollectionEquality().hash(endMonth) ^
-      const DeepCollectionEquality().hash(purposeOfResign) ^
-      const DeepCollectionEquality().hash(typeOfCompanyList) ^
-      const DeepCollectionEquality().hash(listOfYear) ^
-      const DeepCollectionEquality().hash(listOfYearWithRunning) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(hasSetInitialData) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      key,
+      nameOfComapny,
+      companyType,
+      startedYear,
+      startedMonth,
+      endYear,
+      endMonth,
+      purposeOfResign,
+      const DeepCollectionEquality().hash(_typeOfCompanyList),
+      const DeepCollectionEquality().hash(_listOfYear),
+      const DeepCollectionEquality().hash(_listOfYearWithRunning),
+      isSubmitting,
+      hasSetInitialData,
+      failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateWorkInfoActorStateCopyWith<_UpdateWorkInfoActorState> get copyWith =>
-      __$UpdateWorkInfoActorStateCopyWithImpl<_UpdateWorkInfoActorState>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_UpdateWorkInfoActorStateCopyWith<_$_UpdateWorkInfoActorState>
+      get copyWith => __$$_UpdateWorkInfoActorStateCopyWithImpl<
+          _$_UpdateWorkInfoActorState>(this, _$identity);
 }
 
 abstract class _UpdateWorkInfoActorState implements UpdateWorkInfoActorState {
   const factory _UpdateWorkInfoActorState(
-          {required Key? key,
-          required String nameOfComapny,
-          required String companyType,
-          required String startedYear,
-          required String startedMonth,
-          required String endYear,
-          required String endMonth,
-          required String purposeOfResign,
-          required List<String> typeOfCompanyList,
-          required List<String> listOfYear,
-          required List<String> listOfYearWithRunning,
-          required bool isSubmitting,
-          required bool hasSetInitialData,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
-      _$_UpdateWorkInfoActorState;
+      {required final Key? key,
+      required final String nameOfComapny,
+      required final String companyType,
+      required final String startedYear,
+      required final String startedMonth,
+      required final String endYear,
+      required final String endMonth,
+      required final String purposeOfResign,
+      required final List<String> typeOfCompanyList,
+      required final List<String> listOfYear,
+      required final List<String> listOfYearWithRunning,
+      required final bool isSubmitting,
+      required final bool hasSetInitialData,
+      required final Option<Either<ApiFailure, Unit>>
+          failureOrSuccessOption}) = _$_UpdateWorkInfoActorState;
 
   @override
-  Key? get key => throw _privateConstructorUsedError;
+  Key? get key;
   @override
-  String get nameOfComapny => throw _privateConstructorUsedError;
+  String get nameOfComapny;
   @override
-  String get companyType => throw _privateConstructorUsedError;
+  String get companyType;
   @override
-  String get startedYear => throw _privateConstructorUsedError;
+  String get startedYear;
   @override
-  String get startedMonth => throw _privateConstructorUsedError;
+  String get startedMonth;
   @override
-  String get endYear => throw _privateConstructorUsedError;
+  String get endYear;
   @override
-  String get endMonth => throw _privateConstructorUsedError;
+  String get endMonth;
   @override
-  String get purposeOfResign => throw _privateConstructorUsedError;
+  String get purposeOfResign;
   @override
-  List<String> get typeOfCompanyList => throw _privateConstructorUsedError;
+  List<String> get typeOfCompanyList;
   @override
-  List<String> get listOfYear => throw _privateConstructorUsedError;
+  List<String> get listOfYear;
   @override
-  List<String> get listOfYearWithRunning => throw _privateConstructorUsedError;
+  List<String> get listOfYearWithRunning;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  bool get hasSetInitialData => throw _privateConstructorUsedError;
+  bool get hasSetInitialData;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$UpdateWorkInfoActorStateCopyWith<_UpdateWorkInfoActorState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_UpdateWorkInfoActorStateCopyWith<_$_UpdateWorkInfoActorState>
+      get copyWith => throw _privateConstructorUsedError;
 }

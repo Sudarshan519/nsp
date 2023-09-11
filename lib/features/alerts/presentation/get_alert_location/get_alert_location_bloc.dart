@@ -19,7 +19,30 @@ part 'get_alert_location_bloc.freezed.dart';
 @singleton
 class GetAlertLocationBloc
     extends Bloc<GetAlertLocationEvent, GetAlertLocationState> {
-  GetAlertLocationBloc(this.getPlaceFromGPS) : super(const _Initial());
+  GetAlertLocationBloc(this.getPlaceFromGPS) : super(const _Initial()) {
+    on<_Getlocation>((event, emit) {
+      //TODO
+
+      emit(const _Initial());
+      final authSrc = getIt<AuthLocalDataSource>();
+      final oldToken = authSrc.getFCMToken().toString();
+      otherPrefectures = authSrc.getOtherPrefectures();
+      final curentToken = getIt<PushNotificationManager>().fireBaseToken;
+      if (oldToken != curentToken && oldToken.isNotEmpty) {
+        authSrc.setFCMToken(curentToken);
+        getPlaceFromGPS(NoParams());
+      }
+
+      city = authSrc.getAlertLocation();
+
+      if (city != null) {
+        emit(_Loaded(city!.name));
+      } else {
+        emit(const _MakeChanges(
+            ApiFailure.serverError(message: 'Please set alert location!')));
+      }
+    });
+  }
 
   final GetPlaceFromGPS getPlaceFromGPS;
 

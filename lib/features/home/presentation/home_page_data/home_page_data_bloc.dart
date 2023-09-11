@@ -21,7 +21,46 @@ class HomePageDataBloc extends Bloc<HomePageDataEvent, HomePageDataState> {
 
   HomePageDataBloc({
     required this.getHomePageData,
-  }) : super(const _Initial());
+  }) : super(const _Initial()) {
+    on<_Fetch>((event, state) {
+      emit(const HomePageDataState.loading());
+      getHomePageData(NoParams()).listen((event) {
+        add(_OnSpanShotEvent(event));
+      }).onDone(() => _OnCompletedEvent);
+    });
+    on<_OnSpanShotEvent>((event, emit) {
+      (event.event).fold(
+        (failure) {
+          emit(homeData == null
+              ? HomePageDataState.failure(failure)
+              : HomePageDataState.failureWithData(failure, homeData!));
+        },
+        (data) {
+          homeData = data;
+
+          //adding values to firebase analytics
+          final userID = homeData!.userDetail?.uuid ?? '';
+          if (userID.isEmpty) {
+            AnalyticsService.setUserId(userID);
+            if (homeData!.userDetail != null) {
+              final detail = homeData!.userDetail!;
+              AnalyticsService.setUserVal(
+                  'name', '${detail.firstName ?? ''} ${detail.lastName ?? ''}');
+              AnalyticsService.setUserVal('gender', detail.gender ?? '');
+              AnalyticsService.setUserVal('email', detail.email ?? '');
+              AnalyticsService.setUserVal('is_kyc_verified',
+                  (detail.isKycVerified ?? false).toString());
+              AnalyticsService.setUserVal('mobile', detail.mobile ?? '');
+            }
+          }
+          emit(HomePageDataState.loaded(homeData!));
+        },
+      );
+    });
+    on<_OnCompletedEvent>((event, emit) {
+      emit(HomePageDataState.loaded(homeData!));
+    });
+  }
 
   @override
   Stream<HomePageDataState> mapEventToState(

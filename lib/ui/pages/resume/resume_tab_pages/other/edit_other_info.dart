@@ -18,6 +18,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/validator.dart';
 
+@RoutePage()
 class EditOtherInfoFormPage extends StatelessWidget {
   final PersonalInfo info;
   final List<String> listOfLanguages;

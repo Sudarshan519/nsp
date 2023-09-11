@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'verify_ime_pay_topup_bloc.dart';
 
@@ -10,28 +12,7 @@ part of 'verify_ime_pay_topup_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$VerifyImePayTopupEventTearOff {
-  const _$VerifyImePayTopupEventTearOff();
-
-  _Verify verify(
-      {required String refId,
-      required String amount,
-      required String purpose,
-      required String tokenId}) {
-    return _Verify(
-      refId: refId,
-      amount: amount,
-      purpose: purpose,
-      tokenId: tokenId,
-    );
-  }
-}
-
-/// @nodoc
-const $VerifyImePayTopupEvent = _$VerifyImePayTopupEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$VerifyImePayTopupEvent {
@@ -39,11 +20,17 @@ mixin _$VerifyImePayTopupEvent {
   String get amount => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
   String get tokenId => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
             String refId, String amount, String purpose, String tokenId)
+        verify,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String refId, String amount, String purpose, String tokenId)?
         verify,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +45,11 @@ mixin _$VerifyImePayTopupEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Verify value) verify,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Verify value)? verify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,87 +68,90 @@ mixin _$VerifyImePayTopupEvent {
 abstract class $VerifyImePayTopupEventCopyWith<$Res> {
   factory $VerifyImePayTopupEventCopyWith(VerifyImePayTopupEvent value,
           $Res Function(VerifyImePayTopupEvent) then) =
-      _$VerifyImePayTopupEventCopyWithImpl<$Res>;
+      _$VerifyImePayTopupEventCopyWithImpl<$Res, VerifyImePayTopupEvent>;
+  @useResult
   $Res call({String refId, String amount, String purpose, String tokenId});
 }
 
 /// @nodoc
-class _$VerifyImePayTopupEventCopyWithImpl<$Res>
+class _$VerifyImePayTopupEventCopyWithImpl<$Res,
+        $Val extends VerifyImePayTopupEvent>
     implements $VerifyImePayTopupEventCopyWith<$Res> {
   _$VerifyImePayTopupEventCopyWithImpl(this._value, this._then);
 
-  final VerifyImePayTopupEvent _value;
   // ignore: unused_field
-  final $Res Function(VerifyImePayTopupEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? refId = freezed,
-    Object? amount = freezed,
-    Object? purpose = freezed,
-    Object? tokenId = freezed,
+    Object? refId = null,
+    Object? amount = null,
+    Object? purpose = null,
+    Object? tokenId = null,
   }) {
     return _then(_value.copyWith(
-      refId: refId == freezed
+      refId: null == refId
           ? _value.refId
           : refId // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      purpose: purpose == freezed
+      purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenId: tokenId == freezed
+      tokenId: null == tokenId
           ? _value.tokenId
           : tokenId // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$VerifyCopyWith<$Res>
+abstract class _$$_VerifyCopyWith<$Res>
     implements $VerifyImePayTopupEventCopyWith<$Res> {
-  factory _$VerifyCopyWith(_Verify value, $Res Function(_Verify) then) =
-      __$VerifyCopyWithImpl<$Res>;
+  factory _$$_VerifyCopyWith(_$_Verify value, $Res Function(_$_Verify) then) =
+      __$$_VerifyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String refId, String amount, String purpose, String tokenId});
 }
 
 /// @nodoc
-class __$VerifyCopyWithImpl<$Res>
-    extends _$VerifyImePayTopupEventCopyWithImpl<$Res>
-    implements _$VerifyCopyWith<$Res> {
-  __$VerifyCopyWithImpl(_Verify _value, $Res Function(_Verify) _then)
-      : super(_value, (v) => _then(v as _Verify));
+class __$$_VerifyCopyWithImpl<$Res>
+    extends _$VerifyImePayTopupEventCopyWithImpl<$Res, _$_Verify>
+    implements _$$_VerifyCopyWith<$Res> {
+  __$$_VerifyCopyWithImpl(_$_Verify _value, $Res Function(_$_Verify) _then)
+      : super(_value, _then);
 
-  @override
-  _Verify get _value => super._value as _Verify;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? refId = freezed,
-    Object? amount = freezed,
-    Object? purpose = freezed,
-    Object? tokenId = freezed,
+    Object? refId = null,
+    Object? amount = null,
+    Object? purpose = null,
+    Object? tokenId = null,
   }) {
-    return _then(_Verify(
-      refId: refId == freezed
+    return _then(_$_Verify(
+      refId: null == refId
           ? _value.refId
           : refId // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      purpose: purpose == freezed
+      purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenId: tokenId == freezed
+      tokenId: null == tokenId
           ? _value.tokenId
           : tokenId // ignore: cast_nullable_to_non_nullable
               as String,
@@ -190,30 +185,22 @@ class _$_Verify implements _Verify {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Verify &&
-            (identical(other.refId, refId) ||
-                const DeepCollectionEquality().equals(other.refId, refId)) &&
-            (identical(other.amount, amount) ||
-                const DeepCollectionEquality().equals(other.amount, amount)) &&
-            (identical(other.purpose, purpose) ||
-                const DeepCollectionEquality()
-                    .equals(other.purpose, purpose)) &&
-            (identical(other.tokenId, tokenId) ||
-                const DeepCollectionEquality().equals(other.tokenId, tokenId)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Verify &&
+            (identical(other.refId, refId) || other.refId == refId) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.purpose, purpose) || other.purpose == purpose) &&
+            (identical(other.tokenId, tokenId) || other.tokenId == tokenId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(refId) ^
-      const DeepCollectionEquality().hash(amount) ^
-      const DeepCollectionEquality().hash(purpose) ^
-      const DeepCollectionEquality().hash(tokenId);
+  int get hashCode => Object.hash(runtimeType, refId, amount, purpose, tokenId);
 
   @JsonKey(ignore: true)
   @override
-  _$VerifyCopyWith<_Verify> get copyWith =>
-      __$VerifyCopyWithImpl<_Verify>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_VerifyCopyWith<_$_Verify> get copyWith =>
+      __$$_VerifyCopyWithImpl<_$_Verify>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -223,6 +210,16 @@ class _$_Verify implements _Verify {
         verify,
   }) {
     return verify(refId, amount, purpose, tokenId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String refId, String amount, String purpose, String tokenId)?
+        verify,
+  }) {
+    return verify?.call(refId, amount, purpose, tokenId);
   }
 
   @override
@@ -249,6 +246,14 @@ class _$_Verify implements _Verify {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Verify value)? verify,
+  }) {
+    return verify?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Verify value)? verify,
     required TResult orElse(),
@@ -262,49 +267,24 @@ class _$_Verify implements _Verify {
 
 abstract class _Verify implements VerifyImePayTopupEvent {
   const factory _Verify(
-      {required String refId,
-      required String amount,
-      required String purpose,
-      required String tokenId}) = _$_Verify;
+      {required final String refId,
+      required final String amount,
+      required final String purpose,
+      required final String tokenId}) = _$_Verify;
 
   @override
-  String get refId => throw _privateConstructorUsedError;
+  String get refId;
   @override
-  String get amount => throw _privateConstructorUsedError;
+  String get amount;
   @override
-  String get purpose => throw _privateConstructorUsedError;
+  String get purpose;
   @override
-  String get tokenId => throw _privateConstructorUsedError;
+  String get tokenId;
   @override
   @JsonKey(ignore: true)
-  _$VerifyCopyWith<_Verify> get copyWith => throw _privateConstructorUsedError;
+  _$$_VerifyCopyWith<_$_Verify> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$VerifyImePayTopupStateTearOff {
-  const _$VerifyImePayTopupStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Success success() {
-    return const _Success();
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
-    );
-  }
-}
-
-/// @nodoc
-const $VerifyImePayTopupState = _$VerifyImePayTopupStateTearOff();
 
 /// @nodoc
 mixin _$VerifyImePayTopupState {
@@ -314,6 +294,14 @@ mixin _$VerifyImePayTopupState {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(ApiFailure failure) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(ApiFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -334,6 +322,14 @@ mixin _$VerifyImePayTopupState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -348,34 +344,34 @@ mixin _$VerifyImePayTopupState {
 abstract class $VerifyImePayTopupStateCopyWith<$Res> {
   factory $VerifyImePayTopupStateCopyWith(VerifyImePayTopupState value,
           $Res Function(VerifyImePayTopupState) then) =
-      _$VerifyImePayTopupStateCopyWithImpl<$Res>;
+      _$VerifyImePayTopupStateCopyWithImpl<$Res, VerifyImePayTopupState>;
 }
 
 /// @nodoc
-class _$VerifyImePayTopupStateCopyWithImpl<$Res>
+class _$VerifyImePayTopupStateCopyWithImpl<$Res,
+        $Val extends VerifyImePayTopupState>
     implements $VerifyImePayTopupStateCopyWith<$Res> {
   _$VerifyImePayTopupStateCopyWithImpl(this._value, this._then);
 
-  final VerifyImePayTopupState _value;
   // ignore: unused_field
-  final $Res Function(VerifyImePayTopupState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$VerifyImePayTopupStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$VerifyImePayTopupStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -390,7 +386,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -405,6 +402,17 @@ class _$_Initial implements _Initial {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -435,6 +443,17 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -454,20 +473,18 @@ abstract class _Initial implements VerifyImePayTopupState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res>
-    extends _$VerifyImePayTopupStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$VerifyImePayTopupStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -482,7 +499,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -497,6 +515,17 @@ class _$_Loading implements _Loading {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -527,6 +556,17 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -546,20 +586,18 @@ abstract class _Loading implements VerifyImePayTopupState {
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res>
-    extends _$VerifyImePayTopupStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
-
-  @override
-  _Success get _value => super._value as _Success;
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$VerifyImePayTopupStateCopyWithImpl<$Res, _$_Success>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -574,7 +612,8 @@ class _$_Success implements _Success {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Success);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Success);
   }
 
   @override
@@ -589,6 +628,17 @@ class _$_Success implements _Success {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return success?.call();
   }
 
   @override
@@ -619,6 +669,17 @@ class _$_Success implements _Success {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -638,30 +699,30 @@ abstract class _Success implements VerifyImePayTopupState {
 }
 
 /// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
+abstract class _$$_FailureCopyWith<$Res> {
+  factory _$$_FailureCopyWith(
+          _$_Failure value, $Res Function(_$_Failure) then) =
+      __$$_FailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res>
-    extends _$VerifyImePayTopupStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$VerifyImePayTopupStateCopyWithImpl<$Res, _$_Failure>
+    implements _$$_FailureCopyWith<$Res> {
+  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+      : super(_value, _then);
 
-  @override
-  _Failure get _value => super._value as _Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_Failure(
-      failure == freezed
+    return _then(_$_Failure(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -669,6 +730,7 @@ class __$FailureCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -692,19 +754,19 @@ class _$_Failure implements _Failure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Failure &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -715,6 +777,17 @@ class _$_Failure implements _Failure {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return failure?.call(this.failure);
   }
 
   @override
@@ -745,6 +818,17 @@ class _$_Failure implements _Failure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -760,10 +844,10 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements VerifyImePayTopupState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const factory _Failure(final ApiFailure failure) = _$_Failure;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }

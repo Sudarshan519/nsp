@@ -1,4 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +14,7 @@ import 'package:wallet_app/utils/constant.dart';
 import 'widget/balance_widgets.dart';
 import 'widget/payment_options.dart';
 
+@RoutePage()
 class AddBalancePage extends StatelessWidget {
   final double conversionRate;
   final bool isVerified;

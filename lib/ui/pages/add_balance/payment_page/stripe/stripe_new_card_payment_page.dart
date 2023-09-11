@@ -19,7 +19,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 import 'custom_credit_card_number_input.dart';
-
+@RoutePage()
 class StripeNewCardPaymentPage extends StatelessWidget {
   const StripeNewCardPaymentPage({
     Key? key,

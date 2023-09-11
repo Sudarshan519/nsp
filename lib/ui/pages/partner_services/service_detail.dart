@@ -14,10 +14,10 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
-class ServiceDetailPageFromAPI extends StatelessWidget {
+@RoutePage()
+class ServiceDetailFromAPIPage extends StatelessWidget {
   final int id;
-  const ServiceDetailPageFromAPI({Key? key, required this.id})
-      : super(key: key);
+  const ServiceDetailFromAPIPage({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +42,7 @@ class ServiceDetailPageFromAPI extends StatelessWidget {
   }
 }
 
+@RoutePage()
 class ServicesDetailPage extends StatelessWidget {
   final Services services;
   static const double buttonHeight = 47;
@@ -242,7 +243,7 @@ class ServicesDetailPage extends StatelessWidget {
                         ),
                         Html(
                           data: services.description,
-                          onLinkTap: (link, _, __, ___) {
+                          onLinkTap: (link, _, __) {
                             context.pushRoute(
                                 AppWebViewRoute(url: link ?? '', title: ""));
                           },

@@ -15,7 +15,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
-
+@RoutePage()
 class ContactUsPage extends StatelessWidget {
   const ContactUsPage({Key? key}) : super(key: key);
 

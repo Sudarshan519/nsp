@@ -25,7 +25,7 @@ class WalletAdWidget extends StatelessWidget {
                 onSuccess: (ad) {
                   context.read<AdsBloc>().add(AdsEvent.refreshAd(
                         seconds: admob.getRefreshTime(),
-                      ));
+                      ),);
                 },
                 onError: (err) {
                   debugPrint(err.toString());
@@ -33,7 +33,7 @@ class WalletAdWidget extends StatelessWidget {
                   context
                       .read<AdsBloc>()
                       .add(const AdsEvent.refreshAd(seconds: 0));
-                }),
+                },),
           ),
         );
       }
@@ -65,13 +65,13 @@ class WalletAdWidget extends StatelessWidget {
                     onError: (val) {
                       context.read<AdsBloc>().add(const AdsEvent.refreshAd(
                             seconds: 0,
-                          ));
+                          ),);
                     },
                     onSuccess: () {
                       context.read<AdsBloc>().add(AdsEvent.refreshAd(
                             seconds: val.ad.getRefreshTime(),
-                          ));
-                    });
+                          ),);
+                    },);
 
               default:
                 return const SizedBox();

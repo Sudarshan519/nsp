@@ -22,6 +22,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 
+@RoutePage()
 class EsewaTopupPage extends StatelessWidget {
   final PaymentMethod method;
   final String userId;
@@ -200,7 +201,7 @@ class EsewaTopupPage extends StatelessWidget {
     final ESewaPnp _eSewaPnp = ESewaPnp(configuration: _configuration);
 
     final ESewaPayment _payment = ESewaPayment(
-      productPrice: amountDoubleInRupees,
+      amount: amountDoubleInRupees,
       productName: "Load Balance from Esewa",
       productID:
           "BNPJ_TOPUP_${userId}_${DateTime.now().millisecondsSinceEpoch.toString()}",
@@ -217,7 +218,7 @@ class EsewaTopupPage extends StatelessWidget {
 
       context.read<VerifyEsewaTopupBloc>().add(
             VerifyEsewaTopupEvent.verify(
-              transactionId: _res.referenceId,
+              transactionId: _res.referenceId ?? "",
               amount: amount,
               purpose: purpose,
             ),
@@ -225,8 +226,9 @@ class EsewaTopupPage extends StatelessWidget {
     } on ESewaPaymentException catch (e) {
       // TODO: add Log here too.
       FlushbarHelper.createError(
-        message:
-            e.message.isNotEmpty ? e.message : AppConstants.someThingWentWrong,
+        message: e.message?.isNotEmpty ?? false
+            ? e.message ?? ""
+            : AppConstants.someThingWentWrong,
       ).show(context);
     }
   }

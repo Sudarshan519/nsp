@@ -23,7 +23,39 @@ class TopUpBalanceInMobileBloc
 
   TopUpBalanceInMobileBloc({
     required this.topUpBalanceForMobile,
-  }) : super(TopUpBalanceInMobileState.initial());
+  }) : super(TopUpBalanceInMobileState.initial()) {
+    on<_ChangePhoneNumber>((event, emit) {
+      final type = getType(fromNumber: event.number);
+
+      var amount = state.amount;
+
+      //making sure the amount is within the list of smart cell if any other amt is entered when mart cell number is entered
+      if (type == Values.SMARTCELL) {
+        amount = Values.SMARTCELL_TOPUP.contains(state.amount) ? amount : '';
+      }
+
+      final isValid = type.isNotEmpty &&
+          state.paydata.name
+              .toString()
+              .toLowerCase()
+              .contains(type.toLowerCase());
+
+      emit(state.copyWith(
+        key: event.fromContactPicker ? UniqueKey() : state.key,
+        amount: amount,
+        number: event.number,
+        type: type,
+        isNumberValid: isValid,
+        failureOrSuccessOption: none(),
+      ));
+    });
+    on((event, emit) => null);
+    on((event, emit) => null);
+    on((event, emit) => null);
+    on((event, emit) => null);
+    on((event, emit) => null);
+    on((event, emit) => null);
+  }
 
   @override
   Stream<TopUpBalanceInMobileState> mapEventToState(

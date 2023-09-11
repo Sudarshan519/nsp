@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -12,9 +13,10 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
 
-class TransactionDetailFromAPi extends StatelessWidget {
+@RoutePage()
+class TransactionDetailFromAPiPage extends StatelessWidget {
   final int id;
-  const TransactionDetailFromAPi({Key? key, required this.id})
+  const TransactionDetailFromAPiPage({Key? key, required this.id})
       : super(key: key);
 
   @override
@@ -38,6 +40,7 @@ class TransactionDetailFromAPi extends StatelessWidget {
   }
 }
 
+@RoutePage()
 class TransactionDetailPage extends StatelessWidget {
   final TransactionItem item;
   const TransactionDetailPage({Key? key, required this.item}) : super(key: key);

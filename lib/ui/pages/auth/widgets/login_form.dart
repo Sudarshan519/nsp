@@ -365,8 +365,8 @@ class _LoginButton extends StatelessWidget {
       builder: (context, state) {
         return InkWell(
           onTap: () {
-            AnalyticsService.logIn();
-
+            // AnalyticsService.logIn();
+            print("login submitted");
             context
                 .read<SignInFormBloc>()
                 .add(const SignInFormEvent.signInWithEmailAndPasswordPressed());

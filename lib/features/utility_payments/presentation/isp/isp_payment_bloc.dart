@@ -20,7 +20,105 @@ class ISPPaymentBloc extends Bloc<ISPPaymentEvent, ISPPaymentState> {
   final EnquiryISP enquireISP;
 
   ISPPaymentBloc(this.payISP, this.enquireISP)
-      : super(ISPPaymentState.initial());
+      : super(ISPPaymentState.initial()) {
+    on<_Started>((e, emit) => emit(state.copyWith(
+          productId: e.productId,
+          provider: e.provider,
+          key: UniqueKey(),
+          failureOrSuccessOption: none(),
+        )));
+    on<_ChangeAccountNumber>((e, emit) => emit(state.copyWith(
+          accountNumber: e.accountNumber,
+          key: state.key,
+          failureOrSuccessOption: none(),
+        )));
+    on<_ChangeCustomerId>((e, emit) => emit(state.copyWith(
+          customerId: e.customerId,
+          key: state.key,
+          failureOrSuccessOption: none(),
+        )));
+    on<_ChangeAmount>((e, emit) => emit(state.copyWith(
+          amount: e.amount,
+          key: state.key,
+          failureOrSuccessOption: none(),
+        )));
+    on<_Enquire>((event, emit) async {
+      emit(state.copyWith(
+        isSubmitting: true,
+        key: UniqueKey(),
+        failureOrSuccessOption: none(),
+      ));
+
+      final result = await enquireISP(EnquireISPParams(
+        account: state.accountNumber,
+        productId: state.productId,
+        provider: state.provider,
+        phone: state.phone,
+        customerId: state.customerId,
+        amount: state.amount,
+      ));
+      emit(result.fold(
+          (fail) => state.copyWith(
+                productId: state.productId,
+                provider: state.provider,
+                phone: state.phone,
+                customerId: state.customerId,
+                amount: state.amount,
+                key: state.key,
+                failureOrSuccessOption: optionOf(Left(fail)),
+                isSubmitting: false,
+              ), (data) {
+        return state.copyWith(
+          customerInfo: data,
+          customerId: state.customerId,
+          productId: state.productId,
+          selectedPackage: data.packages.isEmpty
+              ? Package(
+                  packageId: '',
+                  amount: double.parse(data.amount),
+                  packageName: '')
+              : null,
+          key: UniqueKey(),
+          isSubmitting: false,
+          failureOrSuccessOption: optionOf(const Right(unit)),
+        );
+      }));
+    });
+    on<_ChangePackage>((e, emit) {
+      emit(state.copyWith(
+        key: state.key,
+        selectedPackage: e.package,
+        failureOrSuccessOption: none(),
+      ));
+    });
+    on<_PayBill>((event, emit) async {
+      emit(state.copyWith(
+        key: UniqueKey(),
+        isSubmitting: true,
+      ));
+      if (state.customerInfo != null) {
+        final result = await payISP(PayISPParams(
+            provider: state.provider,
+            selectedPackage: state.selectedPackage,
+            customerInfo: state.customerInfo!));
+
+        emit(result.fold(
+            (fail) => state.copyWith(
+                  customerId: state.customerId,
+                  productId: state.productId,
+                  key: UniqueKey(),
+                  isSubmitting: false,
+                  customerInfo: state.customerInfo,
+                  failureOrSuccessOption: optionOf(Left(fail)),
+                ),
+            (data) => state.copyWith(
+                  isSubmitting: false,
+                  isPaymentComplete: true,
+                  failureOrSuccessOption: optionOf(Right(data)),
+                )));
+      }
+    });
+  }
 
   @override
   Stream<ISPPaymentState> mapEventToState(ISPPaymentEvent event) async* {

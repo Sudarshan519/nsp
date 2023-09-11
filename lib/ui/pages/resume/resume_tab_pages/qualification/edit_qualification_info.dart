@@ -15,7 +15,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
-
+@RoutePage()
 class EditQualificationInfoFormPage extends StatelessWidget {
   final QualificationHistory info;
   final String lang;

@@ -29,7 +29,7 @@ class ShadowBoxWidget extends StatelessWidget {
             color: Palette.black.withOpacity(0.1),
             spreadRadius: 2,
             blurRadius: 4,
-            offset: const Offset(0, 3), // changes position of shadow
+            offset:   Offset(0, 3), // changes position of shadow
           ),
         ],
       ),

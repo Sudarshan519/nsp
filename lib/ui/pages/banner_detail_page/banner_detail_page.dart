@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
+@RoutePage()
 class BannerDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

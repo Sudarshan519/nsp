@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_academic_info_actor_bloc.dart';
 
@@ -10,64 +12,7 @@ part of 'update_academic_info_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UpdateAcademicInfoActorEventTearOff {
-  const _$UpdateAcademicInfoActorEventTearOff();
-
-  _ChangedNameOfInstitute changedNameOfInstitute(String institute) {
-    return _ChangedNameOfInstitute(
-      institute,
-    );
-  }
-
-  _ChangedMajorSubject changedMajorSubject(String subject) {
-    return _ChangedMajorSubject(
-      subject,
-    );
-  }
-
-  _ChangedYearOfEnroll changedYearOfEnroll(String year) {
-    return _ChangedYearOfEnroll(
-      year,
-    );
-  }
-
-  _ChangedYearOfCompletion changedYearOfCompletion(String year) {
-    return _ChangedYearOfCompletion(
-      year,
-    );
-  }
-
-  _ChangedMonthOfEnroll changedMonthOfEnroll(String month) {
-    return _ChangedMonthOfEnroll(
-      month,
-    );
-  }
-
-  _ChangedMonthOfCompletion changedMonthOfCompletion(String month) {
-    return _ChangedMonthOfCompletion(
-      month,
-    );
-  }
-
-  _SetInitialState setInitialState(AcademicHistory academicHistory,
-      List<String> listOfMajorSubject, String lang) {
-    return _SetInitialState(
-      academicHistory,
-      listOfMajorSubject,
-      lang,
-    );
-  }
-
-  _Save save() {
-    return const _Save();
-  }
-}
-
-/// @nodoc
-const $UpdateAcademicInfoActorEvent = _$UpdateAcademicInfoActorEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdateAcademicInfoActorEvent {
@@ -83,6 +28,20 @@ mixin _$UpdateAcademicInfoActorEvent {
             List<String> listOfMajorSubject, String lang)
         setInitialState,
     required TResult Function() save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String institute)? changedNameOfInstitute,
+    TResult? Function(String subject)? changedMajorSubject,
+    TResult? Function(String year)? changedYearOfEnroll,
+    TResult? Function(String year)? changedYearOfCompletion,
+    TResult? Function(String month)? changedMonthOfEnroll,
+    TResult? Function(String month)? changedMonthOfCompletion,
+    TResult? Function(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang)?
+        setInitialState,
+    TResult? Function()? save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -116,6 +75,19 @@ mixin _$UpdateAcademicInfoActorEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
+    TResult? Function(_ChangedMajorSubject value)? changedMajorSubject,
+    TResult? Function(_ChangedYearOfEnroll value)? changedYearOfEnroll,
+    TResult? Function(_ChangedYearOfCompletion value)? changedYearOfCompletion,
+    TResult? Function(_ChangedMonthOfEnroll value)? changedMonthOfEnroll,
+    TResult? Function(_ChangedMonthOfCompletion value)?
+        changedMonthOfCompletion,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
     TResult Function(_ChangedMajorSubject value)? changedMajorSubject,
@@ -135,44 +107,47 @@ abstract class $UpdateAcademicInfoActorEventCopyWith<$Res> {
   factory $UpdateAcademicInfoActorEventCopyWith(
           UpdateAcademicInfoActorEvent value,
           $Res Function(UpdateAcademicInfoActorEvent) then) =
-      _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>;
+      _$UpdateAcademicInfoActorEventCopyWithImpl<$Res,
+          UpdateAcademicInfoActorEvent>;
 }
 
 /// @nodoc
-class _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
+class _$UpdateAcademicInfoActorEventCopyWithImpl<$Res,
+        $Val extends UpdateAcademicInfoActorEvent>
     implements $UpdateAcademicInfoActorEventCopyWith<$Res> {
   _$UpdateAcademicInfoActorEventCopyWithImpl(this._value, this._then);
 
-  final UpdateAcademicInfoActorEvent _value;
   // ignore: unused_field
-  final $Res Function(UpdateAcademicInfoActorEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangedNameOfInstituteCopyWith<$Res> {
-  factory _$ChangedNameOfInstituteCopyWith(_ChangedNameOfInstitute value,
-          $Res Function(_ChangedNameOfInstitute) then) =
-      __$ChangedNameOfInstituteCopyWithImpl<$Res>;
+abstract class _$$_ChangedNameOfInstituteCopyWith<$Res> {
+  factory _$$_ChangedNameOfInstituteCopyWith(_$_ChangedNameOfInstitute value,
+          $Res Function(_$_ChangedNameOfInstitute) then) =
+      __$$_ChangedNameOfInstituteCopyWithImpl<$Res>;
+  @useResult
   $Res call({String institute});
 }
 
 /// @nodoc
-class __$ChangedNameOfInstituteCopyWithImpl<$Res>
-    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedNameOfInstituteCopyWith<$Res> {
-  __$ChangedNameOfInstituteCopyWithImpl(_ChangedNameOfInstitute _value,
-      $Res Function(_ChangedNameOfInstitute) _then)
-      : super(_value, (v) => _then(v as _ChangedNameOfInstitute));
+class __$$_ChangedNameOfInstituteCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedNameOfInstitute>
+    implements _$$_ChangedNameOfInstituteCopyWith<$Res> {
+  __$$_ChangedNameOfInstituteCopyWithImpl(_$_ChangedNameOfInstitute _value,
+      $Res Function(_$_ChangedNameOfInstitute) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedNameOfInstitute get _value => super._value as _ChangedNameOfInstitute;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? institute = freezed,
+    Object? institute = null,
   }) {
-    return _then(_ChangedNameOfInstitute(
-      institute == freezed
+    return _then(_$_ChangedNameOfInstitute(
+      null == institute
           ? _value.institute
           : institute // ignore: cast_nullable_to_non_nullable
               as String,
@@ -196,20 +171,20 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedNameOfInstitute &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedNameOfInstitute &&
             (identical(other.institute, institute) ||
-                const DeepCollectionEquality()
-                    .equals(other.institute, institute)));
+                other.institute == institute));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(institute);
+  int get hashCode => Object.hash(runtimeType, institute);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedNameOfInstituteCopyWith<_ChangedNameOfInstitute> get copyWith =>
-      __$ChangedNameOfInstituteCopyWithImpl<_ChangedNameOfInstitute>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedNameOfInstituteCopyWith<_$_ChangedNameOfInstitute> get copyWith =>
+      __$$_ChangedNameOfInstituteCopyWithImpl<_$_ChangedNameOfInstitute>(
           this, _$identity);
 
   @override
@@ -227,6 +202,23 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
     required TResult Function() save,
   }) {
     return changedNameOfInstitute(institute);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String institute)? changedNameOfInstitute,
+    TResult? Function(String subject)? changedMajorSubject,
+    TResult? Function(String year)? changedYearOfEnroll,
+    TResult? Function(String year)? changedYearOfCompletion,
+    TResult? Function(String month)? changedMonthOfEnroll,
+    TResult? Function(String month)? changedMonthOfCompletion,
+    TResult? Function(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedNameOfInstitute?.call(institute);
   }
 
   @override
@@ -270,6 +262,22 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
+    TResult? Function(_ChangedMajorSubject value)? changedMajorSubject,
+    TResult? Function(_ChangedYearOfEnroll value)? changedYearOfEnroll,
+    TResult? Function(_ChangedYearOfCompletion value)? changedYearOfCompletion,
+    TResult? Function(_ChangedMonthOfEnroll value)? changedMonthOfEnroll,
+    TResult? Function(_ChangedMonthOfCompletion value)?
+        changedMonthOfCompletion,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedNameOfInstitute?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
     TResult Function(_ChangedMajorSubject value)? changedMajorSubject,
@@ -289,40 +297,40 @@ class _$_ChangedNameOfInstitute implements _ChangedNameOfInstitute {
 }
 
 abstract class _ChangedNameOfInstitute implements UpdateAcademicInfoActorEvent {
-  const factory _ChangedNameOfInstitute(String institute) =
+  const factory _ChangedNameOfInstitute(final String institute) =
       _$_ChangedNameOfInstitute;
 
-  String get institute => throw _privateConstructorUsedError;
+  String get institute;
   @JsonKey(ignore: true)
-  _$ChangedNameOfInstituteCopyWith<_ChangedNameOfInstitute> get copyWith =>
+  _$$_ChangedNameOfInstituteCopyWith<_$_ChangedNameOfInstitute> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedMajorSubjectCopyWith<$Res> {
-  factory _$ChangedMajorSubjectCopyWith(_ChangedMajorSubject value,
-          $Res Function(_ChangedMajorSubject) then) =
-      __$ChangedMajorSubjectCopyWithImpl<$Res>;
+abstract class _$$_ChangedMajorSubjectCopyWith<$Res> {
+  factory _$$_ChangedMajorSubjectCopyWith(_$_ChangedMajorSubject value,
+          $Res Function(_$_ChangedMajorSubject) then) =
+      __$$_ChangedMajorSubjectCopyWithImpl<$Res>;
+  @useResult
   $Res call({String subject});
 }
 
 /// @nodoc
-class __$ChangedMajorSubjectCopyWithImpl<$Res>
-    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedMajorSubjectCopyWith<$Res> {
-  __$ChangedMajorSubjectCopyWithImpl(
-      _ChangedMajorSubject _value, $Res Function(_ChangedMajorSubject) _then)
-      : super(_value, (v) => _then(v as _ChangedMajorSubject));
+class __$$_ChangedMajorSubjectCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedMajorSubject>
+    implements _$$_ChangedMajorSubjectCopyWith<$Res> {
+  __$$_ChangedMajorSubjectCopyWithImpl(_$_ChangedMajorSubject _value,
+      $Res Function(_$_ChangedMajorSubject) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedMajorSubject get _value => super._value as _ChangedMajorSubject;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? subject = freezed,
+    Object? subject = null,
   }) {
-    return _then(_ChangedMajorSubject(
-      subject == freezed
+    return _then(_$_ChangedMajorSubject(
+      null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String,
@@ -346,19 +354,19 @@ class _$_ChangedMajorSubject implements _ChangedMajorSubject {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedMajorSubject &&
-            (identical(other.subject, subject) ||
-                const DeepCollectionEquality().equals(other.subject, subject)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedMajorSubject &&
+            (identical(other.subject, subject) || other.subject == subject));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(subject);
+  int get hashCode => Object.hash(runtimeType, subject);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedMajorSubjectCopyWith<_ChangedMajorSubject> get copyWith =>
-      __$ChangedMajorSubjectCopyWithImpl<_ChangedMajorSubject>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedMajorSubjectCopyWith<_$_ChangedMajorSubject> get copyWith =>
+      __$$_ChangedMajorSubjectCopyWithImpl<_$_ChangedMajorSubject>(
           this, _$identity);
 
   @override
@@ -376,6 +384,23 @@ class _$_ChangedMajorSubject implements _ChangedMajorSubject {
     required TResult Function() save,
   }) {
     return changedMajorSubject(subject);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String institute)? changedNameOfInstitute,
+    TResult? Function(String subject)? changedMajorSubject,
+    TResult? Function(String year)? changedYearOfEnroll,
+    TResult? Function(String year)? changedYearOfCompletion,
+    TResult? Function(String month)? changedMonthOfEnroll,
+    TResult? Function(String month)? changedMonthOfCompletion,
+    TResult? Function(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedMajorSubject?.call(subject);
   }
 
   @override
@@ -419,6 +444,22 @@ class _$_ChangedMajorSubject implements _ChangedMajorSubject {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
+    TResult? Function(_ChangedMajorSubject value)? changedMajorSubject,
+    TResult? Function(_ChangedYearOfEnroll value)? changedYearOfEnroll,
+    TResult? Function(_ChangedYearOfCompletion value)? changedYearOfCompletion,
+    TResult? Function(_ChangedMonthOfEnroll value)? changedMonthOfEnroll,
+    TResult? Function(_ChangedMonthOfCompletion value)?
+        changedMonthOfCompletion,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedMajorSubject?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
     TResult Function(_ChangedMajorSubject value)? changedMajorSubject,
@@ -438,39 +479,40 @@ class _$_ChangedMajorSubject implements _ChangedMajorSubject {
 }
 
 abstract class _ChangedMajorSubject implements UpdateAcademicInfoActorEvent {
-  const factory _ChangedMajorSubject(String subject) = _$_ChangedMajorSubject;
+  const factory _ChangedMajorSubject(final String subject) =
+      _$_ChangedMajorSubject;
 
-  String get subject => throw _privateConstructorUsedError;
+  String get subject;
   @JsonKey(ignore: true)
-  _$ChangedMajorSubjectCopyWith<_ChangedMajorSubject> get copyWith =>
+  _$$_ChangedMajorSubjectCopyWith<_$_ChangedMajorSubject> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedYearOfEnrollCopyWith<$Res> {
-  factory _$ChangedYearOfEnrollCopyWith(_ChangedYearOfEnroll value,
-          $Res Function(_ChangedYearOfEnroll) then) =
-      __$ChangedYearOfEnrollCopyWithImpl<$Res>;
+abstract class _$$_ChangedYearOfEnrollCopyWith<$Res> {
+  factory _$$_ChangedYearOfEnrollCopyWith(_$_ChangedYearOfEnroll value,
+          $Res Function(_$_ChangedYearOfEnroll) then) =
+      __$$_ChangedYearOfEnrollCopyWithImpl<$Res>;
+  @useResult
   $Res call({String year});
 }
 
 /// @nodoc
-class __$ChangedYearOfEnrollCopyWithImpl<$Res>
-    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedYearOfEnrollCopyWith<$Res> {
-  __$ChangedYearOfEnrollCopyWithImpl(
-      _ChangedYearOfEnroll _value, $Res Function(_ChangedYearOfEnroll) _then)
-      : super(_value, (v) => _then(v as _ChangedYearOfEnroll));
+class __$$_ChangedYearOfEnrollCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedYearOfEnroll>
+    implements _$$_ChangedYearOfEnrollCopyWith<$Res> {
+  __$$_ChangedYearOfEnrollCopyWithImpl(_$_ChangedYearOfEnroll _value,
+      $Res Function(_$_ChangedYearOfEnroll) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedYearOfEnroll get _value => super._value as _ChangedYearOfEnroll;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = freezed,
+    Object? year = null,
   }) {
-    return _then(_ChangedYearOfEnroll(
-      year == freezed
+    return _then(_$_ChangedYearOfEnroll(
+      null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as String,
@@ -494,19 +536,19 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedYearOfEnroll &&
-            (identical(other.year, year) ||
-                const DeepCollectionEquality().equals(other.year, year)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedYearOfEnroll &&
+            (identical(other.year, year) || other.year == year));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(year);
+  int get hashCode => Object.hash(runtimeType, year);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedYearOfEnrollCopyWith<_ChangedYearOfEnroll> get copyWith =>
-      __$ChangedYearOfEnrollCopyWithImpl<_ChangedYearOfEnroll>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedYearOfEnrollCopyWith<_$_ChangedYearOfEnroll> get copyWith =>
+      __$$_ChangedYearOfEnrollCopyWithImpl<_$_ChangedYearOfEnroll>(
           this, _$identity);
 
   @override
@@ -524,6 +566,23 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
     required TResult Function() save,
   }) {
     return changedYearOfEnroll(year);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String institute)? changedNameOfInstitute,
+    TResult? Function(String subject)? changedMajorSubject,
+    TResult? Function(String year)? changedYearOfEnroll,
+    TResult? Function(String year)? changedYearOfCompletion,
+    TResult? Function(String month)? changedMonthOfEnroll,
+    TResult? Function(String month)? changedMonthOfCompletion,
+    TResult? Function(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedYearOfEnroll?.call(year);
   }
 
   @override
@@ -567,6 +626,22 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
+    TResult? Function(_ChangedMajorSubject value)? changedMajorSubject,
+    TResult? Function(_ChangedYearOfEnroll value)? changedYearOfEnroll,
+    TResult? Function(_ChangedYearOfCompletion value)? changedYearOfCompletion,
+    TResult? Function(_ChangedMonthOfEnroll value)? changedMonthOfEnroll,
+    TResult? Function(_ChangedMonthOfCompletion value)?
+        changedMonthOfCompletion,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedYearOfEnroll?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
     TResult Function(_ChangedMajorSubject value)? changedMajorSubject,
@@ -586,40 +661,40 @@ class _$_ChangedYearOfEnroll implements _ChangedYearOfEnroll {
 }
 
 abstract class _ChangedYearOfEnroll implements UpdateAcademicInfoActorEvent {
-  const factory _ChangedYearOfEnroll(String year) = _$_ChangedYearOfEnroll;
+  const factory _ChangedYearOfEnroll(final String year) =
+      _$_ChangedYearOfEnroll;
 
-  String get year => throw _privateConstructorUsedError;
+  String get year;
   @JsonKey(ignore: true)
-  _$ChangedYearOfEnrollCopyWith<_ChangedYearOfEnroll> get copyWith =>
+  _$$_ChangedYearOfEnrollCopyWith<_$_ChangedYearOfEnroll> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedYearOfCompletionCopyWith<$Res> {
-  factory _$ChangedYearOfCompletionCopyWith(_ChangedYearOfCompletion value,
-          $Res Function(_ChangedYearOfCompletion) then) =
-      __$ChangedYearOfCompletionCopyWithImpl<$Res>;
+abstract class _$$_ChangedYearOfCompletionCopyWith<$Res> {
+  factory _$$_ChangedYearOfCompletionCopyWith(_$_ChangedYearOfCompletion value,
+          $Res Function(_$_ChangedYearOfCompletion) then) =
+      __$$_ChangedYearOfCompletionCopyWithImpl<$Res>;
+  @useResult
   $Res call({String year});
 }
 
 /// @nodoc
-class __$ChangedYearOfCompletionCopyWithImpl<$Res>
-    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedYearOfCompletionCopyWith<$Res> {
-  __$ChangedYearOfCompletionCopyWithImpl(_ChangedYearOfCompletion _value,
-      $Res Function(_ChangedYearOfCompletion) _then)
-      : super(_value, (v) => _then(v as _ChangedYearOfCompletion));
+class __$$_ChangedYearOfCompletionCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedYearOfCompletion>
+    implements _$$_ChangedYearOfCompletionCopyWith<$Res> {
+  __$$_ChangedYearOfCompletionCopyWithImpl(_$_ChangedYearOfCompletion _value,
+      $Res Function(_$_ChangedYearOfCompletion) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedYearOfCompletion get _value =>
-      super._value as _ChangedYearOfCompletion;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = freezed,
+    Object? year = null,
   }) {
-    return _then(_ChangedYearOfCompletion(
-      year == freezed
+    return _then(_$_ChangedYearOfCompletion(
+      null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as String,
@@ -643,20 +718,21 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedYearOfCompletion &&
-            (identical(other.year, year) ||
-                const DeepCollectionEquality().equals(other.year, year)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedYearOfCompletion &&
+            (identical(other.year, year) || other.year == year));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(year);
+  int get hashCode => Object.hash(runtimeType, year);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedYearOfCompletionCopyWith<_ChangedYearOfCompletion> get copyWith =>
-      __$ChangedYearOfCompletionCopyWithImpl<_ChangedYearOfCompletion>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedYearOfCompletionCopyWith<_$_ChangedYearOfCompletion>
+      get copyWith =>
+          __$$_ChangedYearOfCompletionCopyWithImpl<_$_ChangedYearOfCompletion>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -673,6 +749,23 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
     required TResult Function() save,
   }) {
     return changedYearOfCompletion(year);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String institute)? changedNameOfInstitute,
+    TResult? Function(String subject)? changedMajorSubject,
+    TResult? Function(String year)? changedYearOfEnroll,
+    TResult? Function(String year)? changedYearOfCompletion,
+    TResult? Function(String month)? changedMonthOfEnroll,
+    TResult? Function(String month)? changedMonthOfCompletion,
+    TResult? Function(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedYearOfCompletion?.call(year);
   }
 
   @override
@@ -716,6 +809,22 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
+    TResult? Function(_ChangedMajorSubject value)? changedMajorSubject,
+    TResult? Function(_ChangedYearOfEnroll value)? changedYearOfEnroll,
+    TResult? Function(_ChangedYearOfCompletion value)? changedYearOfCompletion,
+    TResult? Function(_ChangedMonthOfEnroll value)? changedMonthOfEnroll,
+    TResult? Function(_ChangedMonthOfCompletion value)?
+        changedMonthOfCompletion,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedYearOfCompletion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
     TResult Function(_ChangedMajorSubject value)? changedMajorSubject,
@@ -736,40 +845,40 @@ class _$_ChangedYearOfCompletion implements _ChangedYearOfCompletion {
 
 abstract class _ChangedYearOfCompletion
     implements UpdateAcademicInfoActorEvent {
-  const factory _ChangedYearOfCompletion(String year) =
+  const factory _ChangedYearOfCompletion(final String year) =
       _$_ChangedYearOfCompletion;
 
-  String get year => throw _privateConstructorUsedError;
+  String get year;
   @JsonKey(ignore: true)
-  _$ChangedYearOfCompletionCopyWith<_ChangedYearOfCompletion> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangedYearOfCompletionCopyWith<_$_ChangedYearOfCompletion>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedMonthOfEnrollCopyWith<$Res> {
-  factory _$ChangedMonthOfEnrollCopyWith(_ChangedMonthOfEnroll value,
-          $Res Function(_ChangedMonthOfEnroll) then) =
-      __$ChangedMonthOfEnrollCopyWithImpl<$Res>;
+abstract class _$$_ChangedMonthOfEnrollCopyWith<$Res> {
+  factory _$$_ChangedMonthOfEnrollCopyWith(_$_ChangedMonthOfEnroll value,
+          $Res Function(_$_ChangedMonthOfEnroll) then) =
+      __$$_ChangedMonthOfEnrollCopyWithImpl<$Res>;
+  @useResult
   $Res call({String month});
 }
 
 /// @nodoc
-class __$ChangedMonthOfEnrollCopyWithImpl<$Res>
-    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedMonthOfEnrollCopyWith<$Res> {
-  __$ChangedMonthOfEnrollCopyWithImpl(
-      _ChangedMonthOfEnroll _value, $Res Function(_ChangedMonthOfEnroll) _then)
-      : super(_value, (v) => _then(v as _ChangedMonthOfEnroll));
+class __$$_ChangedMonthOfEnrollCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedMonthOfEnroll>
+    implements _$$_ChangedMonthOfEnrollCopyWith<$Res> {
+  __$$_ChangedMonthOfEnrollCopyWithImpl(_$_ChangedMonthOfEnroll _value,
+      $Res Function(_$_ChangedMonthOfEnroll) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedMonthOfEnroll get _value => super._value as _ChangedMonthOfEnroll;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? month = freezed,
+    Object? month = null,
   }) {
-    return _then(_ChangedMonthOfEnroll(
-      month == freezed
+    return _then(_$_ChangedMonthOfEnroll(
+      null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
               as String,
@@ -793,19 +902,19 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedMonthOfEnroll &&
-            (identical(other.month, month) ||
-                const DeepCollectionEquality().equals(other.month, month)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedMonthOfEnroll &&
+            (identical(other.month, month) || other.month == month));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(month);
+  int get hashCode => Object.hash(runtimeType, month);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedMonthOfEnrollCopyWith<_ChangedMonthOfEnroll> get copyWith =>
-      __$ChangedMonthOfEnrollCopyWithImpl<_ChangedMonthOfEnroll>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedMonthOfEnrollCopyWith<_$_ChangedMonthOfEnroll> get copyWith =>
+      __$$_ChangedMonthOfEnrollCopyWithImpl<_$_ChangedMonthOfEnroll>(
           this, _$identity);
 
   @override
@@ -823,6 +932,23 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
     required TResult Function() save,
   }) {
     return changedMonthOfEnroll(month);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String institute)? changedNameOfInstitute,
+    TResult? Function(String subject)? changedMajorSubject,
+    TResult? Function(String year)? changedYearOfEnroll,
+    TResult? Function(String year)? changedYearOfCompletion,
+    TResult? Function(String month)? changedMonthOfEnroll,
+    TResult? Function(String month)? changedMonthOfCompletion,
+    TResult? Function(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedMonthOfEnroll?.call(month);
   }
 
   @override
@@ -866,6 +992,22 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
+    TResult? Function(_ChangedMajorSubject value)? changedMajorSubject,
+    TResult? Function(_ChangedYearOfEnroll value)? changedYearOfEnroll,
+    TResult? Function(_ChangedYearOfCompletion value)? changedYearOfCompletion,
+    TResult? Function(_ChangedMonthOfEnroll value)? changedMonthOfEnroll,
+    TResult? Function(_ChangedMonthOfCompletion value)?
+        changedMonthOfCompletion,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedMonthOfEnroll?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
     TResult Function(_ChangedMajorSubject value)? changedMajorSubject,
@@ -885,40 +1027,41 @@ class _$_ChangedMonthOfEnroll implements _ChangedMonthOfEnroll {
 }
 
 abstract class _ChangedMonthOfEnroll implements UpdateAcademicInfoActorEvent {
-  const factory _ChangedMonthOfEnroll(String month) = _$_ChangedMonthOfEnroll;
+  const factory _ChangedMonthOfEnroll(final String month) =
+      _$_ChangedMonthOfEnroll;
 
-  String get month => throw _privateConstructorUsedError;
+  String get month;
   @JsonKey(ignore: true)
-  _$ChangedMonthOfEnrollCopyWith<_ChangedMonthOfEnroll> get copyWith =>
+  _$$_ChangedMonthOfEnrollCopyWith<_$_ChangedMonthOfEnroll> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedMonthOfCompletionCopyWith<$Res> {
-  factory _$ChangedMonthOfCompletionCopyWith(_ChangedMonthOfCompletion value,
-          $Res Function(_ChangedMonthOfCompletion) then) =
-      __$ChangedMonthOfCompletionCopyWithImpl<$Res>;
+abstract class _$$_ChangedMonthOfCompletionCopyWith<$Res> {
+  factory _$$_ChangedMonthOfCompletionCopyWith(
+          _$_ChangedMonthOfCompletion value,
+          $Res Function(_$_ChangedMonthOfCompletion) then) =
+      __$$_ChangedMonthOfCompletionCopyWithImpl<$Res>;
+  @useResult
   $Res call({String month});
 }
 
 /// @nodoc
-class __$ChangedMonthOfCompletionCopyWithImpl<$Res>
-    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedMonthOfCompletionCopyWith<$Res> {
-  __$ChangedMonthOfCompletionCopyWithImpl(_ChangedMonthOfCompletion _value,
-      $Res Function(_ChangedMonthOfCompletion) _then)
-      : super(_value, (v) => _then(v as _ChangedMonthOfCompletion));
+class __$$_ChangedMonthOfCompletionCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedMonthOfCompletion>
+    implements _$$_ChangedMonthOfCompletionCopyWith<$Res> {
+  __$$_ChangedMonthOfCompletionCopyWithImpl(_$_ChangedMonthOfCompletion _value,
+      $Res Function(_$_ChangedMonthOfCompletion) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedMonthOfCompletion get _value =>
-      super._value as _ChangedMonthOfCompletion;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? month = freezed,
+    Object? month = null,
   }) {
-    return _then(_ChangedMonthOfCompletion(
-      month == freezed
+    return _then(_$_ChangedMonthOfCompletion(
+      null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
               as String,
@@ -942,20 +1085,20 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedMonthOfCompletion &&
-            (identical(other.month, month) ||
-                const DeepCollectionEquality().equals(other.month, month)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedMonthOfCompletion &&
+            (identical(other.month, month) || other.month == month));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(month);
+  int get hashCode => Object.hash(runtimeType, month);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedMonthOfCompletionCopyWith<_ChangedMonthOfCompletion> get copyWith =>
-      __$ChangedMonthOfCompletionCopyWithImpl<_ChangedMonthOfCompletion>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedMonthOfCompletionCopyWith<_$_ChangedMonthOfCompletion>
+      get copyWith => __$$_ChangedMonthOfCompletionCopyWithImpl<
+          _$_ChangedMonthOfCompletion>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -972,6 +1115,23 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
     required TResult Function() save,
   }) {
     return changedMonthOfCompletion(month);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String institute)? changedNameOfInstitute,
+    TResult? Function(String subject)? changedMajorSubject,
+    TResult? Function(String year)? changedYearOfEnroll,
+    TResult? Function(String year)? changedYearOfCompletion,
+    TResult? Function(String month)? changedMonthOfEnroll,
+    TResult? Function(String month)? changedMonthOfCompletion,
+    TResult? Function(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedMonthOfCompletion?.call(month);
   }
 
   @override
@@ -1015,6 +1175,22 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
+    TResult? Function(_ChangedMajorSubject value)? changedMajorSubject,
+    TResult? Function(_ChangedYearOfEnroll value)? changedYearOfEnroll,
+    TResult? Function(_ChangedYearOfCompletion value)? changedYearOfCompletion,
+    TResult? Function(_ChangedMonthOfEnroll value)? changedMonthOfEnroll,
+    TResult? Function(_ChangedMonthOfCompletion value)?
+        changedMonthOfCompletion,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedMonthOfCompletion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
     TResult Function(_ChangedMajorSubject value)? changedMajorSubject,
@@ -1035,20 +1211,21 @@ class _$_ChangedMonthOfCompletion implements _ChangedMonthOfCompletion {
 
 abstract class _ChangedMonthOfCompletion
     implements UpdateAcademicInfoActorEvent {
-  const factory _ChangedMonthOfCompletion(String month) =
+  const factory _ChangedMonthOfCompletion(final String month) =
       _$_ChangedMonthOfCompletion;
 
-  String get month => throw _privateConstructorUsedError;
+  String get month;
   @JsonKey(ignore: true)
-  _$ChangedMonthOfCompletionCopyWith<_ChangedMonthOfCompletion> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangedMonthOfCompletionCopyWith<_$_ChangedMonthOfCompletion>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetInitialStateCopyWith<$Res> {
-  factory _$SetInitialStateCopyWith(
-          _SetInitialState value, $Res Function(_SetInitialState) then) =
-      __$SetInitialStateCopyWithImpl<$Res>;
+abstract class _$$_SetInitialStateCopyWith<$Res> {
+  factory _$$_SetInitialStateCopyWith(
+          _$_SetInitialState value, $Res Function(_$_SetInitialState) then) =
+      __$$_SetInitialStateCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {AcademicHistory academicHistory,
       List<String> listOfMajorSubject,
@@ -1056,32 +1233,30 @@ abstract class _$SetInitialStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SetInitialStateCopyWithImpl<$Res>
-    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
-    implements _$SetInitialStateCopyWith<$Res> {
-  __$SetInitialStateCopyWithImpl(
-      _SetInitialState _value, $Res Function(_SetInitialState) _then)
-      : super(_value, (v) => _then(v as _SetInitialState));
+class __$$_SetInitialStateCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res, _$_SetInitialState>
+    implements _$$_SetInitialStateCopyWith<$Res> {
+  __$$_SetInitialStateCopyWithImpl(
+      _$_SetInitialState _value, $Res Function(_$_SetInitialState) _then)
+      : super(_value, _then);
 
-  @override
-  _SetInitialState get _value => super._value as _SetInitialState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? academicHistory = freezed,
-    Object? listOfMajorSubject = freezed,
-    Object? lang = freezed,
+    Object? academicHistory = null,
+    Object? listOfMajorSubject = null,
+    Object? lang = null,
   }) {
-    return _then(_SetInitialState(
-      academicHistory == freezed
+    return _then(_$_SetInitialState(
+      null == academicHistory
           ? _value.academicHistory
           : academicHistory // ignore: cast_nullable_to_non_nullable
               as AcademicHistory,
-      listOfMajorSubject == freezed
-          ? _value.listOfMajorSubject
+      null == listOfMajorSubject
+          ? _value._listOfMajorSubject
           : listOfMajorSubject // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      lang == freezed
+      null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1093,12 +1268,20 @@ class __$SetInitialStateCopyWithImpl<$Res>
 
 class _$_SetInitialState implements _SetInitialState {
   const _$_SetInitialState(
-      this.academicHistory, this.listOfMajorSubject, this.lang);
+      this.academicHistory, final List<String> listOfMajorSubject, this.lang)
+      : _listOfMajorSubject = listOfMajorSubject;
 
   @override
   final AcademicHistory academicHistory;
+  final List<String> _listOfMajorSubject;
   @override
-  final List<String> listOfMajorSubject;
+  List<String> get listOfMajorSubject {
+    if (_listOfMajorSubject is EqualUnmodifiableListView)
+      return _listOfMajorSubject;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfMajorSubject);
+  }
+
   @override
   final String lang;
 
@@ -1110,28 +1293,24 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetInitialState &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SetInitialState &&
             (identical(other.academicHistory, academicHistory) ||
-                const DeepCollectionEquality()
-                    .equals(other.academicHistory, academicHistory)) &&
-            (identical(other.listOfMajorSubject, listOfMajorSubject) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfMajorSubject, listOfMajorSubject)) &&
-            (identical(other.lang, lang) ||
-                const DeepCollectionEquality().equals(other.lang, lang)));
+                other.academicHistory == academicHistory) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfMajorSubject, _listOfMajorSubject) &&
+            (identical(other.lang, lang) || other.lang == lang));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(academicHistory) ^
-      const DeepCollectionEquality().hash(listOfMajorSubject) ^
-      const DeepCollectionEquality().hash(lang);
+  int get hashCode => Object.hash(runtimeType, academicHistory,
+      const DeepCollectionEquality().hash(_listOfMajorSubject), lang);
 
   @JsonKey(ignore: true)
   @override
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
-      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
+      __$$_SetInitialStateCopyWithImpl<_$_SetInitialState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1148,6 +1327,23 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function() save,
   }) {
     return setInitialState(academicHistory, listOfMajorSubject, lang);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String institute)? changedNameOfInstitute,
+    TResult? Function(String subject)? changedMajorSubject,
+    TResult? Function(String year)? changedYearOfEnroll,
+    TResult? Function(String year)? changedYearOfCompletion,
+    TResult? Function(String month)? changedMonthOfEnroll,
+    TResult? Function(String month)? changedMonthOfCompletion,
+    TResult? Function(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return setInitialState?.call(academicHistory, listOfMajorSubject, lang);
   }
 
   @override
@@ -1191,6 +1387,22 @@ class _$_SetInitialState implements _SetInitialState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
+    TResult? Function(_ChangedMajorSubject value)? changedMajorSubject,
+    TResult? Function(_ChangedYearOfEnroll value)? changedYearOfEnroll,
+    TResult? Function(_ChangedYearOfCompletion value)? changedYearOfCompletion,
+    TResult? Function(_ChangedMonthOfEnroll value)? changedMonthOfEnroll,
+    TResult? Function(_ChangedMonthOfCompletion value)?
+        changedMonthOfCompletion,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return setInitialState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
     TResult Function(_ChangedMajorSubject value)? changedMajorSubject,
@@ -1210,32 +1422,31 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdateAcademicInfoActorEvent {
-  const factory _SetInitialState(AcademicHistory academicHistory,
-      List<String> listOfMajorSubject, String lang) = _$_SetInitialState;
+  const factory _SetInitialState(
+      final AcademicHistory academicHistory,
+      final List<String> listOfMajorSubject,
+      final String lang) = _$_SetInitialState;
 
-  AcademicHistory get academicHistory => throw _privateConstructorUsedError;
-  List<String> get listOfMajorSubject => throw _privateConstructorUsedError;
-  String get lang => throw _privateConstructorUsedError;
+  AcademicHistory get academicHistory;
+  List<String> get listOfMajorSubject;
+  String get lang;
   @JsonKey(ignore: true)
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SaveCopyWith<$Res> {
-  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
-      __$SaveCopyWithImpl<$Res>;
+abstract class _$$_SaveCopyWith<$Res> {
+  factory _$$_SaveCopyWith(_$_Save value, $Res Function(_$_Save) then) =
+      __$$_SaveCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SaveCopyWithImpl<$Res>
-    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res>
-    implements _$SaveCopyWith<$Res> {
-  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
-      : super(_value, (v) => _then(v as _Save));
-
-  @override
-  _Save get _value => super._value as _Save;
+class __$$_SaveCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorEventCopyWithImpl<$Res, _$_Save>
+    implements _$$_SaveCopyWith<$Res> {
+  __$$_SaveCopyWithImpl(_$_Save _value, $Res Function(_$_Save) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1250,7 +1461,8 @@ class _$_Save implements _Save {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Save);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Save);
   }
 
   @override
@@ -1271,6 +1483,23 @@ class _$_Save implements _Save {
     required TResult Function() save,
   }) {
     return save();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String institute)? changedNameOfInstitute,
+    TResult? Function(String subject)? changedMajorSubject,
+    TResult? Function(String year)? changedYearOfEnroll,
+    TResult? Function(String year)? changedYearOfCompletion,
+    TResult? Function(String month)? changedMonthOfEnroll,
+    TResult? Function(String month)? changedMonthOfCompletion,
+    TResult? Function(AcademicHistory academicHistory,
+            List<String> listOfMajorSubject, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return save?.call();
   }
 
   @override
@@ -1314,6 +1543,22 @@ class _$_Save implements _Save {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
+    TResult? Function(_ChangedMajorSubject value)? changedMajorSubject,
+    TResult? Function(_ChangedYearOfEnroll value)? changedYearOfEnroll,
+    TResult? Function(_ChangedYearOfCompletion value)? changedYearOfCompletion,
+    TResult? Function(_ChangedMonthOfEnroll value)? changedMonthOfEnroll,
+    TResult? Function(_ChangedMonthOfCompletion value)?
+        changedMonthOfCompletion,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedNameOfInstitute value)? changedNameOfInstitute,
     TResult Function(_ChangedMajorSubject value)? changedMajorSubject,
@@ -1335,45 +1580,6 @@ class _$_Save implements _Save {
 abstract class _Save implements UpdateAcademicInfoActorEvent {
   const factory _Save() = _$_Save;
 }
-
-/// @nodoc
-class _$UpdateAcademicInfoActorStateTearOff {
-  const _$UpdateAcademicInfoActorStateTearOff();
-
-  _UpdateAcademicInfoActorState call(
-      {required Key? key,
-      required String nameOfInstitute,
-      required String majorSubject,
-      required String yearOFEnroll,
-      required String yearOfCpmpletion,
-      required String monthOfEnroll,
-      required String monthOfCompletion,
-      required List<String> majorSubjectList,
-      required List<String> listOfYear,
-      required List<String> listOfYearWithRunning,
-      required bool isSubmitting,
-      required bool hasSetInitialData,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
-    return _UpdateAcademicInfoActorState(
-      key: key,
-      nameOfInstitute: nameOfInstitute,
-      majorSubject: majorSubject,
-      yearOFEnroll: yearOFEnroll,
-      yearOfCpmpletion: yearOfCpmpletion,
-      monthOfEnroll: monthOfEnroll,
-      monthOfCompletion: monthOfCompletion,
-      majorSubjectList: majorSubjectList,
-      listOfYear: listOfYear,
-      listOfYearWithRunning: listOfYearWithRunning,
-      isSubmitting: isSubmitting,
-      hasSetInitialData: hasSetInitialData,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $UpdateAcademicInfoActorState = _$UpdateAcademicInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdateAcademicInfoActorState {
@@ -1402,7 +1608,9 @@ abstract class $UpdateAcademicInfoActorStateCopyWith<$Res> {
   factory $UpdateAcademicInfoActorStateCopyWith(
           UpdateAcademicInfoActorState value,
           $Res Function(UpdateAcademicInfoActorState) then) =
-      _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>;
+      _$UpdateAcademicInfoActorStateCopyWithImpl<$Res,
+          UpdateAcademicInfoActorState>;
+  @useResult
   $Res call(
       {Key? key,
       String nameOfInstitute,
@@ -1420,95 +1628,99 @@ abstract class $UpdateAcademicInfoActorStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
+class _$UpdateAcademicInfoActorStateCopyWithImpl<$Res,
+        $Val extends UpdateAcademicInfoActorState>
     implements $UpdateAcademicInfoActorStateCopyWith<$Res> {
   _$UpdateAcademicInfoActorStateCopyWithImpl(this._value, this._then);
 
-  final UpdateAcademicInfoActorState _value;
   // ignore: unused_field
-  final $Res Function(UpdateAcademicInfoActorState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? nameOfInstitute = freezed,
-    Object? majorSubject = freezed,
-    Object? yearOFEnroll = freezed,
-    Object? yearOfCpmpletion = freezed,
-    Object? monthOfEnroll = freezed,
-    Object? monthOfCompletion = freezed,
-    Object? majorSubjectList = freezed,
-    Object? listOfYear = freezed,
-    Object? listOfYearWithRunning = freezed,
-    Object? isSubmitting = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? nameOfInstitute = null,
+    Object? majorSubject = null,
+    Object? yearOFEnroll = null,
+    Object? yearOfCpmpletion = null,
+    Object? monthOfEnroll = null,
+    Object? monthOfCompletion = null,
+    Object? majorSubjectList = null,
+    Object? listOfYear = null,
+    Object? listOfYearWithRunning = null,
+    Object? isSubmitting = null,
+    Object? hasSetInitialData = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      nameOfInstitute: nameOfInstitute == freezed
+      nameOfInstitute: null == nameOfInstitute
           ? _value.nameOfInstitute
           : nameOfInstitute // ignore: cast_nullable_to_non_nullable
               as String,
-      majorSubject: majorSubject == freezed
+      majorSubject: null == majorSubject
           ? _value.majorSubject
           : majorSubject // ignore: cast_nullable_to_non_nullable
               as String,
-      yearOFEnroll: yearOFEnroll == freezed
+      yearOFEnroll: null == yearOFEnroll
           ? _value.yearOFEnroll
           : yearOFEnroll // ignore: cast_nullable_to_non_nullable
               as String,
-      yearOfCpmpletion: yearOfCpmpletion == freezed
+      yearOfCpmpletion: null == yearOfCpmpletion
           ? _value.yearOfCpmpletion
           : yearOfCpmpletion // ignore: cast_nullable_to_non_nullable
               as String,
-      monthOfEnroll: monthOfEnroll == freezed
+      monthOfEnroll: null == monthOfEnroll
           ? _value.monthOfEnroll
           : monthOfEnroll // ignore: cast_nullable_to_non_nullable
               as String,
-      monthOfCompletion: monthOfCompletion == freezed
+      monthOfCompletion: null == monthOfCompletion
           ? _value.monthOfCompletion
           : monthOfCompletion // ignore: cast_nullable_to_non_nullable
               as String,
-      majorSubjectList: majorSubjectList == freezed
+      majorSubjectList: null == majorSubjectList
           ? _value.majorSubjectList
           : majorSubjectList // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYear: listOfYear == freezed
+      listOfYear: null == listOfYear
           ? _value.listOfYear
           : listOfYear // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYearWithRunning: listOfYearWithRunning == freezed
+      listOfYearWithRunning: null == listOfYearWithRunning
           ? _value.listOfYearWithRunning
           : listOfYearWithRunning // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$UpdateAcademicInfoActorStateCopyWith<$Res>
+abstract class _$$_UpdateAcademicInfoActorStateCopyWith<$Res>
     implements $UpdateAcademicInfoActorStateCopyWith<$Res> {
-  factory _$UpdateAcademicInfoActorStateCopyWith(
-          _UpdateAcademicInfoActorState value,
-          $Res Function(_UpdateAcademicInfoActorState) then) =
-      __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>;
+  factory _$$_UpdateAcademicInfoActorStateCopyWith(
+          _$_UpdateAcademicInfoActorState value,
+          $Res Function(_$_UpdateAcademicInfoActorState) then) =
+      __$$_UpdateAcademicInfoActorStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key? key,
       String nameOfInstitute,
@@ -1526,84 +1738,82 @@ abstract class _$UpdateAcademicInfoActorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
-    extends _$UpdateAcademicInfoActorStateCopyWithImpl<$Res>
-    implements _$UpdateAcademicInfoActorStateCopyWith<$Res> {
-  __$UpdateAcademicInfoActorStateCopyWithImpl(
-      _UpdateAcademicInfoActorState _value,
-      $Res Function(_UpdateAcademicInfoActorState) _then)
-      : super(_value, (v) => _then(v as _UpdateAcademicInfoActorState));
+class __$$_UpdateAcademicInfoActorStateCopyWithImpl<$Res>
+    extends _$UpdateAcademicInfoActorStateCopyWithImpl<$Res,
+        _$_UpdateAcademicInfoActorState>
+    implements _$$_UpdateAcademicInfoActorStateCopyWith<$Res> {
+  __$$_UpdateAcademicInfoActorStateCopyWithImpl(
+      _$_UpdateAcademicInfoActorState _value,
+      $Res Function(_$_UpdateAcademicInfoActorState) _then)
+      : super(_value, _then);
 
-  @override
-  _UpdateAcademicInfoActorState get _value =>
-      super._value as _UpdateAcademicInfoActorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? nameOfInstitute = freezed,
-    Object? majorSubject = freezed,
-    Object? yearOFEnroll = freezed,
-    Object? yearOfCpmpletion = freezed,
-    Object? monthOfEnroll = freezed,
-    Object? monthOfCompletion = freezed,
-    Object? majorSubjectList = freezed,
-    Object? listOfYear = freezed,
-    Object? listOfYearWithRunning = freezed,
-    Object? isSubmitting = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? nameOfInstitute = null,
+    Object? majorSubject = null,
+    Object? yearOFEnroll = null,
+    Object? yearOfCpmpletion = null,
+    Object? monthOfEnroll = null,
+    Object? monthOfCompletion = null,
+    Object? majorSubjectList = null,
+    Object? listOfYear = null,
+    Object? listOfYearWithRunning = null,
+    Object? isSubmitting = null,
+    Object? hasSetInitialData = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_UpdateAcademicInfoActorState(
-      key: key == freezed
+    return _then(_$_UpdateAcademicInfoActorState(
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      nameOfInstitute: nameOfInstitute == freezed
+      nameOfInstitute: null == nameOfInstitute
           ? _value.nameOfInstitute
           : nameOfInstitute // ignore: cast_nullable_to_non_nullable
               as String,
-      majorSubject: majorSubject == freezed
+      majorSubject: null == majorSubject
           ? _value.majorSubject
           : majorSubject // ignore: cast_nullable_to_non_nullable
               as String,
-      yearOFEnroll: yearOFEnroll == freezed
+      yearOFEnroll: null == yearOFEnroll
           ? _value.yearOFEnroll
           : yearOFEnroll // ignore: cast_nullable_to_non_nullable
               as String,
-      yearOfCpmpletion: yearOfCpmpletion == freezed
+      yearOfCpmpletion: null == yearOfCpmpletion
           ? _value.yearOfCpmpletion
           : yearOfCpmpletion // ignore: cast_nullable_to_non_nullable
               as String,
-      monthOfEnroll: monthOfEnroll == freezed
+      monthOfEnroll: null == monthOfEnroll
           ? _value.monthOfEnroll
           : monthOfEnroll // ignore: cast_nullable_to_non_nullable
               as String,
-      monthOfCompletion: monthOfCompletion == freezed
+      monthOfCompletion: null == monthOfCompletion
           ? _value.monthOfCompletion
           : monthOfCompletion // ignore: cast_nullable_to_non_nullable
               as String,
-      majorSubjectList: majorSubjectList == freezed
-          ? _value.majorSubjectList
+      majorSubjectList: null == majorSubjectList
+          ? _value._majorSubjectList
           : majorSubjectList // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYear: listOfYear == freezed
-          ? _value.listOfYear
+      listOfYear: null == listOfYear
+          ? _value._listOfYear
           : listOfYear // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYearWithRunning: listOfYearWithRunning == freezed
-          ? _value.listOfYearWithRunning
+      listOfYearWithRunning: null == listOfYearWithRunning
+          ? _value._listOfYearWithRunning
           : listOfYearWithRunning // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -1622,12 +1832,15 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
       required this.yearOfCpmpletion,
       required this.monthOfEnroll,
       required this.monthOfCompletion,
-      required this.majorSubjectList,
-      required this.listOfYear,
-      required this.listOfYearWithRunning,
+      required final List<String> majorSubjectList,
+      required final List<String> listOfYear,
+      required final List<String> listOfYearWithRunning,
       required this.isSubmitting,
       required this.hasSetInitialData,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : _majorSubjectList = majorSubjectList,
+        _listOfYear = listOfYear,
+        _listOfYearWithRunning = listOfYearWithRunning;
 
   @override
   final Key? key;
@@ -1643,12 +1856,32 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
   final String monthOfEnroll;
   @override
   final String monthOfCompletion;
+  final List<String> _majorSubjectList;
   @override
-  final List<String> majorSubjectList;
+  List<String> get majorSubjectList {
+    if (_majorSubjectList is EqualUnmodifiableListView)
+      return _majorSubjectList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_majorSubjectList);
+  }
+
+  final List<String> _listOfYear;
   @override
-  final List<String> listOfYear;
+  List<String> get listOfYear {
+    if (_listOfYear is EqualUnmodifiableListView) return _listOfYear;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfYear);
+  }
+
+  final List<String> _listOfYearWithRunning;
   @override
-  final List<String> listOfYearWithRunning;
+  List<String> get listOfYearWithRunning {
+    if (_listOfYearWithRunning is EqualUnmodifiableListView)
+      return _listOfYearWithRunning;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfYearWithRunning);
+  }
+
   @override
   final bool isSubmitting;
   @override
@@ -1664,118 +1897,106 @@ class _$_UpdateAcademicInfoActorState implements _UpdateAcademicInfoActorState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateAcademicInfoActorState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateAcademicInfoActorState &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.nameOfInstitute, nameOfInstitute) ||
-                const DeepCollectionEquality()
-                    .equals(other.nameOfInstitute, nameOfInstitute)) &&
+                other.nameOfInstitute == nameOfInstitute) &&
             (identical(other.majorSubject, majorSubject) ||
-                const DeepCollectionEquality()
-                    .equals(other.majorSubject, majorSubject)) &&
+                other.majorSubject == majorSubject) &&
             (identical(other.yearOFEnroll, yearOFEnroll) ||
-                const DeepCollectionEquality()
-                    .equals(other.yearOFEnroll, yearOFEnroll)) &&
+                other.yearOFEnroll == yearOFEnroll) &&
             (identical(other.yearOfCpmpletion, yearOfCpmpletion) ||
-                const DeepCollectionEquality()
-                    .equals(other.yearOfCpmpletion, yearOfCpmpletion)) &&
+                other.yearOfCpmpletion == yearOfCpmpletion) &&
             (identical(other.monthOfEnroll, monthOfEnroll) ||
-                const DeepCollectionEquality()
-                    .equals(other.monthOfEnroll, monthOfEnroll)) &&
+                other.monthOfEnroll == monthOfEnroll) &&
             (identical(other.monthOfCompletion, monthOfCompletion) ||
-                const DeepCollectionEquality()
-                    .equals(other.monthOfCompletion, monthOfCompletion)) &&
-            (identical(other.majorSubjectList, majorSubjectList) ||
-                const DeepCollectionEquality()
-                    .equals(other.majorSubjectList, majorSubjectList)) &&
-            (identical(other.listOfYear, listOfYear) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfYear, listOfYear)) &&
-            (identical(other.listOfYearWithRunning, listOfYearWithRunning) ||
-                const DeepCollectionEquality().equals(
-                    other.listOfYearWithRunning, listOfYearWithRunning)) &&
+                other.monthOfCompletion == monthOfCompletion) &&
+            const DeepCollectionEquality()
+                .equals(other._majorSubjectList, _majorSubjectList) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfYear, _listOfYear) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfYearWithRunning, _listOfYearWithRunning) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
+                other.isSubmitting == isSubmitting) &&
             (identical(other.hasSetInitialData, hasSetInitialData) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
+                other.hasSetInitialData == hasSetInitialData) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(nameOfInstitute) ^
-      const DeepCollectionEquality().hash(majorSubject) ^
-      const DeepCollectionEquality().hash(yearOFEnroll) ^
-      const DeepCollectionEquality().hash(yearOfCpmpletion) ^
-      const DeepCollectionEquality().hash(monthOfEnroll) ^
-      const DeepCollectionEquality().hash(monthOfCompletion) ^
-      const DeepCollectionEquality().hash(majorSubjectList) ^
-      const DeepCollectionEquality().hash(listOfYear) ^
-      const DeepCollectionEquality().hash(listOfYearWithRunning) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(hasSetInitialData) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      key,
+      nameOfInstitute,
+      majorSubject,
+      yearOFEnroll,
+      yearOfCpmpletion,
+      monthOfEnroll,
+      monthOfCompletion,
+      const DeepCollectionEquality().hash(_majorSubjectList),
+      const DeepCollectionEquality().hash(_listOfYear),
+      const DeepCollectionEquality().hash(_listOfYearWithRunning),
+      isSubmitting,
+      hasSetInitialData,
+      failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateAcademicInfoActorStateCopyWith<_UpdateAcademicInfoActorState>
-      get copyWith => __$UpdateAcademicInfoActorStateCopyWithImpl<
-          _UpdateAcademicInfoActorState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_UpdateAcademicInfoActorStateCopyWith<_$_UpdateAcademicInfoActorState>
+      get copyWith => __$$_UpdateAcademicInfoActorStateCopyWithImpl<
+          _$_UpdateAcademicInfoActorState>(this, _$identity);
 }
 
 abstract class _UpdateAcademicInfoActorState
     implements UpdateAcademicInfoActorState {
   const factory _UpdateAcademicInfoActorState(
-          {required Key? key,
-          required String nameOfInstitute,
-          required String majorSubject,
-          required String yearOFEnroll,
-          required String yearOfCpmpletion,
-          required String monthOfEnroll,
-          required String monthOfCompletion,
-          required List<String> majorSubjectList,
-          required List<String> listOfYear,
-          required List<String> listOfYearWithRunning,
-          required bool isSubmitting,
-          required bool hasSetInitialData,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
-      _$_UpdateAcademicInfoActorState;
+      {required final Key? key,
+      required final String nameOfInstitute,
+      required final String majorSubject,
+      required final String yearOFEnroll,
+      required final String yearOfCpmpletion,
+      required final String monthOfEnroll,
+      required final String monthOfCompletion,
+      required final List<String> majorSubjectList,
+      required final List<String> listOfYear,
+      required final List<String> listOfYearWithRunning,
+      required final bool isSubmitting,
+      required final bool hasSetInitialData,
+      required final Option<Either<ApiFailure, Unit>>
+          failureOrSuccessOption}) = _$_UpdateAcademicInfoActorState;
 
   @override
-  Key? get key => throw _privateConstructorUsedError;
+  Key? get key;
   @override
-  String get nameOfInstitute => throw _privateConstructorUsedError;
+  String get nameOfInstitute;
   @override
-  String get majorSubject => throw _privateConstructorUsedError;
+  String get majorSubject;
   @override
-  String get yearOFEnroll => throw _privateConstructorUsedError;
+  String get yearOFEnroll;
   @override
-  String get yearOfCpmpletion => throw _privateConstructorUsedError;
+  String get yearOfCpmpletion;
   @override
-  String get monthOfEnroll => throw _privateConstructorUsedError;
+  String get monthOfEnroll;
   @override
-  String get monthOfCompletion => throw _privateConstructorUsedError;
+  String get monthOfCompletion;
   @override
-  List<String> get majorSubjectList => throw _privateConstructorUsedError;
+  List<String> get majorSubjectList;
   @override
-  List<String> get listOfYear => throw _privateConstructorUsedError;
+  List<String> get listOfYear;
   @override
-  List<String> get listOfYearWithRunning => throw _privateConstructorUsedError;
+  List<String> get listOfYearWithRunning;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  bool get hasSetInitialData => throw _privateConstructorUsedError;
+  bool get hasSetInitialData;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$UpdateAcademicInfoActorStateCopyWith<_UpdateAcademicInfoActorState>
+  _$$_UpdateAcademicInfoActorStateCopyWith<_$_UpdateAcademicInfoActorState>
       get copyWith => throw _privateConstructorUsedError;
 }

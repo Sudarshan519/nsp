@@ -7,9 +7,10 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:provider/provider.dart';
-
+import 'package:auto_route/auto_route.dart';
+@RoutePage() 
 class AboutUsPage extends StatelessWidget {
-  const AboutUsPage({Key? key}) : super(key: key);
+  const AboutUsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

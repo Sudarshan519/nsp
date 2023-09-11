@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'location_via_postal_code_bloc.dart';
 
@@ -10,25 +12,7 @@ part of 'location_via_postal_code_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$LocationViaPostalCodeEventTearOff {
-  const _$LocationViaPostalCodeEventTearOff();
-
-  _Fetch fetch(String postalCode) {
-    return _Fetch(
-      postalCode,
-    );
-  }
-
-  _SetStateToInitial setStateToInitial() {
-    return const _SetStateToInitial();
-  }
-}
-
-/// @nodoc
-const $LocationViaPostalCodeEvent = _$LocationViaPostalCodeEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$LocationViaPostalCodeEvent {
@@ -36,6 +20,12 @@ mixin _$LocationViaPostalCodeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String postalCode) fetch,
     required TResult Function() setStateToInitial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postalCode)? fetch,
+    TResult? Function()? setStateToInitial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +42,12 @@ mixin _$LocationViaPostalCodeEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SetStateToInitial value)? setStateToInitial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_SetStateToInitial value)? setStateToInitial,
@@ -64,42 +60,44 @@ mixin _$LocationViaPostalCodeEvent {
 abstract class $LocationViaPostalCodeEventCopyWith<$Res> {
   factory $LocationViaPostalCodeEventCopyWith(LocationViaPostalCodeEvent value,
           $Res Function(LocationViaPostalCodeEvent) then) =
-      _$LocationViaPostalCodeEventCopyWithImpl<$Res>;
+      _$LocationViaPostalCodeEventCopyWithImpl<$Res,
+          LocationViaPostalCodeEvent>;
 }
 
 /// @nodoc
-class _$LocationViaPostalCodeEventCopyWithImpl<$Res>
+class _$LocationViaPostalCodeEventCopyWithImpl<$Res,
+        $Val extends LocationViaPostalCodeEvent>
     implements $LocationViaPostalCodeEventCopyWith<$Res> {
   _$LocationViaPostalCodeEventCopyWithImpl(this._value, this._then);
 
-  final LocationViaPostalCodeEvent _value;
   // ignore: unused_field
-  final $Res Function(LocationViaPostalCodeEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$FetchCopyWith<$Res> {
-  factory _$FetchCopyWith(_Fetch value, $Res Function(_Fetch) then) =
-      __$FetchCopyWithImpl<$Res>;
+abstract class _$$_FetchCopyWith<$Res> {
+  factory _$$_FetchCopyWith(_$_Fetch value, $Res Function(_$_Fetch) then) =
+      __$$_FetchCopyWithImpl<$Res>;
+  @useResult
   $Res call({String postalCode});
 }
 
 /// @nodoc
-class __$FetchCopyWithImpl<$Res>
-    extends _$LocationViaPostalCodeEventCopyWithImpl<$Res>
-    implements _$FetchCopyWith<$Res> {
-  __$FetchCopyWithImpl(_Fetch _value, $Res Function(_Fetch) _then)
-      : super(_value, (v) => _then(v as _Fetch));
+class __$$_FetchCopyWithImpl<$Res>
+    extends _$LocationViaPostalCodeEventCopyWithImpl<$Res, _$_Fetch>
+    implements _$$_FetchCopyWith<$Res> {
+  __$$_FetchCopyWithImpl(_$_Fetch _value, $Res Function(_$_Fetch) _then)
+      : super(_value, _then);
 
-  @override
-  _Fetch get _value => super._value as _Fetch;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postalCode = freezed,
+    Object? postalCode = null,
   }) {
-    return _then(_Fetch(
-      postalCode == freezed
+    return _then(_$_Fetch(
+      null == postalCode
           ? _value.postalCode
           : postalCode // ignore: cast_nullable_to_non_nullable
               as String,
@@ -123,20 +121,20 @@ class _$_Fetch implements _Fetch {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Fetch &&
+        (other.runtimeType == runtimeType &&
+            other is _$_Fetch &&
             (identical(other.postalCode, postalCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.postalCode, postalCode)));
+                other.postalCode == postalCode));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(postalCode);
+  int get hashCode => Object.hash(runtimeType, postalCode);
 
   @JsonKey(ignore: true)
   @override
-  _$FetchCopyWith<_Fetch> get copyWith =>
-      __$FetchCopyWithImpl<_Fetch>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FetchCopyWith<_$_Fetch> get copyWith =>
+      __$$_FetchCopyWithImpl<_$_Fetch>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -145,6 +143,15 @@ class _$_Fetch implements _Fetch {
     required TResult Function() setStateToInitial,
   }) {
     return fetch(postalCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postalCode)? fetch,
+    TResult? Function()? setStateToInitial,
+  }) {
+    return fetch?.call(postalCode);
   }
 
   @override
@@ -171,6 +178,15 @@ class _$_Fetch implements _Fetch {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SetStateToInitial value)? setStateToInitial,
+  }) {
+    return fetch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_SetStateToInitial value)? setStateToInitial,
@@ -184,30 +200,28 @@ class _$_Fetch implements _Fetch {
 }
 
 abstract class _Fetch implements LocationViaPostalCodeEvent {
-  const factory _Fetch(String postalCode) = _$_Fetch;
+  const factory _Fetch(final String postalCode) = _$_Fetch;
 
-  String get postalCode => throw _privateConstructorUsedError;
+  String get postalCode;
   @JsonKey(ignore: true)
-  _$FetchCopyWith<_Fetch> get copyWith => throw _privateConstructorUsedError;
+  _$$_FetchCopyWith<_$_Fetch> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetStateToInitialCopyWith<$Res> {
-  factory _$SetStateToInitialCopyWith(
-          _SetStateToInitial value, $Res Function(_SetStateToInitial) then) =
-      __$SetStateToInitialCopyWithImpl<$Res>;
+abstract class _$$_SetStateToInitialCopyWith<$Res> {
+  factory _$$_SetStateToInitialCopyWith(_$_SetStateToInitial value,
+          $Res Function(_$_SetStateToInitial) then) =
+      __$$_SetStateToInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SetStateToInitialCopyWithImpl<$Res>
-    extends _$LocationViaPostalCodeEventCopyWithImpl<$Res>
-    implements _$SetStateToInitialCopyWith<$Res> {
-  __$SetStateToInitialCopyWithImpl(
-      _SetStateToInitial _value, $Res Function(_SetStateToInitial) _then)
-      : super(_value, (v) => _then(v as _SetStateToInitial));
-
-  @override
-  _SetStateToInitial get _value => super._value as _SetStateToInitial;
+class __$$_SetStateToInitialCopyWithImpl<$Res>
+    extends _$LocationViaPostalCodeEventCopyWithImpl<$Res, _$_SetStateToInitial>
+    implements _$$_SetStateToInitialCopyWith<$Res> {
+  __$$_SetStateToInitialCopyWithImpl(
+      _$_SetStateToInitial _value, $Res Function(_$_SetStateToInitial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -222,7 +236,8 @@ class _$_SetStateToInitial implements _SetStateToInitial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SetStateToInitial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SetStateToInitial);
   }
 
   @override
@@ -235,6 +250,15 @@ class _$_SetStateToInitial implements _SetStateToInitial {
     required TResult Function() setStateToInitial,
   }) {
     return setStateToInitial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String postalCode)? fetch,
+    TResult? Function()? setStateToInitial,
+  }) {
+    return setStateToInitial?.call();
   }
 
   @override
@@ -261,6 +285,15 @@ class _$_SetStateToInitial implements _SetStateToInitial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SetStateToInitial value)? setStateToInitial,
+  }) {
+    return setStateToInitial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_SetStateToInitial value)? setStateToInitial,
@@ -278,34 +311,6 @@ abstract class _SetStateToInitial implements LocationViaPostalCodeEvent {
 }
 
 /// @nodoc
-class _$LocationViaPostalCodeStateTearOff {
-  const _$LocationViaPostalCodeStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Success success(List<PrefectureAndCityFromPostalCode> data) {
-    return _Success(
-      data,
-    );
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
-    );
-  }
-}
-
-/// @nodoc
-const $LocationViaPostalCodeState = _$LocationViaPostalCodeStateTearOff();
-
-/// @nodoc
 mixin _$LocationViaPostalCodeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -314,6 +319,14 @@ mixin _$LocationViaPostalCodeState {
         success,
     required TResult Function() loading,
     required TResult Function(ApiFailure failure) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<PrefectureAndCityFromPostalCode> data)? success,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -334,6 +347,14 @@ mixin _$LocationViaPostalCodeState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
@@ -348,34 +369,35 @@ mixin _$LocationViaPostalCodeState {
 abstract class $LocationViaPostalCodeStateCopyWith<$Res> {
   factory $LocationViaPostalCodeStateCopyWith(LocationViaPostalCodeState value,
           $Res Function(LocationViaPostalCodeState) then) =
-      _$LocationViaPostalCodeStateCopyWithImpl<$Res>;
+      _$LocationViaPostalCodeStateCopyWithImpl<$Res,
+          LocationViaPostalCodeState>;
 }
 
 /// @nodoc
-class _$LocationViaPostalCodeStateCopyWithImpl<$Res>
+class _$LocationViaPostalCodeStateCopyWithImpl<$Res,
+        $Val extends LocationViaPostalCodeState>
     implements $LocationViaPostalCodeStateCopyWith<$Res> {
   _$LocationViaPostalCodeStateCopyWithImpl(this._value, this._then);
 
-  final LocationViaPostalCodeState _value;
   // ignore: unused_field
-  final $Res Function(LocationViaPostalCodeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$LocationViaPostalCodeStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$LocationViaPostalCodeStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -390,7 +412,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -406,6 +429,17 @@ class _$_Initial implements _Initial {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<PrefectureAndCityFromPostalCode> data)? success,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -436,6 +470,17 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
@@ -455,29 +500,29 @@ abstract class _Initial implements LocationViaPostalCodeState {
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<PrefectureAndCityFromPostalCode> data});
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res>
-    extends _$LocationViaPostalCodeStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$LocationViaPostalCodeStateCopyWithImpl<$Res, _$_Success>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, _then);
 
-  @override
-  _Success get _value => super._value as _Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
-    return _then(_Success(
-      data == freezed
-          ? _value.data
+    return _then(_$_Success(
+      null == data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<PrefectureAndCityFromPostalCode>,
     ));
@@ -487,10 +532,16 @@ class __$SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(this.data);
+  const _$_Success(final List<PrefectureAndCityFromPostalCode> data)
+      : _data = data;
 
+  final List<PrefectureAndCityFromPostalCode> _data;
   @override
-  final List<PrefectureAndCityFromPostalCode> data;
+  List<PrefectureAndCityFromPostalCode> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
 
   @override
   String toString() {
@@ -500,19 +551,20 @@ class _$_Success implements _Success {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Success &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Success &&
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessCopyWith<_Success> get copyWith =>
-      __$SuccessCopyWithImpl<_Success>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -524,6 +576,17 @@ class _$_Success implements _Success {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return success(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<PrefectureAndCityFromPostalCode> data)? success,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return success?.call(data);
   }
 
   @override
@@ -554,6 +617,17 @@ class _$_Success implements _Success {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
@@ -569,31 +643,28 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements LocationViaPostalCodeState {
-  const factory _Success(List<PrefectureAndCityFromPostalCode> data) =
+  const factory _Success(final List<PrefectureAndCityFromPostalCode> data) =
       _$_Success;
 
-  List<PrefectureAndCityFromPostalCode> get data =>
-      throw _privateConstructorUsedError;
+  List<PrefectureAndCityFromPostalCode> get data;
   @JsonKey(ignore: true)
-  _$SuccessCopyWith<_Success> get copyWith =>
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res>
-    extends _$LocationViaPostalCodeStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$LocationViaPostalCodeStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -608,7 +679,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -624,6 +696,17 @@ class _$_Loading implements _Loading {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<PrefectureAndCityFromPostalCode> data)? success,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -654,6 +737,17 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
@@ -673,30 +767,30 @@ abstract class _Loading implements LocationViaPostalCodeState {
 }
 
 /// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
+abstract class _$$_FailureCopyWith<$Res> {
+  factory _$$_FailureCopyWith(
+          _$_Failure value, $Res Function(_$_Failure) then) =
+      __$$_FailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res>
-    extends _$LocationViaPostalCodeStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$LocationViaPostalCodeStateCopyWithImpl<$Res, _$_Failure>
+    implements _$$_FailureCopyWith<$Res> {
+  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+      : super(_value, _then);
 
-  @override
-  _Failure get _value => super._value as _Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_Failure(
-      failure == freezed
+    return _then(_$_Failure(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -704,6 +798,7 @@ class __$FailureCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -727,19 +822,19 @@ class _$_Failure implements _Failure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Failure &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -751,6 +846,17 @@ class _$_Failure implements _Failure {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<PrefectureAndCityFromPostalCode> data)? success,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return failure?.call(this.failure);
   }
 
   @override
@@ -781,6 +887,17 @@ class _$_Failure implements _Failure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
@@ -796,10 +913,10 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements LocationViaPostalCodeState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const factory _Failure(final ApiFailure failure) = _$_Failure;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }

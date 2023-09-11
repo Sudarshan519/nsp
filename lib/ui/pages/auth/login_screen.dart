@@ -15,7 +15,7 @@ import 'package:wallet_app/utils/constant.dart';
 
 import 'widgets/login_form.dart';
 import 'widgets/social_login_widget.dart';
-
+@RoutePage()
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

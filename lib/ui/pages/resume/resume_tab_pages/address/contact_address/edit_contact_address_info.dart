@@ -19,7 +19,7 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_do
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/ui/widgets/masked_input_text_field.dart';
-
+@RoutePage()
 class EditContactAddressInfoFormPage extends StatelessWidget {
   static String language = "";
   final PersonalInfo info;

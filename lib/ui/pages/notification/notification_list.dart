@@ -9,7 +9,8 @@ import 'package:wallet_app/ui/widgets/colors.dart';
 import 'package:wallet_app/ui/widgets/loading_widget.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/time_ago/time_ago.dart' as date_time;
-
+import 'package:auto_route/auto_route.dart';
+@RoutePage()
 class NotificationListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

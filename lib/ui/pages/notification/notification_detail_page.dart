@@ -1,4 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
@@ -9,13 +10,15 @@ import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 
+@RoutePage()
 //ignore: must_be_immutable
+
 class NotificationDetailPage extends StatelessWidget {
   final NotificationItem notification;
 
   ///override on more detal pressed function
-  Function? onMoreDetailPressed;
-  NotificationDetailPage({
+  final Function? onMoreDetailPressed;
+  const NotificationDetailPage({
     Key? key,
     required this.notification,
     this.onMoreDetailPressed,

@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'subscription_for_partner_service_bloc.dart';
 
@@ -10,59 +12,7 @@ part of 'subscription_for_partner_service_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SubscriptionForPartnerServiceEventTearOff {
-  const _$SubscriptionForPartnerServiceEventTearOff();
-
-  _GetSubscription getSubscription({required String subscriptionId}) {
-    return _GetSubscription(
-      subscriptionId: subscriptionId,
-    );
-  }
-
-  _SelectSubscription selectSubscription(
-      {required SubscriptionInvoice invoice}) {
-    return _SelectSubscription(
-      invoice: invoice,
-    );
-  }
-
-  _SelectAllSubscription selectAllSubscription(bool selectAll) {
-    return _SelectAllSubscription(
-      selectAll,
-    );
-  }
-
-  _PurchaseSubscription purchaseSubscription(int productId) {
-    return _PurchaseSubscription(
-      productId,
-    );
-  }
-
-  _SetCoupon setCoupon(CouponCode? coupounCode) {
-    return _SetCoupon(
-      coupounCode,
-    );
-  }
-
-  _SetInitialCashback setInitialCashback(double initCashback) {
-    return _SetInitialCashback(
-      initCashback,
-    );
-  }
-
-  _setInitialRewardPoint setInitialRewardPoint(double initReward) {
-    return _setInitialRewardPoint(
-      initReward,
-    );
-  }
-}
-
-/// @nodoc
-const $SubscriptionForPartnerServiceEvent =
-    _$SubscriptionForPartnerServiceEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SubscriptionForPartnerServiceEvent {
@@ -75,6 +25,17 @@ mixin _$SubscriptionForPartnerServiceEvent {
     required TResult Function(CouponCode? coupounCode) setCoupon,
     required TResult Function(double initCashback) setInitialCashback,
     required TResult Function(double initReward) setInitialRewardPoint,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String subscriptionId)? getSubscription,
+    TResult? Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult? Function(bool selectAll)? selectAllSubscription,
+    TResult? Function(int productId)? purchaseSubscription,
+    TResult? Function(CouponCode? coupounCode)? setCoupon,
+    TResult? Function(double initCashback)? setInitialCashback,
+    TResult? Function(double initReward)? setInitialRewardPoint,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -103,6 +64,17 @@ mixin _$SubscriptionForPartnerServiceEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSubscription value)? getSubscription,
+    TResult? Function(_SelectSubscription value)? selectSubscription,
+    TResult? Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult? Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult? Function(_SetCoupon value)? setCoupon,
+    TResult? Function(_SetInitialCashback value)? setInitialCashback,
+    TResult? Function(_setInitialRewardPoint value)? setInitialRewardPoint,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
     TResult Function(_SelectSubscription value)? selectSubscription,
@@ -121,44 +93,46 @@ abstract class $SubscriptionForPartnerServiceEventCopyWith<$Res> {
   factory $SubscriptionForPartnerServiceEventCopyWith(
           SubscriptionForPartnerServiceEvent value,
           $Res Function(SubscriptionForPartnerServiceEvent) then) =
-      _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>;
+      _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res,
+          SubscriptionForPartnerServiceEvent>;
 }
 
 /// @nodoc
-class _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
+class _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res,
+        $Val extends SubscriptionForPartnerServiceEvent>
     implements $SubscriptionForPartnerServiceEventCopyWith<$Res> {
   _$SubscriptionForPartnerServiceEventCopyWithImpl(this._value, this._then);
 
-  final SubscriptionForPartnerServiceEvent _value;
   // ignore: unused_field
-  final $Res Function(SubscriptionForPartnerServiceEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$GetSubscriptionCopyWith<$Res> {
-  factory _$GetSubscriptionCopyWith(
-          _GetSubscription value, $Res Function(_GetSubscription) then) =
-      __$GetSubscriptionCopyWithImpl<$Res>;
+abstract class _$$_GetSubscriptionCopyWith<$Res> {
+  factory _$$_GetSubscriptionCopyWith(
+          _$_GetSubscription value, $Res Function(_$_GetSubscription) then) =
+      __$$_GetSubscriptionCopyWithImpl<$Res>;
+  @useResult
   $Res call({String subscriptionId});
 }
 
 /// @nodoc
-class __$GetSubscriptionCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
-    implements _$GetSubscriptionCopyWith<$Res> {
-  __$GetSubscriptionCopyWithImpl(
-      _GetSubscription _value, $Res Function(_GetSubscription) _then)
-      : super(_value, (v) => _then(v as _GetSubscription));
+class __$$_GetSubscriptionCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res,
+        _$_GetSubscription> implements _$$_GetSubscriptionCopyWith<$Res> {
+  __$$_GetSubscriptionCopyWithImpl(
+      _$_GetSubscription _value, $Res Function(_$_GetSubscription) _then)
+      : super(_value, _then);
 
-  @override
-  _GetSubscription get _value => super._value as _GetSubscription;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? subscriptionId = freezed,
+    Object? subscriptionId = null,
   }) {
-    return _then(_GetSubscription(
-      subscriptionId: subscriptionId == freezed
+    return _then(_$_GetSubscription(
+      subscriptionId: null == subscriptionId
           ? _value.subscriptionId
           : subscriptionId // ignore: cast_nullable_to_non_nullable
               as String,
@@ -182,21 +156,20 @@ class _$_GetSubscription implements _GetSubscription {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _GetSubscription &&
+        (other.runtimeType == runtimeType &&
+            other is _$_GetSubscription &&
             (identical(other.subscriptionId, subscriptionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.subscriptionId, subscriptionId)));
+                other.subscriptionId == subscriptionId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(subscriptionId);
+  int get hashCode => Object.hash(runtimeType, subscriptionId);
 
   @JsonKey(ignore: true)
   @override
-  _$GetSubscriptionCopyWith<_GetSubscription> get copyWith =>
-      __$GetSubscriptionCopyWithImpl<_GetSubscription>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_GetSubscriptionCopyWith<_$_GetSubscription> get copyWith =>
+      __$$_GetSubscriptionCopyWithImpl<_$_GetSubscription>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -210,6 +183,20 @@ class _$_GetSubscription implements _GetSubscription {
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return getSubscription(subscriptionId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String subscriptionId)? getSubscription,
+    TResult? Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult? Function(bool selectAll)? selectAllSubscription,
+    TResult? Function(int productId)? purchaseSubscription,
+    TResult? Function(CouponCode? coupounCode)? setCoupon,
+    TResult? Function(double initCashback)? setInitialCashback,
+    TResult? Function(double initReward)? setInitialRewardPoint,
+  }) {
+    return getSubscription?.call(subscriptionId);
   }
 
   @override
@@ -248,6 +235,20 @@ class _$_GetSubscription implements _GetSubscription {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSubscription value)? getSubscription,
+    TResult? Function(_SelectSubscription value)? selectSubscription,
+    TResult? Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult? Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult? Function(_SetCoupon value)? setCoupon,
+    TResult? Function(_SetInitialCashback value)? setInitialCashback,
+    TResult? Function(_setInitialRewardPoint value)? setInitialRewardPoint,
+  }) {
+    return getSubscription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
     TResult Function(_SelectSubscription value)? selectSubscription,
@@ -266,40 +267,39 @@ class _$_GetSubscription implements _GetSubscription {
 }
 
 abstract class _GetSubscription implements SubscriptionForPartnerServiceEvent {
-  const factory _GetSubscription({required String subscriptionId}) =
+  const factory _GetSubscription({required final String subscriptionId}) =
       _$_GetSubscription;
 
-  String get subscriptionId => throw _privateConstructorUsedError;
+  String get subscriptionId;
   @JsonKey(ignore: true)
-  _$GetSubscriptionCopyWith<_GetSubscription> get copyWith =>
+  _$$_GetSubscriptionCopyWith<_$_GetSubscription> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SelectSubscriptionCopyWith<$Res> {
-  factory _$SelectSubscriptionCopyWith(
-          _SelectSubscription value, $Res Function(_SelectSubscription) then) =
-      __$SelectSubscriptionCopyWithImpl<$Res>;
+abstract class _$$_SelectSubscriptionCopyWith<$Res> {
+  factory _$$_SelectSubscriptionCopyWith(_$_SelectSubscription value,
+          $Res Function(_$_SelectSubscription) then) =
+      __$$_SelectSubscriptionCopyWithImpl<$Res>;
+  @useResult
   $Res call({SubscriptionInvoice invoice});
 }
 
 /// @nodoc
-class __$SelectSubscriptionCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
-    implements _$SelectSubscriptionCopyWith<$Res> {
-  __$SelectSubscriptionCopyWithImpl(
-      _SelectSubscription _value, $Res Function(_SelectSubscription) _then)
-      : super(_value, (v) => _then(v as _SelectSubscription));
+class __$$_SelectSubscriptionCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res,
+        _$_SelectSubscription> implements _$$_SelectSubscriptionCopyWith<$Res> {
+  __$$_SelectSubscriptionCopyWithImpl(
+      _$_SelectSubscription _value, $Res Function(_$_SelectSubscription) _then)
+      : super(_value, _then);
 
-  @override
-  _SelectSubscription get _value => super._value as _SelectSubscription;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? invoice = freezed,
+    Object? invoice = null,
   }) {
-    return _then(_SelectSubscription(
-      invoice: invoice == freezed
+    return _then(_$_SelectSubscription(
+      invoice: null == invoice
           ? _value.invoice
           : invoice // ignore: cast_nullable_to_non_nullable
               as SubscriptionInvoice,
@@ -323,19 +323,20 @@ class _$_SelectSubscription implements _SelectSubscription {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SelectSubscription &&
-            (identical(other.invoice, invoice) ||
-                const DeepCollectionEquality().equals(other.invoice, invoice)));
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectSubscription &&
+            (identical(other.invoice, invoice) || other.invoice == invoice));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(invoice);
+  int get hashCode => Object.hash(runtimeType, invoice);
 
   @JsonKey(ignore: true)
   @override
-  _$SelectSubscriptionCopyWith<_SelectSubscription> get copyWith =>
-      __$SelectSubscriptionCopyWithImpl<_SelectSubscription>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SelectSubscriptionCopyWith<_$_SelectSubscription> get copyWith =>
+      __$$_SelectSubscriptionCopyWithImpl<_$_SelectSubscription>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -349,6 +350,20 @@ class _$_SelectSubscription implements _SelectSubscription {
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return selectSubscription(invoice);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String subscriptionId)? getSubscription,
+    TResult? Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult? Function(bool selectAll)? selectAllSubscription,
+    TResult? Function(int productId)? purchaseSubscription,
+    TResult? Function(CouponCode? coupounCode)? setCoupon,
+    TResult? Function(double initCashback)? setInitialCashback,
+    TResult? Function(double initReward)? setInitialRewardPoint,
+  }) {
+    return selectSubscription?.call(invoice);
   }
 
   @override
@@ -387,6 +402,20 @@ class _$_SelectSubscription implements _SelectSubscription {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSubscription value)? getSubscription,
+    TResult? Function(_SelectSubscription value)? selectSubscription,
+    TResult? Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult? Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult? Function(_SetCoupon value)? setCoupon,
+    TResult? Function(_SetInitialCashback value)? setInitialCashback,
+    TResult? Function(_setInitialRewardPoint value)? setInitialRewardPoint,
+  }) {
+    return selectSubscription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
     TResult Function(_SelectSubscription value)? selectSubscription,
@@ -406,40 +435,40 @@ class _$_SelectSubscription implements _SelectSubscription {
 
 abstract class _SelectSubscription
     implements SubscriptionForPartnerServiceEvent {
-  const factory _SelectSubscription({required SubscriptionInvoice invoice}) =
-      _$_SelectSubscription;
+  const factory _SelectSubscription(
+      {required final SubscriptionInvoice invoice}) = _$_SelectSubscription;
 
-  SubscriptionInvoice get invoice => throw _privateConstructorUsedError;
+  SubscriptionInvoice get invoice;
   @JsonKey(ignore: true)
-  _$SelectSubscriptionCopyWith<_SelectSubscription> get copyWith =>
+  _$$_SelectSubscriptionCopyWith<_$_SelectSubscription> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SelectAllSubscriptionCopyWith<$Res> {
-  factory _$SelectAllSubscriptionCopyWith(_SelectAllSubscription value,
-          $Res Function(_SelectAllSubscription) then) =
-      __$SelectAllSubscriptionCopyWithImpl<$Res>;
+abstract class _$$_SelectAllSubscriptionCopyWith<$Res> {
+  factory _$$_SelectAllSubscriptionCopyWith(_$_SelectAllSubscription value,
+          $Res Function(_$_SelectAllSubscription) then) =
+      __$$_SelectAllSubscriptionCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool selectAll});
 }
 
 /// @nodoc
-class __$SelectAllSubscriptionCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
-    implements _$SelectAllSubscriptionCopyWith<$Res> {
-  __$SelectAllSubscriptionCopyWithImpl(_SelectAllSubscription _value,
-      $Res Function(_SelectAllSubscription) _then)
-      : super(_value, (v) => _then(v as _SelectAllSubscription));
+class __$$_SelectAllSubscriptionCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res,
+        _$_SelectAllSubscription>
+    implements _$$_SelectAllSubscriptionCopyWith<$Res> {
+  __$$_SelectAllSubscriptionCopyWithImpl(_$_SelectAllSubscription _value,
+      $Res Function(_$_SelectAllSubscription) _then)
+      : super(_value, _then);
 
-  @override
-  _SelectAllSubscription get _value => super._value as _SelectAllSubscription;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? selectAll = freezed,
+    Object? selectAll = null,
   }) {
-    return _then(_SelectAllSubscription(
-      selectAll == freezed
+    return _then(_$_SelectAllSubscription(
+      null == selectAll
           ? _value.selectAll
           : selectAll // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -452,9 +481,8 @@ class __$SelectAllSubscriptionCopyWithImpl<$Res>
 class _$_SelectAllSubscription implements _SelectAllSubscription {
   const _$_SelectAllSubscription(this.selectAll);
 
-  @override
-
   ///[true] to selectall and vice versa
+  @override
   final bool selectAll;
 
   @override
@@ -465,20 +493,20 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SelectAllSubscription &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectAllSubscription &&
             (identical(other.selectAll, selectAll) ||
-                const DeepCollectionEquality()
-                    .equals(other.selectAll, selectAll)));
+                other.selectAll == selectAll));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(selectAll);
+  int get hashCode => Object.hash(runtimeType, selectAll);
 
   @JsonKey(ignore: true)
   @override
-  _$SelectAllSubscriptionCopyWith<_SelectAllSubscription> get copyWith =>
-      __$SelectAllSubscriptionCopyWithImpl<_SelectAllSubscription>(
+  @pragma('vm:prefer-inline')
+  _$$_SelectAllSubscriptionCopyWith<_$_SelectAllSubscription> get copyWith =>
+      __$$_SelectAllSubscriptionCopyWithImpl<_$_SelectAllSubscription>(
           this, _$identity);
 
   @override
@@ -493,6 +521,20 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return selectAllSubscription(selectAll);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String subscriptionId)? getSubscription,
+    TResult? Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult? Function(bool selectAll)? selectAllSubscription,
+    TResult? Function(int productId)? purchaseSubscription,
+    TResult? Function(CouponCode? coupounCode)? setCoupon,
+    TResult? Function(double initCashback)? setInitialCashback,
+    TResult? Function(double initReward)? setInitialRewardPoint,
+  }) {
+    return selectAllSubscription?.call(selectAll);
   }
 
   @override
@@ -531,6 +573,20 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSubscription value)? getSubscription,
+    TResult? Function(_SelectSubscription value)? selectSubscription,
+    TResult? Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult? Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult? Function(_SetCoupon value)? setCoupon,
+    TResult? Function(_SetInitialCashback value)? setInitialCashback,
+    TResult? Function(_setInitialRewardPoint value)? setInitialRewardPoint,
+  }) {
+    return selectAllSubscription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
     TResult Function(_SelectSubscription value)? selectSubscription,
@@ -550,41 +606,41 @@ class _$_SelectAllSubscription implements _SelectAllSubscription {
 
 abstract class _SelectAllSubscription
     implements SubscriptionForPartnerServiceEvent {
-  const factory _SelectAllSubscription(bool selectAll) =
+  const factory _SelectAllSubscription(final bool selectAll) =
       _$_SelectAllSubscription;
 
   ///[true] to selectall and vice versa
-  bool get selectAll => throw _privateConstructorUsedError;
+  bool get selectAll;
   @JsonKey(ignore: true)
-  _$SelectAllSubscriptionCopyWith<_SelectAllSubscription> get copyWith =>
+  _$$_SelectAllSubscriptionCopyWith<_$_SelectAllSubscription> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PurchaseSubscriptionCopyWith<$Res> {
-  factory _$PurchaseSubscriptionCopyWith(_PurchaseSubscription value,
-          $Res Function(_PurchaseSubscription) then) =
-      __$PurchaseSubscriptionCopyWithImpl<$Res>;
+abstract class _$$_PurchaseSubscriptionCopyWith<$Res> {
+  factory _$$_PurchaseSubscriptionCopyWith(_$_PurchaseSubscription value,
+          $Res Function(_$_PurchaseSubscription) then) =
+      __$$_PurchaseSubscriptionCopyWithImpl<$Res>;
+  @useResult
   $Res call({int productId});
 }
 
 /// @nodoc
-class __$PurchaseSubscriptionCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
-    implements _$PurchaseSubscriptionCopyWith<$Res> {
-  __$PurchaseSubscriptionCopyWithImpl(
-      _PurchaseSubscription _value, $Res Function(_PurchaseSubscription) _then)
-      : super(_value, (v) => _then(v as _PurchaseSubscription));
+class __$$_PurchaseSubscriptionCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res,
+        _$_PurchaseSubscription>
+    implements _$$_PurchaseSubscriptionCopyWith<$Res> {
+  __$$_PurchaseSubscriptionCopyWithImpl(_$_PurchaseSubscription _value,
+      $Res Function(_$_PurchaseSubscription) _then)
+      : super(_value, _then);
 
-  @override
-  _PurchaseSubscription get _value => super._value as _PurchaseSubscription;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? productId = freezed,
+    Object? productId = null,
   }) {
-    return _then(_PurchaseSubscription(
-      productId == freezed
+    return _then(_$_PurchaseSubscription(
+      null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as int,
@@ -608,20 +664,20 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PurchaseSubscription &&
+        (other.runtimeType == runtimeType &&
+            other is _$_PurchaseSubscription &&
             (identical(other.productId, productId) ||
-                const DeepCollectionEquality()
-                    .equals(other.productId, productId)));
+                other.productId == productId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(productId);
+  int get hashCode => Object.hash(runtimeType, productId);
 
   @JsonKey(ignore: true)
   @override
-  _$PurchaseSubscriptionCopyWith<_PurchaseSubscription> get copyWith =>
-      __$PurchaseSubscriptionCopyWithImpl<_PurchaseSubscription>(
+  @pragma('vm:prefer-inline')
+  _$$_PurchaseSubscriptionCopyWith<_$_PurchaseSubscription> get copyWith =>
+      __$$_PurchaseSubscriptionCopyWithImpl<_$_PurchaseSubscription>(
           this, _$identity);
 
   @override
@@ -636,6 +692,20 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return purchaseSubscription(productId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String subscriptionId)? getSubscription,
+    TResult? Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult? Function(bool selectAll)? selectAllSubscription,
+    TResult? Function(int productId)? purchaseSubscription,
+    TResult? Function(CouponCode? coupounCode)? setCoupon,
+    TResult? Function(double initCashback)? setInitialCashback,
+    TResult? Function(double initReward)? setInitialRewardPoint,
+  }) {
+    return purchaseSubscription?.call(productId);
   }
 
   @override
@@ -674,6 +744,20 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSubscription value)? getSubscription,
+    TResult? Function(_SelectSubscription value)? selectSubscription,
+    TResult? Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult? Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult? Function(_SetCoupon value)? setCoupon,
+    TResult? Function(_SetInitialCashback value)? setInitialCashback,
+    TResult? Function(_setInitialRewardPoint value)? setInitialRewardPoint,
+  }) {
+    return purchaseSubscription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
     TResult Function(_SelectSubscription value)? selectSubscription,
@@ -693,38 +777,39 @@ class _$_PurchaseSubscription implements _PurchaseSubscription {
 
 abstract class _PurchaseSubscription
     implements SubscriptionForPartnerServiceEvent {
-  const factory _PurchaseSubscription(int productId) = _$_PurchaseSubscription;
+  const factory _PurchaseSubscription(final int productId) =
+      _$_PurchaseSubscription;
 
-  int get productId => throw _privateConstructorUsedError;
+  int get productId;
   @JsonKey(ignore: true)
-  _$PurchaseSubscriptionCopyWith<_PurchaseSubscription> get copyWith =>
+  _$$_PurchaseSubscriptionCopyWith<_$_PurchaseSubscription> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetCouponCopyWith<$Res> {
-  factory _$SetCouponCopyWith(
-          _SetCoupon value, $Res Function(_SetCoupon) then) =
-      __$SetCouponCopyWithImpl<$Res>;
+abstract class _$$_SetCouponCopyWith<$Res> {
+  factory _$$_SetCouponCopyWith(
+          _$_SetCoupon value, $Res Function(_$_SetCoupon) then) =
+      __$$_SetCouponCopyWithImpl<$Res>;
+  @useResult
   $Res call({CouponCode? coupounCode});
 }
 
 /// @nodoc
-class __$SetCouponCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
-    implements _$SetCouponCopyWith<$Res> {
-  __$SetCouponCopyWithImpl(_SetCoupon _value, $Res Function(_SetCoupon) _then)
-      : super(_value, (v) => _then(v as _SetCoupon));
+class __$$_SetCouponCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res, _$_SetCoupon>
+    implements _$$_SetCouponCopyWith<$Res> {
+  __$$_SetCouponCopyWithImpl(
+      _$_SetCoupon _value, $Res Function(_$_SetCoupon) _then)
+      : super(_value, _then);
 
-  @override
-  _SetCoupon get _value => super._value as _SetCoupon;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? coupounCode = freezed,
   }) {
-    return _then(_SetCoupon(
-      coupounCode == freezed
+    return _then(_$_SetCoupon(
+      freezed == coupounCode
           ? _value.coupounCode
           : coupounCode // ignore: cast_nullable_to_non_nullable
               as CouponCode?,
@@ -748,20 +833,20 @@ class _$_SetCoupon implements _SetCoupon {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetCoupon &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SetCoupon &&
             (identical(other.coupounCode, coupounCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.coupounCode, coupounCode)));
+                other.coupounCode == coupounCode));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(coupounCode);
+  int get hashCode => Object.hash(runtimeType, coupounCode);
 
   @JsonKey(ignore: true)
   @override
-  _$SetCouponCopyWith<_SetCoupon> get copyWith =>
-      __$SetCouponCopyWithImpl<_SetCoupon>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetCouponCopyWith<_$_SetCoupon> get copyWith =>
+      __$$_SetCouponCopyWithImpl<_$_SetCoupon>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -775,6 +860,20 @@ class _$_SetCoupon implements _SetCoupon {
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return setCoupon(coupounCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String subscriptionId)? getSubscription,
+    TResult? Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult? Function(bool selectAll)? selectAllSubscription,
+    TResult? Function(int productId)? purchaseSubscription,
+    TResult? Function(CouponCode? coupounCode)? setCoupon,
+    TResult? Function(double initCashback)? setInitialCashback,
+    TResult? Function(double initReward)? setInitialRewardPoint,
+  }) {
+    return setCoupon?.call(coupounCode);
   }
 
   @override
@@ -813,6 +912,20 @@ class _$_SetCoupon implements _SetCoupon {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSubscription value)? getSubscription,
+    TResult? Function(_SelectSubscription value)? selectSubscription,
+    TResult? Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult? Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult? Function(_SetCoupon value)? setCoupon,
+    TResult? Function(_SetInitialCashback value)? setInitialCashback,
+    TResult? Function(_setInitialRewardPoint value)? setInitialRewardPoint,
+  }) {
+    return setCoupon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
     TResult Function(_SelectSubscription value)? selectSubscription,
@@ -831,39 +944,38 @@ class _$_SetCoupon implements _SetCoupon {
 }
 
 abstract class _SetCoupon implements SubscriptionForPartnerServiceEvent {
-  const factory _SetCoupon(CouponCode? coupounCode) = _$_SetCoupon;
+  const factory _SetCoupon(final CouponCode? coupounCode) = _$_SetCoupon;
 
-  CouponCode? get coupounCode => throw _privateConstructorUsedError;
+  CouponCode? get coupounCode;
   @JsonKey(ignore: true)
-  _$SetCouponCopyWith<_SetCoupon> get copyWith =>
+  _$$_SetCouponCopyWith<_$_SetCoupon> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetInitialCashbackCopyWith<$Res> {
-  factory _$SetInitialCashbackCopyWith(
-          _SetInitialCashback value, $Res Function(_SetInitialCashback) then) =
-      __$SetInitialCashbackCopyWithImpl<$Res>;
+abstract class _$$_SetInitialCashbackCopyWith<$Res> {
+  factory _$$_SetInitialCashbackCopyWith(_$_SetInitialCashback value,
+          $Res Function(_$_SetInitialCashback) then) =
+      __$$_SetInitialCashbackCopyWithImpl<$Res>;
+  @useResult
   $Res call({double initCashback});
 }
 
 /// @nodoc
-class __$SetInitialCashbackCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
-    implements _$SetInitialCashbackCopyWith<$Res> {
-  __$SetInitialCashbackCopyWithImpl(
-      _SetInitialCashback _value, $Res Function(_SetInitialCashback) _then)
-      : super(_value, (v) => _then(v as _SetInitialCashback));
+class __$$_SetInitialCashbackCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res,
+        _$_SetInitialCashback> implements _$$_SetInitialCashbackCopyWith<$Res> {
+  __$$_SetInitialCashbackCopyWithImpl(
+      _$_SetInitialCashback _value, $Res Function(_$_SetInitialCashback) _then)
+      : super(_value, _then);
 
-  @override
-  _SetInitialCashback get _value => super._value as _SetInitialCashback;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? initCashback = freezed,
+    Object? initCashback = null,
   }) {
-    return _then(_SetInitialCashback(
-      initCashback == freezed
+    return _then(_$_SetInitialCashback(
+      null == initCashback
           ? _value.initCashback
           : initCashback // ignore: cast_nullable_to_non_nullable
               as double,
@@ -887,20 +999,21 @@ class _$_SetInitialCashback implements _SetInitialCashback {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetInitialCashback &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SetInitialCashback &&
             (identical(other.initCashback, initCashback) ||
-                const DeepCollectionEquality()
-                    .equals(other.initCashback, initCashback)));
+                other.initCashback == initCashback));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(initCashback);
+  int get hashCode => Object.hash(runtimeType, initCashback);
 
   @JsonKey(ignore: true)
   @override
-  _$SetInitialCashbackCopyWith<_SetInitialCashback> get copyWith =>
-      __$SetInitialCashbackCopyWithImpl<_SetInitialCashback>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetInitialCashbackCopyWith<_$_SetInitialCashback> get copyWith =>
+      __$$_SetInitialCashbackCopyWithImpl<_$_SetInitialCashback>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -914,6 +1027,20 @@ class _$_SetInitialCashback implements _SetInitialCashback {
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return setInitialCashback(initCashback);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String subscriptionId)? getSubscription,
+    TResult? Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult? Function(bool selectAll)? selectAllSubscription,
+    TResult? Function(int productId)? purchaseSubscription,
+    TResult? Function(CouponCode? coupounCode)? setCoupon,
+    TResult? Function(double initCashback)? setInitialCashback,
+    TResult? Function(double initReward)? setInitialRewardPoint,
+  }) {
+    return setInitialCashback?.call(initCashback);
   }
 
   @override
@@ -952,6 +1079,20 @@ class _$_SetInitialCashback implements _SetInitialCashback {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSubscription value)? getSubscription,
+    TResult? Function(_SelectSubscription value)? selectSubscription,
+    TResult? Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult? Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult? Function(_SetCoupon value)? setCoupon,
+    TResult? Function(_SetInitialCashback value)? setInitialCashback,
+    TResult? Function(_setInitialRewardPoint value)? setInitialRewardPoint,
+  }) {
+    return setInitialCashback?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
     TResult Function(_SelectSubscription value)? selectSubscription,
@@ -971,40 +1112,40 @@ class _$_SetInitialCashback implements _SetInitialCashback {
 
 abstract class _SetInitialCashback
     implements SubscriptionForPartnerServiceEvent {
-  const factory _SetInitialCashback(double initCashback) =
+  const factory _SetInitialCashback(final double initCashback) =
       _$_SetInitialCashback;
 
-  double get initCashback => throw _privateConstructorUsedError;
+  double get initCashback;
   @JsonKey(ignore: true)
-  _$SetInitialCashbackCopyWith<_SetInitialCashback> get copyWith =>
+  _$$_SetInitialCashbackCopyWith<_$_SetInitialCashback> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$setInitialRewardPointCopyWith<$Res> {
-  factory _$setInitialRewardPointCopyWith(_setInitialRewardPoint value,
-          $Res Function(_setInitialRewardPoint) then) =
-      __$setInitialRewardPointCopyWithImpl<$Res>;
+abstract class _$$_setInitialRewardPointCopyWith<$Res> {
+  factory _$$_setInitialRewardPointCopyWith(_$_setInitialRewardPoint value,
+          $Res Function(_$_setInitialRewardPoint) then) =
+      __$$_setInitialRewardPointCopyWithImpl<$Res>;
+  @useResult
   $Res call({double initReward});
 }
 
 /// @nodoc
-class __$setInitialRewardPointCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res>
-    implements _$setInitialRewardPointCopyWith<$Res> {
-  __$setInitialRewardPointCopyWithImpl(_setInitialRewardPoint _value,
-      $Res Function(_setInitialRewardPoint) _then)
-      : super(_value, (v) => _then(v as _setInitialRewardPoint));
+class __$$_setInitialRewardPointCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceEventCopyWithImpl<$Res,
+        _$_setInitialRewardPoint>
+    implements _$$_setInitialRewardPointCopyWith<$Res> {
+  __$$_setInitialRewardPointCopyWithImpl(_$_setInitialRewardPoint _value,
+      $Res Function(_$_setInitialRewardPoint) _then)
+      : super(_value, _then);
 
-  @override
-  _setInitialRewardPoint get _value => super._value as _setInitialRewardPoint;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? initReward = freezed,
+    Object? initReward = null,
   }) {
-    return _then(_setInitialRewardPoint(
-      initReward == freezed
+    return _then(_$_setInitialRewardPoint(
+      null == initReward
           ? _value.initReward
           : initReward // ignore: cast_nullable_to_non_nullable
               as double,
@@ -1028,20 +1169,20 @@ class _$_setInitialRewardPoint implements _setInitialRewardPoint {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _setInitialRewardPoint &&
+        (other.runtimeType == runtimeType &&
+            other is _$_setInitialRewardPoint &&
             (identical(other.initReward, initReward) ||
-                const DeepCollectionEquality()
-                    .equals(other.initReward, initReward)));
+                other.initReward == initReward));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(initReward);
+  int get hashCode => Object.hash(runtimeType, initReward);
 
   @JsonKey(ignore: true)
   @override
-  _$setInitialRewardPointCopyWith<_setInitialRewardPoint> get copyWith =>
-      __$setInitialRewardPointCopyWithImpl<_setInitialRewardPoint>(
+  @pragma('vm:prefer-inline')
+  _$$_setInitialRewardPointCopyWith<_$_setInitialRewardPoint> get copyWith =>
+      __$$_setInitialRewardPointCopyWithImpl<_$_setInitialRewardPoint>(
           this, _$identity);
 
   @override
@@ -1056,6 +1197,20 @@ class _$_setInitialRewardPoint implements _setInitialRewardPoint {
     required TResult Function(double initReward) setInitialRewardPoint,
   }) {
     return setInitialRewardPoint(initReward);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String subscriptionId)? getSubscription,
+    TResult? Function(SubscriptionInvoice invoice)? selectSubscription,
+    TResult? Function(bool selectAll)? selectAllSubscription,
+    TResult? Function(int productId)? purchaseSubscription,
+    TResult? Function(CouponCode? coupounCode)? setCoupon,
+    TResult? Function(double initCashback)? setInitialCashback,
+    TResult? Function(double initReward)? setInitialRewardPoint,
+  }) {
+    return setInitialRewardPoint?.call(initReward);
   }
 
   @override
@@ -1094,6 +1249,20 @@ class _$_setInitialRewardPoint implements _setInitialRewardPoint {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSubscription value)? getSubscription,
+    TResult? Function(_SelectSubscription value)? selectSubscription,
+    TResult? Function(_SelectAllSubscription value)? selectAllSubscription,
+    TResult? Function(_PurchaseSubscription value)? purchaseSubscription,
+    TResult? Function(_SetCoupon value)? setCoupon,
+    TResult? Function(_SetInitialCashback value)? setInitialCashback,
+    TResult? Function(_setInitialRewardPoint value)? setInitialRewardPoint,
+  }) {
+    return setInitialRewardPoint?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSubscription value)? getSubscription,
     TResult Function(_SelectSubscription value)? selectSubscription,
@@ -1113,45 +1282,14 @@ class _$_setInitialRewardPoint implements _setInitialRewardPoint {
 
 abstract class _setInitialRewardPoint
     implements SubscriptionForPartnerServiceEvent {
-  const factory _setInitialRewardPoint(double initReward) =
+  const factory _setInitialRewardPoint(final double initReward) =
       _$_setInitialRewardPoint;
 
-  double get initReward => throw _privateConstructorUsedError;
+  double get initReward;
   @JsonKey(ignore: true)
-  _$setInitialRewardPointCopyWith<_setInitialRewardPoint> get copyWith =>
+  _$$_setInitialRewardPointCopyWith<_$_setInitialRewardPoint> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$SubscriptionForPartnerServiceStateTearOff {
-  const _$SubscriptionForPartnerServiceStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
-    );
-  }
-
-  _FetchSubscriptionSuccessfully fetchSubscriptionSuccessfully() {
-    return const _FetchSubscriptionSuccessfully();
-  }
-
-  _PurchasedSuccessfully purchasedSuccessfully() {
-    return const _PurchasedSuccessfully();
-  }
-}
-
-/// @nodoc
-const $SubscriptionForPartnerServiceState =
-    _$SubscriptionForPartnerServiceStateTearOff();
 
 /// @nodoc
 mixin _$SubscriptionForPartnerServiceState {
@@ -1162,6 +1300,15 @@ mixin _$SubscriptionForPartnerServiceState {
     required TResult Function(ApiFailure failure) failure,
     required TResult Function() fetchSubscriptionSuccessfully,
     required TResult Function() purchasedSuccessfully,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? fetchSubscriptionSuccessfully,
+    TResult? Function()? purchasedSuccessfully,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1186,6 +1333,16 @@ mixin _$SubscriptionForPartnerServiceState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FetchSubscriptionSuccessfully value)?
+        fetchSubscriptionSuccessfully,
+    TResult? Function(_PurchasedSuccessfully value)? purchasedSuccessfully,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -1203,34 +1360,35 @@ abstract class $SubscriptionForPartnerServiceStateCopyWith<$Res> {
   factory $SubscriptionForPartnerServiceStateCopyWith(
           SubscriptionForPartnerServiceState value,
           $Res Function(SubscriptionForPartnerServiceState) then) =
-      _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res>;
+      _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res,
+          SubscriptionForPartnerServiceState>;
 }
 
 /// @nodoc
-class _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res>
+class _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res,
+        $Val extends SubscriptionForPartnerServiceState>
     implements $SubscriptionForPartnerServiceStateCopyWith<$Res> {
   _$SubscriptionForPartnerServiceStateCopyWithImpl(this._value, this._then);
 
-  final SubscriptionForPartnerServiceState _value;
   // ignore: unused_field
-  final $Res Function(SubscriptionForPartnerServiceState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1245,7 +1403,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -1261,6 +1420,18 @@ class _$_Initial implements _Initial {
     required TResult Function() purchasedSuccessfully,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? fetchSubscriptionSuccessfully,
+    TResult? Function()? purchasedSuccessfully,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -1295,6 +1466,19 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FetchSubscriptionSuccessfully value)?
+        fetchSubscriptionSuccessfully,
+    TResult? Function(_PurchasedSuccessfully value)? purchasedSuccessfully,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -1316,20 +1500,18 @@ abstract class _Initial implements SubscriptionForPartnerServiceState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1344,7 +1526,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -1360,6 +1543,18 @@ class _$_Loading implements _Loading {
     required TResult Function() purchasedSuccessfully,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? fetchSubscriptionSuccessfully,
+    TResult? Function()? purchasedSuccessfully,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -1394,6 +1589,19 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FetchSubscriptionSuccessfully value)?
+        fetchSubscriptionSuccessfully,
+    TResult? Function(_PurchasedSuccessfully value)? purchasedSuccessfully,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -1415,30 +1623,30 @@ abstract class _Loading implements SubscriptionForPartnerServiceState {
 }
 
 /// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
+abstract class _$$_FailureCopyWith<$Res> {
+  factory _$$_FailureCopyWith(
+          _$_Failure value, $Res Function(_$_Failure) then) =
+      __$$_FailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res, _$_Failure>
+    implements _$$_FailureCopyWith<$Res> {
+  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+      : super(_value, _then);
 
-  @override
-  _Failure get _value => super._value as _Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_Failure(
-      failure == freezed
+    return _then(_$_Failure(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -1446,6 +1654,7 @@ class __$FailureCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -1469,19 +1678,19 @@ class _$_Failure implements _Failure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Failure &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1493,6 +1702,18 @@ class _$_Failure implements _Failure {
     required TResult Function() purchasedSuccessfully,
   }) {
     return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? fetchSubscriptionSuccessfully,
+    TResult? Function()? purchasedSuccessfully,
+  }) {
+    return failure?.call(this.failure);
   }
 
   @override
@@ -1527,6 +1748,19 @@ class _$_Failure implements _Failure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FetchSubscriptionSuccessfully value)?
+        fetchSubscriptionSuccessfully,
+    TResult? Function(_PurchasedSuccessfully value)? purchasedSuccessfully,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -1544,34 +1778,31 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements SubscriptionForPartnerServiceState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const factory _Failure(final ApiFailure failure) = _$_Failure;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$FetchSubscriptionSuccessfullyCopyWith<$Res> {
-  factory _$FetchSubscriptionSuccessfullyCopyWith(
-          _FetchSubscriptionSuccessfully value,
-          $Res Function(_FetchSubscriptionSuccessfully) then) =
-      __$FetchSubscriptionSuccessfullyCopyWithImpl<$Res>;
+abstract class _$$_FetchSubscriptionSuccessfullyCopyWith<$Res> {
+  factory _$$_FetchSubscriptionSuccessfullyCopyWith(
+          _$_FetchSubscriptionSuccessfully value,
+          $Res Function(_$_FetchSubscriptionSuccessfully) then) =
+      __$$_FetchSubscriptionSuccessfullyCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$FetchSubscriptionSuccessfullyCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res>
-    implements _$FetchSubscriptionSuccessfullyCopyWith<$Res> {
-  __$FetchSubscriptionSuccessfullyCopyWithImpl(
-      _FetchSubscriptionSuccessfully _value,
-      $Res Function(_FetchSubscriptionSuccessfully) _then)
-      : super(_value, (v) => _then(v as _FetchSubscriptionSuccessfully));
-
-  @override
-  _FetchSubscriptionSuccessfully get _value =>
-      super._value as _FetchSubscriptionSuccessfully;
+class __$$_FetchSubscriptionSuccessfullyCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res,
+        _$_FetchSubscriptionSuccessfully>
+    implements _$$_FetchSubscriptionSuccessfullyCopyWith<$Res> {
+  __$$_FetchSubscriptionSuccessfullyCopyWithImpl(
+      _$_FetchSubscriptionSuccessfully _value,
+      $Res Function(_$_FetchSubscriptionSuccessfully) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1587,7 +1818,9 @@ class _$_FetchSubscriptionSuccessfully
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _FetchSubscriptionSuccessfully);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchSubscriptionSuccessfully);
   }
 
   @override
@@ -1603,6 +1836,18 @@ class _$_FetchSubscriptionSuccessfully
     required TResult Function() purchasedSuccessfully,
   }) {
     return fetchSubscriptionSuccessfully();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? fetchSubscriptionSuccessfully,
+    TResult? Function()? purchasedSuccessfully,
+  }) {
+    return fetchSubscriptionSuccessfully?.call();
   }
 
   @override
@@ -1637,6 +1882,19 @@ class _$_FetchSubscriptionSuccessfully
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FetchSubscriptionSuccessfully value)?
+        fetchSubscriptionSuccessfully,
+    TResult? Function(_PurchasedSuccessfully value)? purchasedSuccessfully,
+  }) {
+    return fetchSubscriptionSuccessfully?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -1660,22 +1918,20 @@ abstract class _FetchSubscriptionSuccessfully
 }
 
 /// @nodoc
-abstract class _$PurchasedSuccessfullyCopyWith<$Res> {
-  factory _$PurchasedSuccessfullyCopyWith(_PurchasedSuccessfully value,
-          $Res Function(_PurchasedSuccessfully) then) =
-      __$PurchasedSuccessfullyCopyWithImpl<$Res>;
+abstract class _$$_PurchasedSuccessfullyCopyWith<$Res> {
+  factory _$$_PurchasedSuccessfullyCopyWith(_$_PurchasedSuccessfully value,
+          $Res Function(_$_PurchasedSuccessfully) then) =
+      __$$_PurchasedSuccessfullyCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$PurchasedSuccessfullyCopyWithImpl<$Res>
-    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res>
-    implements _$PurchasedSuccessfullyCopyWith<$Res> {
-  __$PurchasedSuccessfullyCopyWithImpl(_PurchasedSuccessfully _value,
-      $Res Function(_PurchasedSuccessfully) _then)
-      : super(_value, (v) => _then(v as _PurchasedSuccessfully));
-
-  @override
-  _PurchasedSuccessfully get _value => super._value as _PurchasedSuccessfully;
+class __$$_PurchasedSuccessfullyCopyWithImpl<$Res>
+    extends _$SubscriptionForPartnerServiceStateCopyWithImpl<$Res,
+        _$_PurchasedSuccessfully>
+    implements _$$_PurchasedSuccessfullyCopyWith<$Res> {
+  __$$_PurchasedSuccessfullyCopyWithImpl(_$_PurchasedSuccessfully _value,
+      $Res Function(_$_PurchasedSuccessfully) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1690,7 +1946,8 @@ class _$_PurchasedSuccessfully implements _PurchasedSuccessfully {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PurchasedSuccessfully);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PurchasedSuccessfully);
   }
 
   @override
@@ -1706,6 +1963,18 @@ class _$_PurchasedSuccessfully implements _PurchasedSuccessfully {
     required TResult Function() purchasedSuccessfully,
   }) {
     return purchasedSuccessfully();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function()? fetchSubscriptionSuccessfully,
+    TResult? Function()? purchasedSuccessfully,
+  }) {
+    return purchasedSuccessfully?.call();
   }
 
   @override
@@ -1736,6 +2005,19 @@ class _$_PurchasedSuccessfully implements _PurchasedSuccessfully {
         purchasedSuccessfully,
   }) {
     return purchasedSuccessfully(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FetchSubscriptionSuccessfully value)?
+        fetchSubscriptionSuccessfully,
+    TResult? Function(_PurchasedSuccessfully value)? purchasedSuccessfully,
+  }) {
+    return purchasedSuccessfully?.call(this);
   }
 
   @override

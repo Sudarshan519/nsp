@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'topup_via_stripe_bloc.dart';
 
@@ -10,67 +12,7 @@ part of 'topup_via_stripe_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$TopupViaStripeEventTearOff {
-  const _$TopupViaStripeEventTearOff();
-
-  _ChangeName changeName(String name) {
-    return _ChangeName(
-      name,
-    );
-  }
-
-  _ChangeCardNumber changeCardNumber(String number) {
-    return _ChangeCardNumber(
-      number,
-    );
-  }
-
-  _ChangeCvc changeCvc(String cvc) {
-    return _ChangeCvc(
-      cvc,
-    );
-  }
-
-  _ChangeExpYear changeExpYear(String year) {
-    return _ChangeExpYear(
-      year,
-    );
-  }
-
-  _ChangeAmount changeAmount(String amount) {
-    return _ChangeAmount(
-      amount,
-    );
-  }
-
-  _ChangeAmountFromOptions changeAmountFromOptions(String amount) {
-    return _ChangeAmountFromOptions(
-      amount,
-    );
-  }
-
-  _ChangePurpose changePurpose(String purpose) {
-    return _ChangePurpose(
-      purpose,
-    );
-  }
-
-  _ChangeSaveCard changeSaveCard() {
-    return const _ChangeSaveCard();
-  }
-
-  _TopUp topup(bool isSavedCard) {
-    return _TopUp(
-      isSavedCard,
-    );
-  }
-}
-
-/// @nodoc
-const $TopupViaStripeEvent = _$TopupViaStripeEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$TopupViaStripeEvent {
@@ -85,6 +27,19 @@ mixin _$TopupViaStripeEvent {
     required TResult Function(String purpose) changePurpose,
     required TResult Function() changeSaveCard,
     required TResult Function(bool isSavedCard) topup,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -116,6 +71,19 @@ mixin _$TopupViaStripeEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -135,44 +103,44 @@ mixin _$TopupViaStripeEvent {
 abstract class $TopupViaStripeEventCopyWith<$Res> {
   factory $TopupViaStripeEventCopyWith(
           TopupViaStripeEvent value, $Res Function(TopupViaStripeEvent) then) =
-      _$TopupViaStripeEventCopyWithImpl<$Res>;
+      _$TopupViaStripeEventCopyWithImpl<$Res, TopupViaStripeEvent>;
 }
 
 /// @nodoc
-class _$TopupViaStripeEventCopyWithImpl<$Res>
+class _$TopupViaStripeEventCopyWithImpl<$Res, $Val extends TopupViaStripeEvent>
     implements $TopupViaStripeEventCopyWith<$Res> {
   _$TopupViaStripeEventCopyWithImpl(this._value, this._then);
 
-  final TopupViaStripeEvent _value;
   // ignore: unused_field
-  final $Res Function(TopupViaStripeEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangeNameCopyWith<$Res> {
-  factory _$ChangeNameCopyWith(
-          _ChangeName value, $Res Function(_ChangeName) then) =
-      __$ChangeNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeNameCopyWith<$Res> {
+  factory _$$_ChangeNameCopyWith(
+          _$_ChangeName value, $Res Function(_$_ChangeName) then) =
+      __$$_ChangeNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeNameCopyWithImpl<$Res>
-    extends _$TopupViaStripeEventCopyWithImpl<$Res>
-    implements _$ChangeNameCopyWith<$Res> {
-  __$ChangeNameCopyWithImpl(
-      _ChangeName _value, $Res Function(_ChangeName) _then)
-      : super(_value, (v) => _then(v as _ChangeName));
+class __$$_ChangeNameCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res, _$_ChangeName>
+    implements _$$_ChangeNameCopyWith<$Res> {
+  __$$_ChangeNameCopyWithImpl(
+      _$_ChangeName _value, $Res Function(_$_ChangeName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeName get _value => super._value as _ChangeName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeName(
-      name == freezed
+    return _then(_$_ChangeName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -196,19 +164,19 @@ class _$_ChangeName implements _ChangeName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeNameCopyWith<_ChangeName> get copyWith =>
-      __$ChangeNameCopyWithImpl<_ChangeName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeNameCopyWith<_$_ChangeName> get copyWith =>
+      __$$_ChangeNameCopyWithImpl<_$_ChangeName>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -224,6 +192,22 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(bool isSavedCard) topup,
   }) {
     return changeName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
+  }) {
+    return changeName?.call(name);
   }
 
   @override
@@ -265,6 +249,22 @@ class _$_ChangeName implements _ChangeName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) {
+    return changeName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -285,39 +285,38 @@ class _$_ChangeName implements _ChangeName {
 }
 
 abstract class _ChangeName implements TopupViaStripeEvent {
-  const factory _ChangeName(String name) = _$_ChangeName;
+  const factory _ChangeName(final String name) = _$_ChangeName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeNameCopyWith<_ChangeName> get copyWith =>
+  _$$_ChangeNameCopyWith<_$_ChangeName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeCardNumberCopyWith<$Res> {
-  factory _$ChangeCardNumberCopyWith(
-          _ChangeCardNumber value, $Res Function(_ChangeCardNumber) then) =
-      __$ChangeCardNumberCopyWithImpl<$Res>;
+abstract class _$$_ChangeCardNumberCopyWith<$Res> {
+  factory _$$_ChangeCardNumberCopyWith(
+          _$_ChangeCardNumber value, $Res Function(_$_ChangeCardNumber) then) =
+      __$$_ChangeCardNumberCopyWithImpl<$Res>;
+  @useResult
   $Res call({String number});
 }
 
 /// @nodoc
-class __$ChangeCardNumberCopyWithImpl<$Res>
-    extends _$TopupViaStripeEventCopyWithImpl<$Res>
-    implements _$ChangeCardNumberCopyWith<$Res> {
-  __$ChangeCardNumberCopyWithImpl(
-      _ChangeCardNumber _value, $Res Function(_ChangeCardNumber) _then)
-      : super(_value, (v) => _then(v as _ChangeCardNumber));
+class __$$_ChangeCardNumberCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res, _$_ChangeCardNumber>
+    implements _$$_ChangeCardNumberCopyWith<$Res> {
+  __$$_ChangeCardNumberCopyWithImpl(
+      _$_ChangeCardNumber _value, $Res Function(_$_ChangeCardNumber) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeCardNumber get _value => super._value as _ChangeCardNumber;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? number = freezed,
+    Object? number = null,
   }) {
-    return _then(_ChangeCardNumber(
-      number == freezed
+    return _then(_$_ChangeCardNumber(
+      null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as String,
@@ -341,19 +340,19 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeCardNumber &&
-            (identical(other.number, number) ||
-                const DeepCollectionEquality().equals(other.number, number)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCardNumber &&
+            (identical(other.number, number) || other.number == number));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(number);
+  int get hashCode => Object.hash(runtimeType, number);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeCardNumberCopyWith<_ChangeCardNumber> get copyWith =>
-      __$ChangeCardNumberCopyWithImpl<_ChangeCardNumber>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCardNumberCopyWith<_$_ChangeCardNumber> get copyWith =>
+      __$$_ChangeCardNumberCopyWithImpl<_$_ChangeCardNumber>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -369,6 +368,22 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
     required TResult Function(bool isSavedCard) topup,
   }) {
     return changeCardNumber(number);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
+  }) {
+    return changeCardNumber?.call(number);
   }
 
   @override
@@ -410,6 +425,22 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) {
+    return changeCardNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -430,38 +461,38 @@ class _$_ChangeCardNumber implements _ChangeCardNumber {
 }
 
 abstract class _ChangeCardNumber implements TopupViaStripeEvent {
-  const factory _ChangeCardNumber(String number) = _$_ChangeCardNumber;
+  const factory _ChangeCardNumber(final String number) = _$_ChangeCardNumber;
 
-  String get number => throw _privateConstructorUsedError;
+  String get number;
   @JsonKey(ignore: true)
-  _$ChangeCardNumberCopyWith<_ChangeCardNumber> get copyWith =>
+  _$$_ChangeCardNumberCopyWith<_$_ChangeCardNumber> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeCvcCopyWith<$Res> {
-  factory _$ChangeCvcCopyWith(
-          _ChangeCvc value, $Res Function(_ChangeCvc) then) =
-      __$ChangeCvcCopyWithImpl<$Res>;
+abstract class _$$_ChangeCvcCopyWith<$Res> {
+  factory _$$_ChangeCvcCopyWith(
+          _$_ChangeCvc value, $Res Function(_$_ChangeCvc) then) =
+      __$$_ChangeCvcCopyWithImpl<$Res>;
+  @useResult
   $Res call({String cvc});
 }
 
 /// @nodoc
-class __$ChangeCvcCopyWithImpl<$Res>
-    extends _$TopupViaStripeEventCopyWithImpl<$Res>
-    implements _$ChangeCvcCopyWith<$Res> {
-  __$ChangeCvcCopyWithImpl(_ChangeCvc _value, $Res Function(_ChangeCvc) _then)
-      : super(_value, (v) => _then(v as _ChangeCvc));
+class __$$_ChangeCvcCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res, _$_ChangeCvc>
+    implements _$$_ChangeCvcCopyWith<$Res> {
+  __$$_ChangeCvcCopyWithImpl(
+      _$_ChangeCvc _value, $Res Function(_$_ChangeCvc) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeCvc get _value => super._value as _ChangeCvc;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cvc = freezed,
+    Object? cvc = null,
   }) {
-    return _then(_ChangeCvc(
-      cvc == freezed
+    return _then(_$_ChangeCvc(
+      null == cvc
           ? _value.cvc
           : cvc // ignore: cast_nullable_to_non_nullable
               as String,
@@ -485,19 +516,19 @@ class _$_ChangeCvc implements _ChangeCvc {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeCvc &&
-            (identical(other.cvc, cvc) ||
-                const DeepCollectionEquality().equals(other.cvc, cvc)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCvc &&
+            (identical(other.cvc, cvc) || other.cvc == cvc));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(cvc);
+  int get hashCode => Object.hash(runtimeType, cvc);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeCvcCopyWith<_ChangeCvc> get copyWith =>
-      __$ChangeCvcCopyWithImpl<_ChangeCvc>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCvcCopyWith<_$_ChangeCvc> get copyWith =>
+      __$$_ChangeCvcCopyWithImpl<_$_ChangeCvc>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -513,6 +544,22 @@ class _$_ChangeCvc implements _ChangeCvc {
     required TResult Function(bool isSavedCard) topup,
   }) {
     return changeCvc(cvc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
+  }) {
+    return changeCvc?.call(cvc);
   }
 
   @override
@@ -554,6 +601,22 @@ class _$_ChangeCvc implements _ChangeCvc {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) {
+    return changeCvc?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -574,39 +637,38 @@ class _$_ChangeCvc implements _ChangeCvc {
 }
 
 abstract class _ChangeCvc implements TopupViaStripeEvent {
-  const factory _ChangeCvc(String cvc) = _$_ChangeCvc;
+  const factory _ChangeCvc(final String cvc) = _$_ChangeCvc;
 
-  String get cvc => throw _privateConstructorUsedError;
+  String get cvc;
   @JsonKey(ignore: true)
-  _$ChangeCvcCopyWith<_ChangeCvc> get copyWith =>
+  _$$_ChangeCvcCopyWith<_$_ChangeCvc> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeExpYearCopyWith<$Res> {
-  factory _$ChangeExpYearCopyWith(
-          _ChangeExpYear value, $Res Function(_ChangeExpYear) then) =
-      __$ChangeExpYearCopyWithImpl<$Res>;
+abstract class _$$_ChangeExpYearCopyWith<$Res> {
+  factory _$$_ChangeExpYearCopyWith(
+          _$_ChangeExpYear value, $Res Function(_$_ChangeExpYear) then) =
+      __$$_ChangeExpYearCopyWithImpl<$Res>;
+  @useResult
   $Res call({String year});
 }
 
 /// @nodoc
-class __$ChangeExpYearCopyWithImpl<$Res>
-    extends _$TopupViaStripeEventCopyWithImpl<$Res>
-    implements _$ChangeExpYearCopyWith<$Res> {
-  __$ChangeExpYearCopyWithImpl(
-      _ChangeExpYear _value, $Res Function(_ChangeExpYear) _then)
-      : super(_value, (v) => _then(v as _ChangeExpYear));
+class __$$_ChangeExpYearCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res, _$_ChangeExpYear>
+    implements _$$_ChangeExpYearCopyWith<$Res> {
+  __$$_ChangeExpYearCopyWithImpl(
+      _$_ChangeExpYear _value, $Res Function(_$_ChangeExpYear) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeExpYear get _value => super._value as _ChangeExpYear;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = freezed,
+    Object? year = null,
   }) {
-    return _then(_ChangeExpYear(
-      year == freezed
+    return _then(_$_ChangeExpYear(
+      null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as String,
@@ -630,19 +692,19 @@ class _$_ChangeExpYear implements _ChangeExpYear {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeExpYear &&
-            (identical(other.year, year) ||
-                const DeepCollectionEquality().equals(other.year, year)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeExpYear &&
+            (identical(other.year, year) || other.year == year));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(year);
+  int get hashCode => Object.hash(runtimeType, year);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeExpYearCopyWith<_ChangeExpYear> get copyWith =>
-      __$ChangeExpYearCopyWithImpl<_ChangeExpYear>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeExpYearCopyWith<_$_ChangeExpYear> get copyWith =>
+      __$$_ChangeExpYearCopyWithImpl<_$_ChangeExpYear>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -658,6 +720,22 @@ class _$_ChangeExpYear implements _ChangeExpYear {
     required TResult Function(bool isSavedCard) topup,
   }) {
     return changeExpYear(year);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
+  }) {
+    return changeExpYear?.call(year);
   }
 
   @override
@@ -699,6 +777,22 @@ class _$_ChangeExpYear implements _ChangeExpYear {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) {
+    return changeExpYear?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -719,39 +813,38 @@ class _$_ChangeExpYear implements _ChangeExpYear {
 }
 
 abstract class _ChangeExpYear implements TopupViaStripeEvent {
-  const factory _ChangeExpYear(String year) = _$_ChangeExpYear;
+  const factory _ChangeExpYear(final String year) = _$_ChangeExpYear;
 
-  String get year => throw _privateConstructorUsedError;
+  String get year;
   @JsonKey(ignore: true)
-  _$ChangeExpYearCopyWith<_ChangeExpYear> get copyWith =>
+  _$$_ChangeExpYearCopyWith<_$_ChangeExpYear> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeAmountCopyWith<$Res> {
-  factory _$ChangeAmountCopyWith(
-          _ChangeAmount value, $Res Function(_ChangeAmount) then) =
-      __$ChangeAmountCopyWithImpl<$Res>;
+abstract class _$$_ChangeAmountCopyWith<$Res> {
+  factory _$$_ChangeAmountCopyWith(
+          _$_ChangeAmount value, $Res Function(_$_ChangeAmount) then) =
+      __$$_ChangeAmountCopyWithImpl<$Res>;
+  @useResult
   $Res call({String amount});
 }
 
 /// @nodoc
-class __$ChangeAmountCopyWithImpl<$Res>
-    extends _$TopupViaStripeEventCopyWithImpl<$Res>
-    implements _$ChangeAmountCopyWith<$Res> {
-  __$ChangeAmountCopyWithImpl(
-      _ChangeAmount _value, $Res Function(_ChangeAmount) _then)
-      : super(_value, (v) => _then(v as _ChangeAmount));
+class __$$_ChangeAmountCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res, _$_ChangeAmount>
+    implements _$$_ChangeAmountCopyWith<$Res> {
+  __$$_ChangeAmountCopyWithImpl(
+      _$_ChangeAmount _value, $Res Function(_$_ChangeAmount) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeAmount get _value => super._value as _ChangeAmount;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? amount = freezed,
+    Object? amount = null,
   }) {
-    return _then(_ChangeAmount(
-      amount == freezed
+    return _then(_$_ChangeAmount(
+      null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
@@ -775,19 +868,19 @@ class _$_ChangeAmount implements _ChangeAmount {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeAmount &&
-            (identical(other.amount, amount) ||
-                const DeepCollectionEquality().equals(other.amount, amount)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeAmount &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(amount);
+  int get hashCode => Object.hash(runtimeType, amount);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeAmountCopyWith<_ChangeAmount> get copyWith =>
-      __$ChangeAmountCopyWithImpl<_ChangeAmount>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeAmountCopyWith<_$_ChangeAmount> get copyWith =>
+      __$$_ChangeAmountCopyWithImpl<_$_ChangeAmount>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -803,6 +896,22 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(bool isSavedCard) topup,
   }) {
     return changeAmount(amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
+  }) {
+    return changeAmount?.call(amount);
   }
 
   @override
@@ -844,6 +953,22 @@ class _$_ChangeAmount implements _ChangeAmount {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) {
+    return changeAmount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -864,40 +989,38 @@ class _$_ChangeAmount implements _ChangeAmount {
 }
 
 abstract class _ChangeAmount implements TopupViaStripeEvent {
-  const factory _ChangeAmount(String amount) = _$_ChangeAmount;
+  const factory _ChangeAmount(final String amount) = _$_ChangeAmount;
 
-  String get amount => throw _privateConstructorUsedError;
+  String get amount;
   @JsonKey(ignore: true)
-  _$ChangeAmountCopyWith<_ChangeAmount> get copyWith =>
+  _$$_ChangeAmountCopyWith<_$_ChangeAmount> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeAmountFromOptionsCopyWith<$Res> {
-  factory _$ChangeAmountFromOptionsCopyWith(_ChangeAmountFromOptions value,
-          $Res Function(_ChangeAmountFromOptions) then) =
-      __$ChangeAmountFromOptionsCopyWithImpl<$Res>;
+abstract class _$$_ChangeAmountFromOptionsCopyWith<$Res> {
+  factory _$$_ChangeAmountFromOptionsCopyWith(_$_ChangeAmountFromOptions value,
+          $Res Function(_$_ChangeAmountFromOptions) then) =
+      __$$_ChangeAmountFromOptionsCopyWithImpl<$Res>;
+  @useResult
   $Res call({String amount});
 }
 
 /// @nodoc
-class __$ChangeAmountFromOptionsCopyWithImpl<$Res>
-    extends _$TopupViaStripeEventCopyWithImpl<$Res>
-    implements _$ChangeAmountFromOptionsCopyWith<$Res> {
-  __$ChangeAmountFromOptionsCopyWithImpl(_ChangeAmountFromOptions _value,
-      $Res Function(_ChangeAmountFromOptions) _then)
-      : super(_value, (v) => _then(v as _ChangeAmountFromOptions));
+class __$$_ChangeAmountFromOptionsCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res, _$_ChangeAmountFromOptions>
+    implements _$$_ChangeAmountFromOptionsCopyWith<$Res> {
+  __$$_ChangeAmountFromOptionsCopyWithImpl(_$_ChangeAmountFromOptions _value,
+      $Res Function(_$_ChangeAmountFromOptions) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeAmountFromOptions get _value =>
-      super._value as _ChangeAmountFromOptions;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? amount = freezed,
+    Object? amount = null,
   }) {
-    return _then(_ChangeAmountFromOptions(
-      amount == freezed
+    return _then(_$_ChangeAmountFromOptions(
+      null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
@@ -921,20 +1044,21 @@ class _$_ChangeAmountFromOptions implements _ChangeAmountFromOptions {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeAmountFromOptions &&
-            (identical(other.amount, amount) ||
-                const DeepCollectionEquality().equals(other.amount, amount)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeAmountFromOptions &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(amount);
+  int get hashCode => Object.hash(runtimeType, amount);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeAmountFromOptionsCopyWith<_ChangeAmountFromOptions> get copyWith =>
-      __$ChangeAmountFromOptionsCopyWithImpl<_ChangeAmountFromOptions>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeAmountFromOptionsCopyWith<_$_ChangeAmountFromOptions>
+      get copyWith =>
+          __$$_ChangeAmountFromOptionsCopyWithImpl<_$_ChangeAmountFromOptions>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -950,6 +1074,22 @@ class _$_ChangeAmountFromOptions implements _ChangeAmountFromOptions {
     required TResult Function(bool isSavedCard) topup,
   }) {
     return changeAmountFromOptions(amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
+  }) {
+    return changeAmountFromOptions?.call(amount);
   }
 
   @override
@@ -991,6 +1131,22 @@ class _$_ChangeAmountFromOptions implements _ChangeAmountFromOptions {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) {
+    return changeAmountFromOptions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -1011,40 +1167,39 @@ class _$_ChangeAmountFromOptions implements _ChangeAmountFromOptions {
 }
 
 abstract class _ChangeAmountFromOptions implements TopupViaStripeEvent {
-  const factory _ChangeAmountFromOptions(String amount) =
+  const factory _ChangeAmountFromOptions(final String amount) =
       _$_ChangeAmountFromOptions;
 
-  String get amount => throw _privateConstructorUsedError;
+  String get amount;
   @JsonKey(ignore: true)
-  _$ChangeAmountFromOptionsCopyWith<_ChangeAmountFromOptions> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangeAmountFromOptionsCopyWith<_$_ChangeAmountFromOptions>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangePurposeCopyWith<$Res> {
-  factory _$ChangePurposeCopyWith(
-          _ChangePurpose value, $Res Function(_ChangePurpose) then) =
-      __$ChangePurposeCopyWithImpl<$Res>;
+abstract class _$$_ChangePurposeCopyWith<$Res> {
+  factory _$$_ChangePurposeCopyWith(
+          _$_ChangePurpose value, $Res Function(_$_ChangePurpose) then) =
+      __$$_ChangePurposeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String purpose});
 }
 
 /// @nodoc
-class __$ChangePurposeCopyWithImpl<$Res>
-    extends _$TopupViaStripeEventCopyWithImpl<$Res>
-    implements _$ChangePurposeCopyWith<$Res> {
-  __$ChangePurposeCopyWithImpl(
-      _ChangePurpose _value, $Res Function(_ChangePurpose) _then)
-      : super(_value, (v) => _then(v as _ChangePurpose));
+class __$$_ChangePurposeCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res, _$_ChangePurpose>
+    implements _$$_ChangePurposeCopyWith<$Res> {
+  __$$_ChangePurposeCopyWithImpl(
+      _$_ChangePurpose _value, $Res Function(_$_ChangePurpose) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangePurpose get _value => super._value as _ChangePurpose;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? purpose = freezed,
+    Object? purpose = null,
   }) {
-    return _then(_ChangePurpose(
-      purpose == freezed
+    return _then(_$_ChangePurpose(
+      null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1068,19 +1223,19 @@ class _$_ChangePurpose implements _ChangePurpose {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangePurpose &&
-            (identical(other.purpose, purpose) ||
-                const DeepCollectionEquality().equals(other.purpose, purpose)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangePurpose &&
+            (identical(other.purpose, purpose) || other.purpose == purpose));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(purpose);
+  int get hashCode => Object.hash(runtimeType, purpose);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangePurposeCopyWith<_ChangePurpose> get copyWith =>
-      __$ChangePurposeCopyWithImpl<_ChangePurpose>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangePurposeCopyWith<_$_ChangePurpose> get copyWith =>
+      __$$_ChangePurposeCopyWithImpl<_$_ChangePurpose>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1096,6 +1251,22 @@ class _$_ChangePurpose implements _ChangePurpose {
     required TResult Function(bool isSavedCard) topup,
   }) {
     return changePurpose(purpose);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
+  }) {
+    return changePurpose?.call(purpose);
   }
 
   @override
@@ -1137,6 +1308,22 @@ class _$_ChangePurpose implements _ChangePurpose {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) {
+    return changePurpose?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -1157,31 +1344,28 @@ class _$_ChangePurpose implements _ChangePurpose {
 }
 
 abstract class _ChangePurpose implements TopupViaStripeEvent {
-  const factory _ChangePurpose(String purpose) = _$_ChangePurpose;
+  const factory _ChangePurpose(final String purpose) = _$_ChangePurpose;
 
-  String get purpose => throw _privateConstructorUsedError;
+  String get purpose;
   @JsonKey(ignore: true)
-  _$ChangePurposeCopyWith<_ChangePurpose> get copyWith =>
+  _$$_ChangePurposeCopyWith<_$_ChangePurpose> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeSaveCardCopyWith<$Res> {
-  factory _$ChangeSaveCardCopyWith(
-          _ChangeSaveCard value, $Res Function(_ChangeSaveCard) then) =
-      __$ChangeSaveCardCopyWithImpl<$Res>;
+abstract class _$$_ChangeSaveCardCopyWith<$Res> {
+  factory _$$_ChangeSaveCardCopyWith(
+          _$_ChangeSaveCard value, $Res Function(_$_ChangeSaveCard) then) =
+      __$$_ChangeSaveCardCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ChangeSaveCardCopyWithImpl<$Res>
-    extends _$TopupViaStripeEventCopyWithImpl<$Res>
-    implements _$ChangeSaveCardCopyWith<$Res> {
-  __$ChangeSaveCardCopyWithImpl(
-      _ChangeSaveCard _value, $Res Function(_ChangeSaveCard) _then)
-      : super(_value, (v) => _then(v as _ChangeSaveCard));
-
-  @override
-  _ChangeSaveCard get _value => super._value as _ChangeSaveCard;
+class __$$_ChangeSaveCardCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res, _$_ChangeSaveCard>
+    implements _$$_ChangeSaveCardCopyWith<$Res> {
+  __$$_ChangeSaveCardCopyWithImpl(
+      _$_ChangeSaveCard _value, $Res Function(_$_ChangeSaveCard) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1196,7 +1380,8 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ChangeSaveCard);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ChangeSaveCard);
   }
 
   @override
@@ -1216,6 +1401,22 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
     required TResult Function(bool isSavedCard) topup,
   }) {
     return changeSaveCard();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
+  }) {
+    return changeSaveCard?.call();
   }
 
   @override
@@ -1257,6 +1458,22 @@ class _$_ChangeSaveCard implements _ChangeSaveCard {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) {
+    return changeSaveCard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -1281,27 +1498,27 @@ abstract class _ChangeSaveCard implements TopupViaStripeEvent {
 }
 
 /// @nodoc
-abstract class _$TopUpCopyWith<$Res> {
-  factory _$TopUpCopyWith(_TopUp value, $Res Function(_TopUp) then) =
-      __$TopUpCopyWithImpl<$Res>;
+abstract class _$$_TopUpCopyWith<$Res> {
+  factory _$$_TopUpCopyWith(_$_TopUp value, $Res Function(_$_TopUp) then) =
+      __$$_TopUpCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool isSavedCard});
 }
 
 /// @nodoc
-class __$TopUpCopyWithImpl<$Res> extends _$TopupViaStripeEventCopyWithImpl<$Res>
-    implements _$TopUpCopyWith<$Res> {
-  __$TopUpCopyWithImpl(_TopUp _value, $Res Function(_TopUp) _then)
-      : super(_value, (v) => _then(v as _TopUp));
+class __$$_TopUpCopyWithImpl<$Res>
+    extends _$TopupViaStripeEventCopyWithImpl<$Res, _$_TopUp>
+    implements _$$_TopUpCopyWith<$Res> {
+  __$$_TopUpCopyWithImpl(_$_TopUp _value, $Res Function(_$_TopUp) _then)
+      : super(_value, _then);
 
-  @override
-  _TopUp get _value => super._value as _TopUp;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isSavedCard = freezed,
+    Object? isSavedCard = null,
   }) {
-    return _then(_TopUp(
-      isSavedCard == freezed
+    return _then(_$_TopUp(
+      null == isSavedCard
           ? _value.isSavedCard
           : isSavedCard // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -1325,20 +1542,20 @@ class _$_TopUp implements _TopUp {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TopUp &&
+        (other.runtimeType == runtimeType &&
+            other is _$_TopUp &&
             (identical(other.isSavedCard, isSavedCard) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSavedCard, isSavedCard)));
+                other.isSavedCard == isSavedCard));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(isSavedCard);
+  int get hashCode => Object.hash(runtimeType, isSavedCard);
 
   @JsonKey(ignore: true)
   @override
-  _$TopUpCopyWith<_TopUp> get copyWith =>
-      __$TopUpCopyWithImpl<_TopUp>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_TopUpCopyWith<_$_TopUp> get copyWith =>
+      __$$_TopUpCopyWithImpl<_$_TopUp>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1354,6 +1571,22 @@ class _$_TopUp implements _TopUp {
     required TResult Function(bool isSavedCard) topup,
   }) {
     return topup(isSavedCard);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeName,
+    TResult? Function(String number)? changeCardNumber,
+    TResult? Function(String cvc)? changeCvc,
+    TResult? Function(String year)? changeExpYear,
+    TResult? Function(String amount)? changeAmount,
+    TResult? Function(String amount)? changeAmountFromOptions,
+    TResult? Function(String purpose)? changePurpose,
+    TResult? Function()? changeSaveCard,
+    TResult? Function(bool isSavedCard)? topup,
+  }) {
+    return topup?.call(isSavedCard);
   }
 
   @override
@@ -1395,6 +1628,22 @@ class _$_TopUp implements _TopUp {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeCardNumber value)? changeCardNumber,
+    TResult? Function(_ChangeCvc value)? changeCvc,
+    TResult? Function(_ChangeExpYear value)? changeExpYear,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_ChangeAmountFromOptions value)? changeAmountFromOptions,
+    TResult? Function(_ChangePurpose value)? changePurpose,
+    TResult? Function(_ChangeSaveCard value)? changeSaveCard,
+    TResult? Function(_TopUp value)? topup,
+  }) {
+    return topup?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeCardNumber value)? changeCardNumber,
@@ -1415,45 +1664,13 @@ class _$_TopUp implements _TopUp {
 }
 
 abstract class _TopUp implements TopupViaStripeEvent {
-  const factory _TopUp(bool isSavedCard) = _$_TopUp;
+  const factory _TopUp(final bool isSavedCard) = _$_TopUp;
 
-  bool get isSavedCard => throw _privateConstructorUsedError;
+  bool get isSavedCard;
   @JsonKey(ignore: true)
-  _$TopUpCopyWith<_TopUp> get copyWith => throw _privateConstructorUsedError;
+  _$$_TopUpCopyWith<_$_TopUp> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$TopupViaStripeStateTearOff {
-  const _$TopupViaStripeStateTearOff();
-
-  _TopupViaStripeState call(
-      {required Key key,
-      required String name,
-      required String cardNumber,
-      required String cvc,
-      required String expYear,
-      required String amount,
-      required String purpose,
-      required bool saveCard,
-      required bool isSubmitting,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
-    return _TopupViaStripeState(
-      key: key,
-      name: name,
-      cardNumber: cardNumber,
-      cvc: cvc,
-      expYear: expYear,
-      amount: amount,
-      purpose: purpose,
-      saveCard: saveCard,
-      isSubmitting: isSubmitting,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $TopupViaStripeState = _$TopupViaStripeStateTearOff();
 
 /// @nodoc
 mixin _$TopupViaStripeState {
@@ -1478,7 +1695,8 @@ mixin _$TopupViaStripeState {
 abstract class $TopupViaStripeStateCopyWith<$Res> {
   factory $TopupViaStripeStateCopyWith(
           TopupViaStripeState value, $Res Function(TopupViaStripeState) then) =
-      _$TopupViaStripeStateCopyWithImpl<$Res>;
+      _$TopupViaStripeStateCopyWithImpl<$Res, TopupViaStripeState>;
+  @useResult
   $Res call(
       {Key key,
       String name,
@@ -1493,79 +1711,82 @@ abstract class $TopupViaStripeStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TopupViaStripeStateCopyWithImpl<$Res>
+class _$TopupViaStripeStateCopyWithImpl<$Res, $Val extends TopupViaStripeState>
     implements $TopupViaStripeStateCopyWith<$Res> {
   _$TopupViaStripeStateCopyWithImpl(this._value, this._then);
 
-  final TopupViaStripeState _value;
   // ignore: unused_field
-  final $Res Function(TopupViaStripeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
-    Object? name = freezed,
-    Object? cardNumber = freezed,
-    Object? cvc = freezed,
-    Object? expYear = freezed,
-    Object? amount = freezed,
-    Object? purpose = freezed,
-    Object? saveCard = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? key = null,
+    Object? name = null,
+    Object? cardNumber = null,
+    Object? cvc = null,
+    Object? expYear = null,
+    Object? amount = null,
+    Object? purpose = null,
+    Object? saveCard = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      cardNumber: cardNumber == freezed
+      cardNumber: null == cardNumber
           ? _value.cardNumber
           : cardNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      cvc: cvc == freezed
+      cvc: null == cvc
           ? _value.cvc
           : cvc // ignore: cast_nullable_to_non_nullable
               as String,
-      expYear: expYear == freezed
+      expYear: null == expYear
           ? _value.expYear
           : expYear // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      purpose: purpose == freezed
+      purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
-      saveCard: saveCard == freezed
+      saveCard: null == saveCard
           ? _value.saveCard
           : saveCard // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$TopupViaStripeStateCopyWith<$Res>
+abstract class _$$_TopupViaStripeStateCopyWith<$Res>
     implements $TopupViaStripeStateCopyWith<$Res> {
-  factory _$TopupViaStripeStateCopyWith(_TopupViaStripeState value,
-          $Res Function(_TopupViaStripeState) then) =
-      __$TopupViaStripeStateCopyWithImpl<$Res>;
+  factory _$$_TopupViaStripeStateCopyWith(_$_TopupViaStripeState value,
+          $Res Function(_$_TopupViaStripeState) then) =
+      __$$_TopupViaStripeStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key key,
       String name,
@@ -1580,67 +1801,65 @@ abstract class _$TopupViaStripeStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$TopupViaStripeStateCopyWithImpl<$Res>
-    extends _$TopupViaStripeStateCopyWithImpl<$Res>
-    implements _$TopupViaStripeStateCopyWith<$Res> {
-  __$TopupViaStripeStateCopyWithImpl(
-      _TopupViaStripeState _value, $Res Function(_TopupViaStripeState) _then)
-      : super(_value, (v) => _then(v as _TopupViaStripeState));
+class __$$_TopupViaStripeStateCopyWithImpl<$Res>
+    extends _$TopupViaStripeStateCopyWithImpl<$Res, _$_TopupViaStripeState>
+    implements _$$_TopupViaStripeStateCopyWith<$Res> {
+  __$$_TopupViaStripeStateCopyWithImpl(_$_TopupViaStripeState _value,
+      $Res Function(_$_TopupViaStripeState) _then)
+      : super(_value, _then);
 
-  @override
-  _TopupViaStripeState get _value => super._value as _TopupViaStripeState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
-    Object? name = freezed,
-    Object? cardNumber = freezed,
-    Object? cvc = freezed,
-    Object? expYear = freezed,
-    Object? amount = freezed,
-    Object? purpose = freezed,
-    Object? saveCard = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? key = null,
+    Object? name = null,
+    Object? cardNumber = null,
+    Object? cvc = null,
+    Object? expYear = null,
+    Object? amount = null,
+    Object? purpose = null,
+    Object? saveCard = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_TopupViaStripeState(
-      key: key == freezed
+    return _then(_$_TopupViaStripeState(
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      cardNumber: cardNumber == freezed
+      cardNumber: null == cardNumber
           ? _value.cardNumber
           : cardNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      cvc: cvc == freezed
+      cvc: null == cvc
           ? _value.cvc
           : cvc // ignore: cast_nullable_to_non_nullable
               as String,
-      expYear: expYear == freezed
+      expYear: null == expYear
           ? _value.expYear
           : expYear // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      purpose: purpose == freezed
+      purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
-      saveCard: saveCard == freezed
+      saveCard: null == saveCard
           ? _value.saveCard
           : saveCard // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -1692,93 +1911,72 @@ class _$_TopupViaStripeState implements _TopupViaStripeState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TopupViaStripeState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_TopupViaStripeState &&
+            (identical(other.key, key) || other.key == key) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.cardNumber, cardNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.cardNumber, cardNumber)) &&
-            (identical(other.cvc, cvc) ||
-                const DeepCollectionEquality().equals(other.cvc, cvc)) &&
-            (identical(other.expYear, expYear) ||
-                const DeepCollectionEquality()
-                    .equals(other.expYear, expYear)) &&
-            (identical(other.amount, amount) ||
-                const DeepCollectionEquality().equals(other.amount, amount)) &&
-            (identical(other.purpose, purpose) ||
-                const DeepCollectionEquality()
-                    .equals(other.purpose, purpose)) &&
+                other.cardNumber == cardNumber) &&
+            (identical(other.cvc, cvc) || other.cvc == cvc) &&
+            (identical(other.expYear, expYear) || other.expYear == expYear) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.saveCard, saveCard) ||
-                const DeepCollectionEquality()
-                    .equals(other.saveCard, saveCard)) &&
+                other.saveCard == saveCard) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
+                other.isSubmitting == isSubmitting) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(cardNumber) ^
-      const DeepCollectionEquality().hash(cvc) ^
-      const DeepCollectionEquality().hash(expYear) ^
-      const DeepCollectionEquality().hash(amount) ^
-      const DeepCollectionEquality().hash(purpose) ^
-      const DeepCollectionEquality().hash(saveCard) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hash(runtimeType, key, name, cardNumber, cvc,
+      expYear, amount, purpose, saveCard, isSubmitting, failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
-  _$TopupViaStripeStateCopyWith<_TopupViaStripeState> get copyWith =>
-      __$TopupViaStripeStateCopyWithImpl<_TopupViaStripeState>(
+  @pragma('vm:prefer-inline')
+  _$$_TopupViaStripeStateCopyWith<_$_TopupViaStripeState> get copyWith =>
+      __$$_TopupViaStripeStateCopyWithImpl<_$_TopupViaStripeState>(
           this, _$identity);
 }
 
 abstract class _TopupViaStripeState implements TopupViaStripeState {
   const factory _TopupViaStripeState(
-          {required Key key,
-          required String name,
-          required String cardNumber,
-          required String cvc,
-          required String expYear,
-          required String amount,
-          required String purpose,
-          required bool saveCard,
-          required bool isSubmitting,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
-      _$_TopupViaStripeState;
+      {required final Key key,
+      required final String name,
+      required final String cardNumber,
+      required final String cvc,
+      required final String expYear,
+      required final String amount,
+      required final String purpose,
+      required final bool saveCard,
+      required final bool isSubmitting,
+      required final Option<Either<ApiFailure, Unit>>
+          failureOrSuccessOption}) = _$_TopupViaStripeState;
 
   @override
-  Key get key => throw _privateConstructorUsedError;
+  Key get key;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get cardNumber => throw _privateConstructorUsedError;
+  String get cardNumber;
   @override
-  String get cvc => throw _privateConstructorUsedError;
+  String get cvc;
   @override
-  String get expYear => throw _privateConstructorUsedError;
+  String get expYear;
   @override
-  String get amount => throw _privateConstructorUsedError;
+  String get amount;
   @override
-  String get purpose => throw _privateConstructorUsedError;
+  String get purpose;
   @override
-  bool get saveCard => throw _privateConstructorUsedError;
+  bool get saveCard;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$TopupViaStripeStateCopyWith<_TopupViaStripeState> get copyWith =>
+  _$$_TopupViaStripeStateCopyWith<_$_TopupViaStripeState> get copyWith =>
       throw _privateConstructorUsedError;
 }

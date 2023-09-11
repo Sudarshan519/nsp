@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'news_genre_bloc.dart';
 
@@ -10,29 +12,7 @@ part of 'news_genre_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$NewsGenreEventTearOff {
-  const _$NewsGenreEventTearOff();
-
-  _Fetch fetch() {
-    return const _Fetch();
-  }
-
-  _ChangeGenre changeGenre(int index) {
-    return _ChangeGenre(
-      index,
-    );
-  }
-
-  _Save save() {
-    return const _Save();
-  }
-}
-
-/// @nodoc
-const $NewsGenreEvent = _$NewsGenreEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$NewsGenreEvent {
@@ -41,6 +21,13 @@ mixin _$NewsGenreEvent {
     required TResult Function() fetch,
     required TResult Function(int index) changeGenre,
     required TResult Function() save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(int index)? changeGenre,
+    TResult? Function()? save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +46,13 @@ mixin _$NewsGenreEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_ChangeGenre value)? changeGenre,
+    TResult? Function(_Save value)? save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_ChangeGenre value)? changeGenre,
@@ -72,33 +66,32 @@ mixin _$NewsGenreEvent {
 abstract class $NewsGenreEventCopyWith<$Res> {
   factory $NewsGenreEventCopyWith(
           NewsGenreEvent value, $Res Function(NewsGenreEvent) then) =
-      _$NewsGenreEventCopyWithImpl<$Res>;
+      _$NewsGenreEventCopyWithImpl<$Res, NewsGenreEvent>;
 }
 
 /// @nodoc
-class _$NewsGenreEventCopyWithImpl<$Res>
+class _$NewsGenreEventCopyWithImpl<$Res, $Val extends NewsGenreEvent>
     implements $NewsGenreEventCopyWith<$Res> {
   _$NewsGenreEventCopyWithImpl(this._value, this._then);
 
-  final NewsGenreEvent _value;
   // ignore: unused_field
-  final $Res Function(NewsGenreEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$FetchCopyWith<$Res> {
-  factory _$FetchCopyWith(_Fetch value, $Res Function(_Fetch) then) =
-      __$FetchCopyWithImpl<$Res>;
+abstract class _$$_FetchCopyWith<$Res> {
+  factory _$$_FetchCopyWith(_$_Fetch value, $Res Function(_$_Fetch) then) =
+      __$$_FetchCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$FetchCopyWithImpl<$Res> extends _$NewsGenreEventCopyWithImpl<$Res>
-    implements _$FetchCopyWith<$Res> {
-  __$FetchCopyWithImpl(_Fetch _value, $Res Function(_Fetch) _then)
-      : super(_value, (v) => _then(v as _Fetch));
-
-  @override
-  _Fetch get _value => super._value as _Fetch;
+class __$$_FetchCopyWithImpl<$Res>
+    extends _$NewsGenreEventCopyWithImpl<$Res, _$_Fetch>
+    implements _$$_FetchCopyWith<$Res> {
+  __$$_FetchCopyWithImpl(_$_Fetch _value, $Res Function(_$_Fetch) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -113,7 +106,8 @@ class _$_Fetch implements _Fetch {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Fetch);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Fetch);
   }
 
   @override
@@ -127,6 +121,16 @@ class _$_Fetch implements _Fetch {
     required TResult Function() save,
   }) {
     return fetch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(int index)? changeGenre,
+    TResult? Function()? save,
+  }) {
+    return fetch?.call();
   }
 
   @override
@@ -155,6 +159,16 @@ class _$_Fetch implements _Fetch {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_ChangeGenre value)? changeGenre,
+    TResult? Function(_Save value)? save,
+  }) {
+    return fetch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_ChangeGenre value)? changeGenre,
@@ -173,30 +187,29 @@ abstract class _Fetch implements NewsGenreEvent {
 }
 
 /// @nodoc
-abstract class _$ChangeGenreCopyWith<$Res> {
-  factory _$ChangeGenreCopyWith(
-          _ChangeGenre value, $Res Function(_ChangeGenre) then) =
-      __$ChangeGenreCopyWithImpl<$Res>;
+abstract class _$$_ChangeGenreCopyWith<$Res> {
+  factory _$$_ChangeGenreCopyWith(
+          _$_ChangeGenre value, $Res Function(_$_ChangeGenre) then) =
+      __$$_ChangeGenreCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$ChangeGenreCopyWithImpl<$Res>
-    extends _$NewsGenreEventCopyWithImpl<$Res>
-    implements _$ChangeGenreCopyWith<$Res> {
-  __$ChangeGenreCopyWithImpl(
-      _ChangeGenre _value, $Res Function(_ChangeGenre) _then)
-      : super(_value, (v) => _then(v as _ChangeGenre));
+class __$$_ChangeGenreCopyWithImpl<$Res>
+    extends _$NewsGenreEventCopyWithImpl<$Res, _$_ChangeGenre>
+    implements _$$_ChangeGenreCopyWith<$Res> {
+  __$$_ChangeGenreCopyWithImpl(
+      _$_ChangeGenre _value, $Res Function(_$_ChangeGenre) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeGenre get _value => super._value as _ChangeGenre;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
-    return _then(_ChangeGenre(
-      index == freezed
+    return _then(_$_ChangeGenre(
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -220,19 +233,19 @@ class _$_ChangeGenre implements _ChangeGenre {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeGenre &&
-            (identical(other.index, index) ||
-                const DeepCollectionEquality().equals(other.index, index)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeGenre &&
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(index);
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeGenreCopyWith<_ChangeGenre> get copyWith =>
-      __$ChangeGenreCopyWithImpl<_ChangeGenre>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeGenreCopyWith<_$_ChangeGenre> get copyWith =>
+      __$$_ChangeGenreCopyWithImpl<_$_ChangeGenre>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -242,6 +255,16 @@ class _$_ChangeGenre implements _ChangeGenre {
     required TResult Function() save,
   }) {
     return changeGenre(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(int index)? changeGenre,
+    TResult? Function()? save,
+  }) {
+    return changeGenre?.call(index);
   }
 
   @override
@@ -270,6 +293,16 @@ class _$_ChangeGenre implements _ChangeGenre {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_ChangeGenre value)? changeGenre,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeGenre?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_ChangeGenre value)? changeGenre,
@@ -284,28 +317,26 @@ class _$_ChangeGenre implements _ChangeGenre {
 }
 
 abstract class _ChangeGenre implements NewsGenreEvent {
-  const factory _ChangeGenre(int index) = _$_ChangeGenre;
+  const factory _ChangeGenre(final int index) = _$_ChangeGenre;
 
-  int get index => throw _privateConstructorUsedError;
+  int get index;
   @JsonKey(ignore: true)
-  _$ChangeGenreCopyWith<_ChangeGenre> get copyWith =>
+  _$$_ChangeGenreCopyWith<_$_ChangeGenre> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SaveCopyWith<$Res> {
-  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
-      __$SaveCopyWithImpl<$Res>;
+abstract class _$$_SaveCopyWith<$Res> {
+  factory _$$_SaveCopyWith(_$_Save value, $Res Function(_$_Save) then) =
+      __$$_SaveCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SaveCopyWithImpl<$Res> extends _$NewsGenreEventCopyWithImpl<$Res>
-    implements _$SaveCopyWith<$Res> {
-  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
-      : super(_value, (v) => _then(v as _Save));
-
-  @override
-  _Save get _value => super._value as _Save;
+class __$$_SaveCopyWithImpl<$Res>
+    extends _$NewsGenreEventCopyWithImpl<$Res, _$_Save>
+    implements _$$_SaveCopyWith<$Res> {
+  __$$_SaveCopyWithImpl(_$_Save _value, $Res Function(_$_Save) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -320,7 +351,8 @@ class _$_Save implements _Save {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Save);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Save);
   }
 
   @override
@@ -334,6 +366,16 @@ class _$_Save implements _Save {
     required TResult Function() save,
   }) {
     return save();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(int index)? changeGenre,
+    TResult? Function()? save,
+  }) {
+    return save?.call();
   }
 
   @override
@@ -362,6 +404,16 @@ class _$_Save implements _Save {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_ChangeGenre value)? changeGenre,
+    TResult? Function(_Save value)? save,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_ChangeGenre value)? changeGenre,
@@ -380,34 +432,6 @@ abstract class _Save implements NewsGenreEvent {
 }
 
 /// @nodoc
-class _$NewsGenreStateTearOff {
-  const _$NewsGenreStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Loaded loaded(List<Genre> genre) {
-    return _Loaded(
-      genre,
-    );
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
-    );
-  }
-}
-
-/// @nodoc
-const $NewsGenreState = _$NewsGenreStateTearOff();
-
-/// @nodoc
 mixin _$NewsGenreState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -415,6 +439,14 @@ mixin _$NewsGenreState {
     required TResult Function() loading,
     required TResult Function(List<Genre> genre) loaded,
     required TResult Function(ApiFailure failure) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Genre> genre)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -435,6 +467,14 @@ mixin _$NewsGenreState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -449,33 +489,33 @@ mixin _$NewsGenreState {
 abstract class $NewsGenreStateCopyWith<$Res> {
   factory $NewsGenreStateCopyWith(
           NewsGenreState value, $Res Function(NewsGenreState) then) =
-      _$NewsGenreStateCopyWithImpl<$Res>;
+      _$NewsGenreStateCopyWithImpl<$Res, NewsGenreState>;
 }
 
 /// @nodoc
-class _$NewsGenreStateCopyWithImpl<$Res>
+class _$NewsGenreStateCopyWithImpl<$Res, $Val extends NewsGenreState>
     implements $NewsGenreStateCopyWith<$Res> {
   _$NewsGenreStateCopyWithImpl(this._value, this._then);
 
-  final NewsGenreState _value;
   // ignore: unused_field
-  final $Res Function(NewsGenreState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$NewsGenreStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -490,7 +530,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -505,6 +546,17 @@ class _$_Initial implements _Initial {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Genre> genre)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -535,6 +587,17 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -554,19 +617,18 @@ abstract class _Initial implements NewsGenreState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$NewsGenreStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -581,7 +643,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -596,6 +659,17 @@ class _$_Loading implements _Loading {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Genre> genre)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -626,6 +700,17 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -645,28 +730,28 @@ abstract class _Loading implements NewsGenreState {
 }
 
 /// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
+abstract class _$$_LoadedCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Genre> genre});
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
+class __$$_LoadedCopyWithImpl<$Res>
+    extends _$NewsGenreStateCopyWithImpl<$Res, _$_Loaded>
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, _then);
 
-  @override
-  _Loaded get _value => super._value as _Loaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? genre = freezed,
+    Object? genre = null,
   }) {
-    return _then(_Loaded(
-      genre == freezed
-          ? _value.genre
+    return _then(_$_Loaded(
+      null == genre
+          ? _value._genre
           : genre // ignore: cast_nullable_to_non_nullable
               as List<Genre>,
     ));
@@ -676,10 +761,15 @@ class __$LoadedCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.genre);
+  const _$_Loaded(final List<Genre> genre) : _genre = genre;
 
+  final List<Genre> _genre;
   @override
-  final List<Genre> genre;
+  List<Genre> get genre {
+    if (_genre is EqualUnmodifiableListView) return _genre;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genre);
+  }
 
   @override
   String toString() {
@@ -689,19 +779,20 @@ class _$_Loaded implements _Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Loaded &&
-            (identical(other.genre, genre) ||
-                const DeepCollectionEquality().equals(other.genre, genre)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Loaded &&
+            const DeepCollectionEquality().equals(other._genre, _genre));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(genre);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_genre));
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -712,6 +803,17 @@ class _$_Loaded implements _Loaded {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loaded(genre);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Genre> genre)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loaded?.call(genre);
   }
 
   @override
@@ -742,6 +844,17 @@ class _$_Loaded implements _Loaded {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -757,37 +870,39 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements NewsGenreState {
-  const factory _Loaded(List<Genre> genre) = _$_Loaded;
+  const factory _Loaded(final List<Genre> genre) = _$_Loaded;
 
-  List<Genre> get genre => throw _privateConstructorUsedError;
+  List<Genre> get genre;
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
+abstract class _$$_FailureCopyWith<$Res> {
+  factory _$$_FailureCopyWith(
+          _$_Failure value, $Res Function(_$_Failure) then) =
+      __$$_FailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$NewsGenreStateCopyWithImpl<$Res, _$_Failure>
+    implements _$$_FailureCopyWith<$Res> {
+  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+      : super(_value, _then);
 
-  @override
-  _Failure get _value => super._value as _Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_Failure(
-      failure == freezed
+    return _then(_$_Failure(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -795,6 +910,7 @@ class __$FailureCopyWithImpl<$Res> extends _$NewsGenreStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -818,19 +934,19 @@ class _$_Failure implements _Failure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Failure &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -841,6 +957,17 @@ class _$_Failure implements _Failure {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Genre> genre)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return failure?.call(this.failure);
   }
 
   @override
@@ -871,6 +998,17 @@ class _$_Failure implements _Failure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -886,10 +1024,10 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements NewsGenreState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const factory _Failure(final ApiFailure failure) = _$_Failure;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }

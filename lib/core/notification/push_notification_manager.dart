@@ -16,14 +16,15 @@ import 'package:wallet_app/utils/constant.dart';
 const AndroidNotificationChannel _androidChannel = AndroidNotificationChannel(
   'high_importance_channel', // id
   'High Importance Notifications', // title
-  'This channel is used for important notifications.', // description
+  description:
+      'This channel is used for important notifications.', // description
   importance: Importance.max,
 );
 final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
 final _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
-@singleton
+@lazySingleton
 class PushNotificationManager {
   String _token = "";
 
@@ -56,8 +57,8 @@ class PushNotificationManager {
       'notification_logo',
     );
 
-    const IOSInitializationSettings initializationSettingsIOS =
-        IOSInitializationSettings(
+    const DarwinInitializationSettings initializationSettingsIOS =
+        DarwinInitializationSettings(
       requestSoundPermission: false,
       requestBadgePermission: false,
       requestAlertPermission: false,
@@ -69,8 +70,10 @@ class PushNotificationManager {
       iOS: initializationSettingsIOS,
     );
 
-    await _flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        onSelectNotification: _selectNotification);
+    await _flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      // onSelectNotification: _selectNotification,
+    );
 
     await _flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
@@ -84,8 +87,8 @@ class PushNotificationManager {
     final notificationAppLaunchDetails = await _flutterLocalNotificationsPlugin
         .getNotificationAppLaunchDetails();
     if (notificationAppLaunchDetails?.didNotificationLaunchApp ?? false) {
-      _selectNotification(notificationAppLaunchDetails?.payload ?? '',
-          didNotificationLaunchApp: true);
+      // _selectNotification(notificationAppLaunchDetails?.payload ?? '',
+      //     didNotificationLaunchApp: true);
     }
   }
 
@@ -137,8 +140,9 @@ class PushNotificationManager {
         title,
         body,
         NotificationDetails(
-          android: AndroidNotificationDetails(_androidChannel.id,
-              _androidChannel.name, _androidChannel.description,
+          android: AndroidNotificationDetails(
+              _androidChannel.id, _androidChannel.name,
+              channelDescription: _androidChannel.description,
               // icon: android.smallIcon ?? 'notification_logo'
               icon: 'notification_logo'
 

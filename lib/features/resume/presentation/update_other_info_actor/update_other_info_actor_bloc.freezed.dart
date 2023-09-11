@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_other_info_actor_bloc.dart';
 
@@ -10,108 +12,7 @@ part of 'update_other_info_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UpdateOtherInfoActorEventTearOff {
-  const _$UpdateOtherInfoActorEventTearOff();
-
-  _ChangeLanguages changeLanguages(List<String> languages) {
-    return _ChangeLanguages(
-      languages,
-    );
-  }
-
-  _ChangeJLPTLevel changeJLPTLevel(String JLPTLevel) {
-    return _ChangeJLPTLevel(
-      JLPTLevel,
-    );
-  }
-
-  _ChangeSelfPR changeSelfPR(String selfPR) {
-    return _ChangeSelfPR(
-      selfPR,
-    );
-  }
-
-  _ChangeMotivationsSpecialSkills changeMotivationsSpecialSkills(
-      String motivationsSpecialSkills) {
-    return _ChangeMotivationsSpecialSkills(
-      motivationsSpecialSkills,
-    );
-  }
-
-  _ChangeHobbies changeHobbies(List<String> hobbies) {
-    return _ChangeHobbies(
-      hobbies,
-    );
-  }
-
-  _ChangeSkills changeSkills(List<String> skills) {
-    return _ChangeSkills(
-      skills,
-    );
-  }
-
-  _ChangeWorkinHours changeWorkinHours(String hours) {
-    return _ChangeWorkinHours(
-      hours,
-    );
-  }
-
-  _ChangeWorkingMinutes changeWorkingMinutes(String minutes) {
-    return _ChangeWorkingMinutes(
-      minutes,
-    );
-  }
-
-  _ChangeNumberOfDependent changeNumberOfDependent(String numberOfDependent) {
-    return _ChangeNumberOfDependent(
-      numberOfDependent,
-    );
-  }
-
-  _ChangeIsSpouse changeIsSpouse(String isSpouse) {
-    return _ChangeIsSpouse(
-      isSpouse,
-    );
-  }
-
-  _ChangeIsSpouseSupportObligation changeIsSpouseSupportObligation(
-      String isSpouseSupportObligation) {
-    return _ChangeIsSpouseSupportObligation(
-      isSpouseSupportObligation,
-    );
-  }
-
-  _ChangeSpecialConditions changeSpecialConditions(String specialConditions) {
-    return _ChangeSpecialConditions(
-      specialConditions,
-    );
-  }
-
-  _SetInitialState setInitialState(
-      {required PersonalInfo info,
-      required String lang,
-      required List<String> listOfLanguages,
-      required List<String> listOHobbies,
-      required List<String> listOfSkills}) {
-    return _SetInitialState(
-      info: info,
-      lang: lang,
-      listOfLanguages: listOfLanguages,
-      listOHobbies: listOHobbies,
-      listOfSkills: listOfSkills,
-    );
-  }
-
-  _Save save() {
-    return const _Save();
-  }
-}
-
-/// @nodoc
-const $UpdateOtherInfoActorEvent = _$UpdateOtherInfoActorEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdateOtherInfoActorEvent {
@@ -139,6 +40,32 @@ mixin _$UpdateOtherInfoActorEvent {
             List<String> listOfSkills)
         setInitialState,
     required TResult Function() save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -191,6 +118,26 @@ mixin _$UpdateOtherInfoActorEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -217,45 +164,46 @@ mixin _$UpdateOtherInfoActorEvent {
 abstract class $UpdateOtherInfoActorEventCopyWith<$Res> {
   factory $UpdateOtherInfoActorEventCopyWith(UpdateOtherInfoActorEvent value,
           $Res Function(UpdateOtherInfoActorEvent) then) =
-      _$UpdateOtherInfoActorEventCopyWithImpl<$Res>;
+      _$UpdateOtherInfoActorEventCopyWithImpl<$Res, UpdateOtherInfoActorEvent>;
 }
 
 /// @nodoc
-class _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
+class _$UpdateOtherInfoActorEventCopyWithImpl<$Res,
+        $Val extends UpdateOtherInfoActorEvent>
     implements $UpdateOtherInfoActorEventCopyWith<$Res> {
   _$UpdateOtherInfoActorEventCopyWithImpl(this._value, this._then);
 
-  final UpdateOtherInfoActorEvent _value;
   // ignore: unused_field
-  final $Res Function(UpdateOtherInfoActorEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangeLanguagesCopyWith<$Res> {
-  factory _$ChangeLanguagesCopyWith(
-          _ChangeLanguages value, $Res Function(_ChangeLanguages) then) =
-      __$ChangeLanguagesCopyWithImpl<$Res>;
+abstract class _$$_ChangeLanguagesCopyWith<$Res> {
+  factory _$$_ChangeLanguagesCopyWith(
+          _$_ChangeLanguages value, $Res Function(_$_ChangeLanguages) then) =
+      __$$_ChangeLanguagesCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<String> languages});
 }
 
 /// @nodoc
-class __$ChangeLanguagesCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeLanguagesCopyWith<$Res> {
-  __$ChangeLanguagesCopyWithImpl(
-      _ChangeLanguages _value, $Res Function(_ChangeLanguages) _then)
-      : super(_value, (v) => _then(v as _ChangeLanguages));
+class __$$_ChangeLanguagesCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res, _$_ChangeLanguages>
+    implements _$$_ChangeLanguagesCopyWith<$Res> {
+  __$$_ChangeLanguagesCopyWithImpl(
+      _$_ChangeLanguages _value, $Res Function(_$_ChangeLanguages) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeLanguages get _value => super._value as _ChangeLanguages;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? languages = freezed,
+    Object? languages = null,
   }) {
-    return _then(_ChangeLanguages(
-      languages == freezed
-          ? _value.languages
+    return _then(_$_ChangeLanguages(
+      null == languages
+          ? _value._languages
           : languages // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -265,10 +213,16 @@ class __$ChangeLanguagesCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangeLanguages implements _ChangeLanguages {
-  const _$_ChangeLanguages(this.languages);
+  const _$_ChangeLanguages(final List<String> languages)
+      : _languages = languages;
 
+  final List<String> _languages;
   @override
-  final List<String> languages;
+  List<String> get languages {
+    if (_languages is EqualUnmodifiableListView) return _languages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_languages);
+  }
 
   @override
   String toString() {
@@ -278,20 +232,21 @@ class _$_ChangeLanguages implements _ChangeLanguages {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeLanguages &&
-            (identical(other.languages, languages) ||
-                const DeepCollectionEquality()
-                    .equals(other.languages, languages)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeLanguages &&
+            const DeepCollectionEquality()
+                .equals(other._languages, _languages));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(languages);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_languages));
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeLanguagesCopyWith<_ChangeLanguages> get copyWith =>
-      __$ChangeLanguagesCopyWithImpl<_ChangeLanguages>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeLanguagesCopyWith<_$_ChangeLanguages> get copyWith =>
+      __$$_ChangeLanguagesCopyWithImpl<_$_ChangeLanguages>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -320,6 +275,35 @@ class _$_ChangeLanguages implements _ChangeLanguages {
     required TResult Function() save,
   }) {
     return changeLanguages(languages);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeLanguages?.call(languages);
   }
 
   @override
@@ -382,6 +366,29 @@ class _$_ChangeLanguages implements _ChangeLanguages {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeLanguages?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -409,39 +416,39 @@ class _$_ChangeLanguages implements _ChangeLanguages {
 }
 
 abstract class _ChangeLanguages implements UpdateOtherInfoActorEvent {
-  const factory _ChangeLanguages(List<String> languages) = _$_ChangeLanguages;
+  const factory _ChangeLanguages(final List<String> languages) =
+      _$_ChangeLanguages;
 
-  List<String> get languages => throw _privateConstructorUsedError;
+  List<String> get languages;
   @JsonKey(ignore: true)
-  _$ChangeLanguagesCopyWith<_ChangeLanguages> get copyWith =>
+  _$$_ChangeLanguagesCopyWith<_$_ChangeLanguages> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeJLPTLevelCopyWith<$Res> {
-  factory _$ChangeJLPTLevelCopyWith(
-          _ChangeJLPTLevel value, $Res Function(_ChangeJLPTLevel) then) =
-      __$ChangeJLPTLevelCopyWithImpl<$Res>;
+abstract class _$$_ChangeJLPTLevelCopyWith<$Res> {
+  factory _$$_ChangeJLPTLevelCopyWith(
+          _$_ChangeJLPTLevel value, $Res Function(_$_ChangeJLPTLevel) then) =
+      __$$_ChangeJLPTLevelCopyWithImpl<$Res>;
+  @useResult
   $Res call({String JLPTLevel});
 }
 
 /// @nodoc
-class __$ChangeJLPTLevelCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeJLPTLevelCopyWith<$Res> {
-  __$ChangeJLPTLevelCopyWithImpl(
-      _ChangeJLPTLevel _value, $Res Function(_ChangeJLPTLevel) _then)
-      : super(_value, (v) => _then(v as _ChangeJLPTLevel));
+class __$$_ChangeJLPTLevelCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res, _$_ChangeJLPTLevel>
+    implements _$$_ChangeJLPTLevelCopyWith<$Res> {
+  __$$_ChangeJLPTLevelCopyWithImpl(
+      _$_ChangeJLPTLevel _value, $Res Function(_$_ChangeJLPTLevel) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeJLPTLevel get _value => super._value as _ChangeJLPTLevel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? JLPTLevel = freezed,
+    Object? JLPTLevel = null,
   }) {
-    return _then(_ChangeJLPTLevel(
-      JLPTLevel == freezed
+    return _then(_$_ChangeJLPTLevel(
+      null == JLPTLevel
           ? _value.JLPTLevel
           : JLPTLevel // ignore: cast_nullable_to_non_nullable
               as String,
@@ -465,20 +472,20 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeJLPTLevel &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeJLPTLevel &&
             (identical(other.JLPTLevel, JLPTLevel) ||
-                const DeepCollectionEquality()
-                    .equals(other.JLPTLevel, JLPTLevel)));
+                other.JLPTLevel == JLPTLevel));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(JLPTLevel);
+  int get hashCode => Object.hash(runtimeType, JLPTLevel);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeJLPTLevelCopyWith<_ChangeJLPTLevel> get copyWith =>
-      __$ChangeJLPTLevelCopyWithImpl<_ChangeJLPTLevel>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeJLPTLevelCopyWith<_$_ChangeJLPTLevel> get copyWith =>
+      __$$_ChangeJLPTLevelCopyWithImpl<_$_ChangeJLPTLevel>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -507,6 +514,35 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
     required TResult Function() save,
   }) {
     return changeJLPTLevel(JLPTLevel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeJLPTLevel?.call(JLPTLevel);
   }
 
   @override
@@ -569,6 +605,29 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeJLPTLevel?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -596,39 +655,38 @@ class _$_ChangeJLPTLevel implements _ChangeJLPTLevel {
 }
 
 abstract class _ChangeJLPTLevel implements UpdateOtherInfoActorEvent {
-  const factory _ChangeJLPTLevel(String JLPTLevel) = _$_ChangeJLPTLevel;
+  const factory _ChangeJLPTLevel(final String JLPTLevel) = _$_ChangeJLPTLevel;
 
-  String get JLPTLevel => throw _privateConstructorUsedError;
+  String get JLPTLevel;
   @JsonKey(ignore: true)
-  _$ChangeJLPTLevelCopyWith<_ChangeJLPTLevel> get copyWith =>
+  _$$_ChangeJLPTLevelCopyWith<_$_ChangeJLPTLevel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeSelfPRCopyWith<$Res> {
-  factory _$ChangeSelfPRCopyWith(
-          _ChangeSelfPR value, $Res Function(_ChangeSelfPR) then) =
-      __$ChangeSelfPRCopyWithImpl<$Res>;
+abstract class _$$_ChangeSelfPRCopyWith<$Res> {
+  factory _$$_ChangeSelfPRCopyWith(
+          _$_ChangeSelfPR value, $Res Function(_$_ChangeSelfPR) then) =
+      __$$_ChangeSelfPRCopyWithImpl<$Res>;
+  @useResult
   $Res call({String selfPR});
 }
 
 /// @nodoc
-class __$ChangeSelfPRCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeSelfPRCopyWith<$Res> {
-  __$ChangeSelfPRCopyWithImpl(
-      _ChangeSelfPR _value, $Res Function(_ChangeSelfPR) _then)
-      : super(_value, (v) => _then(v as _ChangeSelfPR));
+class __$$_ChangeSelfPRCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res, _$_ChangeSelfPR>
+    implements _$$_ChangeSelfPRCopyWith<$Res> {
+  __$$_ChangeSelfPRCopyWithImpl(
+      _$_ChangeSelfPR _value, $Res Function(_$_ChangeSelfPR) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeSelfPR get _value => super._value as _ChangeSelfPR;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? selfPR = freezed,
+    Object? selfPR = null,
   }) {
-    return _then(_ChangeSelfPR(
-      selfPR == freezed
+    return _then(_$_ChangeSelfPR(
+      null == selfPR
           ? _value.selfPR
           : selfPR // ignore: cast_nullable_to_non_nullable
               as String,
@@ -652,19 +710,19 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeSelfPR &&
-            (identical(other.selfPR, selfPR) ||
-                const DeepCollectionEquality().equals(other.selfPR, selfPR)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeSelfPR &&
+            (identical(other.selfPR, selfPR) || other.selfPR == selfPR));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(selfPR);
+  int get hashCode => Object.hash(runtimeType, selfPR);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeSelfPRCopyWith<_ChangeSelfPR> get copyWith =>
-      __$ChangeSelfPRCopyWithImpl<_ChangeSelfPR>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeSelfPRCopyWith<_$_ChangeSelfPR> get copyWith =>
+      __$$_ChangeSelfPRCopyWithImpl<_$_ChangeSelfPR>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -693,6 +751,35 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
     required TResult Function() save,
   }) {
     return changeSelfPR(selfPR);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeSelfPR?.call(selfPR);
   }
 
   @override
@@ -755,6 +842,29 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeSelfPR?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -782,42 +892,41 @@ class _$_ChangeSelfPR implements _ChangeSelfPR {
 }
 
 abstract class _ChangeSelfPR implements UpdateOtherInfoActorEvent {
-  const factory _ChangeSelfPR(String selfPR) = _$_ChangeSelfPR;
+  const factory _ChangeSelfPR(final String selfPR) = _$_ChangeSelfPR;
 
-  String get selfPR => throw _privateConstructorUsedError;
+  String get selfPR;
   @JsonKey(ignore: true)
-  _$ChangeSelfPRCopyWith<_ChangeSelfPR> get copyWith =>
+  _$$_ChangeSelfPRCopyWith<_$_ChangeSelfPR> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeMotivationsSpecialSkillsCopyWith<$Res> {
-  factory _$ChangeMotivationsSpecialSkillsCopyWith(
-          _ChangeMotivationsSpecialSkills value,
-          $Res Function(_ChangeMotivationsSpecialSkills) then) =
-      __$ChangeMotivationsSpecialSkillsCopyWithImpl<$Res>;
+abstract class _$$_ChangeMotivationsSpecialSkillsCopyWith<$Res> {
+  factory _$$_ChangeMotivationsSpecialSkillsCopyWith(
+          _$_ChangeMotivationsSpecialSkills value,
+          $Res Function(_$_ChangeMotivationsSpecialSkills) then) =
+      __$$_ChangeMotivationsSpecialSkillsCopyWithImpl<$Res>;
+  @useResult
   $Res call({String motivationsSpecialSkills});
 }
 
 /// @nodoc
-class __$ChangeMotivationsSpecialSkillsCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeMotivationsSpecialSkillsCopyWith<$Res> {
-  __$ChangeMotivationsSpecialSkillsCopyWithImpl(
-      _ChangeMotivationsSpecialSkills _value,
-      $Res Function(_ChangeMotivationsSpecialSkills) _then)
-      : super(_value, (v) => _then(v as _ChangeMotivationsSpecialSkills));
+class __$$_ChangeMotivationsSpecialSkillsCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res,
+        _$_ChangeMotivationsSpecialSkills>
+    implements _$$_ChangeMotivationsSpecialSkillsCopyWith<$Res> {
+  __$$_ChangeMotivationsSpecialSkillsCopyWithImpl(
+      _$_ChangeMotivationsSpecialSkills _value,
+      $Res Function(_$_ChangeMotivationsSpecialSkills) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeMotivationsSpecialSkills get _value =>
-      super._value as _ChangeMotivationsSpecialSkills;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? motivationsSpecialSkills = freezed,
+    Object? motivationsSpecialSkills = null,
   }) {
-    return _then(_ChangeMotivationsSpecialSkills(
-      motivationsSpecialSkills == freezed
+    return _then(_$_ChangeMotivationsSpecialSkills(
+      null == motivationsSpecialSkills
           ? _value.motivationsSpecialSkills
           : motivationsSpecialSkills // ignore: cast_nullable_to_non_nullable
               as String,
@@ -842,23 +951,22 @@ class _$_ChangeMotivationsSpecialSkills
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeMotivationsSpecialSkills &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeMotivationsSpecialSkills &&
             (identical(
                     other.motivationsSpecialSkills, motivationsSpecialSkills) ||
-                const DeepCollectionEquality().equals(
-                    other.motivationsSpecialSkills, motivationsSpecialSkills)));
+                other.motivationsSpecialSkills == motivationsSpecialSkills));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(motivationsSpecialSkills);
+  int get hashCode => Object.hash(runtimeType, motivationsSpecialSkills);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeMotivationsSpecialSkillsCopyWith<_ChangeMotivationsSpecialSkills>
-      get copyWith => __$ChangeMotivationsSpecialSkillsCopyWithImpl<
-          _ChangeMotivationsSpecialSkills>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeMotivationsSpecialSkillsCopyWith<_$_ChangeMotivationsSpecialSkills>
+      get copyWith => __$$_ChangeMotivationsSpecialSkillsCopyWithImpl<
+          _$_ChangeMotivationsSpecialSkills>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -887,6 +995,35 @@ class _$_ChangeMotivationsSpecialSkills
     required TResult Function() save,
   }) {
     return changeMotivationsSpecialSkills(motivationsSpecialSkills);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeMotivationsSpecialSkills?.call(motivationsSpecialSkills);
   }
 
   @override
@@ -949,6 +1086,29 @@ class _$_ChangeMotivationsSpecialSkills
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeMotivationsSpecialSkills?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -978,40 +1138,40 @@ class _$_ChangeMotivationsSpecialSkills
 abstract class _ChangeMotivationsSpecialSkills
     implements UpdateOtherInfoActorEvent {
   const factory _ChangeMotivationsSpecialSkills(
-      String motivationsSpecialSkills) = _$_ChangeMotivationsSpecialSkills;
+          final String motivationsSpecialSkills) =
+      _$_ChangeMotivationsSpecialSkills;
 
-  String get motivationsSpecialSkills => throw _privateConstructorUsedError;
+  String get motivationsSpecialSkills;
   @JsonKey(ignore: true)
-  _$ChangeMotivationsSpecialSkillsCopyWith<_ChangeMotivationsSpecialSkills>
+  _$$_ChangeMotivationsSpecialSkillsCopyWith<_$_ChangeMotivationsSpecialSkills>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeHobbiesCopyWith<$Res> {
-  factory _$ChangeHobbiesCopyWith(
-          _ChangeHobbies value, $Res Function(_ChangeHobbies) then) =
-      __$ChangeHobbiesCopyWithImpl<$Res>;
+abstract class _$$_ChangeHobbiesCopyWith<$Res> {
+  factory _$$_ChangeHobbiesCopyWith(
+          _$_ChangeHobbies value, $Res Function(_$_ChangeHobbies) then) =
+      __$$_ChangeHobbiesCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<String> hobbies});
 }
 
 /// @nodoc
-class __$ChangeHobbiesCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeHobbiesCopyWith<$Res> {
-  __$ChangeHobbiesCopyWithImpl(
-      _ChangeHobbies _value, $Res Function(_ChangeHobbies) _then)
-      : super(_value, (v) => _then(v as _ChangeHobbies));
+class __$$_ChangeHobbiesCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res, _$_ChangeHobbies>
+    implements _$$_ChangeHobbiesCopyWith<$Res> {
+  __$$_ChangeHobbiesCopyWithImpl(
+      _$_ChangeHobbies _value, $Res Function(_$_ChangeHobbies) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeHobbies get _value => super._value as _ChangeHobbies;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hobbies = freezed,
+    Object? hobbies = null,
   }) {
-    return _then(_ChangeHobbies(
-      hobbies == freezed
-          ? _value.hobbies
+    return _then(_$_ChangeHobbies(
+      null == hobbies
+          ? _value._hobbies
           : hobbies // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -1021,10 +1181,15 @@ class __$ChangeHobbiesCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangeHobbies implements _ChangeHobbies {
-  const _$_ChangeHobbies(this.hobbies);
+  const _$_ChangeHobbies(final List<String> hobbies) : _hobbies = hobbies;
 
+  final List<String> _hobbies;
   @override
-  final List<String> hobbies;
+  List<String> get hobbies {
+    if (_hobbies is EqualUnmodifiableListView) return _hobbies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hobbies);
+  }
 
   @override
   String toString() {
@@ -1034,19 +1199,20 @@ class _$_ChangeHobbies implements _ChangeHobbies {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeHobbies &&
-            (identical(other.hobbies, hobbies) ||
-                const DeepCollectionEquality().equals(other.hobbies, hobbies)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeHobbies &&
+            const DeepCollectionEquality().equals(other._hobbies, _hobbies));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(hobbies);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_hobbies));
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeHobbiesCopyWith<_ChangeHobbies> get copyWith =>
-      __$ChangeHobbiesCopyWithImpl<_ChangeHobbies>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeHobbiesCopyWith<_$_ChangeHobbies> get copyWith =>
+      __$$_ChangeHobbiesCopyWithImpl<_$_ChangeHobbies>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1075,6 +1241,35 @@ class _$_ChangeHobbies implements _ChangeHobbies {
     required TResult Function() save,
   }) {
     return changeHobbies(hobbies);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeHobbies?.call(hobbies);
   }
 
   @override
@@ -1137,6 +1332,29 @@ class _$_ChangeHobbies implements _ChangeHobbies {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeHobbies?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -1164,40 +1382,39 @@ class _$_ChangeHobbies implements _ChangeHobbies {
 }
 
 abstract class _ChangeHobbies implements UpdateOtherInfoActorEvent {
-  const factory _ChangeHobbies(List<String> hobbies) = _$_ChangeHobbies;
+  const factory _ChangeHobbies(final List<String> hobbies) = _$_ChangeHobbies;
 
-  List<String> get hobbies => throw _privateConstructorUsedError;
+  List<String> get hobbies;
   @JsonKey(ignore: true)
-  _$ChangeHobbiesCopyWith<_ChangeHobbies> get copyWith =>
+  _$$_ChangeHobbiesCopyWith<_$_ChangeHobbies> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeSkillsCopyWith<$Res> {
-  factory _$ChangeSkillsCopyWith(
-          _ChangeSkills value, $Res Function(_ChangeSkills) then) =
-      __$ChangeSkillsCopyWithImpl<$Res>;
+abstract class _$$_ChangeSkillsCopyWith<$Res> {
+  factory _$$_ChangeSkillsCopyWith(
+          _$_ChangeSkills value, $Res Function(_$_ChangeSkills) then) =
+      __$$_ChangeSkillsCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<String> skills});
 }
 
 /// @nodoc
-class __$ChangeSkillsCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeSkillsCopyWith<$Res> {
-  __$ChangeSkillsCopyWithImpl(
-      _ChangeSkills _value, $Res Function(_ChangeSkills) _then)
-      : super(_value, (v) => _then(v as _ChangeSkills));
+class __$$_ChangeSkillsCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res, _$_ChangeSkills>
+    implements _$$_ChangeSkillsCopyWith<$Res> {
+  __$$_ChangeSkillsCopyWithImpl(
+      _$_ChangeSkills _value, $Res Function(_$_ChangeSkills) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeSkills get _value => super._value as _ChangeSkills;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? skills = freezed,
+    Object? skills = null,
   }) {
-    return _then(_ChangeSkills(
-      skills == freezed
-          ? _value.skills
+    return _then(_$_ChangeSkills(
+      null == skills
+          ? _value._skills
           : skills // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -1207,10 +1424,15 @@ class __$ChangeSkillsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangeSkills implements _ChangeSkills {
-  const _$_ChangeSkills(this.skills);
+  const _$_ChangeSkills(final List<String> skills) : _skills = skills;
 
+  final List<String> _skills;
   @override
-  final List<String> skills;
+  List<String> get skills {
+    if (_skills is EqualUnmodifiableListView) return _skills;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_skills);
+  }
 
   @override
   String toString() {
@@ -1220,19 +1442,20 @@ class _$_ChangeSkills implements _ChangeSkills {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeSkills &&
-            (identical(other.skills, skills) ||
-                const DeepCollectionEquality().equals(other.skills, skills)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeSkills &&
+            const DeepCollectionEquality().equals(other._skills, _skills));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(skills);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_skills));
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeSkillsCopyWith<_ChangeSkills> get copyWith =>
-      __$ChangeSkillsCopyWithImpl<_ChangeSkills>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeSkillsCopyWith<_$_ChangeSkills> get copyWith =>
+      __$$_ChangeSkillsCopyWithImpl<_$_ChangeSkills>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1261,6 +1484,35 @@ class _$_ChangeSkills implements _ChangeSkills {
     required TResult Function() save,
   }) {
     return changeSkills(skills);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeSkills?.call(skills);
   }
 
   @override
@@ -1323,6 +1575,29 @@ class _$_ChangeSkills implements _ChangeSkills {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeSkills?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -1350,39 +1625,38 @@ class _$_ChangeSkills implements _ChangeSkills {
 }
 
 abstract class _ChangeSkills implements UpdateOtherInfoActorEvent {
-  const factory _ChangeSkills(List<String> skills) = _$_ChangeSkills;
+  const factory _ChangeSkills(final List<String> skills) = _$_ChangeSkills;
 
-  List<String> get skills => throw _privateConstructorUsedError;
+  List<String> get skills;
   @JsonKey(ignore: true)
-  _$ChangeSkillsCopyWith<_ChangeSkills> get copyWith =>
+  _$$_ChangeSkillsCopyWith<_$_ChangeSkills> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeWorkinHoursCopyWith<$Res> {
-  factory _$ChangeWorkinHoursCopyWith(
-          _ChangeWorkinHours value, $Res Function(_ChangeWorkinHours) then) =
-      __$ChangeWorkinHoursCopyWithImpl<$Res>;
+abstract class _$$_ChangeWorkinHoursCopyWith<$Res> {
+  factory _$$_ChangeWorkinHoursCopyWith(_$_ChangeWorkinHours value,
+          $Res Function(_$_ChangeWorkinHours) then) =
+      __$$_ChangeWorkinHoursCopyWithImpl<$Res>;
+  @useResult
   $Res call({String hours});
 }
 
 /// @nodoc
-class __$ChangeWorkinHoursCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeWorkinHoursCopyWith<$Res> {
-  __$ChangeWorkinHoursCopyWithImpl(
-      _ChangeWorkinHours _value, $Res Function(_ChangeWorkinHours) _then)
-      : super(_value, (v) => _then(v as _ChangeWorkinHours));
+class __$$_ChangeWorkinHoursCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res, _$_ChangeWorkinHours>
+    implements _$$_ChangeWorkinHoursCopyWith<$Res> {
+  __$$_ChangeWorkinHoursCopyWithImpl(
+      _$_ChangeWorkinHours _value, $Res Function(_$_ChangeWorkinHours) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeWorkinHours get _value => super._value as _ChangeWorkinHours;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hours = freezed,
+    Object? hours = null,
   }) {
-    return _then(_ChangeWorkinHours(
-      hours == freezed
+    return _then(_$_ChangeWorkinHours(
+      null == hours
           ? _value.hours
           : hours // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1406,19 +1680,20 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeWorkinHours &&
-            (identical(other.hours, hours) ||
-                const DeepCollectionEquality().equals(other.hours, hours)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeWorkinHours &&
+            (identical(other.hours, hours) || other.hours == hours));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(hours);
+  int get hashCode => Object.hash(runtimeType, hours);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeWorkinHoursCopyWith<_ChangeWorkinHours> get copyWith =>
-      __$ChangeWorkinHoursCopyWithImpl<_ChangeWorkinHours>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeWorkinHoursCopyWith<_$_ChangeWorkinHours> get copyWith =>
+      __$$_ChangeWorkinHoursCopyWithImpl<_$_ChangeWorkinHours>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1447,6 +1722,35 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
     required TResult Function() save,
   }) {
     return changeWorkinHours(hours);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeWorkinHours?.call(hours);
   }
 
   @override
@@ -1509,6 +1813,29 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeWorkinHours?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -1536,39 +1863,39 @@ class _$_ChangeWorkinHours implements _ChangeWorkinHours {
 }
 
 abstract class _ChangeWorkinHours implements UpdateOtherInfoActorEvent {
-  const factory _ChangeWorkinHours(String hours) = _$_ChangeWorkinHours;
+  const factory _ChangeWorkinHours(final String hours) = _$_ChangeWorkinHours;
 
-  String get hours => throw _privateConstructorUsedError;
+  String get hours;
   @JsonKey(ignore: true)
-  _$ChangeWorkinHoursCopyWith<_ChangeWorkinHours> get copyWith =>
+  _$$_ChangeWorkinHoursCopyWith<_$_ChangeWorkinHours> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeWorkingMinutesCopyWith<$Res> {
-  factory _$ChangeWorkingMinutesCopyWith(_ChangeWorkingMinutes value,
-          $Res Function(_ChangeWorkingMinutes) then) =
-      __$ChangeWorkingMinutesCopyWithImpl<$Res>;
+abstract class _$$_ChangeWorkingMinutesCopyWith<$Res> {
+  factory _$$_ChangeWorkingMinutesCopyWith(_$_ChangeWorkingMinutes value,
+          $Res Function(_$_ChangeWorkingMinutes) then) =
+      __$$_ChangeWorkingMinutesCopyWithImpl<$Res>;
+  @useResult
   $Res call({String minutes});
 }
 
 /// @nodoc
-class __$ChangeWorkingMinutesCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeWorkingMinutesCopyWith<$Res> {
-  __$ChangeWorkingMinutesCopyWithImpl(
-      _ChangeWorkingMinutes _value, $Res Function(_ChangeWorkingMinutes) _then)
-      : super(_value, (v) => _then(v as _ChangeWorkingMinutes));
+class __$$_ChangeWorkingMinutesCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res,
+        _$_ChangeWorkingMinutes>
+    implements _$$_ChangeWorkingMinutesCopyWith<$Res> {
+  __$$_ChangeWorkingMinutesCopyWithImpl(_$_ChangeWorkingMinutes _value,
+      $Res Function(_$_ChangeWorkingMinutes) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeWorkingMinutes get _value => super._value as _ChangeWorkingMinutes;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? minutes = freezed,
+    Object? minutes = null,
   }) {
-    return _then(_ChangeWorkingMinutes(
-      minutes == freezed
+    return _then(_$_ChangeWorkingMinutes(
+      null == minutes
           ? _value.minutes
           : minutes // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1592,19 +1919,19 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeWorkingMinutes &&
-            (identical(other.minutes, minutes) ||
-                const DeepCollectionEquality().equals(other.minutes, minutes)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeWorkingMinutes &&
+            (identical(other.minutes, minutes) || other.minutes == minutes));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(minutes);
+  int get hashCode => Object.hash(runtimeType, minutes);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeWorkingMinutesCopyWith<_ChangeWorkingMinutes> get copyWith =>
-      __$ChangeWorkingMinutesCopyWithImpl<_ChangeWorkingMinutes>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeWorkingMinutesCopyWith<_$_ChangeWorkingMinutes> get copyWith =>
+      __$$_ChangeWorkingMinutesCopyWithImpl<_$_ChangeWorkingMinutes>(
           this, _$identity);
 
   @override
@@ -1634,6 +1961,35 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
     required TResult Function() save,
   }) {
     return changeWorkingMinutes(minutes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeWorkingMinutes?.call(minutes);
   }
 
   @override
@@ -1696,6 +2052,29 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeWorkingMinutes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -1723,40 +2102,40 @@ class _$_ChangeWorkingMinutes implements _ChangeWorkingMinutes {
 }
 
 abstract class _ChangeWorkingMinutes implements UpdateOtherInfoActorEvent {
-  const factory _ChangeWorkingMinutes(String minutes) = _$_ChangeWorkingMinutes;
+  const factory _ChangeWorkingMinutes(final String minutes) =
+      _$_ChangeWorkingMinutes;
 
-  String get minutes => throw _privateConstructorUsedError;
+  String get minutes;
   @JsonKey(ignore: true)
-  _$ChangeWorkingMinutesCopyWith<_ChangeWorkingMinutes> get copyWith =>
+  _$$_ChangeWorkingMinutesCopyWith<_$_ChangeWorkingMinutes> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeNumberOfDependentCopyWith<$Res> {
-  factory _$ChangeNumberOfDependentCopyWith(_ChangeNumberOfDependent value,
-          $Res Function(_ChangeNumberOfDependent) then) =
-      __$ChangeNumberOfDependentCopyWithImpl<$Res>;
+abstract class _$$_ChangeNumberOfDependentCopyWith<$Res> {
+  factory _$$_ChangeNumberOfDependentCopyWith(_$_ChangeNumberOfDependent value,
+          $Res Function(_$_ChangeNumberOfDependent) then) =
+      __$$_ChangeNumberOfDependentCopyWithImpl<$Res>;
+  @useResult
   $Res call({String numberOfDependent});
 }
 
 /// @nodoc
-class __$ChangeNumberOfDependentCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeNumberOfDependentCopyWith<$Res> {
-  __$ChangeNumberOfDependentCopyWithImpl(_ChangeNumberOfDependent _value,
-      $Res Function(_ChangeNumberOfDependent) _then)
-      : super(_value, (v) => _then(v as _ChangeNumberOfDependent));
+class __$$_ChangeNumberOfDependentCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res,
+        _$_ChangeNumberOfDependent>
+    implements _$$_ChangeNumberOfDependentCopyWith<$Res> {
+  __$$_ChangeNumberOfDependentCopyWithImpl(_$_ChangeNumberOfDependent _value,
+      $Res Function(_$_ChangeNumberOfDependent) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeNumberOfDependent get _value =>
-      super._value as _ChangeNumberOfDependent;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? numberOfDependent = freezed,
+    Object? numberOfDependent = null,
   }) {
-    return _then(_ChangeNumberOfDependent(
-      numberOfDependent == freezed
+    return _then(_$_ChangeNumberOfDependent(
+      null == numberOfDependent
           ? _value.numberOfDependent
           : numberOfDependent // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1780,22 +2159,22 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeNumberOfDependent &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeNumberOfDependent &&
             (identical(other.numberOfDependent, numberOfDependent) ||
-                const DeepCollectionEquality()
-                    .equals(other.numberOfDependent, numberOfDependent)));
+                other.numberOfDependent == numberOfDependent));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(numberOfDependent);
+  int get hashCode => Object.hash(runtimeType, numberOfDependent);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeNumberOfDependentCopyWith<_ChangeNumberOfDependent> get copyWith =>
-      __$ChangeNumberOfDependentCopyWithImpl<_ChangeNumberOfDependent>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeNumberOfDependentCopyWith<_$_ChangeNumberOfDependent>
+      get copyWith =>
+          __$$_ChangeNumberOfDependentCopyWithImpl<_$_ChangeNumberOfDependent>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1824,6 +2203,35 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
     required TResult Function() save,
   }) {
     return changeNumberOfDependent(numberOfDependent);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeNumberOfDependent?.call(numberOfDependent);
   }
 
   @override
@@ -1886,6 +2294,29 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeNumberOfDependent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -1913,40 +2344,39 @@ class _$_ChangeNumberOfDependent implements _ChangeNumberOfDependent {
 }
 
 abstract class _ChangeNumberOfDependent implements UpdateOtherInfoActorEvent {
-  const factory _ChangeNumberOfDependent(String numberOfDependent) =
+  const factory _ChangeNumberOfDependent(final String numberOfDependent) =
       _$_ChangeNumberOfDependent;
 
-  String get numberOfDependent => throw _privateConstructorUsedError;
+  String get numberOfDependent;
   @JsonKey(ignore: true)
-  _$ChangeNumberOfDependentCopyWith<_ChangeNumberOfDependent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangeNumberOfDependentCopyWith<_$_ChangeNumberOfDependent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeIsSpouseCopyWith<$Res> {
-  factory _$ChangeIsSpouseCopyWith(
-          _ChangeIsSpouse value, $Res Function(_ChangeIsSpouse) then) =
-      __$ChangeIsSpouseCopyWithImpl<$Res>;
+abstract class _$$_ChangeIsSpouseCopyWith<$Res> {
+  factory _$$_ChangeIsSpouseCopyWith(
+          _$_ChangeIsSpouse value, $Res Function(_$_ChangeIsSpouse) then) =
+      __$$_ChangeIsSpouseCopyWithImpl<$Res>;
+  @useResult
   $Res call({String isSpouse});
 }
 
 /// @nodoc
-class __$ChangeIsSpouseCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeIsSpouseCopyWith<$Res> {
-  __$ChangeIsSpouseCopyWithImpl(
-      _ChangeIsSpouse _value, $Res Function(_ChangeIsSpouse) _then)
-      : super(_value, (v) => _then(v as _ChangeIsSpouse));
+class __$$_ChangeIsSpouseCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res, _$_ChangeIsSpouse>
+    implements _$$_ChangeIsSpouseCopyWith<$Res> {
+  __$$_ChangeIsSpouseCopyWithImpl(
+      _$_ChangeIsSpouse _value, $Res Function(_$_ChangeIsSpouse) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeIsSpouse get _value => super._value as _ChangeIsSpouse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isSpouse = freezed,
+    Object? isSpouse = null,
   }) {
-    return _then(_ChangeIsSpouse(
-      isSpouse == freezed
+    return _then(_$_ChangeIsSpouse(
+      null == isSpouse
           ? _value.isSpouse
           : isSpouse // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1970,20 +2400,20 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeIsSpouse &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeIsSpouse &&
             (identical(other.isSpouse, isSpouse) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSpouse, isSpouse)));
+                other.isSpouse == isSpouse));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(isSpouse);
+  int get hashCode => Object.hash(runtimeType, isSpouse);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeIsSpouseCopyWith<_ChangeIsSpouse> get copyWith =>
-      __$ChangeIsSpouseCopyWithImpl<_ChangeIsSpouse>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeIsSpouseCopyWith<_$_ChangeIsSpouse> get copyWith =>
+      __$$_ChangeIsSpouseCopyWithImpl<_$_ChangeIsSpouse>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2012,6 +2442,35 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
     required TResult Function() save,
   }) {
     return changeIsSpouse(isSpouse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeIsSpouse?.call(isSpouse);
   }
 
   @override
@@ -2074,6 +2533,29 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeIsSpouse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -2101,42 +2583,41 @@ class _$_ChangeIsSpouse implements _ChangeIsSpouse {
 }
 
 abstract class _ChangeIsSpouse implements UpdateOtherInfoActorEvent {
-  const factory _ChangeIsSpouse(String isSpouse) = _$_ChangeIsSpouse;
+  const factory _ChangeIsSpouse(final String isSpouse) = _$_ChangeIsSpouse;
 
-  String get isSpouse => throw _privateConstructorUsedError;
+  String get isSpouse;
   @JsonKey(ignore: true)
-  _$ChangeIsSpouseCopyWith<_ChangeIsSpouse> get copyWith =>
+  _$$_ChangeIsSpouseCopyWith<_$_ChangeIsSpouse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeIsSpouseSupportObligationCopyWith<$Res> {
-  factory _$ChangeIsSpouseSupportObligationCopyWith(
-          _ChangeIsSpouseSupportObligation value,
-          $Res Function(_ChangeIsSpouseSupportObligation) then) =
-      __$ChangeIsSpouseSupportObligationCopyWithImpl<$Res>;
+abstract class _$$_ChangeIsSpouseSupportObligationCopyWith<$Res> {
+  factory _$$_ChangeIsSpouseSupportObligationCopyWith(
+          _$_ChangeIsSpouseSupportObligation value,
+          $Res Function(_$_ChangeIsSpouseSupportObligation) then) =
+      __$$_ChangeIsSpouseSupportObligationCopyWithImpl<$Res>;
+  @useResult
   $Res call({String isSpouseSupportObligation});
 }
 
 /// @nodoc
-class __$ChangeIsSpouseSupportObligationCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeIsSpouseSupportObligationCopyWith<$Res> {
-  __$ChangeIsSpouseSupportObligationCopyWithImpl(
-      _ChangeIsSpouseSupportObligation _value,
-      $Res Function(_ChangeIsSpouseSupportObligation) _then)
-      : super(_value, (v) => _then(v as _ChangeIsSpouseSupportObligation));
+class __$$_ChangeIsSpouseSupportObligationCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res,
+        _$_ChangeIsSpouseSupportObligation>
+    implements _$$_ChangeIsSpouseSupportObligationCopyWith<$Res> {
+  __$$_ChangeIsSpouseSupportObligationCopyWithImpl(
+      _$_ChangeIsSpouseSupportObligation _value,
+      $Res Function(_$_ChangeIsSpouseSupportObligation) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeIsSpouseSupportObligation get _value =>
-      super._value as _ChangeIsSpouseSupportObligation;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isSpouseSupportObligation = freezed,
+    Object? isSpouseSupportObligation = null,
   }) {
-    return _then(_ChangeIsSpouseSupportObligation(
-      isSpouseSupportObligation == freezed
+    return _then(_$_ChangeIsSpouseSupportObligation(
+      null == isSpouseSupportObligation
           ? _value.isSpouseSupportObligation
           : isSpouseSupportObligation // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2161,24 +2642,23 @@ class _$_ChangeIsSpouseSupportObligation
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeIsSpouseSupportObligation &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeIsSpouseSupportObligation &&
             (identical(other.isSpouseSupportObligation,
                     isSpouseSupportObligation) ||
-                const DeepCollectionEquality().equals(
-                    other.isSpouseSupportObligation,
-                    isSpouseSupportObligation)));
+                other.isSpouseSupportObligation == isSpouseSupportObligation));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(isSpouseSupportObligation);
+  int get hashCode => Object.hash(runtimeType, isSpouseSupportObligation);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeIsSpouseSupportObligationCopyWith<_ChangeIsSpouseSupportObligation>
-      get copyWith => __$ChangeIsSpouseSupportObligationCopyWithImpl<
-          _ChangeIsSpouseSupportObligation>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeIsSpouseSupportObligationCopyWith<
+          _$_ChangeIsSpouseSupportObligation>
+      get copyWith => __$$_ChangeIsSpouseSupportObligationCopyWithImpl<
+          _$_ChangeIsSpouseSupportObligation>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2207,6 +2687,35 @@ class _$_ChangeIsSpouseSupportObligation
     required TResult Function() save,
   }) {
     return changeIsSpouseSupportObligation(isSpouseSupportObligation);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeIsSpouseSupportObligation?.call(isSpouseSupportObligation);
   }
 
   @override
@@ -2269,6 +2778,29 @@ class _$_ChangeIsSpouseSupportObligation
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeIsSpouseSupportObligation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -2298,40 +2830,41 @@ class _$_ChangeIsSpouseSupportObligation
 abstract class _ChangeIsSpouseSupportObligation
     implements UpdateOtherInfoActorEvent {
   const factory _ChangeIsSpouseSupportObligation(
-      String isSpouseSupportObligation) = _$_ChangeIsSpouseSupportObligation;
+          final String isSpouseSupportObligation) =
+      _$_ChangeIsSpouseSupportObligation;
 
-  String get isSpouseSupportObligation => throw _privateConstructorUsedError;
+  String get isSpouseSupportObligation;
   @JsonKey(ignore: true)
-  _$ChangeIsSpouseSupportObligationCopyWith<_ChangeIsSpouseSupportObligation>
+  _$$_ChangeIsSpouseSupportObligationCopyWith<
+          _$_ChangeIsSpouseSupportObligation>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeSpecialConditionsCopyWith<$Res> {
-  factory _$ChangeSpecialConditionsCopyWith(_ChangeSpecialConditions value,
-          $Res Function(_ChangeSpecialConditions) then) =
-      __$ChangeSpecialConditionsCopyWithImpl<$Res>;
+abstract class _$$_ChangeSpecialConditionsCopyWith<$Res> {
+  factory _$$_ChangeSpecialConditionsCopyWith(_$_ChangeSpecialConditions value,
+          $Res Function(_$_ChangeSpecialConditions) then) =
+      __$$_ChangeSpecialConditionsCopyWithImpl<$Res>;
+  @useResult
   $Res call({String specialConditions});
 }
 
 /// @nodoc
-class __$ChangeSpecialConditionsCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeSpecialConditionsCopyWith<$Res> {
-  __$ChangeSpecialConditionsCopyWithImpl(_ChangeSpecialConditions _value,
-      $Res Function(_ChangeSpecialConditions) _then)
-      : super(_value, (v) => _then(v as _ChangeSpecialConditions));
+class __$$_ChangeSpecialConditionsCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res,
+        _$_ChangeSpecialConditions>
+    implements _$$_ChangeSpecialConditionsCopyWith<$Res> {
+  __$$_ChangeSpecialConditionsCopyWithImpl(_$_ChangeSpecialConditions _value,
+      $Res Function(_$_ChangeSpecialConditions) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeSpecialConditions get _value =>
-      super._value as _ChangeSpecialConditions;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? specialConditions = freezed,
+    Object? specialConditions = null,
   }) {
-    return _then(_ChangeSpecialConditions(
-      specialConditions == freezed
+    return _then(_$_ChangeSpecialConditions(
+      null == specialConditions
           ? _value.specialConditions
           : specialConditions // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2355,22 +2888,22 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeSpecialConditions &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeSpecialConditions &&
             (identical(other.specialConditions, specialConditions) ||
-                const DeepCollectionEquality()
-                    .equals(other.specialConditions, specialConditions)));
+                other.specialConditions == specialConditions));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(specialConditions);
+  int get hashCode => Object.hash(runtimeType, specialConditions);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeSpecialConditionsCopyWith<_ChangeSpecialConditions> get copyWith =>
-      __$ChangeSpecialConditionsCopyWithImpl<_ChangeSpecialConditions>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeSpecialConditionsCopyWith<_$_ChangeSpecialConditions>
+      get copyWith =>
+          __$$_ChangeSpecialConditionsCopyWithImpl<_$_ChangeSpecialConditions>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2399,6 +2932,35 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
     required TResult Function() save,
   }) {
     return changeSpecialConditions(specialConditions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeSpecialConditions?.call(specialConditions);
   }
 
   @override
@@ -2461,6 +3023,29 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeSpecialConditions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -2488,20 +3073,21 @@ class _$_ChangeSpecialConditions implements _ChangeSpecialConditions {
 }
 
 abstract class _ChangeSpecialConditions implements UpdateOtherInfoActorEvent {
-  const factory _ChangeSpecialConditions(String specialConditions) =
+  const factory _ChangeSpecialConditions(final String specialConditions) =
       _$_ChangeSpecialConditions;
 
-  String get specialConditions => throw _privateConstructorUsedError;
+  String get specialConditions;
   @JsonKey(ignore: true)
-  _$ChangeSpecialConditionsCopyWith<_ChangeSpecialConditions> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangeSpecialConditionsCopyWith<_$_ChangeSpecialConditions>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetInitialStateCopyWith<$Res> {
-  factory _$SetInitialStateCopyWith(
-          _SetInitialState value, $Res Function(_SetInitialState) then) =
-      __$SetInitialStateCopyWithImpl<$Res>;
+abstract class _$$_SetInitialStateCopyWith<$Res> {
+  factory _$$_SetInitialStateCopyWith(
+          _$_SetInitialState value, $Res Function(_$_SetInitialState) then) =
+      __$$_SetInitialStateCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {PersonalInfo info,
       String lang,
@@ -2511,43 +3097,41 @@ abstract class _$SetInitialStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SetInitialStateCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$SetInitialStateCopyWith<$Res> {
-  __$SetInitialStateCopyWithImpl(
-      _SetInitialState _value, $Res Function(_SetInitialState) _then)
-      : super(_value, (v) => _then(v as _SetInitialState));
+class __$$_SetInitialStateCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res, _$_SetInitialState>
+    implements _$$_SetInitialStateCopyWith<$Res> {
+  __$$_SetInitialStateCopyWithImpl(
+      _$_SetInitialState _value, $Res Function(_$_SetInitialState) _then)
+      : super(_value, _then);
 
-  @override
-  _SetInitialState get _value => super._value as _SetInitialState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
-    Object? lang = freezed,
-    Object? listOfLanguages = freezed,
-    Object? listOHobbies = freezed,
-    Object? listOfSkills = freezed,
+    Object? info = null,
+    Object? lang = null,
+    Object? listOfLanguages = null,
+    Object? listOHobbies = null,
+    Object? listOfSkills = null,
   }) {
-    return _then(_SetInitialState(
-      info: info == freezed
+    return _then(_$_SetInitialState(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as PersonalInfo,
-      lang: lang == freezed
+      lang: null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
-      listOfLanguages: listOfLanguages == freezed
-          ? _value.listOfLanguages
+      listOfLanguages: null == listOfLanguages
+          ? _value._listOfLanguages
           : listOfLanguages // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOHobbies: listOHobbies == freezed
-          ? _value.listOHobbies
+      listOHobbies: null == listOHobbies
+          ? _value._listOHobbies
           : listOHobbies // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfSkills: listOfSkills == freezed
-          ? _value.listOfSkills
+      listOfSkills: null == listOfSkills
+          ? _value._listOfSkills
           : listOfSkills // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -2560,20 +3144,40 @@ class _$_SetInitialState implements _SetInitialState {
   const _$_SetInitialState(
       {required this.info,
       required this.lang,
-      required this.listOfLanguages,
-      required this.listOHobbies,
-      required this.listOfSkills});
+      required final List<String> listOfLanguages,
+      required final List<String> listOHobbies,
+      required final List<String> listOfSkills})
+      : _listOfLanguages = listOfLanguages,
+        _listOHobbies = listOHobbies,
+        _listOfSkills = listOfSkills;
 
   @override
   final PersonalInfo info;
   @override
   final String lang;
+  final List<String> _listOfLanguages;
   @override
-  final List<String> listOfLanguages;
+  List<String> get listOfLanguages {
+    if (_listOfLanguages is EqualUnmodifiableListView) return _listOfLanguages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfLanguages);
+  }
+
+  final List<String> _listOHobbies;
   @override
-  final List<String> listOHobbies;
+  List<String> get listOHobbies {
+    if (_listOHobbies is EqualUnmodifiableListView) return _listOHobbies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOHobbies);
+  }
+
+  final List<String> _listOfSkills;
   @override
-  final List<String> listOfSkills;
+  List<String> get listOfSkills {
+    if (_listOfSkills is EqualUnmodifiableListView) return _listOfSkills;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfSkills);
+  }
 
   @override
   String toString() {
@@ -2583,35 +3187,32 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetInitialState &&
-            (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)) &&
-            (identical(other.lang, lang) ||
-                const DeepCollectionEquality().equals(other.lang, lang)) &&
-            (identical(other.listOfLanguages, listOfLanguages) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfLanguages, listOfLanguages)) &&
-            (identical(other.listOHobbies, listOHobbies) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOHobbies, listOHobbies)) &&
-            (identical(other.listOfSkills, listOfSkills) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfSkills, listOfSkills)));
+        (other.runtimeType == runtimeType &&
+            other is _$_SetInitialState &&
+            (identical(other.info, info) || other.info == info) &&
+            (identical(other.lang, lang) || other.lang == lang) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfLanguages, _listOfLanguages) &&
+            const DeepCollectionEquality()
+                .equals(other._listOHobbies, _listOHobbies) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfSkills, _listOfSkills));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(info) ^
-      const DeepCollectionEquality().hash(lang) ^
-      const DeepCollectionEquality().hash(listOfLanguages) ^
-      const DeepCollectionEquality().hash(listOHobbies) ^
-      const DeepCollectionEquality().hash(listOfSkills);
+  int get hashCode => Object.hash(
+      runtimeType,
+      info,
+      lang,
+      const DeepCollectionEquality().hash(_listOfLanguages),
+      const DeepCollectionEquality().hash(_listOHobbies),
+      const DeepCollectionEquality().hash(_listOfSkills));
 
   @JsonKey(ignore: true)
   @override
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
-      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
+      __$$_SetInitialStateCopyWithImpl<_$_SetInitialState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2640,6 +3241,36 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function() save,
   }) {
     return setInitialState(
+        info, lang, listOfLanguages, listOHobbies, listOfSkills);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return setInitialState?.call(
         info, lang, listOfLanguages, listOHobbies, listOfSkills);
   }
 
@@ -2704,6 +3335,29 @@ class _$_SetInitialState implements _SetInitialState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return setInitialState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -2732,37 +3386,34 @@ class _$_SetInitialState implements _SetInitialState {
 
 abstract class _SetInitialState implements UpdateOtherInfoActorEvent {
   const factory _SetInitialState(
-      {required PersonalInfo info,
-      required String lang,
-      required List<String> listOfLanguages,
-      required List<String> listOHobbies,
-      required List<String> listOfSkills}) = _$_SetInitialState;
+      {required final PersonalInfo info,
+      required final String lang,
+      required final List<String> listOfLanguages,
+      required final List<String> listOHobbies,
+      required final List<String> listOfSkills}) = _$_SetInitialState;
 
-  PersonalInfo get info => throw _privateConstructorUsedError;
-  String get lang => throw _privateConstructorUsedError;
-  List<String> get listOfLanguages => throw _privateConstructorUsedError;
-  List<String> get listOHobbies => throw _privateConstructorUsedError;
-  List<String> get listOfSkills => throw _privateConstructorUsedError;
+  PersonalInfo get info;
+  String get lang;
+  List<String> get listOfLanguages;
+  List<String> get listOHobbies;
+  List<String> get listOfSkills;
   @JsonKey(ignore: true)
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SaveCopyWith<$Res> {
-  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
-      __$SaveCopyWithImpl<$Res>;
+abstract class _$$_SaveCopyWith<$Res> {
+  factory _$$_SaveCopyWith(_$_Save value, $Res Function(_$_Save) then) =
+      __$$_SaveCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SaveCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res>
-    implements _$SaveCopyWith<$Res> {
-  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
-      : super(_value, (v) => _then(v as _Save));
-
-  @override
-  _Save get _value => super._value as _Save;
+class __$$_SaveCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorEventCopyWithImpl<$Res, _$_Save>
+    implements _$$_SaveCopyWith<$Res> {
+  __$$_SaveCopyWithImpl(_$_Save _value, $Res Function(_$_Save) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2777,7 +3428,8 @@ class _$_Save implements _Save {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Save);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Save);
   }
 
   @override
@@ -2810,6 +3462,35 @@ class _$_Save implements _Save {
     required TResult Function() save,
   }) {
     return save();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> languages)? changeLanguages,
+    TResult? Function(String JLPTLevel)? changeJLPTLevel,
+    TResult? Function(String selfPR)? changeSelfPR,
+    TResult? Function(String motivationsSpecialSkills)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(List<String> hobbies)? changeHobbies,
+    TResult? Function(List<String> skills)? changeSkills,
+    TResult? Function(String hours)? changeWorkinHours,
+    TResult? Function(String minutes)? changeWorkingMinutes,
+    TResult? Function(String numberOfDependent)? changeNumberOfDependent,
+    TResult? Function(String isSpouse)? changeIsSpouse,
+    TResult? Function(String isSpouseSupportObligation)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(String specialConditions)? changeSpecialConditions,
+    TResult? Function(
+            PersonalInfo info,
+            String lang,
+            List<String> listOfLanguages,
+            List<String> listOHobbies,
+            List<String> listOfSkills)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return save?.call();
   }
 
   @override
@@ -2872,6 +3553,29 @@ class _$_Save implements _Save {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLanguages value)? changeLanguages,
+    TResult? Function(_ChangeJLPTLevel value)? changeJLPTLevel,
+    TResult? Function(_ChangeSelfPR value)? changeSelfPR,
+    TResult? Function(_ChangeMotivationsSpecialSkills value)?
+        changeMotivationsSpecialSkills,
+    TResult? Function(_ChangeHobbies value)? changeHobbies,
+    TResult? Function(_ChangeSkills value)? changeSkills,
+    TResult? Function(_ChangeWorkinHours value)? changeWorkinHours,
+    TResult? Function(_ChangeWorkingMinutes value)? changeWorkingMinutes,
+    TResult? Function(_ChangeNumberOfDependent value)? changeNumberOfDependent,
+    TResult? Function(_ChangeIsSpouse value)? changeIsSpouse,
+    TResult? Function(_ChangeIsSpouseSupportObligation value)?
+        changeIsSpouseSupportObligation,
+    TResult? Function(_ChangeSpecialConditions value)? changeSpecialConditions,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLanguages value)? changeLanguages,
     TResult Function(_ChangeJLPTLevel value)? changeJLPTLevel,
@@ -2901,63 +3605,6 @@ class _$_Save implements _Save {
 abstract class _Save implements UpdateOtherInfoActorEvent {
   const factory _Save() = _$_Save;
 }
-
-/// @nodoc
-class _$UpdateOtherInfoActorStateTearOff {
-  const _$UpdateOtherInfoActorStateTearOff();
-
-  _UpdateOtherInfoActorState call(
-      {required Key? key,
-      required List<String> languages,
-      required String JLPTLevel,
-      required String selfPR,
-      required String motivationsSpecialSkills,
-      required List<String> hobbies,
-      required List<String> skills,
-      required String workinHours,
-      required String workingMinutes,
-      required String numberOfDependent,
-      required String isSpouse,
-      required String isSpouseSupportObligation,
-      required String specialConditions,
-      required List<String> knownLanguages,
-      required List<String> listOfHobbies,
-      required List<String> listOfSkills,
-      required List<String> listOfJLPTLevel,
-      required List<String> listOfHourRate,
-      required List<String> listOfYesNoOption,
-      required bool isSubmitting,
-      required bool hasSetInitialData,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
-    return _UpdateOtherInfoActorState(
-      key: key,
-      languages: languages,
-      JLPTLevel: JLPTLevel,
-      selfPR: selfPR,
-      motivationsSpecialSkills: motivationsSpecialSkills,
-      hobbies: hobbies,
-      skills: skills,
-      workinHours: workinHours,
-      workingMinutes: workingMinutes,
-      numberOfDependent: numberOfDependent,
-      isSpouse: isSpouse,
-      isSpouseSupportObligation: isSpouseSupportObligation,
-      specialConditions: specialConditions,
-      knownLanguages: knownLanguages,
-      listOfHobbies: listOfHobbies,
-      listOfSkills: listOfSkills,
-      listOfJLPTLevel: listOfJLPTLevel,
-      listOfHourRate: listOfHourRate,
-      listOfYesNoOption: listOfYesNoOption,
-      isSubmitting: isSubmitting,
-      hasSetInitialData: hasSetInitialData,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $UpdateOtherInfoActorState = _$UpdateOtherInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdateOtherInfoActorState {
@@ -2995,7 +3642,8 @@ mixin _$UpdateOtherInfoActorState {
 abstract class $UpdateOtherInfoActorStateCopyWith<$Res> {
   factory $UpdateOtherInfoActorStateCopyWith(UpdateOtherInfoActorState value,
           $Res Function(UpdateOtherInfoActorState) then) =
-      _$UpdateOtherInfoActorStateCopyWithImpl<$Res>;
+      _$UpdateOtherInfoActorStateCopyWithImpl<$Res, UpdateOtherInfoActorState>;
+  @useResult
   $Res call(
       {Key? key,
       List<String> languages,
@@ -3022,139 +3670,144 @@ abstract class $UpdateOtherInfoActorStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
+class _$UpdateOtherInfoActorStateCopyWithImpl<$Res,
+        $Val extends UpdateOtherInfoActorState>
     implements $UpdateOtherInfoActorStateCopyWith<$Res> {
   _$UpdateOtherInfoActorStateCopyWithImpl(this._value, this._then);
 
-  final UpdateOtherInfoActorState _value;
   // ignore: unused_field
-  final $Res Function(UpdateOtherInfoActorState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? languages = freezed,
-    Object? JLPTLevel = freezed,
-    Object? selfPR = freezed,
-    Object? motivationsSpecialSkills = freezed,
-    Object? hobbies = freezed,
-    Object? skills = freezed,
-    Object? workinHours = freezed,
-    Object? workingMinutes = freezed,
-    Object? numberOfDependent = freezed,
-    Object? isSpouse = freezed,
-    Object? isSpouseSupportObligation = freezed,
-    Object? specialConditions = freezed,
-    Object? knownLanguages = freezed,
-    Object? listOfHobbies = freezed,
-    Object? listOfSkills = freezed,
-    Object? listOfJLPTLevel = freezed,
-    Object? listOfHourRate = freezed,
-    Object? listOfYesNoOption = freezed,
-    Object? isSubmitting = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? languages = null,
+    Object? JLPTLevel = null,
+    Object? selfPR = null,
+    Object? motivationsSpecialSkills = null,
+    Object? hobbies = null,
+    Object? skills = null,
+    Object? workinHours = null,
+    Object? workingMinutes = null,
+    Object? numberOfDependent = null,
+    Object? isSpouse = null,
+    Object? isSpouseSupportObligation = null,
+    Object? specialConditions = null,
+    Object? knownLanguages = null,
+    Object? listOfHobbies = null,
+    Object? listOfSkills = null,
+    Object? listOfJLPTLevel = null,
+    Object? listOfHourRate = null,
+    Object? listOfYesNoOption = null,
+    Object? isSubmitting = null,
+    Object? hasSetInitialData = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      languages: languages == freezed
+      languages: null == languages
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      JLPTLevel: JLPTLevel == freezed
+      JLPTLevel: null == JLPTLevel
           ? _value.JLPTLevel
           : JLPTLevel // ignore: cast_nullable_to_non_nullable
               as String,
-      selfPR: selfPR == freezed
+      selfPR: null == selfPR
           ? _value.selfPR
           : selfPR // ignore: cast_nullable_to_non_nullable
               as String,
-      motivationsSpecialSkills: motivationsSpecialSkills == freezed
+      motivationsSpecialSkills: null == motivationsSpecialSkills
           ? _value.motivationsSpecialSkills
           : motivationsSpecialSkills // ignore: cast_nullable_to_non_nullable
               as String,
-      hobbies: hobbies == freezed
+      hobbies: null == hobbies
           ? _value.hobbies
           : hobbies // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      skills: skills == freezed
+      skills: null == skills
           ? _value.skills
           : skills // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      workinHours: workinHours == freezed
+      workinHours: null == workinHours
           ? _value.workinHours
           : workinHours // ignore: cast_nullable_to_non_nullable
               as String,
-      workingMinutes: workingMinutes == freezed
+      workingMinutes: null == workingMinutes
           ? _value.workingMinutes
           : workingMinutes // ignore: cast_nullable_to_non_nullable
               as String,
-      numberOfDependent: numberOfDependent == freezed
+      numberOfDependent: null == numberOfDependent
           ? _value.numberOfDependent
           : numberOfDependent // ignore: cast_nullable_to_non_nullable
               as String,
-      isSpouse: isSpouse == freezed
+      isSpouse: null == isSpouse
           ? _value.isSpouse
           : isSpouse // ignore: cast_nullable_to_non_nullable
               as String,
-      isSpouseSupportObligation: isSpouseSupportObligation == freezed
+      isSpouseSupportObligation: null == isSpouseSupportObligation
           ? _value.isSpouseSupportObligation
           : isSpouseSupportObligation // ignore: cast_nullable_to_non_nullable
               as String,
-      specialConditions: specialConditions == freezed
+      specialConditions: null == specialConditions
           ? _value.specialConditions
           : specialConditions // ignore: cast_nullable_to_non_nullable
               as String,
-      knownLanguages: knownLanguages == freezed
+      knownLanguages: null == knownLanguages
           ? _value.knownLanguages
           : knownLanguages // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfHobbies: listOfHobbies == freezed
+      listOfHobbies: null == listOfHobbies
           ? _value.listOfHobbies
           : listOfHobbies // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfSkills: listOfSkills == freezed
+      listOfSkills: null == listOfSkills
           ? _value.listOfSkills
           : listOfSkills // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJLPTLevel: listOfJLPTLevel == freezed
+      listOfJLPTLevel: null == listOfJLPTLevel
           ? _value.listOfJLPTLevel
           : listOfJLPTLevel // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfHourRate: listOfHourRate == freezed
+      listOfHourRate: null == listOfHourRate
           ? _value.listOfHourRate
           : listOfHourRate // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYesNoOption: listOfYesNoOption == freezed
+      listOfYesNoOption: null == listOfYesNoOption
           ? _value.listOfYesNoOption
           : listOfYesNoOption // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$UpdateOtherInfoActorStateCopyWith<$Res>
+abstract class _$$_UpdateOtherInfoActorStateCopyWith<$Res>
     implements $UpdateOtherInfoActorStateCopyWith<$Res> {
-  factory _$UpdateOtherInfoActorStateCopyWith(_UpdateOtherInfoActorState value,
-          $Res Function(_UpdateOtherInfoActorState) then) =
-      __$UpdateOtherInfoActorStateCopyWithImpl<$Res>;
+  factory _$$_UpdateOtherInfoActorStateCopyWith(
+          _$_UpdateOtherInfoActorState value,
+          $Res Function(_$_UpdateOtherInfoActorState) then) =
+      __$$_UpdateOtherInfoActorStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key? key,
       List<String> languages,
@@ -3181,128 +3834,127 @@ abstract class _$UpdateOtherInfoActorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
-    extends _$UpdateOtherInfoActorStateCopyWithImpl<$Res>
-    implements _$UpdateOtherInfoActorStateCopyWith<$Res> {
-  __$UpdateOtherInfoActorStateCopyWithImpl(_UpdateOtherInfoActorState _value,
-      $Res Function(_UpdateOtherInfoActorState) _then)
-      : super(_value, (v) => _then(v as _UpdateOtherInfoActorState));
+class __$$_UpdateOtherInfoActorStateCopyWithImpl<$Res>
+    extends _$UpdateOtherInfoActorStateCopyWithImpl<$Res,
+        _$_UpdateOtherInfoActorState>
+    implements _$$_UpdateOtherInfoActorStateCopyWith<$Res> {
+  __$$_UpdateOtherInfoActorStateCopyWithImpl(
+      _$_UpdateOtherInfoActorState _value,
+      $Res Function(_$_UpdateOtherInfoActorState) _then)
+      : super(_value, _then);
 
-  @override
-  _UpdateOtherInfoActorState get _value =>
-      super._value as _UpdateOtherInfoActorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? languages = freezed,
-    Object? JLPTLevel = freezed,
-    Object? selfPR = freezed,
-    Object? motivationsSpecialSkills = freezed,
-    Object? hobbies = freezed,
-    Object? skills = freezed,
-    Object? workinHours = freezed,
-    Object? workingMinutes = freezed,
-    Object? numberOfDependent = freezed,
-    Object? isSpouse = freezed,
-    Object? isSpouseSupportObligation = freezed,
-    Object? specialConditions = freezed,
-    Object? knownLanguages = freezed,
-    Object? listOfHobbies = freezed,
-    Object? listOfSkills = freezed,
-    Object? listOfJLPTLevel = freezed,
-    Object? listOfHourRate = freezed,
-    Object? listOfYesNoOption = freezed,
-    Object? isSubmitting = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? languages = null,
+    Object? JLPTLevel = null,
+    Object? selfPR = null,
+    Object? motivationsSpecialSkills = null,
+    Object? hobbies = null,
+    Object? skills = null,
+    Object? workinHours = null,
+    Object? workingMinutes = null,
+    Object? numberOfDependent = null,
+    Object? isSpouse = null,
+    Object? isSpouseSupportObligation = null,
+    Object? specialConditions = null,
+    Object? knownLanguages = null,
+    Object? listOfHobbies = null,
+    Object? listOfSkills = null,
+    Object? listOfJLPTLevel = null,
+    Object? listOfHourRate = null,
+    Object? listOfYesNoOption = null,
+    Object? isSubmitting = null,
+    Object? hasSetInitialData = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_UpdateOtherInfoActorState(
-      key: key == freezed
+    return _then(_$_UpdateOtherInfoActorState(
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      languages: languages == freezed
-          ? _value.languages
+      languages: null == languages
+          ? _value._languages
           : languages // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      JLPTLevel: JLPTLevel == freezed
+      JLPTLevel: null == JLPTLevel
           ? _value.JLPTLevel
           : JLPTLevel // ignore: cast_nullable_to_non_nullable
               as String,
-      selfPR: selfPR == freezed
+      selfPR: null == selfPR
           ? _value.selfPR
           : selfPR // ignore: cast_nullable_to_non_nullable
               as String,
-      motivationsSpecialSkills: motivationsSpecialSkills == freezed
+      motivationsSpecialSkills: null == motivationsSpecialSkills
           ? _value.motivationsSpecialSkills
           : motivationsSpecialSkills // ignore: cast_nullable_to_non_nullable
               as String,
-      hobbies: hobbies == freezed
-          ? _value.hobbies
+      hobbies: null == hobbies
+          ? _value._hobbies
           : hobbies // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      skills: skills == freezed
-          ? _value.skills
+      skills: null == skills
+          ? _value._skills
           : skills // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      workinHours: workinHours == freezed
+      workinHours: null == workinHours
           ? _value.workinHours
           : workinHours // ignore: cast_nullable_to_non_nullable
               as String,
-      workingMinutes: workingMinutes == freezed
+      workingMinutes: null == workingMinutes
           ? _value.workingMinutes
           : workingMinutes // ignore: cast_nullable_to_non_nullable
               as String,
-      numberOfDependent: numberOfDependent == freezed
+      numberOfDependent: null == numberOfDependent
           ? _value.numberOfDependent
           : numberOfDependent // ignore: cast_nullable_to_non_nullable
               as String,
-      isSpouse: isSpouse == freezed
+      isSpouse: null == isSpouse
           ? _value.isSpouse
           : isSpouse // ignore: cast_nullable_to_non_nullable
               as String,
-      isSpouseSupportObligation: isSpouseSupportObligation == freezed
+      isSpouseSupportObligation: null == isSpouseSupportObligation
           ? _value.isSpouseSupportObligation
           : isSpouseSupportObligation // ignore: cast_nullable_to_non_nullable
               as String,
-      specialConditions: specialConditions == freezed
+      specialConditions: null == specialConditions
           ? _value.specialConditions
           : specialConditions // ignore: cast_nullable_to_non_nullable
               as String,
-      knownLanguages: knownLanguages == freezed
-          ? _value.knownLanguages
+      knownLanguages: null == knownLanguages
+          ? _value._knownLanguages
           : knownLanguages // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfHobbies: listOfHobbies == freezed
-          ? _value.listOfHobbies
+      listOfHobbies: null == listOfHobbies
+          ? _value._listOfHobbies
           : listOfHobbies // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfSkills: listOfSkills == freezed
-          ? _value.listOfSkills
+      listOfSkills: null == listOfSkills
+          ? _value._listOfSkills
           : listOfSkills // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJLPTLevel: listOfJLPTLevel == freezed
-          ? _value.listOfJLPTLevel
+      listOfJLPTLevel: null == listOfJLPTLevel
+          ? _value._listOfJLPTLevel
           : listOfJLPTLevel // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfHourRate: listOfHourRate == freezed
-          ? _value.listOfHourRate
+      listOfHourRate: null == listOfHourRate
+          ? _value._listOfHourRate
           : listOfHourRate // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfYesNoOption: listOfYesNoOption == freezed
-          ? _value.listOfYesNoOption
+      listOfYesNoOption: null == listOfYesNoOption
+          ? _value._listOfYesNoOption
           : listOfYesNoOption // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -3315,42 +3967,70 @@ class __$UpdateOtherInfoActorStateCopyWithImpl<$Res>
 class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   const _$_UpdateOtherInfoActorState(
       {required this.key,
-      required this.languages,
+      required final List<String> languages,
       required this.JLPTLevel,
       required this.selfPR,
       required this.motivationsSpecialSkills,
-      required this.hobbies,
-      required this.skills,
+      required final List<String> hobbies,
+      required final List<String> skills,
       required this.workinHours,
       required this.workingMinutes,
       required this.numberOfDependent,
       required this.isSpouse,
       required this.isSpouseSupportObligation,
       required this.specialConditions,
-      required this.knownLanguages,
-      required this.listOfHobbies,
-      required this.listOfSkills,
-      required this.listOfJLPTLevel,
-      required this.listOfHourRate,
-      required this.listOfYesNoOption,
+      required final List<String> knownLanguages,
+      required final List<String> listOfHobbies,
+      required final List<String> listOfSkills,
+      required final List<String> listOfJLPTLevel,
+      required final List<String> listOfHourRate,
+      required final List<String> listOfYesNoOption,
       required this.isSubmitting,
       required this.hasSetInitialData,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : _languages = languages,
+        _hobbies = hobbies,
+        _skills = skills,
+        _knownLanguages = knownLanguages,
+        _listOfHobbies = listOfHobbies,
+        _listOfSkills = listOfSkills,
+        _listOfJLPTLevel = listOfJLPTLevel,
+        _listOfHourRate = listOfHourRate,
+        _listOfYesNoOption = listOfYesNoOption;
 
   @override
   final Key? key;
+  final List<String> _languages;
   @override
-  final List<String> languages;
-  @override // ignore: non_constant_identifier_names
+  List<String> get languages {
+    if (_languages is EqualUnmodifiableListView) return _languages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_languages);
+  }
+
+// ignore: non_constant_identifier_names
+  @override
   final String JLPTLevel;
   @override
   final String selfPR;
   @override
   final String motivationsSpecialSkills;
+  final List<String> _hobbies;
   @override
-  final List<String> hobbies;
+  List<String> get hobbies {
+    if (_hobbies is EqualUnmodifiableListView) return _hobbies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hobbies);
+  }
+
+  final List<String> _skills;
   @override
-  final List<String> skills;
+  List<String> get skills {
+    if (_skills is EqualUnmodifiableListView) return _skills;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_skills);
+  }
+
   @override
   final String workinHours;
   @override
@@ -3363,18 +4043,55 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   final String isSpouseSupportObligation;
   @override
   final String specialConditions;
+  final List<String> _knownLanguages;
   @override
-  final List<String> knownLanguages;
+  List<String> get knownLanguages {
+    if (_knownLanguages is EqualUnmodifiableListView) return _knownLanguages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_knownLanguages);
+  }
+
+  final List<String> _listOfHobbies;
   @override
-  final List<String> listOfHobbies;
+  List<String> get listOfHobbies {
+    if (_listOfHobbies is EqualUnmodifiableListView) return _listOfHobbies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfHobbies);
+  }
+
+  final List<String> _listOfSkills;
   @override
-  final List<String> listOfSkills;
+  List<String> get listOfSkills {
+    if (_listOfSkills is EqualUnmodifiableListView) return _listOfSkills;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfSkills);
+  }
+
+  final List<String> _listOfJLPTLevel;
   @override
-  final List<String> listOfJLPTLevel;
+  List<String> get listOfJLPTLevel {
+    if (_listOfJLPTLevel is EqualUnmodifiableListView) return _listOfJLPTLevel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfJLPTLevel);
+  }
+
+  final List<String> _listOfHourRate;
   @override
-  final List<String> listOfHourRate;
+  List<String> get listOfHourRate {
+    if (_listOfHourRate is EqualUnmodifiableListView) return _listOfHourRate;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfHourRate);
+  }
+
+  final List<String> _listOfYesNoOption;
   @override
-  final List<String> listOfYesNoOption;
+  List<String> get listOfYesNoOption {
+    if (_listOfYesNoOption is EqualUnmodifiableListView)
+      return _listOfYesNoOption;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfYesNoOption);
+  }
+
   @override
   final bool isSubmitting;
   @override
@@ -3390,170 +4107,159 @@ class _$_UpdateOtherInfoActorState implements _UpdateOtherInfoActorState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateOtherInfoActorState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
-            (identical(other.languages, languages) ||
-                const DeepCollectionEquality()
-                    .equals(other.languages, languages)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateOtherInfoActorState &&
+            (identical(other.key, key) || other.key == key) &&
+            const DeepCollectionEquality()
+                .equals(other._languages, _languages) &&
             (identical(other.JLPTLevel, JLPTLevel) ||
-                const DeepCollectionEquality()
-                    .equals(other.JLPTLevel, JLPTLevel)) &&
-            (identical(other.selfPR, selfPR) ||
-                const DeepCollectionEquality().equals(other.selfPR, selfPR)) &&
-            (identical(other.motivationsSpecialSkills, motivationsSpecialSkills) ||
-                const DeepCollectionEquality().equals(
-                    other.motivationsSpecialSkills,
-                    motivationsSpecialSkills)) &&
-            (identical(other.hobbies, hobbies) ||
-                const DeepCollectionEquality()
-                    .equals(other.hobbies, hobbies)) &&
-            (identical(other.skills, skills) ||
-                const DeepCollectionEquality().equals(other.skills, skills)) &&
+                other.JLPTLevel == JLPTLevel) &&
+            (identical(other.selfPR, selfPR) || other.selfPR == selfPR) &&
+            (identical(
+                    other.motivationsSpecialSkills, motivationsSpecialSkills) ||
+                other.motivationsSpecialSkills == motivationsSpecialSkills) &&
+            const DeepCollectionEquality().equals(other._hobbies, _hobbies) &&
+            const DeepCollectionEquality().equals(other._skills, _skills) &&
             (identical(other.workinHours, workinHours) ||
-                const DeepCollectionEquality()
-                    .equals(other.workinHours, workinHours)) &&
+                other.workinHours == workinHours) &&
             (identical(other.workingMinutes, workingMinutes) ||
-                const DeepCollectionEquality()
-                    .equals(other.workingMinutes, workingMinutes)) &&
+                other.workingMinutes == workingMinutes) &&
             (identical(other.numberOfDependent, numberOfDependent) ||
-                const DeepCollectionEquality()
-                    .equals(other.numberOfDependent, numberOfDependent)) &&
+                other.numberOfDependent == numberOfDependent) &&
             (identical(other.isSpouse, isSpouse) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSpouse, isSpouse)) &&
-            (identical(other.isSpouseSupportObligation, isSpouseSupportObligation) ||
-                const DeepCollectionEquality().equals(
-                    other.isSpouseSupportObligation,
-                    isSpouseSupportObligation)) &&
+                other.isSpouse == isSpouse) &&
+            (identical(other.isSpouseSupportObligation,
+                    isSpouseSupportObligation) ||
+                other.isSpouseSupportObligation == isSpouseSupportObligation) &&
             (identical(other.specialConditions, specialConditions) ||
-                const DeepCollectionEquality()
-                    .equals(other.specialConditions, specialConditions)) &&
-            (identical(other.knownLanguages, knownLanguages) ||
-                const DeepCollectionEquality()
-                    .equals(other.knownLanguages, knownLanguages)) &&
-            (identical(other.listOfHobbies, listOfHobbies) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfHobbies, listOfHobbies)) &&
-            (identical(other.listOfSkills, listOfSkills) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfSkills, listOfSkills)) &&
-            (identical(other.listOfJLPTLevel, listOfJLPTLevel) ||
-                const DeepCollectionEquality().equals(other.listOfJLPTLevel, listOfJLPTLevel)) &&
-            (identical(other.listOfHourRate, listOfHourRate) || const DeepCollectionEquality().equals(other.listOfHourRate, listOfHourRate)) &&
-            (identical(other.listOfYesNoOption, listOfYesNoOption) || const DeepCollectionEquality().equals(other.listOfYesNoOption, listOfYesNoOption)) &&
-            (identical(other.isSubmitting, isSubmitting) || const DeepCollectionEquality().equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.hasSetInitialData, hasSetInitialData) || const DeepCollectionEquality().equals(other.hasSetInitialData, hasSetInitialData)) &&
-            (identical(other.failureOrSuccessOption, failureOrSuccessOption) || const DeepCollectionEquality().equals(other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.specialConditions == specialConditions) &&
+            const DeepCollectionEquality()
+                .equals(other._knownLanguages, _knownLanguages) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfHobbies, _listOfHobbies) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfSkills, _listOfSkills) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfJLPTLevel, _listOfJLPTLevel) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfHourRate, _listOfHourRate) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfYesNoOption, _listOfYesNoOption) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.hasSetInitialData, hasSetInitialData) ||
+                other.hasSetInitialData == hasSetInitialData) &&
+            (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
+                other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(languages) ^
-      const DeepCollectionEquality().hash(JLPTLevel) ^
-      const DeepCollectionEquality().hash(selfPR) ^
-      const DeepCollectionEquality().hash(motivationsSpecialSkills) ^
-      const DeepCollectionEquality().hash(hobbies) ^
-      const DeepCollectionEquality().hash(skills) ^
-      const DeepCollectionEquality().hash(workinHours) ^
-      const DeepCollectionEquality().hash(workingMinutes) ^
-      const DeepCollectionEquality().hash(numberOfDependent) ^
-      const DeepCollectionEquality().hash(isSpouse) ^
-      const DeepCollectionEquality().hash(isSpouseSupportObligation) ^
-      const DeepCollectionEquality().hash(specialConditions) ^
-      const DeepCollectionEquality().hash(knownLanguages) ^
-      const DeepCollectionEquality().hash(listOfHobbies) ^
-      const DeepCollectionEquality().hash(listOfSkills) ^
-      const DeepCollectionEquality().hash(listOfJLPTLevel) ^
-      const DeepCollectionEquality().hash(listOfHourRate) ^
-      const DeepCollectionEquality().hash(listOfYesNoOption) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(hasSetInitialData) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        key,
+        const DeepCollectionEquality().hash(_languages),
+        JLPTLevel,
+        selfPR,
+        motivationsSpecialSkills,
+        const DeepCollectionEquality().hash(_hobbies),
+        const DeepCollectionEquality().hash(_skills),
+        workinHours,
+        workingMinutes,
+        numberOfDependent,
+        isSpouse,
+        isSpouseSupportObligation,
+        specialConditions,
+        const DeepCollectionEquality().hash(_knownLanguages),
+        const DeepCollectionEquality().hash(_listOfHobbies),
+        const DeepCollectionEquality().hash(_listOfSkills),
+        const DeepCollectionEquality().hash(_listOfJLPTLevel),
+        const DeepCollectionEquality().hash(_listOfHourRate),
+        const DeepCollectionEquality().hash(_listOfYesNoOption),
+        isSubmitting,
+        hasSetInitialData,
+        failureOrSuccessOption
+      ]);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateOtherInfoActorStateCopyWith<_UpdateOtherInfoActorState>
-      get copyWith =>
-          __$UpdateOtherInfoActorStateCopyWithImpl<_UpdateOtherInfoActorState>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_UpdateOtherInfoActorStateCopyWith<_$_UpdateOtherInfoActorState>
+      get copyWith => __$$_UpdateOtherInfoActorStateCopyWithImpl<
+          _$_UpdateOtherInfoActorState>(this, _$identity);
 }
 
 abstract class _UpdateOtherInfoActorState implements UpdateOtherInfoActorState {
   const factory _UpdateOtherInfoActorState(
-          {required Key? key,
-          required List<String> languages,
-          required String JLPTLevel,
-          required String selfPR,
-          required String motivationsSpecialSkills,
-          required List<String> hobbies,
-          required List<String> skills,
-          required String workinHours,
-          required String workingMinutes,
-          required String numberOfDependent,
-          required String isSpouse,
-          required String isSpouseSupportObligation,
-          required String specialConditions,
-          required List<String> knownLanguages,
-          required List<String> listOfHobbies,
-          required List<String> listOfSkills,
-          required List<String> listOfJLPTLevel,
-          required List<String> listOfHourRate,
-          required List<String> listOfYesNoOption,
-          required bool isSubmitting,
-          required bool hasSetInitialData,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
-      _$_UpdateOtherInfoActorState;
+      {required final Key? key,
+      required final List<String> languages,
+      required final String JLPTLevel,
+      required final String selfPR,
+      required final String motivationsSpecialSkills,
+      required final List<String> hobbies,
+      required final List<String> skills,
+      required final String workinHours,
+      required final String workingMinutes,
+      required final String numberOfDependent,
+      required final String isSpouse,
+      required final String isSpouseSupportObligation,
+      required final String specialConditions,
+      required final List<String> knownLanguages,
+      required final List<String> listOfHobbies,
+      required final List<String> listOfSkills,
+      required final List<String> listOfJLPTLevel,
+      required final List<String> listOfHourRate,
+      required final List<String> listOfYesNoOption,
+      required final bool isSubmitting,
+      required final bool hasSetInitialData,
+      required final Option<Either<ApiFailure, Unit>>
+          failureOrSuccessOption}) = _$_UpdateOtherInfoActorState;
 
   @override
-  Key? get key => throw _privateConstructorUsedError;
+  Key? get key;
   @override
-  List<String> get languages => throw _privateConstructorUsedError;
+  List<String> get languages;
   @override // ignore: non_constant_identifier_names
-  String get JLPTLevel => throw _privateConstructorUsedError;
+  String get JLPTLevel;
   @override
-  String get selfPR => throw _privateConstructorUsedError;
+  String get selfPR;
   @override
-  String get motivationsSpecialSkills => throw _privateConstructorUsedError;
+  String get motivationsSpecialSkills;
   @override
-  List<String> get hobbies => throw _privateConstructorUsedError;
+  List<String> get hobbies;
   @override
-  List<String> get skills => throw _privateConstructorUsedError;
+  List<String> get skills;
   @override
-  String get workinHours => throw _privateConstructorUsedError;
+  String get workinHours;
   @override
-  String get workingMinutes => throw _privateConstructorUsedError;
+  String get workingMinutes;
   @override
-  String get numberOfDependent => throw _privateConstructorUsedError;
+  String get numberOfDependent;
   @override
-  String get isSpouse => throw _privateConstructorUsedError;
+  String get isSpouse;
   @override
-  String get isSpouseSupportObligation => throw _privateConstructorUsedError;
+  String get isSpouseSupportObligation;
   @override
-  String get specialConditions => throw _privateConstructorUsedError;
+  String get specialConditions;
   @override
-  List<String> get knownLanguages => throw _privateConstructorUsedError;
+  List<String> get knownLanguages;
   @override
-  List<String> get listOfHobbies => throw _privateConstructorUsedError;
+  List<String> get listOfHobbies;
   @override
-  List<String> get listOfSkills => throw _privateConstructorUsedError;
+  List<String> get listOfSkills;
   @override
-  List<String> get listOfJLPTLevel => throw _privateConstructorUsedError;
+  List<String> get listOfJLPTLevel;
   @override
-  List<String> get listOfHourRate => throw _privateConstructorUsedError;
+  List<String> get listOfHourRate;
   @override
-  List<String> get listOfYesNoOption => throw _privateConstructorUsedError;
+  List<String> get listOfYesNoOption;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  bool get hasSetInitialData => throw _privateConstructorUsedError;
+  bool get hasSetInitialData;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$UpdateOtherInfoActorStateCopyWith<_UpdateOtherInfoActorState>
+  _$$_UpdateOtherInfoActorStateCopyWith<_$_UpdateOtherInfoActorState>
       get copyWith => throw _privateConstructorUsedError;
 }

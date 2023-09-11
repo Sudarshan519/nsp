@@ -15,6 +15,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
+@RoutePage()
 class JapaneseMannerPage extends StatelessWidget {
   final String? categoryName;
 

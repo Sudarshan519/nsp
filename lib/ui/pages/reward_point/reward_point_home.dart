@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/ui/pages/home/widgets/balance_and_points.dart';
@@ -5,8 +6,9 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'reward_point_usage.dart';
 import 'reward_points_list.dart';
 
-class RewardPointsHome extends StatelessWidget {
-  const RewardPointsHome({Key? key}) : super(key: key);
+@RoutePage()
+class RewardPointsHomePage extends StatelessWidget {
+  const RewardPointsHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

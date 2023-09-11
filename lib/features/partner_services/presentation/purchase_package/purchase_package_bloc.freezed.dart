@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'purchase_package_bloc.dart';
 
@@ -10,78 +12,7 @@ part of 'purchase_package_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PurchasePackageEventTearOff {
-  const _$PurchasePackageEventTearOff();
-
-  _ChangeCustomerName changeCustomerName(String name) {
-    return _ChangeCustomerName(
-      name,
-    );
-  }
-
-  _ChangeCustomerId changeCustomerId(String id) {
-    return _ChangeCustomerId(
-      id,
-    );
-  }
-
-  _ChangeRemark changeRemark(String remark) {
-    return _ChangeRemark(
-      remark,
-    );
-  }
-
-  _SetInitialState setInitialState(
-      {required ServicePackage package,
-      required double cashBackPercent,
-      required double rewardPoint}) {
-    return _SetInitialState(
-      package: package,
-      cashBackPercent: cashBackPercent,
-      rewardPoint: rewardPoint,
-    );
-  }
-
-  _ChangeCoupon changeCoupon(String coupon) {
-    return _ChangeCoupon(
-      coupon,
-    );
-  }
-
-  _SetCashbackpercentage setCashbackpercentage(double percentage) {
-    return _SetCashbackpercentage(
-      percentage,
-    );
-  }
-
-  _SetDiscountpercentage setDiscountpercentage(double percentage) {
-    return _SetDiscountpercentage(
-      percentage,
-    );
-  }
-
-  _SetRedeemPoint setRewardPoint(double point) {
-    return _SetRedeemPoint(
-      point,
-    );
-  }
-
-  _SetRedeemPointFromCoupon setRewardPointFromCoupon(double point) {
-    return _SetRedeemPointFromCoupon(
-      point,
-    );
-  }
-
-  _Purchase purchase() {
-    return const _Purchase();
-  }
-}
-
-/// @nodoc
-const $PurchasePackageEvent = _$PurchasePackageEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PurchasePackageEvent {
@@ -99,6 +30,22 @@ mixin _$PurchasePackageEvent {
     required TResult Function(double point) setRewardPoint,
     required TResult Function(double point) setRewardPointFromCoupon,
     required TResult Function() purchase,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -136,6 +83,21 @@ mixin _$PurchasePackageEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -156,44 +118,45 @@ mixin _$PurchasePackageEvent {
 abstract class $PurchasePackageEventCopyWith<$Res> {
   factory $PurchasePackageEventCopyWith(PurchasePackageEvent value,
           $Res Function(PurchasePackageEvent) then) =
-      _$PurchasePackageEventCopyWithImpl<$Res>;
+      _$PurchasePackageEventCopyWithImpl<$Res, PurchasePackageEvent>;
 }
 
 /// @nodoc
-class _$PurchasePackageEventCopyWithImpl<$Res>
+class _$PurchasePackageEventCopyWithImpl<$Res,
+        $Val extends PurchasePackageEvent>
     implements $PurchasePackageEventCopyWith<$Res> {
   _$PurchasePackageEventCopyWithImpl(this._value, this._then);
 
-  final PurchasePackageEvent _value;
   // ignore: unused_field
-  final $Res Function(PurchasePackageEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangeCustomerNameCopyWith<$Res> {
-  factory _$ChangeCustomerNameCopyWith(
-          _ChangeCustomerName value, $Res Function(_ChangeCustomerName) then) =
-      __$ChangeCustomerNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeCustomerNameCopyWith<$Res> {
+  factory _$$_ChangeCustomerNameCopyWith(_$_ChangeCustomerName value,
+          $Res Function(_$_ChangeCustomerName) then) =
+      __$$_ChangeCustomerNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeCustomerNameCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$ChangeCustomerNameCopyWith<$Res> {
-  __$ChangeCustomerNameCopyWithImpl(
-      _ChangeCustomerName _value, $Res Function(_ChangeCustomerName) _then)
-      : super(_value, (v) => _then(v as _ChangeCustomerName));
+class __$$_ChangeCustomerNameCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res, _$_ChangeCustomerName>
+    implements _$$_ChangeCustomerNameCopyWith<$Res> {
+  __$$_ChangeCustomerNameCopyWithImpl(
+      _$_ChangeCustomerName _value, $Res Function(_$_ChangeCustomerName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeCustomerName get _value => super._value as _ChangeCustomerName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeCustomerName(
-      name == freezed
+    return _then(_$_ChangeCustomerName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -228,19 +191,20 @@ class _$_ChangeCustomerName
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeCustomerName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCustomerName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeCustomerNameCopyWith<_ChangeCustomerName> get copyWith =>
-      __$ChangeCustomerNameCopyWithImpl<_ChangeCustomerName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCustomerNameCopyWith<_$_ChangeCustomerName> get copyWith =>
+      __$$_ChangeCustomerNameCopyWithImpl<_$_ChangeCustomerName>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -259,6 +223,25 @@ class _$_ChangeCustomerName
     required TResult Function() purchase,
   }) {
     return changeCustomerName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return changeCustomerName?.call(name);
   }
 
   @override
@@ -306,6 +289,24 @@ class _$_ChangeCustomerName
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return changeCustomerName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -327,39 +328,38 @@ class _$_ChangeCustomerName
 }
 
 abstract class _ChangeCustomerName implements PurchasePackageEvent {
-  const factory _ChangeCustomerName(String name) = _$_ChangeCustomerName;
+  const factory _ChangeCustomerName(final String name) = _$_ChangeCustomerName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeCustomerNameCopyWith<_ChangeCustomerName> get copyWith =>
+  _$$_ChangeCustomerNameCopyWith<_$_ChangeCustomerName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeCustomerIdCopyWith<$Res> {
-  factory _$ChangeCustomerIdCopyWith(
-          _ChangeCustomerId value, $Res Function(_ChangeCustomerId) then) =
-      __$ChangeCustomerIdCopyWithImpl<$Res>;
+abstract class _$$_ChangeCustomerIdCopyWith<$Res> {
+  factory _$$_ChangeCustomerIdCopyWith(
+          _$_ChangeCustomerId value, $Res Function(_$_ChangeCustomerId) then) =
+      __$$_ChangeCustomerIdCopyWithImpl<$Res>;
+  @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$ChangeCustomerIdCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$ChangeCustomerIdCopyWith<$Res> {
-  __$ChangeCustomerIdCopyWithImpl(
-      _ChangeCustomerId _value, $Res Function(_ChangeCustomerId) _then)
-      : super(_value, (v) => _then(v as _ChangeCustomerId));
+class __$$_ChangeCustomerIdCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res, _$_ChangeCustomerId>
+    implements _$$_ChangeCustomerIdCopyWith<$Res> {
+  __$$_ChangeCustomerIdCopyWithImpl(
+      _$_ChangeCustomerId _value, $Res Function(_$_ChangeCustomerId) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeCustomerId get _value => super._value as _ChangeCustomerId;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
-    return _then(_ChangeCustomerId(
-      id == freezed
+    return _then(_$_ChangeCustomerId(
+      null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
@@ -394,19 +394,19 @@ class _$_ChangeCustomerId
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeCustomerId &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCustomerId &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeCustomerIdCopyWith<_ChangeCustomerId> get copyWith =>
-      __$ChangeCustomerIdCopyWithImpl<_ChangeCustomerId>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCustomerIdCopyWith<_$_ChangeCustomerId> get copyWith =>
+      __$$_ChangeCustomerIdCopyWithImpl<_$_ChangeCustomerId>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -425,6 +425,25 @@ class _$_ChangeCustomerId
     required TResult Function() purchase,
   }) {
     return changeCustomerId(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return changeCustomerId?.call(id);
   }
 
   @override
@@ -472,6 +491,24 @@ class _$_ChangeCustomerId
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return changeCustomerId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -493,39 +530,38 @@ class _$_ChangeCustomerId
 }
 
 abstract class _ChangeCustomerId implements PurchasePackageEvent {
-  const factory _ChangeCustomerId(String id) = _$_ChangeCustomerId;
+  const factory _ChangeCustomerId(final String id) = _$_ChangeCustomerId;
 
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @JsonKey(ignore: true)
-  _$ChangeCustomerIdCopyWith<_ChangeCustomerId> get copyWith =>
+  _$$_ChangeCustomerIdCopyWith<_$_ChangeCustomerId> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeRemarkCopyWith<$Res> {
-  factory _$ChangeRemarkCopyWith(
-          _ChangeRemark value, $Res Function(_ChangeRemark) then) =
-      __$ChangeRemarkCopyWithImpl<$Res>;
+abstract class _$$_ChangeRemarkCopyWith<$Res> {
+  factory _$$_ChangeRemarkCopyWith(
+          _$_ChangeRemark value, $Res Function(_$_ChangeRemark) then) =
+      __$$_ChangeRemarkCopyWithImpl<$Res>;
+  @useResult
   $Res call({String remark});
 }
 
 /// @nodoc
-class __$ChangeRemarkCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$ChangeRemarkCopyWith<$Res> {
-  __$ChangeRemarkCopyWithImpl(
-      _ChangeRemark _value, $Res Function(_ChangeRemark) _then)
-      : super(_value, (v) => _then(v as _ChangeRemark));
+class __$$_ChangeRemarkCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res, _$_ChangeRemark>
+    implements _$$_ChangeRemarkCopyWith<$Res> {
+  __$$_ChangeRemarkCopyWithImpl(
+      _$_ChangeRemark _value, $Res Function(_$_ChangeRemark) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeRemark get _value => super._value as _ChangeRemark;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? remark = freezed,
+    Object? remark = null,
   }) {
-    return _then(_ChangeRemark(
-      remark == freezed
+    return _then(_$_ChangeRemark(
+      null == remark
           ? _value.remark
           : remark // ignore: cast_nullable_to_non_nullable
               as String,
@@ -557,19 +593,19 @@ class _$_ChangeRemark with DiagnosticableTreeMixin implements _ChangeRemark {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeRemark &&
-            (identical(other.remark, remark) ||
-                const DeepCollectionEquality().equals(other.remark, remark)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeRemark &&
+            (identical(other.remark, remark) || other.remark == remark));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(remark);
+  int get hashCode => Object.hash(runtimeType, remark);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeRemarkCopyWith<_ChangeRemark> get copyWith =>
-      __$ChangeRemarkCopyWithImpl<_ChangeRemark>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeRemarkCopyWith<_$_ChangeRemark> get copyWith =>
+      __$$_ChangeRemarkCopyWithImpl<_$_ChangeRemark>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -588,6 +624,25 @@ class _$_ChangeRemark with DiagnosticableTreeMixin implements _ChangeRemark {
     required TResult Function() purchase,
   }) {
     return changeRemark(remark);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return changeRemark?.call(remark);
   }
 
   @override
@@ -635,6 +690,24 @@ class _$_ChangeRemark with DiagnosticableTreeMixin implements _ChangeRemark {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return changeRemark?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -656,50 +729,49 @@ class _$_ChangeRemark with DiagnosticableTreeMixin implements _ChangeRemark {
 }
 
 abstract class _ChangeRemark implements PurchasePackageEvent {
-  const factory _ChangeRemark(String remark) = _$_ChangeRemark;
+  const factory _ChangeRemark(final String remark) = _$_ChangeRemark;
 
-  String get remark => throw _privateConstructorUsedError;
+  String get remark;
   @JsonKey(ignore: true)
-  _$ChangeRemarkCopyWith<_ChangeRemark> get copyWith =>
+  _$$_ChangeRemarkCopyWith<_$_ChangeRemark> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetInitialStateCopyWith<$Res> {
-  factory _$SetInitialStateCopyWith(
-          _SetInitialState value, $Res Function(_SetInitialState) then) =
-      __$SetInitialStateCopyWithImpl<$Res>;
+abstract class _$$_SetInitialStateCopyWith<$Res> {
+  factory _$$_SetInitialStateCopyWith(
+          _$_SetInitialState value, $Res Function(_$_SetInitialState) then) =
+      __$$_SetInitialStateCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {ServicePackage package, double cashBackPercent, double rewardPoint});
 }
 
 /// @nodoc
-class __$SetInitialStateCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$SetInitialStateCopyWith<$Res> {
-  __$SetInitialStateCopyWithImpl(
-      _SetInitialState _value, $Res Function(_SetInitialState) _then)
-      : super(_value, (v) => _then(v as _SetInitialState));
+class __$$_SetInitialStateCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res, _$_SetInitialState>
+    implements _$$_SetInitialStateCopyWith<$Res> {
+  __$$_SetInitialStateCopyWithImpl(
+      _$_SetInitialState _value, $Res Function(_$_SetInitialState) _then)
+      : super(_value, _then);
 
-  @override
-  _SetInitialState get _value => super._value as _SetInitialState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? package = freezed,
-    Object? cashBackPercent = freezed,
-    Object? rewardPoint = freezed,
+    Object? package = null,
+    Object? cashBackPercent = null,
+    Object? rewardPoint = null,
   }) {
-    return _then(_SetInitialState(
-      package: package == freezed
+    return _then(_$_SetInitialState(
+      package: null == package
           ? _value.package
           : package // ignore: cast_nullable_to_non_nullable
               as ServicePackage,
-      cashBackPercent: cashBackPercent == freezed
+      cashBackPercent: null == cashBackPercent
           ? _value.cashBackPercent
           : cashBackPercent // ignore: cast_nullable_to_non_nullable
               as double,
-      rewardPoint: rewardPoint == freezed
+      rewardPoint: null == rewardPoint
           ? _value.rewardPoint
           : rewardPoint // ignore: cast_nullable_to_non_nullable
               as double,
@@ -742,29 +814,24 @@ class _$_SetInitialState
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetInitialState &&
-            (identical(other.package, package) ||
-                const DeepCollectionEquality()
-                    .equals(other.package, package)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SetInitialState &&
+            (identical(other.package, package) || other.package == package) &&
             (identical(other.cashBackPercent, cashBackPercent) ||
-                const DeepCollectionEquality()
-                    .equals(other.cashBackPercent, cashBackPercent)) &&
+                other.cashBackPercent == cashBackPercent) &&
             (identical(other.rewardPoint, rewardPoint) ||
-                const DeepCollectionEquality()
-                    .equals(other.rewardPoint, rewardPoint)));
+                other.rewardPoint == rewardPoint));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(package) ^
-      const DeepCollectionEquality().hash(cashBackPercent) ^
-      const DeepCollectionEquality().hash(rewardPoint);
+      Object.hash(runtimeType, package, cashBackPercent, rewardPoint);
 
   @JsonKey(ignore: true)
   @override
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
-      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
+      __$$_SetInitialStateCopyWithImpl<_$_SetInitialState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -783,6 +850,25 @@ class _$_SetInitialState
     required TResult Function() purchase,
   }) {
     return setInitialState(package, cashBackPercent, rewardPoint);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return setInitialState?.call(package, cashBackPercent, rewardPoint);
   }
 
   @override
@@ -830,6 +916,24 @@ class _$_SetInitialState
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return setInitialState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -852,43 +956,42 @@ class _$_SetInitialState
 
 abstract class _SetInitialState implements PurchasePackageEvent {
   const factory _SetInitialState(
-      {required ServicePackage package,
-      required double cashBackPercent,
-      required double rewardPoint}) = _$_SetInitialState;
+      {required final ServicePackage package,
+      required final double cashBackPercent,
+      required final double rewardPoint}) = _$_SetInitialState;
 
-  ServicePackage get package => throw _privateConstructorUsedError;
-  double get cashBackPercent => throw _privateConstructorUsedError;
-  double get rewardPoint => throw _privateConstructorUsedError;
+  ServicePackage get package;
+  double get cashBackPercent;
+  double get rewardPoint;
   @JsonKey(ignore: true)
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeCouponCopyWith<$Res> {
-  factory _$ChangeCouponCopyWith(
-          _ChangeCoupon value, $Res Function(_ChangeCoupon) then) =
-      __$ChangeCouponCopyWithImpl<$Res>;
+abstract class _$$_ChangeCouponCopyWith<$Res> {
+  factory _$$_ChangeCouponCopyWith(
+          _$_ChangeCoupon value, $Res Function(_$_ChangeCoupon) then) =
+      __$$_ChangeCouponCopyWithImpl<$Res>;
+  @useResult
   $Res call({String coupon});
 }
 
 /// @nodoc
-class __$ChangeCouponCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$ChangeCouponCopyWith<$Res> {
-  __$ChangeCouponCopyWithImpl(
-      _ChangeCoupon _value, $Res Function(_ChangeCoupon) _then)
-      : super(_value, (v) => _then(v as _ChangeCoupon));
+class __$$_ChangeCouponCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res, _$_ChangeCoupon>
+    implements _$$_ChangeCouponCopyWith<$Res> {
+  __$$_ChangeCouponCopyWithImpl(
+      _$_ChangeCoupon _value, $Res Function(_$_ChangeCoupon) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeCoupon get _value => super._value as _ChangeCoupon;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? coupon = freezed,
+    Object? coupon = null,
   }) {
-    return _then(_ChangeCoupon(
-      coupon == freezed
+    return _then(_$_ChangeCoupon(
+      null == coupon
           ? _value.coupon
           : coupon // ignore: cast_nullable_to_non_nullable
               as String,
@@ -920,19 +1023,19 @@ class _$_ChangeCoupon with DiagnosticableTreeMixin implements _ChangeCoupon {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeCoupon &&
-            (identical(other.coupon, coupon) ||
-                const DeepCollectionEquality().equals(other.coupon, coupon)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCoupon &&
+            (identical(other.coupon, coupon) || other.coupon == coupon));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(coupon);
+  int get hashCode => Object.hash(runtimeType, coupon);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeCouponCopyWith<_ChangeCoupon> get copyWith =>
-      __$ChangeCouponCopyWithImpl<_ChangeCoupon>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCouponCopyWith<_$_ChangeCoupon> get copyWith =>
+      __$$_ChangeCouponCopyWithImpl<_$_ChangeCoupon>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -951,6 +1054,25 @@ class _$_ChangeCoupon with DiagnosticableTreeMixin implements _ChangeCoupon {
     required TResult Function() purchase,
   }) {
     return changeCoupon(coupon);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return changeCoupon?.call(coupon);
   }
 
   @override
@@ -998,6 +1120,24 @@ class _$_ChangeCoupon with DiagnosticableTreeMixin implements _ChangeCoupon {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return changeCoupon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -1019,39 +1159,38 @@ class _$_ChangeCoupon with DiagnosticableTreeMixin implements _ChangeCoupon {
 }
 
 abstract class _ChangeCoupon implements PurchasePackageEvent {
-  const factory _ChangeCoupon(String coupon) = _$_ChangeCoupon;
+  const factory _ChangeCoupon(final String coupon) = _$_ChangeCoupon;
 
-  String get coupon => throw _privateConstructorUsedError;
+  String get coupon;
   @JsonKey(ignore: true)
-  _$ChangeCouponCopyWith<_ChangeCoupon> get copyWith =>
+  _$$_ChangeCouponCopyWith<_$_ChangeCoupon> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetCashbackpercentageCopyWith<$Res> {
-  factory _$SetCashbackpercentageCopyWith(_SetCashbackpercentage value,
-          $Res Function(_SetCashbackpercentage) then) =
-      __$SetCashbackpercentageCopyWithImpl<$Res>;
+abstract class _$$_SetCashbackpercentageCopyWith<$Res> {
+  factory _$$_SetCashbackpercentageCopyWith(_$_SetCashbackpercentage value,
+          $Res Function(_$_SetCashbackpercentage) then) =
+      __$$_SetCashbackpercentageCopyWithImpl<$Res>;
+  @useResult
   $Res call({double percentage});
 }
 
 /// @nodoc
-class __$SetCashbackpercentageCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$SetCashbackpercentageCopyWith<$Res> {
-  __$SetCashbackpercentageCopyWithImpl(_SetCashbackpercentage _value,
-      $Res Function(_SetCashbackpercentage) _then)
-      : super(_value, (v) => _then(v as _SetCashbackpercentage));
+class __$$_SetCashbackpercentageCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res, _$_SetCashbackpercentage>
+    implements _$$_SetCashbackpercentageCopyWith<$Res> {
+  __$$_SetCashbackpercentageCopyWithImpl(_$_SetCashbackpercentage _value,
+      $Res Function(_$_SetCashbackpercentage) _then)
+      : super(_value, _then);
 
-  @override
-  _SetCashbackpercentage get _value => super._value as _SetCashbackpercentage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? percentage = freezed,
+    Object? percentage = null,
   }) {
-    return _then(_SetCashbackpercentage(
-      percentage == freezed
+    return _then(_$_SetCashbackpercentage(
+      null == percentage
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
               as double,
@@ -1086,20 +1225,20 @@ class _$_SetCashbackpercentage
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetCashbackpercentage &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SetCashbackpercentage &&
             (identical(other.percentage, percentage) ||
-                const DeepCollectionEquality()
-                    .equals(other.percentage, percentage)));
+                other.percentage == percentage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(percentage);
+  int get hashCode => Object.hash(runtimeType, percentage);
 
   @JsonKey(ignore: true)
   @override
-  _$SetCashbackpercentageCopyWith<_SetCashbackpercentage> get copyWith =>
-      __$SetCashbackpercentageCopyWithImpl<_SetCashbackpercentage>(
+  @pragma('vm:prefer-inline')
+  _$$_SetCashbackpercentageCopyWith<_$_SetCashbackpercentage> get copyWith =>
+      __$$_SetCashbackpercentageCopyWithImpl<_$_SetCashbackpercentage>(
           this, _$identity);
 
   @override
@@ -1119,6 +1258,25 @@ class _$_SetCashbackpercentage
     required TResult Function() purchase,
   }) {
     return setCashbackpercentage(percentage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return setCashbackpercentage?.call(percentage);
   }
 
   @override
@@ -1166,6 +1324,24 @@ class _$_SetCashbackpercentage
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return setCashbackpercentage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -1187,40 +1363,39 @@ class _$_SetCashbackpercentage
 }
 
 abstract class _SetCashbackpercentage implements PurchasePackageEvent {
-  const factory _SetCashbackpercentage(double percentage) =
+  const factory _SetCashbackpercentage(final double percentage) =
       _$_SetCashbackpercentage;
 
-  double get percentage => throw _privateConstructorUsedError;
+  double get percentage;
   @JsonKey(ignore: true)
-  _$SetCashbackpercentageCopyWith<_SetCashbackpercentage> get copyWith =>
+  _$$_SetCashbackpercentageCopyWith<_$_SetCashbackpercentage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetDiscountpercentageCopyWith<$Res> {
-  factory _$SetDiscountpercentageCopyWith(_SetDiscountpercentage value,
-          $Res Function(_SetDiscountpercentage) then) =
-      __$SetDiscountpercentageCopyWithImpl<$Res>;
+abstract class _$$_SetDiscountpercentageCopyWith<$Res> {
+  factory _$$_SetDiscountpercentageCopyWith(_$_SetDiscountpercentage value,
+          $Res Function(_$_SetDiscountpercentage) then) =
+      __$$_SetDiscountpercentageCopyWithImpl<$Res>;
+  @useResult
   $Res call({double percentage});
 }
 
 /// @nodoc
-class __$SetDiscountpercentageCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$SetDiscountpercentageCopyWith<$Res> {
-  __$SetDiscountpercentageCopyWithImpl(_SetDiscountpercentage _value,
-      $Res Function(_SetDiscountpercentage) _then)
-      : super(_value, (v) => _then(v as _SetDiscountpercentage));
+class __$$_SetDiscountpercentageCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res, _$_SetDiscountpercentage>
+    implements _$$_SetDiscountpercentageCopyWith<$Res> {
+  __$$_SetDiscountpercentageCopyWithImpl(_$_SetDiscountpercentage _value,
+      $Res Function(_$_SetDiscountpercentage) _then)
+      : super(_value, _then);
 
-  @override
-  _SetDiscountpercentage get _value => super._value as _SetDiscountpercentage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? percentage = freezed,
+    Object? percentage = null,
   }) {
-    return _then(_SetDiscountpercentage(
-      percentage == freezed
+    return _then(_$_SetDiscountpercentage(
+      null == percentage
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
               as double,
@@ -1255,20 +1430,20 @@ class _$_SetDiscountpercentage
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetDiscountpercentage &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SetDiscountpercentage &&
             (identical(other.percentage, percentage) ||
-                const DeepCollectionEquality()
-                    .equals(other.percentage, percentage)));
+                other.percentage == percentage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(percentage);
+  int get hashCode => Object.hash(runtimeType, percentage);
 
   @JsonKey(ignore: true)
   @override
-  _$SetDiscountpercentageCopyWith<_SetDiscountpercentage> get copyWith =>
-      __$SetDiscountpercentageCopyWithImpl<_SetDiscountpercentage>(
+  @pragma('vm:prefer-inline')
+  _$$_SetDiscountpercentageCopyWith<_$_SetDiscountpercentage> get copyWith =>
+      __$$_SetDiscountpercentageCopyWithImpl<_$_SetDiscountpercentage>(
           this, _$identity);
 
   @override
@@ -1288,6 +1463,25 @@ class _$_SetDiscountpercentage
     required TResult Function() purchase,
   }) {
     return setDiscountpercentage(percentage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return setDiscountpercentage?.call(percentage);
   }
 
   @override
@@ -1335,6 +1529,24 @@ class _$_SetDiscountpercentage
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return setDiscountpercentage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -1356,40 +1568,39 @@ class _$_SetDiscountpercentage
 }
 
 abstract class _SetDiscountpercentage implements PurchasePackageEvent {
-  const factory _SetDiscountpercentage(double percentage) =
+  const factory _SetDiscountpercentage(final double percentage) =
       _$_SetDiscountpercentage;
 
-  double get percentage => throw _privateConstructorUsedError;
+  double get percentage;
   @JsonKey(ignore: true)
-  _$SetDiscountpercentageCopyWith<_SetDiscountpercentage> get copyWith =>
+  _$$_SetDiscountpercentageCopyWith<_$_SetDiscountpercentage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetRedeemPointCopyWith<$Res> {
-  factory _$SetRedeemPointCopyWith(
-          _SetRedeemPoint value, $Res Function(_SetRedeemPoint) then) =
-      __$SetRedeemPointCopyWithImpl<$Res>;
+abstract class _$$_SetRedeemPointCopyWith<$Res> {
+  factory _$$_SetRedeemPointCopyWith(
+          _$_SetRedeemPoint value, $Res Function(_$_SetRedeemPoint) then) =
+      __$$_SetRedeemPointCopyWithImpl<$Res>;
+  @useResult
   $Res call({double point});
 }
 
 /// @nodoc
-class __$SetRedeemPointCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$SetRedeemPointCopyWith<$Res> {
-  __$SetRedeemPointCopyWithImpl(
-      _SetRedeemPoint _value, $Res Function(_SetRedeemPoint) _then)
-      : super(_value, (v) => _then(v as _SetRedeemPoint));
+class __$$_SetRedeemPointCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res, _$_SetRedeemPoint>
+    implements _$$_SetRedeemPointCopyWith<$Res> {
+  __$$_SetRedeemPointCopyWithImpl(
+      _$_SetRedeemPoint _value, $Res Function(_$_SetRedeemPoint) _then)
+      : super(_value, _then);
 
-  @override
-  _SetRedeemPoint get _value => super._value as _SetRedeemPoint;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? point = freezed,
+    Object? point = null,
   }) {
-    return _then(_SetRedeemPoint(
-      point == freezed
+    return _then(_$_SetRedeemPoint(
+      null == point
           ? _value.point
           : point // ignore: cast_nullable_to_non_nullable
               as double,
@@ -1423,19 +1634,19 @@ class _$_SetRedeemPoint
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetRedeemPoint &&
-            (identical(other.point, point) ||
-                const DeepCollectionEquality().equals(other.point, point)));
+        (other.runtimeType == runtimeType &&
+            other is _$_SetRedeemPoint &&
+            (identical(other.point, point) || other.point == point));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(point);
+  int get hashCode => Object.hash(runtimeType, point);
 
   @JsonKey(ignore: true)
   @override
-  _$SetRedeemPointCopyWith<_SetRedeemPoint> get copyWith =>
-      __$SetRedeemPointCopyWithImpl<_SetRedeemPoint>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetRedeemPointCopyWith<_$_SetRedeemPoint> get copyWith =>
+      __$$_SetRedeemPointCopyWithImpl<_$_SetRedeemPoint>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1454,6 +1665,25 @@ class _$_SetRedeemPoint
     required TResult Function() purchase,
   }) {
     return setRewardPoint(point);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return setRewardPoint?.call(point);
   }
 
   @override
@@ -1501,6 +1731,24 @@ class _$_SetRedeemPoint
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return setRewardPoint?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -1522,40 +1770,40 @@ class _$_SetRedeemPoint
 }
 
 abstract class _SetRedeemPoint implements PurchasePackageEvent {
-  const factory _SetRedeemPoint(double point) = _$_SetRedeemPoint;
+  const factory _SetRedeemPoint(final double point) = _$_SetRedeemPoint;
 
-  double get point => throw _privateConstructorUsedError;
+  double get point;
   @JsonKey(ignore: true)
-  _$SetRedeemPointCopyWith<_SetRedeemPoint> get copyWith =>
+  _$$_SetRedeemPointCopyWith<_$_SetRedeemPoint> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetRedeemPointFromCouponCopyWith<$Res> {
-  factory _$SetRedeemPointFromCouponCopyWith(_SetRedeemPointFromCoupon value,
-          $Res Function(_SetRedeemPointFromCoupon) then) =
-      __$SetRedeemPointFromCouponCopyWithImpl<$Res>;
+abstract class _$$_SetRedeemPointFromCouponCopyWith<$Res> {
+  factory _$$_SetRedeemPointFromCouponCopyWith(
+          _$_SetRedeemPointFromCoupon value,
+          $Res Function(_$_SetRedeemPointFromCoupon) then) =
+      __$$_SetRedeemPointFromCouponCopyWithImpl<$Res>;
+  @useResult
   $Res call({double point});
 }
 
 /// @nodoc
-class __$SetRedeemPointFromCouponCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$SetRedeemPointFromCouponCopyWith<$Res> {
-  __$SetRedeemPointFromCouponCopyWithImpl(_SetRedeemPointFromCoupon _value,
-      $Res Function(_SetRedeemPointFromCoupon) _then)
-      : super(_value, (v) => _then(v as _SetRedeemPointFromCoupon));
+class __$$_SetRedeemPointFromCouponCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res,
+        _$_SetRedeemPointFromCoupon>
+    implements _$$_SetRedeemPointFromCouponCopyWith<$Res> {
+  __$$_SetRedeemPointFromCouponCopyWithImpl(_$_SetRedeemPointFromCoupon _value,
+      $Res Function(_$_SetRedeemPointFromCoupon) _then)
+      : super(_value, _then);
 
-  @override
-  _SetRedeemPointFromCoupon get _value =>
-      super._value as _SetRedeemPointFromCoupon;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? point = freezed,
+    Object? point = null,
   }) {
-    return _then(_SetRedeemPointFromCoupon(
-      point == freezed
+    return _then(_$_SetRedeemPointFromCoupon(
+      null == point
           ? _value.point
           : point // ignore: cast_nullable_to_non_nullable
               as double,
@@ -1590,20 +1838,20 @@ class _$_SetRedeemPointFromCoupon
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetRedeemPointFromCoupon &&
-            (identical(other.point, point) ||
-                const DeepCollectionEquality().equals(other.point, point)));
+        (other.runtimeType == runtimeType &&
+            other is _$_SetRedeemPointFromCoupon &&
+            (identical(other.point, point) || other.point == point));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(point);
+  int get hashCode => Object.hash(runtimeType, point);
 
   @JsonKey(ignore: true)
   @override
-  _$SetRedeemPointFromCouponCopyWith<_SetRedeemPointFromCoupon> get copyWith =>
-      __$SetRedeemPointFromCouponCopyWithImpl<_SetRedeemPointFromCoupon>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetRedeemPointFromCouponCopyWith<_$_SetRedeemPointFromCoupon>
+      get copyWith => __$$_SetRedeemPointFromCouponCopyWithImpl<
+          _$_SetRedeemPointFromCoupon>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1622,6 +1870,25 @@ class _$_SetRedeemPointFromCoupon
     required TResult Function() purchase,
   }) {
     return setRewardPointFromCoupon(point);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return setRewardPointFromCoupon?.call(point);
   }
 
   @override
@@ -1669,6 +1936,24 @@ class _$_SetRedeemPointFromCoupon
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return setRewardPointFromCoupon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -1690,30 +1975,29 @@ class _$_SetRedeemPointFromCoupon
 }
 
 abstract class _SetRedeemPointFromCoupon implements PurchasePackageEvent {
-  const factory _SetRedeemPointFromCoupon(double point) =
+  const factory _SetRedeemPointFromCoupon(final double point) =
       _$_SetRedeemPointFromCoupon;
 
-  double get point => throw _privateConstructorUsedError;
+  double get point;
   @JsonKey(ignore: true)
-  _$SetRedeemPointFromCouponCopyWith<_SetRedeemPointFromCoupon> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_SetRedeemPointFromCouponCopyWith<_$_SetRedeemPointFromCoupon>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PurchaseCopyWith<$Res> {
-  factory _$PurchaseCopyWith(_Purchase value, $Res Function(_Purchase) then) =
-      __$PurchaseCopyWithImpl<$Res>;
+abstract class _$$_PurchaseCopyWith<$Res> {
+  factory _$$_PurchaseCopyWith(
+          _$_Purchase value, $Res Function(_$_Purchase) then) =
+      __$$_PurchaseCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$PurchaseCopyWithImpl<$Res>
-    extends _$PurchasePackageEventCopyWithImpl<$Res>
-    implements _$PurchaseCopyWith<$Res> {
-  __$PurchaseCopyWithImpl(_Purchase _value, $Res Function(_Purchase) _then)
-      : super(_value, (v) => _then(v as _Purchase));
-
-  @override
-  _Purchase get _value => super._value as _Purchase;
+class __$$_PurchaseCopyWithImpl<$Res>
+    extends _$PurchasePackageEventCopyWithImpl<$Res, _$_Purchase>
+    implements _$$_PurchaseCopyWith<$Res> {
+  __$$_PurchaseCopyWithImpl(
+      _$_Purchase _value, $Res Function(_$_Purchase) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1730,12 +2014,13 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'PurchasePackageEvent.purchase'));
+        .add(DiagnosticsProperty('type', 'PurchasePackageEvent.purchase'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Purchase);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Purchase);
   }
 
   @override
@@ -1758,6 +2043,25 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
     required TResult Function() purchase,
   }) {
     return purchase();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeCustomerName,
+    TResult? Function(String id)? changeCustomerId,
+    TResult? Function(String remark)? changeRemark,
+    TResult? Function(
+            ServicePackage package, double cashBackPercent, double rewardPoint)?
+        setInitialState,
+    TResult? Function(String coupon)? changeCoupon,
+    TResult? Function(double percentage)? setCashbackpercentage,
+    TResult? Function(double percentage)? setDiscountpercentage,
+    TResult? Function(double point)? setRewardPoint,
+    TResult? Function(double point)? setRewardPointFromCoupon,
+    TResult? Function()? purchase,
+  }) {
+    return purchase?.call();
   }
 
   @override
@@ -1805,6 +2109,24 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCustomerName value)? changeCustomerName,
+    TResult? Function(_ChangeCustomerId value)? changeCustomerId,
+    TResult? Function(_ChangeRemark value)? changeRemark,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_ChangeCoupon value)? changeCoupon,
+    TResult? Function(_SetCashbackpercentage value)? setCashbackpercentage,
+    TResult? Function(_SetDiscountpercentage value)? setDiscountpercentage,
+    TResult? Function(_SetRedeemPoint value)? setRewardPoint,
+    TResult? Function(_SetRedeemPointFromCoupon value)?
+        setRewardPointFromCoupon,
+    TResult? Function(_Purchase value)? purchase,
+  }) {
+    return purchase?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCustomerName value)? changeCustomerName,
     TResult Function(_ChangeCustomerId value)? changeCustomerId,
@@ -1828,49 +2150,6 @@ class _$_Purchase with DiagnosticableTreeMixin implements _Purchase {
 abstract class _Purchase implements PurchasePackageEvent {
   const factory _Purchase() = _$_Purchase;
 }
-
-/// @nodoc
-class _$PurchasePackageStateTearOff {
-  const _$PurchasePackageStateTearOff();
-
-  _PurchasePackageState call(
-      {required Key key,
-      required String customerName,
-      required String customerId,
-      required int packageId,
-      required int serviceId,
-      required String packageName,
-      required double amount,
-      required String remark,
-      required String coupon,
-      required double cashbackPercentage,
-      required double discountPercentage,
-      required double rewardPoint,
-      required double rewardPointFromCoupon,
-      required bool isSubmitting,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
-    return _PurchasePackageState(
-      key: key,
-      customerName: customerName,
-      customerId: customerId,
-      packageId: packageId,
-      serviceId: serviceId,
-      packageName: packageName,
-      amount: amount,
-      remark: remark,
-      coupon: coupon,
-      cashbackPercentage: cashbackPercentage,
-      discountPercentage: discountPercentage,
-      rewardPoint: rewardPoint,
-      rewardPointFromCoupon: rewardPointFromCoupon,
-      isSubmitting: isSubmitting,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $PurchasePackageState = _$PurchasePackageStateTearOff();
 
 /// @nodoc
 mixin _$PurchasePackageState {
@@ -1900,7 +2179,8 @@ mixin _$PurchasePackageState {
 abstract class $PurchasePackageStateCopyWith<$Res> {
   factory $PurchasePackageStateCopyWith(PurchasePackageState value,
           $Res Function(PurchasePackageState) then) =
-      _$PurchasePackageStateCopyWithImpl<$Res>;
+      _$PurchasePackageStateCopyWithImpl<$Res, PurchasePackageState>;
+  @useResult
   $Res call(
       {Key key,
       String customerName,
@@ -1920,104 +2200,108 @@ abstract class $PurchasePackageStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PurchasePackageStateCopyWithImpl<$Res>
+class _$PurchasePackageStateCopyWithImpl<$Res,
+        $Val extends PurchasePackageState>
     implements $PurchasePackageStateCopyWith<$Res> {
   _$PurchasePackageStateCopyWithImpl(this._value, this._then);
 
-  final PurchasePackageState _value;
   // ignore: unused_field
-  final $Res Function(PurchasePackageState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
-    Object? customerName = freezed,
-    Object? customerId = freezed,
-    Object? packageId = freezed,
-    Object? serviceId = freezed,
-    Object? packageName = freezed,
-    Object? amount = freezed,
-    Object? remark = freezed,
-    Object? coupon = freezed,
-    Object? cashbackPercentage = freezed,
-    Object? discountPercentage = freezed,
-    Object? rewardPoint = freezed,
-    Object? rewardPointFromCoupon = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? key = null,
+    Object? customerName = null,
+    Object? customerId = null,
+    Object? packageId = null,
+    Object? serviceId = null,
+    Object? packageName = null,
+    Object? amount = null,
+    Object? remark = null,
+    Object? coupon = null,
+    Object? cashbackPercentage = null,
+    Object? discountPercentage = null,
+    Object? rewardPoint = null,
+    Object? rewardPointFromCoupon = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key,
-      customerName: customerName == freezed
+      customerName: null == customerName
           ? _value.customerName
           : customerName // ignore: cast_nullable_to_non_nullable
               as String,
-      customerId: customerId == freezed
+      customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
               as String,
-      packageId: packageId == freezed
+      packageId: null == packageId
           ? _value.packageId
           : packageId // ignore: cast_nullable_to_non_nullable
               as int,
-      serviceId: serviceId == freezed
+      serviceId: null == serviceId
           ? _value.serviceId
           : serviceId // ignore: cast_nullable_to_non_nullable
               as int,
-      packageName: packageName == freezed
+      packageName: null == packageName
           ? _value.packageName
           : packageName // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      remark: remark == freezed
+      remark: null == remark
           ? _value.remark
           : remark // ignore: cast_nullable_to_non_nullable
               as String,
-      coupon: coupon == freezed
+      coupon: null == coupon
           ? _value.coupon
           : coupon // ignore: cast_nullable_to_non_nullable
               as String,
-      cashbackPercentage: cashbackPercentage == freezed
+      cashbackPercentage: null == cashbackPercentage
           ? _value.cashbackPercentage
           : cashbackPercentage // ignore: cast_nullable_to_non_nullable
               as double,
-      discountPercentage: discountPercentage == freezed
+      discountPercentage: null == discountPercentage
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
               as double,
-      rewardPoint: rewardPoint == freezed
+      rewardPoint: null == rewardPoint
           ? _value.rewardPoint
           : rewardPoint // ignore: cast_nullable_to_non_nullable
               as double,
-      rewardPointFromCoupon: rewardPointFromCoupon == freezed
+      rewardPointFromCoupon: null == rewardPointFromCoupon
           ? _value.rewardPointFromCoupon
           : rewardPointFromCoupon // ignore: cast_nullable_to_non_nullable
               as double,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$PurchasePackageStateCopyWith<$Res>
+abstract class _$$_PurchasePackageStateCopyWith<$Res>
     implements $PurchasePackageStateCopyWith<$Res> {
-  factory _$PurchasePackageStateCopyWith(_PurchasePackageState value,
-          $Res Function(_PurchasePackageState) then) =
-      __$PurchasePackageStateCopyWithImpl<$Res>;
+  factory _$$_PurchasePackageStateCopyWith(_$_PurchasePackageState value,
+          $Res Function(_$_PurchasePackageState) then) =
+      __$$_PurchasePackageStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key key,
       String customerName,
@@ -2037,92 +2321,90 @@ abstract class _$PurchasePackageStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PurchasePackageStateCopyWithImpl<$Res>
-    extends _$PurchasePackageStateCopyWithImpl<$Res>
-    implements _$PurchasePackageStateCopyWith<$Res> {
-  __$PurchasePackageStateCopyWithImpl(
-      _PurchasePackageState _value, $Res Function(_PurchasePackageState) _then)
-      : super(_value, (v) => _then(v as _PurchasePackageState));
+class __$$_PurchasePackageStateCopyWithImpl<$Res>
+    extends _$PurchasePackageStateCopyWithImpl<$Res, _$_PurchasePackageState>
+    implements _$$_PurchasePackageStateCopyWith<$Res> {
+  __$$_PurchasePackageStateCopyWithImpl(_$_PurchasePackageState _value,
+      $Res Function(_$_PurchasePackageState) _then)
+      : super(_value, _then);
 
-  @override
-  _PurchasePackageState get _value => super._value as _PurchasePackageState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
-    Object? customerName = freezed,
-    Object? customerId = freezed,
-    Object? packageId = freezed,
-    Object? serviceId = freezed,
-    Object? packageName = freezed,
-    Object? amount = freezed,
-    Object? remark = freezed,
-    Object? coupon = freezed,
-    Object? cashbackPercentage = freezed,
-    Object? discountPercentage = freezed,
-    Object? rewardPoint = freezed,
-    Object? rewardPointFromCoupon = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? key = null,
+    Object? customerName = null,
+    Object? customerId = null,
+    Object? packageId = null,
+    Object? serviceId = null,
+    Object? packageName = null,
+    Object? amount = null,
+    Object? remark = null,
+    Object? coupon = null,
+    Object? cashbackPercentage = null,
+    Object? discountPercentage = null,
+    Object? rewardPoint = null,
+    Object? rewardPointFromCoupon = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_PurchasePackageState(
-      key: key == freezed
+    return _then(_$_PurchasePackageState(
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key,
-      customerName: customerName == freezed
+      customerName: null == customerName
           ? _value.customerName
           : customerName // ignore: cast_nullable_to_non_nullable
               as String,
-      customerId: customerId == freezed
+      customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
               as String,
-      packageId: packageId == freezed
+      packageId: null == packageId
           ? _value.packageId
           : packageId // ignore: cast_nullable_to_non_nullable
               as int,
-      serviceId: serviceId == freezed
+      serviceId: null == serviceId
           ? _value.serviceId
           : serviceId // ignore: cast_nullable_to_non_nullable
               as int,
-      packageName: packageName == freezed
+      packageName: null == packageName
           ? _value.packageName
           : packageName // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      remark: remark == freezed
+      remark: null == remark
           ? _value.remark
           : remark // ignore: cast_nullable_to_non_nullable
               as String,
-      coupon: coupon == freezed
+      coupon: null == coupon
           ? _value.coupon
           : coupon // ignore: cast_nullable_to_non_nullable
               as String,
-      cashbackPercentage: cashbackPercentage == freezed
+      cashbackPercentage: null == cashbackPercentage
           ? _value.cashbackPercentage
           : cashbackPercentage // ignore: cast_nullable_to_non_nullable
               as double,
-      discountPercentage: discountPercentage == freezed
+      discountPercentage: null == discountPercentage
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
               as double,
-      rewardPoint: rewardPoint == freezed
+      rewardPoint: null == rewardPoint
           ? _value.rewardPoint
           : rewardPoint // ignore: cast_nullable_to_non_nullable
               as double,
-      rewardPointFromCoupon: rewardPointFromCoupon == freezed
+      rewardPointFromCoupon: null == rewardPointFromCoupon
           ? _value.rewardPointFromCoupon
           : rewardPointFromCoupon // ignore: cast_nullable_to_non_nullable
               as double,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -2214,128 +2496,114 @@ class _$_PurchasePackageState
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PurchasePackageState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_PurchasePackageState &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.customerName, customerName) ||
-                const DeepCollectionEquality()
-                    .equals(other.customerName, customerName)) &&
+                other.customerName == customerName) &&
             (identical(other.customerId, customerId) ||
-                const DeepCollectionEquality()
-                    .equals(other.customerId, customerId)) &&
+                other.customerId == customerId) &&
             (identical(other.packageId, packageId) ||
-                const DeepCollectionEquality()
-                    .equals(other.packageId, packageId)) &&
+                other.packageId == packageId) &&
             (identical(other.serviceId, serviceId) ||
-                const DeepCollectionEquality()
-                    .equals(other.serviceId, serviceId)) &&
+                other.serviceId == serviceId) &&
             (identical(other.packageName, packageName) ||
-                const DeepCollectionEquality()
-                    .equals(other.packageName, packageName)) &&
-            (identical(other.amount, amount) ||
-                const DeepCollectionEquality().equals(other.amount, amount)) &&
-            (identical(other.remark, remark) ||
-                const DeepCollectionEquality().equals(other.remark, remark)) &&
-            (identical(other.coupon, coupon) ||
-                const DeepCollectionEquality().equals(other.coupon, coupon)) &&
+                other.packageName == packageName) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.remark, remark) || other.remark == remark) &&
+            (identical(other.coupon, coupon) || other.coupon == coupon) &&
             (identical(other.cashbackPercentage, cashbackPercentage) ||
-                const DeepCollectionEquality()
-                    .equals(other.cashbackPercentage, cashbackPercentage)) &&
+                other.cashbackPercentage == cashbackPercentage) &&
             (identical(other.discountPercentage, discountPercentage) ||
-                const DeepCollectionEquality()
-                    .equals(other.discountPercentage, discountPercentage)) &&
+                other.discountPercentage == discountPercentage) &&
             (identical(other.rewardPoint, rewardPoint) ||
-                const DeepCollectionEquality()
-                    .equals(other.rewardPoint, rewardPoint)) &&
+                other.rewardPoint == rewardPoint) &&
             (identical(other.rewardPointFromCoupon, rewardPointFromCoupon) ||
-                const DeepCollectionEquality().equals(
-                    other.rewardPointFromCoupon, rewardPointFromCoupon)) &&
+                other.rewardPointFromCoupon == rewardPointFromCoupon) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
+                other.isSubmitting == isSubmitting) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(customerName) ^
-      const DeepCollectionEquality().hash(customerId) ^
-      const DeepCollectionEquality().hash(packageId) ^
-      const DeepCollectionEquality().hash(serviceId) ^
-      const DeepCollectionEquality().hash(packageName) ^
-      const DeepCollectionEquality().hash(amount) ^
-      const DeepCollectionEquality().hash(remark) ^
-      const DeepCollectionEquality().hash(coupon) ^
-      const DeepCollectionEquality().hash(cashbackPercentage) ^
-      const DeepCollectionEquality().hash(discountPercentage) ^
-      const DeepCollectionEquality().hash(rewardPoint) ^
-      const DeepCollectionEquality().hash(rewardPointFromCoupon) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      key,
+      customerName,
+      customerId,
+      packageId,
+      serviceId,
+      packageName,
+      amount,
+      remark,
+      coupon,
+      cashbackPercentage,
+      discountPercentage,
+      rewardPoint,
+      rewardPointFromCoupon,
+      isSubmitting,
+      failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
-  _$PurchasePackageStateCopyWith<_PurchasePackageState> get copyWith =>
-      __$PurchasePackageStateCopyWithImpl<_PurchasePackageState>(
+  @pragma('vm:prefer-inline')
+  _$$_PurchasePackageStateCopyWith<_$_PurchasePackageState> get copyWith =>
+      __$$_PurchasePackageStateCopyWithImpl<_$_PurchasePackageState>(
           this, _$identity);
 }
 
 abstract class _PurchasePackageState implements PurchasePackageState {
   const factory _PurchasePackageState(
-          {required Key key,
-          required String customerName,
-          required String customerId,
-          required int packageId,
-          required int serviceId,
-          required String packageName,
-          required double amount,
-          required String remark,
-          required String coupon,
-          required double cashbackPercentage,
-          required double discountPercentage,
-          required double rewardPoint,
-          required double rewardPointFromCoupon,
-          required bool isSubmitting,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
-      _$_PurchasePackageState;
+      {required final Key key,
+      required final String customerName,
+      required final String customerId,
+      required final int packageId,
+      required final int serviceId,
+      required final String packageName,
+      required final double amount,
+      required final String remark,
+      required final String coupon,
+      required final double cashbackPercentage,
+      required final double discountPercentage,
+      required final double rewardPoint,
+      required final double rewardPointFromCoupon,
+      required final bool isSubmitting,
+      required final Option<Either<ApiFailure, Unit>>
+          failureOrSuccessOption}) = _$_PurchasePackageState;
 
   @override
-  Key get key => throw _privateConstructorUsedError;
+  Key get key;
   @override
-  String get customerName => throw _privateConstructorUsedError;
+  String get customerName;
   @override
-  String get customerId => throw _privateConstructorUsedError;
+  String get customerId;
   @override
-  int get packageId => throw _privateConstructorUsedError;
+  int get packageId;
   @override
-  int get serviceId => throw _privateConstructorUsedError;
+  int get serviceId;
   @override
-  String get packageName => throw _privateConstructorUsedError;
+  String get packageName;
   @override
-  double get amount => throw _privateConstructorUsedError;
+  double get amount;
   @override
-  String get remark => throw _privateConstructorUsedError;
+  String get remark;
   @override
-  String get coupon => throw _privateConstructorUsedError;
+  String get coupon;
   @override
-  double get cashbackPercentage => throw _privateConstructorUsedError;
+  double get cashbackPercentage;
   @override
-  double get discountPercentage => throw _privateConstructorUsedError;
+  double get discountPercentage;
   @override
-  double get rewardPoint => throw _privateConstructorUsedError;
+  double get rewardPoint;
   @override
-  double get rewardPointFromCoupon => throw _privateConstructorUsedError;
+  double get rewardPointFromCoupon;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$PurchasePackageStateCopyWith<_PurchasePackageState> get copyWith =>
+  _$$_PurchasePackageStateCopyWith<_$_PurchasePackageState> get copyWith =>
       throw _privateConstructorUsedError;
 }

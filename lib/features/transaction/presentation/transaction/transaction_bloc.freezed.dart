@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transaction_bloc.dart';
 
@@ -10,27 +12,7 @@ part of 'transaction_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$TransactionEventTearOff {
-  const _$TransactionEventTearOff();
-
-  _FetchTransactionData fetchTransactionData(
-      {String? fromDate, String? toDate}) {
-    return _FetchTransactionData(
-      fromDate: fromDate,
-      toDate: toDate,
-    );
-  }
-
-  _PullToRefresh pullToRefresh() {
-    return const _PullToRefresh();
-  }
-}
-
-/// @nodoc
-const $TransactionEvent = _$TransactionEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$TransactionEvent {
@@ -39,6 +21,12 @@ mixin _$TransactionEvent {
     required TResult Function(String? fromDate, String? toDate)
         fetchTransactionData,
     required TResult Function() pullToRefresh,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? fromDate, String? toDate)? fetchTransactionData,
+    TResult? Function()? pullToRefresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +43,12 @@ mixin _$TransactionEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchTransactionData value)? fetchTransactionData,
+    TResult? Function(_PullToRefresh value)? pullToRefresh,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchTransactionData value)? fetchTransactionData,
     TResult Function(_PullToRefresh value)? pullToRefresh,
@@ -67,49 +61,49 @@ mixin _$TransactionEvent {
 abstract class $TransactionEventCopyWith<$Res> {
   factory $TransactionEventCopyWith(
           TransactionEvent value, $Res Function(TransactionEvent) then) =
-      _$TransactionEventCopyWithImpl<$Res>;
+      _$TransactionEventCopyWithImpl<$Res, TransactionEvent>;
 }
 
 /// @nodoc
-class _$TransactionEventCopyWithImpl<$Res>
+class _$TransactionEventCopyWithImpl<$Res, $Val extends TransactionEvent>
     implements $TransactionEventCopyWith<$Res> {
   _$TransactionEventCopyWithImpl(this._value, this._then);
 
-  final TransactionEvent _value;
   // ignore: unused_field
-  final $Res Function(TransactionEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$FetchTransactionDataCopyWith<$Res> {
-  factory _$FetchTransactionDataCopyWith(_FetchTransactionData value,
-          $Res Function(_FetchTransactionData) then) =
-      __$FetchTransactionDataCopyWithImpl<$Res>;
+abstract class _$$_FetchTransactionDataCopyWith<$Res> {
+  factory _$$_FetchTransactionDataCopyWith(_$_FetchTransactionData value,
+          $Res Function(_$_FetchTransactionData) then) =
+      __$$_FetchTransactionDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? fromDate, String? toDate});
 }
 
 /// @nodoc
-class __$FetchTransactionDataCopyWithImpl<$Res>
-    extends _$TransactionEventCopyWithImpl<$Res>
-    implements _$FetchTransactionDataCopyWith<$Res> {
-  __$FetchTransactionDataCopyWithImpl(
-      _FetchTransactionData _value, $Res Function(_FetchTransactionData) _then)
-      : super(_value, (v) => _then(v as _FetchTransactionData));
+class __$$_FetchTransactionDataCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res, _$_FetchTransactionData>
+    implements _$$_FetchTransactionDataCopyWith<$Res> {
+  __$$_FetchTransactionDataCopyWithImpl(_$_FetchTransactionData _value,
+      $Res Function(_$_FetchTransactionData) _then)
+      : super(_value, _then);
 
-  @override
-  _FetchTransactionData get _value => super._value as _FetchTransactionData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? fromDate = freezed,
     Object? toDate = freezed,
   }) {
-    return _then(_FetchTransactionData(
-      fromDate: fromDate == freezed
+    return _then(_$_FetchTransactionData(
+      fromDate: freezed == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      toDate: toDate == freezed
+      toDate: freezed == toDate
           ? _value.toDate
           : toDate // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -135,24 +129,21 @@ class _$_FetchTransactionData implements _FetchTransactionData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FetchTransactionData &&
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchTransactionData &&
             (identical(other.fromDate, fromDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.fromDate, fromDate)) &&
-            (identical(other.toDate, toDate) ||
-                const DeepCollectionEquality().equals(other.toDate, toDate)));
+                other.fromDate == fromDate) &&
+            (identical(other.toDate, toDate) || other.toDate == toDate));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(fromDate) ^
-      const DeepCollectionEquality().hash(toDate);
+  int get hashCode => Object.hash(runtimeType, fromDate, toDate);
 
   @JsonKey(ignore: true)
   @override
-  _$FetchTransactionDataCopyWith<_FetchTransactionData> get copyWith =>
-      __$FetchTransactionDataCopyWithImpl<_FetchTransactionData>(
+  @pragma('vm:prefer-inline')
+  _$$_FetchTransactionDataCopyWith<_$_FetchTransactionData> get copyWith =>
+      __$$_FetchTransactionDataCopyWithImpl<_$_FetchTransactionData>(
           this, _$identity);
 
   @override
@@ -163,6 +154,15 @@ class _$_FetchTransactionData implements _FetchTransactionData {
     required TResult Function() pullToRefresh,
   }) {
     return fetchTransactionData(fromDate, toDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? fromDate, String? toDate)? fetchTransactionData,
+    TResult? Function()? pullToRefresh,
+  }) {
+    return fetchTransactionData?.call(fromDate, toDate);
   }
 
   @override
@@ -189,6 +189,15 @@ class _$_FetchTransactionData implements _FetchTransactionData {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchTransactionData value)? fetchTransactionData,
+    TResult? Function(_PullToRefresh value)? pullToRefresh,
+  }) {
+    return fetchTransactionData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchTransactionData value)? fetchTransactionData,
     TResult Function(_PullToRefresh value)? pullToRefresh,
@@ -202,33 +211,30 @@ class _$_FetchTransactionData implements _FetchTransactionData {
 }
 
 abstract class _FetchTransactionData implements TransactionEvent {
-  const factory _FetchTransactionData({String? fromDate, String? toDate}) =
-      _$_FetchTransactionData;
+  const factory _FetchTransactionData(
+      {final String? fromDate, final String? toDate}) = _$_FetchTransactionData;
 
-  String? get fromDate => throw _privateConstructorUsedError;
-  String? get toDate => throw _privateConstructorUsedError;
+  String? get fromDate;
+  String? get toDate;
   @JsonKey(ignore: true)
-  _$FetchTransactionDataCopyWith<_FetchTransactionData> get copyWith =>
+  _$$_FetchTransactionDataCopyWith<_$_FetchTransactionData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PullToRefreshCopyWith<$Res> {
-  factory _$PullToRefreshCopyWith(
-          _PullToRefresh value, $Res Function(_PullToRefresh) then) =
-      __$PullToRefreshCopyWithImpl<$Res>;
+abstract class _$$_PullToRefreshCopyWith<$Res> {
+  factory _$$_PullToRefreshCopyWith(
+          _$_PullToRefresh value, $Res Function(_$_PullToRefresh) then) =
+      __$$_PullToRefreshCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$PullToRefreshCopyWithImpl<$Res>
-    extends _$TransactionEventCopyWithImpl<$Res>
-    implements _$PullToRefreshCopyWith<$Res> {
-  __$PullToRefreshCopyWithImpl(
-      _PullToRefresh _value, $Res Function(_PullToRefresh) _then)
-      : super(_value, (v) => _then(v as _PullToRefresh));
-
-  @override
-  _PullToRefresh get _value => super._value as _PullToRefresh;
+class __$$_PullToRefreshCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res, _$_PullToRefresh>
+    implements _$$_PullToRefreshCopyWith<$Res> {
+  __$$_PullToRefreshCopyWithImpl(
+      _$_PullToRefresh _value, $Res Function(_$_PullToRefresh) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -243,7 +249,8 @@ class _$_PullToRefresh implements _PullToRefresh {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PullToRefresh);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PullToRefresh);
   }
 
   @override
@@ -257,6 +264,15 @@ class _$_PullToRefresh implements _PullToRefresh {
     required TResult Function() pullToRefresh,
   }) {
     return pullToRefresh();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? fromDate, String? toDate)? fetchTransactionData,
+    TResult? Function()? pullToRefresh,
+  }) {
+    return pullToRefresh?.call();
   }
 
   @override
@@ -283,6 +299,15 @@ class _$_PullToRefresh implements _PullToRefresh {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchTransactionData value)? fetchTransactionData,
+    TResult? Function(_PullToRefresh value)? pullToRefresh,
+  }) {
+    return pullToRefresh?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchTransactionData value)? fetchTransactionData,
     TResult Function(_PullToRefresh value)? pullToRefresh,
@@ -300,38 +325,6 @@ abstract class _PullToRefresh implements TransactionEvent {
 }
 
 /// @nodoc
-class _$TransactionStateTearOff {
-  const _$TransactionStateTearOff();
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Loaded loaded(List<TransactionItem> list) {
-    return _Loaded(
-      list,
-    );
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
-    );
-  }
-
-  _FailureWithData failureWithData(
-      ApiFailure failure, List<TransactionItem> list) {
-    return _FailureWithData(
-      failure,
-      list,
-    );
-  }
-}
-
-/// @nodoc
-const $TransactionState = _$TransactionStateTearOff();
-
-/// @nodoc
 mixin _$TransactionState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -339,6 +332,15 @@ mixin _$TransactionState {
     required TResult Function(List<TransactionItem> list) loaded,
     required TResult Function(ApiFailure failure) failure,
     required TResult Function(ApiFailure failure, List<TransactionItem> list)
+        failureWithData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<TransactionItem> list)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function(ApiFailure failure, List<TransactionItem> list)?
         failureWithData,
   }) =>
       throw _privateConstructorUsedError;
@@ -361,6 +363,14 @@ mixin _$TransactionState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FailureWithData value)? failureWithData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
@@ -375,33 +385,33 @@ mixin _$TransactionState {
 abstract class $TransactionStateCopyWith<$Res> {
   factory $TransactionStateCopyWith(
           TransactionState value, $Res Function(TransactionState) then) =
-      _$TransactionStateCopyWithImpl<$Res>;
+      _$TransactionStateCopyWithImpl<$Res, TransactionState>;
 }
 
 /// @nodoc
-class _$TransactionStateCopyWithImpl<$Res>
+class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
     implements $TransactionStateCopyWith<$Res> {
   _$TransactionStateCopyWithImpl(this._value, this._then);
 
-  final TransactionState _value;
   // ignore: unused_field
-  final $Res Function(TransactionState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$TransactionStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -416,7 +426,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -432,6 +443,18 @@ class _$_Loading implements _Loading {
         failureWithData,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<TransactionItem> list)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function(ApiFailure failure, List<TransactionItem> list)?
+        failureWithData,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -463,6 +486,17 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FailureWithData value)? failureWithData,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
@@ -482,28 +516,28 @@ abstract class _Loading implements TransactionState {
 }
 
 /// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
+abstract class _$$_LoadedCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<TransactionItem> list});
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
+class __$$_LoadedCopyWithImpl<$Res>
+    extends _$TransactionStateCopyWithImpl<$Res, _$_Loaded>
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, _then);
 
-  @override
-  _Loaded get _value => super._value as _Loaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? list = freezed,
+    Object? list = null,
   }) {
-    return _then(_Loaded(
-      list == freezed
-          ? _value.list
+    return _then(_$_Loaded(
+      null == list
+          ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
               as List<TransactionItem>,
     ));
@@ -513,10 +547,15 @@ class __$LoadedCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  _$_Loaded(this.list);
+  _$_Loaded(final List<TransactionItem> list) : _list = list;
 
+  final List<TransactionItem> _list;
   @override
-  final List<TransactionItem> list;
+  List<TransactionItem> get list {
+    if (_list is EqualUnmodifiableListView) return _list;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_list);
+  }
 
   @override
   String toString() {
@@ -526,19 +565,20 @@ class _$_Loaded implements _Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Loaded &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Loaded &&
+            const DeepCollectionEquality().equals(other._list, _list));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_list));
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -550,6 +590,18 @@ class _$_Loaded implements _Loaded {
         failureWithData,
   }) {
     return loaded(list);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<TransactionItem> list)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function(ApiFailure failure, List<TransactionItem> list)?
+        failureWithData,
+  }) {
+    return loaded?.call(list);
   }
 
   @override
@@ -581,6 +633,17 @@ class _$_Loaded implements _Loaded {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FailureWithData value)? failureWithData,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
@@ -596,37 +659,39 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements TransactionState {
-  factory _Loaded(List<TransactionItem> list) = _$_Loaded;
+  factory _Loaded(final List<TransactionItem> list) = _$_Loaded;
 
-  List<TransactionItem> get list => throw _privateConstructorUsedError;
+  List<TransactionItem> get list;
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
+abstract class _$$_FailureCopyWith<$Res> {
+  factory _$$_FailureCopyWith(
+          _$_Failure value, $Res Function(_$_Failure) then) =
+      __$$_FailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$TransactionStateCopyWithImpl<$Res, _$_Failure>
+    implements _$$_FailureCopyWith<$Res> {
+  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+      : super(_value, _then);
 
-  @override
-  _Failure get _value => super._value as _Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_Failure(
-      failure == freezed
+    return _then(_$_Failure(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -634,6 +699,7 @@ class __$FailureCopyWithImpl<$Res> extends _$TransactionStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -657,19 +723,19 @@ class _$_Failure implements _Failure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Failure &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -681,6 +747,18 @@ class _$_Failure implements _Failure {
         failureWithData,
   }) {
     return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<TransactionItem> list)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function(ApiFailure failure, List<TransactionItem> list)?
+        failureWithData,
+  }) {
+    return failure?.call(this.failure);
   }
 
   @override
@@ -712,6 +790,17 @@ class _$_Failure implements _Failure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FailureWithData value)? failureWithData,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
@@ -727,53 +816,53 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements TransactionState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const factory _Failure(final ApiFailure failure) = _$_Failure;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$FailureWithDataCopyWith<$Res> {
-  factory _$FailureWithDataCopyWith(
-          _FailureWithData value, $Res Function(_FailureWithData) then) =
-      __$FailureWithDataCopyWithImpl<$Res>;
+abstract class _$$_FailureWithDataCopyWith<$Res> {
+  factory _$$_FailureWithDataCopyWith(
+          _$_FailureWithData value, $Res Function(_$_FailureWithData) then) =
+      __$$_FailureWithDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure, List<TransactionItem> list});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureWithDataCopyWithImpl<$Res>
-    extends _$TransactionStateCopyWithImpl<$Res>
-    implements _$FailureWithDataCopyWith<$Res> {
-  __$FailureWithDataCopyWithImpl(
-      _FailureWithData _value, $Res Function(_FailureWithData) _then)
-      : super(_value, (v) => _then(v as _FailureWithData));
+class __$$_FailureWithDataCopyWithImpl<$Res>
+    extends _$TransactionStateCopyWithImpl<$Res, _$_FailureWithData>
+    implements _$$_FailureWithDataCopyWith<$Res> {
+  __$$_FailureWithDataCopyWithImpl(
+      _$_FailureWithData _value, $Res Function(_$_FailureWithData) _then)
+      : super(_value, _then);
 
-  @override
-  _FailureWithData get _value => super._value as _FailureWithData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
-    Object? list = freezed,
+    Object? failure = null,
+    Object? list = null,
   }) {
-    return _then(_FailureWithData(
-      failure == freezed
+    return _then(_$_FailureWithData(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
-      list == freezed
-          ? _value.list
+      null == list
+          ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
               as List<TransactionItem>,
     ));
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -784,12 +873,18 @@ class __$FailureWithDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FailureWithData implements _FailureWithData {
-  const _$_FailureWithData(this.failure, this.list);
+  const _$_FailureWithData(this.failure, final List<TransactionItem> list)
+      : _list = list;
 
   @override
   final ApiFailure failure;
+  final List<TransactionItem> _list;
   @override
-  final List<TransactionItem> list;
+  List<TransactionItem> get list {
+    if (_list is EqualUnmodifiableListView) return _list;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_list);
+  }
 
   @override
   String toString() {
@@ -799,24 +894,21 @@ class _$_FailureWithData implements _FailureWithData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FailureWithData &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality()
-                    .equals(other.failure, failure)) &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+        (other.runtimeType == runtimeType &&
+            other is _$_FailureWithData &&
+            (identical(other.failure, failure) || other.failure == failure) &&
+            const DeepCollectionEquality().equals(other._list, _list));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failure) ^
-      const DeepCollectionEquality().hash(list);
+  int get hashCode => Object.hash(
+      runtimeType, failure, const DeepCollectionEquality().hash(_list));
 
   @JsonKey(ignore: true)
   @override
-  _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
-      __$FailureWithDataCopyWithImpl<_FailureWithData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureWithDataCopyWith<_$_FailureWithData> get copyWith =>
+      __$$_FailureWithDataCopyWithImpl<_$_FailureWithData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -828,6 +920,18 @@ class _$_FailureWithData implements _FailureWithData {
         failureWithData,
   }) {
     return failureWithData(this.failure, list);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<TransactionItem> list)? loaded,
+    TResult? Function(ApiFailure failure)? failure,
+    TResult? Function(ApiFailure failure, List<TransactionItem> list)?
+        failureWithData,
+  }) {
+    return failureWithData?.call(this.failure, list);
   }
 
   @override
@@ -859,6 +963,17 @@ class _$_FailureWithData implements _FailureWithData {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_FailureWithData value)? failureWithData,
+  }) {
+    return failureWithData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
@@ -875,11 +990,12 @@ class _$_FailureWithData implements _FailureWithData {
 
 abstract class _FailureWithData implements TransactionState {
   const factory _FailureWithData(
-      ApiFailure failure, List<TransactionItem> list) = _$_FailureWithData;
+          final ApiFailure failure, final List<TransactionItem> list) =
+      _$_FailureWithData;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
-  List<TransactionItem> get list => throw _privateConstructorUsedError;
+  ApiFailure get failure;
+  List<TransactionItem> get list;
   @JsonKey(ignore: true)
-  _$FailureWithDataCopyWith<_FailureWithData> get copyWith =>
+  _$$_FailureWithDataCopyWith<_$_FailureWithData> get copyWith =>
       throw _privateConstructorUsedError;
 }

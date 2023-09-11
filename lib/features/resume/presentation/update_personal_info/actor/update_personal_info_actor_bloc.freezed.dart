@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_personal_info_actor_bloc.dart';
 
@@ -10,92 +12,7 @@ part of 'update_personal_info_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UpdatePersonalInfoActorEventTearOff {
-  const _$UpdatePersonalInfoActorEventTearOff();
-
-  _ChangeFirstName changeFirstName(String name) {
-    return _ChangeFirstName(
-      name,
-    );
-  }
-
-  _ChangeLastName changeLastName(String name) {
-    return _ChangeLastName(
-      name,
-    );
-  }
-
-  _ChangeFuriganaName changeFuriganaName(String name) {
-    return _ChangeFuriganaName(
-      name,
-    );
-  }
-
-  _ChangeProfession changeProfession(String profession) {
-    return _ChangeProfession(
-      profession,
-    );
-  }
-
-  _ChangeDob changeDob(String dob) {
-    return _ChangeDob(
-      dob,
-    );
-  }
-
-  _ChangeAge changeAge(String age) {
-    return _ChangeAge(
-      age,
-    );
-  }
-
-  _ChangeGender changeGender(String gender) {
-    return _ChangeGender(
-      gender,
-    );
-  }
-
-  _ChangeNationality changeNationality(String nationality) {
-    return _ChangeNationality(
-      nationality,
-    );
-  }
-
-  _ChangeEmail changeEmail(String email) {
-    return _ChangeEmail(
-      email,
-    );
-  }
-
-  _ChangePhone changePhone(String phone) {
-    return _ChangePhone(
-      phone,
-    );
-  }
-
-  _SetInitialState setInitialState(
-      {required PersonalInfo info,
-      required List<String> listOfNationality,
-      required List<String> listOfProfession,
-      required String lang}) {
-    return _SetInitialState(
-      info: info,
-      listOfNationality: listOfNationality,
-      listOfProfession: listOfProfession,
-      lang: lang,
-    );
-  }
-
-  _Save save() {
-    return const _Save();
-  }
-}
-
-/// @nodoc
-const $UpdatePersonalInfoActorEvent = _$UpdatePersonalInfoActorEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdatePersonalInfoActorEvent {
@@ -115,6 +32,24 @@ mixin _$UpdatePersonalInfoActorEvent {
             List<String> listOfProfession, String lang)
         setInitialState,
     required TResult Function() save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -153,6 +88,22 @@ mixin _$UpdatePersonalInfoActorEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -176,44 +127,46 @@ abstract class $UpdatePersonalInfoActorEventCopyWith<$Res> {
   factory $UpdatePersonalInfoActorEventCopyWith(
           UpdatePersonalInfoActorEvent value,
           $Res Function(UpdatePersonalInfoActorEvent) then) =
-      _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>;
+      _$UpdatePersonalInfoActorEventCopyWithImpl<$Res,
+          UpdatePersonalInfoActorEvent>;
 }
 
 /// @nodoc
-class _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
+class _$UpdatePersonalInfoActorEventCopyWithImpl<$Res,
+        $Val extends UpdatePersonalInfoActorEvent>
     implements $UpdatePersonalInfoActorEventCopyWith<$Res> {
   _$UpdatePersonalInfoActorEventCopyWithImpl(this._value, this._then);
 
-  final UpdatePersonalInfoActorEvent _value;
   // ignore: unused_field
-  final $Res Function(UpdatePersonalInfoActorEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangeFirstNameCopyWith<$Res> {
-  factory _$ChangeFirstNameCopyWith(
-          _ChangeFirstName value, $Res Function(_ChangeFirstName) then) =
-      __$ChangeFirstNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeFirstNameCopyWith<$Res> {
+  factory _$$_ChangeFirstNameCopyWith(
+          _$_ChangeFirstName value, $Res Function(_$_ChangeFirstName) then) =
+      __$$_ChangeFirstNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeFirstNameCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeFirstNameCopyWith<$Res> {
-  __$ChangeFirstNameCopyWithImpl(
-      _ChangeFirstName _value, $Res Function(_ChangeFirstName) _then)
-      : super(_value, (v) => _then(v as _ChangeFirstName));
+class __$$_ChangeFirstNameCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res, _$_ChangeFirstName>
+    implements _$$_ChangeFirstNameCopyWith<$Res> {
+  __$$_ChangeFirstNameCopyWithImpl(
+      _$_ChangeFirstName _value, $Res Function(_$_ChangeFirstName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeFirstName get _value => super._value as _ChangeFirstName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeFirstName(
-      name == freezed
+    return _then(_$_ChangeFirstName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -237,19 +190,19 @@ class _$_ChangeFirstName implements _ChangeFirstName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeFirstName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeFirstName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeFirstNameCopyWith<_ChangeFirstName> get copyWith =>
-      __$ChangeFirstNameCopyWithImpl<_ChangeFirstName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeFirstNameCopyWith<_$_ChangeFirstName> get copyWith =>
+      __$$_ChangeFirstNameCopyWithImpl<_$_ChangeFirstName>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -270,6 +223,27 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     required TResult Function() save,
   }) {
     return changeFirstName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeFirstName?.call(name);
   }
 
   @override
@@ -318,6 +292,25 @@ class _$_ChangeFirstName implements _ChangeFirstName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeFirstName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -341,39 +334,38 @@ class _$_ChangeFirstName implements _ChangeFirstName {
 }
 
 abstract class _ChangeFirstName implements UpdatePersonalInfoActorEvent {
-  const factory _ChangeFirstName(String name) = _$_ChangeFirstName;
+  const factory _ChangeFirstName(final String name) = _$_ChangeFirstName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeFirstNameCopyWith<_ChangeFirstName> get copyWith =>
+  _$$_ChangeFirstNameCopyWith<_$_ChangeFirstName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeLastNameCopyWith<$Res> {
-  factory _$ChangeLastNameCopyWith(
-          _ChangeLastName value, $Res Function(_ChangeLastName) then) =
-      __$ChangeLastNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeLastNameCopyWith<$Res> {
+  factory _$$_ChangeLastNameCopyWith(
+          _$_ChangeLastName value, $Res Function(_$_ChangeLastName) then) =
+      __$$_ChangeLastNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeLastNameCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeLastNameCopyWith<$Res> {
-  __$ChangeLastNameCopyWithImpl(
-      _ChangeLastName _value, $Res Function(_ChangeLastName) _then)
-      : super(_value, (v) => _then(v as _ChangeLastName));
+class __$$_ChangeLastNameCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res, _$_ChangeLastName>
+    implements _$$_ChangeLastNameCopyWith<$Res> {
+  __$$_ChangeLastNameCopyWithImpl(
+      _$_ChangeLastName _value, $Res Function(_$_ChangeLastName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeLastName get _value => super._value as _ChangeLastName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeLastName(
-      name == freezed
+    return _then(_$_ChangeLastName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -397,19 +389,19 @@ class _$_ChangeLastName implements _ChangeLastName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeLastName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeLastName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeLastNameCopyWith<_ChangeLastName> get copyWith =>
-      __$ChangeLastNameCopyWithImpl<_ChangeLastName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeLastNameCopyWith<_$_ChangeLastName> get copyWith =>
+      __$$_ChangeLastNameCopyWithImpl<_$_ChangeLastName>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -430,6 +422,27 @@ class _$_ChangeLastName implements _ChangeLastName {
     required TResult Function() save,
   }) {
     return changeLastName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeLastName?.call(name);
   }
 
   @override
@@ -478,6 +491,25 @@ class _$_ChangeLastName implements _ChangeLastName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeLastName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -501,39 +533,38 @@ class _$_ChangeLastName implements _ChangeLastName {
 }
 
 abstract class _ChangeLastName implements UpdatePersonalInfoActorEvent {
-  const factory _ChangeLastName(String name) = _$_ChangeLastName;
+  const factory _ChangeLastName(final String name) = _$_ChangeLastName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeLastNameCopyWith<_ChangeLastName> get copyWith =>
+  _$$_ChangeLastNameCopyWith<_$_ChangeLastName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeFuriganaNameCopyWith<$Res> {
-  factory _$ChangeFuriganaNameCopyWith(
-          _ChangeFuriganaName value, $Res Function(_ChangeFuriganaName) then) =
-      __$ChangeFuriganaNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeFuriganaNameCopyWith<$Res> {
+  factory _$$_ChangeFuriganaNameCopyWith(_$_ChangeFuriganaName value,
+          $Res Function(_$_ChangeFuriganaName) then) =
+      __$$_ChangeFuriganaNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeFuriganaNameCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeFuriganaNameCopyWith<$Res> {
-  __$ChangeFuriganaNameCopyWithImpl(
-      _ChangeFuriganaName _value, $Res Function(_ChangeFuriganaName) _then)
-      : super(_value, (v) => _then(v as _ChangeFuriganaName));
+class __$$_ChangeFuriganaNameCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res,
+        _$_ChangeFuriganaName> implements _$$_ChangeFuriganaNameCopyWith<$Res> {
+  __$$_ChangeFuriganaNameCopyWithImpl(
+      _$_ChangeFuriganaName _value, $Res Function(_$_ChangeFuriganaName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeFuriganaName get _value => super._value as _ChangeFuriganaName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeFuriganaName(
-      name == freezed
+    return _then(_$_ChangeFuriganaName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -557,19 +588,20 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeFuriganaName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeFuriganaName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeFuriganaNameCopyWith<_ChangeFuriganaName> get copyWith =>
-      __$ChangeFuriganaNameCopyWithImpl<_ChangeFuriganaName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeFuriganaNameCopyWith<_$_ChangeFuriganaName> get copyWith =>
+      __$$_ChangeFuriganaNameCopyWithImpl<_$_ChangeFuriganaName>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -590,6 +622,27 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     required TResult Function() save,
   }) {
     return changeFuriganaName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeFuriganaName?.call(name);
   }
 
   @override
@@ -638,6 +691,25 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeFuriganaName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -661,39 +733,38 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
 }
 
 abstract class _ChangeFuriganaName implements UpdatePersonalInfoActorEvent {
-  const factory _ChangeFuriganaName(String name) = _$_ChangeFuriganaName;
+  const factory _ChangeFuriganaName(final String name) = _$_ChangeFuriganaName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeFuriganaNameCopyWith<_ChangeFuriganaName> get copyWith =>
+  _$$_ChangeFuriganaNameCopyWith<_$_ChangeFuriganaName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeProfessionCopyWith<$Res> {
-  factory _$ChangeProfessionCopyWith(
-          _ChangeProfession value, $Res Function(_ChangeProfession) then) =
-      __$ChangeProfessionCopyWithImpl<$Res>;
+abstract class _$$_ChangeProfessionCopyWith<$Res> {
+  factory _$$_ChangeProfessionCopyWith(
+          _$_ChangeProfession value, $Res Function(_$_ChangeProfession) then) =
+      __$$_ChangeProfessionCopyWithImpl<$Res>;
+  @useResult
   $Res call({String profession});
 }
 
 /// @nodoc
-class __$ChangeProfessionCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeProfessionCopyWith<$Res> {
-  __$ChangeProfessionCopyWithImpl(
-      _ChangeProfession _value, $Res Function(_ChangeProfession) _then)
-      : super(_value, (v) => _then(v as _ChangeProfession));
+class __$$_ChangeProfessionCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res,
+        _$_ChangeProfession> implements _$$_ChangeProfessionCopyWith<$Res> {
+  __$$_ChangeProfessionCopyWithImpl(
+      _$_ChangeProfession _value, $Res Function(_$_ChangeProfession) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeProfession get _value => super._value as _ChangeProfession;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profession = freezed,
+    Object? profession = null,
   }) {
-    return _then(_ChangeProfession(
-      profession == freezed
+    return _then(_$_ChangeProfession(
+      null == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as String,
@@ -717,20 +788,20 @@ class _$_ChangeProfession implements _ChangeProfession {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeProfession &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeProfession &&
             (identical(other.profession, profession) ||
-                const DeepCollectionEquality()
-                    .equals(other.profession, profession)));
+                other.profession == profession));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(profession);
+  int get hashCode => Object.hash(runtimeType, profession);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeProfessionCopyWith<_ChangeProfession> get copyWith =>
-      __$ChangeProfessionCopyWithImpl<_ChangeProfession>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeProfessionCopyWith<_$_ChangeProfession> get copyWith =>
+      __$$_ChangeProfessionCopyWithImpl<_$_ChangeProfession>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -751,6 +822,27 @@ class _$_ChangeProfession implements _ChangeProfession {
     required TResult Function() save,
   }) {
     return changeProfession(profession);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeProfession?.call(profession);
   }
 
   @override
@@ -799,6 +891,25 @@ class _$_ChangeProfession implements _ChangeProfession {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeProfession?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -822,38 +933,39 @@ class _$_ChangeProfession implements _ChangeProfession {
 }
 
 abstract class _ChangeProfession implements UpdatePersonalInfoActorEvent {
-  const factory _ChangeProfession(String profession) = _$_ChangeProfession;
+  const factory _ChangeProfession(final String profession) =
+      _$_ChangeProfession;
 
-  String get profession => throw _privateConstructorUsedError;
+  String get profession;
   @JsonKey(ignore: true)
-  _$ChangeProfessionCopyWith<_ChangeProfession> get copyWith =>
+  _$$_ChangeProfessionCopyWith<_$_ChangeProfession> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeDobCopyWith<$Res> {
-  factory _$ChangeDobCopyWith(
-          _ChangeDob value, $Res Function(_ChangeDob) then) =
-      __$ChangeDobCopyWithImpl<$Res>;
+abstract class _$$_ChangeDobCopyWith<$Res> {
+  factory _$$_ChangeDobCopyWith(
+          _$_ChangeDob value, $Res Function(_$_ChangeDob) then) =
+      __$$_ChangeDobCopyWithImpl<$Res>;
+  @useResult
   $Res call({String dob});
 }
 
 /// @nodoc
-class __$ChangeDobCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeDobCopyWith<$Res> {
-  __$ChangeDobCopyWithImpl(_ChangeDob _value, $Res Function(_ChangeDob) _then)
-      : super(_value, (v) => _then(v as _ChangeDob));
+class __$$_ChangeDobCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res, _$_ChangeDob>
+    implements _$$_ChangeDobCopyWith<$Res> {
+  __$$_ChangeDobCopyWithImpl(
+      _$_ChangeDob _value, $Res Function(_$_ChangeDob) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeDob get _value => super._value as _ChangeDob;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dob = freezed,
+    Object? dob = null,
   }) {
-    return _then(_ChangeDob(
-      dob == freezed
+    return _then(_$_ChangeDob(
+      null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as String,
@@ -877,19 +989,19 @@ class _$_ChangeDob implements _ChangeDob {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeDob &&
-            (identical(other.dob, dob) ||
-                const DeepCollectionEquality().equals(other.dob, dob)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeDob &&
+            (identical(other.dob, dob) || other.dob == dob));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(dob);
+  int get hashCode => Object.hash(runtimeType, dob);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeDobCopyWith<_ChangeDob> get copyWith =>
-      __$ChangeDobCopyWithImpl<_ChangeDob>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeDobCopyWith<_$_ChangeDob> get copyWith =>
+      __$$_ChangeDobCopyWithImpl<_$_ChangeDob>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -910,6 +1022,27 @@ class _$_ChangeDob implements _ChangeDob {
     required TResult Function() save,
   }) {
     return changeDob(dob);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeDob?.call(dob);
   }
 
   @override
@@ -958,6 +1091,25 @@ class _$_ChangeDob implements _ChangeDob {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeDob?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -981,38 +1133,38 @@ class _$_ChangeDob implements _ChangeDob {
 }
 
 abstract class _ChangeDob implements UpdatePersonalInfoActorEvent {
-  const factory _ChangeDob(String dob) = _$_ChangeDob;
+  const factory _ChangeDob(final String dob) = _$_ChangeDob;
 
-  String get dob => throw _privateConstructorUsedError;
+  String get dob;
   @JsonKey(ignore: true)
-  _$ChangeDobCopyWith<_ChangeDob> get copyWith =>
+  _$$_ChangeDobCopyWith<_$_ChangeDob> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeAgeCopyWith<$Res> {
-  factory _$ChangeAgeCopyWith(
-          _ChangeAge value, $Res Function(_ChangeAge) then) =
-      __$ChangeAgeCopyWithImpl<$Res>;
+abstract class _$$_ChangeAgeCopyWith<$Res> {
+  factory _$$_ChangeAgeCopyWith(
+          _$_ChangeAge value, $Res Function(_$_ChangeAge) then) =
+      __$$_ChangeAgeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String age});
 }
 
 /// @nodoc
-class __$ChangeAgeCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeAgeCopyWith<$Res> {
-  __$ChangeAgeCopyWithImpl(_ChangeAge _value, $Res Function(_ChangeAge) _then)
-      : super(_value, (v) => _then(v as _ChangeAge));
+class __$$_ChangeAgeCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res, _$_ChangeAge>
+    implements _$$_ChangeAgeCopyWith<$Res> {
+  __$$_ChangeAgeCopyWithImpl(
+      _$_ChangeAge _value, $Res Function(_$_ChangeAge) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeAge get _value => super._value as _ChangeAge;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? age = freezed,
+    Object? age = null,
   }) {
-    return _then(_ChangeAge(
-      age == freezed
+    return _then(_$_ChangeAge(
+      null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1036,19 +1188,19 @@ class _$_ChangeAge implements _ChangeAge {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeAge &&
-            (identical(other.age, age) ||
-                const DeepCollectionEquality().equals(other.age, age)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeAge &&
+            (identical(other.age, age) || other.age == age));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(age);
+  int get hashCode => Object.hash(runtimeType, age);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeAgeCopyWith<_ChangeAge> get copyWith =>
-      __$ChangeAgeCopyWithImpl<_ChangeAge>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeAgeCopyWith<_$_ChangeAge> get copyWith =>
+      __$$_ChangeAgeCopyWithImpl<_$_ChangeAge>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1069,6 +1221,27 @@ class _$_ChangeAge implements _ChangeAge {
     required TResult Function() save,
   }) {
     return changeAge(age);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeAge?.call(age);
   }
 
   @override
@@ -1117,6 +1290,25 @@ class _$_ChangeAge implements _ChangeAge {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeAge?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -1140,39 +1332,38 @@ class _$_ChangeAge implements _ChangeAge {
 }
 
 abstract class _ChangeAge implements UpdatePersonalInfoActorEvent {
-  const factory _ChangeAge(String age) = _$_ChangeAge;
+  const factory _ChangeAge(final String age) = _$_ChangeAge;
 
-  String get age => throw _privateConstructorUsedError;
+  String get age;
   @JsonKey(ignore: true)
-  _$ChangeAgeCopyWith<_ChangeAge> get copyWith =>
+  _$$_ChangeAgeCopyWith<_$_ChangeAge> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeGenderCopyWith<$Res> {
-  factory _$ChangeGenderCopyWith(
-          _ChangeGender value, $Res Function(_ChangeGender) then) =
-      __$ChangeGenderCopyWithImpl<$Res>;
+abstract class _$$_ChangeGenderCopyWith<$Res> {
+  factory _$$_ChangeGenderCopyWith(
+          _$_ChangeGender value, $Res Function(_$_ChangeGender) then) =
+      __$$_ChangeGenderCopyWithImpl<$Res>;
+  @useResult
   $Res call({String gender});
 }
 
 /// @nodoc
-class __$ChangeGenderCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeGenderCopyWith<$Res> {
-  __$ChangeGenderCopyWithImpl(
-      _ChangeGender _value, $Res Function(_ChangeGender) _then)
-      : super(_value, (v) => _then(v as _ChangeGender));
+class __$$_ChangeGenderCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res, _$_ChangeGender>
+    implements _$$_ChangeGenderCopyWith<$Res> {
+  __$$_ChangeGenderCopyWithImpl(
+      _$_ChangeGender _value, $Res Function(_$_ChangeGender) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeGender get _value => super._value as _ChangeGender;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? gender = freezed,
+    Object? gender = null,
   }) {
-    return _then(_ChangeGender(
-      gender == freezed
+    return _then(_$_ChangeGender(
+      null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1196,19 +1387,19 @@ class _$_ChangeGender implements _ChangeGender {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeGender &&
-            (identical(other.gender, gender) ||
-                const DeepCollectionEquality().equals(other.gender, gender)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeGender &&
+            (identical(other.gender, gender) || other.gender == gender));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(gender);
+  int get hashCode => Object.hash(runtimeType, gender);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeGenderCopyWith<_ChangeGender> get copyWith =>
-      __$ChangeGenderCopyWithImpl<_ChangeGender>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeGenderCopyWith<_$_ChangeGender> get copyWith =>
+      __$$_ChangeGenderCopyWithImpl<_$_ChangeGender>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1229,6 +1420,27 @@ class _$_ChangeGender implements _ChangeGender {
     required TResult Function() save,
   }) {
     return changeGender(gender);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeGender?.call(gender);
   }
 
   @override
@@ -1277,6 +1489,25 @@ class _$_ChangeGender implements _ChangeGender {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeGender?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -1300,39 +1531,38 @@ class _$_ChangeGender implements _ChangeGender {
 }
 
 abstract class _ChangeGender implements UpdatePersonalInfoActorEvent {
-  const factory _ChangeGender(String gender) = _$_ChangeGender;
+  const factory _ChangeGender(final String gender) = _$_ChangeGender;
 
-  String get gender => throw _privateConstructorUsedError;
+  String get gender;
   @JsonKey(ignore: true)
-  _$ChangeGenderCopyWith<_ChangeGender> get copyWith =>
+  _$$_ChangeGenderCopyWith<_$_ChangeGender> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeNationalityCopyWith<$Res> {
-  factory _$ChangeNationalityCopyWith(
-          _ChangeNationality value, $Res Function(_ChangeNationality) then) =
-      __$ChangeNationalityCopyWithImpl<$Res>;
+abstract class _$$_ChangeNationalityCopyWith<$Res> {
+  factory _$$_ChangeNationalityCopyWith(_$_ChangeNationality value,
+          $Res Function(_$_ChangeNationality) then) =
+      __$$_ChangeNationalityCopyWithImpl<$Res>;
+  @useResult
   $Res call({String nationality});
 }
 
 /// @nodoc
-class __$ChangeNationalityCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeNationalityCopyWith<$Res> {
-  __$ChangeNationalityCopyWithImpl(
-      _ChangeNationality _value, $Res Function(_ChangeNationality) _then)
-      : super(_value, (v) => _then(v as _ChangeNationality));
+class __$$_ChangeNationalityCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res,
+        _$_ChangeNationality> implements _$$_ChangeNationalityCopyWith<$Res> {
+  __$$_ChangeNationalityCopyWithImpl(
+      _$_ChangeNationality _value, $Res Function(_$_ChangeNationality) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeNationality get _value => super._value as _ChangeNationality;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nationality = freezed,
+    Object? nationality = null,
   }) {
-    return _then(_ChangeNationality(
-      nationality == freezed
+    return _then(_$_ChangeNationality(
+      null == nationality
           ? _value.nationality
           : nationality // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1356,20 +1586,21 @@ class _$_ChangeNationality implements _ChangeNationality {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeNationality &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeNationality &&
             (identical(other.nationality, nationality) ||
-                const DeepCollectionEquality()
-                    .equals(other.nationality, nationality)));
+                other.nationality == nationality));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(nationality);
+  int get hashCode => Object.hash(runtimeType, nationality);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeNationalityCopyWith<_ChangeNationality> get copyWith =>
-      __$ChangeNationalityCopyWithImpl<_ChangeNationality>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeNationalityCopyWith<_$_ChangeNationality> get copyWith =>
+      __$$_ChangeNationalityCopyWithImpl<_$_ChangeNationality>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1390,6 +1621,27 @@ class _$_ChangeNationality implements _ChangeNationality {
     required TResult Function() save,
   }) {
     return changeNationality(nationality);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeNationality?.call(nationality);
   }
 
   @override
@@ -1438,6 +1690,25 @@ class _$_ChangeNationality implements _ChangeNationality {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeNationality?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -1461,39 +1732,39 @@ class _$_ChangeNationality implements _ChangeNationality {
 }
 
 abstract class _ChangeNationality implements UpdatePersonalInfoActorEvent {
-  const factory _ChangeNationality(String nationality) = _$_ChangeNationality;
+  const factory _ChangeNationality(final String nationality) =
+      _$_ChangeNationality;
 
-  String get nationality => throw _privateConstructorUsedError;
+  String get nationality;
   @JsonKey(ignore: true)
-  _$ChangeNationalityCopyWith<_ChangeNationality> get copyWith =>
+  _$$_ChangeNationalityCopyWith<_$_ChangeNationality> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeEmailCopyWith<$Res> {
-  factory _$ChangeEmailCopyWith(
-          _ChangeEmail value, $Res Function(_ChangeEmail) then) =
-      __$ChangeEmailCopyWithImpl<$Res>;
+abstract class _$$_ChangeEmailCopyWith<$Res> {
+  factory _$$_ChangeEmailCopyWith(
+          _$_ChangeEmail value, $Res Function(_$_ChangeEmail) then) =
+      __$$_ChangeEmailCopyWithImpl<$Res>;
+  @useResult
   $Res call({String email});
 }
 
 /// @nodoc
-class __$ChangeEmailCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangeEmailCopyWith<$Res> {
-  __$ChangeEmailCopyWithImpl(
-      _ChangeEmail _value, $Res Function(_ChangeEmail) _then)
-      : super(_value, (v) => _then(v as _ChangeEmail));
+class __$$_ChangeEmailCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res, _$_ChangeEmail>
+    implements _$$_ChangeEmailCopyWith<$Res> {
+  __$$_ChangeEmailCopyWithImpl(
+      _$_ChangeEmail _value, $Res Function(_$_ChangeEmail) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeEmail get _value => super._value as _ChangeEmail;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? email = null,
   }) {
-    return _then(_ChangeEmail(
-      email == freezed
+    return _then(_$_ChangeEmail(
+      null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1517,19 +1788,19 @@ class _$_ChangeEmail implements _ChangeEmail {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeEmail &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeEmail &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
+  int get hashCode => Object.hash(runtimeType, email);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeEmailCopyWith<_ChangeEmail> get copyWith =>
-      __$ChangeEmailCopyWithImpl<_ChangeEmail>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeEmailCopyWith<_$_ChangeEmail> get copyWith =>
+      __$$_ChangeEmailCopyWithImpl<_$_ChangeEmail>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1550,6 +1821,27 @@ class _$_ChangeEmail implements _ChangeEmail {
     required TResult Function() save,
   }) {
     return changeEmail(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeEmail?.call(email);
   }
 
   @override
@@ -1598,6 +1890,25 @@ class _$_ChangeEmail implements _ChangeEmail {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -1621,39 +1932,38 @@ class _$_ChangeEmail implements _ChangeEmail {
 }
 
 abstract class _ChangeEmail implements UpdatePersonalInfoActorEvent {
-  const factory _ChangeEmail(String email) = _$_ChangeEmail;
+  const factory _ChangeEmail(final String email) = _$_ChangeEmail;
 
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @JsonKey(ignore: true)
-  _$ChangeEmailCopyWith<_ChangeEmail> get copyWith =>
+  _$$_ChangeEmailCopyWith<_$_ChangeEmail> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangePhoneCopyWith<$Res> {
-  factory _$ChangePhoneCopyWith(
-          _ChangePhone value, $Res Function(_ChangePhone) then) =
-      __$ChangePhoneCopyWithImpl<$Res>;
+abstract class _$$_ChangePhoneCopyWith<$Res> {
+  factory _$$_ChangePhoneCopyWith(
+          _$_ChangePhone value, $Res Function(_$_ChangePhone) then) =
+      __$$_ChangePhoneCopyWithImpl<$Res>;
+  @useResult
   $Res call({String phone});
 }
 
 /// @nodoc
-class __$ChangePhoneCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangePhoneCopyWith<$Res> {
-  __$ChangePhoneCopyWithImpl(
-      _ChangePhone _value, $Res Function(_ChangePhone) _then)
-      : super(_value, (v) => _then(v as _ChangePhone));
+class __$$_ChangePhoneCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res, _$_ChangePhone>
+    implements _$$_ChangePhoneCopyWith<$Res> {
+  __$$_ChangePhoneCopyWithImpl(
+      _$_ChangePhone _value, $Res Function(_$_ChangePhone) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangePhone get _value => super._value as _ChangePhone;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phone = freezed,
+    Object? phone = null,
   }) {
-    return _then(_ChangePhone(
-      phone == freezed
+    return _then(_$_ChangePhone(
+      null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1677,19 +1987,19 @@ class _$_ChangePhone implements _ChangePhone {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangePhone &&
-            (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangePhone &&
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(phone);
+  int get hashCode => Object.hash(runtimeType, phone);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangePhoneCopyWith<_ChangePhone> get copyWith =>
-      __$ChangePhoneCopyWithImpl<_ChangePhone>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangePhoneCopyWith<_$_ChangePhone> get copyWith =>
+      __$$_ChangePhoneCopyWithImpl<_$_ChangePhone>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1710,6 +2020,27 @@ class _$_ChangePhone implements _ChangePhone {
     required TResult Function() save,
   }) {
     return changePhone(phone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changePhone?.call(phone);
   }
 
   @override
@@ -1758,6 +2089,25 @@ class _$_ChangePhone implements _ChangePhone {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changePhone?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -1781,19 +2131,20 @@ class _$_ChangePhone implements _ChangePhone {
 }
 
 abstract class _ChangePhone implements UpdatePersonalInfoActorEvent {
-  const factory _ChangePhone(String phone) = _$_ChangePhone;
+  const factory _ChangePhone(final String phone) = _$_ChangePhone;
 
-  String get phone => throw _privateConstructorUsedError;
+  String get phone;
   @JsonKey(ignore: true)
-  _$ChangePhoneCopyWith<_ChangePhone> get copyWith =>
+  _$$_ChangePhoneCopyWith<_$_ChangePhone> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetInitialStateCopyWith<$Res> {
-  factory _$SetInitialStateCopyWith(
-          _SetInitialState value, $Res Function(_SetInitialState) then) =
-      __$SetInitialStateCopyWithImpl<$Res>;
+abstract class _$$_SetInitialStateCopyWith<$Res> {
+  factory _$$_SetInitialStateCopyWith(
+          _$_SetInitialState value, $Res Function(_$_SetInitialState) then) =
+      __$$_SetInitialStateCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {PersonalInfo info,
       List<String> listOfNationality,
@@ -1802,37 +2153,35 @@ abstract class _$SetInitialStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SetInitialStateCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$SetInitialStateCopyWith<$Res> {
-  __$SetInitialStateCopyWithImpl(
-      _SetInitialState _value, $Res Function(_SetInitialState) _then)
-      : super(_value, (v) => _then(v as _SetInitialState));
+class __$$_SetInitialStateCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res, _$_SetInitialState>
+    implements _$$_SetInitialStateCopyWith<$Res> {
+  __$$_SetInitialStateCopyWithImpl(
+      _$_SetInitialState _value, $Res Function(_$_SetInitialState) _then)
+      : super(_value, _then);
 
-  @override
-  _SetInitialState get _value => super._value as _SetInitialState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
-    Object? listOfNationality = freezed,
-    Object? listOfProfession = freezed,
-    Object? lang = freezed,
+    Object? info = null,
+    Object? listOfNationality = null,
+    Object? listOfProfession = null,
+    Object? lang = null,
   }) {
-    return _then(_SetInitialState(
-      info: info == freezed
+    return _then(_$_SetInitialState(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as PersonalInfo,
-      listOfNationality: listOfNationality == freezed
-          ? _value.listOfNationality
+      listOfNationality: null == listOfNationality
+          ? _value._listOfNationality
           : listOfNationality // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfProfession: listOfProfession == freezed
-          ? _value.listOfProfession
+      listOfProfession: null == listOfProfession
+          ? _value._listOfProfession
           : listOfProfession // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      lang: lang == freezed
+      lang: null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1845,16 +2194,32 @@ class __$SetInitialStateCopyWithImpl<$Res>
 class _$_SetInitialState implements _SetInitialState {
   const _$_SetInitialState(
       {required this.info,
-      required this.listOfNationality,
-      required this.listOfProfession,
-      required this.lang});
+      required final List<String> listOfNationality,
+      required final List<String> listOfProfession,
+      required this.lang})
+      : _listOfNationality = listOfNationality,
+        _listOfProfession = listOfProfession;
 
   @override
   final PersonalInfo info;
+  final List<String> _listOfNationality;
   @override
-  final List<String> listOfNationality;
+  List<String> get listOfNationality {
+    if (_listOfNationality is EqualUnmodifiableListView)
+      return _listOfNationality;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfNationality);
+  }
+
+  final List<String> _listOfProfession;
   @override
-  final List<String> listOfProfession;
+  List<String> get listOfProfession {
+    if (_listOfProfession is EqualUnmodifiableListView)
+      return _listOfProfession;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfProfession);
+  }
+
   @override
   final String lang;
 
@@ -1866,31 +2231,29 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetInitialState &&
-            (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)) &&
-            (identical(other.listOfNationality, listOfNationality) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfNationality, listOfNationality)) &&
-            (identical(other.listOfProfession, listOfProfession) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfProfession, listOfProfession)) &&
-            (identical(other.lang, lang) ||
-                const DeepCollectionEquality().equals(other.lang, lang)));
+        (other.runtimeType == runtimeType &&
+            other is _$_SetInitialState &&
+            (identical(other.info, info) || other.info == info) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfNationality, _listOfNationality) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfProfession, _listOfProfession) &&
+            (identical(other.lang, lang) || other.lang == lang));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(info) ^
-      const DeepCollectionEquality().hash(listOfNationality) ^
-      const DeepCollectionEquality().hash(listOfProfession) ^
-      const DeepCollectionEquality().hash(lang);
+  int get hashCode => Object.hash(
+      runtimeType,
+      info,
+      const DeepCollectionEquality().hash(_listOfNationality),
+      const DeepCollectionEquality().hash(_listOfProfession),
+      lang);
 
   @JsonKey(ignore: true)
   @override
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
-      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
+      __$$_SetInitialStateCopyWithImpl<_$_SetInitialState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1911,6 +2274,28 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function() save,
   }) {
     return setInitialState(info, listOfNationality, listOfProfession, lang);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return setInitialState?.call(
+        info, listOfNationality, listOfProfession, lang);
   }
 
   @override
@@ -1959,6 +2344,25 @@ class _$_SetInitialState implements _SetInitialState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return setInitialState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -1983,35 +2387,32 @@ class _$_SetInitialState implements _SetInitialState {
 
 abstract class _SetInitialState implements UpdatePersonalInfoActorEvent {
   const factory _SetInitialState(
-      {required PersonalInfo info,
-      required List<String> listOfNationality,
-      required List<String> listOfProfession,
-      required String lang}) = _$_SetInitialState;
+      {required final PersonalInfo info,
+      required final List<String> listOfNationality,
+      required final List<String> listOfProfession,
+      required final String lang}) = _$_SetInitialState;
 
-  PersonalInfo get info => throw _privateConstructorUsedError;
-  List<String> get listOfNationality => throw _privateConstructorUsedError;
-  List<String> get listOfProfession => throw _privateConstructorUsedError;
-  String get lang => throw _privateConstructorUsedError;
+  PersonalInfo get info;
+  List<String> get listOfNationality;
+  List<String> get listOfProfession;
+  String get lang;
   @JsonKey(ignore: true)
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SaveCopyWith<$Res> {
-  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
-      __$SaveCopyWithImpl<$Res>;
+abstract class _$$_SaveCopyWith<$Res> {
+  factory _$$_SaveCopyWith(_$_Save value, $Res Function(_$_Save) then) =
+      __$$_SaveCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SaveCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res>
-    implements _$SaveCopyWith<$Res> {
-  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
-      : super(_value, (v) => _then(v as _Save));
-
-  @override
-  _Save get _value => super._value as _Save;
+class __$$_SaveCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorEventCopyWithImpl<$Res, _$_Save>
+    implements _$$_SaveCopyWith<$Res> {
+  __$$_SaveCopyWithImpl(_$_Save _value, $Res Function(_$_Save) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2026,7 +2427,8 @@ class _$_Save implements _Save {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Save);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Save);
   }
 
   @override
@@ -2051,6 +2453,27 @@ class _$_Save implements _Save {
     required TResult Function() save,
   }) {
     return save();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String age)? changeAge,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String phone)? changePhone,
+    TResult? Function(PersonalInfo info, List<String> listOfNationality,
+            List<String> listOfProfession, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return save?.call();
   }
 
   @override
@@ -2099,6 +2522,25 @@ class _$_Save implements _Save {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeAge value)? changeAge,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -2124,53 +2566,6 @@ class _$_Save implements _Save {
 abstract class _Save implements UpdatePersonalInfoActorEvent {
   const factory _Save() = _$_Save;
 }
-
-/// @nodoc
-class _$UpdatePersonalInfoActorStateTearOff {
-  const _$UpdatePersonalInfoActorStateTearOff();
-
-  _UpdatePersonalInfoActorState call(
-      {required Key? key,
-      required String firstName,
-      required String lastName,
-      required String furigana,
-      required String profession,
-      required String dob,
-      required String age,
-      required String gender,
-      required String nationality,
-      required String email,
-      required String phone,
-      required List<String> listOfNationality,
-      required List<String> listOfProfession,
-      required List<String> listOfGender,
-      required bool hasSetInitialData,
-      required bool isSubmitting,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
-    return _UpdatePersonalInfoActorState(
-      key: key,
-      firstName: firstName,
-      lastName: lastName,
-      furigana: furigana,
-      profession: profession,
-      dob: dob,
-      age: age,
-      gender: gender,
-      nationality: nationality,
-      email: email,
-      phone: phone,
-      listOfNationality: listOfNationality,
-      listOfProfession: listOfProfession,
-      listOfGender: listOfGender,
-      hasSetInitialData: hasSetInitialData,
-      isSubmitting: isSubmitting,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $UpdatePersonalInfoActorState = _$UpdatePersonalInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdatePersonalInfoActorState {
@@ -2203,7 +2598,9 @@ abstract class $UpdatePersonalInfoActorStateCopyWith<$Res> {
   factory $UpdatePersonalInfoActorStateCopyWith(
           UpdatePersonalInfoActorState value,
           $Res Function(UpdatePersonalInfoActorState) then) =
-      _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>;
+      _$UpdatePersonalInfoActorStateCopyWithImpl<$Res,
+          UpdatePersonalInfoActorState>;
+  @useResult
   $Res call(
       {Key? key,
       String firstName,
@@ -2225,115 +2622,119 @@ abstract class $UpdatePersonalInfoActorStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
+class _$UpdatePersonalInfoActorStateCopyWithImpl<$Res,
+        $Val extends UpdatePersonalInfoActorState>
     implements $UpdatePersonalInfoActorStateCopyWith<$Res> {
   _$UpdatePersonalInfoActorStateCopyWithImpl(this._value, this._then);
 
-  final UpdatePersonalInfoActorState _value;
   // ignore: unused_field
-  final $Res Function(UpdatePersonalInfoActorState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? furigana = freezed,
-    Object? profession = freezed,
-    Object? dob = freezed,
-    Object? age = freezed,
-    Object? gender = freezed,
-    Object? nationality = freezed,
-    Object? email = freezed,
-    Object? phone = freezed,
-    Object? listOfNationality = freezed,
-    Object? listOfProfession = freezed,
-    Object? listOfGender = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? furigana = null,
+    Object? profession = null,
+    Object? dob = null,
+    Object? age = null,
+    Object? gender = null,
+    Object? nationality = null,
+    Object? email = null,
+    Object? phone = null,
+    Object? listOfNationality = null,
+    Object? listOfProfession = null,
+    Object? listOfGender = null,
+    Object? hasSetInitialData = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      furigana: furigana == freezed
+      furigana: null == furigana
           ? _value.furigana
           : furigana // ignore: cast_nullable_to_non_nullable
               as String,
-      profession: profession == freezed
+      profession: null == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as String,
-      dob: dob == freezed
+      dob: null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as String,
-      age: age == freezed
+      age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as String,
-      gender: gender == freezed
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      nationality: nationality == freezed
+      nationality: null == nationality
           ? _value.nationality
           : nationality // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      listOfNationality: listOfNationality == freezed
+      listOfNationality: null == listOfNationality
           ? _value.listOfNationality
           : listOfNationality // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfProfession: listOfProfession == freezed
+      listOfProfession: null == listOfProfession
           ? _value.listOfProfession
           : listOfProfession // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfGender: listOfGender == freezed
+      listOfGender: null == listOfGender
           ? _value.listOfGender
           : listOfGender // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$UpdatePersonalInfoActorStateCopyWith<$Res>
+abstract class _$$_UpdatePersonalInfoActorStateCopyWith<$Res>
     implements $UpdatePersonalInfoActorStateCopyWith<$Res> {
-  factory _$UpdatePersonalInfoActorStateCopyWith(
-          _UpdatePersonalInfoActorState value,
-          $Res Function(_UpdatePersonalInfoActorState) then) =
-      __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>;
+  factory _$$_UpdatePersonalInfoActorStateCopyWith(
+          _$_UpdatePersonalInfoActorState value,
+          $Res Function(_$_UpdatePersonalInfoActorState) then) =
+      __$$_UpdatePersonalInfoActorStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key? key,
       String firstName,
@@ -2355,104 +2756,102 @@ abstract class _$UpdatePersonalInfoActorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
-    extends _$UpdatePersonalInfoActorStateCopyWithImpl<$Res>
-    implements _$UpdatePersonalInfoActorStateCopyWith<$Res> {
-  __$UpdatePersonalInfoActorStateCopyWithImpl(
-      _UpdatePersonalInfoActorState _value,
-      $Res Function(_UpdatePersonalInfoActorState) _then)
-      : super(_value, (v) => _then(v as _UpdatePersonalInfoActorState));
+class __$$_UpdatePersonalInfoActorStateCopyWithImpl<$Res>
+    extends _$UpdatePersonalInfoActorStateCopyWithImpl<$Res,
+        _$_UpdatePersonalInfoActorState>
+    implements _$$_UpdatePersonalInfoActorStateCopyWith<$Res> {
+  __$$_UpdatePersonalInfoActorStateCopyWithImpl(
+      _$_UpdatePersonalInfoActorState _value,
+      $Res Function(_$_UpdatePersonalInfoActorState) _then)
+      : super(_value, _then);
 
-  @override
-  _UpdatePersonalInfoActorState get _value =>
-      super._value as _UpdatePersonalInfoActorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? furigana = freezed,
-    Object? profession = freezed,
-    Object? dob = freezed,
-    Object? age = freezed,
-    Object? gender = freezed,
-    Object? nationality = freezed,
-    Object? email = freezed,
-    Object? phone = freezed,
-    Object? listOfNationality = freezed,
-    Object? listOfProfession = freezed,
-    Object? listOfGender = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? furigana = null,
+    Object? profession = null,
+    Object? dob = null,
+    Object? age = null,
+    Object? gender = null,
+    Object? nationality = null,
+    Object? email = null,
+    Object? phone = null,
+    Object? listOfNationality = null,
+    Object? listOfProfession = null,
+    Object? listOfGender = null,
+    Object? hasSetInitialData = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_UpdatePersonalInfoActorState(
-      key: key == freezed
+    return _then(_$_UpdatePersonalInfoActorState(
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      furigana: furigana == freezed
+      furigana: null == furigana
           ? _value.furigana
           : furigana // ignore: cast_nullable_to_non_nullable
               as String,
-      profession: profession == freezed
+      profession: null == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as String,
-      dob: dob == freezed
+      dob: null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as String,
-      age: age == freezed
+      age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as String,
-      gender: gender == freezed
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      nationality: nationality == freezed
+      nationality: null == nationality
           ? _value.nationality
           : nationality // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      listOfNationality: listOfNationality == freezed
-          ? _value.listOfNationality
+      listOfNationality: null == listOfNationality
+          ? _value._listOfNationality
           : listOfNationality // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfProfession: listOfProfession == freezed
-          ? _value.listOfProfession
+      listOfProfession: null == listOfProfession
+          ? _value._listOfProfession
           : listOfProfession // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfGender: listOfGender == freezed
-          ? _value.listOfGender
+      listOfGender: null == listOfGender
+          ? _value._listOfGender
           : listOfGender // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -2475,12 +2874,15 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
       required this.nationality,
       required this.email,
       required this.phone,
-      required this.listOfNationality,
-      required this.listOfProfession,
-      required this.listOfGender,
+      required final List<String> listOfNationality,
+      required final List<String> listOfProfession,
+      required final List<String> listOfGender,
       required this.hasSetInitialData,
       required this.isSubmitting,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : _listOfNationality = listOfNationality,
+        _listOfProfession = listOfProfession,
+        _listOfGender = listOfGender;
 
   @override
   final Key? key;
@@ -2504,12 +2906,32 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
   final String email;
   @override
   final String phone;
+  final List<String> _listOfNationality;
   @override
-  final List<String> listOfNationality;
+  List<String> get listOfNationality {
+    if (_listOfNationality is EqualUnmodifiableListView)
+      return _listOfNationality;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfNationality);
+  }
+
+  final List<String> _listOfProfession;
   @override
-  final List<String> listOfProfession;
+  List<String> get listOfProfession {
+    if (_listOfProfession is EqualUnmodifiableListView)
+      return _listOfProfession;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfProfession);
+  }
+
+  final List<String> _listOfGender;
   @override
-  final List<String> listOfGender;
+  List<String> get listOfGender {
+    if (_listOfGender is EqualUnmodifiableListView) return _listOfGender;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfGender);
+  }
+
   @override
   final bool hasSetInitialData;
   @override
@@ -2525,141 +2947,125 @@ class _$_UpdatePersonalInfoActorState implements _UpdatePersonalInfoActorState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdatePersonalInfoActorState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdatePersonalInfoActorState &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.firstName, firstName) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstName, firstName)) &&
+                other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastName, lastName)) &&
+                other.lastName == lastName) &&
             (identical(other.furigana, furigana) ||
-                const DeepCollectionEquality()
-                    .equals(other.furigana, furigana)) &&
+                other.furigana == furigana) &&
             (identical(other.profession, profession) ||
-                const DeepCollectionEquality()
-                    .equals(other.profession, profession)) &&
-            (identical(other.dob, dob) ||
-                const DeepCollectionEquality().equals(other.dob, dob)) &&
-            (identical(other.age, age) ||
-                const DeepCollectionEquality().equals(other.age, age)) &&
-            (identical(other.gender, gender) ||
-                const DeepCollectionEquality().equals(other.gender, gender)) &&
+                other.profession == profession) &&
+            (identical(other.dob, dob) || other.dob == dob) &&
+            (identical(other.age, age) || other.age == age) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.nationality, nationality) ||
-                const DeepCollectionEquality()
-                    .equals(other.nationality, nationality)) &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)) &&
-            (identical(other.listOfNationality, listOfNationality) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfNationality, listOfNationality)) &&
-            (identical(other.listOfProfession, listOfProfession) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfProfession, listOfProfession)) &&
-            (identical(other.listOfGender, listOfGender) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfGender, listOfGender)) &&
+                other.nationality == nationality) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfNationality, _listOfNationality) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfProfession, _listOfProfession) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfGender, _listOfGender) &&
             (identical(other.hasSetInitialData, hasSetInitialData) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
+                other.hasSetInitialData == hasSetInitialData) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
+                other.isSubmitting == isSubmitting) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(firstName) ^
-      const DeepCollectionEquality().hash(lastName) ^
-      const DeepCollectionEquality().hash(furigana) ^
-      const DeepCollectionEquality().hash(profession) ^
-      const DeepCollectionEquality().hash(dob) ^
-      const DeepCollectionEquality().hash(age) ^
-      const DeepCollectionEquality().hash(gender) ^
-      const DeepCollectionEquality().hash(nationality) ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(phone) ^
-      const DeepCollectionEquality().hash(listOfNationality) ^
-      const DeepCollectionEquality().hash(listOfProfession) ^
-      const DeepCollectionEquality().hash(listOfGender) ^
-      const DeepCollectionEquality().hash(hasSetInitialData) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      key,
+      firstName,
+      lastName,
+      furigana,
+      profession,
+      dob,
+      age,
+      gender,
+      nationality,
+      email,
+      phone,
+      const DeepCollectionEquality().hash(_listOfNationality),
+      const DeepCollectionEquality().hash(_listOfProfession),
+      const DeepCollectionEquality().hash(_listOfGender),
+      hasSetInitialData,
+      isSubmitting,
+      failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdatePersonalInfoActorStateCopyWith<_UpdatePersonalInfoActorState>
-      get copyWith => __$UpdatePersonalInfoActorStateCopyWithImpl<
-          _UpdatePersonalInfoActorState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_UpdatePersonalInfoActorStateCopyWith<_$_UpdatePersonalInfoActorState>
+      get copyWith => __$$_UpdatePersonalInfoActorStateCopyWithImpl<
+          _$_UpdatePersonalInfoActorState>(this, _$identity);
 }
 
 abstract class _UpdatePersonalInfoActorState
     implements UpdatePersonalInfoActorState {
   const factory _UpdatePersonalInfoActorState(
-          {required Key? key,
-          required String firstName,
-          required String lastName,
-          required String furigana,
-          required String profession,
-          required String dob,
-          required String age,
-          required String gender,
-          required String nationality,
-          required String email,
-          required String phone,
-          required List<String> listOfNationality,
-          required List<String> listOfProfession,
-          required List<String> listOfGender,
-          required bool hasSetInitialData,
-          required bool isSubmitting,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
-      _$_UpdatePersonalInfoActorState;
+      {required final Key? key,
+      required final String firstName,
+      required final String lastName,
+      required final String furigana,
+      required final String profession,
+      required final String dob,
+      required final String age,
+      required final String gender,
+      required final String nationality,
+      required final String email,
+      required final String phone,
+      required final List<String> listOfNationality,
+      required final List<String> listOfProfession,
+      required final List<String> listOfGender,
+      required final bool hasSetInitialData,
+      required final bool isSubmitting,
+      required final Option<Either<ApiFailure, Unit>>
+          failureOrSuccessOption}) = _$_UpdatePersonalInfoActorState;
 
   @override
-  Key? get key => throw _privateConstructorUsedError;
+  Key? get key;
   @override
-  String get firstName => throw _privateConstructorUsedError;
+  String get firstName;
   @override
-  String get lastName => throw _privateConstructorUsedError;
+  String get lastName;
   @override
-  String get furigana => throw _privateConstructorUsedError;
+  String get furigana;
   @override
-  String get profession => throw _privateConstructorUsedError;
+  String get profession;
   @override
-  String get dob => throw _privateConstructorUsedError;
+  String get dob;
   @override
-  String get age => throw _privateConstructorUsedError;
+  String get age;
   @override
-  String get gender => throw _privateConstructorUsedError;
+  String get gender;
   @override
-  String get nationality => throw _privateConstructorUsedError;
+  String get nationality;
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get phone => throw _privateConstructorUsedError;
+  String get phone;
   @override
-  List<String> get listOfNationality => throw _privateConstructorUsedError;
+  List<String> get listOfNationality;
   @override
-  List<String> get listOfProfession => throw _privateConstructorUsedError;
+  List<String> get listOfProfession;
   @override
-  List<String> get listOfGender => throw _privateConstructorUsedError;
+  List<String> get listOfGender;
   @override
-  bool get hasSetInitialData => throw _privateConstructorUsedError;
+  bool get hasSetInitialData;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$UpdatePersonalInfoActorStateCopyWith<_UpdatePersonalInfoActorState>
+  _$$_UpdatePersonalInfoActorStateCopyWith<_$_UpdatePersonalInfoActorState>
       get copyWith => throw _privateConstructorUsedError;
 }

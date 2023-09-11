@@ -20,6 +20,7 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_do
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
 
+@RoutePage()
 class NEAPaymentPage extends StatelessWidget {
   final UtilityPaymentsModel payData;
   const NEAPaymentPage({Key? key, required this.payData}) : super(key: key);

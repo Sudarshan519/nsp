@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_qualification_info_actor_bloc.dart';
 
@@ -10,46 +12,7 @@ part of 'update_qualification_info_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UpdateQualificationInfoActorEventTearOff {
-  const _$UpdateQualificationInfoActorEventTearOff();
-
-  _ChangedQualificationName changedQualificationName(String name) {
-    return _ChangedQualificationName(
-      name,
-    );
-  }
-
-  _ChangedCertifiedYear changedCertifiedYear(String year) {
-    return _ChangedCertifiedYear(
-      year,
-    );
-  }
-
-  _ChangedCertifiedMonth changedCertifiedMonth(String month) {
-    return _ChangedCertifiedMonth(
-      month,
-    );
-  }
-
-  _SetInitialState setInitialState(
-      QualificationHistory qualificationHistory, String lang) {
-    return _SetInitialState(
-      qualificationHistory,
-      lang,
-    );
-  }
-
-  _Save save() {
-    return const _Save();
-  }
-}
-
-/// @nodoc
-const $UpdateQualificationInfoActorEvent =
-    _$UpdateQualificationInfoActorEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdateQualificationInfoActorEvent {
@@ -62,6 +25,16 @@ mixin _$UpdateQualificationInfoActorEvent {
             QualificationHistory qualificationHistory, String lang)
         setInitialState,
     required TResult Function() save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changedQualificationName,
+    TResult? Function(String year)? changedCertifiedYear,
+    TResult? Function(String month)? changedCertifiedMonth,
+    TResult? Function(QualificationHistory qualificationHistory, String lang)?
+        setInitialState,
+    TResult? Function()? save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +60,16 @@ mixin _$UpdateQualificationInfoActorEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedQualificationName value)?
+        changedQualificationName,
+    TResult? Function(_ChangedCertifiedYear value)? changedCertifiedYear,
+    TResult? Function(_ChangedCertifiedMonth value)? changedCertifiedMonth,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedQualificationName value)? changedQualificationName,
     TResult Function(_ChangedCertifiedYear value)? changedCertifiedYear,
@@ -103,45 +86,48 @@ abstract class $UpdateQualificationInfoActorEventCopyWith<$Res> {
   factory $UpdateQualificationInfoActorEventCopyWith(
           UpdateQualificationInfoActorEvent value,
           $Res Function(UpdateQualificationInfoActorEvent) then) =
-      _$UpdateQualificationInfoActorEventCopyWithImpl<$Res>;
+      _$UpdateQualificationInfoActorEventCopyWithImpl<$Res,
+          UpdateQualificationInfoActorEvent>;
 }
 
 /// @nodoc
-class _$UpdateQualificationInfoActorEventCopyWithImpl<$Res>
+class _$UpdateQualificationInfoActorEventCopyWithImpl<$Res,
+        $Val extends UpdateQualificationInfoActorEvent>
     implements $UpdateQualificationInfoActorEventCopyWith<$Res> {
   _$UpdateQualificationInfoActorEventCopyWithImpl(this._value, this._then);
 
-  final UpdateQualificationInfoActorEvent _value;
   // ignore: unused_field
-  final $Res Function(UpdateQualificationInfoActorEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangedQualificationNameCopyWith<$Res> {
-  factory _$ChangedQualificationNameCopyWith(_ChangedQualificationName value,
-          $Res Function(_ChangedQualificationName) then) =
-      __$ChangedQualificationNameCopyWithImpl<$Res>;
+abstract class _$$_ChangedQualificationNameCopyWith<$Res> {
+  factory _$$_ChangedQualificationNameCopyWith(
+          _$_ChangedQualificationName value,
+          $Res Function(_$_ChangedQualificationName) then) =
+      __$$_ChangedQualificationNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangedQualificationNameCopyWithImpl<$Res>
-    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedQualificationNameCopyWith<$Res> {
-  __$ChangedQualificationNameCopyWithImpl(_ChangedQualificationName _value,
-      $Res Function(_ChangedQualificationName) _then)
-      : super(_value, (v) => _then(v as _ChangedQualificationName));
+class __$$_ChangedQualificationNameCopyWithImpl<$Res>
+    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedQualificationName>
+    implements _$$_ChangedQualificationNameCopyWith<$Res> {
+  __$$_ChangedQualificationNameCopyWithImpl(_$_ChangedQualificationName _value,
+      $Res Function(_$_ChangedQualificationName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedQualificationName get _value =>
-      super._value as _ChangedQualificationName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangedQualificationName(
-      name == freezed
+    return _then(_$_ChangedQualificationName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -165,20 +151,20 @@ class _$_ChangedQualificationName implements _ChangedQualificationName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedQualificationName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedQualificationName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedQualificationNameCopyWith<_ChangedQualificationName> get copyWith =>
-      __$ChangedQualificationNameCopyWithImpl<_ChangedQualificationName>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedQualificationNameCopyWith<_$_ChangedQualificationName>
+      get copyWith => __$$_ChangedQualificationNameCopyWithImpl<
+          _$_ChangedQualificationName>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -192,6 +178,19 @@ class _$_ChangedQualificationName implements _ChangedQualificationName {
     required TResult Function() save,
   }) {
     return changedQualificationName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changedQualificationName,
+    TResult? Function(String year)? changedCertifiedYear,
+    TResult? Function(String month)? changedCertifiedMonth,
+    TResult? Function(QualificationHistory qualificationHistory, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedQualificationName?.call(name);
   }
 
   @override
@@ -227,6 +226,19 @@ class _$_ChangedQualificationName implements _ChangedQualificationName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedQualificationName value)?
+        changedQualificationName,
+    TResult? Function(_ChangedCertifiedYear value)? changedCertifiedYear,
+    TResult? Function(_ChangedCertifiedMonth value)? changedCertifiedMonth,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedQualificationName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedQualificationName value)? changedQualificationName,
     TResult Function(_ChangedCertifiedYear value)? changedCertifiedYear,
@@ -244,40 +256,40 @@ class _$_ChangedQualificationName implements _ChangedQualificationName {
 
 abstract class _ChangedQualificationName
     implements UpdateQualificationInfoActorEvent {
-  const factory _ChangedQualificationName(String name) =
+  const factory _ChangedQualificationName(final String name) =
       _$_ChangedQualificationName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangedQualificationNameCopyWith<_ChangedQualificationName> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangedQualificationNameCopyWith<_$_ChangedQualificationName>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedCertifiedYearCopyWith<$Res> {
-  factory _$ChangedCertifiedYearCopyWith(_ChangedCertifiedYear value,
-          $Res Function(_ChangedCertifiedYear) then) =
-      __$ChangedCertifiedYearCopyWithImpl<$Res>;
+abstract class _$$_ChangedCertifiedYearCopyWith<$Res> {
+  factory _$$_ChangedCertifiedYearCopyWith(_$_ChangedCertifiedYear value,
+          $Res Function(_$_ChangedCertifiedYear) then) =
+      __$$_ChangedCertifiedYearCopyWithImpl<$Res>;
+  @useResult
   $Res call({String year});
 }
 
 /// @nodoc
-class __$ChangedCertifiedYearCopyWithImpl<$Res>
-    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCertifiedYearCopyWith<$Res> {
-  __$ChangedCertifiedYearCopyWithImpl(
-      _ChangedCertifiedYear _value, $Res Function(_ChangedCertifiedYear) _then)
-      : super(_value, (v) => _then(v as _ChangedCertifiedYear));
+class __$$_ChangedCertifiedYearCopyWithImpl<$Res>
+    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedCertifiedYear>
+    implements _$$_ChangedCertifiedYearCopyWith<$Res> {
+  __$$_ChangedCertifiedYearCopyWithImpl(_$_ChangedCertifiedYear _value,
+      $Res Function(_$_ChangedCertifiedYear) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedCertifiedYear get _value => super._value as _ChangedCertifiedYear;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = freezed,
+    Object? year = null,
   }) {
-    return _then(_ChangedCertifiedYear(
-      year == freezed
+    return _then(_$_ChangedCertifiedYear(
+      null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as String,
@@ -301,19 +313,19 @@ class _$_ChangedCertifiedYear implements _ChangedCertifiedYear {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCertifiedYear &&
-            (identical(other.year, year) ||
-                const DeepCollectionEquality().equals(other.year, year)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedCertifiedYear &&
+            (identical(other.year, year) || other.year == year));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(year);
+  int get hashCode => Object.hash(runtimeType, year);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCertifiedYearCopyWith<_ChangedCertifiedYear> get copyWith =>
-      __$ChangedCertifiedYearCopyWithImpl<_ChangedCertifiedYear>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCertifiedYearCopyWith<_$_ChangedCertifiedYear> get copyWith =>
+      __$$_ChangedCertifiedYearCopyWithImpl<_$_ChangedCertifiedYear>(
           this, _$identity);
 
   @override
@@ -328,6 +340,19 @@ class _$_ChangedCertifiedYear implements _ChangedCertifiedYear {
     required TResult Function() save,
   }) {
     return changedCertifiedYear(year);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changedQualificationName,
+    TResult? Function(String year)? changedCertifiedYear,
+    TResult? Function(String month)? changedCertifiedMonth,
+    TResult? Function(QualificationHistory qualificationHistory, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedCertifiedYear?.call(year);
   }
 
   @override
@@ -363,6 +388,19 @@ class _$_ChangedCertifiedYear implements _ChangedCertifiedYear {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedQualificationName value)?
+        changedQualificationName,
+    TResult? Function(_ChangedCertifiedYear value)? changedCertifiedYear,
+    TResult? Function(_ChangedCertifiedMonth value)? changedCertifiedMonth,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedCertifiedYear?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedQualificationName value)? changedQualificationName,
     TResult Function(_ChangedCertifiedYear value)? changedCertifiedYear,
@@ -380,39 +418,40 @@ class _$_ChangedCertifiedYear implements _ChangedCertifiedYear {
 
 abstract class _ChangedCertifiedYear
     implements UpdateQualificationInfoActorEvent {
-  const factory _ChangedCertifiedYear(String year) = _$_ChangedCertifiedYear;
+  const factory _ChangedCertifiedYear(final String year) =
+      _$_ChangedCertifiedYear;
 
-  String get year => throw _privateConstructorUsedError;
+  String get year;
   @JsonKey(ignore: true)
-  _$ChangedCertifiedYearCopyWith<_ChangedCertifiedYear> get copyWith =>
+  _$$_ChangedCertifiedYearCopyWith<_$_ChangedCertifiedYear> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedCertifiedMonthCopyWith<$Res> {
-  factory _$ChangedCertifiedMonthCopyWith(_ChangedCertifiedMonth value,
-          $Res Function(_ChangedCertifiedMonth) then) =
-      __$ChangedCertifiedMonthCopyWithImpl<$Res>;
+abstract class _$$_ChangedCertifiedMonthCopyWith<$Res> {
+  factory _$$_ChangedCertifiedMonthCopyWith(_$_ChangedCertifiedMonth value,
+          $Res Function(_$_ChangedCertifiedMonth) then) =
+      __$$_ChangedCertifiedMonthCopyWithImpl<$Res>;
+  @useResult
   $Res call({String month});
 }
 
 /// @nodoc
-class __$ChangedCertifiedMonthCopyWithImpl<$Res>
-    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCertifiedMonthCopyWith<$Res> {
-  __$ChangedCertifiedMonthCopyWithImpl(_ChangedCertifiedMonth _value,
-      $Res Function(_ChangedCertifiedMonth) _then)
-      : super(_value, (v) => _then(v as _ChangedCertifiedMonth));
+class __$$_ChangedCertifiedMonthCopyWithImpl<$Res>
+    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedCertifiedMonth>
+    implements _$$_ChangedCertifiedMonthCopyWith<$Res> {
+  __$$_ChangedCertifiedMonthCopyWithImpl(_$_ChangedCertifiedMonth _value,
+      $Res Function(_$_ChangedCertifiedMonth) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedCertifiedMonth get _value => super._value as _ChangedCertifiedMonth;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? month = freezed,
+    Object? month = null,
   }) {
-    return _then(_ChangedCertifiedMonth(
-      month == freezed
+    return _then(_$_ChangedCertifiedMonth(
+      null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
               as String,
@@ -436,19 +475,19 @@ class _$_ChangedCertifiedMonth implements _ChangedCertifiedMonth {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCertifiedMonth &&
-            (identical(other.month, month) ||
-                const DeepCollectionEquality().equals(other.month, month)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedCertifiedMonth &&
+            (identical(other.month, month) || other.month == month));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(month);
+  int get hashCode => Object.hash(runtimeType, month);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCertifiedMonthCopyWith<_ChangedCertifiedMonth> get copyWith =>
-      __$ChangedCertifiedMonthCopyWithImpl<_ChangedCertifiedMonth>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCertifiedMonthCopyWith<_$_ChangedCertifiedMonth> get copyWith =>
+      __$$_ChangedCertifiedMonthCopyWithImpl<_$_ChangedCertifiedMonth>(
           this, _$identity);
 
   @override
@@ -463,6 +502,19 @@ class _$_ChangedCertifiedMonth implements _ChangedCertifiedMonth {
     required TResult Function() save,
   }) {
     return changedCertifiedMonth(month);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changedQualificationName,
+    TResult? Function(String year)? changedCertifiedYear,
+    TResult? Function(String month)? changedCertifiedMonth,
+    TResult? Function(QualificationHistory qualificationHistory, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedCertifiedMonth?.call(month);
   }
 
   @override
@@ -498,6 +550,19 @@ class _$_ChangedCertifiedMonth implements _ChangedCertifiedMonth {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedQualificationName value)?
+        changedQualificationName,
+    TResult? Function(_ChangedCertifiedYear value)? changedCertifiedYear,
+    TResult? Function(_ChangedCertifiedMonth value)? changedCertifiedMonth,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedCertifiedMonth?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedQualificationName value)? changedQualificationName,
     TResult Function(_ChangedCertifiedYear value)? changedCertifiedYear,
@@ -515,44 +580,44 @@ class _$_ChangedCertifiedMonth implements _ChangedCertifiedMonth {
 
 abstract class _ChangedCertifiedMonth
     implements UpdateQualificationInfoActorEvent {
-  const factory _ChangedCertifiedMonth(String month) = _$_ChangedCertifiedMonth;
+  const factory _ChangedCertifiedMonth(final String month) =
+      _$_ChangedCertifiedMonth;
 
-  String get month => throw _privateConstructorUsedError;
+  String get month;
   @JsonKey(ignore: true)
-  _$ChangedCertifiedMonthCopyWith<_ChangedCertifiedMonth> get copyWith =>
+  _$$_ChangedCertifiedMonthCopyWith<_$_ChangedCertifiedMonth> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetInitialStateCopyWith<$Res> {
-  factory _$SetInitialStateCopyWith(
-          _SetInitialState value, $Res Function(_SetInitialState) then) =
-      __$SetInitialStateCopyWithImpl<$Res>;
+abstract class _$$_SetInitialStateCopyWith<$Res> {
+  factory _$$_SetInitialStateCopyWith(
+          _$_SetInitialState value, $Res Function(_$_SetInitialState) then) =
+      __$$_SetInitialStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({QualificationHistory qualificationHistory, String lang});
 }
 
 /// @nodoc
-class __$SetInitialStateCopyWithImpl<$Res>
-    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res>
-    implements _$SetInitialStateCopyWith<$Res> {
-  __$SetInitialStateCopyWithImpl(
-      _SetInitialState _value, $Res Function(_SetInitialState) _then)
-      : super(_value, (v) => _then(v as _SetInitialState));
+class __$$_SetInitialStateCopyWithImpl<$Res>
+    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res,
+        _$_SetInitialState> implements _$$_SetInitialStateCopyWith<$Res> {
+  __$$_SetInitialStateCopyWithImpl(
+      _$_SetInitialState _value, $Res Function(_$_SetInitialState) _then)
+      : super(_value, _then);
 
-  @override
-  _SetInitialState get _value => super._value as _SetInitialState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? qualificationHistory = freezed,
-    Object? lang = freezed,
+    Object? qualificationHistory = null,
+    Object? lang = null,
   }) {
-    return _then(_SetInitialState(
-      qualificationHistory == freezed
+    return _then(_$_SetInitialState(
+      null == qualificationHistory
           ? _value.qualificationHistory
           : qualificationHistory // ignore: cast_nullable_to_non_nullable
               as QualificationHistory,
-      lang == freezed
+      null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
@@ -578,24 +643,21 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetInitialState &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SetInitialState &&
             (identical(other.qualificationHistory, qualificationHistory) ||
-                const DeepCollectionEquality().equals(
-                    other.qualificationHistory, qualificationHistory)) &&
-            (identical(other.lang, lang) ||
-                const DeepCollectionEquality().equals(other.lang, lang)));
+                other.qualificationHistory == qualificationHistory) &&
+            (identical(other.lang, lang) || other.lang == lang));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(qualificationHistory) ^
-      const DeepCollectionEquality().hash(lang);
+  int get hashCode => Object.hash(runtimeType, qualificationHistory, lang);
 
   @JsonKey(ignore: true)
   @override
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
-      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
+      __$$_SetInitialStateCopyWithImpl<_$_SetInitialState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -609,6 +671,19 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function() save,
   }) {
     return setInitialState(qualificationHistory, lang);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changedQualificationName,
+    TResult? Function(String year)? changedCertifiedYear,
+    TResult? Function(String month)? changedCertifiedMonth,
+    TResult? Function(QualificationHistory qualificationHistory, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return setInitialState?.call(qualificationHistory, lang);
   }
 
   @override
@@ -644,6 +719,19 @@ class _$_SetInitialState implements _SetInitialState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedQualificationName value)?
+        changedQualificationName,
+    TResult? Function(_ChangedCertifiedYear value)? changedCertifiedYear,
+    TResult? Function(_ChangedCertifiedMonth value)? changedCertifiedMonth,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return setInitialState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedQualificationName value)? changedQualificationName,
     TResult Function(_ChangedCertifiedYear value)? changedCertifiedYear,
@@ -661,32 +749,28 @@ class _$_SetInitialState implements _SetInitialState {
 
 abstract class _SetInitialState implements UpdateQualificationInfoActorEvent {
   const factory _SetInitialState(
-          QualificationHistory qualificationHistory, String lang) =
+          final QualificationHistory qualificationHistory, final String lang) =
       _$_SetInitialState;
 
-  QualificationHistory get qualificationHistory =>
-      throw _privateConstructorUsedError;
-  String get lang => throw _privateConstructorUsedError;
+  QualificationHistory get qualificationHistory;
+  String get lang;
   @JsonKey(ignore: true)
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SaveCopyWith<$Res> {
-  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
-      __$SaveCopyWithImpl<$Res>;
+abstract class _$$_SaveCopyWith<$Res> {
+  factory _$$_SaveCopyWith(_$_Save value, $Res Function(_$_Save) then) =
+      __$$_SaveCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SaveCopyWithImpl<$Res>
-    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res>
-    implements _$SaveCopyWith<$Res> {
-  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
-      : super(_value, (v) => _then(v as _Save));
-
-  @override
-  _Save get _value => super._value as _Save;
+class __$$_SaveCopyWithImpl<$Res>
+    extends _$UpdateQualificationInfoActorEventCopyWithImpl<$Res, _$_Save>
+    implements _$$_SaveCopyWith<$Res> {
+  __$$_SaveCopyWithImpl(_$_Save _value, $Res Function(_$_Save) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -701,7 +785,8 @@ class _$_Save implements _Save {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Save);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Save);
   }
 
   @override
@@ -719,6 +804,19 @@ class _$_Save implements _Save {
     required TResult Function() save,
   }) {
     return save();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changedQualificationName,
+    TResult? Function(String year)? changedCertifiedYear,
+    TResult? Function(String month)? changedCertifiedMonth,
+    TResult? Function(QualificationHistory qualificationHistory, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return save?.call();
   }
 
   @override
@@ -754,6 +852,19 @@ class _$_Save implements _Save {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedQualificationName value)?
+        changedQualificationName,
+    TResult? Function(_ChangedCertifiedYear value)? changedCertifiedYear,
+    TResult? Function(_ChangedCertifiedMonth value)? changedCertifiedMonth,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedQualificationName value)? changedQualificationName,
     TResult Function(_ChangedCertifiedYear value)? changedCertifiedYear,
@@ -772,36 +883,6 @@ class _$_Save implements _Save {
 abstract class _Save implements UpdateQualificationInfoActorEvent {
   const factory _Save() = _$_Save;
 }
-
-/// @nodoc
-class _$UpdateQualificationInfoActorStateTearOff {
-  const _$UpdateQualificationInfoActorStateTearOff();
-
-  _UpdateQualificationInfoActorState call(
-      {required Key? key,
-      required String qualificationName,
-      required String certifiedYear,
-      required String certifiedMonth,
-      required bool isSubmitting,
-      required List<String> listOfYear,
-      required bool hasSetInitialData,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
-    return _UpdateQualificationInfoActorState(
-      key: key,
-      qualificationName: qualificationName,
-      certifiedYear: certifiedYear,
-      certifiedMonth: certifiedMonth,
-      isSubmitting: isSubmitting,
-      listOfYear: listOfYear,
-      hasSetInitialData: hasSetInitialData,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $UpdateQualificationInfoActorState =
-    _$UpdateQualificationInfoActorStateTearOff();
 
 /// @nodoc
 mixin _$UpdateQualificationInfoActorState {
@@ -825,7 +906,9 @@ abstract class $UpdateQualificationInfoActorStateCopyWith<$Res> {
   factory $UpdateQualificationInfoActorStateCopyWith(
           UpdateQualificationInfoActorState value,
           $Res Function(UpdateQualificationInfoActorState) then) =
-      _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>;
+      _$UpdateQualificationInfoActorStateCopyWithImpl<$Res,
+          UpdateQualificationInfoActorState>;
+  @useResult
   $Res call(
       {Key? key,
       String qualificationName,
@@ -838,70 +921,74 @@ abstract class $UpdateQualificationInfoActorStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
+class _$UpdateQualificationInfoActorStateCopyWithImpl<$Res,
+        $Val extends UpdateQualificationInfoActorState>
     implements $UpdateQualificationInfoActorStateCopyWith<$Res> {
   _$UpdateQualificationInfoActorStateCopyWithImpl(this._value, this._then);
 
-  final UpdateQualificationInfoActorState _value;
   // ignore: unused_field
-  final $Res Function(UpdateQualificationInfoActorState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? qualificationName = freezed,
-    Object? certifiedYear = freezed,
-    Object? certifiedMonth = freezed,
-    Object? isSubmitting = freezed,
-    Object? listOfYear = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? qualificationName = null,
+    Object? certifiedYear = null,
+    Object? certifiedMonth = null,
+    Object? isSubmitting = null,
+    Object? listOfYear = null,
+    Object? hasSetInitialData = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      qualificationName: qualificationName == freezed
+      qualificationName: null == qualificationName
           ? _value.qualificationName
           : qualificationName // ignore: cast_nullable_to_non_nullable
               as String,
-      certifiedYear: certifiedYear == freezed
+      certifiedYear: null == certifiedYear
           ? _value.certifiedYear
           : certifiedYear // ignore: cast_nullable_to_non_nullable
               as String,
-      certifiedMonth: certifiedMonth == freezed
+      certifiedMonth: null == certifiedMonth
           ? _value.certifiedMonth
           : certifiedMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      listOfYear: listOfYear == freezed
+      listOfYear: null == listOfYear
           ? _value.listOfYear
           : listOfYear // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$UpdateQualificationInfoActorStateCopyWith<$Res>
+abstract class _$$_UpdateQualificationInfoActorStateCopyWith<$Res>
     implements $UpdateQualificationInfoActorStateCopyWith<$Res> {
-  factory _$UpdateQualificationInfoActorStateCopyWith(
-          _UpdateQualificationInfoActorState value,
-          $Res Function(_UpdateQualificationInfoActorState) then) =
-      __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>;
+  factory _$$_UpdateQualificationInfoActorStateCopyWith(
+          _$_UpdateQualificationInfoActorState value,
+          $Res Function(_$_UpdateQualificationInfoActorState) then) =
+      __$$_UpdateQualificationInfoActorStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key? key,
       String qualificationName,
@@ -914,59 +1001,57 @@ abstract class _$UpdateQualificationInfoActorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
-    extends _$UpdateQualificationInfoActorStateCopyWithImpl<$Res>
-    implements _$UpdateQualificationInfoActorStateCopyWith<$Res> {
-  __$UpdateQualificationInfoActorStateCopyWithImpl(
-      _UpdateQualificationInfoActorState _value,
-      $Res Function(_UpdateQualificationInfoActorState) _then)
-      : super(_value, (v) => _then(v as _UpdateQualificationInfoActorState));
+class __$$_UpdateQualificationInfoActorStateCopyWithImpl<$Res>
+    extends _$UpdateQualificationInfoActorStateCopyWithImpl<$Res,
+        _$_UpdateQualificationInfoActorState>
+    implements _$$_UpdateQualificationInfoActorStateCopyWith<$Res> {
+  __$$_UpdateQualificationInfoActorStateCopyWithImpl(
+      _$_UpdateQualificationInfoActorState _value,
+      $Res Function(_$_UpdateQualificationInfoActorState) _then)
+      : super(_value, _then);
 
-  @override
-  _UpdateQualificationInfoActorState get _value =>
-      super._value as _UpdateQualificationInfoActorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? qualificationName = freezed,
-    Object? certifiedYear = freezed,
-    Object? certifiedMonth = freezed,
-    Object? isSubmitting = freezed,
-    Object? listOfYear = freezed,
-    Object? hasSetInitialData = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? qualificationName = null,
+    Object? certifiedYear = null,
+    Object? certifiedMonth = null,
+    Object? isSubmitting = null,
+    Object? listOfYear = null,
+    Object? hasSetInitialData = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_UpdateQualificationInfoActorState(
-      key: key == freezed
+    return _then(_$_UpdateQualificationInfoActorState(
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      qualificationName: qualificationName == freezed
+      qualificationName: null == qualificationName
           ? _value.qualificationName
           : qualificationName // ignore: cast_nullable_to_non_nullable
               as String,
-      certifiedYear: certifiedYear == freezed
+      certifiedYear: null == certifiedYear
           ? _value.certifiedYear
           : certifiedYear // ignore: cast_nullable_to_non_nullable
               as String,
-      certifiedMonth: certifiedMonth == freezed
+      certifiedMonth: null == certifiedMonth
           ? _value.certifiedMonth
           : certifiedMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      listOfYear: listOfYear == freezed
-          ? _value.listOfYear
+      listOfYear: null == listOfYear
+          ? _value._listOfYear
           : listOfYear // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      hasSetInitialData: hasSetInitialData == freezed
+      hasSetInitialData: null == hasSetInitialData
           ? _value.hasSetInitialData
           : hasSetInitialData // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -984,9 +1069,10 @@ class _$_UpdateQualificationInfoActorState
       required this.certifiedYear,
       required this.certifiedMonth,
       required this.isSubmitting,
-      required this.listOfYear,
+      required final List<String> listOfYear,
       required this.hasSetInitialData,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : _listOfYear = listOfYear;
 
   @override
   final Key? key;
@@ -998,8 +1084,14 @@ class _$_UpdateQualificationInfoActorState
   final String certifiedMonth;
   @override
   final bool isSubmitting;
+  final List<String> _listOfYear;
   @override
-  final List<String> listOfYear;
+  List<String> get listOfYear {
+    if (_listOfYear is EqualUnmodifiableListView) return _listOfYear;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfYear);
+  }
+
   @override
   final bool hasSetInitialData;
   @override
@@ -1013,85 +1105,78 @@ class _$_UpdateQualificationInfoActorState
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateQualificationInfoActorState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateQualificationInfoActorState &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.qualificationName, qualificationName) ||
-                const DeepCollectionEquality()
-                    .equals(other.qualificationName, qualificationName)) &&
+                other.qualificationName == qualificationName) &&
             (identical(other.certifiedYear, certifiedYear) ||
-                const DeepCollectionEquality()
-                    .equals(other.certifiedYear, certifiedYear)) &&
+                other.certifiedYear == certifiedYear) &&
             (identical(other.certifiedMonth, certifiedMonth) ||
-                const DeepCollectionEquality()
-                    .equals(other.certifiedMonth, certifiedMonth)) &&
+                other.certifiedMonth == certifiedMonth) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.listOfYear, listOfYear) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfYear, listOfYear)) &&
+                other.isSubmitting == isSubmitting) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfYear, _listOfYear) &&
             (identical(other.hasSetInitialData, hasSetInitialData) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasSetInitialData, hasSetInitialData)) &&
+                other.hasSetInitialData == hasSetInitialData) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(qualificationName) ^
-      const DeepCollectionEquality().hash(certifiedYear) ^
-      const DeepCollectionEquality().hash(certifiedMonth) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(listOfYear) ^
-      const DeepCollectionEquality().hash(hasSetInitialData) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      key,
+      qualificationName,
+      certifiedYear,
+      certifiedMonth,
+      isSubmitting,
+      const DeepCollectionEquality().hash(_listOfYear),
+      hasSetInitialData,
+      failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateQualificationInfoActorStateCopyWith<
-          _UpdateQualificationInfoActorState>
-      get copyWith => __$UpdateQualificationInfoActorStateCopyWithImpl<
-          _UpdateQualificationInfoActorState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_UpdateQualificationInfoActorStateCopyWith<
+          _$_UpdateQualificationInfoActorState>
+      get copyWith => __$$_UpdateQualificationInfoActorStateCopyWithImpl<
+          _$_UpdateQualificationInfoActorState>(this, _$identity);
 }
 
 abstract class _UpdateQualificationInfoActorState
     implements UpdateQualificationInfoActorState {
   const factory _UpdateQualificationInfoActorState(
-          {required Key? key,
-          required String qualificationName,
-          required String certifiedYear,
-          required String certifiedMonth,
-          required bool isSubmitting,
-          required List<String> listOfYear,
-          required bool hasSetInitialData,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
-      _$_UpdateQualificationInfoActorState;
+      {required final Key? key,
+      required final String qualificationName,
+      required final String certifiedYear,
+      required final String certifiedMonth,
+      required final bool isSubmitting,
+      required final List<String> listOfYear,
+      required final bool hasSetInitialData,
+      required final Option<Either<ApiFailure, Unit>>
+          failureOrSuccessOption}) = _$_UpdateQualificationInfoActorState;
 
   @override
-  Key? get key => throw _privateConstructorUsedError;
+  Key? get key;
   @override
-  String get qualificationName => throw _privateConstructorUsedError;
+  String get qualificationName;
   @override
-  String get certifiedYear => throw _privateConstructorUsedError;
+  String get certifiedYear;
   @override
-  String get certifiedMonth => throw _privateConstructorUsedError;
+  String get certifiedMonth;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  List<String> get listOfYear => throw _privateConstructorUsedError;
+  List<String> get listOfYear;
   @override
-  bool get hasSetInitialData => throw _privateConstructorUsedError;
+  bool get hasSetInitialData;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$UpdateQualificationInfoActorStateCopyWith<
-          _UpdateQualificationInfoActorState>
+  _$$_UpdateQualificationInfoActorStateCopyWith<
+          _$_UpdateQualificationInfoActorState>
       get copyWith => throw _privateConstructorUsedError;
 }

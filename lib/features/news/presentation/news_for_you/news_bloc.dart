@@ -21,7 +21,9 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
 
   NewsBloc({
     required this.getNews,
-  }) : super(const _Loading());
+  }) : super(const _Loading()) {
+    on<_FetchNewsData>((event, emit) {});
+  }
 
   @override
   Stream<NewsState> mapEventToState(

@@ -45,7 +45,6 @@ class LoggerImpl implements Logger {
     };
     debugPrint(params.toString());
 
-
     try {
       await client.post(
         Uri.parse(url),

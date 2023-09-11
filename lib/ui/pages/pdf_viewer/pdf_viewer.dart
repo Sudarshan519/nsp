@@ -1,8 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
 import 'package:wallet_app/ui/widgets/widgets.dart';
-
+@RoutePage()
 class PdfViewerPage extends StatefulWidget {
   final String pdfUrl;
   final String title;

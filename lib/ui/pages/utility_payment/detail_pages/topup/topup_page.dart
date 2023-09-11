@@ -21,10 +21,11 @@ import 'widgets/amount_text_field.dart';
 import 'widgets/mobile_number_input.dart';
 import 'widgets/topup_transaction_detail.dart';
 
+@RoutePage()
 class TopUpPage extends StatefulWidget {
   final UtilityPaymentsModel payData;
 
-  const TopUpPage({Key? key, required this.payData}) : super(key: key);
+  const TopUpPage({super.key, required this.payData});
 
   @override
   _TopUpPageState createState() => _TopUpPageState();
@@ -52,9 +53,16 @@ class _TopUpPageState extends State<TopUpPage> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+
+    // If i add this, no event is firing from second time i come to the page. initState() is being called i checked so sampleBloc is not null.
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetBalanceBloc, GetBalanceState>(
-      buildWhen: (p, c) => p.hashCode != c.hashCode,
+      // buildWhen: (p, c) => p.hashCode != c.hashCode,
       builder: (context, state) {
         return state.map(
             loading: (_) =>
@@ -113,7 +121,7 @@ class _TopUpPageState extends State<TopUpPage> {
               );
             },
             failure: (_) =>
-                Container(color: Colors.white, child: loadingPage()));
+                Container(color: Colors.white, child: loadingPage()),);
       },
     );
   }
@@ -130,7 +138,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 serverError: (error) => error.message,
                 invalidUser: (_) => AppConstants.someThingWentWrong,
                 noInternetConnection: (_) => AppConstants.noNetwork,
-              )).show(context);
+              ),).show(context);
             },
             (success) {
               getIt<GetBalanceBloc>().add(const GetBalanceEvent.fetchBalance());
@@ -165,7 +173,7 @@ class _TopUpPageState extends State<TopUpPage> {
             child: topupInformationbody(
           context,
           state,
-        ));
+        ),);
       },
     );
   }
@@ -190,12 +198,12 @@ class _TopUpPageState extends State<TopUpPage> {
             setState(() {});
             context.read<TopUpBalanceInMobileBloc>().add(
                   TopUpBalanceInMobileEvent.changeCoupon(
-                      couponCode?.couponCode ?? ''),
+                      couponCode?.couponCode ?? '',),
                 );
 
             context.read<TopUpBalanceInMobileBloc>().add(
                   TopUpBalanceInMobileEvent.setDiscountpercentage(
-                      double.parse(couponCode?.cashback ?? '0.0')),
+                      double.parse(couponCode?.cashback ?? '0.0'),),
                 );
 
             var doubleAmount = double.parse(state.amount);
@@ -208,7 +216,7 @@ class _TopUpPageState extends State<TopUpPage> {
 
             context.read<TopUpBalanceInMobileBloc>().add(
                   TopUpBalanceInMobileEvent.setRewardPointFromCoupon(
-                      couponCode?.getActualRewardPoint(doubleAmount) ?? 0),
+                      couponCode?.getActualRewardPoint(doubleAmount) ?? 0,),
                 );
           },
         );
@@ -217,7 +225,7 @@ class _TopUpPageState extends State<TopUpPage> {
   }
 
   Widget topupInformationbody(
-      BuildContext context, TopUpBalanceInMobileState state) {
+      BuildContext context, TopUpBalanceInMobileState state,) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: SingleChildScrollView(
@@ -250,7 +258,7 @@ class _TopUpPageState extends State<TopUpPage> {
                 try {
                   if (!state.isNumberValid) {
                     FlushbarHelper.createError(
-                            message: 'The phone number you entered is invalid!')
+                            message: 'The phone number you entered is invalid!',)
                         .show(context);
                     return;
                   }
@@ -262,7 +270,7 @@ class _TopUpPageState extends State<TopUpPage> {
                       amtNPR > Values.MAX_RECHARGE) {
                     FlushbarHelper.createError(
                             message:
-                                'Amount should be at least NPR ${Values.MIN_RECHARGE} and less than ${Values.MAX_RECHARGE}')
+                                'Amount should be at least NPR ${Values.MIN_RECHARGE} and less than ${Values.MAX_RECHARGE}',)
                         .show(context);
                     return;
                   } else if (amtJPY > _balanceJPY.toInt()) {

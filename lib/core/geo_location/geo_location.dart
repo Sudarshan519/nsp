@@ -32,8 +32,9 @@ class GeoLocationManager {
       }
     }
     final position = await GeolocatorPlatform.instance.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.bestForNavigation,
-        forceAndroidLocationManager: true);
+        // desiredAccuracy: LocationAccuracy.bestForNavigation,
+        // forceAndroidLocationManager: true,
+        );
     _latLng = '${position.latitude}:${position.longitude}';
 
     return Left(position);

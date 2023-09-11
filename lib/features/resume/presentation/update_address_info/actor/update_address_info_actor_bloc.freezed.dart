@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_address_info_actor_bloc.dart';
 
@@ -10,126 +12,7 @@ part of 'update_address_info_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UpdateAddressInfoActorEventTearOff {
-  const _$UpdateAddressInfoActorEventTearOff();
-
-  _ChangedCurrCountry changeCurrCountry(String country) {
-    return _ChangedCurrCountry(
-      country,
-    );
-  }
-
-  _ChangedCurrPostalCode changedCurrPostalCode(String code) {
-    return _ChangedCurrPostalCode(
-      code,
-    );
-  }
-
-  _ChangedCurJapaneserPrefecture changedCurrJapanesePrefecture(
-      String prefecture) {
-    return _ChangedCurJapaneserPrefecture(
-      prefecture,
-    );
-  }
-
-  _ChangedCurrNepaliProvince changedCurrNepaliProvince(String province) {
-    return _ChangedCurrNepaliProvince(
-      province,
-    );
-  }
-
-  _ChangedCurrCity changedCurrCity(String city) {
-    return _ChangedCurrCity(
-      city,
-    );
-  }
-
-  _ChangedCurrAddress changedCurrAddress(String address) {
-    return _ChangedCurrAddress(
-      address,
-    );
-  }
-
-  _ChangedCurrPhone changedCurrPhone(String phone) {
-    return _ChangedCurrPhone(
-      phone,
-    );
-  }
-
-  _ChangedSameAsCurrAddressInfo changeSameAsCurrAddressInfo(bool value) {
-    return _ChangedSameAsCurrAddressInfo(
-      value,
-    );
-  }
-
-  _ChangedContCountry changeContCountry(String country) {
-    return _ChangedContCountry(
-      country,
-    );
-  }
-
-  _ChangedContPostalCode changedContPostalCode(String code) {
-    return _ChangedContPostalCode(
-      code,
-    );
-  }
-
-  _ChangedContJapanesePrefecture changedContJapanesePrefecture(
-      String prefecture) {
-    return _ChangedContJapanesePrefecture(
-      prefecture,
-    );
-  }
-
-  _ChangedContNepaliProvince changedContNepaliProvince(String province) {
-    return _ChangedContNepaliProvince(
-      province,
-    );
-  }
-
-  _ChangedContCity changedContCity(String city) {
-    return _ChangedContCity(
-      city,
-    );
-  }
-
-  _ChangedContAddress changedContAddress(String address) {
-    return _ChangedContAddress(
-      address,
-    );
-  }
-
-  _ChangedContPhone changedContPhone(String phone) {
-    return _ChangedContPhone(
-      phone,
-    );
-  }
-
-  _SetInitialState setInitialState(
-      {required PersonalInfo info,
-      required List<String> prefectures,
-      required List<String> provinces,
-      required List<String> countries,
-      required String lang}) {
-    return _SetInitialState(
-      info: info,
-      prefectures: prefectures,
-      provinces: provinces,
-      countries: countries,
-      lang: lang,
-    );
-  }
-
-  _Save save() {
-    return const _Save();
-  }
-}
-
-/// @nodoc
-const $UpdateAddressInfoActorEvent = _$UpdateAddressInfoActorEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdateAddressInfoActorEvent {
@@ -154,6 +37,29 @@ mixin _$UpdateAddressInfoActorEvent {
             List<String> provinces, List<String> countries, String lang)
         setInitialState,
     required TResult Function() save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -209,6 +115,32 @@ mixin _$UpdateAddressInfoActorEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -242,44 +174,46 @@ abstract class $UpdateAddressInfoActorEventCopyWith<$Res> {
   factory $UpdateAddressInfoActorEventCopyWith(
           UpdateAddressInfoActorEvent value,
           $Res Function(UpdateAddressInfoActorEvent) then) =
-      _$UpdateAddressInfoActorEventCopyWithImpl<$Res>;
+      _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+          UpdateAddressInfoActorEvent>;
 }
 
 /// @nodoc
-class _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
+class _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        $Val extends UpdateAddressInfoActorEvent>
     implements $UpdateAddressInfoActorEventCopyWith<$Res> {
   _$UpdateAddressInfoActorEventCopyWithImpl(this._value, this._then);
 
-  final UpdateAddressInfoActorEvent _value;
   // ignore: unused_field
-  final $Res Function(UpdateAddressInfoActorEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangedCurrCountryCopyWith<$Res> {
-  factory _$ChangedCurrCountryCopyWith(
-          _ChangedCurrCountry value, $Res Function(_ChangedCurrCountry) then) =
-      __$ChangedCurrCountryCopyWithImpl<$Res>;
+abstract class _$$_ChangedCurrCountryCopyWith<$Res> {
+  factory _$$_ChangedCurrCountryCopyWith(_$_ChangedCurrCountry value,
+          $Res Function(_$_ChangedCurrCountry) then) =
+      __$$_ChangedCurrCountryCopyWithImpl<$Res>;
+  @useResult
   $Res call({String country});
 }
 
 /// @nodoc
-class __$ChangedCurrCountryCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCurrCountryCopyWith<$Res> {
-  __$ChangedCurrCountryCopyWithImpl(
-      _ChangedCurrCountry _value, $Res Function(_ChangedCurrCountry) _then)
-      : super(_value, (v) => _then(v as _ChangedCurrCountry));
+class __$$_ChangedCurrCountryCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedCurrCountry> implements _$$_ChangedCurrCountryCopyWith<$Res> {
+  __$$_ChangedCurrCountryCopyWithImpl(
+      _$_ChangedCurrCountry _value, $Res Function(_$_ChangedCurrCountry) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedCurrCountry get _value => super._value as _ChangedCurrCountry;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? country = freezed,
+    Object? country = null,
   }) {
-    return _then(_ChangedCurrCountry(
-      country == freezed
+    return _then(_$_ChangedCurrCountry(
+      null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
@@ -303,19 +237,20 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCurrCountry &&
-            (identical(other.country, country) ||
-                const DeepCollectionEquality().equals(other.country, country)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedCurrCountry &&
+            (identical(other.country, country) || other.country == country));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(country);
+  int get hashCode => Object.hash(runtimeType, country);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCurrCountryCopyWith<_ChangedCurrCountry> get copyWith =>
-      __$ChangedCurrCountryCopyWithImpl<_ChangedCurrCountry>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCurrCountryCopyWith<_$_ChangedCurrCountry> get copyWith =>
+      __$$_ChangedCurrCountryCopyWithImpl<_$_ChangedCurrCountry>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -341,6 +276,32 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
     required TResult Function() save,
   }) {
     return changeCurrCountry(country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeCurrCountry?.call(country);
   }
 
   @override
@@ -406,6 +367,35 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeCurrCountry?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -439,39 +429,40 @@ class _$_ChangedCurrCountry implements _ChangedCurrCountry {
 }
 
 abstract class _ChangedCurrCountry implements UpdateAddressInfoActorEvent {
-  const factory _ChangedCurrCountry(String country) = _$_ChangedCurrCountry;
+  const factory _ChangedCurrCountry(final String country) =
+      _$_ChangedCurrCountry;
 
-  String get country => throw _privateConstructorUsedError;
+  String get country;
   @JsonKey(ignore: true)
-  _$ChangedCurrCountryCopyWith<_ChangedCurrCountry> get copyWith =>
+  _$$_ChangedCurrCountryCopyWith<_$_ChangedCurrCountry> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedCurrPostalCodeCopyWith<$Res> {
-  factory _$ChangedCurrPostalCodeCopyWith(_ChangedCurrPostalCode value,
-          $Res Function(_ChangedCurrPostalCode) then) =
-      __$ChangedCurrPostalCodeCopyWithImpl<$Res>;
+abstract class _$$_ChangedCurrPostalCodeCopyWith<$Res> {
+  factory _$$_ChangedCurrPostalCodeCopyWith(_$_ChangedCurrPostalCode value,
+          $Res Function(_$_ChangedCurrPostalCode) then) =
+      __$$_ChangedCurrPostalCodeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String code});
 }
 
 /// @nodoc
-class __$ChangedCurrPostalCodeCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCurrPostalCodeCopyWith<$Res> {
-  __$ChangedCurrPostalCodeCopyWithImpl(_ChangedCurrPostalCode _value,
-      $Res Function(_ChangedCurrPostalCode) _then)
-      : super(_value, (v) => _then(v as _ChangedCurrPostalCode));
+class __$$_ChangedCurrPostalCodeCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedCurrPostalCode>
+    implements _$$_ChangedCurrPostalCodeCopyWith<$Res> {
+  __$$_ChangedCurrPostalCodeCopyWithImpl(_$_ChangedCurrPostalCode _value,
+      $Res Function(_$_ChangedCurrPostalCode) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedCurrPostalCode get _value => super._value as _ChangedCurrPostalCode;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
+    Object? code = null,
   }) {
-    return _then(_ChangedCurrPostalCode(
-      code == freezed
+    return _then(_$_ChangedCurrPostalCode(
+      null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
@@ -495,19 +486,19 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCurrPostalCode &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedCurrPostalCode &&
+            (identical(other.code, code) || other.code == code));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(code);
+  int get hashCode => Object.hash(runtimeType, code);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCurrPostalCodeCopyWith<_ChangedCurrPostalCode> get copyWith =>
-      __$ChangedCurrPostalCodeCopyWithImpl<_ChangedCurrPostalCode>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCurrPostalCodeCopyWith<_$_ChangedCurrPostalCode> get copyWith =>
+      __$$_ChangedCurrPostalCodeCopyWithImpl<_$_ChangedCurrPostalCode>(
           this, _$identity);
 
   @override
@@ -534,6 +525,32 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
     required TResult Function() save,
   }) {
     return changedCurrPostalCode(code);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedCurrPostalCode?.call(code);
   }
 
   @override
@@ -599,6 +616,35 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedCurrPostalCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -632,42 +678,42 @@ class _$_ChangedCurrPostalCode implements _ChangedCurrPostalCode {
 }
 
 abstract class _ChangedCurrPostalCode implements UpdateAddressInfoActorEvent {
-  const factory _ChangedCurrPostalCode(String code) = _$_ChangedCurrPostalCode;
+  const factory _ChangedCurrPostalCode(final String code) =
+      _$_ChangedCurrPostalCode;
 
-  String get code => throw _privateConstructorUsedError;
+  String get code;
   @JsonKey(ignore: true)
-  _$ChangedCurrPostalCodeCopyWith<_ChangedCurrPostalCode> get copyWith =>
+  _$$_ChangedCurrPostalCodeCopyWith<_$_ChangedCurrPostalCode> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedCurJapaneserPrefectureCopyWith<$Res> {
-  factory _$ChangedCurJapaneserPrefectureCopyWith(
-          _ChangedCurJapaneserPrefecture value,
-          $Res Function(_ChangedCurJapaneserPrefecture) then) =
-      __$ChangedCurJapaneserPrefectureCopyWithImpl<$Res>;
+abstract class _$$_ChangedCurJapaneserPrefectureCopyWith<$Res> {
+  factory _$$_ChangedCurJapaneserPrefectureCopyWith(
+          _$_ChangedCurJapaneserPrefecture value,
+          $Res Function(_$_ChangedCurJapaneserPrefecture) then) =
+      __$$_ChangedCurJapaneserPrefectureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String prefecture});
 }
 
 /// @nodoc
-class __$ChangedCurJapaneserPrefectureCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCurJapaneserPrefectureCopyWith<$Res> {
-  __$ChangedCurJapaneserPrefectureCopyWithImpl(
-      _ChangedCurJapaneserPrefecture _value,
-      $Res Function(_ChangedCurJapaneserPrefecture) _then)
-      : super(_value, (v) => _then(v as _ChangedCurJapaneserPrefecture));
+class __$$_ChangedCurJapaneserPrefectureCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedCurJapaneserPrefecture>
+    implements _$$_ChangedCurJapaneserPrefectureCopyWith<$Res> {
+  __$$_ChangedCurJapaneserPrefectureCopyWithImpl(
+      _$_ChangedCurJapaneserPrefecture _value,
+      $Res Function(_$_ChangedCurJapaneserPrefecture) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedCurJapaneserPrefecture get _value =>
-      super._value as _ChangedCurJapaneserPrefecture;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? prefecture = freezed,
+    Object? prefecture = null,
   }) {
-    return _then(_ChangedCurJapaneserPrefecture(
-      prefecture == freezed
+    return _then(_$_ChangedCurJapaneserPrefecture(
+      null == prefecture
           ? _value.prefecture
           : prefecture // ignore: cast_nullable_to_non_nullable
               as String,
@@ -692,21 +738,21 @@ class _$_ChangedCurJapaneserPrefecture
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCurJapaneserPrefecture &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedCurJapaneserPrefecture &&
             (identical(other.prefecture, prefecture) ||
-                const DeepCollectionEquality()
-                    .equals(other.prefecture, prefecture)));
+                other.prefecture == prefecture));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(prefecture);
+  int get hashCode => Object.hash(runtimeType, prefecture);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCurJapaneserPrefectureCopyWith<_ChangedCurJapaneserPrefecture>
-      get copyWith => __$ChangedCurJapaneserPrefectureCopyWithImpl<
-          _ChangedCurJapaneserPrefecture>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCurJapaneserPrefectureCopyWith<_$_ChangedCurJapaneserPrefecture>
+      get copyWith => __$$_ChangedCurJapaneserPrefectureCopyWithImpl<
+          _$_ChangedCurJapaneserPrefecture>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -732,6 +778,32 @@ class _$_ChangedCurJapaneserPrefecture
     required TResult Function() save,
   }) {
     return changedCurrJapanesePrefecture(prefecture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedCurrJapanesePrefecture?.call(prefecture);
   }
 
   @override
@@ -797,6 +869,35 @@ class _$_ChangedCurJapaneserPrefecture
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedCurrJapanesePrefecture?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -831,41 +932,42 @@ class _$_ChangedCurJapaneserPrefecture
 
 abstract class _ChangedCurJapaneserPrefecture
     implements UpdateAddressInfoActorEvent {
-  const factory _ChangedCurJapaneserPrefecture(String prefecture) =
+  const factory _ChangedCurJapaneserPrefecture(final String prefecture) =
       _$_ChangedCurJapaneserPrefecture;
 
-  String get prefecture => throw _privateConstructorUsedError;
+  String get prefecture;
   @JsonKey(ignore: true)
-  _$ChangedCurJapaneserPrefectureCopyWith<_ChangedCurJapaneserPrefecture>
+  _$$_ChangedCurJapaneserPrefectureCopyWith<_$_ChangedCurJapaneserPrefecture>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedCurrNepaliProvinceCopyWith<$Res> {
-  factory _$ChangedCurrNepaliProvinceCopyWith(_ChangedCurrNepaliProvince value,
-          $Res Function(_ChangedCurrNepaliProvince) then) =
-      __$ChangedCurrNepaliProvinceCopyWithImpl<$Res>;
+abstract class _$$_ChangedCurrNepaliProvinceCopyWith<$Res> {
+  factory _$$_ChangedCurrNepaliProvinceCopyWith(
+          _$_ChangedCurrNepaliProvince value,
+          $Res Function(_$_ChangedCurrNepaliProvince) then) =
+      __$$_ChangedCurrNepaliProvinceCopyWithImpl<$Res>;
+  @useResult
   $Res call({String province});
 }
 
 /// @nodoc
-class __$ChangedCurrNepaliProvinceCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCurrNepaliProvinceCopyWith<$Res> {
-  __$ChangedCurrNepaliProvinceCopyWithImpl(_ChangedCurrNepaliProvince _value,
-      $Res Function(_ChangedCurrNepaliProvince) _then)
-      : super(_value, (v) => _then(v as _ChangedCurrNepaliProvince));
+class __$$_ChangedCurrNepaliProvinceCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedCurrNepaliProvince>
+    implements _$$_ChangedCurrNepaliProvinceCopyWith<$Res> {
+  __$$_ChangedCurrNepaliProvinceCopyWithImpl(
+      _$_ChangedCurrNepaliProvince _value,
+      $Res Function(_$_ChangedCurrNepaliProvince) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedCurrNepaliProvince get _value =>
-      super._value as _ChangedCurrNepaliProvince;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? province = freezed,
+    Object? province = null,
   }) {
-    return _then(_ChangedCurrNepaliProvince(
-      province == freezed
+    return _then(_$_ChangedCurrNepaliProvince(
+      null == province
           ? _value.province
           : province // ignore: cast_nullable_to_non_nullable
               as String,
@@ -889,22 +991,21 @@ class _$_ChangedCurrNepaliProvince implements _ChangedCurrNepaliProvince {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCurrNepaliProvince &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedCurrNepaliProvince &&
             (identical(other.province, province) ||
-                const DeepCollectionEquality()
-                    .equals(other.province, province)));
+                other.province == province));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(province);
+  int get hashCode => Object.hash(runtimeType, province);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCurrNepaliProvinceCopyWith<_ChangedCurrNepaliProvince>
-      get copyWith =>
-          __$ChangedCurrNepaliProvinceCopyWithImpl<_ChangedCurrNepaliProvince>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCurrNepaliProvinceCopyWith<_$_ChangedCurrNepaliProvince>
+      get copyWith => __$$_ChangedCurrNepaliProvinceCopyWithImpl<
+          _$_ChangedCurrNepaliProvince>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -930,6 +1031,32 @@ class _$_ChangedCurrNepaliProvince implements _ChangedCurrNepaliProvince {
     required TResult Function() save,
   }) {
     return changedCurrNepaliProvince(province);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedCurrNepaliProvince?.call(province);
   }
 
   @override
@@ -995,6 +1122,35 @@ class _$_ChangedCurrNepaliProvince implements _ChangedCurrNepaliProvince {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedCurrNepaliProvince?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -1029,40 +1185,39 @@ class _$_ChangedCurrNepaliProvince implements _ChangedCurrNepaliProvince {
 
 abstract class _ChangedCurrNepaliProvince
     implements UpdateAddressInfoActorEvent {
-  const factory _ChangedCurrNepaliProvince(String province) =
+  const factory _ChangedCurrNepaliProvince(final String province) =
       _$_ChangedCurrNepaliProvince;
 
-  String get province => throw _privateConstructorUsedError;
+  String get province;
   @JsonKey(ignore: true)
-  _$ChangedCurrNepaliProvinceCopyWith<_ChangedCurrNepaliProvince>
+  _$$_ChangedCurrNepaliProvinceCopyWith<_$_ChangedCurrNepaliProvince>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedCurrCityCopyWith<$Res> {
-  factory _$ChangedCurrCityCopyWith(
-          _ChangedCurrCity value, $Res Function(_ChangedCurrCity) then) =
-      __$ChangedCurrCityCopyWithImpl<$Res>;
+abstract class _$$_ChangedCurrCityCopyWith<$Res> {
+  factory _$$_ChangedCurrCityCopyWith(
+          _$_ChangedCurrCity value, $Res Function(_$_ChangedCurrCity) then) =
+      __$$_ChangedCurrCityCopyWithImpl<$Res>;
+  @useResult
   $Res call({String city});
 }
 
 /// @nodoc
-class __$ChangedCurrCityCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCurrCityCopyWith<$Res> {
-  __$ChangedCurrCityCopyWithImpl(
-      _ChangedCurrCity _value, $Res Function(_ChangedCurrCity) _then)
-      : super(_value, (v) => _then(v as _ChangedCurrCity));
+class __$$_ChangedCurrCityCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res, _$_ChangedCurrCity>
+    implements _$$_ChangedCurrCityCopyWith<$Res> {
+  __$$_ChangedCurrCityCopyWithImpl(
+      _$_ChangedCurrCity _value, $Res Function(_$_ChangedCurrCity) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedCurrCity get _value => super._value as _ChangedCurrCity;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
+    Object? city = null,
   }) {
-    return _then(_ChangedCurrCity(
-      city == freezed
+    return _then(_$_ChangedCurrCity(
+      null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1086,19 +1241,19 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCurrCity &&
-            (identical(other.city, city) ||
-                const DeepCollectionEquality().equals(other.city, city)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedCurrCity &&
+            (identical(other.city, city) || other.city == city));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(city);
+  int get hashCode => Object.hash(runtimeType, city);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCurrCityCopyWith<_ChangedCurrCity> get copyWith =>
-      __$ChangedCurrCityCopyWithImpl<_ChangedCurrCity>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCurrCityCopyWith<_$_ChangedCurrCity> get copyWith =>
+      __$$_ChangedCurrCityCopyWithImpl<_$_ChangedCurrCity>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1124,6 +1279,32 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
     required TResult Function() save,
   }) {
     return changedCurrCity(city);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedCurrCity?.call(city);
   }
 
   @override
@@ -1189,6 +1370,35 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedCurrCity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -1222,39 +1432,38 @@ class _$_ChangedCurrCity implements _ChangedCurrCity {
 }
 
 abstract class _ChangedCurrCity implements UpdateAddressInfoActorEvent {
-  const factory _ChangedCurrCity(String city) = _$_ChangedCurrCity;
+  const factory _ChangedCurrCity(final String city) = _$_ChangedCurrCity;
 
-  String get city => throw _privateConstructorUsedError;
+  String get city;
   @JsonKey(ignore: true)
-  _$ChangedCurrCityCopyWith<_ChangedCurrCity> get copyWith =>
+  _$$_ChangedCurrCityCopyWith<_$_ChangedCurrCity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedCurrAddressCopyWith<$Res> {
-  factory _$ChangedCurrAddressCopyWith(
-          _ChangedCurrAddress value, $Res Function(_ChangedCurrAddress) then) =
-      __$ChangedCurrAddressCopyWithImpl<$Res>;
+abstract class _$$_ChangedCurrAddressCopyWith<$Res> {
+  factory _$$_ChangedCurrAddressCopyWith(_$_ChangedCurrAddress value,
+          $Res Function(_$_ChangedCurrAddress) then) =
+      __$$_ChangedCurrAddressCopyWithImpl<$Res>;
+  @useResult
   $Res call({String address});
 }
 
 /// @nodoc
-class __$ChangedCurrAddressCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCurrAddressCopyWith<$Res> {
-  __$ChangedCurrAddressCopyWithImpl(
-      _ChangedCurrAddress _value, $Res Function(_ChangedCurrAddress) _then)
-      : super(_value, (v) => _then(v as _ChangedCurrAddress));
+class __$$_ChangedCurrAddressCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedCurrAddress> implements _$$_ChangedCurrAddressCopyWith<$Res> {
+  __$$_ChangedCurrAddressCopyWithImpl(
+      _$_ChangedCurrAddress _value, $Res Function(_$_ChangedCurrAddress) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedCurrAddress get _value => super._value as _ChangedCurrAddress;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
+    Object? address = null,
   }) {
-    return _then(_ChangedCurrAddress(
-      address == freezed
+    return _then(_$_ChangedCurrAddress(
+      null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1278,19 +1487,20 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCurrAddress &&
-            (identical(other.address, address) ||
-                const DeepCollectionEquality().equals(other.address, address)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedCurrAddress &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(address);
+  int get hashCode => Object.hash(runtimeType, address);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCurrAddressCopyWith<_ChangedCurrAddress> get copyWith =>
-      __$ChangedCurrAddressCopyWithImpl<_ChangedCurrAddress>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCurrAddressCopyWith<_$_ChangedCurrAddress> get copyWith =>
+      __$$_ChangedCurrAddressCopyWithImpl<_$_ChangedCurrAddress>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1316,6 +1526,32 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
     required TResult Function() save,
   }) {
     return changedCurrAddress(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedCurrAddress?.call(address);
   }
 
   @override
@@ -1381,6 +1617,35 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedCurrAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -1414,39 +1679,39 @@ class _$_ChangedCurrAddress implements _ChangedCurrAddress {
 }
 
 abstract class _ChangedCurrAddress implements UpdateAddressInfoActorEvent {
-  const factory _ChangedCurrAddress(String address) = _$_ChangedCurrAddress;
+  const factory _ChangedCurrAddress(final String address) =
+      _$_ChangedCurrAddress;
 
-  String get address => throw _privateConstructorUsedError;
+  String get address;
   @JsonKey(ignore: true)
-  _$ChangedCurrAddressCopyWith<_ChangedCurrAddress> get copyWith =>
+  _$$_ChangedCurrAddressCopyWith<_$_ChangedCurrAddress> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedCurrPhoneCopyWith<$Res> {
-  factory _$ChangedCurrPhoneCopyWith(
-          _ChangedCurrPhone value, $Res Function(_ChangedCurrPhone) then) =
-      __$ChangedCurrPhoneCopyWithImpl<$Res>;
+abstract class _$$_ChangedCurrPhoneCopyWith<$Res> {
+  factory _$$_ChangedCurrPhoneCopyWith(
+          _$_ChangedCurrPhone value, $Res Function(_$_ChangedCurrPhone) then) =
+      __$$_ChangedCurrPhoneCopyWithImpl<$Res>;
+  @useResult
   $Res call({String phone});
 }
 
 /// @nodoc
-class __$ChangedCurrPhoneCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedCurrPhoneCopyWith<$Res> {
-  __$ChangedCurrPhoneCopyWithImpl(
-      _ChangedCurrPhone _value, $Res Function(_ChangedCurrPhone) _then)
-      : super(_value, (v) => _then(v as _ChangedCurrPhone));
+class __$$_ChangedCurrPhoneCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res, _$_ChangedCurrPhone>
+    implements _$$_ChangedCurrPhoneCopyWith<$Res> {
+  __$$_ChangedCurrPhoneCopyWithImpl(
+      _$_ChangedCurrPhone _value, $Res Function(_$_ChangedCurrPhone) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedCurrPhone get _value => super._value as _ChangedCurrPhone;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phone = freezed,
+    Object? phone = null,
   }) {
-    return _then(_ChangedCurrPhone(
-      phone == freezed
+    return _then(_$_ChangedCurrPhone(
+      null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1470,19 +1735,19 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedCurrPhone &&
-            (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedCurrPhone &&
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(phone);
+  int get hashCode => Object.hash(runtimeType, phone);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedCurrPhoneCopyWith<_ChangedCurrPhone> get copyWith =>
-      __$ChangedCurrPhoneCopyWithImpl<_ChangedCurrPhone>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCurrPhoneCopyWith<_$_ChangedCurrPhone> get copyWith =>
+      __$$_ChangedCurrPhoneCopyWithImpl<_$_ChangedCurrPhone>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1508,6 +1773,32 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
     required TResult Function() save,
   }) {
     return changedCurrPhone(phone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedCurrPhone?.call(phone);
   }
 
   @override
@@ -1573,6 +1864,35 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedCurrPhone?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -1606,42 +1926,41 @@ class _$_ChangedCurrPhone implements _ChangedCurrPhone {
 }
 
 abstract class _ChangedCurrPhone implements UpdateAddressInfoActorEvent {
-  const factory _ChangedCurrPhone(String phone) = _$_ChangedCurrPhone;
+  const factory _ChangedCurrPhone(final String phone) = _$_ChangedCurrPhone;
 
-  String get phone => throw _privateConstructorUsedError;
+  String get phone;
   @JsonKey(ignore: true)
-  _$ChangedCurrPhoneCopyWith<_ChangedCurrPhone> get copyWith =>
+  _$$_ChangedCurrPhoneCopyWith<_$_ChangedCurrPhone> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedSameAsCurrAddressInfoCopyWith<$Res> {
-  factory _$ChangedSameAsCurrAddressInfoCopyWith(
-          _ChangedSameAsCurrAddressInfo value,
-          $Res Function(_ChangedSameAsCurrAddressInfo) then) =
-      __$ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>;
+abstract class _$$_ChangedSameAsCurrAddressInfoCopyWith<$Res> {
+  factory _$$_ChangedSameAsCurrAddressInfoCopyWith(
+          _$_ChangedSameAsCurrAddressInfo value,
+          $Res Function(_$_ChangedSameAsCurrAddressInfo) then) =
+      __$$_ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedSameAsCurrAddressInfoCopyWith<$Res> {
-  __$ChangedSameAsCurrAddressInfoCopyWithImpl(
-      _ChangedSameAsCurrAddressInfo _value,
-      $Res Function(_ChangedSameAsCurrAddressInfo) _then)
-      : super(_value, (v) => _then(v as _ChangedSameAsCurrAddressInfo));
+class __$$_ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedSameAsCurrAddressInfo>
+    implements _$$_ChangedSameAsCurrAddressInfoCopyWith<$Res> {
+  __$$_ChangedSameAsCurrAddressInfoCopyWithImpl(
+      _$_ChangedSameAsCurrAddressInfo _value,
+      $Res Function(_$_ChangedSameAsCurrAddressInfo) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedSameAsCurrAddressInfo get _value =>
-      super._value as _ChangedSameAsCurrAddressInfo;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
-    return _then(_ChangedSameAsCurrAddressInfo(
-      value == freezed
+    return _then(_$_ChangedSameAsCurrAddressInfo(
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -1654,7 +1973,8 @@ class __$ChangedSameAsCurrAddressInfoCopyWithImpl<$Res>
 class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
   const _$_ChangedSameAsCurrAddressInfo(this.value);
 
-  @override // ignore: avoid_positional_boolean_parameters
+// ignore: avoid_positional_boolean_parameters
+  @override
   final bool value;
 
   @override
@@ -1665,20 +1985,20 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedSameAsCurrAddressInfo &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedSameAsCurrAddressInfo &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedSameAsCurrAddressInfoCopyWith<_ChangedSameAsCurrAddressInfo>
-      get copyWith => __$ChangedSameAsCurrAddressInfoCopyWithImpl<
-          _ChangedSameAsCurrAddressInfo>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedSameAsCurrAddressInfoCopyWith<_$_ChangedSameAsCurrAddressInfo>
+      get copyWith => __$$_ChangedSameAsCurrAddressInfoCopyWithImpl<
+          _$_ChangedSameAsCurrAddressInfo>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1704,6 +2024,32 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
     required TResult Function() save,
   }) {
     return changeSameAsCurrAddressInfo(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeSameAsCurrAddressInfo?.call(value);
   }
 
   @override
@@ -1769,6 +2115,35 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeSameAsCurrAddressInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -1803,41 +2178,40 @@ class _$_ChangedSameAsCurrAddressInfo implements _ChangedSameAsCurrAddressInfo {
 
 abstract class _ChangedSameAsCurrAddressInfo
     implements UpdateAddressInfoActorEvent {
-  const factory _ChangedSameAsCurrAddressInfo(bool value) =
+  const factory _ChangedSameAsCurrAddressInfo(final bool value) =
       _$_ChangedSameAsCurrAddressInfo;
 
 // ignore: avoid_positional_boolean_parameters
-  bool get value => throw _privateConstructorUsedError;
+  bool get value;
   @JsonKey(ignore: true)
-  _$ChangedSameAsCurrAddressInfoCopyWith<_ChangedSameAsCurrAddressInfo>
+  _$$_ChangedSameAsCurrAddressInfoCopyWith<_$_ChangedSameAsCurrAddressInfo>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedContCountryCopyWith<$Res> {
-  factory _$ChangedContCountryCopyWith(
-          _ChangedContCountry value, $Res Function(_ChangedContCountry) then) =
-      __$ChangedContCountryCopyWithImpl<$Res>;
+abstract class _$$_ChangedContCountryCopyWith<$Res> {
+  factory _$$_ChangedContCountryCopyWith(_$_ChangedContCountry value,
+          $Res Function(_$_ChangedContCountry) then) =
+      __$$_ChangedContCountryCopyWithImpl<$Res>;
+  @useResult
   $Res call({String country});
 }
 
 /// @nodoc
-class __$ChangedContCountryCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedContCountryCopyWith<$Res> {
-  __$ChangedContCountryCopyWithImpl(
-      _ChangedContCountry _value, $Res Function(_ChangedContCountry) _then)
-      : super(_value, (v) => _then(v as _ChangedContCountry));
+class __$$_ChangedContCountryCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedContCountry> implements _$$_ChangedContCountryCopyWith<$Res> {
+  __$$_ChangedContCountryCopyWithImpl(
+      _$_ChangedContCountry _value, $Res Function(_$_ChangedContCountry) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedContCountry get _value => super._value as _ChangedContCountry;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? country = freezed,
+    Object? country = null,
   }) {
-    return _then(_ChangedContCountry(
-      country == freezed
+    return _then(_$_ChangedContCountry(
+      null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1861,19 +2235,20 @@ class _$_ChangedContCountry implements _ChangedContCountry {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedContCountry &&
-            (identical(other.country, country) ||
-                const DeepCollectionEquality().equals(other.country, country)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedContCountry &&
+            (identical(other.country, country) || other.country == country));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(country);
+  int get hashCode => Object.hash(runtimeType, country);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedContCountryCopyWith<_ChangedContCountry> get copyWith =>
-      __$ChangedContCountryCopyWithImpl<_ChangedContCountry>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedContCountryCopyWith<_$_ChangedContCountry> get copyWith =>
+      __$$_ChangedContCountryCopyWithImpl<_$_ChangedContCountry>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1899,6 +2274,32 @@ class _$_ChangedContCountry implements _ChangedContCountry {
     required TResult Function() save,
   }) {
     return changeContCountry(country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changeContCountry?.call(country);
   }
 
   @override
@@ -1964,6 +2365,35 @@ class _$_ChangedContCountry implements _ChangedContCountry {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changeContCountry?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -1997,39 +2427,40 @@ class _$_ChangedContCountry implements _ChangedContCountry {
 }
 
 abstract class _ChangedContCountry implements UpdateAddressInfoActorEvent {
-  const factory _ChangedContCountry(String country) = _$_ChangedContCountry;
+  const factory _ChangedContCountry(final String country) =
+      _$_ChangedContCountry;
 
-  String get country => throw _privateConstructorUsedError;
+  String get country;
   @JsonKey(ignore: true)
-  _$ChangedContCountryCopyWith<_ChangedContCountry> get copyWith =>
+  _$$_ChangedContCountryCopyWith<_$_ChangedContCountry> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedContPostalCodeCopyWith<$Res> {
-  factory _$ChangedContPostalCodeCopyWith(_ChangedContPostalCode value,
-          $Res Function(_ChangedContPostalCode) then) =
-      __$ChangedContPostalCodeCopyWithImpl<$Res>;
+abstract class _$$_ChangedContPostalCodeCopyWith<$Res> {
+  factory _$$_ChangedContPostalCodeCopyWith(_$_ChangedContPostalCode value,
+          $Res Function(_$_ChangedContPostalCode) then) =
+      __$$_ChangedContPostalCodeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String code});
 }
 
 /// @nodoc
-class __$ChangedContPostalCodeCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedContPostalCodeCopyWith<$Res> {
-  __$ChangedContPostalCodeCopyWithImpl(_ChangedContPostalCode _value,
-      $Res Function(_ChangedContPostalCode) _then)
-      : super(_value, (v) => _then(v as _ChangedContPostalCode));
+class __$$_ChangedContPostalCodeCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedContPostalCode>
+    implements _$$_ChangedContPostalCodeCopyWith<$Res> {
+  __$$_ChangedContPostalCodeCopyWithImpl(_$_ChangedContPostalCode _value,
+      $Res Function(_$_ChangedContPostalCode) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedContPostalCode get _value => super._value as _ChangedContPostalCode;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
+    Object? code = null,
   }) {
-    return _then(_ChangedContPostalCode(
-      code == freezed
+    return _then(_$_ChangedContPostalCode(
+      null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2053,19 +2484,19 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedContPostalCode &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedContPostalCode &&
+            (identical(other.code, code) || other.code == code));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(code);
+  int get hashCode => Object.hash(runtimeType, code);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedContPostalCodeCopyWith<_ChangedContPostalCode> get copyWith =>
-      __$ChangedContPostalCodeCopyWithImpl<_ChangedContPostalCode>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangedContPostalCodeCopyWith<_$_ChangedContPostalCode> get copyWith =>
+      __$$_ChangedContPostalCodeCopyWithImpl<_$_ChangedContPostalCode>(
           this, _$identity);
 
   @override
@@ -2092,6 +2523,32 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
     required TResult Function() save,
   }) {
     return changedContPostalCode(code);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedContPostalCode?.call(code);
   }
 
   @override
@@ -2157,6 +2614,35 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedContPostalCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -2190,42 +2676,42 @@ class _$_ChangedContPostalCode implements _ChangedContPostalCode {
 }
 
 abstract class _ChangedContPostalCode implements UpdateAddressInfoActorEvent {
-  const factory _ChangedContPostalCode(String code) = _$_ChangedContPostalCode;
+  const factory _ChangedContPostalCode(final String code) =
+      _$_ChangedContPostalCode;
 
-  String get code => throw _privateConstructorUsedError;
+  String get code;
   @JsonKey(ignore: true)
-  _$ChangedContPostalCodeCopyWith<_ChangedContPostalCode> get copyWith =>
+  _$$_ChangedContPostalCodeCopyWith<_$_ChangedContPostalCode> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedContJapanesePrefectureCopyWith<$Res> {
-  factory _$ChangedContJapanesePrefectureCopyWith(
-          _ChangedContJapanesePrefecture value,
-          $Res Function(_ChangedContJapanesePrefecture) then) =
-      __$ChangedContJapanesePrefectureCopyWithImpl<$Res>;
+abstract class _$$_ChangedContJapanesePrefectureCopyWith<$Res> {
+  factory _$$_ChangedContJapanesePrefectureCopyWith(
+          _$_ChangedContJapanesePrefecture value,
+          $Res Function(_$_ChangedContJapanesePrefecture) then) =
+      __$$_ChangedContJapanesePrefectureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String prefecture});
 }
 
 /// @nodoc
-class __$ChangedContJapanesePrefectureCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedContJapanesePrefectureCopyWith<$Res> {
-  __$ChangedContJapanesePrefectureCopyWithImpl(
-      _ChangedContJapanesePrefecture _value,
-      $Res Function(_ChangedContJapanesePrefecture) _then)
-      : super(_value, (v) => _then(v as _ChangedContJapanesePrefecture));
+class __$$_ChangedContJapanesePrefectureCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedContJapanesePrefecture>
+    implements _$$_ChangedContJapanesePrefectureCopyWith<$Res> {
+  __$$_ChangedContJapanesePrefectureCopyWithImpl(
+      _$_ChangedContJapanesePrefecture _value,
+      $Res Function(_$_ChangedContJapanesePrefecture) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedContJapanesePrefecture get _value =>
-      super._value as _ChangedContJapanesePrefecture;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? prefecture = freezed,
+    Object? prefecture = null,
   }) {
-    return _then(_ChangedContJapanesePrefecture(
-      prefecture == freezed
+    return _then(_$_ChangedContJapanesePrefecture(
+      null == prefecture
           ? _value.prefecture
           : prefecture // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2250,21 +2736,21 @@ class _$_ChangedContJapanesePrefecture
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedContJapanesePrefecture &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedContJapanesePrefecture &&
             (identical(other.prefecture, prefecture) ||
-                const DeepCollectionEquality()
-                    .equals(other.prefecture, prefecture)));
+                other.prefecture == prefecture));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(prefecture);
+  int get hashCode => Object.hash(runtimeType, prefecture);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedContJapanesePrefectureCopyWith<_ChangedContJapanesePrefecture>
-      get copyWith => __$ChangedContJapanesePrefectureCopyWithImpl<
-          _ChangedContJapanesePrefecture>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedContJapanesePrefectureCopyWith<_$_ChangedContJapanesePrefecture>
+      get copyWith => __$$_ChangedContJapanesePrefectureCopyWithImpl<
+          _$_ChangedContJapanesePrefecture>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2290,6 +2776,32 @@ class _$_ChangedContJapanesePrefecture
     required TResult Function() save,
   }) {
     return changedContJapanesePrefecture(prefecture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedContJapanesePrefecture?.call(prefecture);
   }
 
   @override
@@ -2355,6 +2867,35 @@ class _$_ChangedContJapanesePrefecture
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedContJapanesePrefecture?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -2389,41 +2930,42 @@ class _$_ChangedContJapanesePrefecture
 
 abstract class _ChangedContJapanesePrefecture
     implements UpdateAddressInfoActorEvent {
-  const factory _ChangedContJapanesePrefecture(String prefecture) =
+  const factory _ChangedContJapanesePrefecture(final String prefecture) =
       _$_ChangedContJapanesePrefecture;
 
-  String get prefecture => throw _privateConstructorUsedError;
+  String get prefecture;
   @JsonKey(ignore: true)
-  _$ChangedContJapanesePrefectureCopyWith<_ChangedContJapanesePrefecture>
+  _$$_ChangedContJapanesePrefectureCopyWith<_$_ChangedContJapanesePrefecture>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedContNepaliProvinceCopyWith<$Res> {
-  factory _$ChangedContNepaliProvinceCopyWith(_ChangedContNepaliProvince value,
-          $Res Function(_ChangedContNepaliProvince) then) =
-      __$ChangedContNepaliProvinceCopyWithImpl<$Res>;
+abstract class _$$_ChangedContNepaliProvinceCopyWith<$Res> {
+  factory _$$_ChangedContNepaliProvinceCopyWith(
+          _$_ChangedContNepaliProvince value,
+          $Res Function(_$_ChangedContNepaliProvince) then) =
+      __$$_ChangedContNepaliProvinceCopyWithImpl<$Res>;
+  @useResult
   $Res call({String province});
 }
 
 /// @nodoc
-class __$ChangedContNepaliProvinceCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedContNepaliProvinceCopyWith<$Res> {
-  __$ChangedContNepaliProvinceCopyWithImpl(_ChangedContNepaliProvince _value,
-      $Res Function(_ChangedContNepaliProvince) _then)
-      : super(_value, (v) => _then(v as _ChangedContNepaliProvince));
+class __$$_ChangedContNepaliProvinceCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedContNepaliProvince>
+    implements _$$_ChangedContNepaliProvinceCopyWith<$Res> {
+  __$$_ChangedContNepaliProvinceCopyWithImpl(
+      _$_ChangedContNepaliProvince _value,
+      $Res Function(_$_ChangedContNepaliProvince) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedContNepaliProvince get _value =>
-      super._value as _ChangedContNepaliProvince;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? province = freezed,
+    Object? province = null,
   }) {
-    return _then(_ChangedContNepaliProvince(
-      province == freezed
+    return _then(_$_ChangedContNepaliProvince(
+      null == province
           ? _value.province
           : province // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2447,22 +2989,21 @@ class _$_ChangedContNepaliProvince implements _ChangedContNepaliProvince {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedContNepaliProvince &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedContNepaliProvince &&
             (identical(other.province, province) ||
-                const DeepCollectionEquality()
-                    .equals(other.province, province)));
+                other.province == province));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(province);
+  int get hashCode => Object.hash(runtimeType, province);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedContNepaliProvinceCopyWith<_ChangedContNepaliProvince>
-      get copyWith =>
-          __$ChangedContNepaliProvinceCopyWithImpl<_ChangedContNepaliProvince>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedContNepaliProvinceCopyWith<_$_ChangedContNepaliProvince>
+      get copyWith => __$$_ChangedContNepaliProvinceCopyWithImpl<
+          _$_ChangedContNepaliProvince>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2488,6 +3029,32 @@ class _$_ChangedContNepaliProvince implements _ChangedContNepaliProvince {
     required TResult Function() save,
   }) {
     return changedContNepaliProvince(province);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedContNepaliProvince?.call(province);
   }
 
   @override
@@ -2553,6 +3120,35 @@ class _$_ChangedContNepaliProvince implements _ChangedContNepaliProvince {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedContNepaliProvince?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -2587,40 +3183,39 @@ class _$_ChangedContNepaliProvince implements _ChangedContNepaliProvince {
 
 abstract class _ChangedContNepaliProvince
     implements UpdateAddressInfoActorEvent {
-  const factory _ChangedContNepaliProvince(String province) =
+  const factory _ChangedContNepaliProvince(final String province) =
       _$_ChangedContNepaliProvince;
 
-  String get province => throw _privateConstructorUsedError;
+  String get province;
   @JsonKey(ignore: true)
-  _$ChangedContNepaliProvinceCopyWith<_ChangedContNepaliProvince>
+  _$$_ChangedContNepaliProvinceCopyWith<_$_ChangedContNepaliProvince>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedContCityCopyWith<$Res> {
-  factory _$ChangedContCityCopyWith(
-          _ChangedContCity value, $Res Function(_ChangedContCity) then) =
-      __$ChangedContCityCopyWithImpl<$Res>;
+abstract class _$$_ChangedContCityCopyWith<$Res> {
+  factory _$$_ChangedContCityCopyWith(
+          _$_ChangedContCity value, $Res Function(_$_ChangedContCity) then) =
+      __$$_ChangedContCityCopyWithImpl<$Res>;
+  @useResult
   $Res call({String city});
 }
 
 /// @nodoc
-class __$ChangedContCityCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedContCityCopyWith<$Res> {
-  __$ChangedContCityCopyWithImpl(
-      _ChangedContCity _value, $Res Function(_ChangedContCity) _then)
-      : super(_value, (v) => _then(v as _ChangedContCity));
+class __$$_ChangedContCityCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res, _$_ChangedContCity>
+    implements _$$_ChangedContCityCopyWith<$Res> {
+  __$$_ChangedContCityCopyWithImpl(
+      _$_ChangedContCity _value, $Res Function(_$_ChangedContCity) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedContCity get _value => super._value as _ChangedContCity;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
+    Object? city = null,
   }) {
-    return _then(_ChangedContCity(
-      city == freezed
+    return _then(_$_ChangedContCity(
+      null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2644,19 +3239,19 @@ class _$_ChangedContCity implements _ChangedContCity {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedContCity &&
-            (identical(other.city, city) ||
-                const DeepCollectionEquality().equals(other.city, city)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedContCity &&
+            (identical(other.city, city) || other.city == city));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(city);
+  int get hashCode => Object.hash(runtimeType, city);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedContCityCopyWith<_ChangedContCity> get copyWith =>
-      __$ChangedContCityCopyWithImpl<_ChangedContCity>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedContCityCopyWith<_$_ChangedContCity> get copyWith =>
+      __$$_ChangedContCityCopyWithImpl<_$_ChangedContCity>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2682,6 +3277,32 @@ class _$_ChangedContCity implements _ChangedContCity {
     required TResult Function() save,
   }) {
     return changedContCity(city);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedContCity?.call(city);
   }
 
   @override
@@ -2747,6 +3368,35 @@ class _$_ChangedContCity implements _ChangedContCity {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedContCity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -2780,39 +3430,38 @@ class _$_ChangedContCity implements _ChangedContCity {
 }
 
 abstract class _ChangedContCity implements UpdateAddressInfoActorEvent {
-  const factory _ChangedContCity(String city) = _$_ChangedContCity;
+  const factory _ChangedContCity(final String city) = _$_ChangedContCity;
 
-  String get city => throw _privateConstructorUsedError;
+  String get city;
   @JsonKey(ignore: true)
-  _$ChangedContCityCopyWith<_ChangedContCity> get copyWith =>
+  _$$_ChangedContCityCopyWith<_$_ChangedContCity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedContAddressCopyWith<$Res> {
-  factory _$ChangedContAddressCopyWith(
-          _ChangedContAddress value, $Res Function(_ChangedContAddress) then) =
-      __$ChangedContAddressCopyWithImpl<$Res>;
+abstract class _$$_ChangedContAddressCopyWith<$Res> {
+  factory _$$_ChangedContAddressCopyWith(_$_ChangedContAddress value,
+          $Res Function(_$_ChangedContAddress) then) =
+      __$$_ChangedContAddressCopyWithImpl<$Res>;
+  @useResult
   $Res call({String address});
 }
 
 /// @nodoc
-class __$ChangedContAddressCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedContAddressCopyWith<$Res> {
-  __$ChangedContAddressCopyWithImpl(
-      _ChangedContAddress _value, $Res Function(_ChangedContAddress) _then)
-      : super(_value, (v) => _then(v as _ChangedContAddress));
+class __$$_ChangedContAddressCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res,
+        _$_ChangedContAddress> implements _$$_ChangedContAddressCopyWith<$Res> {
+  __$$_ChangedContAddressCopyWithImpl(
+      _$_ChangedContAddress _value, $Res Function(_$_ChangedContAddress) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedContAddress get _value => super._value as _ChangedContAddress;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
+    Object? address = null,
   }) {
-    return _then(_ChangedContAddress(
-      address == freezed
+    return _then(_$_ChangedContAddress(
+      null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2836,19 +3485,20 @@ class _$_ChangedContAddress implements _ChangedContAddress {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedContAddress &&
-            (identical(other.address, address) ||
-                const DeepCollectionEquality().equals(other.address, address)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedContAddress &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(address);
+  int get hashCode => Object.hash(runtimeType, address);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedContAddressCopyWith<_ChangedContAddress> get copyWith =>
-      __$ChangedContAddressCopyWithImpl<_ChangedContAddress>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedContAddressCopyWith<_$_ChangedContAddress> get copyWith =>
+      __$$_ChangedContAddressCopyWithImpl<_$_ChangedContAddress>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2874,6 +3524,32 @@ class _$_ChangedContAddress implements _ChangedContAddress {
     required TResult Function() save,
   }) {
     return changedContAddress(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedContAddress?.call(address);
   }
 
   @override
@@ -2939,6 +3615,35 @@ class _$_ChangedContAddress implements _ChangedContAddress {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedContAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -2972,39 +3677,39 @@ class _$_ChangedContAddress implements _ChangedContAddress {
 }
 
 abstract class _ChangedContAddress implements UpdateAddressInfoActorEvent {
-  const factory _ChangedContAddress(String address) = _$_ChangedContAddress;
+  const factory _ChangedContAddress(final String address) =
+      _$_ChangedContAddress;
 
-  String get address => throw _privateConstructorUsedError;
+  String get address;
   @JsonKey(ignore: true)
-  _$ChangedContAddressCopyWith<_ChangedContAddress> get copyWith =>
+  _$$_ChangedContAddressCopyWith<_$_ChangedContAddress> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangedContPhoneCopyWith<$Res> {
-  factory _$ChangedContPhoneCopyWith(
-          _ChangedContPhone value, $Res Function(_ChangedContPhone) then) =
-      __$ChangedContPhoneCopyWithImpl<$Res>;
+abstract class _$$_ChangedContPhoneCopyWith<$Res> {
+  factory _$$_ChangedContPhoneCopyWith(
+          _$_ChangedContPhone value, $Res Function(_$_ChangedContPhone) then) =
+      __$$_ChangedContPhoneCopyWithImpl<$Res>;
+  @useResult
   $Res call({String phone});
 }
 
 /// @nodoc
-class __$ChangedContPhoneCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$ChangedContPhoneCopyWith<$Res> {
-  __$ChangedContPhoneCopyWithImpl(
-      _ChangedContPhone _value, $Res Function(_ChangedContPhone) _then)
-      : super(_value, (v) => _then(v as _ChangedContPhone));
+class __$$_ChangedContPhoneCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res, _$_ChangedContPhone>
+    implements _$$_ChangedContPhoneCopyWith<$Res> {
+  __$$_ChangedContPhoneCopyWithImpl(
+      _$_ChangedContPhone _value, $Res Function(_$_ChangedContPhone) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangedContPhone get _value => super._value as _ChangedContPhone;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phone = freezed,
+    Object? phone = null,
   }) {
-    return _then(_ChangedContPhone(
-      phone == freezed
+    return _then(_$_ChangedContPhone(
+      null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
@@ -3028,19 +3733,19 @@ class _$_ChangedContPhone implements _ChangedContPhone {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangedContPhone &&
-            (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangedContPhone &&
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(phone);
+  int get hashCode => Object.hash(runtimeType, phone);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangedContPhoneCopyWith<_ChangedContPhone> get copyWith =>
-      __$ChangedContPhoneCopyWithImpl<_ChangedContPhone>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangedContPhoneCopyWith<_$_ChangedContPhone> get copyWith =>
+      __$$_ChangedContPhoneCopyWithImpl<_$_ChangedContPhone>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3066,6 +3771,32 @@ class _$_ChangedContPhone implements _ChangedContPhone {
     required TResult Function() save,
   }) {
     return changedContPhone(phone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return changedContPhone?.call(phone);
   }
 
   @override
@@ -3131,6 +3862,35 @@ class _$_ChangedContPhone implements _ChangedContPhone {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return changedContPhone?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -3164,19 +3924,20 @@ class _$_ChangedContPhone implements _ChangedContPhone {
 }
 
 abstract class _ChangedContPhone implements UpdateAddressInfoActorEvent {
-  const factory _ChangedContPhone(String phone) = _$_ChangedContPhone;
+  const factory _ChangedContPhone(final String phone) = _$_ChangedContPhone;
 
-  String get phone => throw _privateConstructorUsedError;
+  String get phone;
   @JsonKey(ignore: true)
-  _$ChangedContPhoneCopyWith<_ChangedContPhone> get copyWith =>
+  _$$_ChangedContPhoneCopyWith<_$_ChangedContPhone> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetInitialStateCopyWith<$Res> {
-  factory _$SetInitialStateCopyWith(
-          _SetInitialState value, $Res Function(_SetInitialState) then) =
-      __$SetInitialStateCopyWithImpl<$Res>;
+abstract class _$$_SetInitialStateCopyWith<$Res> {
+  factory _$$_SetInitialStateCopyWith(
+          _$_SetInitialState value, $Res Function(_$_SetInitialState) then) =
+      __$$_SetInitialStateCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {PersonalInfo info,
       List<String> prefectures,
@@ -3186,42 +3947,40 @@ abstract class _$SetInitialStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SetInitialStateCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$SetInitialStateCopyWith<$Res> {
-  __$SetInitialStateCopyWithImpl(
-      _SetInitialState _value, $Res Function(_SetInitialState) _then)
-      : super(_value, (v) => _then(v as _SetInitialState));
+class __$$_SetInitialStateCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res, _$_SetInitialState>
+    implements _$$_SetInitialStateCopyWith<$Res> {
+  __$$_SetInitialStateCopyWithImpl(
+      _$_SetInitialState _value, $Res Function(_$_SetInitialState) _then)
+      : super(_value, _then);
 
-  @override
-  _SetInitialState get _value => super._value as _SetInitialState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? info = freezed,
-    Object? prefectures = freezed,
-    Object? provinces = freezed,
-    Object? countries = freezed,
-    Object? lang = freezed,
+    Object? info = null,
+    Object? prefectures = null,
+    Object? provinces = null,
+    Object? countries = null,
+    Object? lang = null,
   }) {
-    return _then(_SetInitialState(
-      info: info == freezed
+    return _then(_$_SetInitialState(
+      info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as PersonalInfo,
-      prefectures: prefectures == freezed
-          ? _value.prefectures
+      prefectures: null == prefectures
+          ? _value._prefectures
           : prefectures // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      provinces: provinces == freezed
-          ? _value.provinces
+      provinces: null == provinces
+          ? _value._provinces
           : provinces // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      countries: countries == freezed
-          ? _value.countries
+      countries: null == countries
+          ? _value._countries
           : countries // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      lang: lang == freezed
+      lang: null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
@@ -3234,19 +3993,40 @@ class __$SetInitialStateCopyWithImpl<$Res>
 class _$_SetInitialState implements _SetInitialState {
   const _$_SetInitialState(
       {required this.info,
-      required this.prefectures,
-      required this.provinces,
-      required this.countries,
-      required this.lang});
+      required final List<String> prefectures,
+      required final List<String> provinces,
+      required final List<String> countries,
+      required this.lang})
+      : _prefectures = prefectures,
+        _provinces = provinces,
+        _countries = countries;
 
   @override
   final PersonalInfo info;
+  final List<String> _prefectures;
   @override
-  final List<String> prefectures;
+  List<String> get prefectures {
+    if (_prefectures is EqualUnmodifiableListView) return _prefectures;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_prefectures);
+  }
+
+  final List<String> _provinces;
   @override
-  final List<String> provinces;
+  List<String> get provinces {
+    if (_provinces is EqualUnmodifiableListView) return _provinces;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_provinces);
+  }
+
+  final List<String> _countries;
   @override
-  final List<String> countries;
+  List<String> get countries {
+    if (_countries is EqualUnmodifiableListView) return _countries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_countries);
+  }
+
   @override
   final String lang;
 
@@ -3258,35 +4038,32 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetInitialState &&
-            (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)) &&
-            (identical(other.prefectures, prefectures) ||
-                const DeepCollectionEquality()
-                    .equals(other.prefectures, prefectures)) &&
-            (identical(other.provinces, provinces) ||
-                const DeepCollectionEquality()
-                    .equals(other.provinces, provinces)) &&
-            (identical(other.countries, countries) ||
-                const DeepCollectionEquality()
-                    .equals(other.countries, countries)) &&
-            (identical(other.lang, lang) ||
-                const DeepCollectionEquality().equals(other.lang, lang)));
+        (other.runtimeType == runtimeType &&
+            other is _$_SetInitialState &&
+            (identical(other.info, info) || other.info == info) &&
+            const DeepCollectionEquality()
+                .equals(other._prefectures, _prefectures) &&
+            const DeepCollectionEquality()
+                .equals(other._provinces, _provinces) &&
+            const DeepCollectionEquality()
+                .equals(other._countries, _countries) &&
+            (identical(other.lang, lang) || other.lang == lang));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(info) ^
-      const DeepCollectionEquality().hash(prefectures) ^
-      const DeepCollectionEquality().hash(provinces) ^
-      const DeepCollectionEquality().hash(countries) ^
-      const DeepCollectionEquality().hash(lang);
+  int get hashCode => Object.hash(
+      runtimeType,
+      info,
+      const DeepCollectionEquality().hash(_prefectures),
+      const DeepCollectionEquality().hash(_provinces),
+      const DeepCollectionEquality().hash(_countries),
+      lang);
 
   @JsonKey(ignore: true)
   @override
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
-      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
+      __$$_SetInitialStateCopyWithImpl<_$_SetInitialState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3312,6 +4089,32 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function() save,
   }) {
     return setInitialState(info, prefectures, provinces, countries, lang);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return setInitialState?.call(info, prefectures, provinces, countries, lang);
   }
 
   @override
@@ -3377,6 +4180,35 @@ class _$_SetInitialState implements _SetInitialState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return setInitialState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -3411,37 +4243,34 @@ class _$_SetInitialState implements _SetInitialState {
 
 abstract class _SetInitialState implements UpdateAddressInfoActorEvent {
   const factory _SetInitialState(
-      {required PersonalInfo info,
-      required List<String> prefectures,
-      required List<String> provinces,
-      required List<String> countries,
-      required String lang}) = _$_SetInitialState;
+      {required final PersonalInfo info,
+      required final List<String> prefectures,
+      required final List<String> provinces,
+      required final List<String> countries,
+      required final String lang}) = _$_SetInitialState;
 
-  PersonalInfo get info => throw _privateConstructorUsedError;
-  List<String> get prefectures => throw _privateConstructorUsedError;
-  List<String> get provinces => throw _privateConstructorUsedError;
-  List<String> get countries => throw _privateConstructorUsedError;
-  String get lang => throw _privateConstructorUsedError;
+  PersonalInfo get info;
+  List<String> get prefectures;
+  List<String> get provinces;
+  List<String> get countries;
+  String get lang;
   @JsonKey(ignore: true)
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SaveCopyWith<$Res> {
-  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
-      __$SaveCopyWithImpl<$Res>;
+abstract class _$$_SaveCopyWith<$Res> {
+  factory _$$_SaveCopyWith(_$_Save value, $Res Function(_$_Save) then) =
+      __$$_SaveCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SaveCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res>
-    implements _$SaveCopyWith<$Res> {
-  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
-      : super(_value, (v) => _then(v as _Save));
-
-  @override
-  _Save get _value => super._value as _Save;
+class __$$_SaveCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorEventCopyWithImpl<$Res, _$_Save>
+    implements _$$_SaveCopyWith<$Res> {
+  __$$_SaveCopyWithImpl(_$_Save _value, $Res Function(_$_Save) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -3456,7 +4285,8 @@ class _$_Save implements _Save {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Save);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Save);
   }
 
   @override
@@ -3486,6 +4316,32 @@ class _$_Save implements _Save {
     required TResult Function() save,
   }) {
     return save();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String country)? changeCurrCountry,
+    TResult? Function(String code)? changedCurrPostalCode,
+    TResult? Function(String prefecture)? changedCurrJapanesePrefecture,
+    TResult? Function(String province)? changedCurrNepaliProvince,
+    TResult? Function(String city)? changedCurrCity,
+    TResult? Function(String address)? changedCurrAddress,
+    TResult? Function(String phone)? changedCurrPhone,
+    TResult? Function(bool value)? changeSameAsCurrAddressInfo,
+    TResult? Function(String country)? changeContCountry,
+    TResult? Function(String code)? changedContPostalCode,
+    TResult? Function(String prefecture)? changedContJapanesePrefecture,
+    TResult? Function(String province)? changedContNepaliProvince,
+    TResult? Function(String city)? changedContCity,
+    TResult? Function(String address)? changedContAddress,
+    TResult? Function(String phone)? changedContPhone,
+    TResult? Function(PersonalInfo info, List<String> prefectures,
+            List<String> provinces, List<String> countries, String lang)?
+        setInitialState,
+    TResult? Function()? save,
+  }) {
+    return save?.call();
   }
 
   @override
@@ -3551,6 +4407,35 @@ class _$_Save implements _Save {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangedCurrCountry value)? changeCurrCountry,
+    TResult? Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
+    TResult? Function(_ChangedCurJapaneserPrefecture value)?
+        changedCurrJapanesePrefecture,
+    TResult? Function(_ChangedCurrNepaliProvince value)?
+        changedCurrNepaliProvince,
+    TResult? Function(_ChangedCurrCity value)? changedCurrCity,
+    TResult? Function(_ChangedCurrAddress value)? changedCurrAddress,
+    TResult? Function(_ChangedCurrPhone value)? changedCurrPhone,
+    TResult? Function(_ChangedSameAsCurrAddressInfo value)?
+        changeSameAsCurrAddressInfo,
+    TResult? Function(_ChangedContCountry value)? changeContCountry,
+    TResult? Function(_ChangedContPostalCode value)? changedContPostalCode,
+    TResult? Function(_ChangedContJapanesePrefecture value)?
+        changedContJapanesePrefecture,
+    TResult? Function(_ChangedContNepaliProvince value)?
+        changedContNepaliProvince,
+    TResult? Function(_ChangedContCity value)? changedContCity,
+    TResult? Function(_ChangedContAddress value)? changedContAddress,
+    TResult? Function(_ChangedContPhone value)? changedContPhone,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_Save value)? save,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedCurrCountry value)? changeCurrCountry,
     TResult Function(_ChangedCurrPostalCode value)? changedCurrPostalCode,
@@ -3588,61 +4473,6 @@ abstract class _Save implements UpdateAddressInfoActorEvent {
 }
 
 /// @nodoc
-class _$UpdateAddressInfoActorStateTearOff {
-  const _$UpdateAddressInfoActorStateTearOff();
-
-  _UpdateAddressInfoActorState call(
-      {required Key? key,
-      required String currCountry,
-      required String currPostalCode,
-      required String currPrefecture,
-      required String currCity,
-      required String currAddress,
-      required String currPhone,
-      required bool sameAsCurrAddressInfo,
-      required String contCountry,
-      required String contPostalCode,
-      required String contPrefecture,
-      required String contCity,
-      required String contAddress,
-      required String contPhone,
-      required List<String> listOfCountries,
-      required List<String> listOfJapanesePrefectures,
-      required List<String> listOfNepaliProvinces,
-      required List<String> listOfCurrCities,
-      required List<String> listOfContCities,
-      required bool isSubmitting,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
-    return _UpdateAddressInfoActorState(
-      key: key,
-      currCountry: currCountry,
-      currPostalCode: currPostalCode,
-      currPrefecture: currPrefecture,
-      currCity: currCity,
-      currAddress: currAddress,
-      currPhone: currPhone,
-      sameAsCurrAddressInfo: sameAsCurrAddressInfo,
-      contCountry: contCountry,
-      contPostalCode: contPostalCode,
-      contPrefecture: contPrefecture,
-      contCity: contCity,
-      contAddress: contAddress,
-      contPhone: contPhone,
-      listOfCountries: listOfCountries,
-      listOfJapanesePrefectures: listOfJapanesePrefectures,
-      listOfNepaliProvinces: listOfNepaliProvinces,
-      listOfCurrCities: listOfCurrCities,
-      listOfContCities: listOfContCities,
-      isSubmitting: isSubmitting,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $UpdateAddressInfoActorState = _$UpdateAddressInfoActorStateTearOff();
-
-/// @nodoc
 mixin _$UpdateAddressInfoActorState {
   Key? get key => throw _privateConstructorUsedError;
   String get currCountry => throw _privateConstructorUsedError;
@@ -3678,7 +4508,9 @@ abstract class $UpdateAddressInfoActorStateCopyWith<$Res> {
   factory $UpdateAddressInfoActorStateCopyWith(
           UpdateAddressInfoActorState value,
           $Res Function(UpdateAddressInfoActorState) then) =
-      _$UpdateAddressInfoActorStateCopyWithImpl<$Res>;
+      _$UpdateAddressInfoActorStateCopyWithImpl<$Res,
+          UpdateAddressInfoActorState>;
+  @useResult
   $Res call(
       {Key? key,
       String currCountry,
@@ -3704,135 +4536,139 @@ abstract class $UpdateAddressInfoActorStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UpdateAddressInfoActorStateCopyWithImpl<$Res>
+class _$UpdateAddressInfoActorStateCopyWithImpl<$Res,
+        $Val extends UpdateAddressInfoActorState>
     implements $UpdateAddressInfoActorStateCopyWith<$Res> {
   _$UpdateAddressInfoActorStateCopyWithImpl(this._value, this._then);
 
-  final UpdateAddressInfoActorState _value;
   // ignore: unused_field
-  final $Res Function(UpdateAddressInfoActorState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? currCountry = freezed,
-    Object? currPostalCode = freezed,
-    Object? currPrefecture = freezed,
-    Object? currCity = freezed,
-    Object? currAddress = freezed,
-    Object? currPhone = freezed,
-    Object? sameAsCurrAddressInfo = freezed,
-    Object? contCountry = freezed,
-    Object? contPostalCode = freezed,
-    Object? contPrefecture = freezed,
-    Object? contCity = freezed,
-    Object? contAddress = freezed,
-    Object? contPhone = freezed,
-    Object? listOfCountries = freezed,
-    Object? listOfJapanesePrefectures = freezed,
-    Object? listOfNepaliProvinces = freezed,
-    Object? listOfCurrCities = freezed,
-    Object? listOfContCities = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? currCountry = null,
+    Object? currPostalCode = null,
+    Object? currPrefecture = null,
+    Object? currCity = null,
+    Object? currAddress = null,
+    Object? currPhone = null,
+    Object? sameAsCurrAddressInfo = null,
+    Object? contCountry = null,
+    Object? contPostalCode = null,
+    Object? contPrefecture = null,
+    Object? contCity = null,
+    Object? contAddress = null,
+    Object? contPhone = null,
+    Object? listOfCountries = null,
+    Object? listOfJapanesePrefectures = null,
+    Object? listOfNepaliProvinces = null,
+    Object? listOfCurrCities = null,
+    Object? listOfContCities = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      currCountry: currCountry == freezed
+      currCountry: null == currCountry
           ? _value.currCountry
           : currCountry // ignore: cast_nullable_to_non_nullable
               as String,
-      currPostalCode: currPostalCode == freezed
+      currPostalCode: null == currPostalCode
           ? _value.currPostalCode
           : currPostalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      currPrefecture: currPrefecture == freezed
+      currPrefecture: null == currPrefecture
           ? _value.currPrefecture
           : currPrefecture // ignore: cast_nullable_to_non_nullable
               as String,
-      currCity: currCity == freezed
+      currCity: null == currCity
           ? _value.currCity
           : currCity // ignore: cast_nullable_to_non_nullable
               as String,
-      currAddress: currAddress == freezed
+      currAddress: null == currAddress
           ? _value.currAddress
           : currAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      currPhone: currPhone == freezed
+      currPhone: null == currPhone
           ? _value.currPhone
           : currPhone // ignore: cast_nullable_to_non_nullable
               as String,
-      sameAsCurrAddressInfo: sameAsCurrAddressInfo == freezed
+      sameAsCurrAddressInfo: null == sameAsCurrAddressInfo
           ? _value.sameAsCurrAddressInfo
           : sameAsCurrAddressInfo // ignore: cast_nullable_to_non_nullable
               as bool,
-      contCountry: contCountry == freezed
+      contCountry: null == contCountry
           ? _value.contCountry
           : contCountry // ignore: cast_nullable_to_non_nullable
               as String,
-      contPostalCode: contPostalCode == freezed
+      contPostalCode: null == contPostalCode
           ? _value.contPostalCode
           : contPostalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      contPrefecture: contPrefecture == freezed
+      contPrefecture: null == contPrefecture
           ? _value.contPrefecture
           : contPrefecture // ignore: cast_nullable_to_non_nullable
               as String,
-      contCity: contCity == freezed
+      contCity: null == contCity
           ? _value.contCity
           : contCity // ignore: cast_nullable_to_non_nullable
               as String,
-      contAddress: contAddress == freezed
+      contAddress: null == contAddress
           ? _value.contAddress
           : contAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      contPhone: contPhone == freezed
+      contPhone: null == contPhone
           ? _value.contPhone
           : contPhone // ignore: cast_nullable_to_non_nullable
               as String,
-      listOfCountries: listOfCountries == freezed
+      listOfCountries: null == listOfCountries
           ? _value.listOfCountries
           : listOfCountries // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJapanesePrefectures: listOfJapanesePrefectures == freezed
+      listOfJapanesePrefectures: null == listOfJapanesePrefectures
           ? _value.listOfJapanesePrefectures
           : listOfJapanesePrefectures // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfNepaliProvinces: listOfNepaliProvinces == freezed
+      listOfNepaliProvinces: null == listOfNepaliProvinces
           ? _value.listOfNepaliProvinces
           : listOfNepaliProvinces // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfCurrCities: listOfCurrCities == freezed
+      listOfCurrCities: null == listOfCurrCities
           ? _value.listOfCurrCities
           : listOfCurrCities // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfContCities: listOfContCities == freezed
+      listOfContCities: null == listOfContCities
           ? _value.listOfContCities
           : listOfContCities // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$UpdateAddressInfoActorStateCopyWith<$Res>
+abstract class _$$_UpdateAddressInfoActorStateCopyWith<$Res>
     implements $UpdateAddressInfoActorStateCopyWith<$Res> {
-  factory _$UpdateAddressInfoActorStateCopyWith(
-          _UpdateAddressInfoActorState value,
-          $Res Function(_UpdateAddressInfoActorState) then) =
-      __$UpdateAddressInfoActorStateCopyWithImpl<$Res>;
+  factory _$$_UpdateAddressInfoActorStateCopyWith(
+          _$_UpdateAddressInfoActorState value,
+          $Res Function(_$_UpdateAddressInfoActorState) then) =
+      __$$_UpdateAddressInfoActorStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key? key,
       String currCountry,
@@ -3858,124 +4694,122 @@ abstract class _$UpdateAddressInfoActorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UpdateAddressInfoActorStateCopyWithImpl<$Res>
-    extends _$UpdateAddressInfoActorStateCopyWithImpl<$Res>
-    implements _$UpdateAddressInfoActorStateCopyWith<$Res> {
-  __$UpdateAddressInfoActorStateCopyWithImpl(
-      _UpdateAddressInfoActorState _value,
-      $Res Function(_UpdateAddressInfoActorState) _then)
-      : super(_value, (v) => _then(v as _UpdateAddressInfoActorState));
+class __$$_UpdateAddressInfoActorStateCopyWithImpl<$Res>
+    extends _$UpdateAddressInfoActorStateCopyWithImpl<$Res,
+        _$_UpdateAddressInfoActorState>
+    implements _$$_UpdateAddressInfoActorStateCopyWith<$Res> {
+  __$$_UpdateAddressInfoActorStateCopyWithImpl(
+      _$_UpdateAddressInfoActorState _value,
+      $Res Function(_$_UpdateAddressInfoActorState) _then)
+      : super(_value, _then);
 
-  @override
-  _UpdateAddressInfoActorState get _value =>
-      super._value as _UpdateAddressInfoActorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? currCountry = freezed,
-    Object? currPostalCode = freezed,
-    Object? currPrefecture = freezed,
-    Object? currCity = freezed,
-    Object? currAddress = freezed,
-    Object? currPhone = freezed,
-    Object? sameAsCurrAddressInfo = freezed,
-    Object? contCountry = freezed,
-    Object? contPostalCode = freezed,
-    Object? contPrefecture = freezed,
-    Object? contCity = freezed,
-    Object? contAddress = freezed,
-    Object? contPhone = freezed,
-    Object? listOfCountries = freezed,
-    Object? listOfJapanesePrefectures = freezed,
-    Object? listOfNepaliProvinces = freezed,
-    Object? listOfCurrCities = freezed,
-    Object? listOfContCities = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? currCountry = null,
+    Object? currPostalCode = null,
+    Object? currPrefecture = null,
+    Object? currCity = null,
+    Object? currAddress = null,
+    Object? currPhone = null,
+    Object? sameAsCurrAddressInfo = null,
+    Object? contCountry = null,
+    Object? contPostalCode = null,
+    Object? contPrefecture = null,
+    Object? contCity = null,
+    Object? contAddress = null,
+    Object? contPhone = null,
+    Object? listOfCountries = null,
+    Object? listOfJapanesePrefectures = null,
+    Object? listOfNepaliProvinces = null,
+    Object? listOfCurrCities = null,
+    Object? listOfContCities = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_UpdateAddressInfoActorState(
-      key: key == freezed
+    return _then(_$_UpdateAddressInfoActorState(
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      currCountry: currCountry == freezed
+      currCountry: null == currCountry
           ? _value.currCountry
           : currCountry // ignore: cast_nullable_to_non_nullable
               as String,
-      currPostalCode: currPostalCode == freezed
+      currPostalCode: null == currPostalCode
           ? _value.currPostalCode
           : currPostalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      currPrefecture: currPrefecture == freezed
+      currPrefecture: null == currPrefecture
           ? _value.currPrefecture
           : currPrefecture // ignore: cast_nullable_to_non_nullable
               as String,
-      currCity: currCity == freezed
+      currCity: null == currCity
           ? _value.currCity
           : currCity // ignore: cast_nullable_to_non_nullable
               as String,
-      currAddress: currAddress == freezed
+      currAddress: null == currAddress
           ? _value.currAddress
           : currAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      currPhone: currPhone == freezed
+      currPhone: null == currPhone
           ? _value.currPhone
           : currPhone // ignore: cast_nullable_to_non_nullable
               as String,
-      sameAsCurrAddressInfo: sameAsCurrAddressInfo == freezed
+      sameAsCurrAddressInfo: null == sameAsCurrAddressInfo
           ? _value.sameAsCurrAddressInfo
           : sameAsCurrAddressInfo // ignore: cast_nullable_to_non_nullable
               as bool,
-      contCountry: contCountry == freezed
+      contCountry: null == contCountry
           ? _value.contCountry
           : contCountry // ignore: cast_nullable_to_non_nullable
               as String,
-      contPostalCode: contPostalCode == freezed
+      contPostalCode: null == contPostalCode
           ? _value.contPostalCode
           : contPostalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      contPrefecture: contPrefecture == freezed
+      contPrefecture: null == contPrefecture
           ? _value.contPrefecture
           : contPrefecture // ignore: cast_nullable_to_non_nullable
               as String,
-      contCity: contCity == freezed
+      contCity: null == contCity
           ? _value.contCity
           : contCity // ignore: cast_nullable_to_non_nullable
               as String,
-      contAddress: contAddress == freezed
+      contAddress: null == contAddress
           ? _value.contAddress
           : contAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      contPhone: contPhone == freezed
+      contPhone: null == contPhone
           ? _value.contPhone
           : contPhone // ignore: cast_nullable_to_non_nullable
               as String,
-      listOfCountries: listOfCountries == freezed
-          ? _value.listOfCountries
+      listOfCountries: null == listOfCountries
+          ? _value._listOfCountries
           : listOfCountries // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJapanesePrefectures: listOfJapanesePrefectures == freezed
-          ? _value.listOfJapanesePrefectures
+      listOfJapanesePrefectures: null == listOfJapanesePrefectures
+          ? _value._listOfJapanesePrefectures
           : listOfJapanesePrefectures // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfNepaliProvinces: listOfNepaliProvinces == freezed
-          ? _value.listOfNepaliProvinces
+      listOfNepaliProvinces: null == listOfNepaliProvinces
+          ? _value._listOfNepaliProvinces
           : listOfNepaliProvinces // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfCurrCities: listOfCurrCities == freezed
-          ? _value.listOfCurrCities
+      listOfCurrCities: null == listOfCurrCities
+          ? _value._listOfCurrCities
           : listOfCurrCities // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfContCities: listOfContCities == freezed
-          ? _value.listOfContCities
+      listOfContCities: null == listOfContCities
+          ? _value._listOfContCities
           : listOfContCities // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -4001,13 +4835,18 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
       required this.contCity,
       required this.contAddress,
       required this.contPhone,
-      required this.listOfCountries,
-      required this.listOfJapanesePrefectures,
-      required this.listOfNepaliProvinces,
-      required this.listOfCurrCities,
-      required this.listOfContCities,
+      required final List<String> listOfCountries,
+      required final List<String> listOfJapanesePrefectures,
+      required final List<String> listOfNepaliProvinces,
+      required final List<String> listOfCurrCities,
+      required final List<String> listOfContCities,
       required this.isSubmitting,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : _listOfCountries = listOfCountries,
+        _listOfJapanesePrefectures = listOfJapanesePrefectures,
+        _listOfNepaliProvinces = listOfNepaliProvinces,
+        _listOfCurrCities = listOfCurrCities,
+        _listOfContCities = listOfContCities;
 
   @override
   final Key? key;
@@ -4037,16 +4876,50 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
   final String contAddress;
   @override
   final String contPhone;
+  final List<String> _listOfCountries;
   @override
-  final List<String> listOfCountries;
+  List<String> get listOfCountries {
+    if (_listOfCountries is EqualUnmodifiableListView) return _listOfCountries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfCountries);
+  }
+
+  final List<String> _listOfJapanesePrefectures;
   @override
-  final List<String> listOfJapanesePrefectures;
+  List<String> get listOfJapanesePrefectures {
+    if (_listOfJapanesePrefectures is EqualUnmodifiableListView)
+      return _listOfJapanesePrefectures;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfJapanesePrefectures);
+  }
+
+  final List<String> _listOfNepaliProvinces;
   @override
-  final List<String> listOfNepaliProvinces;
+  List<String> get listOfNepaliProvinces {
+    if (_listOfNepaliProvinces is EqualUnmodifiableListView)
+      return _listOfNepaliProvinces;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfNepaliProvinces);
+  }
+
+  final List<String> _listOfCurrCities;
   @override
-  final List<String> listOfCurrCities;
+  List<String> get listOfCurrCities {
+    if (_listOfCurrCities is EqualUnmodifiableListView)
+      return _listOfCurrCities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfCurrCities);
+  }
+
+  final List<String> _listOfContCities;
   @override
-  final List<String> listOfContCities;
+  List<String> get listOfContCities {
+    if (_listOfContCities is EqualUnmodifiableListView)
+      return _listOfContCities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfContCities);
+  }
+
   @override
   final bool isSubmitting;
   @override
@@ -4060,175 +4933,155 @@ class _$_UpdateAddressInfoActorState implements _UpdateAddressInfoActorState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateAddressInfoActorState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateAddressInfoActorState &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.currCountry, currCountry) ||
-                const DeepCollectionEquality()
-                    .equals(other.currCountry, currCountry)) &&
+                other.currCountry == currCountry) &&
             (identical(other.currPostalCode, currPostalCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.currPostalCode, currPostalCode)) &&
+                other.currPostalCode == currPostalCode) &&
             (identical(other.currPrefecture, currPrefecture) ||
-                const DeepCollectionEquality()
-                    .equals(other.currPrefecture, currPrefecture)) &&
+                other.currPrefecture == currPrefecture) &&
             (identical(other.currCity, currCity) ||
-                const DeepCollectionEquality()
-                    .equals(other.currCity, currCity)) &&
+                other.currCity == currCity) &&
             (identical(other.currAddress, currAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.currAddress, currAddress)) &&
+                other.currAddress == currAddress) &&
             (identical(other.currPhone, currPhone) ||
-                const DeepCollectionEquality()
-                    .equals(other.currPhone, currPhone)) &&
+                other.currPhone == currPhone) &&
             (identical(other.sameAsCurrAddressInfo, sameAsCurrAddressInfo) ||
-                const DeepCollectionEquality().equals(
-                    other.sameAsCurrAddressInfo, sameAsCurrAddressInfo)) &&
+                other.sameAsCurrAddressInfo == sameAsCurrAddressInfo) &&
             (identical(other.contCountry, contCountry) ||
-                const DeepCollectionEquality()
-                    .equals(other.contCountry, contCountry)) &&
+                other.contCountry == contCountry) &&
             (identical(other.contPostalCode, contPostalCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.contPostalCode, contPostalCode)) &&
+                other.contPostalCode == contPostalCode) &&
             (identical(other.contPrefecture, contPrefecture) ||
-                const DeepCollectionEquality()
-                    .equals(other.contPrefecture, contPrefecture)) &&
+                other.contPrefecture == contPrefecture) &&
             (identical(other.contCity, contCity) ||
-                const DeepCollectionEquality()
-                    .equals(other.contCity, contCity)) &&
+                other.contCity == contCity) &&
             (identical(other.contAddress, contAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.contAddress, contAddress)) &&
+                other.contAddress == contAddress) &&
             (identical(other.contPhone, contPhone) ||
-                const DeepCollectionEquality()
-                    .equals(other.contPhone, contPhone)) &&
-            (identical(other.listOfCountries, listOfCountries) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfCountries, listOfCountries)) &&
-            (identical(other.listOfJapanesePrefectures, listOfJapanesePrefectures) ||
-                const DeepCollectionEquality().equals(
-                    other.listOfJapanesePrefectures,
-                    listOfJapanesePrefectures)) &&
-            (identical(other.listOfNepaliProvinces, listOfNepaliProvinces) ||
-                const DeepCollectionEquality().equals(
-                    other.listOfNepaliProvinces, listOfNepaliProvinces)) &&
-            (identical(other.listOfCurrCities, listOfCurrCities) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfCurrCities, listOfCurrCities)) &&
-            (identical(other.listOfContCities, listOfContCities) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfContCities, listOfContCities)) &&
+                other.contPhone == contPhone) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfCountries, _listOfCountries) &&
+            const DeepCollectionEquality().equals(
+                other._listOfJapanesePrefectures, _listOfJapanesePrefectures) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfNepaliProvinces, _listOfNepaliProvinces) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfCurrCities, _listOfCurrCities) &&
+            const DeepCollectionEquality()
+                .equals(other._listOfContCities, _listOfContCities) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
+                other.isSubmitting == isSubmitting) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(currCountry) ^
-      const DeepCollectionEquality().hash(currPostalCode) ^
-      const DeepCollectionEquality().hash(currPrefecture) ^
-      const DeepCollectionEquality().hash(currCity) ^
-      const DeepCollectionEquality().hash(currAddress) ^
-      const DeepCollectionEquality().hash(currPhone) ^
-      const DeepCollectionEquality().hash(sameAsCurrAddressInfo) ^
-      const DeepCollectionEquality().hash(contCountry) ^
-      const DeepCollectionEquality().hash(contPostalCode) ^
-      const DeepCollectionEquality().hash(contPrefecture) ^
-      const DeepCollectionEquality().hash(contCity) ^
-      const DeepCollectionEquality().hash(contAddress) ^
-      const DeepCollectionEquality().hash(contPhone) ^
-      const DeepCollectionEquality().hash(listOfCountries) ^
-      const DeepCollectionEquality().hash(listOfJapanesePrefectures) ^
-      const DeepCollectionEquality().hash(listOfNepaliProvinces) ^
-      const DeepCollectionEquality().hash(listOfCurrCities) ^
-      const DeepCollectionEquality().hash(listOfContCities) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        key,
+        currCountry,
+        currPostalCode,
+        currPrefecture,
+        currCity,
+        currAddress,
+        currPhone,
+        sameAsCurrAddressInfo,
+        contCountry,
+        contPostalCode,
+        contPrefecture,
+        contCity,
+        contAddress,
+        contPhone,
+        const DeepCollectionEquality().hash(_listOfCountries),
+        const DeepCollectionEquality().hash(_listOfJapanesePrefectures),
+        const DeepCollectionEquality().hash(_listOfNepaliProvinces),
+        const DeepCollectionEquality().hash(_listOfCurrCities),
+        const DeepCollectionEquality().hash(_listOfContCities),
+        isSubmitting,
+        failureOrSuccessOption
+      ]);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateAddressInfoActorStateCopyWith<_UpdateAddressInfoActorState>
-      get copyWith => __$UpdateAddressInfoActorStateCopyWithImpl<
-          _UpdateAddressInfoActorState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_UpdateAddressInfoActorStateCopyWith<_$_UpdateAddressInfoActorState>
+      get copyWith => __$$_UpdateAddressInfoActorStateCopyWithImpl<
+          _$_UpdateAddressInfoActorState>(this, _$identity);
 }
 
 abstract class _UpdateAddressInfoActorState
     implements UpdateAddressInfoActorState {
   const factory _UpdateAddressInfoActorState(
-          {required Key? key,
-          required String currCountry,
-          required String currPostalCode,
-          required String currPrefecture,
-          required String currCity,
-          required String currAddress,
-          required String currPhone,
-          required bool sameAsCurrAddressInfo,
-          required String contCountry,
-          required String contPostalCode,
-          required String contPrefecture,
-          required String contCity,
-          required String contAddress,
-          required String contPhone,
-          required List<String> listOfCountries,
-          required List<String> listOfJapanesePrefectures,
-          required List<String> listOfNepaliProvinces,
-          required List<String> listOfCurrCities,
-          required List<String> listOfContCities,
-          required bool isSubmitting,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
-      _$_UpdateAddressInfoActorState;
+      {required final Key? key,
+      required final String currCountry,
+      required final String currPostalCode,
+      required final String currPrefecture,
+      required final String currCity,
+      required final String currAddress,
+      required final String currPhone,
+      required final bool sameAsCurrAddressInfo,
+      required final String contCountry,
+      required final String contPostalCode,
+      required final String contPrefecture,
+      required final String contCity,
+      required final String contAddress,
+      required final String contPhone,
+      required final List<String> listOfCountries,
+      required final List<String> listOfJapanesePrefectures,
+      required final List<String> listOfNepaliProvinces,
+      required final List<String> listOfCurrCities,
+      required final List<String> listOfContCities,
+      required final bool isSubmitting,
+      required final Option<Either<ApiFailure, Unit>>
+          failureOrSuccessOption}) = _$_UpdateAddressInfoActorState;
 
   @override
-  Key? get key => throw _privateConstructorUsedError;
+  Key? get key;
   @override
-  String get currCountry => throw _privateConstructorUsedError;
+  String get currCountry;
   @override
-  String get currPostalCode => throw _privateConstructorUsedError;
+  String get currPostalCode;
   @override
-  String get currPrefecture => throw _privateConstructorUsedError;
+  String get currPrefecture;
   @override
-  String get currCity => throw _privateConstructorUsedError;
+  String get currCity;
   @override
-  String get currAddress => throw _privateConstructorUsedError;
+  String get currAddress;
   @override
-  String get currPhone => throw _privateConstructorUsedError;
+  String get currPhone;
   @override
-  bool get sameAsCurrAddressInfo => throw _privateConstructorUsedError;
+  bool get sameAsCurrAddressInfo;
   @override
-  String get contCountry => throw _privateConstructorUsedError;
+  String get contCountry;
   @override
-  String get contPostalCode => throw _privateConstructorUsedError;
+  String get contPostalCode;
   @override
-  String get contPrefecture => throw _privateConstructorUsedError;
+  String get contPrefecture;
   @override
-  String get contCity => throw _privateConstructorUsedError;
+  String get contCity;
   @override
-  String get contAddress => throw _privateConstructorUsedError;
+  String get contAddress;
   @override
-  String get contPhone => throw _privateConstructorUsedError;
+  String get contPhone;
   @override
-  List<String> get listOfCountries => throw _privateConstructorUsedError;
+  List<String> get listOfCountries;
   @override
-  List<String> get listOfJapanesePrefectures =>
-      throw _privateConstructorUsedError;
+  List<String> get listOfJapanesePrefectures;
   @override
-  List<String> get listOfNepaliProvinces => throw _privateConstructorUsedError;
+  List<String> get listOfNepaliProvinces;
   @override
-  List<String> get listOfCurrCities => throw _privateConstructorUsedError;
+  List<String> get listOfCurrCities;
   @override
-  List<String> get listOfContCities => throw _privateConstructorUsedError;
+  List<String> get listOfContCities;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$UpdateAddressInfoActorStateCopyWith<_UpdateAddressInfoActorState>
+  _$$_UpdateAddressInfoActorStateCopyWith<_$_UpdateAddressInfoActorState>
       get copyWith => throw _privateConstructorUsedError;
 }

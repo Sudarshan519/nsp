@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_profile_bloc.dart';
 
@@ -10,282 +12,7 @@ part of 'update_profile_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UpdateProfileEventTearOff {
-  const _$UpdateProfileEventTearOff();
-
-  _ChangeFirstName changeFirstName(String name) {
-    return _ChangeFirstName(
-      name,
-    );
-  }
-
-  _ChangeLastName changeLastName(String name) {
-    return _ChangeLastName(
-      name,
-    );
-  }
-
-  _ChangeFuriganaName changeFuriganaName(String name) {
-    return _ChangeFuriganaName(
-      name,
-    );
-  }
-
-  _ChangeFatherName changeFatherName(String name) {
-    return _ChangeFatherName(
-      name,
-    );
-  }
-
-  _ChangeMotherName changeMotherName(String name) {
-    return _ChangeMotherName(
-      name,
-    );
-  }
-
-  _ChangeGrandFatherName changeGrandFatherName(String name) {
-    return _ChangeGrandFatherName(
-      name,
-    );
-  }
-
-  _ChangeCompany changeCompany(String company) {
-    return _ChangeCompany(
-      company,
-    );
-  }
-
-  _ChangeProfession changeProfession(String profession) {
-    return _ChangeProfession(
-      profession,
-    );
-  }
-
-  _ChangeNationality changeNationality(String nationality) {
-    return _ChangeNationality(
-      nationality,
-    );
-  }
-
-  _ChangeDocumentIdentificationNumber changeDocumentIdentificationNumber(
-      String number) {
-    return _ChangeDocumentIdentificationNumber(
-      number,
-    );
-  }
-
-  _ChangeGender changeGender(String gender) {
-    return _ChangeGender(
-      gender,
-    );
-  }
-
-  _ChangeMaritalStatus changeMaritalStatus(String status) {
-    return _ChangeMaritalStatus(
-      status,
-    );
-  }
-
-  _ChangeDob changeDob(String dob) {
-    return _ChangeDob(
-      dob,
-    );
-  }
-
-  _ChangeCommunity changeCommunity(String community) {
-    return _ChangeCommunity(
-      community,
-    );
-  }
-
-  _ChangeMobileNumber changeMobileNumber(String number) {
-    return _ChangeMobileNumber(
-      number,
-    );
-  }
-
-  _ChangeOtherPhone changeOtherPhone(String phone) {
-    return _ChangeOtherPhone(
-      phone,
-    );
-  }
-
-  _ChangeEmail changeEmail(String email) {
-    return _ChangeEmail(
-      email,
-    );
-  }
-
-  _ChangeOriginCountry changeOriginCountry(String country) {
-    return _ChangeOriginCountry(
-      country,
-    );
-  }
-
-  _ChangeOriginPostalCode changeOriginPostalCode(String postalCode) {
-    return _ChangeOriginPostalCode(
-      postalCode,
-    );
-  }
-
-  _ChangeProvince changeOriginProvince(String province) {
-    return _ChangeProvince(
-      province,
-    );
-  }
-
-  _ChangeOriginCity changeOriginCity(String city) {
-    return _ChangeOriginCity(
-      city,
-    );
-  }
-
-  _ChangeOriginStreetAddress changeOriginStreetAddress(String streetAddress) {
-    return _ChangeOriginStreetAddress(
-      streetAddress,
-    );
-  }
-
-  _ChangeOriginStreetAddressFromPostalCode
-      changeOriginStreetAddressFromPostalCode(String address) {
-    return _ChangeOriginStreetAddressFromPostalCode(
-      address,
-    );
-  }
-
-  _ChangeSameAsOriginAddress changeSameAsOriginAddress() {
-    return const _ChangeSameAsOriginAddress();
-  }
-
-  _ChangeResidenceCountry changeResidenceCountry(String country) {
-    return _ChangeResidenceCountry(
-      country,
-    );
-  }
-
-  _ChangeResidencePostalCode changeResidencePostalCode(String postalCode) {
-    return _ChangeResidencePostalCode(
-      postalCode,
-    );
-  }
-
-  _ChangeResidenceProvince changeResidenceProvince(String province) {
-    return _ChangeResidenceProvince(
-      province,
-    );
-  }
-
-  _ChangeResidenceCity changeResidenceCity(String city) {
-    return _ChangeResidenceCity(
-      city,
-    );
-  }
-
-  _ChangeResidenceStreetAddress changeResidenceStreetAddress(String address) {
-    return _ChangeResidenceStreetAddress(
-      address,
-    );
-  }
-
-  _ChangeResidenceStreetAddressFromPostalCode
-      changeResidenceStreetAddressFromPostalCode(String address) {
-    return _ChangeResidenceStreetAddressFromPostalCode(
-      address,
-    );
-  }
-
-  _ChangeProfilePicture changeProfilePicture(File profilePicture) {
-    return _ChangeProfilePicture(
-      profilePicture,
-    );
-  }
-
-  _ChangeOriginKycDocType changeOriginKycDocType(String docType) {
-    return _ChangeOriginKycDocType(
-      docType,
-    );
-  }
-
-  _ChangeOriginKycDocNumber changeOriginKycDocNumber(String docNumber) {
-    return _ChangeOriginKycDocNumber(
-      docNumber,
-    );
-  }
-
-  _ChangeOriginKycDocFront changeOriginKycDocFront(File docFront) {
-    return _ChangeOriginKycDocFront(
-      docFront,
-    );
-  }
-
-  _ChangeOriginKycDocBack changeOriginKycDocBack(File docback) {
-    return _ChangeOriginKycDocBack(
-      docback,
-    );
-  }
-
-  _ChangeOriginDocIssuedFrom changeOriginDocIssuedFrom(String inssuedFrom) {
-    return _ChangeOriginDocIssuedFrom(
-      inssuedFrom,
-    );
-  }
-
-  _ChangeOriginDocIssuedDate changeOriginDocIssuedDate(String issuedDate) {
-    return _ChangeOriginDocIssuedDate(
-      issuedDate,
-    );
-  }
-
-  _ChangeResidenceKycDocType changeResidenceKycDocType(String docType) {
-    return _ChangeResidenceKycDocType(
-      docType,
-    );
-  }
-
-  _ChangeResidenceKycDocNumber changeResidenceKycDocNumber(String docNumber) {
-    return _ChangeResidenceKycDocNumber(
-      docNumber,
-    );
-  }
-
-  _ChangeResidenceKycDocFront changeResidenceKycDocFront(File docFront) {
-    return _ChangeResidenceKycDocFront(
-      docFront,
-    );
-  }
-
-  _ChangeResidenceKycDocBack changeResidenceKycDocBack(File docBack) {
-    return _ChangeResidenceKycDocBack(
-      docBack,
-    );
-  }
-
-  _SetInitialState setInitialState(UserDetail userDetail) {
-    return _SetInitialState(
-      userDetail,
-    );
-  }
-
-  _SaveUserInfo saveUserInfo() {
-    return const _SaveUserInfo();
-  }
-
-  _SaveDocumentInfo saveDocumentInfo() {
-    return const _SaveDocumentInfo();
-  }
-
-  _SaveUserImage saveUserImage(File image) {
-    return _SaveUserImage(
-      image,
-    );
-  }
-}
-
-/// @nodoc
-const $UpdateProfileEvent = _$UpdateProfileEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdateProfileEvent {
@@ -338,6 +65,56 @@ mixin _$UpdateProfileEvent {
     required TResult Function() saveUserInfo,
     required TResult Function() saveDocumentInfo,
     required TResult Function(File image) saveUserImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -462,6 +239,69 @@ mixin _$UpdateProfileEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -530,44 +370,44 @@ mixin _$UpdateProfileEvent {
 abstract class $UpdateProfileEventCopyWith<$Res> {
   factory $UpdateProfileEventCopyWith(
           UpdateProfileEvent value, $Res Function(UpdateProfileEvent) then) =
-      _$UpdateProfileEventCopyWithImpl<$Res>;
+      _$UpdateProfileEventCopyWithImpl<$Res, UpdateProfileEvent>;
 }
 
 /// @nodoc
-class _$UpdateProfileEventCopyWithImpl<$Res>
+class _$UpdateProfileEventCopyWithImpl<$Res, $Val extends UpdateProfileEvent>
     implements $UpdateProfileEventCopyWith<$Res> {
   _$UpdateProfileEventCopyWithImpl(this._value, this._then);
 
-  final UpdateProfileEvent _value;
   // ignore: unused_field
-  final $Res Function(UpdateProfileEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangeFirstNameCopyWith<$Res> {
-  factory _$ChangeFirstNameCopyWith(
-          _ChangeFirstName value, $Res Function(_ChangeFirstName) then) =
-      __$ChangeFirstNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeFirstNameCopyWith<$Res> {
+  factory _$$_ChangeFirstNameCopyWith(
+          _$_ChangeFirstName value, $Res Function(_$_ChangeFirstName) then) =
+      __$$_ChangeFirstNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeFirstNameCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeFirstNameCopyWith<$Res> {
-  __$ChangeFirstNameCopyWithImpl(
-      _ChangeFirstName _value, $Res Function(_ChangeFirstName) _then)
-      : super(_value, (v) => _then(v as _ChangeFirstName));
+class __$$_ChangeFirstNameCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeFirstName>
+    implements _$$_ChangeFirstNameCopyWith<$Res> {
+  __$$_ChangeFirstNameCopyWithImpl(
+      _$_ChangeFirstName _value, $Res Function(_$_ChangeFirstName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeFirstName get _value => super._value as _ChangeFirstName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeFirstName(
-      name == freezed
+    return _then(_$_ChangeFirstName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -591,19 +431,19 @@ class _$_ChangeFirstName implements _ChangeFirstName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeFirstName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeFirstName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeFirstNameCopyWith<_ChangeFirstName> get copyWith =>
-      __$ChangeFirstNameCopyWithImpl<_ChangeFirstName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeFirstNameCopyWith<_$_ChangeFirstName> get copyWith =>
+      __$$_ChangeFirstNameCopyWithImpl<_$_ChangeFirstName>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -657,6 +497,59 @@ class _$_ChangeFirstName implements _ChangeFirstName {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeFirstName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeFirstName?.call(name);
   }
 
   @override
@@ -791,6 +684,72 @@ class _$_ChangeFirstName implements _ChangeFirstName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeFirstName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -860,39 +819,38 @@ class _$_ChangeFirstName implements _ChangeFirstName {
 }
 
 abstract class _ChangeFirstName implements UpdateProfileEvent {
-  const factory _ChangeFirstName(String name) = _$_ChangeFirstName;
+  const factory _ChangeFirstName(final String name) = _$_ChangeFirstName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeFirstNameCopyWith<_ChangeFirstName> get copyWith =>
+  _$$_ChangeFirstNameCopyWith<_$_ChangeFirstName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeLastNameCopyWith<$Res> {
-  factory _$ChangeLastNameCopyWith(
-          _ChangeLastName value, $Res Function(_ChangeLastName) then) =
-      __$ChangeLastNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeLastNameCopyWith<$Res> {
+  factory _$$_ChangeLastNameCopyWith(
+          _$_ChangeLastName value, $Res Function(_$_ChangeLastName) then) =
+      __$$_ChangeLastNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeLastNameCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeLastNameCopyWith<$Res> {
-  __$ChangeLastNameCopyWithImpl(
-      _ChangeLastName _value, $Res Function(_ChangeLastName) _then)
-      : super(_value, (v) => _then(v as _ChangeLastName));
+class __$$_ChangeLastNameCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeLastName>
+    implements _$$_ChangeLastNameCopyWith<$Res> {
+  __$$_ChangeLastNameCopyWithImpl(
+      _$_ChangeLastName _value, $Res Function(_$_ChangeLastName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeLastName get _value => super._value as _ChangeLastName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeLastName(
-      name == freezed
+    return _then(_$_ChangeLastName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -916,19 +874,19 @@ class _$_ChangeLastName implements _ChangeLastName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeLastName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeLastName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeLastNameCopyWith<_ChangeLastName> get copyWith =>
-      __$ChangeLastNameCopyWithImpl<_ChangeLastName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeLastNameCopyWith<_$_ChangeLastName> get copyWith =>
+      __$$_ChangeLastNameCopyWithImpl<_$_ChangeLastName>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -982,6 +940,59 @@ class _$_ChangeLastName implements _ChangeLastName {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeLastName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeLastName?.call(name);
   }
 
   @override
@@ -1116,6 +1127,72 @@ class _$_ChangeLastName implements _ChangeLastName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeLastName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -1185,39 +1262,38 @@ class _$_ChangeLastName implements _ChangeLastName {
 }
 
 abstract class _ChangeLastName implements UpdateProfileEvent {
-  const factory _ChangeLastName(String name) = _$_ChangeLastName;
+  const factory _ChangeLastName(final String name) = _$_ChangeLastName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeLastNameCopyWith<_ChangeLastName> get copyWith =>
+  _$$_ChangeLastNameCopyWith<_$_ChangeLastName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeFuriganaNameCopyWith<$Res> {
-  factory _$ChangeFuriganaNameCopyWith(
-          _ChangeFuriganaName value, $Res Function(_ChangeFuriganaName) then) =
-      __$ChangeFuriganaNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeFuriganaNameCopyWith<$Res> {
+  factory _$$_ChangeFuriganaNameCopyWith(_$_ChangeFuriganaName value,
+          $Res Function(_$_ChangeFuriganaName) then) =
+      __$$_ChangeFuriganaNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeFuriganaNameCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeFuriganaNameCopyWith<$Res> {
-  __$ChangeFuriganaNameCopyWithImpl(
-      _ChangeFuriganaName _value, $Res Function(_ChangeFuriganaName) _then)
-      : super(_value, (v) => _then(v as _ChangeFuriganaName));
+class __$$_ChangeFuriganaNameCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeFuriganaName>
+    implements _$$_ChangeFuriganaNameCopyWith<$Res> {
+  __$$_ChangeFuriganaNameCopyWithImpl(
+      _$_ChangeFuriganaName _value, $Res Function(_$_ChangeFuriganaName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeFuriganaName get _value => super._value as _ChangeFuriganaName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeFuriganaName(
-      name == freezed
+    return _then(_$_ChangeFuriganaName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1241,19 +1317,20 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeFuriganaName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeFuriganaName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeFuriganaNameCopyWith<_ChangeFuriganaName> get copyWith =>
-      __$ChangeFuriganaNameCopyWithImpl<_ChangeFuriganaName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeFuriganaNameCopyWith<_$_ChangeFuriganaName> get copyWith =>
+      __$$_ChangeFuriganaNameCopyWithImpl<_$_ChangeFuriganaName>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1307,6 +1384,59 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeFuriganaName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeFuriganaName?.call(name);
   }
 
   @override
@@ -1441,6 +1571,72 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeFuriganaName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -1510,39 +1706,38 @@ class _$_ChangeFuriganaName implements _ChangeFuriganaName {
 }
 
 abstract class _ChangeFuriganaName implements UpdateProfileEvent {
-  const factory _ChangeFuriganaName(String name) = _$_ChangeFuriganaName;
+  const factory _ChangeFuriganaName(final String name) = _$_ChangeFuriganaName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeFuriganaNameCopyWith<_ChangeFuriganaName> get copyWith =>
+  _$$_ChangeFuriganaNameCopyWith<_$_ChangeFuriganaName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeFatherNameCopyWith<$Res> {
-  factory _$ChangeFatherNameCopyWith(
-          _ChangeFatherName value, $Res Function(_ChangeFatherName) then) =
-      __$ChangeFatherNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeFatherNameCopyWith<$Res> {
+  factory _$$_ChangeFatherNameCopyWith(
+          _$_ChangeFatherName value, $Res Function(_$_ChangeFatherName) then) =
+      __$$_ChangeFatherNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeFatherNameCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeFatherNameCopyWith<$Res> {
-  __$ChangeFatherNameCopyWithImpl(
-      _ChangeFatherName _value, $Res Function(_ChangeFatherName) _then)
-      : super(_value, (v) => _then(v as _ChangeFatherName));
+class __$$_ChangeFatherNameCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeFatherName>
+    implements _$$_ChangeFatherNameCopyWith<$Res> {
+  __$$_ChangeFatherNameCopyWithImpl(
+      _$_ChangeFatherName _value, $Res Function(_$_ChangeFatherName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeFatherName get _value => super._value as _ChangeFatherName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeFatherName(
-      name == freezed
+    return _then(_$_ChangeFatherName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1566,19 +1761,19 @@ class _$_ChangeFatherName implements _ChangeFatherName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeFatherName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeFatherName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeFatherNameCopyWith<_ChangeFatherName> get copyWith =>
-      __$ChangeFatherNameCopyWithImpl<_ChangeFatherName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeFatherNameCopyWith<_$_ChangeFatherName> get copyWith =>
+      __$$_ChangeFatherNameCopyWithImpl<_$_ChangeFatherName>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1632,6 +1827,59 @@ class _$_ChangeFatherName implements _ChangeFatherName {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeFatherName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeFatherName?.call(name);
   }
 
   @override
@@ -1766,6 +2014,72 @@ class _$_ChangeFatherName implements _ChangeFatherName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeFatherName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -1835,39 +2149,38 @@ class _$_ChangeFatherName implements _ChangeFatherName {
 }
 
 abstract class _ChangeFatherName implements UpdateProfileEvent {
-  const factory _ChangeFatherName(String name) = _$_ChangeFatherName;
+  const factory _ChangeFatherName(final String name) = _$_ChangeFatherName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeFatherNameCopyWith<_ChangeFatherName> get copyWith =>
+  _$$_ChangeFatherNameCopyWith<_$_ChangeFatherName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeMotherNameCopyWith<$Res> {
-  factory _$ChangeMotherNameCopyWith(
-          _ChangeMotherName value, $Res Function(_ChangeMotherName) then) =
-      __$ChangeMotherNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeMotherNameCopyWith<$Res> {
+  factory _$$_ChangeMotherNameCopyWith(
+          _$_ChangeMotherName value, $Res Function(_$_ChangeMotherName) then) =
+      __$$_ChangeMotherNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeMotherNameCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeMotherNameCopyWith<$Res> {
-  __$ChangeMotherNameCopyWithImpl(
-      _ChangeMotherName _value, $Res Function(_ChangeMotherName) _then)
-      : super(_value, (v) => _then(v as _ChangeMotherName));
+class __$$_ChangeMotherNameCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeMotherName>
+    implements _$$_ChangeMotherNameCopyWith<$Res> {
+  __$$_ChangeMotherNameCopyWithImpl(
+      _$_ChangeMotherName _value, $Res Function(_$_ChangeMotherName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeMotherName get _value => super._value as _ChangeMotherName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeMotherName(
-      name == freezed
+    return _then(_$_ChangeMotherName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1891,19 +2204,19 @@ class _$_ChangeMotherName implements _ChangeMotherName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeMotherName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeMotherName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeMotherNameCopyWith<_ChangeMotherName> get copyWith =>
-      __$ChangeMotherNameCopyWithImpl<_ChangeMotherName>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeMotherNameCopyWith<_$_ChangeMotherName> get copyWith =>
+      __$$_ChangeMotherNameCopyWithImpl<_$_ChangeMotherName>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1957,6 +2270,59 @@ class _$_ChangeMotherName implements _ChangeMotherName {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeMotherName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeMotherName?.call(name);
   }
 
   @override
@@ -2091,6 +2457,72 @@ class _$_ChangeMotherName implements _ChangeMotherName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeMotherName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -2160,39 +2592,38 @@ class _$_ChangeMotherName implements _ChangeMotherName {
 }
 
 abstract class _ChangeMotherName implements UpdateProfileEvent {
-  const factory _ChangeMotherName(String name) = _$_ChangeMotherName;
+  const factory _ChangeMotherName(final String name) = _$_ChangeMotherName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeMotherNameCopyWith<_ChangeMotherName> get copyWith =>
+  _$$_ChangeMotherNameCopyWith<_$_ChangeMotherName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeGrandFatherNameCopyWith<$Res> {
-  factory _$ChangeGrandFatherNameCopyWith(_ChangeGrandFatherName value,
-          $Res Function(_ChangeGrandFatherName) then) =
-      __$ChangeGrandFatherNameCopyWithImpl<$Res>;
+abstract class _$$_ChangeGrandFatherNameCopyWith<$Res> {
+  factory _$$_ChangeGrandFatherNameCopyWith(_$_ChangeGrandFatherName value,
+          $Res Function(_$_ChangeGrandFatherName) then) =
+      __$$_ChangeGrandFatherNameCopyWithImpl<$Res>;
+  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$ChangeGrandFatherNameCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeGrandFatherNameCopyWith<$Res> {
-  __$ChangeGrandFatherNameCopyWithImpl(_ChangeGrandFatherName _value,
-      $Res Function(_ChangeGrandFatherName) _then)
-      : super(_value, (v) => _then(v as _ChangeGrandFatherName));
+class __$$_ChangeGrandFatherNameCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeGrandFatherName>
+    implements _$$_ChangeGrandFatherNameCopyWith<$Res> {
+  __$$_ChangeGrandFatherNameCopyWithImpl(_$_ChangeGrandFatherName _value,
+      $Res Function(_$_ChangeGrandFatherName) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeGrandFatherName get _value => super._value as _ChangeGrandFatherName;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
   }) {
-    return _then(_ChangeGrandFatherName(
-      name == freezed
+    return _then(_$_ChangeGrandFatherName(
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2216,19 +2647,19 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeGrandFatherName &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeGrandFatherName &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeGrandFatherNameCopyWith<_ChangeGrandFatherName> get copyWith =>
-      __$ChangeGrandFatherNameCopyWithImpl<_ChangeGrandFatherName>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeGrandFatherNameCopyWith<_$_ChangeGrandFatherName> get copyWith =>
+      __$$_ChangeGrandFatherNameCopyWithImpl<_$_ChangeGrandFatherName>(
           this, _$identity);
 
   @override
@@ -2283,6 +2714,59 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeGrandFatherName(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeGrandFatherName?.call(name);
   }
 
   @override
@@ -2417,6 +2901,72 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeGrandFatherName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -2486,39 +3036,39 @@ class _$_ChangeGrandFatherName implements _ChangeGrandFatherName {
 }
 
 abstract class _ChangeGrandFatherName implements UpdateProfileEvent {
-  const factory _ChangeGrandFatherName(String name) = _$_ChangeGrandFatherName;
+  const factory _ChangeGrandFatherName(final String name) =
+      _$_ChangeGrandFatherName;
 
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @JsonKey(ignore: true)
-  _$ChangeGrandFatherNameCopyWith<_ChangeGrandFatherName> get copyWith =>
+  _$$_ChangeGrandFatherNameCopyWith<_$_ChangeGrandFatherName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeCompanyCopyWith<$Res> {
-  factory _$ChangeCompanyCopyWith(
-          _ChangeCompany value, $Res Function(_ChangeCompany) then) =
-      __$ChangeCompanyCopyWithImpl<$Res>;
+abstract class _$$_ChangeCompanyCopyWith<$Res> {
+  factory _$$_ChangeCompanyCopyWith(
+          _$_ChangeCompany value, $Res Function(_$_ChangeCompany) then) =
+      __$$_ChangeCompanyCopyWithImpl<$Res>;
+  @useResult
   $Res call({String company});
 }
 
 /// @nodoc
-class __$ChangeCompanyCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeCompanyCopyWith<$Res> {
-  __$ChangeCompanyCopyWithImpl(
-      _ChangeCompany _value, $Res Function(_ChangeCompany) _then)
-      : super(_value, (v) => _then(v as _ChangeCompany));
+class __$$_ChangeCompanyCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeCompany>
+    implements _$$_ChangeCompanyCopyWith<$Res> {
+  __$$_ChangeCompanyCopyWithImpl(
+      _$_ChangeCompany _value, $Res Function(_$_ChangeCompany) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeCompany get _value => super._value as _ChangeCompany;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? company = freezed,
+    Object? company = null,
   }) {
-    return _then(_ChangeCompany(
-      company == freezed
+    return _then(_$_ChangeCompany(
+      null == company
           ? _value.company
           : company // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2542,19 +3092,19 @@ class _$_ChangeCompany implements _ChangeCompany {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeCompany &&
-            (identical(other.company, company) ||
-                const DeepCollectionEquality().equals(other.company, company)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCompany &&
+            (identical(other.company, company) || other.company == company));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(company);
+  int get hashCode => Object.hash(runtimeType, company);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeCompanyCopyWith<_ChangeCompany> get copyWith =>
-      __$ChangeCompanyCopyWithImpl<_ChangeCompany>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCompanyCopyWith<_$_ChangeCompany> get copyWith =>
+      __$$_ChangeCompanyCopyWithImpl<_$_ChangeCompany>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2608,6 +3158,59 @@ class _$_ChangeCompany implements _ChangeCompany {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeCompany(company);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeCompany?.call(company);
   }
 
   @override
@@ -2742,6 +3345,72 @@ class _$_ChangeCompany implements _ChangeCompany {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeCompany?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -2811,39 +3480,38 @@ class _$_ChangeCompany implements _ChangeCompany {
 }
 
 abstract class _ChangeCompany implements UpdateProfileEvent {
-  const factory _ChangeCompany(String company) = _$_ChangeCompany;
+  const factory _ChangeCompany(final String company) = _$_ChangeCompany;
 
-  String get company => throw _privateConstructorUsedError;
+  String get company;
   @JsonKey(ignore: true)
-  _$ChangeCompanyCopyWith<_ChangeCompany> get copyWith =>
+  _$$_ChangeCompanyCopyWith<_$_ChangeCompany> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeProfessionCopyWith<$Res> {
-  factory _$ChangeProfessionCopyWith(
-          _ChangeProfession value, $Res Function(_ChangeProfession) then) =
-      __$ChangeProfessionCopyWithImpl<$Res>;
+abstract class _$$_ChangeProfessionCopyWith<$Res> {
+  factory _$$_ChangeProfessionCopyWith(
+          _$_ChangeProfession value, $Res Function(_$_ChangeProfession) then) =
+      __$$_ChangeProfessionCopyWithImpl<$Res>;
+  @useResult
   $Res call({String profession});
 }
 
 /// @nodoc
-class __$ChangeProfessionCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeProfessionCopyWith<$Res> {
-  __$ChangeProfessionCopyWithImpl(
-      _ChangeProfession _value, $Res Function(_ChangeProfession) _then)
-      : super(_value, (v) => _then(v as _ChangeProfession));
+class __$$_ChangeProfessionCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeProfession>
+    implements _$$_ChangeProfessionCopyWith<$Res> {
+  __$$_ChangeProfessionCopyWithImpl(
+      _$_ChangeProfession _value, $Res Function(_$_ChangeProfession) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeProfession get _value => super._value as _ChangeProfession;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profession = freezed,
+    Object? profession = null,
   }) {
-    return _then(_ChangeProfession(
-      profession == freezed
+    return _then(_$_ChangeProfession(
+      null == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2867,20 +3535,20 @@ class _$_ChangeProfession implements _ChangeProfession {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeProfession &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeProfession &&
             (identical(other.profession, profession) ||
-                const DeepCollectionEquality()
-                    .equals(other.profession, profession)));
+                other.profession == profession));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(profession);
+  int get hashCode => Object.hash(runtimeType, profession);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeProfessionCopyWith<_ChangeProfession> get copyWith =>
-      __$ChangeProfessionCopyWithImpl<_ChangeProfession>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeProfessionCopyWith<_$_ChangeProfession> get copyWith =>
+      __$$_ChangeProfessionCopyWithImpl<_$_ChangeProfession>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2934,6 +3602,59 @@ class _$_ChangeProfession implements _ChangeProfession {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeProfession(profession);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeProfession?.call(profession);
   }
 
   @override
@@ -3068,6 +3789,72 @@ class _$_ChangeProfession implements _ChangeProfession {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeProfession?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -3137,39 +3924,39 @@ class _$_ChangeProfession implements _ChangeProfession {
 }
 
 abstract class _ChangeProfession implements UpdateProfileEvent {
-  const factory _ChangeProfession(String profession) = _$_ChangeProfession;
+  const factory _ChangeProfession(final String profession) =
+      _$_ChangeProfession;
 
-  String get profession => throw _privateConstructorUsedError;
+  String get profession;
   @JsonKey(ignore: true)
-  _$ChangeProfessionCopyWith<_ChangeProfession> get copyWith =>
+  _$$_ChangeProfessionCopyWith<_$_ChangeProfession> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeNationalityCopyWith<$Res> {
-  factory _$ChangeNationalityCopyWith(
-          _ChangeNationality value, $Res Function(_ChangeNationality) then) =
-      __$ChangeNationalityCopyWithImpl<$Res>;
+abstract class _$$_ChangeNationalityCopyWith<$Res> {
+  factory _$$_ChangeNationalityCopyWith(_$_ChangeNationality value,
+          $Res Function(_$_ChangeNationality) then) =
+      __$$_ChangeNationalityCopyWithImpl<$Res>;
+  @useResult
   $Res call({String nationality});
 }
 
 /// @nodoc
-class __$ChangeNationalityCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeNationalityCopyWith<$Res> {
-  __$ChangeNationalityCopyWithImpl(
-      _ChangeNationality _value, $Res Function(_ChangeNationality) _then)
-      : super(_value, (v) => _then(v as _ChangeNationality));
+class __$$_ChangeNationalityCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeNationality>
+    implements _$$_ChangeNationalityCopyWith<$Res> {
+  __$$_ChangeNationalityCopyWithImpl(
+      _$_ChangeNationality _value, $Res Function(_$_ChangeNationality) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeNationality get _value => super._value as _ChangeNationality;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nationality = freezed,
+    Object? nationality = null,
   }) {
-    return _then(_ChangeNationality(
-      nationality == freezed
+    return _then(_$_ChangeNationality(
+      null == nationality
           ? _value.nationality
           : nationality // ignore: cast_nullable_to_non_nullable
               as String,
@@ -3193,20 +3980,21 @@ class _$_ChangeNationality implements _ChangeNationality {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeNationality &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeNationality &&
             (identical(other.nationality, nationality) ||
-                const DeepCollectionEquality()
-                    .equals(other.nationality, nationality)));
+                other.nationality == nationality));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(nationality);
+  int get hashCode => Object.hash(runtimeType, nationality);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeNationalityCopyWith<_ChangeNationality> get copyWith =>
-      __$ChangeNationalityCopyWithImpl<_ChangeNationality>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeNationalityCopyWith<_$_ChangeNationality> get copyWith =>
+      __$$_ChangeNationalityCopyWithImpl<_$_ChangeNationality>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3260,6 +4048,59 @@ class _$_ChangeNationality implements _ChangeNationality {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeNationality(nationality);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeNationality?.call(nationality);
   }
 
   @override
@@ -3394,6 +4235,72 @@ class _$_ChangeNationality implements _ChangeNationality {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeNationality?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -3463,42 +4370,42 @@ class _$_ChangeNationality implements _ChangeNationality {
 }
 
 abstract class _ChangeNationality implements UpdateProfileEvent {
-  const factory _ChangeNationality(String nationality) = _$_ChangeNationality;
+  const factory _ChangeNationality(final String nationality) =
+      _$_ChangeNationality;
 
-  String get nationality => throw _privateConstructorUsedError;
+  String get nationality;
   @JsonKey(ignore: true)
-  _$ChangeNationalityCopyWith<_ChangeNationality> get copyWith =>
+  _$$_ChangeNationalityCopyWith<_$_ChangeNationality> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeDocumentIdentificationNumberCopyWith<$Res> {
-  factory _$ChangeDocumentIdentificationNumberCopyWith(
-          _ChangeDocumentIdentificationNumber value,
-          $Res Function(_ChangeDocumentIdentificationNumber) then) =
-      __$ChangeDocumentIdentificationNumberCopyWithImpl<$Res>;
+abstract class _$$_ChangeDocumentIdentificationNumberCopyWith<$Res> {
+  factory _$$_ChangeDocumentIdentificationNumberCopyWith(
+          _$_ChangeDocumentIdentificationNumber value,
+          $Res Function(_$_ChangeDocumentIdentificationNumber) then) =
+      __$$_ChangeDocumentIdentificationNumberCopyWithImpl<$Res>;
+  @useResult
   $Res call({String number});
 }
 
 /// @nodoc
-class __$ChangeDocumentIdentificationNumberCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeDocumentIdentificationNumberCopyWith<$Res> {
-  __$ChangeDocumentIdentificationNumberCopyWithImpl(
-      _ChangeDocumentIdentificationNumber _value,
-      $Res Function(_ChangeDocumentIdentificationNumber) _then)
-      : super(_value, (v) => _then(v as _ChangeDocumentIdentificationNumber));
+class __$$_ChangeDocumentIdentificationNumberCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res,
+        _$_ChangeDocumentIdentificationNumber>
+    implements _$$_ChangeDocumentIdentificationNumberCopyWith<$Res> {
+  __$$_ChangeDocumentIdentificationNumberCopyWithImpl(
+      _$_ChangeDocumentIdentificationNumber _value,
+      $Res Function(_$_ChangeDocumentIdentificationNumber) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeDocumentIdentificationNumber get _value =>
-      super._value as _ChangeDocumentIdentificationNumber;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? number = freezed,
+    Object? number = null,
   }) {
-    return _then(_ChangeDocumentIdentificationNumber(
-      number == freezed
+    return _then(_$_ChangeDocumentIdentificationNumber(
+      null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as String,
@@ -3523,21 +4430,21 @@ class _$_ChangeDocumentIdentificationNumber
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeDocumentIdentificationNumber &&
-            (identical(other.number, number) ||
-                const DeepCollectionEquality().equals(other.number, number)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeDocumentIdentificationNumber &&
+            (identical(other.number, number) || other.number == number));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(number);
+  int get hashCode => Object.hash(runtimeType, number);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeDocumentIdentificationNumberCopyWith<
-          _ChangeDocumentIdentificationNumber>
-      get copyWith => __$ChangeDocumentIdentificationNumberCopyWithImpl<
-          _ChangeDocumentIdentificationNumber>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeDocumentIdentificationNumberCopyWith<
+          _$_ChangeDocumentIdentificationNumber>
+      get copyWith => __$$_ChangeDocumentIdentificationNumberCopyWithImpl<
+          _$_ChangeDocumentIdentificationNumber>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3591,6 +4498,59 @@ class _$_ChangeDocumentIdentificationNumber
     required TResult Function(File image) saveUserImage,
   }) {
     return changeDocumentIdentificationNumber(number);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeDocumentIdentificationNumber?.call(number);
   }
 
   @override
@@ -3725,6 +4685,72 @@ class _$_ChangeDocumentIdentificationNumber
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeDocumentIdentificationNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -3795,41 +4821,40 @@ class _$_ChangeDocumentIdentificationNumber
 
 abstract class _ChangeDocumentIdentificationNumber
     implements UpdateProfileEvent {
-  const factory _ChangeDocumentIdentificationNumber(String number) =
+  const factory _ChangeDocumentIdentificationNumber(final String number) =
       _$_ChangeDocumentIdentificationNumber;
 
-  String get number => throw _privateConstructorUsedError;
+  String get number;
   @JsonKey(ignore: true)
-  _$ChangeDocumentIdentificationNumberCopyWith<
-          _ChangeDocumentIdentificationNumber>
+  _$$_ChangeDocumentIdentificationNumberCopyWith<
+          _$_ChangeDocumentIdentificationNumber>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeGenderCopyWith<$Res> {
-  factory _$ChangeGenderCopyWith(
-          _ChangeGender value, $Res Function(_ChangeGender) then) =
-      __$ChangeGenderCopyWithImpl<$Res>;
+abstract class _$$_ChangeGenderCopyWith<$Res> {
+  factory _$$_ChangeGenderCopyWith(
+          _$_ChangeGender value, $Res Function(_$_ChangeGender) then) =
+      __$$_ChangeGenderCopyWithImpl<$Res>;
+  @useResult
   $Res call({String gender});
 }
 
 /// @nodoc
-class __$ChangeGenderCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeGenderCopyWith<$Res> {
-  __$ChangeGenderCopyWithImpl(
-      _ChangeGender _value, $Res Function(_ChangeGender) _then)
-      : super(_value, (v) => _then(v as _ChangeGender));
+class __$$_ChangeGenderCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeGender>
+    implements _$$_ChangeGenderCopyWith<$Res> {
+  __$$_ChangeGenderCopyWithImpl(
+      _$_ChangeGender _value, $Res Function(_$_ChangeGender) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeGender get _value => super._value as _ChangeGender;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? gender = freezed,
+    Object? gender = null,
   }) {
-    return _then(_ChangeGender(
-      gender == freezed
+    return _then(_$_ChangeGender(
+      null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
@@ -3853,19 +4878,19 @@ class _$_ChangeGender implements _ChangeGender {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeGender &&
-            (identical(other.gender, gender) ||
-                const DeepCollectionEquality().equals(other.gender, gender)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeGender &&
+            (identical(other.gender, gender) || other.gender == gender));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(gender);
+  int get hashCode => Object.hash(runtimeType, gender);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeGenderCopyWith<_ChangeGender> get copyWith =>
-      __$ChangeGenderCopyWithImpl<_ChangeGender>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeGenderCopyWith<_$_ChangeGender> get copyWith =>
+      __$$_ChangeGenderCopyWithImpl<_$_ChangeGender>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3919,6 +4944,59 @@ class _$_ChangeGender implements _ChangeGender {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeGender(gender);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeGender?.call(gender);
   }
 
   @override
@@ -4053,6 +5131,72 @@ class _$_ChangeGender implements _ChangeGender {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeGender?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -4122,39 +5266,38 @@ class _$_ChangeGender implements _ChangeGender {
 }
 
 abstract class _ChangeGender implements UpdateProfileEvent {
-  const factory _ChangeGender(String gender) = _$_ChangeGender;
+  const factory _ChangeGender(final String gender) = _$_ChangeGender;
 
-  String get gender => throw _privateConstructorUsedError;
+  String get gender;
   @JsonKey(ignore: true)
-  _$ChangeGenderCopyWith<_ChangeGender> get copyWith =>
+  _$$_ChangeGenderCopyWith<_$_ChangeGender> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeMaritalStatusCopyWith<$Res> {
-  factory _$ChangeMaritalStatusCopyWith(_ChangeMaritalStatus value,
-          $Res Function(_ChangeMaritalStatus) then) =
-      __$ChangeMaritalStatusCopyWithImpl<$Res>;
+abstract class _$$_ChangeMaritalStatusCopyWith<$Res> {
+  factory _$$_ChangeMaritalStatusCopyWith(_$_ChangeMaritalStatus value,
+          $Res Function(_$_ChangeMaritalStatus) then) =
+      __$$_ChangeMaritalStatusCopyWithImpl<$Res>;
+  @useResult
   $Res call({String status});
 }
 
 /// @nodoc
-class __$ChangeMaritalStatusCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeMaritalStatusCopyWith<$Res> {
-  __$ChangeMaritalStatusCopyWithImpl(
-      _ChangeMaritalStatus _value, $Res Function(_ChangeMaritalStatus) _then)
-      : super(_value, (v) => _then(v as _ChangeMaritalStatus));
+class __$$_ChangeMaritalStatusCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeMaritalStatus>
+    implements _$$_ChangeMaritalStatusCopyWith<$Res> {
+  __$$_ChangeMaritalStatusCopyWithImpl(_$_ChangeMaritalStatus _value,
+      $Res Function(_$_ChangeMaritalStatus) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeMaritalStatus get _value => super._value as _ChangeMaritalStatus;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
   }) {
-    return _then(_ChangeMaritalStatus(
-      status == freezed
+    return _then(_$_ChangeMaritalStatus(
+      null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
@@ -4178,19 +5321,19 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeMaritalStatus &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeMaritalStatus &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(status);
+  int get hashCode => Object.hash(runtimeType, status);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeMaritalStatusCopyWith<_ChangeMaritalStatus> get copyWith =>
-      __$ChangeMaritalStatusCopyWithImpl<_ChangeMaritalStatus>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeMaritalStatusCopyWith<_$_ChangeMaritalStatus> get copyWith =>
+      __$$_ChangeMaritalStatusCopyWithImpl<_$_ChangeMaritalStatus>(
           this, _$identity);
 
   @override
@@ -4245,6 +5388,59 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeMaritalStatus(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeMaritalStatus?.call(status);
   }
 
   @override
@@ -4379,6 +5575,72 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeMaritalStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -4448,38 +5710,39 @@ class _$_ChangeMaritalStatus implements _ChangeMaritalStatus {
 }
 
 abstract class _ChangeMaritalStatus implements UpdateProfileEvent {
-  const factory _ChangeMaritalStatus(String status) = _$_ChangeMaritalStatus;
+  const factory _ChangeMaritalStatus(final String status) =
+      _$_ChangeMaritalStatus;
 
-  String get status => throw _privateConstructorUsedError;
+  String get status;
   @JsonKey(ignore: true)
-  _$ChangeMaritalStatusCopyWith<_ChangeMaritalStatus> get copyWith =>
+  _$$_ChangeMaritalStatusCopyWith<_$_ChangeMaritalStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeDobCopyWith<$Res> {
-  factory _$ChangeDobCopyWith(
-          _ChangeDob value, $Res Function(_ChangeDob) then) =
-      __$ChangeDobCopyWithImpl<$Res>;
+abstract class _$$_ChangeDobCopyWith<$Res> {
+  factory _$$_ChangeDobCopyWith(
+          _$_ChangeDob value, $Res Function(_$_ChangeDob) then) =
+      __$$_ChangeDobCopyWithImpl<$Res>;
+  @useResult
   $Res call({String dob});
 }
 
 /// @nodoc
-class __$ChangeDobCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeDobCopyWith<$Res> {
-  __$ChangeDobCopyWithImpl(_ChangeDob _value, $Res Function(_ChangeDob) _then)
-      : super(_value, (v) => _then(v as _ChangeDob));
+class __$$_ChangeDobCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeDob>
+    implements _$$_ChangeDobCopyWith<$Res> {
+  __$$_ChangeDobCopyWithImpl(
+      _$_ChangeDob _value, $Res Function(_$_ChangeDob) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeDob get _value => super._value as _ChangeDob;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dob = freezed,
+    Object? dob = null,
   }) {
-    return _then(_ChangeDob(
-      dob == freezed
+    return _then(_$_ChangeDob(
+      null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as String,
@@ -4503,19 +5766,19 @@ class _$_ChangeDob implements _ChangeDob {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeDob &&
-            (identical(other.dob, dob) ||
-                const DeepCollectionEquality().equals(other.dob, dob)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeDob &&
+            (identical(other.dob, dob) || other.dob == dob));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(dob);
+  int get hashCode => Object.hash(runtimeType, dob);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeDobCopyWith<_ChangeDob> get copyWith =>
-      __$ChangeDobCopyWithImpl<_ChangeDob>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeDobCopyWith<_$_ChangeDob> get copyWith =>
+      __$$_ChangeDobCopyWithImpl<_$_ChangeDob>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4569,6 +5832,59 @@ class _$_ChangeDob implements _ChangeDob {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeDob(dob);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeDob?.call(dob);
   }
 
   @override
@@ -4703,6 +6019,72 @@ class _$_ChangeDob implements _ChangeDob {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeDob?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -4772,39 +6154,38 @@ class _$_ChangeDob implements _ChangeDob {
 }
 
 abstract class _ChangeDob implements UpdateProfileEvent {
-  const factory _ChangeDob(String dob) = _$_ChangeDob;
+  const factory _ChangeDob(final String dob) = _$_ChangeDob;
 
-  String get dob => throw _privateConstructorUsedError;
+  String get dob;
   @JsonKey(ignore: true)
-  _$ChangeDobCopyWith<_ChangeDob> get copyWith =>
+  _$$_ChangeDobCopyWith<_$_ChangeDob> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeCommunityCopyWith<$Res> {
-  factory _$ChangeCommunityCopyWith(
-          _ChangeCommunity value, $Res Function(_ChangeCommunity) then) =
-      __$ChangeCommunityCopyWithImpl<$Res>;
+abstract class _$$_ChangeCommunityCopyWith<$Res> {
+  factory _$$_ChangeCommunityCopyWith(
+          _$_ChangeCommunity value, $Res Function(_$_ChangeCommunity) then) =
+      __$$_ChangeCommunityCopyWithImpl<$Res>;
+  @useResult
   $Res call({String community});
 }
 
 /// @nodoc
-class __$ChangeCommunityCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeCommunityCopyWith<$Res> {
-  __$ChangeCommunityCopyWithImpl(
-      _ChangeCommunity _value, $Res Function(_ChangeCommunity) _then)
-      : super(_value, (v) => _then(v as _ChangeCommunity));
+class __$$_ChangeCommunityCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeCommunity>
+    implements _$$_ChangeCommunityCopyWith<$Res> {
+  __$$_ChangeCommunityCopyWithImpl(
+      _$_ChangeCommunity _value, $Res Function(_$_ChangeCommunity) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeCommunity get _value => super._value as _ChangeCommunity;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? community = freezed,
+    Object? community = null,
   }) {
-    return _then(_ChangeCommunity(
-      community == freezed
+    return _then(_$_ChangeCommunity(
+      null == community
           ? _value.community
           : community // ignore: cast_nullable_to_non_nullable
               as String,
@@ -4828,20 +6209,20 @@ class _$_ChangeCommunity implements _ChangeCommunity {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeCommunity &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCommunity &&
             (identical(other.community, community) ||
-                const DeepCollectionEquality()
-                    .equals(other.community, community)));
+                other.community == community));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(community);
+  int get hashCode => Object.hash(runtimeType, community);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeCommunityCopyWith<_ChangeCommunity> get copyWith =>
-      __$ChangeCommunityCopyWithImpl<_ChangeCommunity>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCommunityCopyWith<_$_ChangeCommunity> get copyWith =>
+      __$$_ChangeCommunityCopyWithImpl<_$_ChangeCommunity>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4895,6 +6276,59 @@ class _$_ChangeCommunity implements _ChangeCommunity {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeCommunity(community);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeCommunity?.call(community);
   }
 
   @override
@@ -5029,6 +6463,72 @@ class _$_ChangeCommunity implements _ChangeCommunity {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeCommunity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -5098,39 +6598,38 @@ class _$_ChangeCommunity implements _ChangeCommunity {
 }
 
 abstract class _ChangeCommunity implements UpdateProfileEvent {
-  const factory _ChangeCommunity(String community) = _$_ChangeCommunity;
+  const factory _ChangeCommunity(final String community) = _$_ChangeCommunity;
 
-  String get community => throw _privateConstructorUsedError;
+  String get community;
   @JsonKey(ignore: true)
-  _$ChangeCommunityCopyWith<_ChangeCommunity> get copyWith =>
+  _$$_ChangeCommunityCopyWith<_$_ChangeCommunity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeMobileNumberCopyWith<$Res> {
-  factory _$ChangeMobileNumberCopyWith(
-          _ChangeMobileNumber value, $Res Function(_ChangeMobileNumber) then) =
-      __$ChangeMobileNumberCopyWithImpl<$Res>;
+abstract class _$$_ChangeMobileNumberCopyWith<$Res> {
+  factory _$$_ChangeMobileNumberCopyWith(_$_ChangeMobileNumber value,
+          $Res Function(_$_ChangeMobileNumber) then) =
+      __$$_ChangeMobileNumberCopyWithImpl<$Res>;
+  @useResult
   $Res call({String number});
 }
 
 /// @nodoc
-class __$ChangeMobileNumberCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeMobileNumberCopyWith<$Res> {
-  __$ChangeMobileNumberCopyWithImpl(
-      _ChangeMobileNumber _value, $Res Function(_ChangeMobileNumber) _then)
-      : super(_value, (v) => _then(v as _ChangeMobileNumber));
+class __$$_ChangeMobileNumberCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeMobileNumber>
+    implements _$$_ChangeMobileNumberCopyWith<$Res> {
+  __$$_ChangeMobileNumberCopyWithImpl(
+      _$_ChangeMobileNumber _value, $Res Function(_$_ChangeMobileNumber) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeMobileNumber get _value => super._value as _ChangeMobileNumber;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? number = freezed,
+    Object? number = null,
   }) {
-    return _then(_ChangeMobileNumber(
-      number == freezed
+    return _then(_$_ChangeMobileNumber(
+      null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as String,
@@ -5154,19 +6653,20 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeMobileNumber &&
-            (identical(other.number, number) ||
-                const DeepCollectionEquality().equals(other.number, number)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeMobileNumber &&
+            (identical(other.number, number) || other.number == number));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(number);
+  int get hashCode => Object.hash(runtimeType, number);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeMobileNumberCopyWith<_ChangeMobileNumber> get copyWith =>
-      __$ChangeMobileNumberCopyWithImpl<_ChangeMobileNumber>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeMobileNumberCopyWith<_$_ChangeMobileNumber> get copyWith =>
+      __$$_ChangeMobileNumberCopyWithImpl<_$_ChangeMobileNumber>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5220,6 +6720,59 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeMobileNumber(number);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeMobileNumber?.call(number);
   }
 
   @override
@@ -5354,6 +6907,72 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeMobileNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -5423,39 +7042,39 @@ class _$_ChangeMobileNumber implements _ChangeMobileNumber {
 }
 
 abstract class _ChangeMobileNumber implements UpdateProfileEvent {
-  const factory _ChangeMobileNumber(String number) = _$_ChangeMobileNumber;
+  const factory _ChangeMobileNumber(final String number) =
+      _$_ChangeMobileNumber;
 
-  String get number => throw _privateConstructorUsedError;
+  String get number;
   @JsonKey(ignore: true)
-  _$ChangeMobileNumberCopyWith<_ChangeMobileNumber> get copyWith =>
+  _$$_ChangeMobileNumberCopyWith<_$_ChangeMobileNumber> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOtherPhoneCopyWith<$Res> {
-  factory _$ChangeOtherPhoneCopyWith(
-          _ChangeOtherPhone value, $Res Function(_ChangeOtherPhone) then) =
-      __$ChangeOtherPhoneCopyWithImpl<$Res>;
+abstract class _$$_ChangeOtherPhoneCopyWith<$Res> {
+  factory _$$_ChangeOtherPhoneCopyWith(
+          _$_ChangeOtherPhone value, $Res Function(_$_ChangeOtherPhone) then) =
+      __$$_ChangeOtherPhoneCopyWithImpl<$Res>;
+  @useResult
   $Res call({String phone});
 }
 
 /// @nodoc
-class __$ChangeOtherPhoneCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOtherPhoneCopyWith<$Res> {
-  __$ChangeOtherPhoneCopyWithImpl(
-      _ChangeOtherPhone _value, $Res Function(_ChangeOtherPhone) _then)
-      : super(_value, (v) => _then(v as _ChangeOtherPhone));
+class __$$_ChangeOtherPhoneCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOtherPhone>
+    implements _$$_ChangeOtherPhoneCopyWith<$Res> {
+  __$$_ChangeOtherPhoneCopyWithImpl(
+      _$_ChangeOtherPhone _value, $Res Function(_$_ChangeOtherPhone) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOtherPhone get _value => super._value as _ChangeOtherPhone;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phone = freezed,
+    Object? phone = null,
   }) {
-    return _then(_ChangeOtherPhone(
-      phone == freezed
+    return _then(_$_ChangeOtherPhone(
+      null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
@@ -5479,19 +7098,19 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOtherPhone &&
-            (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOtherPhone &&
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(phone);
+  int get hashCode => Object.hash(runtimeType, phone);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOtherPhoneCopyWith<_ChangeOtherPhone> get copyWith =>
-      __$ChangeOtherPhoneCopyWithImpl<_ChangeOtherPhone>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOtherPhoneCopyWith<_$_ChangeOtherPhone> get copyWith =>
+      __$$_ChangeOtherPhoneCopyWithImpl<_$_ChangeOtherPhone>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5545,6 +7164,59 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOtherPhone(phone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOtherPhone?.call(phone);
   }
 
   @override
@@ -5679,6 +7351,72 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOtherPhone?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -5748,39 +7486,38 @@ class _$_ChangeOtherPhone implements _ChangeOtherPhone {
 }
 
 abstract class _ChangeOtherPhone implements UpdateProfileEvent {
-  const factory _ChangeOtherPhone(String phone) = _$_ChangeOtherPhone;
+  const factory _ChangeOtherPhone(final String phone) = _$_ChangeOtherPhone;
 
-  String get phone => throw _privateConstructorUsedError;
+  String get phone;
   @JsonKey(ignore: true)
-  _$ChangeOtherPhoneCopyWith<_ChangeOtherPhone> get copyWith =>
+  _$$_ChangeOtherPhoneCopyWith<_$_ChangeOtherPhone> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeEmailCopyWith<$Res> {
-  factory _$ChangeEmailCopyWith(
-          _ChangeEmail value, $Res Function(_ChangeEmail) then) =
-      __$ChangeEmailCopyWithImpl<$Res>;
+abstract class _$$_ChangeEmailCopyWith<$Res> {
+  factory _$$_ChangeEmailCopyWith(
+          _$_ChangeEmail value, $Res Function(_$_ChangeEmail) then) =
+      __$$_ChangeEmailCopyWithImpl<$Res>;
+  @useResult
   $Res call({String email});
 }
 
 /// @nodoc
-class __$ChangeEmailCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeEmailCopyWith<$Res> {
-  __$ChangeEmailCopyWithImpl(
-      _ChangeEmail _value, $Res Function(_ChangeEmail) _then)
-      : super(_value, (v) => _then(v as _ChangeEmail));
+class __$$_ChangeEmailCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeEmail>
+    implements _$$_ChangeEmailCopyWith<$Res> {
+  __$$_ChangeEmailCopyWithImpl(
+      _$_ChangeEmail _value, $Res Function(_$_ChangeEmail) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeEmail get _value => super._value as _ChangeEmail;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? email = null,
   }) {
-    return _then(_ChangeEmail(
-      email == freezed
+    return _then(_$_ChangeEmail(
+      null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
@@ -5804,19 +7541,19 @@ class _$_ChangeEmail implements _ChangeEmail {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeEmail &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeEmail &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
+  int get hashCode => Object.hash(runtimeType, email);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeEmailCopyWith<_ChangeEmail> get copyWith =>
-      __$ChangeEmailCopyWithImpl<_ChangeEmail>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeEmailCopyWith<_$_ChangeEmail> get copyWith =>
+      __$$_ChangeEmailCopyWithImpl<_$_ChangeEmail>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5870,6 +7607,59 @@ class _$_ChangeEmail implements _ChangeEmail {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeEmail(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeEmail?.call(email);
   }
 
   @override
@@ -6004,6 +7794,72 @@ class _$_ChangeEmail implements _ChangeEmail {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -6073,39 +7929,38 @@ class _$_ChangeEmail implements _ChangeEmail {
 }
 
 abstract class _ChangeEmail implements UpdateProfileEvent {
-  const factory _ChangeEmail(String email) = _$_ChangeEmail;
+  const factory _ChangeEmail(final String email) = _$_ChangeEmail;
 
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @JsonKey(ignore: true)
-  _$ChangeEmailCopyWith<_ChangeEmail> get copyWith =>
+  _$$_ChangeEmailCopyWith<_$_ChangeEmail> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginCountryCopyWith<$Res> {
-  factory _$ChangeOriginCountryCopyWith(_ChangeOriginCountry value,
-          $Res Function(_ChangeOriginCountry) then) =
-      __$ChangeOriginCountryCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginCountryCopyWith<$Res> {
+  factory _$$_ChangeOriginCountryCopyWith(_$_ChangeOriginCountry value,
+          $Res Function(_$_ChangeOriginCountry) then) =
+      __$$_ChangeOriginCountryCopyWithImpl<$Res>;
+  @useResult
   $Res call({String country});
 }
 
 /// @nodoc
-class __$ChangeOriginCountryCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginCountryCopyWith<$Res> {
-  __$ChangeOriginCountryCopyWithImpl(
-      _ChangeOriginCountry _value, $Res Function(_ChangeOriginCountry) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginCountry));
+class __$$_ChangeOriginCountryCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginCountry>
+    implements _$$_ChangeOriginCountryCopyWith<$Res> {
+  __$$_ChangeOriginCountryCopyWithImpl(_$_ChangeOriginCountry _value,
+      $Res Function(_$_ChangeOriginCountry) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginCountry get _value => super._value as _ChangeOriginCountry;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? country = freezed,
+    Object? country = null,
   }) {
-    return _then(_ChangeOriginCountry(
-      country == freezed
+    return _then(_$_ChangeOriginCountry(
+      null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
@@ -6129,19 +7984,19 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginCountry &&
-            (identical(other.country, country) ||
-                const DeepCollectionEquality().equals(other.country, country)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginCountry &&
+            (identical(other.country, country) || other.country == country));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(country);
+  int get hashCode => Object.hash(runtimeType, country);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginCountryCopyWith<_ChangeOriginCountry> get copyWith =>
-      __$ChangeOriginCountryCopyWithImpl<_ChangeOriginCountry>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginCountryCopyWith<_$_ChangeOriginCountry> get copyWith =>
+      __$$_ChangeOriginCountryCopyWithImpl<_$_ChangeOriginCountry>(
           this, _$identity);
 
   @override
@@ -6196,6 +8051,59 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginCountry(country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginCountry?.call(country);
   }
 
   @override
@@ -6330,6 +8238,72 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginCountry?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -6399,39 +8373,39 @@ class _$_ChangeOriginCountry implements _ChangeOriginCountry {
 }
 
 abstract class _ChangeOriginCountry implements UpdateProfileEvent {
-  const factory _ChangeOriginCountry(String country) = _$_ChangeOriginCountry;
+  const factory _ChangeOriginCountry(final String country) =
+      _$_ChangeOriginCountry;
 
-  String get country => throw _privateConstructorUsedError;
+  String get country;
   @JsonKey(ignore: true)
-  _$ChangeOriginCountryCopyWith<_ChangeOriginCountry> get copyWith =>
+  _$$_ChangeOriginCountryCopyWith<_$_ChangeOriginCountry> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginPostalCodeCopyWith<$Res> {
-  factory _$ChangeOriginPostalCodeCopyWith(_ChangeOriginPostalCode value,
-          $Res Function(_ChangeOriginPostalCode) then) =
-      __$ChangeOriginPostalCodeCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginPostalCodeCopyWith<$Res> {
+  factory _$$_ChangeOriginPostalCodeCopyWith(_$_ChangeOriginPostalCode value,
+          $Res Function(_$_ChangeOriginPostalCode) then) =
+      __$$_ChangeOriginPostalCodeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String postalCode});
 }
 
 /// @nodoc
-class __$ChangeOriginPostalCodeCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginPostalCodeCopyWith<$Res> {
-  __$ChangeOriginPostalCodeCopyWithImpl(_ChangeOriginPostalCode _value,
-      $Res Function(_ChangeOriginPostalCode) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginPostalCode));
+class __$$_ChangeOriginPostalCodeCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginPostalCode>
+    implements _$$_ChangeOriginPostalCodeCopyWith<$Res> {
+  __$$_ChangeOriginPostalCodeCopyWithImpl(_$_ChangeOriginPostalCode _value,
+      $Res Function(_$_ChangeOriginPostalCode) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginPostalCode get _value => super._value as _ChangeOriginPostalCode;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postalCode = freezed,
+    Object? postalCode = null,
   }) {
-    return _then(_ChangeOriginPostalCode(
-      postalCode == freezed
+    return _then(_$_ChangeOriginPostalCode(
+      null == postalCode
           ? _value.postalCode
           : postalCode // ignore: cast_nullable_to_non_nullable
               as String,
@@ -6455,20 +8429,20 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginPostalCode &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginPostalCode &&
             (identical(other.postalCode, postalCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.postalCode, postalCode)));
+                other.postalCode == postalCode));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(postalCode);
+  int get hashCode => Object.hash(runtimeType, postalCode);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginPostalCodeCopyWith<_ChangeOriginPostalCode> get copyWith =>
-      __$ChangeOriginPostalCodeCopyWithImpl<_ChangeOriginPostalCode>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginPostalCodeCopyWith<_$_ChangeOriginPostalCode> get copyWith =>
+      __$$_ChangeOriginPostalCodeCopyWithImpl<_$_ChangeOriginPostalCode>(
           this, _$identity);
 
   @override
@@ -6523,6 +8497,59 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginPostalCode(postalCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginPostalCode?.call(postalCode);
   }
 
   @override
@@ -6657,6 +8684,72 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginPostalCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -6726,40 +8819,39 @@ class _$_ChangeOriginPostalCode implements _ChangeOriginPostalCode {
 }
 
 abstract class _ChangeOriginPostalCode implements UpdateProfileEvent {
-  const factory _ChangeOriginPostalCode(String postalCode) =
+  const factory _ChangeOriginPostalCode(final String postalCode) =
       _$_ChangeOriginPostalCode;
 
-  String get postalCode => throw _privateConstructorUsedError;
+  String get postalCode;
   @JsonKey(ignore: true)
-  _$ChangeOriginPostalCodeCopyWith<_ChangeOriginPostalCode> get copyWith =>
+  _$$_ChangeOriginPostalCodeCopyWith<_$_ChangeOriginPostalCode> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeProvinceCopyWith<$Res> {
-  factory _$ChangeProvinceCopyWith(
-          _ChangeProvince value, $Res Function(_ChangeProvince) then) =
-      __$ChangeProvinceCopyWithImpl<$Res>;
+abstract class _$$_ChangeProvinceCopyWith<$Res> {
+  factory _$$_ChangeProvinceCopyWith(
+          _$_ChangeProvince value, $Res Function(_$_ChangeProvince) then) =
+      __$$_ChangeProvinceCopyWithImpl<$Res>;
+  @useResult
   $Res call({String province});
 }
 
 /// @nodoc
-class __$ChangeProvinceCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeProvinceCopyWith<$Res> {
-  __$ChangeProvinceCopyWithImpl(
-      _ChangeProvince _value, $Res Function(_ChangeProvince) _then)
-      : super(_value, (v) => _then(v as _ChangeProvince));
+class __$$_ChangeProvinceCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeProvince>
+    implements _$$_ChangeProvinceCopyWith<$Res> {
+  __$$_ChangeProvinceCopyWithImpl(
+      _$_ChangeProvince _value, $Res Function(_$_ChangeProvince) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeProvince get _value => super._value as _ChangeProvince;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? province = freezed,
+    Object? province = null,
   }) {
-    return _then(_ChangeProvince(
-      province == freezed
+    return _then(_$_ChangeProvince(
+      null == province
           ? _value.province
           : province // ignore: cast_nullable_to_non_nullable
               as String,
@@ -6783,20 +8875,20 @@ class _$_ChangeProvince implements _ChangeProvince {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeProvince &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeProvince &&
             (identical(other.province, province) ||
-                const DeepCollectionEquality()
-                    .equals(other.province, province)));
+                other.province == province));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(province);
+  int get hashCode => Object.hash(runtimeType, province);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeProvinceCopyWith<_ChangeProvince> get copyWith =>
-      __$ChangeProvinceCopyWithImpl<_ChangeProvince>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeProvinceCopyWith<_$_ChangeProvince> get copyWith =>
+      __$$_ChangeProvinceCopyWithImpl<_$_ChangeProvince>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6850,6 +8942,59 @@ class _$_ChangeProvince implements _ChangeProvince {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginProvince(province);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginProvince?.call(province);
   }
 
   @override
@@ -6984,6 +9129,72 @@ class _$_ChangeProvince implements _ChangeProvince {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginProvince?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -7053,39 +9264,38 @@ class _$_ChangeProvince implements _ChangeProvince {
 }
 
 abstract class _ChangeProvince implements UpdateProfileEvent {
-  const factory _ChangeProvince(String province) = _$_ChangeProvince;
+  const factory _ChangeProvince(final String province) = _$_ChangeProvince;
 
-  String get province => throw _privateConstructorUsedError;
+  String get province;
   @JsonKey(ignore: true)
-  _$ChangeProvinceCopyWith<_ChangeProvince> get copyWith =>
+  _$$_ChangeProvinceCopyWith<_$_ChangeProvince> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginCityCopyWith<$Res> {
-  factory _$ChangeOriginCityCopyWith(
-          _ChangeOriginCity value, $Res Function(_ChangeOriginCity) then) =
-      __$ChangeOriginCityCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginCityCopyWith<$Res> {
+  factory _$$_ChangeOriginCityCopyWith(
+          _$_ChangeOriginCity value, $Res Function(_$_ChangeOriginCity) then) =
+      __$$_ChangeOriginCityCopyWithImpl<$Res>;
+  @useResult
   $Res call({String city});
 }
 
 /// @nodoc
-class __$ChangeOriginCityCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginCityCopyWith<$Res> {
-  __$ChangeOriginCityCopyWithImpl(
-      _ChangeOriginCity _value, $Res Function(_ChangeOriginCity) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginCity));
+class __$$_ChangeOriginCityCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginCity>
+    implements _$$_ChangeOriginCityCopyWith<$Res> {
+  __$$_ChangeOriginCityCopyWithImpl(
+      _$_ChangeOriginCity _value, $Res Function(_$_ChangeOriginCity) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginCity get _value => super._value as _ChangeOriginCity;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
+    Object? city = null,
   }) {
-    return _then(_ChangeOriginCity(
-      city == freezed
+    return _then(_$_ChangeOriginCity(
+      null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
@@ -7109,19 +9319,19 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginCity &&
-            (identical(other.city, city) ||
-                const DeepCollectionEquality().equals(other.city, city)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginCity &&
+            (identical(other.city, city) || other.city == city));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(city);
+  int get hashCode => Object.hash(runtimeType, city);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginCityCopyWith<_ChangeOriginCity> get copyWith =>
-      __$ChangeOriginCityCopyWithImpl<_ChangeOriginCity>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginCityCopyWith<_$_ChangeOriginCity> get copyWith =>
+      __$$_ChangeOriginCityCopyWithImpl<_$_ChangeOriginCity>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7175,6 +9385,59 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginCity(city);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginCity?.call(city);
   }
 
   @override
@@ -7309,6 +9572,72 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginCity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -7378,40 +9707,40 @@ class _$_ChangeOriginCity implements _ChangeOriginCity {
 }
 
 abstract class _ChangeOriginCity implements UpdateProfileEvent {
-  const factory _ChangeOriginCity(String city) = _$_ChangeOriginCity;
+  const factory _ChangeOriginCity(final String city) = _$_ChangeOriginCity;
 
-  String get city => throw _privateConstructorUsedError;
+  String get city;
   @JsonKey(ignore: true)
-  _$ChangeOriginCityCopyWith<_ChangeOriginCity> get copyWith =>
+  _$$_ChangeOriginCityCopyWith<_$_ChangeOriginCity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginStreetAddressCopyWith<$Res> {
-  factory _$ChangeOriginStreetAddressCopyWith(_ChangeOriginStreetAddress value,
-          $Res Function(_ChangeOriginStreetAddress) then) =
-      __$ChangeOriginStreetAddressCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginStreetAddressCopyWith<$Res> {
+  factory _$$_ChangeOriginStreetAddressCopyWith(
+          _$_ChangeOriginStreetAddress value,
+          $Res Function(_$_ChangeOriginStreetAddress) then) =
+      __$$_ChangeOriginStreetAddressCopyWithImpl<$Res>;
+  @useResult
   $Res call({String streetAddress});
 }
 
 /// @nodoc
-class __$ChangeOriginStreetAddressCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginStreetAddressCopyWith<$Res> {
-  __$ChangeOriginStreetAddressCopyWithImpl(_ChangeOriginStreetAddress _value,
-      $Res Function(_ChangeOriginStreetAddress) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginStreetAddress));
+class __$$_ChangeOriginStreetAddressCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginStreetAddress>
+    implements _$$_ChangeOriginStreetAddressCopyWith<$Res> {
+  __$$_ChangeOriginStreetAddressCopyWithImpl(
+      _$_ChangeOriginStreetAddress _value,
+      $Res Function(_$_ChangeOriginStreetAddress) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginStreetAddress get _value =>
-      super._value as _ChangeOriginStreetAddress;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? streetAddress = freezed,
+    Object? streetAddress = null,
   }) {
-    return _then(_ChangeOriginStreetAddress(
-      streetAddress == freezed
+    return _then(_$_ChangeOriginStreetAddress(
+      null == streetAddress
           ? _value.streetAddress
           : streetAddress // ignore: cast_nullable_to_non_nullable
               as String,
@@ -7435,22 +9764,21 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginStreetAddress &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginStreetAddress &&
             (identical(other.streetAddress, streetAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.streetAddress, streetAddress)));
+                other.streetAddress == streetAddress));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(streetAddress);
+  int get hashCode => Object.hash(runtimeType, streetAddress);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginStreetAddressCopyWith<_ChangeOriginStreetAddress>
-      get copyWith =>
-          __$ChangeOriginStreetAddressCopyWithImpl<_ChangeOriginStreetAddress>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginStreetAddressCopyWith<_$_ChangeOriginStreetAddress>
+      get copyWith => __$$_ChangeOriginStreetAddressCopyWithImpl<
+          _$_ChangeOriginStreetAddress>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7504,6 +9832,59 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginStreetAddress(streetAddress);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginStreetAddress?.call(streetAddress);
   }
 
   @override
@@ -7638,6 +10019,72 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginStreetAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -7707,44 +10154,42 @@ class _$_ChangeOriginStreetAddress implements _ChangeOriginStreetAddress {
 }
 
 abstract class _ChangeOriginStreetAddress implements UpdateProfileEvent {
-  const factory _ChangeOriginStreetAddress(String streetAddress) =
+  const factory _ChangeOriginStreetAddress(final String streetAddress) =
       _$_ChangeOriginStreetAddress;
 
-  String get streetAddress => throw _privateConstructorUsedError;
+  String get streetAddress;
   @JsonKey(ignore: true)
-  _$ChangeOriginStreetAddressCopyWith<_ChangeOriginStreetAddress>
+  _$$_ChangeOriginStreetAddressCopyWith<_$_ChangeOriginStreetAddress>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginStreetAddressFromPostalCodeCopyWith<$Res> {
-  factory _$ChangeOriginStreetAddressFromPostalCodeCopyWith(
-          _ChangeOriginStreetAddressFromPostalCode value,
-          $Res Function(_ChangeOriginStreetAddressFromPostalCode) then) =
-      __$ChangeOriginStreetAddressFromPostalCodeCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginStreetAddressFromPostalCodeCopyWith<$Res> {
+  factory _$$_ChangeOriginStreetAddressFromPostalCodeCopyWith(
+          _$_ChangeOriginStreetAddressFromPostalCode value,
+          $Res Function(_$_ChangeOriginStreetAddressFromPostalCode) then) =
+      __$$_ChangeOriginStreetAddressFromPostalCodeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String address});
 }
 
 /// @nodoc
-class __$ChangeOriginStreetAddressFromPostalCodeCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginStreetAddressFromPostalCodeCopyWith<$Res> {
-  __$ChangeOriginStreetAddressFromPostalCodeCopyWithImpl(
-      _ChangeOriginStreetAddressFromPostalCode _value,
-      $Res Function(_ChangeOriginStreetAddressFromPostalCode) _then)
-      : super(_value,
-            (v) => _then(v as _ChangeOriginStreetAddressFromPostalCode));
+class __$$_ChangeOriginStreetAddressFromPostalCodeCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res,
+        _$_ChangeOriginStreetAddressFromPostalCode>
+    implements _$$_ChangeOriginStreetAddressFromPostalCodeCopyWith<$Res> {
+  __$$_ChangeOriginStreetAddressFromPostalCodeCopyWithImpl(
+      _$_ChangeOriginStreetAddressFromPostalCode _value,
+      $Res Function(_$_ChangeOriginStreetAddressFromPostalCode) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginStreetAddressFromPostalCode get _value =>
-      super._value as _ChangeOriginStreetAddressFromPostalCode;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
+    Object? address = null,
   }) {
-    return _then(_ChangeOriginStreetAddressFromPostalCode(
-      address == freezed
+    return _then(_$_ChangeOriginStreetAddressFromPostalCode(
+      null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -7769,21 +10214,21 @@ class _$_ChangeOriginStreetAddressFromPostalCode
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginStreetAddressFromPostalCode &&
-            (identical(other.address, address) ||
-                const DeepCollectionEquality().equals(other.address, address)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginStreetAddressFromPostalCode &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(address);
+  int get hashCode => Object.hash(runtimeType, address);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginStreetAddressFromPostalCodeCopyWith<
-          _ChangeOriginStreetAddressFromPostalCode>
-      get copyWith => __$ChangeOriginStreetAddressFromPostalCodeCopyWithImpl<
-          _ChangeOriginStreetAddressFromPostalCode>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginStreetAddressFromPostalCodeCopyWith<
+          _$_ChangeOriginStreetAddressFromPostalCode>
+      get copyWith => __$$_ChangeOriginStreetAddressFromPostalCodeCopyWithImpl<
+          _$_ChangeOriginStreetAddressFromPostalCode>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7837,6 +10282,59 @@ class _$_ChangeOriginStreetAddressFromPostalCode
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginStreetAddressFromPostalCode(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginStreetAddressFromPostalCode?.call(address);
   }
 
   @override
@@ -7971,6 +10469,72 @@ class _$_ChangeOriginStreetAddressFromPostalCode
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginStreetAddressFromPostalCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -8041,34 +10605,32 @@ class _$_ChangeOriginStreetAddressFromPostalCode
 
 abstract class _ChangeOriginStreetAddressFromPostalCode
     implements UpdateProfileEvent {
-  const factory _ChangeOriginStreetAddressFromPostalCode(String address) =
+  const factory _ChangeOriginStreetAddressFromPostalCode(final String address) =
       _$_ChangeOriginStreetAddressFromPostalCode;
 
-  String get address => throw _privateConstructorUsedError;
+  String get address;
   @JsonKey(ignore: true)
-  _$ChangeOriginStreetAddressFromPostalCodeCopyWith<
-          _ChangeOriginStreetAddressFromPostalCode>
+  _$$_ChangeOriginStreetAddressFromPostalCodeCopyWith<
+          _$_ChangeOriginStreetAddressFromPostalCode>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeSameAsOriginAddressCopyWith<$Res> {
-  factory _$ChangeSameAsOriginAddressCopyWith(_ChangeSameAsOriginAddress value,
-          $Res Function(_ChangeSameAsOriginAddress) then) =
-      __$ChangeSameAsOriginAddressCopyWithImpl<$Res>;
+abstract class _$$_ChangeSameAsOriginAddressCopyWith<$Res> {
+  factory _$$_ChangeSameAsOriginAddressCopyWith(
+          _$_ChangeSameAsOriginAddress value,
+          $Res Function(_$_ChangeSameAsOriginAddress) then) =
+      __$$_ChangeSameAsOriginAddressCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ChangeSameAsOriginAddressCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeSameAsOriginAddressCopyWith<$Res> {
-  __$ChangeSameAsOriginAddressCopyWithImpl(_ChangeSameAsOriginAddress _value,
-      $Res Function(_ChangeSameAsOriginAddress) _then)
-      : super(_value, (v) => _then(v as _ChangeSameAsOriginAddress));
-
-  @override
-  _ChangeSameAsOriginAddress get _value =>
-      super._value as _ChangeSameAsOriginAddress;
+class __$$_ChangeSameAsOriginAddressCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeSameAsOriginAddress>
+    implements _$$_ChangeSameAsOriginAddressCopyWith<$Res> {
+  __$$_ChangeSameAsOriginAddressCopyWithImpl(
+      _$_ChangeSameAsOriginAddress _value,
+      $Res Function(_$_ChangeSameAsOriginAddress) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -8083,7 +10645,9 @@ class _$_ChangeSameAsOriginAddress implements _ChangeSameAsOriginAddress {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ChangeSameAsOriginAddress);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeSameAsOriginAddress);
   }
 
   @override
@@ -8141,6 +10705,59 @@ class _$_ChangeSameAsOriginAddress implements _ChangeSameAsOriginAddress {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeSameAsOriginAddress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeSameAsOriginAddress?.call();
   }
 
   @override
@@ -8275,6 +10892,72 @@ class _$_ChangeSameAsOriginAddress implements _ChangeSameAsOriginAddress {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeSameAsOriginAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -8348,30 +11031,29 @@ abstract class _ChangeSameAsOriginAddress implements UpdateProfileEvent {
 }
 
 /// @nodoc
-abstract class _$ChangeResidenceCountryCopyWith<$Res> {
-  factory _$ChangeResidenceCountryCopyWith(_ChangeResidenceCountry value,
-          $Res Function(_ChangeResidenceCountry) then) =
-      __$ChangeResidenceCountryCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidenceCountryCopyWith<$Res> {
+  factory _$$_ChangeResidenceCountryCopyWith(_$_ChangeResidenceCountry value,
+          $Res Function(_$_ChangeResidenceCountry) then) =
+      __$$_ChangeResidenceCountryCopyWithImpl<$Res>;
+  @useResult
   $Res call({String country});
 }
 
 /// @nodoc
-class __$ChangeResidenceCountryCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidenceCountryCopyWith<$Res> {
-  __$ChangeResidenceCountryCopyWithImpl(_ChangeResidenceCountry _value,
-      $Res Function(_ChangeResidenceCountry) _then)
-      : super(_value, (v) => _then(v as _ChangeResidenceCountry));
+class __$$_ChangeResidenceCountryCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeResidenceCountry>
+    implements _$$_ChangeResidenceCountryCopyWith<$Res> {
+  __$$_ChangeResidenceCountryCopyWithImpl(_$_ChangeResidenceCountry _value,
+      $Res Function(_$_ChangeResidenceCountry) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidenceCountry get _value => super._value as _ChangeResidenceCountry;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? country = freezed,
+    Object? country = null,
   }) {
-    return _then(_ChangeResidenceCountry(
-      country == freezed
+    return _then(_$_ChangeResidenceCountry(
+      null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
@@ -8395,19 +11077,19 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidenceCountry &&
-            (identical(other.country, country) ||
-                const DeepCollectionEquality().equals(other.country, country)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidenceCountry &&
+            (identical(other.country, country) || other.country == country));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(country);
+  int get hashCode => Object.hash(runtimeType, country);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidenceCountryCopyWith<_ChangeResidenceCountry> get copyWith =>
-      __$ChangeResidenceCountryCopyWithImpl<_ChangeResidenceCountry>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidenceCountryCopyWith<_$_ChangeResidenceCountry> get copyWith =>
+      __$$_ChangeResidenceCountryCopyWithImpl<_$_ChangeResidenceCountry>(
           this, _$identity);
 
   @override
@@ -8462,6 +11144,59 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidenceCountry(country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidenceCountry?.call(country);
   }
 
   @override
@@ -8596,6 +11331,72 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidenceCountry?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -8665,41 +11466,41 @@ class _$_ChangeResidenceCountry implements _ChangeResidenceCountry {
 }
 
 abstract class _ChangeResidenceCountry implements UpdateProfileEvent {
-  const factory _ChangeResidenceCountry(String country) =
+  const factory _ChangeResidenceCountry(final String country) =
       _$_ChangeResidenceCountry;
 
-  String get country => throw _privateConstructorUsedError;
+  String get country;
   @JsonKey(ignore: true)
-  _$ChangeResidenceCountryCopyWith<_ChangeResidenceCountry> get copyWith =>
+  _$$_ChangeResidenceCountryCopyWith<_$_ChangeResidenceCountry> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeResidencePostalCodeCopyWith<$Res> {
-  factory _$ChangeResidencePostalCodeCopyWith(_ChangeResidencePostalCode value,
-          $Res Function(_ChangeResidencePostalCode) then) =
-      __$ChangeResidencePostalCodeCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidencePostalCodeCopyWith<$Res> {
+  factory _$$_ChangeResidencePostalCodeCopyWith(
+          _$_ChangeResidencePostalCode value,
+          $Res Function(_$_ChangeResidencePostalCode) then) =
+      __$$_ChangeResidencePostalCodeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String postalCode});
 }
 
 /// @nodoc
-class __$ChangeResidencePostalCodeCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidencePostalCodeCopyWith<$Res> {
-  __$ChangeResidencePostalCodeCopyWithImpl(_ChangeResidencePostalCode _value,
-      $Res Function(_ChangeResidencePostalCode) _then)
-      : super(_value, (v) => _then(v as _ChangeResidencePostalCode));
+class __$$_ChangeResidencePostalCodeCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeResidencePostalCode>
+    implements _$$_ChangeResidencePostalCodeCopyWith<$Res> {
+  __$$_ChangeResidencePostalCodeCopyWithImpl(
+      _$_ChangeResidencePostalCode _value,
+      $Res Function(_$_ChangeResidencePostalCode) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidencePostalCode get _value =>
-      super._value as _ChangeResidencePostalCode;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postalCode = freezed,
+    Object? postalCode = null,
   }) {
-    return _then(_ChangeResidencePostalCode(
-      postalCode == freezed
+    return _then(_$_ChangeResidencePostalCode(
+      null == postalCode
           ? _value.postalCode
           : postalCode // ignore: cast_nullable_to_non_nullable
               as String,
@@ -8723,22 +11524,21 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidencePostalCode &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidencePostalCode &&
             (identical(other.postalCode, postalCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.postalCode, postalCode)));
+                other.postalCode == postalCode));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(postalCode);
+  int get hashCode => Object.hash(runtimeType, postalCode);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidencePostalCodeCopyWith<_ChangeResidencePostalCode>
-      get copyWith =>
-          __$ChangeResidencePostalCodeCopyWithImpl<_ChangeResidencePostalCode>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidencePostalCodeCopyWith<_$_ChangeResidencePostalCode>
+      get copyWith => __$$_ChangeResidencePostalCodeCopyWithImpl<
+          _$_ChangeResidencePostalCode>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -8792,6 +11592,59 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidencePostalCode(postalCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidencePostalCode?.call(postalCode);
   }
 
   @override
@@ -8926,6 +11779,72 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidencePostalCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -8995,41 +11914,39 @@ class _$_ChangeResidencePostalCode implements _ChangeResidencePostalCode {
 }
 
 abstract class _ChangeResidencePostalCode implements UpdateProfileEvent {
-  const factory _ChangeResidencePostalCode(String postalCode) =
+  const factory _ChangeResidencePostalCode(final String postalCode) =
       _$_ChangeResidencePostalCode;
 
-  String get postalCode => throw _privateConstructorUsedError;
+  String get postalCode;
   @JsonKey(ignore: true)
-  _$ChangeResidencePostalCodeCopyWith<_ChangeResidencePostalCode>
+  _$$_ChangeResidencePostalCodeCopyWith<_$_ChangeResidencePostalCode>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeResidenceProvinceCopyWith<$Res> {
-  factory _$ChangeResidenceProvinceCopyWith(_ChangeResidenceProvince value,
-          $Res Function(_ChangeResidenceProvince) then) =
-      __$ChangeResidenceProvinceCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidenceProvinceCopyWith<$Res> {
+  factory _$$_ChangeResidenceProvinceCopyWith(_$_ChangeResidenceProvince value,
+          $Res Function(_$_ChangeResidenceProvince) then) =
+      __$$_ChangeResidenceProvinceCopyWithImpl<$Res>;
+  @useResult
   $Res call({String province});
 }
 
 /// @nodoc
-class __$ChangeResidenceProvinceCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidenceProvinceCopyWith<$Res> {
-  __$ChangeResidenceProvinceCopyWithImpl(_ChangeResidenceProvince _value,
-      $Res Function(_ChangeResidenceProvince) _then)
-      : super(_value, (v) => _then(v as _ChangeResidenceProvince));
+class __$$_ChangeResidenceProvinceCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeResidenceProvince>
+    implements _$$_ChangeResidenceProvinceCopyWith<$Res> {
+  __$$_ChangeResidenceProvinceCopyWithImpl(_$_ChangeResidenceProvince _value,
+      $Res Function(_$_ChangeResidenceProvince) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidenceProvince get _value =>
-      super._value as _ChangeResidenceProvince;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? province = freezed,
+    Object? province = null,
   }) {
-    return _then(_ChangeResidenceProvince(
-      province == freezed
+    return _then(_$_ChangeResidenceProvince(
+      null == province
           ? _value.province
           : province // ignore: cast_nullable_to_non_nullable
               as String,
@@ -9053,21 +11970,22 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidenceProvince &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidenceProvince &&
             (identical(other.province, province) ||
-                const DeepCollectionEquality()
-                    .equals(other.province, province)));
+                other.province == province));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(province);
+  int get hashCode => Object.hash(runtimeType, province);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidenceProvinceCopyWith<_ChangeResidenceProvince> get copyWith =>
-      __$ChangeResidenceProvinceCopyWithImpl<_ChangeResidenceProvince>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidenceProvinceCopyWith<_$_ChangeResidenceProvince>
+      get copyWith =>
+          __$$_ChangeResidenceProvinceCopyWithImpl<_$_ChangeResidenceProvince>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -9121,6 +12039,59 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidenceProvince(province);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidenceProvince?.call(province);
   }
 
   @override
@@ -9255,6 +12226,72 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidenceProvince?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -9324,40 +12361,39 @@ class _$_ChangeResidenceProvince implements _ChangeResidenceProvince {
 }
 
 abstract class _ChangeResidenceProvince implements UpdateProfileEvent {
-  const factory _ChangeResidenceProvince(String province) =
+  const factory _ChangeResidenceProvince(final String province) =
       _$_ChangeResidenceProvince;
 
-  String get province => throw _privateConstructorUsedError;
+  String get province;
   @JsonKey(ignore: true)
-  _$ChangeResidenceProvinceCopyWith<_ChangeResidenceProvince> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangeResidenceProvinceCopyWith<_$_ChangeResidenceProvince>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeResidenceCityCopyWith<$Res> {
-  factory _$ChangeResidenceCityCopyWith(_ChangeResidenceCity value,
-          $Res Function(_ChangeResidenceCity) then) =
-      __$ChangeResidenceCityCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidenceCityCopyWith<$Res> {
+  factory _$$_ChangeResidenceCityCopyWith(_$_ChangeResidenceCity value,
+          $Res Function(_$_ChangeResidenceCity) then) =
+      __$$_ChangeResidenceCityCopyWithImpl<$Res>;
+  @useResult
   $Res call({String city});
 }
 
 /// @nodoc
-class __$ChangeResidenceCityCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidenceCityCopyWith<$Res> {
-  __$ChangeResidenceCityCopyWithImpl(
-      _ChangeResidenceCity _value, $Res Function(_ChangeResidenceCity) _then)
-      : super(_value, (v) => _then(v as _ChangeResidenceCity));
+class __$$_ChangeResidenceCityCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeResidenceCity>
+    implements _$$_ChangeResidenceCityCopyWith<$Res> {
+  __$$_ChangeResidenceCityCopyWithImpl(_$_ChangeResidenceCity _value,
+      $Res Function(_$_ChangeResidenceCity) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidenceCity get _value => super._value as _ChangeResidenceCity;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
+    Object? city = null,
   }) {
-    return _then(_ChangeResidenceCity(
-      city == freezed
+    return _then(_$_ChangeResidenceCity(
+      null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
@@ -9381,19 +12417,19 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidenceCity &&
-            (identical(other.city, city) ||
-                const DeepCollectionEquality().equals(other.city, city)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidenceCity &&
+            (identical(other.city, city) || other.city == city));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(city);
+  int get hashCode => Object.hash(runtimeType, city);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidenceCityCopyWith<_ChangeResidenceCity> get copyWith =>
-      __$ChangeResidenceCityCopyWithImpl<_ChangeResidenceCity>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidenceCityCopyWith<_$_ChangeResidenceCity> get copyWith =>
+      __$$_ChangeResidenceCityCopyWithImpl<_$_ChangeResidenceCity>(
           this, _$identity);
 
   @override
@@ -9448,6 +12484,59 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidenceCity(city);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidenceCity?.call(city);
   }
 
   @override
@@ -9582,6 +12671,72 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidenceCity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -9651,42 +12806,42 @@ class _$_ChangeResidenceCity implements _ChangeResidenceCity {
 }
 
 abstract class _ChangeResidenceCity implements UpdateProfileEvent {
-  const factory _ChangeResidenceCity(String city) = _$_ChangeResidenceCity;
+  const factory _ChangeResidenceCity(final String city) =
+      _$_ChangeResidenceCity;
 
-  String get city => throw _privateConstructorUsedError;
+  String get city;
   @JsonKey(ignore: true)
-  _$ChangeResidenceCityCopyWith<_ChangeResidenceCity> get copyWith =>
+  _$$_ChangeResidenceCityCopyWith<_$_ChangeResidenceCity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeResidenceStreetAddressCopyWith<$Res> {
-  factory _$ChangeResidenceStreetAddressCopyWith(
-          _ChangeResidenceStreetAddress value,
-          $Res Function(_ChangeResidenceStreetAddress) then) =
-      __$ChangeResidenceStreetAddressCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidenceStreetAddressCopyWith<$Res> {
+  factory _$$_ChangeResidenceStreetAddressCopyWith(
+          _$_ChangeResidenceStreetAddress value,
+          $Res Function(_$_ChangeResidenceStreetAddress) then) =
+      __$$_ChangeResidenceStreetAddressCopyWithImpl<$Res>;
+  @useResult
   $Res call({String address});
 }
 
 /// @nodoc
-class __$ChangeResidenceStreetAddressCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidenceStreetAddressCopyWith<$Res> {
-  __$ChangeResidenceStreetAddressCopyWithImpl(
-      _ChangeResidenceStreetAddress _value,
-      $Res Function(_ChangeResidenceStreetAddress) _then)
-      : super(_value, (v) => _then(v as _ChangeResidenceStreetAddress));
+class __$$_ChangeResidenceStreetAddressCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res,
+        _$_ChangeResidenceStreetAddress>
+    implements _$$_ChangeResidenceStreetAddressCopyWith<$Res> {
+  __$$_ChangeResidenceStreetAddressCopyWithImpl(
+      _$_ChangeResidenceStreetAddress _value,
+      $Res Function(_$_ChangeResidenceStreetAddress) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidenceStreetAddress get _value =>
-      super._value as _ChangeResidenceStreetAddress;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
+    Object? address = null,
   }) {
-    return _then(_ChangeResidenceStreetAddress(
-      address == freezed
+    return _then(_$_ChangeResidenceStreetAddress(
+      null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -9710,20 +12865,20 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidenceStreetAddress &&
-            (identical(other.address, address) ||
-                const DeepCollectionEquality().equals(other.address, address)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidenceStreetAddress &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(address);
+  int get hashCode => Object.hash(runtimeType, address);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidenceStreetAddressCopyWith<_ChangeResidenceStreetAddress>
-      get copyWith => __$ChangeResidenceStreetAddressCopyWithImpl<
-          _ChangeResidenceStreetAddress>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidenceStreetAddressCopyWith<_$_ChangeResidenceStreetAddress>
+      get copyWith => __$$_ChangeResidenceStreetAddressCopyWithImpl<
+          _$_ChangeResidenceStreetAddress>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -9777,6 +12932,59 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidenceStreetAddress(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidenceStreetAddress?.call(address);
   }
 
   @override
@@ -9911,6 +13119,72 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidenceStreetAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -9980,44 +13254,42 @@ class _$_ChangeResidenceStreetAddress implements _ChangeResidenceStreetAddress {
 }
 
 abstract class _ChangeResidenceStreetAddress implements UpdateProfileEvent {
-  const factory _ChangeResidenceStreetAddress(String address) =
+  const factory _ChangeResidenceStreetAddress(final String address) =
       _$_ChangeResidenceStreetAddress;
 
-  String get address => throw _privateConstructorUsedError;
+  String get address;
   @JsonKey(ignore: true)
-  _$ChangeResidenceStreetAddressCopyWith<_ChangeResidenceStreetAddress>
+  _$$_ChangeResidenceStreetAddressCopyWith<_$_ChangeResidenceStreetAddress>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeResidenceStreetAddressFromPostalCodeCopyWith<$Res> {
-  factory _$ChangeResidenceStreetAddressFromPostalCodeCopyWith(
-          _ChangeResidenceStreetAddressFromPostalCode value,
-          $Res Function(_ChangeResidenceStreetAddressFromPostalCode) then) =
-      __$ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidenceStreetAddressFromPostalCodeCopyWith<$Res> {
+  factory _$$_ChangeResidenceStreetAddressFromPostalCodeCopyWith(
+          _$_ChangeResidenceStreetAddressFromPostalCode value,
+          $Res Function(_$_ChangeResidenceStreetAddressFromPostalCode) then) =
+      __$$_ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String address});
 }
 
 /// @nodoc
-class __$ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidenceStreetAddressFromPostalCodeCopyWith<$Res> {
-  __$ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl(
-      _ChangeResidenceStreetAddressFromPostalCode _value,
-      $Res Function(_ChangeResidenceStreetAddressFromPostalCode) _then)
-      : super(_value,
-            (v) => _then(v as _ChangeResidenceStreetAddressFromPostalCode));
+class __$$_ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res,
+        _$_ChangeResidenceStreetAddressFromPostalCode>
+    implements _$$_ChangeResidenceStreetAddressFromPostalCodeCopyWith<$Res> {
+  __$$_ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl(
+      _$_ChangeResidenceStreetAddressFromPostalCode _value,
+      $Res Function(_$_ChangeResidenceStreetAddressFromPostalCode) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidenceStreetAddressFromPostalCode get _value =>
-      super._value as _ChangeResidenceStreetAddressFromPostalCode;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
+    Object? address = null,
   }) {
-    return _then(_ChangeResidenceStreetAddressFromPostalCode(
-      address == freezed
+    return _then(_$_ChangeResidenceStreetAddressFromPostalCode(
+      null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -10042,21 +13314,22 @@ class _$_ChangeResidenceStreetAddressFromPostalCode
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidenceStreetAddressFromPostalCode &&
-            (identical(other.address, address) ||
-                const DeepCollectionEquality().equals(other.address, address)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidenceStreetAddressFromPostalCode &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(address);
+  int get hashCode => Object.hash(runtimeType, address);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidenceStreetAddressFromPostalCodeCopyWith<
-          _ChangeResidenceStreetAddressFromPostalCode>
-      get copyWith => __$ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl<
-          _ChangeResidenceStreetAddressFromPostalCode>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidenceStreetAddressFromPostalCodeCopyWith<
+          _$_ChangeResidenceStreetAddressFromPostalCode>
+      get copyWith =>
+          __$$_ChangeResidenceStreetAddressFromPostalCodeCopyWithImpl<
+              _$_ChangeResidenceStreetAddressFromPostalCode>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -10110,6 +13383,59 @@ class _$_ChangeResidenceStreetAddressFromPostalCode
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidenceStreetAddressFromPostalCode(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidenceStreetAddressFromPostalCode?.call(address);
   }
 
   @override
@@ -10244,6 +13570,72 @@ class _$_ChangeResidenceStreetAddressFromPostalCode
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidenceStreetAddressFromPostalCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -10314,41 +13706,40 @@ class _$_ChangeResidenceStreetAddressFromPostalCode
 
 abstract class _ChangeResidenceStreetAddressFromPostalCode
     implements UpdateProfileEvent {
-  const factory _ChangeResidenceStreetAddressFromPostalCode(String address) =
-      _$_ChangeResidenceStreetAddressFromPostalCode;
+  const factory _ChangeResidenceStreetAddressFromPostalCode(
+      final String address) = _$_ChangeResidenceStreetAddressFromPostalCode;
 
-  String get address => throw _privateConstructorUsedError;
+  String get address;
   @JsonKey(ignore: true)
-  _$ChangeResidenceStreetAddressFromPostalCodeCopyWith<
-          _ChangeResidenceStreetAddressFromPostalCode>
+  _$$_ChangeResidenceStreetAddressFromPostalCodeCopyWith<
+          _$_ChangeResidenceStreetAddressFromPostalCode>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeProfilePictureCopyWith<$Res> {
-  factory _$ChangeProfilePictureCopyWith(_ChangeProfilePicture value,
-          $Res Function(_ChangeProfilePicture) then) =
-      __$ChangeProfilePictureCopyWithImpl<$Res>;
+abstract class _$$_ChangeProfilePictureCopyWith<$Res> {
+  factory _$$_ChangeProfilePictureCopyWith(_$_ChangeProfilePicture value,
+          $Res Function(_$_ChangeProfilePicture) then) =
+      __$$_ChangeProfilePictureCopyWithImpl<$Res>;
+  @useResult
   $Res call({File profilePicture});
 }
 
 /// @nodoc
-class __$ChangeProfilePictureCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeProfilePictureCopyWith<$Res> {
-  __$ChangeProfilePictureCopyWithImpl(
-      _ChangeProfilePicture _value, $Res Function(_ChangeProfilePicture) _then)
-      : super(_value, (v) => _then(v as _ChangeProfilePicture));
+class __$$_ChangeProfilePictureCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeProfilePicture>
+    implements _$$_ChangeProfilePictureCopyWith<$Res> {
+  __$$_ChangeProfilePictureCopyWithImpl(_$_ChangeProfilePicture _value,
+      $Res Function(_$_ChangeProfilePicture) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeProfilePicture get _value => super._value as _ChangeProfilePicture;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profilePicture = freezed,
+    Object? profilePicture = null,
   }) {
-    return _then(_ChangeProfilePicture(
-      profilePicture == freezed
+    return _then(_$_ChangeProfilePicture(
+      null == profilePicture
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
               as File,
@@ -10372,21 +13763,20 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeProfilePicture &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeProfilePicture &&
             (identical(other.profilePicture, profilePicture) ||
-                const DeepCollectionEquality()
-                    .equals(other.profilePicture, profilePicture)));
+                other.profilePicture == profilePicture));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(profilePicture);
+  int get hashCode => Object.hash(runtimeType, profilePicture);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeProfilePictureCopyWith<_ChangeProfilePicture> get copyWith =>
-      __$ChangeProfilePictureCopyWithImpl<_ChangeProfilePicture>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeProfilePictureCopyWith<_$_ChangeProfilePicture> get copyWith =>
+      __$$_ChangeProfilePictureCopyWithImpl<_$_ChangeProfilePicture>(
           this, _$identity);
 
   @override
@@ -10441,6 +13831,59 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeProfilePicture(profilePicture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeProfilePicture?.call(profilePicture);
   }
 
   @override
@@ -10575,6 +14018,72 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeProfilePicture?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -10644,40 +14153,39 @@ class _$_ChangeProfilePicture implements _ChangeProfilePicture {
 }
 
 abstract class _ChangeProfilePicture implements UpdateProfileEvent {
-  const factory _ChangeProfilePicture(File profilePicture) =
+  const factory _ChangeProfilePicture(final File profilePicture) =
       _$_ChangeProfilePicture;
 
-  File get profilePicture => throw _privateConstructorUsedError;
+  File get profilePicture;
   @JsonKey(ignore: true)
-  _$ChangeProfilePictureCopyWith<_ChangeProfilePicture> get copyWith =>
+  _$$_ChangeProfilePictureCopyWith<_$_ChangeProfilePicture> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginKycDocTypeCopyWith<$Res> {
-  factory _$ChangeOriginKycDocTypeCopyWith(_ChangeOriginKycDocType value,
-          $Res Function(_ChangeOriginKycDocType) then) =
-      __$ChangeOriginKycDocTypeCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginKycDocTypeCopyWith<$Res> {
+  factory _$$_ChangeOriginKycDocTypeCopyWith(_$_ChangeOriginKycDocType value,
+          $Res Function(_$_ChangeOriginKycDocType) then) =
+      __$$_ChangeOriginKycDocTypeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String docType});
 }
 
 /// @nodoc
-class __$ChangeOriginKycDocTypeCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginKycDocTypeCopyWith<$Res> {
-  __$ChangeOriginKycDocTypeCopyWithImpl(_ChangeOriginKycDocType _value,
-      $Res Function(_ChangeOriginKycDocType) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginKycDocType));
+class __$$_ChangeOriginKycDocTypeCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginKycDocType>
+    implements _$$_ChangeOriginKycDocTypeCopyWith<$Res> {
+  __$$_ChangeOriginKycDocTypeCopyWithImpl(_$_ChangeOriginKycDocType _value,
+      $Res Function(_$_ChangeOriginKycDocType) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginKycDocType get _value => super._value as _ChangeOriginKycDocType;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? docType = freezed,
+    Object? docType = null,
   }) {
-    return _then(_ChangeOriginKycDocType(
-      docType == freezed
+    return _then(_$_ChangeOriginKycDocType(
+      null == docType
           ? _value.docType
           : docType // ignore: cast_nullable_to_non_nullable
               as String,
@@ -10701,19 +14209,19 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginKycDocType &&
-            (identical(other.docType, docType) ||
-                const DeepCollectionEquality().equals(other.docType, docType)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginKycDocType &&
+            (identical(other.docType, docType) || other.docType == docType));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(docType);
+  int get hashCode => Object.hash(runtimeType, docType);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginKycDocTypeCopyWith<_ChangeOriginKycDocType> get copyWith =>
-      __$ChangeOriginKycDocTypeCopyWithImpl<_ChangeOriginKycDocType>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginKycDocTypeCopyWith<_$_ChangeOriginKycDocType> get copyWith =>
+      __$$_ChangeOriginKycDocTypeCopyWithImpl<_$_ChangeOriginKycDocType>(
           this, _$identity);
 
   @override
@@ -10768,6 +14276,59 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginKycDocType(docType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginKycDocType?.call(docType);
   }
 
   @override
@@ -10902,6 +14463,72 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginKycDocType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -10971,41 +14598,40 @@ class _$_ChangeOriginKycDocType implements _ChangeOriginKycDocType {
 }
 
 abstract class _ChangeOriginKycDocType implements UpdateProfileEvent {
-  const factory _ChangeOriginKycDocType(String docType) =
+  const factory _ChangeOriginKycDocType(final String docType) =
       _$_ChangeOriginKycDocType;
 
-  String get docType => throw _privateConstructorUsedError;
+  String get docType;
   @JsonKey(ignore: true)
-  _$ChangeOriginKycDocTypeCopyWith<_ChangeOriginKycDocType> get copyWith =>
+  _$$_ChangeOriginKycDocTypeCopyWith<_$_ChangeOriginKycDocType> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginKycDocNumberCopyWith<$Res> {
-  factory _$ChangeOriginKycDocNumberCopyWith(_ChangeOriginKycDocNumber value,
-          $Res Function(_ChangeOriginKycDocNumber) then) =
-      __$ChangeOriginKycDocNumberCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginKycDocNumberCopyWith<$Res> {
+  factory _$$_ChangeOriginKycDocNumberCopyWith(
+          _$_ChangeOriginKycDocNumber value,
+          $Res Function(_$_ChangeOriginKycDocNumber) then) =
+      __$$_ChangeOriginKycDocNumberCopyWithImpl<$Res>;
+  @useResult
   $Res call({String docNumber});
 }
 
 /// @nodoc
-class __$ChangeOriginKycDocNumberCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginKycDocNumberCopyWith<$Res> {
-  __$ChangeOriginKycDocNumberCopyWithImpl(_ChangeOriginKycDocNumber _value,
-      $Res Function(_ChangeOriginKycDocNumber) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginKycDocNumber));
+class __$$_ChangeOriginKycDocNumberCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginKycDocNumber>
+    implements _$$_ChangeOriginKycDocNumberCopyWith<$Res> {
+  __$$_ChangeOriginKycDocNumberCopyWithImpl(_$_ChangeOriginKycDocNumber _value,
+      $Res Function(_$_ChangeOriginKycDocNumber) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginKycDocNumber get _value =>
-      super._value as _ChangeOriginKycDocNumber;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? docNumber = freezed,
+    Object? docNumber = null,
   }) {
-    return _then(_ChangeOriginKycDocNumber(
-      docNumber == freezed
+    return _then(_$_ChangeOriginKycDocNumber(
+      null == docNumber
           ? _value.docNumber
           : docNumber // ignore: cast_nullable_to_non_nullable
               as String,
@@ -11029,21 +14655,21 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginKycDocNumber &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginKycDocNumber &&
             (identical(other.docNumber, docNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.docNumber, docNumber)));
+                other.docNumber == docNumber));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(docNumber);
+  int get hashCode => Object.hash(runtimeType, docNumber);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginKycDocNumberCopyWith<_ChangeOriginKycDocNumber> get copyWith =>
-      __$ChangeOriginKycDocNumberCopyWithImpl<_ChangeOriginKycDocNumber>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginKycDocNumberCopyWith<_$_ChangeOriginKycDocNumber>
+      get copyWith => __$$_ChangeOriginKycDocNumberCopyWithImpl<
+          _$_ChangeOriginKycDocNumber>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -11097,6 +14723,59 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginKycDocNumber(docNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginKycDocNumber?.call(docNumber);
   }
 
   @override
@@ -11231,6 +14910,72 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginKycDocNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -11300,41 +15045,39 @@ class _$_ChangeOriginKycDocNumber implements _ChangeOriginKycDocNumber {
 }
 
 abstract class _ChangeOriginKycDocNumber implements UpdateProfileEvent {
-  const factory _ChangeOriginKycDocNumber(String docNumber) =
+  const factory _ChangeOriginKycDocNumber(final String docNumber) =
       _$_ChangeOriginKycDocNumber;
 
-  String get docNumber => throw _privateConstructorUsedError;
+  String get docNumber;
   @JsonKey(ignore: true)
-  _$ChangeOriginKycDocNumberCopyWith<_ChangeOriginKycDocNumber> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangeOriginKycDocNumberCopyWith<_$_ChangeOriginKycDocNumber>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginKycDocFrontCopyWith<$Res> {
-  factory _$ChangeOriginKycDocFrontCopyWith(_ChangeOriginKycDocFront value,
-          $Res Function(_ChangeOriginKycDocFront) then) =
-      __$ChangeOriginKycDocFrontCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginKycDocFrontCopyWith<$Res> {
+  factory _$$_ChangeOriginKycDocFrontCopyWith(_$_ChangeOriginKycDocFront value,
+          $Res Function(_$_ChangeOriginKycDocFront) then) =
+      __$$_ChangeOriginKycDocFrontCopyWithImpl<$Res>;
+  @useResult
   $Res call({File docFront});
 }
 
 /// @nodoc
-class __$ChangeOriginKycDocFrontCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginKycDocFrontCopyWith<$Res> {
-  __$ChangeOriginKycDocFrontCopyWithImpl(_ChangeOriginKycDocFront _value,
-      $Res Function(_ChangeOriginKycDocFront) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginKycDocFront));
+class __$$_ChangeOriginKycDocFrontCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginKycDocFront>
+    implements _$$_ChangeOriginKycDocFrontCopyWith<$Res> {
+  __$$_ChangeOriginKycDocFrontCopyWithImpl(_$_ChangeOriginKycDocFront _value,
+      $Res Function(_$_ChangeOriginKycDocFront) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginKycDocFront get _value =>
-      super._value as _ChangeOriginKycDocFront;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? docFront = freezed,
+    Object? docFront = null,
   }) {
-    return _then(_ChangeOriginKycDocFront(
-      docFront == freezed
+    return _then(_$_ChangeOriginKycDocFront(
+      null == docFront
           ? _value.docFront
           : docFront // ignore: cast_nullable_to_non_nullable
               as File,
@@ -11358,21 +15101,22 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginKycDocFront &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginKycDocFront &&
             (identical(other.docFront, docFront) ||
-                const DeepCollectionEquality()
-                    .equals(other.docFront, docFront)));
+                other.docFront == docFront));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(docFront);
+  int get hashCode => Object.hash(runtimeType, docFront);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginKycDocFrontCopyWith<_ChangeOriginKycDocFront> get copyWith =>
-      __$ChangeOriginKycDocFrontCopyWithImpl<_ChangeOriginKycDocFront>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginKycDocFrontCopyWith<_$_ChangeOriginKycDocFront>
+      get copyWith =>
+          __$$_ChangeOriginKycDocFrontCopyWithImpl<_$_ChangeOriginKycDocFront>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -11426,6 +15170,59 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginKycDocFront(docFront);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginKycDocFront?.call(docFront);
   }
 
   @override
@@ -11560,6 +15357,72 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginKycDocFront?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -11629,40 +15492,39 @@ class _$_ChangeOriginKycDocFront implements _ChangeOriginKycDocFront {
 }
 
 abstract class _ChangeOriginKycDocFront implements UpdateProfileEvent {
-  const factory _ChangeOriginKycDocFront(File docFront) =
+  const factory _ChangeOriginKycDocFront(final File docFront) =
       _$_ChangeOriginKycDocFront;
 
-  File get docFront => throw _privateConstructorUsedError;
+  File get docFront;
   @JsonKey(ignore: true)
-  _$ChangeOriginKycDocFrontCopyWith<_ChangeOriginKycDocFront> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangeOriginKycDocFrontCopyWith<_$_ChangeOriginKycDocFront>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginKycDocBackCopyWith<$Res> {
-  factory _$ChangeOriginKycDocBackCopyWith(_ChangeOriginKycDocBack value,
-          $Res Function(_ChangeOriginKycDocBack) then) =
-      __$ChangeOriginKycDocBackCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginKycDocBackCopyWith<$Res> {
+  factory _$$_ChangeOriginKycDocBackCopyWith(_$_ChangeOriginKycDocBack value,
+          $Res Function(_$_ChangeOriginKycDocBack) then) =
+      __$$_ChangeOriginKycDocBackCopyWithImpl<$Res>;
+  @useResult
   $Res call({File docback});
 }
 
 /// @nodoc
-class __$ChangeOriginKycDocBackCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginKycDocBackCopyWith<$Res> {
-  __$ChangeOriginKycDocBackCopyWithImpl(_ChangeOriginKycDocBack _value,
-      $Res Function(_ChangeOriginKycDocBack) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginKycDocBack));
+class __$$_ChangeOriginKycDocBackCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginKycDocBack>
+    implements _$$_ChangeOriginKycDocBackCopyWith<$Res> {
+  __$$_ChangeOriginKycDocBackCopyWithImpl(_$_ChangeOriginKycDocBack _value,
+      $Res Function(_$_ChangeOriginKycDocBack) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginKycDocBack get _value => super._value as _ChangeOriginKycDocBack;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? docback = freezed,
+    Object? docback = null,
   }) {
-    return _then(_ChangeOriginKycDocBack(
-      docback == freezed
+    return _then(_$_ChangeOriginKycDocBack(
+      null == docback
           ? _value.docback
           : docback // ignore: cast_nullable_to_non_nullable
               as File,
@@ -11686,19 +15548,19 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginKycDocBack &&
-            (identical(other.docback, docback) ||
-                const DeepCollectionEquality().equals(other.docback, docback)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginKycDocBack &&
+            (identical(other.docback, docback) || other.docback == docback));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(docback);
+  int get hashCode => Object.hash(runtimeType, docback);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginKycDocBackCopyWith<_ChangeOriginKycDocBack> get copyWith =>
-      __$ChangeOriginKycDocBackCopyWithImpl<_ChangeOriginKycDocBack>(
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginKycDocBackCopyWith<_$_ChangeOriginKycDocBack> get copyWith =>
+      __$$_ChangeOriginKycDocBackCopyWithImpl<_$_ChangeOriginKycDocBack>(
           this, _$identity);
 
   @override
@@ -11753,6 +15615,59 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginKycDocBack(docback);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginKycDocBack?.call(docback);
   }
 
   @override
@@ -11887,6 +15802,72 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginKycDocBack?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -11956,41 +15937,41 @@ class _$_ChangeOriginKycDocBack implements _ChangeOriginKycDocBack {
 }
 
 abstract class _ChangeOriginKycDocBack implements UpdateProfileEvent {
-  const factory _ChangeOriginKycDocBack(File docback) =
+  const factory _ChangeOriginKycDocBack(final File docback) =
       _$_ChangeOriginKycDocBack;
 
-  File get docback => throw _privateConstructorUsedError;
+  File get docback;
   @JsonKey(ignore: true)
-  _$ChangeOriginKycDocBackCopyWith<_ChangeOriginKycDocBack> get copyWith =>
+  _$$_ChangeOriginKycDocBackCopyWith<_$_ChangeOriginKycDocBack> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginDocIssuedFromCopyWith<$Res> {
-  factory _$ChangeOriginDocIssuedFromCopyWith(_ChangeOriginDocIssuedFrom value,
-          $Res Function(_ChangeOriginDocIssuedFrom) then) =
-      __$ChangeOriginDocIssuedFromCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginDocIssuedFromCopyWith<$Res> {
+  factory _$$_ChangeOriginDocIssuedFromCopyWith(
+          _$_ChangeOriginDocIssuedFrom value,
+          $Res Function(_$_ChangeOriginDocIssuedFrom) then) =
+      __$$_ChangeOriginDocIssuedFromCopyWithImpl<$Res>;
+  @useResult
   $Res call({String inssuedFrom});
 }
 
 /// @nodoc
-class __$ChangeOriginDocIssuedFromCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginDocIssuedFromCopyWith<$Res> {
-  __$ChangeOriginDocIssuedFromCopyWithImpl(_ChangeOriginDocIssuedFrom _value,
-      $Res Function(_ChangeOriginDocIssuedFrom) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginDocIssuedFrom));
+class __$$_ChangeOriginDocIssuedFromCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginDocIssuedFrom>
+    implements _$$_ChangeOriginDocIssuedFromCopyWith<$Res> {
+  __$$_ChangeOriginDocIssuedFromCopyWithImpl(
+      _$_ChangeOriginDocIssuedFrom _value,
+      $Res Function(_$_ChangeOriginDocIssuedFrom) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginDocIssuedFrom get _value =>
-      super._value as _ChangeOriginDocIssuedFrom;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? inssuedFrom = freezed,
+    Object? inssuedFrom = null,
   }) {
-    return _then(_ChangeOriginDocIssuedFrom(
-      inssuedFrom == freezed
+    return _then(_$_ChangeOriginDocIssuedFrom(
+      null == inssuedFrom
           ? _value.inssuedFrom
           : inssuedFrom // ignore: cast_nullable_to_non_nullable
               as String,
@@ -12014,22 +15995,21 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginDocIssuedFrom &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginDocIssuedFrom &&
             (identical(other.inssuedFrom, inssuedFrom) ||
-                const DeepCollectionEquality()
-                    .equals(other.inssuedFrom, inssuedFrom)));
+                other.inssuedFrom == inssuedFrom));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(inssuedFrom);
+  int get hashCode => Object.hash(runtimeType, inssuedFrom);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginDocIssuedFromCopyWith<_ChangeOriginDocIssuedFrom>
-      get copyWith =>
-          __$ChangeOriginDocIssuedFromCopyWithImpl<_ChangeOriginDocIssuedFrom>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginDocIssuedFromCopyWith<_$_ChangeOriginDocIssuedFrom>
+      get copyWith => __$$_ChangeOriginDocIssuedFromCopyWithImpl<
+          _$_ChangeOriginDocIssuedFrom>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -12083,6 +16063,59 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginDocIssuedFrom(inssuedFrom);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginDocIssuedFrom?.call(inssuedFrom);
   }
 
   @override
@@ -12217,6 +16250,72 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginDocIssuedFrom?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -12286,41 +16385,41 @@ class _$_ChangeOriginDocIssuedFrom implements _ChangeOriginDocIssuedFrom {
 }
 
 abstract class _ChangeOriginDocIssuedFrom implements UpdateProfileEvent {
-  const factory _ChangeOriginDocIssuedFrom(String inssuedFrom) =
+  const factory _ChangeOriginDocIssuedFrom(final String inssuedFrom) =
       _$_ChangeOriginDocIssuedFrom;
 
-  String get inssuedFrom => throw _privateConstructorUsedError;
+  String get inssuedFrom;
   @JsonKey(ignore: true)
-  _$ChangeOriginDocIssuedFromCopyWith<_ChangeOriginDocIssuedFrom>
+  _$$_ChangeOriginDocIssuedFromCopyWith<_$_ChangeOriginDocIssuedFrom>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeOriginDocIssuedDateCopyWith<$Res> {
-  factory _$ChangeOriginDocIssuedDateCopyWith(_ChangeOriginDocIssuedDate value,
-          $Res Function(_ChangeOriginDocIssuedDate) then) =
-      __$ChangeOriginDocIssuedDateCopyWithImpl<$Res>;
+abstract class _$$_ChangeOriginDocIssuedDateCopyWith<$Res> {
+  factory _$$_ChangeOriginDocIssuedDateCopyWith(
+          _$_ChangeOriginDocIssuedDate value,
+          $Res Function(_$_ChangeOriginDocIssuedDate) then) =
+      __$$_ChangeOriginDocIssuedDateCopyWithImpl<$Res>;
+  @useResult
   $Res call({String issuedDate});
 }
 
 /// @nodoc
-class __$ChangeOriginDocIssuedDateCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeOriginDocIssuedDateCopyWith<$Res> {
-  __$ChangeOriginDocIssuedDateCopyWithImpl(_ChangeOriginDocIssuedDate _value,
-      $Res Function(_ChangeOriginDocIssuedDate) _then)
-      : super(_value, (v) => _then(v as _ChangeOriginDocIssuedDate));
+class __$$_ChangeOriginDocIssuedDateCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeOriginDocIssuedDate>
+    implements _$$_ChangeOriginDocIssuedDateCopyWith<$Res> {
+  __$$_ChangeOriginDocIssuedDateCopyWithImpl(
+      _$_ChangeOriginDocIssuedDate _value,
+      $Res Function(_$_ChangeOriginDocIssuedDate) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeOriginDocIssuedDate get _value =>
-      super._value as _ChangeOriginDocIssuedDate;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? issuedDate = freezed,
+    Object? issuedDate = null,
   }) {
-    return _then(_ChangeOriginDocIssuedDate(
-      issuedDate == freezed
+    return _then(_$_ChangeOriginDocIssuedDate(
+      null == issuedDate
           ? _value.issuedDate
           : issuedDate // ignore: cast_nullable_to_non_nullable
               as String,
@@ -12344,22 +16443,21 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeOriginDocIssuedDate &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeOriginDocIssuedDate &&
             (identical(other.issuedDate, issuedDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.issuedDate, issuedDate)));
+                other.issuedDate == issuedDate));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(issuedDate);
+  int get hashCode => Object.hash(runtimeType, issuedDate);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeOriginDocIssuedDateCopyWith<_ChangeOriginDocIssuedDate>
-      get copyWith =>
-          __$ChangeOriginDocIssuedDateCopyWithImpl<_ChangeOriginDocIssuedDate>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeOriginDocIssuedDateCopyWith<_$_ChangeOriginDocIssuedDate>
+      get copyWith => __$$_ChangeOriginDocIssuedDateCopyWithImpl<
+          _$_ChangeOriginDocIssuedDate>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -12413,6 +16511,59 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeOriginDocIssuedDate(issuedDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeOriginDocIssuedDate?.call(issuedDate);
   }
 
   @override
@@ -12547,6 +16698,72 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeOriginDocIssuedDate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -12616,41 +16833,41 @@ class _$_ChangeOriginDocIssuedDate implements _ChangeOriginDocIssuedDate {
 }
 
 abstract class _ChangeOriginDocIssuedDate implements UpdateProfileEvent {
-  const factory _ChangeOriginDocIssuedDate(String issuedDate) =
+  const factory _ChangeOriginDocIssuedDate(final String issuedDate) =
       _$_ChangeOriginDocIssuedDate;
 
-  String get issuedDate => throw _privateConstructorUsedError;
+  String get issuedDate;
   @JsonKey(ignore: true)
-  _$ChangeOriginDocIssuedDateCopyWith<_ChangeOriginDocIssuedDate>
+  _$$_ChangeOriginDocIssuedDateCopyWith<_$_ChangeOriginDocIssuedDate>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeResidenceKycDocTypeCopyWith<$Res> {
-  factory _$ChangeResidenceKycDocTypeCopyWith(_ChangeResidenceKycDocType value,
-          $Res Function(_ChangeResidenceKycDocType) then) =
-      __$ChangeResidenceKycDocTypeCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidenceKycDocTypeCopyWith<$Res> {
+  factory _$$_ChangeResidenceKycDocTypeCopyWith(
+          _$_ChangeResidenceKycDocType value,
+          $Res Function(_$_ChangeResidenceKycDocType) then) =
+      __$$_ChangeResidenceKycDocTypeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String docType});
 }
 
 /// @nodoc
-class __$ChangeResidenceKycDocTypeCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidenceKycDocTypeCopyWith<$Res> {
-  __$ChangeResidenceKycDocTypeCopyWithImpl(_ChangeResidenceKycDocType _value,
-      $Res Function(_ChangeResidenceKycDocType) _then)
-      : super(_value, (v) => _then(v as _ChangeResidenceKycDocType));
+class __$$_ChangeResidenceKycDocTypeCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeResidenceKycDocType>
+    implements _$$_ChangeResidenceKycDocTypeCopyWith<$Res> {
+  __$$_ChangeResidenceKycDocTypeCopyWithImpl(
+      _$_ChangeResidenceKycDocType _value,
+      $Res Function(_$_ChangeResidenceKycDocType) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidenceKycDocType get _value =>
-      super._value as _ChangeResidenceKycDocType;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? docType = freezed,
+    Object? docType = null,
   }) {
-    return _then(_ChangeResidenceKycDocType(
-      docType == freezed
+    return _then(_$_ChangeResidenceKycDocType(
+      null == docType
           ? _value.docType
           : docType // ignore: cast_nullable_to_non_nullable
               as String,
@@ -12674,21 +16891,20 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidenceKycDocType &&
-            (identical(other.docType, docType) ||
-                const DeepCollectionEquality().equals(other.docType, docType)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidenceKycDocType &&
+            (identical(other.docType, docType) || other.docType == docType));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(docType);
+  int get hashCode => Object.hash(runtimeType, docType);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidenceKycDocTypeCopyWith<_ChangeResidenceKycDocType>
-      get copyWith =>
-          __$ChangeResidenceKycDocTypeCopyWithImpl<_ChangeResidenceKycDocType>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidenceKycDocTypeCopyWith<_$_ChangeResidenceKycDocType>
+      get copyWith => __$$_ChangeResidenceKycDocTypeCopyWithImpl<
+          _$_ChangeResidenceKycDocType>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -12742,6 +16958,59 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidenceKycDocType(docType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidenceKycDocType?.call(docType);
   }
 
   @override
@@ -12876,6 +17145,72 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidenceKycDocType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -12945,43 +17280,42 @@ class _$_ChangeResidenceKycDocType implements _ChangeResidenceKycDocType {
 }
 
 abstract class _ChangeResidenceKycDocType implements UpdateProfileEvent {
-  const factory _ChangeResidenceKycDocType(String docType) =
+  const factory _ChangeResidenceKycDocType(final String docType) =
       _$_ChangeResidenceKycDocType;
 
-  String get docType => throw _privateConstructorUsedError;
+  String get docType;
   @JsonKey(ignore: true)
-  _$ChangeResidenceKycDocTypeCopyWith<_ChangeResidenceKycDocType>
+  _$$_ChangeResidenceKycDocTypeCopyWith<_$_ChangeResidenceKycDocType>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeResidenceKycDocNumberCopyWith<$Res> {
-  factory _$ChangeResidenceKycDocNumberCopyWith(
-          _ChangeResidenceKycDocNumber value,
-          $Res Function(_ChangeResidenceKycDocNumber) then) =
-      __$ChangeResidenceKycDocNumberCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidenceKycDocNumberCopyWith<$Res> {
+  factory _$$_ChangeResidenceKycDocNumberCopyWith(
+          _$_ChangeResidenceKycDocNumber value,
+          $Res Function(_$_ChangeResidenceKycDocNumber) then) =
+      __$$_ChangeResidenceKycDocNumberCopyWithImpl<$Res>;
+  @useResult
   $Res call({String docNumber});
 }
 
 /// @nodoc
-class __$ChangeResidenceKycDocNumberCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidenceKycDocNumberCopyWith<$Res> {
-  __$ChangeResidenceKycDocNumberCopyWithImpl(
-      _ChangeResidenceKycDocNumber _value,
-      $Res Function(_ChangeResidenceKycDocNumber) _then)
-      : super(_value, (v) => _then(v as _ChangeResidenceKycDocNumber));
+class __$$_ChangeResidenceKycDocNumberCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res,
+        _$_ChangeResidenceKycDocNumber>
+    implements _$$_ChangeResidenceKycDocNumberCopyWith<$Res> {
+  __$$_ChangeResidenceKycDocNumberCopyWithImpl(
+      _$_ChangeResidenceKycDocNumber _value,
+      $Res Function(_$_ChangeResidenceKycDocNumber) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidenceKycDocNumber get _value =>
-      super._value as _ChangeResidenceKycDocNumber;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? docNumber = freezed,
+    Object? docNumber = null,
   }) {
-    return _then(_ChangeResidenceKycDocNumber(
-      docNumber == freezed
+    return _then(_$_ChangeResidenceKycDocNumber(
+      null == docNumber
           ? _value.docNumber
           : docNumber // ignore: cast_nullable_to_non_nullable
               as String,
@@ -13005,21 +17339,21 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidenceKycDocNumber &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidenceKycDocNumber &&
             (identical(other.docNumber, docNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.docNumber, docNumber)));
+                other.docNumber == docNumber));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(docNumber);
+  int get hashCode => Object.hash(runtimeType, docNumber);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidenceKycDocNumberCopyWith<_ChangeResidenceKycDocNumber>
-      get copyWith => __$ChangeResidenceKycDocNumberCopyWithImpl<
-          _ChangeResidenceKycDocNumber>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidenceKycDocNumberCopyWith<_$_ChangeResidenceKycDocNumber>
+      get copyWith => __$$_ChangeResidenceKycDocNumberCopyWithImpl<
+          _$_ChangeResidenceKycDocNumber>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -13073,6 +17407,59 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidenceKycDocNumber(docNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidenceKycDocNumber?.call(docNumber);
   }
 
   @override
@@ -13207,6 +17594,72 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidenceKycDocNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -13276,42 +17729,42 @@ class _$_ChangeResidenceKycDocNumber implements _ChangeResidenceKycDocNumber {
 }
 
 abstract class _ChangeResidenceKycDocNumber implements UpdateProfileEvent {
-  const factory _ChangeResidenceKycDocNumber(String docNumber) =
+  const factory _ChangeResidenceKycDocNumber(final String docNumber) =
       _$_ChangeResidenceKycDocNumber;
 
-  String get docNumber => throw _privateConstructorUsedError;
+  String get docNumber;
   @JsonKey(ignore: true)
-  _$ChangeResidenceKycDocNumberCopyWith<_ChangeResidenceKycDocNumber>
+  _$$_ChangeResidenceKycDocNumberCopyWith<_$_ChangeResidenceKycDocNumber>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeResidenceKycDocFrontCopyWith<$Res> {
-  factory _$ChangeResidenceKycDocFrontCopyWith(
-          _ChangeResidenceKycDocFront value,
-          $Res Function(_ChangeResidenceKycDocFront) then) =
-      __$ChangeResidenceKycDocFrontCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidenceKycDocFrontCopyWith<$Res> {
+  factory _$$_ChangeResidenceKycDocFrontCopyWith(
+          _$_ChangeResidenceKycDocFront value,
+          $Res Function(_$_ChangeResidenceKycDocFront) then) =
+      __$$_ChangeResidenceKycDocFrontCopyWithImpl<$Res>;
+  @useResult
   $Res call({File docFront});
 }
 
 /// @nodoc
-class __$ChangeResidenceKycDocFrontCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidenceKycDocFrontCopyWith<$Res> {
-  __$ChangeResidenceKycDocFrontCopyWithImpl(_ChangeResidenceKycDocFront _value,
-      $Res Function(_ChangeResidenceKycDocFront) _then)
-      : super(_value, (v) => _then(v as _ChangeResidenceKycDocFront));
+class __$$_ChangeResidenceKycDocFrontCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res,
+        _$_ChangeResidenceKycDocFront>
+    implements _$$_ChangeResidenceKycDocFrontCopyWith<$Res> {
+  __$$_ChangeResidenceKycDocFrontCopyWithImpl(
+      _$_ChangeResidenceKycDocFront _value,
+      $Res Function(_$_ChangeResidenceKycDocFront) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidenceKycDocFront get _value =>
-      super._value as _ChangeResidenceKycDocFront;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? docFront = freezed,
+    Object? docFront = null,
   }) {
-    return _then(_ChangeResidenceKycDocFront(
-      docFront == freezed
+    return _then(_$_ChangeResidenceKycDocFront(
+      null == docFront
           ? _value.docFront
           : docFront // ignore: cast_nullable_to_non_nullable
               as File,
@@ -13335,21 +17788,21 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidenceKycDocFront &&
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidenceKycDocFront &&
             (identical(other.docFront, docFront) ||
-                const DeepCollectionEquality()
-                    .equals(other.docFront, docFront)));
+                other.docFront == docFront));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(docFront);
+  int get hashCode => Object.hash(runtimeType, docFront);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidenceKycDocFrontCopyWith<_ChangeResidenceKycDocFront>
-      get copyWith => __$ChangeResidenceKycDocFrontCopyWithImpl<
-          _ChangeResidenceKycDocFront>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidenceKycDocFrontCopyWith<_$_ChangeResidenceKycDocFront>
+      get copyWith => __$$_ChangeResidenceKycDocFrontCopyWithImpl<
+          _$_ChangeResidenceKycDocFront>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -13403,6 +17856,59 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidenceKycDocFront(docFront);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidenceKycDocFront?.call(docFront);
   }
 
   @override
@@ -13537,6 +18043,72 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidenceKycDocFront?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -13606,41 +18178,41 @@ class _$_ChangeResidenceKycDocFront implements _ChangeResidenceKycDocFront {
 }
 
 abstract class _ChangeResidenceKycDocFront implements UpdateProfileEvent {
-  const factory _ChangeResidenceKycDocFront(File docFront) =
+  const factory _ChangeResidenceKycDocFront(final File docFront) =
       _$_ChangeResidenceKycDocFront;
 
-  File get docFront => throw _privateConstructorUsedError;
+  File get docFront;
   @JsonKey(ignore: true)
-  _$ChangeResidenceKycDocFrontCopyWith<_ChangeResidenceKycDocFront>
+  _$$_ChangeResidenceKycDocFrontCopyWith<_$_ChangeResidenceKycDocFront>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ChangeResidenceKycDocBackCopyWith<$Res> {
-  factory _$ChangeResidenceKycDocBackCopyWith(_ChangeResidenceKycDocBack value,
-          $Res Function(_ChangeResidenceKycDocBack) then) =
-      __$ChangeResidenceKycDocBackCopyWithImpl<$Res>;
+abstract class _$$_ChangeResidenceKycDocBackCopyWith<$Res> {
+  factory _$$_ChangeResidenceKycDocBackCopyWith(
+          _$_ChangeResidenceKycDocBack value,
+          $Res Function(_$_ChangeResidenceKycDocBack) then) =
+      __$$_ChangeResidenceKycDocBackCopyWithImpl<$Res>;
+  @useResult
   $Res call({File docBack});
 }
 
 /// @nodoc
-class __$ChangeResidenceKycDocBackCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$ChangeResidenceKycDocBackCopyWith<$Res> {
-  __$ChangeResidenceKycDocBackCopyWithImpl(_ChangeResidenceKycDocBack _value,
-      $Res Function(_ChangeResidenceKycDocBack) _then)
-      : super(_value, (v) => _then(v as _ChangeResidenceKycDocBack));
+class __$$_ChangeResidenceKycDocBackCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_ChangeResidenceKycDocBack>
+    implements _$$_ChangeResidenceKycDocBackCopyWith<$Res> {
+  __$$_ChangeResidenceKycDocBackCopyWithImpl(
+      _$_ChangeResidenceKycDocBack _value,
+      $Res Function(_$_ChangeResidenceKycDocBack) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeResidenceKycDocBack get _value =>
-      super._value as _ChangeResidenceKycDocBack;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? docBack = freezed,
+    Object? docBack = null,
   }) {
-    return _then(_ChangeResidenceKycDocBack(
-      docBack == freezed
+    return _then(_$_ChangeResidenceKycDocBack(
+      null == docBack
           ? _value.docBack
           : docBack // ignore: cast_nullable_to_non_nullable
               as File,
@@ -13664,21 +18236,20 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeResidenceKycDocBack &&
-            (identical(other.docBack, docBack) ||
-                const DeepCollectionEquality().equals(other.docBack, docBack)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeResidenceKycDocBack &&
+            (identical(other.docBack, docBack) || other.docBack == docBack));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(docBack);
+  int get hashCode => Object.hash(runtimeType, docBack);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeResidenceKycDocBackCopyWith<_ChangeResidenceKycDocBack>
-      get copyWith =>
-          __$ChangeResidenceKycDocBackCopyWithImpl<_ChangeResidenceKycDocBack>(
-              this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeResidenceKycDocBackCopyWith<_$_ChangeResidenceKycDocBack>
+      get copyWith => __$$_ChangeResidenceKycDocBackCopyWithImpl<
+          _$_ChangeResidenceKycDocBack>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -13732,6 +18303,59 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
     required TResult Function(File image) saveUserImage,
   }) {
     return changeResidenceKycDocBack(docBack);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return changeResidenceKycDocBack?.call(docBack);
   }
 
   @override
@@ -13866,6 +18490,72 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return changeResidenceKycDocBack?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -13935,40 +18625,39 @@ class _$_ChangeResidenceKycDocBack implements _ChangeResidenceKycDocBack {
 }
 
 abstract class _ChangeResidenceKycDocBack implements UpdateProfileEvent {
-  const factory _ChangeResidenceKycDocBack(File docBack) =
+  const factory _ChangeResidenceKycDocBack(final File docBack) =
       _$_ChangeResidenceKycDocBack;
 
-  File get docBack => throw _privateConstructorUsedError;
+  File get docBack;
   @JsonKey(ignore: true)
-  _$ChangeResidenceKycDocBackCopyWith<_ChangeResidenceKycDocBack>
+  _$$_ChangeResidenceKycDocBackCopyWith<_$_ChangeResidenceKycDocBack>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetInitialStateCopyWith<$Res> {
-  factory _$SetInitialStateCopyWith(
-          _SetInitialState value, $Res Function(_SetInitialState) then) =
-      __$SetInitialStateCopyWithImpl<$Res>;
+abstract class _$$_SetInitialStateCopyWith<$Res> {
+  factory _$$_SetInitialStateCopyWith(
+          _$_SetInitialState value, $Res Function(_$_SetInitialState) then) =
+      __$$_SetInitialStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({UserDetail userDetail});
 }
 
 /// @nodoc
-class __$SetInitialStateCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$SetInitialStateCopyWith<$Res> {
-  __$SetInitialStateCopyWithImpl(
-      _SetInitialState _value, $Res Function(_SetInitialState) _then)
-      : super(_value, (v) => _then(v as _SetInitialState));
+class __$$_SetInitialStateCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_SetInitialState>
+    implements _$$_SetInitialStateCopyWith<$Res> {
+  __$$_SetInitialStateCopyWithImpl(
+      _$_SetInitialState _value, $Res Function(_$_SetInitialState) _then)
+      : super(_value, _then);
 
-  @override
-  _SetInitialState get _value => super._value as _SetInitialState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userDetail = freezed,
+    Object? userDetail = null,
   }) {
-    return _then(_SetInitialState(
-      userDetail == freezed
+    return _then(_$_SetInitialState(
+      null == userDetail
           ? _value.userDetail
           : userDetail // ignore: cast_nullable_to_non_nullable
               as UserDetail,
@@ -13992,20 +18681,20 @@ class _$_SetInitialState implements _SetInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetInitialState &&
+        (other.runtimeType == runtimeType &&
+            other is _$_SetInitialState &&
             (identical(other.userDetail, userDetail) ||
-                const DeepCollectionEquality()
-                    .equals(other.userDetail, userDetail)));
+                other.userDetail == userDetail));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(userDetail);
+  int get hashCode => Object.hash(runtimeType, userDetail);
 
   @JsonKey(ignore: true)
   @override
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
-      __$SetInitialStateCopyWithImpl<_SetInitialState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
+      __$$_SetInitialStateCopyWithImpl<_$_SetInitialState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -14059,6 +18748,59 @@ class _$_SetInitialState implements _SetInitialState {
     required TResult Function(File image) saveUserImage,
   }) {
     return setInitialState(userDetail);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return setInitialState?.call(userDetail);
   }
 
   @override
@@ -14193,6 +18935,72 @@ class _$_SetInitialState implements _SetInitialState {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return setInitialState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -14262,31 +19070,29 @@ class _$_SetInitialState implements _SetInitialState {
 }
 
 abstract class _SetInitialState implements UpdateProfileEvent {
-  const factory _SetInitialState(UserDetail userDetail) = _$_SetInitialState;
+  const factory _SetInitialState(final UserDetail userDetail) =
+      _$_SetInitialState;
 
-  UserDetail get userDetail => throw _privateConstructorUsedError;
+  UserDetail get userDetail;
   @JsonKey(ignore: true)
-  _$SetInitialStateCopyWith<_SetInitialState> get copyWith =>
+  _$$_SetInitialStateCopyWith<_$_SetInitialState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SaveUserInfoCopyWith<$Res> {
-  factory _$SaveUserInfoCopyWith(
-          _SaveUserInfo value, $Res Function(_SaveUserInfo) then) =
-      __$SaveUserInfoCopyWithImpl<$Res>;
+abstract class _$$_SaveUserInfoCopyWith<$Res> {
+  factory _$$_SaveUserInfoCopyWith(
+          _$_SaveUserInfo value, $Res Function(_$_SaveUserInfo) then) =
+      __$$_SaveUserInfoCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SaveUserInfoCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$SaveUserInfoCopyWith<$Res> {
-  __$SaveUserInfoCopyWithImpl(
-      _SaveUserInfo _value, $Res Function(_SaveUserInfo) _then)
-      : super(_value, (v) => _then(v as _SaveUserInfo));
-
-  @override
-  _SaveUserInfo get _value => super._value as _SaveUserInfo;
+class __$$_SaveUserInfoCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_SaveUserInfo>
+    implements _$$_SaveUserInfoCopyWith<$Res> {
+  __$$_SaveUserInfoCopyWithImpl(
+      _$_SaveUserInfo _value, $Res Function(_$_SaveUserInfo) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -14301,7 +19107,8 @@ class _$_SaveUserInfo implements _SaveUserInfo {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SaveUserInfo);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SaveUserInfo);
   }
 
   @override
@@ -14359,6 +19166,59 @@ class _$_SaveUserInfo implements _SaveUserInfo {
     required TResult Function(File image) saveUserImage,
   }) {
     return saveUserInfo();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return saveUserInfo?.call();
   }
 
   @override
@@ -14493,6 +19353,72 @@ class _$_SaveUserInfo implements _SaveUserInfo {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return saveUserInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -14566,22 +19492,19 @@ abstract class _SaveUserInfo implements UpdateProfileEvent {
 }
 
 /// @nodoc
-abstract class _$SaveDocumentInfoCopyWith<$Res> {
-  factory _$SaveDocumentInfoCopyWith(
-          _SaveDocumentInfo value, $Res Function(_SaveDocumentInfo) then) =
-      __$SaveDocumentInfoCopyWithImpl<$Res>;
+abstract class _$$_SaveDocumentInfoCopyWith<$Res> {
+  factory _$$_SaveDocumentInfoCopyWith(
+          _$_SaveDocumentInfo value, $Res Function(_$_SaveDocumentInfo) then) =
+      __$$_SaveDocumentInfoCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SaveDocumentInfoCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$SaveDocumentInfoCopyWith<$Res> {
-  __$SaveDocumentInfoCopyWithImpl(
-      _SaveDocumentInfo _value, $Res Function(_SaveDocumentInfo) _then)
-      : super(_value, (v) => _then(v as _SaveDocumentInfo));
-
-  @override
-  _SaveDocumentInfo get _value => super._value as _SaveDocumentInfo;
+class __$$_SaveDocumentInfoCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_SaveDocumentInfo>
+    implements _$$_SaveDocumentInfoCopyWith<$Res> {
+  __$$_SaveDocumentInfoCopyWithImpl(
+      _$_SaveDocumentInfo _value, $Res Function(_$_SaveDocumentInfo) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -14596,7 +19519,8 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SaveDocumentInfo);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SaveDocumentInfo);
   }
 
   @override
@@ -14654,6 +19578,59 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
     required TResult Function(File image) saveUserImage,
   }) {
     return saveDocumentInfo();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return saveDocumentInfo?.call();
   }
 
   @override
@@ -14788,6 +19765,72 @@ class _$_SaveDocumentInfo implements _SaveDocumentInfo {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return saveDocumentInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -14861,30 +19904,29 @@ abstract class _SaveDocumentInfo implements UpdateProfileEvent {
 }
 
 /// @nodoc
-abstract class _$SaveUserImageCopyWith<$Res> {
-  factory _$SaveUserImageCopyWith(
-          _SaveUserImage value, $Res Function(_SaveUserImage) then) =
-      __$SaveUserImageCopyWithImpl<$Res>;
+abstract class _$$_SaveUserImageCopyWith<$Res> {
+  factory _$$_SaveUserImageCopyWith(
+          _$_SaveUserImage value, $Res Function(_$_SaveUserImage) then) =
+      __$$_SaveUserImageCopyWithImpl<$Res>;
+  @useResult
   $Res call({File image});
 }
 
 /// @nodoc
-class __$SaveUserImageCopyWithImpl<$Res>
-    extends _$UpdateProfileEventCopyWithImpl<$Res>
-    implements _$SaveUserImageCopyWith<$Res> {
-  __$SaveUserImageCopyWithImpl(
-      _SaveUserImage _value, $Res Function(_SaveUserImage) _then)
-      : super(_value, (v) => _then(v as _SaveUserImage));
+class __$$_SaveUserImageCopyWithImpl<$Res>
+    extends _$UpdateProfileEventCopyWithImpl<$Res, _$_SaveUserImage>
+    implements _$$_SaveUserImageCopyWith<$Res> {
+  __$$_SaveUserImageCopyWithImpl(
+      _$_SaveUserImage _value, $Res Function(_$_SaveUserImage) _then)
+      : super(_value, _then);
 
-  @override
-  _SaveUserImage get _value => super._value as _SaveUserImage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? image = freezed,
+    Object? image = null,
   }) {
-    return _then(_SaveUserImage(
-      image == freezed
+    return _then(_$_SaveUserImage(
+      null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as File,
@@ -14908,19 +19950,19 @@ class _$_SaveUserImage implements _SaveUserImage {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SaveUserImage &&
-            (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)));
+        (other.runtimeType == runtimeType &&
+            other is _$_SaveUserImage &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(image);
+  int get hashCode => Object.hash(runtimeType, image);
 
   @JsonKey(ignore: true)
   @override
-  _$SaveUserImageCopyWith<_SaveUserImage> get copyWith =>
-      __$SaveUserImageCopyWithImpl<_SaveUserImage>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SaveUserImageCopyWith<_$_SaveUserImage> get copyWith =>
+      __$$_SaveUserImageCopyWithImpl<_$_SaveUserImage>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -14974,6 +20016,59 @@ class _$_SaveUserImage implements _SaveUserImage {
     required TResult Function(File image) saveUserImage,
   }) {
     return saveUserImage(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? changeFirstName,
+    TResult? Function(String name)? changeLastName,
+    TResult? Function(String name)? changeFuriganaName,
+    TResult? Function(String name)? changeFatherName,
+    TResult? Function(String name)? changeMotherName,
+    TResult? Function(String name)? changeGrandFatherName,
+    TResult? Function(String company)? changeCompany,
+    TResult? Function(String profession)? changeProfession,
+    TResult? Function(String nationality)? changeNationality,
+    TResult? Function(String number)? changeDocumentIdentificationNumber,
+    TResult? Function(String gender)? changeGender,
+    TResult? Function(String status)? changeMaritalStatus,
+    TResult? Function(String dob)? changeDob,
+    TResult? Function(String community)? changeCommunity,
+    TResult? Function(String number)? changeMobileNumber,
+    TResult? Function(String phone)? changeOtherPhone,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String country)? changeOriginCountry,
+    TResult? Function(String postalCode)? changeOriginPostalCode,
+    TResult? Function(String province)? changeOriginProvince,
+    TResult? Function(String city)? changeOriginCity,
+    TResult? Function(String streetAddress)? changeOriginStreetAddress,
+    TResult? Function(String address)? changeOriginStreetAddressFromPostalCode,
+    TResult? Function()? changeSameAsOriginAddress,
+    TResult? Function(String country)? changeResidenceCountry,
+    TResult? Function(String postalCode)? changeResidencePostalCode,
+    TResult? Function(String province)? changeResidenceProvince,
+    TResult? Function(String city)? changeResidenceCity,
+    TResult? Function(String address)? changeResidenceStreetAddress,
+    TResult? Function(String address)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(File profilePicture)? changeProfilePicture,
+    TResult? Function(String docType)? changeOriginKycDocType,
+    TResult? Function(String docNumber)? changeOriginKycDocNumber,
+    TResult? Function(File docFront)? changeOriginKycDocFront,
+    TResult? Function(File docback)? changeOriginKycDocBack,
+    TResult? Function(String inssuedFrom)? changeOriginDocIssuedFrom,
+    TResult? Function(String issuedDate)? changeOriginDocIssuedDate,
+    TResult? Function(String docType)? changeResidenceKycDocType,
+    TResult? Function(String docNumber)? changeResidenceKycDocNumber,
+    TResult? Function(File docFront)? changeResidenceKycDocFront,
+    TResult? Function(File docBack)? changeResidenceKycDocBack,
+    TResult? Function(UserDetail userDetail)? setInitialState,
+    TResult? Function()? saveUserInfo,
+    TResult? Function()? saveDocumentInfo,
+    TResult? Function(File image)? saveUserImage,
+  }) {
+    return saveUserImage?.call(image);
   }
 
   @override
@@ -15108,6 +20203,72 @@ class _$_SaveUserImage implements _SaveUserImage {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeFirstName value)? changeFirstName,
+    TResult? Function(_ChangeLastName value)? changeLastName,
+    TResult? Function(_ChangeFuriganaName value)? changeFuriganaName,
+    TResult? Function(_ChangeFatherName value)? changeFatherName,
+    TResult? Function(_ChangeMotherName value)? changeMotherName,
+    TResult? Function(_ChangeGrandFatherName value)? changeGrandFatherName,
+    TResult? Function(_ChangeCompany value)? changeCompany,
+    TResult? Function(_ChangeProfession value)? changeProfession,
+    TResult? Function(_ChangeNationality value)? changeNationality,
+    TResult? Function(_ChangeDocumentIdentificationNumber value)?
+        changeDocumentIdentificationNumber,
+    TResult? Function(_ChangeGender value)? changeGender,
+    TResult? Function(_ChangeMaritalStatus value)? changeMaritalStatus,
+    TResult? Function(_ChangeDob value)? changeDob,
+    TResult? Function(_ChangeCommunity value)? changeCommunity,
+    TResult? Function(_ChangeMobileNumber value)? changeMobileNumber,
+    TResult? Function(_ChangeOtherPhone value)? changeOtherPhone,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeOriginCountry value)? changeOriginCountry,
+    TResult? Function(_ChangeOriginPostalCode value)? changeOriginPostalCode,
+    TResult? Function(_ChangeProvince value)? changeOriginProvince,
+    TResult? Function(_ChangeOriginCity value)? changeOriginCity,
+    TResult? Function(_ChangeOriginStreetAddress value)?
+        changeOriginStreetAddress,
+    TResult? Function(_ChangeOriginStreetAddressFromPostalCode value)?
+        changeOriginStreetAddressFromPostalCode,
+    TResult? Function(_ChangeSameAsOriginAddress value)?
+        changeSameAsOriginAddress,
+    TResult? Function(_ChangeResidenceCountry value)? changeResidenceCountry,
+    TResult? Function(_ChangeResidencePostalCode value)?
+        changeResidencePostalCode,
+    TResult? Function(_ChangeResidenceProvince value)? changeResidenceProvince,
+    TResult? Function(_ChangeResidenceCity value)? changeResidenceCity,
+    TResult? Function(_ChangeResidenceStreetAddress value)?
+        changeResidenceStreetAddress,
+    TResult? Function(_ChangeResidenceStreetAddressFromPostalCode value)?
+        changeResidenceStreetAddressFromPostalCode,
+    TResult? Function(_ChangeProfilePicture value)? changeProfilePicture,
+    TResult? Function(_ChangeOriginKycDocType value)? changeOriginKycDocType,
+    TResult? Function(_ChangeOriginKycDocNumber value)?
+        changeOriginKycDocNumber,
+    TResult? Function(_ChangeOriginKycDocFront value)? changeOriginKycDocFront,
+    TResult? Function(_ChangeOriginKycDocBack value)? changeOriginKycDocBack,
+    TResult? Function(_ChangeOriginDocIssuedFrom value)?
+        changeOriginDocIssuedFrom,
+    TResult? Function(_ChangeOriginDocIssuedDate value)?
+        changeOriginDocIssuedDate,
+    TResult? Function(_ChangeResidenceKycDocType value)?
+        changeResidenceKycDocType,
+    TResult? Function(_ChangeResidenceKycDocNumber value)?
+        changeResidenceKycDocNumber,
+    TResult? Function(_ChangeResidenceKycDocFront value)?
+        changeResidenceKycDocFront,
+    TResult? Function(_ChangeResidenceKycDocBack value)?
+        changeResidenceKycDocBack,
+    TResult? Function(_SetInitialState value)? setInitialState,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_SaveDocumentInfo value)? saveDocumentInfo,
+    TResult? Function(_SaveUserImage value)? saveUserImage,
+  }) {
+    return saveUserImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeFirstName value)? changeFirstName,
     TResult Function(_ChangeLastName value)? changeLastName,
@@ -15177,146 +20338,13 @@ class _$_SaveUserImage implements _SaveUserImage {
 }
 
 abstract class _SaveUserImage implements UpdateProfileEvent {
-  const factory _SaveUserImage(File image) = _$_SaveUserImage;
+  const factory _SaveUserImage(final File image) = _$_SaveUserImage;
 
-  File get image => throw _privateConstructorUsedError;
+  File get image;
   @JsonKey(ignore: true)
-  _$SaveUserImageCopyWith<_SaveUserImage> get copyWith =>
+  _$$_SaveUserImageCopyWith<_$_SaveUserImage> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$UpdateProfileStateTearOff {
-  const _$UpdateProfileStateTearOff();
-
-  _UpdateProfileState call(
-      {required Key? key,
-      required String firstName,
-      required String lastName,
-      required String furigana,
-      required String fatherName,
-      required String motherName,
-      required String grandFatherName,
-      required String company,
-      required String profession,
-      required String nationality,
-      required String documentIdentificationNumber,
-      required String gender,
-      required String maritalStatus,
-      required String dob,
-      required String community,
-      required String mobileNumber,
-      required String otherPhone,
-      required String email,
-      required String originCountry,
-      required String originPostalCode,
-      required String originProvince,
-      required String originCity,
-      required bool isKycVerified,
-      required String originStreetAddress,
-      required bool isSameAsOriginAddress,
-      required String residenceCountry,
-      required String residencePostalCode,
-      required String residenceProvince,
-      required String residenceCity,
-      required String residenceStreetAddress,
-      required String profilePicture,
-      required String originKycDocType,
-      required String originKycDocNumber,
-      required String originKycDocFront,
-      required String originKycDocBack,
-      required String originDocIssuedFrom,
-      required String originDocIssuedDate,
-      required String originDocIssuedYear,
-      required String originDocIssuedMonth,
-      required String originDocIssuedDay,
-      required String residenceKycDocType,
-      required String residenceKycDocNumber,
-      required String residenceKycDocFront,
-      required String residenceKycDocBack,
-      File? profilePictureFile,
-      File? originKycDocFrontFile,
-      File? originKycDocBackFile,
-      File? residenceKycDocFrontFile,
-      File? residenceKycDocBackFile,
-      required List<String> listOfProfession,
-      required List<String> listOfCountry,
-      required List<String> listOfJapaneseProvince,
-      required List<String> listOfJapaneseOriginCities,
-      required List<String> listOfJapaneseResidenceCities,
-      required List<String> listOfNepaliProvince,
-      required List<String> listOfNepaliOriginDistrict,
-      required List<String> listOfNepaliResidenceDistrict,
-      required List<String> listOfKycDocType,
-      required bool isSubmitting,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) {
-    return _UpdateProfileState(
-      key: key,
-      firstName: firstName,
-      lastName: lastName,
-      furigana: furigana,
-      fatherName: fatherName,
-      motherName: motherName,
-      grandFatherName: grandFatherName,
-      company: company,
-      profession: profession,
-      nationality: nationality,
-      documentIdentificationNumber: documentIdentificationNumber,
-      gender: gender,
-      maritalStatus: maritalStatus,
-      dob: dob,
-      community: community,
-      mobileNumber: mobileNumber,
-      otherPhone: otherPhone,
-      email: email,
-      originCountry: originCountry,
-      originPostalCode: originPostalCode,
-      originProvince: originProvince,
-      originCity: originCity,
-      isKycVerified: isKycVerified,
-      originStreetAddress: originStreetAddress,
-      isSameAsOriginAddress: isSameAsOriginAddress,
-      residenceCountry: residenceCountry,
-      residencePostalCode: residencePostalCode,
-      residenceProvince: residenceProvince,
-      residenceCity: residenceCity,
-      residenceStreetAddress: residenceStreetAddress,
-      profilePicture: profilePicture,
-      originKycDocType: originKycDocType,
-      originKycDocNumber: originKycDocNumber,
-      originKycDocFront: originKycDocFront,
-      originKycDocBack: originKycDocBack,
-      originDocIssuedFrom: originDocIssuedFrom,
-      originDocIssuedDate: originDocIssuedDate,
-      originDocIssuedYear: originDocIssuedYear,
-      originDocIssuedMonth: originDocIssuedMonth,
-      originDocIssuedDay: originDocIssuedDay,
-      residenceKycDocType: residenceKycDocType,
-      residenceKycDocNumber: residenceKycDocNumber,
-      residenceKycDocFront: residenceKycDocFront,
-      residenceKycDocBack: residenceKycDocBack,
-      profilePictureFile: profilePictureFile,
-      originKycDocFrontFile: originKycDocFrontFile,
-      originKycDocBackFile: originKycDocBackFile,
-      residenceKycDocFrontFile: residenceKycDocFrontFile,
-      residenceKycDocBackFile: residenceKycDocBackFile,
-      listOfProfession: listOfProfession,
-      listOfCountry: listOfCountry,
-      listOfJapaneseProvince: listOfJapaneseProvince,
-      listOfJapaneseOriginCities: listOfJapaneseOriginCities,
-      listOfJapaneseResidenceCities: listOfJapaneseResidenceCities,
-      listOfNepaliProvince: listOfNepaliProvince,
-      listOfNepaliOriginDistrict: listOfNepaliOriginDistrict,
-      listOfNepaliResidenceDistrict: listOfNepaliResidenceDistrict,
-      listOfKycDocType: listOfKycDocType,
-      isSubmitting: isSubmitting,
-      failureOrSuccessOption: failureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $UpdateProfileState = _$UpdateProfileStateTearOff();
 
 /// @nodoc
 mixin _$UpdateProfileState {
@@ -15395,7 +20423,8 @@ mixin _$UpdateProfileState {
 abstract class $UpdateProfileStateCopyWith<$Res> {
   factory $UpdateProfileStateCopyWith(
           UpdateProfileState value, $Res Function(UpdateProfileState) then) =
-      _$UpdateProfileStateCopyWithImpl<$Res>;
+      _$UpdateProfileStateCopyWithImpl<$Res, UpdateProfileState>;
+  @useResult
   $Res call(
       {Key? key,
       String firstName,
@@ -15460,329 +20489,332 @@ abstract class $UpdateProfileStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UpdateProfileStateCopyWithImpl<$Res>
+class _$UpdateProfileStateCopyWithImpl<$Res, $Val extends UpdateProfileState>
     implements $UpdateProfileStateCopyWith<$Res> {
   _$UpdateProfileStateCopyWithImpl(this._value, this._then);
 
-  final UpdateProfileState _value;
   // ignore: unused_field
-  final $Res Function(UpdateProfileState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? furigana = freezed,
-    Object? fatherName = freezed,
-    Object? motherName = freezed,
-    Object? grandFatherName = freezed,
-    Object? company = freezed,
-    Object? profession = freezed,
-    Object? nationality = freezed,
-    Object? documentIdentificationNumber = freezed,
-    Object? gender = freezed,
-    Object? maritalStatus = freezed,
-    Object? dob = freezed,
-    Object? community = freezed,
-    Object? mobileNumber = freezed,
-    Object? otherPhone = freezed,
-    Object? email = freezed,
-    Object? originCountry = freezed,
-    Object? originPostalCode = freezed,
-    Object? originProvince = freezed,
-    Object? originCity = freezed,
-    Object? isKycVerified = freezed,
-    Object? originStreetAddress = freezed,
-    Object? isSameAsOriginAddress = freezed,
-    Object? residenceCountry = freezed,
-    Object? residencePostalCode = freezed,
-    Object? residenceProvince = freezed,
-    Object? residenceCity = freezed,
-    Object? residenceStreetAddress = freezed,
-    Object? profilePicture = freezed,
-    Object? originKycDocType = freezed,
-    Object? originKycDocNumber = freezed,
-    Object? originKycDocFront = freezed,
-    Object? originKycDocBack = freezed,
-    Object? originDocIssuedFrom = freezed,
-    Object? originDocIssuedDate = freezed,
-    Object? originDocIssuedYear = freezed,
-    Object? originDocIssuedMonth = freezed,
-    Object? originDocIssuedDay = freezed,
-    Object? residenceKycDocType = freezed,
-    Object? residenceKycDocNumber = freezed,
-    Object? residenceKycDocFront = freezed,
-    Object? residenceKycDocBack = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? furigana = null,
+    Object? fatherName = null,
+    Object? motherName = null,
+    Object? grandFatherName = null,
+    Object? company = null,
+    Object? profession = null,
+    Object? nationality = null,
+    Object? documentIdentificationNumber = null,
+    Object? gender = null,
+    Object? maritalStatus = null,
+    Object? dob = null,
+    Object? community = null,
+    Object? mobileNumber = null,
+    Object? otherPhone = null,
+    Object? email = null,
+    Object? originCountry = null,
+    Object? originPostalCode = null,
+    Object? originProvince = null,
+    Object? originCity = null,
+    Object? isKycVerified = null,
+    Object? originStreetAddress = null,
+    Object? isSameAsOriginAddress = null,
+    Object? residenceCountry = null,
+    Object? residencePostalCode = null,
+    Object? residenceProvince = null,
+    Object? residenceCity = null,
+    Object? residenceStreetAddress = null,
+    Object? profilePicture = null,
+    Object? originKycDocType = null,
+    Object? originKycDocNumber = null,
+    Object? originKycDocFront = null,
+    Object? originKycDocBack = null,
+    Object? originDocIssuedFrom = null,
+    Object? originDocIssuedDate = null,
+    Object? originDocIssuedYear = null,
+    Object? originDocIssuedMonth = null,
+    Object? originDocIssuedDay = null,
+    Object? residenceKycDocType = null,
+    Object? residenceKycDocNumber = null,
+    Object? residenceKycDocFront = null,
+    Object? residenceKycDocBack = null,
     Object? profilePictureFile = freezed,
     Object? originKycDocFrontFile = freezed,
     Object? originKycDocBackFile = freezed,
     Object? residenceKycDocFrontFile = freezed,
     Object? residenceKycDocBackFile = freezed,
-    Object? listOfProfession = freezed,
-    Object? listOfCountry = freezed,
-    Object? listOfJapaneseProvince = freezed,
-    Object? listOfJapaneseOriginCities = freezed,
-    Object? listOfJapaneseResidenceCities = freezed,
-    Object? listOfNepaliProvince = freezed,
-    Object? listOfNepaliOriginDistrict = freezed,
-    Object? listOfNepaliResidenceDistrict = freezed,
-    Object? listOfKycDocType = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? listOfProfession = null,
+    Object? listOfCountry = null,
+    Object? listOfJapaneseProvince = null,
+    Object? listOfJapaneseOriginCities = null,
+    Object? listOfJapaneseResidenceCities = null,
+    Object? listOfNepaliProvince = null,
+    Object? listOfNepaliOriginDistrict = null,
+    Object? listOfNepaliResidenceDistrict = null,
+    Object? listOfKycDocType = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      furigana: furigana == freezed
+      furigana: null == furigana
           ? _value.furigana
           : furigana // ignore: cast_nullable_to_non_nullable
               as String,
-      fatherName: fatherName == freezed
+      fatherName: null == fatherName
           ? _value.fatherName
           : fatherName // ignore: cast_nullable_to_non_nullable
               as String,
-      motherName: motherName == freezed
+      motherName: null == motherName
           ? _value.motherName
           : motherName // ignore: cast_nullable_to_non_nullable
               as String,
-      grandFatherName: grandFatherName == freezed
+      grandFatherName: null == grandFatherName
           ? _value.grandFatherName
           : grandFatherName // ignore: cast_nullable_to_non_nullable
               as String,
-      company: company == freezed
+      company: null == company
           ? _value.company
           : company // ignore: cast_nullable_to_non_nullable
               as String,
-      profession: profession == freezed
+      profession: null == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as String,
-      nationality: nationality == freezed
+      nationality: null == nationality
           ? _value.nationality
           : nationality // ignore: cast_nullable_to_non_nullable
               as String,
-      documentIdentificationNumber: documentIdentificationNumber == freezed
+      documentIdentificationNumber: null == documentIdentificationNumber
           ? _value.documentIdentificationNumber
           : documentIdentificationNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      gender: gender == freezed
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      maritalStatus: maritalStatus == freezed
+      maritalStatus: null == maritalStatus
           ? _value.maritalStatus
           : maritalStatus // ignore: cast_nullable_to_non_nullable
               as String,
-      dob: dob == freezed
+      dob: null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as String,
-      community: community == freezed
+      community: null == community
           ? _value.community
           : community // ignore: cast_nullable_to_non_nullable
               as String,
-      mobileNumber: mobileNumber == freezed
+      mobileNumber: null == mobileNumber
           ? _value.mobileNumber
           : mobileNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      otherPhone: otherPhone == freezed
+      otherPhone: null == otherPhone
           ? _value.otherPhone
           : otherPhone // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      originCountry: originCountry == freezed
+      originCountry: null == originCountry
           ? _value.originCountry
           : originCountry // ignore: cast_nullable_to_non_nullable
               as String,
-      originPostalCode: originPostalCode == freezed
+      originPostalCode: null == originPostalCode
           ? _value.originPostalCode
           : originPostalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      originProvince: originProvince == freezed
+      originProvince: null == originProvince
           ? _value.originProvince
           : originProvince // ignore: cast_nullable_to_non_nullable
               as String,
-      originCity: originCity == freezed
+      originCity: null == originCity
           ? _value.originCity
           : originCity // ignore: cast_nullable_to_non_nullable
               as String,
-      isKycVerified: isKycVerified == freezed
+      isKycVerified: null == isKycVerified
           ? _value.isKycVerified
           : isKycVerified // ignore: cast_nullable_to_non_nullable
               as bool,
-      originStreetAddress: originStreetAddress == freezed
+      originStreetAddress: null == originStreetAddress
           ? _value.originStreetAddress
           : originStreetAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      isSameAsOriginAddress: isSameAsOriginAddress == freezed
+      isSameAsOriginAddress: null == isSameAsOriginAddress
           ? _value.isSameAsOriginAddress
           : isSameAsOriginAddress // ignore: cast_nullable_to_non_nullable
               as bool,
-      residenceCountry: residenceCountry == freezed
+      residenceCountry: null == residenceCountry
           ? _value.residenceCountry
           : residenceCountry // ignore: cast_nullable_to_non_nullable
               as String,
-      residencePostalCode: residencePostalCode == freezed
+      residencePostalCode: null == residencePostalCode
           ? _value.residencePostalCode
           : residencePostalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceProvince: residenceProvince == freezed
+      residenceProvince: null == residenceProvince
           ? _value.residenceProvince
           : residenceProvince // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceCity: residenceCity == freezed
+      residenceCity: null == residenceCity
           ? _value.residenceCity
           : residenceCity // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceStreetAddress: residenceStreetAddress == freezed
+      residenceStreetAddress: null == residenceStreetAddress
           ? _value.residenceStreetAddress
           : residenceStreetAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      profilePicture: profilePicture == freezed
+      profilePicture: null == profilePicture
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
               as String,
-      originKycDocType: originKycDocType == freezed
+      originKycDocType: null == originKycDocType
           ? _value.originKycDocType
           : originKycDocType // ignore: cast_nullable_to_non_nullable
               as String,
-      originKycDocNumber: originKycDocNumber == freezed
+      originKycDocNumber: null == originKycDocNumber
           ? _value.originKycDocNumber
           : originKycDocNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      originKycDocFront: originKycDocFront == freezed
+      originKycDocFront: null == originKycDocFront
           ? _value.originKycDocFront
           : originKycDocFront // ignore: cast_nullable_to_non_nullable
               as String,
-      originKycDocBack: originKycDocBack == freezed
+      originKycDocBack: null == originKycDocBack
           ? _value.originKycDocBack
           : originKycDocBack // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedFrom: originDocIssuedFrom == freezed
+      originDocIssuedFrom: null == originDocIssuedFrom
           ? _value.originDocIssuedFrom
           : originDocIssuedFrom // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedDate: originDocIssuedDate == freezed
+      originDocIssuedDate: null == originDocIssuedDate
           ? _value.originDocIssuedDate
           : originDocIssuedDate // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedYear: originDocIssuedYear == freezed
+      originDocIssuedYear: null == originDocIssuedYear
           ? _value.originDocIssuedYear
           : originDocIssuedYear // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedMonth: originDocIssuedMonth == freezed
+      originDocIssuedMonth: null == originDocIssuedMonth
           ? _value.originDocIssuedMonth
           : originDocIssuedMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedDay: originDocIssuedDay == freezed
+      originDocIssuedDay: null == originDocIssuedDay
           ? _value.originDocIssuedDay
           : originDocIssuedDay // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceKycDocType: residenceKycDocType == freezed
+      residenceKycDocType: null == residenceKycDocType
           ? _value.residenceKycDocType
           : residenceKycDocType // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceKycDocNumber: residenceKycDocNumber == freezed
+      residenceKycDocNumber: null == residenceKycDocNumber
           ? _value.residenceKycDocNumber
           : residenceKycDocNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceKycDocFront: residenceKycDocFront == freezed
+      residenceKycDocFront: null == residenceKycDocFront
           ? _value.residenceKycDocFront
           : residenceKycDocFront // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceKycDocBack: residenceKycDocBack == freezed
+      residenceKycDocBack: null == residenceKycDocBack
           ? _value.residenceKycDocBack
           : residenceKycDocBack // ignore: cast_nullable_to_non_nullable
               as String,
-      profilePictureFile: profilePictureFile == freezed
+      profilePictureFile: freezed == profilePictureFile
           ? _value.profilePictureFile
           : profilePictureFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      originKycDocFrontFile: originKycDocFrontFile == freezed
+      originKycDocFrontFile: freezed == originKycDocFrontFile
           ? _value.originKycDocFrontFile
           : originKycDocFrontFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      originKycDocBackFile: originKycDocBackFile == freezed
+      originKycDocBackFile: freezed == originKycDocBackFile
           ? _value.originKycDocBackFile
           : originKycDocBackFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      residenceKycDocFrontFile: residenceKycDocFrontFile == freezed
+      residenceKycDocFrontFile: freezed == residenceKycDocFrontFile
           ? _value.residenceKycDocFrontFile
           : residenceKycDocFrontFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      residenceKycDocBackFile: residenceKycDocBackFile == freezed
+      residenceKycDocBackFile: freezed == residenceKycDocBackFile
           ? _value.residenceKycDocBackFile
           : residenceKycDocBackFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      listOfProfession: listOfProfession == freezed
+      listOfProfession: null == listOfProfession
           ? _value.listOfProfession
           : listOfProfession // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfCountry: listOfCountry == freezed
+      listOfCountry: null == listOfCountry
           ? _value.listOfCountry
           : listOfCountry // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJapaneseProvince: listOfJapaneseProvince == freezed
+      listOfJapaneseProvince: null == listOfJapaneseProvince
           ? _value.listOfJapaneseProvince
           : listOfJapaneseProvince // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJapaneseOriginCities: listOfJapaneseOriginCities == freezed
+      listOfJapaneseOriginCities: null == listOfJapaneseOriginCities
           ? _value.listOfJapaneseOriginCities
           : listOfJapaneseOriginCities // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJapaneseResidenceCities: listOfJapaneseResidenceCities == freezed
+      listOfJapaneseResidenceCities: null == listOfJapaneseResidenceCities
           ? _value.listOfJapaneseResidenceCities
           : listOfJapaneseResidenceCities // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfNepaliProvince: listOfNepaliProvince == freezed
+      listOfNepaliProvince: null == listOfNepaliProvince
           ? _value.listOfNepaliProvince
           : listOfNepaliProvince // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfNepaliOriginDistrict: listOfNepaliOriginDistrict == freezed
+      listOfNepaliOriginDistrict: null == listOfNepaliOriginDistrict
           ? _value.listOfNepaliOriginDistrict
           : listOfNepaliOriginDistrict // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfNepaliResidenceDistrict: listOfNepaliResidenceDistrict == freezed
+      listOfNepaliResidenceDistrict: null == listOfNepaliResidenceDistrict
           ? _value.listOfNepaliResidenceDistrict
           : listOfNepaliResidenceDistrict // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfKycDocType: listOfKycDocType == freezed
+      listOfKycDocType: null == listOfKycDocType
           ? _value.listOfKycDocType
           : listOfKycDocType // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$UpdateProfileStateCopyWith<$Res>
+abstract class _$$_UpdateProfileStateCopyWith<$Res>
     implements $UpdateProfileStateCopyWith<$Res> {
-  factory _$UpdateProfileStateCopyWith(
-          _UpdateProfileState value, $Res Function(_UpdateProfileState) then) =
-      __$UpdateProfileStateCopyWithImpl<$Res>;
+  factory _$$_UpdateProfileStateCopyWith(_$_UpdateProfileState value,
+          $Res Function(_$_UpdateProfileState) then) =
+      __$$_UpdateProfileStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key? key,
       String firstName,
@@ -15847,317 +20879,315 @@ abstract class _$UpdateProfileStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UpdateProfileStateCopyWithImpl<$Res>
-    extends _$UpdateProfileStateCopyWithImpl<$Res>
-    implements _$UpdateProfileStateCopyWith<$Res> {
-  __$UpdateProfileStateCopyWithImpl(
-      _UpdateProfileState _value, $Res Function(_UpdateProfileState) _then)
-      : super(_value, (v) => _then(v as _UpdateProfileState));
+class __$$_UpdateProfileStateCopyWithImpl<$Res>
+    extends _$UpdateProfileStateCopyWithImpl<$Res, _$_UpdateProfileState>
+    implements _$$_UpdateProfileStateCopyWith<$Res> {
+  __$$_UpdateProfileStateCopyWithImpl(
+      _$_UpdateProfileState _value, $Res Function(_$_UpdateProfileState) _then)
+      : super(_value, _then);
 
-  @override
-  _UpdateProfileState get _value => super._value as _UpdateProfileState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? key = freezed,
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? furigana = freezed,
-    Object? fatherName = freezed,
-    Object? motherName = freezed,
-    Object? grandFatherName = freezed,
-    Object? company = freezed,
-    Object? profession = freezed,
-    Object? nationality = freezed,
-    Object? documentIdentificationNumber = freezed,
-    Object? gender = freezed,
-    Object? maritalStatus = freezed,
-    Object? dob = freezed,
-    Object? community = freezed,
-    Object? mobileNumber = freezed,
-    Object? otherPhone = freezed,
-    Object? email = freezed,
-    Object? originCountry = freezed,
-    Object? originPostalCode = freezed,
-    Object? originProvince = freezed,
-    Object? originCity = freezed,
-    Object? isKycVerified = freezed,
-    Object? originStreetAddress = freezed,
-    Object? isSameAsOriginAddress = freezed,
-    Object? residenceCountry = freezed,
-    Object? residencePostalCode = freezed,
-    Object? residenceProvince = freezed,
-    Object? residenceCity = freezed,
-    Object? residenceStreetAddress = freezed,
-    Object? profilePicture = freezed,
-    Object? originKycDocType = freezed,
-    Object? originKycDocNumber = freezed,
-    Object? originKycDocFront = freezed,
-    Object? originKycDocBack = freezed,
-    Object? originDocIssuedFrom = freezed,
-    Object? originDocIssuedDate = freezed,
-    Object? originDocIssuedYear = freezed,
-    Object? originDocIssuedMonth = freezed,
-    Object? originDocIssuedDay = freezed,
-    Object? residenceKycDocType = freezed,
-    Object? residenceKycDocNumber = freezed,
-    Object? residenceKycDocFront = freezed,
-    Object? residenceKycDocBack = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? furigana = null,
+    Object? fatherName = null,
+    Object? motherName = null,
+    Object? grandFatherName = null,
+    Object? company = null,
+    Object? profession = null,
+    Object? nationality = null,
+    Object? documentIdentificationNumber = null,
+    Object? gender = null,
+    Object? maritalStatus = null,
+    Object? dob = null,
+    Object? community = null,
+    Object? mobileNumber = null,
+    Object? otherPhone = null,
+    Object? email = null,
+    Object? originCountry = null,
+    Object? originPostalCode = null,
+    Object? originProvince = null,
+    Object? originCity = null,
+    Object? isKycVerified = null,
+    Object? originStreetAddress = null,
+    Object? isSameAsOriginAddress = null,
+    Object? residenceCountry = null,
+    Object? residencePostalCode = null,
+    Object? residenceProvince = null,
+    Object? residenceCity = null,
+    Object? residenceStreetAddress = null,
+    Object? profilePicture = null,
+    Object? originKycDocType = null,
+    Object? originKycDocNumber = null,
+    Object? originKycDocFront = null,
+    Object? originKycDocBack = null,
+    Object? originDocIssuedFrom = null,
+    Object? originDocIssuedDate = null,
+    Object? originDocIssuedYear = null,
+    Object? originDocIssuedMonth = null,
+    Object? originDocIssuedDay = null,
+    Object? residenceKycDocType = null,
+    Object? residenceKycDocNumber = null,
+    Object? residenceKycDocFront = null,
+    Object? residenceKycDocBack = null,
     Object? profilePictureFile = freezed,
     Object? originKycDocFrontFile = freezed,
     Object? originKycDocBackFile = freezed,
     Object? residenceKycDocFrontFile = freezed,
     Object? residenceKycDocBackFile = freezed,
-    Object? listOfProfession = freezed,
-    Object? listOfCountry = freezed,
-    Object? listOfJapaneseProvince = freezed,
-    Object? listOfJapaneseOriginCities = freezed,
-    Object? listOfJapaneseResidenceCities = freezed,
-    Object? listOfNepaliProvince = freezed,
-    Object? listOfNepaliOriginDistrict = freezed,
-    Object? listOfNepaliResidenceDistrict = freezed,
-    Object? listOfKycDocType = freezed,
-    Object? isSubmitting = freezed,
-    Object? failureOrSuccessOption = freezed,
+    Object? listOfProfession = null,
+    Object? listOfCountry = null,
+    Object? listOfJapaneseProvince = null,
+    Object? listOfJapaneseOriginCities = null,
+    Object? listOfJapaneseResidenceCities = null,
+    Object? listOfNepaliProvince = null,
+    Object? listOfNepaliOriginDistrict = null,
+    Object? listOfNepaliResidenceDistrict = null,
+    Object? listOfKycDocType = null,
+    Object? isSubmitting = null,
+    Object? failureOrSuccessOption = null,
   }) {
-    return _then(_UpdateProfileState(
-      key: key == freezed
+    return _then(_$_UpdateProfileState(
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key?,
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      furigana: furigana == freezed
+      furigana: null == furigana
           ? _value.furigana
           : furigana // ignore: cast_nullable_to_non_nullable
               as String,
-      fatherName: fatherName == freezed
+      fatherName: null == fatherName
           ? _value.fatherName
           : fatherName // ignore: cast_nullable_to_non_nullable
               as String,
-      motherName: motherName == freezed
+      motherName: null == motherName
           ? _value.motherName
           : motherName // ignore: cast_nullable_to_non_nullable
               as String,
-      grandFatherName: grandFatherName == freezed
+      grandFatherName: null == grandFatherName
           ? _value.grandFatherName
           : grandFatherName // ignore: cast_nullable_to_non_nullable
               as String,
-      company: company == freezed
+      company: null == company
           ? _value.company
           : company // ignore: cast_nullable_to_non_nullable
               as String,
-      profession: profession == freezed
+      profession: null == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as String,
-      nationality: nationality == freezed
+      nationality: null == nationality
           ? _value.nationality
           : nationality // ignore: cast_nullable_to_non_nullable
               as String,
-      documentIdentificationNumber: documentIdentificationNumber == freezed
+      documentIdentificationNumber: null == documentIdentificationNumber
           ? _value.documentIdentificationNumber
           : documentIdentificationNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      gender: gender == freezed
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      maritalStatus: maritalStatus == freezed
+      maritalStatus: null == maritalStatus
           ? _value.maritalStatus
           : maritalStatus // ignore: cast_nullable_to_non_nullable
               as String,
-      dob: dob == freezed
+      dob: null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as String,
-      community: community == freezed
+      community: null == community
           ? _value.community
           : community // ignore: cast_nullable_to_non_nullable
               as String,
-      mobileNumber: mobileNumber == freezed
+      mobileNumber: null == mobileNumber
           ? _value.mobileNumber
           : mobileNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      otherPhone: otherPhone == freezed
+      otherPhone: null == otherPhone
           ? _value.otherPhone
           : otherPhone // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      originCountry: originCountry == freezed
+      originCountry: null == originCountry
           ? _value.originCountry
           : originCountry // ignore: cast_nullable_to_non_nullable
               as String,
-      originPostalCode: originPostalCode == freezed
+      originPostalCode: null == originPostalCode
           ? _value.originPostalCode
           : originPostalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      originProvince: originProvince == freezed
+      originProvince: null == originProvince
           ? _value.originProvince
           : originProvince // ignore: cast_nullable_to_non_nullable
               as String,
-      originCity: originCity == freezed
+      originCity: null == originCity
           ? _value.originCity
           : originCity // ignore: cast_nullable_to_non_nullable
               as String,
-      isKycVerified: isKycVerified == freezed
+      isKycVerified: null == isKycVerified
           ? _value.isKycVerified
           : isKycVerified // ignore: cast_nullable_to_non_nullable
               as bool,
-      originStreetAddress: originStreetAddress == freezed
+      originStreetAddress: null == originStreetAddress
           ? _value.originStreetAddress
           : originStreetAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      isSameAsOriginAddress: isSameAsOriginAddress == freezed
+      isSameAsOriginAddress: null == isSameAsOriginAddress
           ? _value.isSameAsOriginAddress
           : isSameAsOriginAddress // ignore: cast_nullable_to_non_nullable
               as bool,
-      residenceCountry: residenceCountry == freezed
+      residenceCountry: null == residenceCountry
           ? _value.residenceCountry
           : residenceCountry // ignore: cast_nullable_to_non_nullable
               as String,
-      residencePostalCode: residencePostalCode == freezed
+      residencePostalCode: null == residencePostalCode
           ? _value.residencePostalCode
           : residencePostalCode // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceProvince: residenceProvince == freezed
+      residenceProvince: null == residenceProvince
           ? _value.residenceProvince
           : residenceProvince // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceCity: residenceCity == freezed
+      residenceCity: null == residenceCity
           ? _value.residenceCity
           : residenceCity // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceStreetAddress: residenceStreetAddress == freezed
+      residenceStreetAddress: null == residenceStreetAddress
           ? _value.residenceStreetAddress
           : residenceStreetAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      profilePicture: profilePicture == freezed
+      profilePicture: null == profilePicture
           ? _value.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
               as String,
-      originKycDocType: originKycDocType == freezed
+      originKycDocType: null == originKycDocType
           ? _value.originKycDocType
           : originKycDocType // ignore: cast_nullable_to_non_nullable
               as String,
-      originKycDocNumber: originKycDocNumber == freezed
+      originKycDocNumber: null == originKycDocNumber
           ? _value.originKycDocNumber
           : originKycDocNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      originKycDocFront: originKycDocFront == freezed
+      originKycDocFront: null == originKycDocFront
           ? _value.originKycDocFront
           : originKycDocFront // ignore: cast_nullable_to_non_nullable
               as String,
-      originKycDocBack: originKycDocBack == freezed
+      originKycDocBack: null == originKycDocBack
           ? _value.originKycDocBack
           : originKycDocBack // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedFrom: originDocIssuedFrom == freezed
+      originDocIssuedFrom: null == originDocIssuedFrom
           ? _value.originDocIssuedFrom
           : originDocIssuedFrom // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedDate: originDocIssuedDate == freezed
+      originDocIssuedDate: null == originDocIssuedDate
           ? _value.originDocIssuedDate
           : originDocIssuedDate // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedYear: originDocIssuedYear == freezed
+      originDocIssuedYear: null == originDocIssuedYear
           ? _value.originDocIssuedYear
           : originDocIssuedYear // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedMonth: originDocIssuedMonth == freezed
+      originDocIssuedMonth: null == originDocIssuedMonth
           ? _value.originDocIssuedMonth
           : originDocIssuedMonth // ignore: cast_nullable_to_non_nullable
               as String,
-      originDocIssuedDay: originDocIssuedDay == freezed
+      originDocIssuedDay: null == originDocIssuedDay
           ? _value.originDocIssuedDay
           : originDocIssuedDay // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceKycDocType: residenceKycDocType == freezed
+      residenceKycDocType: null == residenceKycDocType
           ? _value.residenceKycDocType
           : residenceKycDocType // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceKycDocNumber: residenceKycDocNumber == freezed
+      residenceKycDocNumber: null == residenceKycDocNumber
           ? _value.residenceKycDocNumber
           : residenceKycDocNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceKycDocFront: residenceKycDocFront == freezed
+      residenceKycDocFront: null == residenceKycDocFront
           ? _value.residenceKycDocFront
           : residenceKycDocFront // ignore: cast_nullable_to_non_nullable
               as String,
-      residenceKycDocBack: residenceKycDocBack == freezed
+      residenceKycDocBack: null == residenceKycDocBack
           ? _value.residenceKycDocBack
           : residenceKycDocBack // ignore: cast_nullable_to_non_nullable
               as String,
-      profilePictureFile: profilePictureFile == freezed
+      profilePictureFile: freezed == profilePictureFile
           ? _value.profilePictureFile
           : profilePictureFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      originKycDocFrontFile: originKycDocFrontFile == freezed
+      originKycDocFrontFile: freezed == originKycDocFrontFile
           ? _value.originKycDocFrontFile
           : originKycDocFrontFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      originKycDocBackFile: originKycDocBackFile == freezed
+      originKycDocBackFile: freezed == originKycDocBackFile
           ? _value.originKycDocBackFile
           : originKycDocBackFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      residenceKycDocFrontFile: residenceKycDocFrontFile == freezed
+      residenceKycDocFrontFile: freezed == residenceKycDocFrontFile
           ? _value.residenceKycDocFrontFile
           : residenceKycDocFrontFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      residenceKycDocBackFile: residenceKycDocBackFile == freezed
+      residenceKycDocBackFile: freezed == residenceKycDocBackFile
           ? _value.residenceKycDocBackFile
           : residenceKycDocBackFile // ignore: cast_nullable_to_non_nullable
               as File?,
-      listOfProfession: listOfProfession == freezed
-          ? _value.listOfProfession
+      listOfProfession: null == listOfProfession
+          ? _value._listOfProfession
           : listOfProfession // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfCountry: listOfCountry == freezed
-          ? _value.listOfCountry
+      listOfCountry: null == listOfCountry
+          ? _value._listOfCountry
           : listOfCountry // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJapaneseProvince: listOfJapaneseProvince == freezed
-          ? _value.listOfJapaneseProvince
+      listOfJapaneseProvince: null == listOfJapaneseProvince
+          ? _value._listOfJapaneseProvince
           : listOfJapaneseProvince // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJapaneseOriginCities: listOfJapaneseOriginCities == freezed
-          ? _value.listOfJapaneseOriginCities
+      listOfJapaneseOriginCities: null == listOfJapaneseOriginCities
+          ? _value._listOfJapaneseOriginCities
           : listOfJapaneseOriginCities // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfJapaneseResidenceCities: listOfJapaneseResidenceCities == freezed
-          ? _value.listOfJapaneseResidenceCities
+      listOfJapaneseResidenceCities: null == listOfJapaneseResidenceCities
+          ? _value._listOfJapaneseResidenceCities
           : listOfJapaneseResidenceCities // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfNepaliProvince: listOfNepaliProvince == freezed
-          ? _value.listOfNepaliProvince
+      listOfNepaliProvince: null == listOfNepaliProvince
+          ? _value._listOfNepaliProvince
           : listOfNepaliProvince // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfNepaliOriginDistrict: listOfNepaliOriginDistrict == freezed
-          ? _value.listOfNepaliOriginDistrict
+      listOfNepaliOriginDistrict: null == listOfNepaliOriginDistrict
+          ? _value._listOfNepaliOriginDistrict
           : listOfNepaliOriginDistrict // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfNepaliResidenceDistrict: listOfNepaliResidenceDistrict == freezed
-          ? _value.listOfNepaliResidenceDistrict
+      listOfNepaliResidenceDistrict: null == listOfNepaliResidenceDistrict
+          ? _value._listOfNepaliResidenceDistrict
           : listOfNepaliResidenceDistrict // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      listOfKycDocType: listOfKycDocType == freezed
-          ? _value.listOfKycDocType
+      listOfKycDocType: null == listOfKycDocType
+          ? _value._listOfKycDocType
           : listOfKycDocType // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
+      failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -16218,17 +21248,26 @@ class _$_UpdateProfileState implements _UpdateProfileState {
       this.originKycDocBackFile,
       this.residenceKycDocFrontFile,
       this.residenceKycDocBackFile,
-      required this.listOfProfession,
-      required this.listOfCountry,
-      required this.listOfJapaneseProvince,
-      required this.listOfJapaneseOriginCities,
-      required this.listOfJapaneseResidenceCities,
-      required this.listOfNepaliProvince,
-      required this.listOfNepaliOriginDistrict,
-      required this.listOfNepaliResidenceDistrict,
-      required this.listOfKycDocType,
+      required final List<String> listOfProfession,
+      required final List<String> listOfCountry,
+      required final List<String> listOfJapaneseProvince,
+      required final List<String> listOfJapaneseOriginCities,
+      required final List<String> listOfJapaneseResidenceCities,
+      required final List<String> listOfNepaliProvince,
+      required final List<String> listOfNepaliOriginDistrict,
+      required final List<String> listOfNepaliResidenceDistrict,
+      required final List<String> listOfKycDocType,
       required this.isSubmitting,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : _listOfProfession = listOfProfession,
+        _listOfCountry = listOfCountry,
+        _listOfJapaneseProvince = listOfJapaneseProvince,
+        _listOfJapaneseOriginCities = listOfJapaneseOriginCities,
+        _listOfJapaneseResidenceCities = listOfJapaneseResidenceCities,
+        _listOfNepaliProvince = listOfNepaliProvince,
+        _listOfNepaliOriginDistrict = listOfNepaliOriginDistrict,
+        _listOfNepaliResidenceDistrict = listOfNepaliResidenceDistrict,
+        _listOfKycDocType = listOfKycDocType;
 
   @override
   final Key? key;
@@ -16328,24 +21367,86 @@ class _$_UpdateProfileState implements _UpdateProfileState {
   final File? residenceKycDocFrontFile;
   @override
   final File? residenceKycDocBackFile;
+  final List<String> _listOfProfession;
   @override
-  final List<String> listOfProfession;
+  List<String> get listOfProfession {
+    if (_listOfProfession is EqualUnmodifiableListView)
+      return _listOfProfession;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfProfession);
+  }
+
+  final List<String> _listOfCountry;
   @override
-  final List<String> listOfCountry;
+  List<String> get listOfCountry {
+    if (_listOfCountry is EqualUnmodifiableListView) return _listOfCountry;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfCountry);
+  }
+
+  final List<String> _listOfJapaneseProvince;
   @override
-  final List<String> listOfJapaneseProvince;
+  List<String> get listOfJapaneseProvince {
+    if (_listOfJapaneseProvince is EqualUnmodifiableListView)
+      return _listOfJapaneseProvince;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfJapaneseProvince);
+  }
+
+  final List<String> _listOfJapaneseOriginCities;
   @override
-  final List<String> listOfJapaneseOriginCities;
+  List<String> get listOfJapaneseOriginCities {
+    if (_listOfJapaneseOriginCities is EqualUnmodifiableListView)
+      return _listOfJapaneseOriginCities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfJapaneseOriginCities);
+  }
+
+  final List<String> _listOfJapaneseResidenceCities;
   @override
-  final List<String> listOfJapaneseResidenceCities;
+  List<String> get listOfJapaneseResidenceCities {
+    if (_listOfJapaneseResidenceCities is EqualUnmodifiableListView)
+      return _listOfJapaneseResidenceCities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfJapaneseResidenceCities);
+  }
+
+  final List<String> _listOfNepaliProvince;
   @override
-  final List<String> listOfNepaliProvince;
+  List<String> get listOfNepaliProvince {
+    if (_listOfNepaliProvince is EqualUnmodifiableListView)
+      return _listOfNepaliProvince;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfNepaliProvince);
+  }
+
+  final List<String> _listOfNepaliOriginDistrict;
   @override
-  final List<String> listOfNepaliOriginDistrict;
+  List<String> get listOfNepaliOriginDistrict {
+    if (_listOfNepaliOriginDistrict is EqualUnmodifiableListView)
+      return _listOfNepaliOriginDistrict;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfNepaliOriginDistrict);
+  }
+
+  final List<String> _listOfNepaliResidenceDistrict;
   @override
-  final List<String> listOfNepaliResidenceDistrict;
+  List<String> get listOfNepaliResidenceDistrict {
+    if (_listOfNepaliResidenceDistrict is EqualUnmodifiableListView)
+      return _listOfNepaliResidenceDistrict;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfNepaliResidenceDistrict);
+  }
+
+  final List<String> _listOfKycDocType;
   @override
-  final List<String> listOfKycDocType;
+  List<String> get listOfKycDocType {
+    if (_listOfKycDocType is EqualUnmodifiableListView)
+      return _listOfKycDocType;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfKycDocType);
+  }
+
   @override
   final bool isSubmitting;
   @override
@@ -16359,369 +21460,364 @@ class _$_UpdateProfileState implements _UpdateProfileState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateProfileState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateProfileState &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.firstName, firstName) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstName, firstName)) &&
+                other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastName, lastName)) &&
+                other.lastName == lastName) &&
             (identical(other.furigana, furigana) ||
-                const DeepCollectionEquality()
-                    .equals(other.furigana, furigana)) &&
+                other.furigana == furigana) &&
             (identical(other.fatherName, fatherName) ||
-                const DeepCollectionEquality()
-                    .equals(other.fatherName, fatherName)) &&
+                other.fatherName == fatherName) &&
             (identical(other.motherName, motherName) ||
-                const DeepCollectionEquality()
-                    .equals(other.motherName, motherName)) &&
+                other.motherName == motherName) &&
             (identical(other.grandFatherName, grandFatherName) ||
-                const DeepCollectionEquality()
-                    .equals(other.grandFatherName, grandFatherName)) &&
-            (identical(other.company, company) ||
-                const DeepCollectionEquality()
-                    .equals(other.company, company)) &&
+                other.grandFatherName == grandFatherName) &&
+            (identical(other.company, company) || other.company == company) &&
             (identical(other.profession, profession) ||
-                const DeepCollectionEquality()
-                    .equals(other.profession, profession)) &&
+                other.profession == profession) &&
             (identical(other.nationality, nationality) ||
-                const DeepCollectionEquality()
-                    .equals(other.nationality, nationality)) &&
+                other.nationality == nationality) &&
             (identical(other.documentIdentificationNumber, documentIdentificationNumber) ||
-                const DeepCollectionEquality().equals(
-                    other.documentIdentificationNumber,
-                    documentIdentificationNumber)) &&
-            (identical(other.gender, gender) ||
-                const DeepCollectionEquality().equals(other.gender, gender)) &&
+                other.documentIdentificationNumber ==
+                    documentIdentificationNumber) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.maritalStatus, maritalStatus) ||
-                const DeepCollectionEquality()
-                    .equals(other.maritalStatus, maritalStatus)) &&
-            (identical(other.dob, dob) ||
-                const DeepCollectionEquality().equals(other.dob, dob)) &&
+                other.maritalStatus == maritalStatus) &&
+            (identical(other.dob, dob) || other.dob == dob) &&
             (identical(other.community, community) ||
-                const DeepCollectionEquality()
-                    .equals(other.community, community)) &&
+                other.community == community) &&
             (identical(other.mobileNumber, mobileNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.mobileNumber, mobileNumber)) &&
+                other.mobileNumber == mobileNumber) &&
             (identical(other.otherPhone, otherPhone) ||
-                const DeepCollectionEquality()
-                    .equals(other.otherPhone, otherPhone)) &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
+                other.otherPhone == otherPhone) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.originCountry, originCountry) ||
-                const DeepCollectionEquality()
-                    .equals(other.originCountry, originCountry)) &&
+                other.originCountry == originCountry) &&
             (identical(other.originPostalCode, originPostalCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.originPostalCode, originPostalCode)) &&
+                other.originPostalCode == originPostalCode) &&
             (identical(other.originProvince, originProvince) ||
-                const DeepCollectionEquality()
-                    .equals(other.originProvince, originProvince)) &&
-            (identical(other.originCity, originCity) || const DeepCollectionEquality().equals(other.originCity, originCity)) &&
-            (identical(other.isKycVerified, isKycVerified) || const DeepCollectionEquality().equals(other.isKycVerified, isKycVerified)) &&
-            (identical(other.originStreetAddress, originStreetAddress) || const DeepCollectionEquality().equals(other.originStreetAddress, originStreetAddress)) &&
-            (identical(other.isSameAsOriginAddress, isSameAsOriginAddress) || const DeepCollectionEquality().equals(other.isSameAsOriginAddress, isSameAsOriginAddress)) &&
-            (identical(other.residenceCountry, residenceCountry) || const DeepCollectionEquality().equals(other.residenceCountry, residenceCountry)) &&
-            (identical(other.residencePostalCode, residencePostalCode) || const DeepCollectionEquality().equals(other.residencePostalCode, residencePostalCode)) &&
-            (identical(other.residenceProvince, residenceProvince) || const DeepCollectionEquality().equals(other.residenceProvince, residenceProvince)) &&
-            (identical(other.residenceCity, residenceCity) || const DeepCollectionEquality().equals(other.residenceCity, residenceCity)) &&
-            (identical(other.residenceStreetAddress, residenceStreetAddress) || const DeepCollectionEquality().equals(other.residenceStreetAddress, residenceStreetAddress)) &&
-            (identical(other.profilePicture, profilePicture) || const DeepCollectionEquality().equals(other.profilePicture, profilePicture)) &&
-            (identical(other.originKycDocType, originKycDocType) || const DeepCollectionEquality().equals(other.originKycDocType, originKycDocType)) &&
-            (identical(other.originKycDocNumber, originKycDocNumber) || const DeepCollectionEquality().equals(other.originKycDocNumber, originKycDocNumber)) &&
-            (identical(other.originKycDocFront, originKycDocFront) || const DeepCollectionEquality().equals(other.originKycDocFront, originKycDocFront)) &&
-            (identical(other.originKycDocBack, originKycDocBack) || const DeepCollectionEquality().equals(other.originKycDocBack, originKycDocBack)) &&
-            (identical(other.originDocIssuedFrom, originDocIssuedFrom) || const DeepCollectionEquality().equals(other.originDocIssuedFrom, originDocIssuedFrom)) &&
-            (identical(other.originDocIssuedDate, originDocIssuedDate) || const DeepCollectionEquality().equals(other.originDocIssuedDate, originDocIssuedDate)) &&
-            (identical(other.originDocIssuedYear, originDocIssuedYear) || const DeepCollectionEquality().equals(other.originDocIssuedYear, originDocIssuedYear)) &&
-            (identical(other.originDocIssuedMonth, originDocIssuedMonth) || const DeepCollectionEquality().equals(other.originDocIssuedMonth, originDocIssuedMonth)) &&
-            (identical(other.originDocIssuedDay, originDocIssuedDay) || const DeepCollectionEquality().equals(other.originDocIssuedDay, originDocIssuedDay)) &&
-            (identical(other.residenceKycDocType, residenceKycDocType) || const DeepCollectionEquality().equals(other.residenceKycDocType, residenceKycDocType)) &&
-            (identical(other.residenceKycDocNumber, residenceKycDocNumber) || const DeepCollectionEquality().equals(other.residenceKycDocNumber, residenceKycDocNumber)) &&
-            (identical(other.residenceKycDocFront, residenceKycDocFront) || const DeepCollectionEquality().equals(other.residenceKycDocFront, residenceKycDocFront)) &&
-            (identical(other.residenceKycDocBack, residenceKycDocBack) || const DeepCollectionEquality().equals(other.residenceKycDocBack, residenceKycDocBack)) &&
-            (identical(other.profilePictureFile, profilePictureFile) || const DeepCollectionEquality().equals(other.profilePictureFile, profilePictureFile)) &&
-            (identical(other.originKycDocFrontFile, originKycDocFrontFile) || const DeepCollectionEquality().equals(other.originKycDocFrontFile, originKycDocFrontFile)) &&
-            (identical(other.originKycDocBackFile, originKycDocBackFile) || const DeepCollectionEquality().equals(other.originKycDocBackFile, originKycDocBackFile)) &&
-            (identical(other.residenceKycDocFrontFile, residenceKycDocFrontFile) || const DeepCollectionEquality().equals(other.residenceKycDocFrontFile, residenceKycDocFrontFile)) &&
-            (identical(other.residenceKycDocBackFile, residenceKycDocBackFile) || const DeepCollectionEquality().equals(other.residenceKycDocBackFile, residenceKycDocBackFile)) &&
-            (identical(other.listOfProfession, listOfProfession) || const DeepCollectionEquality().equals(other.listOfProfession, listOfProfession)) &&
-            (identical(other.listOfCountry, listOfCountry) || const DeepCollectionEquality().equals(other.listOfCountry, listOfCountry)) &&
-            (identical(other.listOfJapaneseProvince, listOfJapaneseProvince) || const DeepCollectionEquality().equals(other.listOfJapaneseProvince, listOfJapaneseProvince)) &&
-            (identical(other.listOfJapaneseOriginCities, listOfJapaneseOriginCities) || const DeepCollectionEquality().equals(other.listOfJapaneseOriginCities, listOfJapaneseOriginCities)) &&
-            (identical(other.listOfJapaneseResidenceCities, listOfJapaneseResidenceCities) || const DeepCollectionEquality().equals(other.listOfJapaneseResidenceCities, listOfJapaneseResidenceCities)) &&
-            (identical(other.listOfNepaliProvince, listOfNepaliProvince) || const DeepCollectionEquality().equals(other.listOfNepaliProvince, listOfNepaliProvince)) &&
-            (identical(other.listOfNepaliOriginDistrict, listOfNepaliOriginDistrict) || const DeepCollectionEquality().equals(other.listOfNepaliOriginDistrict, listOfNepaliOriginDistrict)) &&
-            (identical(other.listOfNepaliResidenceDistrict, listOfNepaliResidenceDistrict) || const DeepCollectionEquality().equals(other.listOfNepaliResidenceDistrict, listOfNepaliResidenceDistrict)) &&
-            (identical(other.listOfKycDocType, listOfKycDocType) || const DeepCollectionEquality().equals(other.listOfKycDocType, listOfKycDocType)) &&
-            (identical(other.isSubmitting, isSubmitting) || const DeepCollectionEquality().equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.failureOrSuccessOption, failureOrSuccessOption) || const DeepCollectionEquality().equals(other.failureOrSuccessOption, failureOrSuccessOption)));
+                other.originProvince == originProvince) &&
+            (identical(other.originCity, originCity) ||
+                other.originCity == originCity) &&
+            (identical(other.isKycVerified, isKycVerified) ||
+                other.isKycVerified == isKycVerified) &&
+            (identical(other.originStreetAddress, originStreetAddress) ||
+                other.originStreetAddress == originStreetAddress) &&
+            (identical(other.isSameAsOriginAddress, isSameAsOriginAddress) ||
+                other.isSameAsOriginAddress == isSameAsOriginAddress) &&
+            (identical(other.residenceCountry, residenceCountry) ||
+                other.residenceCountry == residenceCountry) &&
+            (identical(other.residencePostalCode, residencePostalCode) ||
+                other.residencePostalCode == residencePostalCode) &&
+            (identical(other.residenceProvince, residenceProvince) ||
+                other.residenceProvince == residenceProvince) &&
+            (identical(other.residenceCity, residenceCity) ||
+                other.residenceCity == residenceCity) &&
+            (identical(other.residenceStreetAddress, residenceStreetAddress) ||
+                other.residenceStreetAddress == residenceStreetAddress) &&
+            (identical(other.profilePicture, profilePicture) ||
+                other.profilePicture == profilePicture) &&
+            (identical(other.originKycDocType, originKycDocType) ||
+                other.originKycDocType == originKycDocType) &&
+            (identical(other.originKycDocNumber, originKycDocNumber) ||
+                other.originKycDocNumber == originKycDocNumber) &&
+            (identical(other.originKycDocFront, originKycDocFront) ||
+                other.originKycDocFront == originKycDocFront) &&
+            (identical(other.originKycDocBack, originKycDocBack) ||
+                other.originKycDocBack == originKycDocBack) &&
+            (identical(other.originDocIssuedFrom, originDocIssuedFrom) ||
+                other.originDocIssuedFrom == originDocIssuedFrom) &&
+            (identical(other.originDocIssuedDate, originDocIssuedDate) ||
+                other.originDocIssuedDate == originDocIssuedDate) &&
+            (identical(other.originDocIssuedYear, originDocIssuedYear) ||
+                other.originDocIssuedYear == originDocIssuedYear) &&
+            (identical(other.originDocIssuedMonth, originDocIssuedMonth) ||
+                other.originDocIssuedMonth == originDocIssuedMonth) &&
+            (identical(other.originDocIssuedDay, originDocIssuedDay) || other.originDocIssuedDay == originDocIssuedDay) &&
+            (identical(other.residenceKycDocType, residenceKycDocType) || other.residenceKycDocType == residenceKycDocType) &&
+            (identical(other.residenceKycDocNumber, residenceKycDocNumber) || other.residenceKycDocNumber == residenceKycDocNumber) &&
+            (identical(other.residenceKycDocFront, residenceKycDocFront) || other.residenceKycDocFront == residenceKycDocFront) &&
+            (identical(other.residenceKycDocBack, residenceKycDocBack) || other.residenceKycDocBack == residenceKycDocBack) &&
+            (identical(other.profilePictureFile, profilePictureFile) || other.profilePictureFile == profilePictureFile) &&
+            (identical(other.originKycDocFrontFile, originKycDocFrontFile) || other.originKycDocFrontFile == originKycDocFrontFile) &&
+            (identical(other.originKycDocBackFile, originKycDocBackFile) || other.originKycDocBackFile == originKycDocBackFile) &&
+            (identical(other.residenceKycDocFrontFile, residenceKycDocFrontFile) || other.residenceKycDocFrontFile == residenceKycDocFrontFile) &&
+            (identical(other.residenceKycDocBackFile, residenceKycDocBackFile) || other.residenceKycDocBackFile == residenceKycDocBackFile) &&
+            const DeepCollectionEquality().equals(other._listOfProfession, _listOfProfession) &&
+            const DeepCollectionEquality().equals(other._listOfCountry, _listOfCountry) &&
+            const DeepCollectionEquality().equals(other._listOfJapaneseProvince, _listOfJapaneseProvince) &&
+            const DeepCollectionEquality().equals(other._listOfJapaneseOriginCities, _listOfJapaneseOriginCities) &&
+            const DeepCollectionEquality().equals(other._listOfJapaneseResidenceCities, _listOfJapaneseResidenceCities) &&
+            const DeepCollectionEquality().equals(other._listOfNepaliProvince, _listOfNepaliProvince) &&
+            const DeepCollectionEquality().equals(other._listOfNepaliOriginDistrict, _listOfNepaliOriginDistrict) &&
+            const DeepCollectionEquality().equals(other._listOfNepaliResidenceDistrict, _listOfNepaliResidenceDistrict) &&
+            const DeepCollectionEquality().equals(other._listOfKycDocType, _listOfKycDocType) &&
+            (identical(other.isSubmitting, isSubmitting) || other.isSubmitting == isSubmitting) &&
+            (identical(other.failureOrSuccessOption, failureOrSuccessOption) || other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(firstName) ^
-      const DeepCollectionEquality().hash(lastName) ^
-      const DeepCollectionEquality().hash(furigana) ^
-      const DeepCollectionEquality().hash(fatherName) ^
-      const DeepCollectionEquality().hash(motherName) ^
-      const DeepCollectionEquality().hash(grandFatherName) ^
-      const DeepCollectionEquality().hash(company) ^
-      const DeepCollectionEquality().hash(profession) ^
-      const DeepCollectionEquality().hash(nationality) ^
-      const DeepCollectionEquality().hash(documentIdentificationNumber) ^
-      const DeepCollectionEquality().hash(gender) ^
-      const DeepCollectionEquality().hash(maritalStatus) ^
-      const DeepCollectionEquality().hash(dob) ^
-      const DeepCollectionEquality().hash(community) ^
-      const DeepCollectionEquality().hash(mobileNumber) ^
-      const DeepCollectionEquality().hash(otherPhone) ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(originCountry) ^
-      const DeepCollectionEquality().hash(originPostalCode) ^
-      const DeepCollectionEquality().hash(originProvince) ^
-      const DeepCollectionEquality().hash(originCity) ^
-      const DeepCollectionEquality().hash(isKycVerified) ^
-      const DeepCollectionEquality().hash(originStreetAddress) ^
-      const DeepCollectionEquality().hash(isSameAsOriginAddress) ^
-      const DeepCollectionEquality().hash(residenceCountry) ^
-      const DeepCollectionEquality().hash(residencePostalCode) ^
-      const DeepCollectionEquality().hash(residenceProvince) ^
-      const DeepCollectionEquality().hash(residenceCity) ^
-      const DeepCollectionEquality().hash(residenceStreetAddress) ^
-      const DeepCollectionEquality().hash(profilePicture) ^
-      const DeepCollectionEquality().hash(originKycDocType) ^
-      const DeepCollectionEquality().hash(originKycDocNumber) ^
-      const DeepCollectionEquality().hash(originKycDocFront) ^
-      const DeepCollectionEquality().hash(originKycDocBack) ^
-      const DeepCollectionEquality().hash(originDocIssuedFrom) ^
-      const DeepCollectionEquality().hash(originDocIssuedDate) ^
-      const DeepCollectionEquality().hash(originDocIssuedYear) ^
-      const DeepCollectionEquality().hash(originDocIssuedMonth) ^
-      const DeepCollectionEquality().hash(originDocIssuedDay) ^
-      const DeepCollectionEquality().hash(residenceKycDocType) ^
-      const DeepCollectionEquality().hash(residenceKycDocNumber) ^
-      const DeepCollectionEquality().hash(residenceKycDocFront) ^
-      const DeepCollectionEquality().hash(residenceKycDocBack) ^
-      const DeepCollectionEquality().hash(profilePictureFile) ^
-      const DeepCollectionEquality().hash(originKycDocFrontFile) ^
-      const DeepCollectionEquality().hash(originKycDocBackFile) ^
-      const DeepCollectionEquality().hash(residenceKycDocFrontFile) ^
-      const DeepCollectionEquality().hash(residenceKycDocBackFile) ^
-      const DeepCollectionEquality().hash(listOfProfession) ^
-      const DeepCollectionEquality().hash(listOfCountry) ^
-      const DeepCollectionEquality().hash(listOfJapaneseProvince) ^
-      const DeepCollectionEquality().hash(listOfJapaneseOriginCities) ^
-      const DeepCollectionEquality().hash(listOfJapaneseResidenceCities) ^
-      const DeepCollectionEquality().hash(listOfNepaliProvince) ^
-      const DeepCollectionEquality().hash(listOfNepaliOriginDistrict) ^
-      const DeepCollectionEquality().hash(listOfNepaliResidenceDistrict) ^
-      const DeepCollectionEquality().hash(listOfKycDocType) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        key,
+        firstName,
+        lastName,
+        furigana,
+        fatherName,
+        motherName,
+        grandFatherName,
+        company,
+        profession,
+        nationality,
+        documentIdentificationNumber,
+        gender,
+        maritalStatus,
+        dob,
+        community,
+        mobileNumber,
+        otherPhone,
+        email,
+        originCountry,
+        originPostalCode,
+        originProvince,
+        originCity,
+        isKycVerified,
+        originStreetAddress,
+        isSameAsOriginAddress,
+        residenceCountry,
+        residencePostalCode,
+        residenceProvince,
+        residenceCity,
+        residenceStreetAddress,
+        profilePicture,
+        originKycDocType,
+        originKycDocNumber,
+        originKycDocFront,
+        originKycDocBack,
+        originDocIssuedFrom,
+        originDocIssuedDate,
+        originDocIssuedYear,
+        originDocIssuedMonth,
+        originDocIssuedDay,
+        residenceKycDocType,
+        residenceKycDocNumber,
+        residenceKycDocFront,
+        residenceKycDocBack,
+        profilePictureFile,
+        originKycDocFrontFile,
+        originKycDocBackFile,
+        residenceKycDocFrontFile,
+        residenceKycDocBackFile,
+        const DeepCollectionEquality().hash(_listOfProfession),
+        const DeepCollectionEquality().hash(_listOfCountry),
+        const DeepCollectionEquality().hash(_listOfJapaneseProvince),
+        const DeepCollectionEquality().hash(_listOfJapaneseOriginCities),
+        const DeepCollectionEquality().hash(_listOfJapaneseResidenceCities),
+        const DeepCollectionEquality().hash(_listOfNepaliProvince),
+        const DeepCollectionEquality().hash(_listOfNepaliOriginDistrict),
+        const DeepCollectionEquality().hash(_listOfNepaliResidenceDistrict),
+        const DeepCollectionEquality().hash(_listOfKycDocType),
+        isSubmitting,
+        failureOrSuccessOption
+      ]);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateProfileStateCopyWith<_UpdateProfileState> get copyWith =>
-      __$UpdateProfileStateCopyWithImpl<_UpdateProfileState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_UpdateProfileStateCopyWith<_$_UpdateProfileState> get copyWith =>
+      __$$_UpdateProfileStateCopyWithImpl<_$_UpdateProfileState>(
+          this, _$identity);
 }
 
 abstract class _UpdateProfileState implements UpdateProfileState {
   const factory _UpdateProfileState(
-          {required Key? key,
-          required String firstName,
-          required String lastName,
-          required String furigana,
-          required String fatherName,
-          required String motherName,
-          required String grandFatherName,
-          required String company,
-          required String profession,
-          required String nationality,
-          required String documentIdentificationNumber,
-          required String gender,
-          required String maritalStatus,
-          required String dob,
-          required String community,
-          required String mobileNumber,
-          required String otherPhone,
-          required String email,
-          required String originCountry,
-          required String originPostalCode,
-          required String originProvince,
-          required String originCity,
-          required bool isKycVerified,
-          required String originStreetAddress,
-          required bool isSameAsOriginAddress,
-          required String residenceCountry,
-          required String residencePostalCode,
-          required String residenceProvince,
-          required String residenceCity,
-          required String residenceStreetAddress,
-          required String profilePicture,
-          required String originKycDocType,
-          required String originKycDocNumber,
-          required String originKycDocFront,
-          required String originKycDocBack,
-          required String originDocIssuedFrom,
-          required String originDocIssuedDate,
-          required String originDocIssuedYear,
-          required String originDocIssuedMonth,
-          required String originDocIssuedDay,
-          required String residenceKycDocType,
-          required String residenceKycDocNumber,
-          required String residenceKycDocFront,
-          required String residenceKycDocBack,
-          File? profilePictureFile,
-          File? originKycDocFrontFile,
-          File? originKycDocBackFile,
-          File? residenceKycDocFrontFile,
-          File? residenceKycDocBackFile,
-          required List<String> listOfProfession,
-          required List<String> listOfCountry,
-          required List<String> listOfJapaneseProvince,
-          required List<String> listOfJapaneseOriginCities,
-          required List<String> listOfJapaneseResidenceCities,
-          required List<String> listOfNepaliProvince,
-          required List<String> listOfNepaliOriginDistrict,
-          required List<String> listOfNepaliResidenceDistrict,
-          required List<String> listOfKycDocType,
-          required bool isSubmitting,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccessOption}) =
-      _$_UpdateProfileState;
+      {required final Key? key,
+      required final String firstName,
+      required final String lastName,
+      required final String furigana,
+      required final String fatherName,
+      required final String motherName,
+      required final String grandFatherName,
+      required final String company,
+      required final String profession,
+      required final String nationality,
+      required final String documentIdentificationNumber,
+      required final String gender,
+      required final String maritalStatus,
+      required final String dob,
+      required final String community,
+      required final String mobileNumber,
+      required final String otherPhone,
+      required final String email,
+      required final String originCountry,
+      required final String originPostalCode,
+      required final String originProvince,
+      required final String originCity,
+      required final bool isKycVerified,
+      required final String originStreetAddress,
+      required final bool isSameAsOriginAddress,
+      required final String residenceCountry,
+      required final String residencePostalCode,
+      required final String residenceProvince,
+      required final String residenceCity,
+      required final String residenceStreetAddress,
+      required final String profilePicture,
+      required final String originKycDocType,
+      required final String originKycDocNumber,
+      required final String originKycDocFront,
+      required final String originKycDocBack,
+      required final String originDocIssuedFrom,
+      required final String originDocIssuedDate,
+      required final String originDocIssuedYear,
+      required final String originDocIssuedMonth,
+      required final String originDocIssuedDay,
+      required final String residenceKycDocType,
+      required final String residenceKycDocNumber,
+      required final String residenceKycDocFront,
+      required final String residenceKycDocBack,
+      final File? profilePictureFile,
+      final File? originKycDocFrontFile,
+      final File? originKycDocBackFile,
+      final File? residenceKycDocFrontFile,
+      final File? residenceKycDocBackFile,
+      required final List<String> listOfProfession,
+      required final List<String> listOfCountry,
+      required final List<String> listOfJapaneseProvince,
+      required final List<String> listOfJapaneseOriginCities,
+      required final List<String> listOfJapaneseResidenceCities,
+      required final List<String> listOfNepaliProvince,
+      required final List<String> listOfNepaliOriginDistrict,
+      required final List<String> listOfNepaliResidenceDistrict,
+      required final List<String> listOfKycDocType,
+      required final bool isSubmitting,
+      required final Option<Either<ApiFailure, Unit>>
+          failureOrSuccessOption}) = _$_UpdateProfileState;
 
   @override
-  Key? get key => throw _privateConstructorUsedError;
+  Key? get key;
   @override
-  String get firstName => throw _privateConstructorUsedError;
+  String get firstName;
   @override
-  String get lastName => throw _privateConstructorUsedError;
+  String get lastName;
   @override
-  String get furigana => throw _privateConstructorUsedError;
+  String get furigana;
   @override
-  String get fatherName => throw _privateConstructorUsedError;
+  String get fatherName;
   @override
-  String get motherName => throw _privateConstructorUsedError;
+  String get motherName;
   @override
-  String get grandFatherName => throw _privateConstructorUsedError;
+  String get grandFatherName;
   @override
-  String get company => throw _privateConstructorUsedError;
+  String get company;
   @override
-  String get profession => throw _privateConstructorUsedError;
+  String get profession;
   @override
-  String get nationality => throw _privateConstructorUsedError;
+  String get nationality;
   @override
-  String get documentIdentificationNumber => throw _privateConstructorUsedError;
+  String get documentIdentificationNumber;
   @override
-  String get gender => throw _privateConstructorUsedError;
+  String get gender;
   @override
-  String get maritalStatus => throw _privateConstructorUsedError;
+  String get maritalStatus;
   @override
-  String get dob => throw _privateConstructorUsedError;
+  String get dob;
   @override
-  String get community => throw _privateConstructorUsedError;
+  String get community;
   @override
-  String get mobileNumber => throw _privateConstructorUsedError;
+  String get mobileNumber;
   @override
-  String get otherPhone => throw _privateConstructorUsedError;
+  String get otherPhone;
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get originCountry => throw _privateConstructorUsedError;
+  String get originCountry;
   @override
-  String get originPostalCode => throw _privateConstructorUsedError;
+  String get originPostalCode;
   @override
-  String get originProvince => throw _privateConstructorUsedError;
+  String get originProvince;
   @override
-  String get originCity => throw _privateConstructorUsedError;
+  String get originCity;
   @override
-  bool get isKycVerified => throw _privateConstructorUsedError;
+  bool get isKycVerified;
   @override
-  String get originStreetAddress => throw _privateConstructorUsedError;
+  String get originStreetAddress;
   @override
-  bool get isSameAsOriginAddress => throw _privateConstructorUsedError;
+  bool get isSameAsOriginAddress;
   @override
-  String get residenceCountry => throw _privateConstructorUsedError;
+  String get residenceCountry;
   @override
-  String get residencePostalCode => throw _privateConstructorUsedError;
+  String get residencePostalCode;
   @override
-  String get residenceProvince => throw _privateConstructorUsedError;
+  String get residenceProvince;
   @override
-  String get residenceCity => throw _privateConstructorUsedError;
+  String get residenceCity;
   @override
-  String get residenceStreetAddress => throw _privateConstructorUsedError;
+  String get residenceStreetAddress;
   @override
-  String get profilePicture => throw _privateConstructorUsedError;
+  String get profilePicture;
   @override
-  String get originKycDocType => throw _privateConstructorUsedError;
+  String get originKycDocType;
   @override
-  String get originKycDocNumber => throw _privateConstructorUsedError;
+  String get originKycDocNumber;
   @override
-  String get originKycDocFront => throw _privateConstructorUsedError;
+  String get originKycDocFront;
   @override
-  String get originKycDocBack => throw _privateConstructorUsedError;
+  String get originKycDocBack;
   @override
-  String get originDocIssuedFrom => throw _privateConstructorUsedError;
+  String get originDocIssuedFrom;
   @override
-  String get originDocIssuedDate => throw _privateConstructorUsedError;
+  String get originDocIssuedDate;
   @override
-  String get originDocIssuedYear => throw _privateConstructorUsedError;
+  String get originDocIssuedYear;
   @override
-  String get originDocIssuedMonth => throw _privateConstructorUsedError;
+  String get originDocIssuedMonth;
   @override
-  String get originDocIssuedDay => throw _privateConstructorUsedError;
+  String get originDocIssuedDay;
   @override
-  String get residenceKycDocType => throw _privateConstructorUsedError;
+  String get residenceKycDocType;
   @override
-  String get residenceKycDocNumber => throw _privateConstructorUsedError;
+  String get residenceKycDocNumber;
   @override
-  String get residenceKycDocFront => throw _privateConstructorUsedError;
+  String get residenceKycDocFront;
   @override
-  String get residenceKycDocBack => throw _privateConstructorUsedError;
+  String get residenceKycDocBack;
   @override
-  File? get profilePictureFile => throw _privateConstructorUsedError;
+  File? get profilePictureFile;
   @override
-  File? get originKycDocFrontFile => throw _privateConstructorUsedError;
+  File? get originKycDocFrontFile;
   @override
-  File? get originKycDocBackFile => throw _privateConstructorUsedError;
+  File? get originKycDocBackFile;
   @override
-  File? get residenceKycDocFrontFile => throw _privateConstructorUsedError;
+  File? get residenceKycDocFrontFile;
   @override
-  File? get residenceKycDocBackFile => throw _privateConstructorUsedError;
+  File? get residenceKycDocBackFile;
   @override
-  List<String> get listOfProfession => throw _privateConstructorUsedError;
+  List<String> get listOfProfession;
   @override
-  List<String> get listOfCountry => throw _privateConstructorUsedError;
+  List<String> get listOfCountry;
   @override
-  List<String> get listOfJapaneseProvince => throw _privateConstructorUsedError;
+  List<String> get listOfJapaneseProvince;
   @override
-  List<String> get listOfJapaneseOriginCities =>
-      throw _privateConstructorUsedError;
+  List<String> get listOfJapaneseOriginCities;
   @override
-  List<String> get listOfJapaneseResidenceCities =>
-      throw _privateConstructorUsedError;
+  List<String> get listOfJapaneseResidenceCities;
   @override
-  List<String> get listOfNepaliProvince => throw _privateConstructorUsedError;
+  List<String> get listOfNepaliProvince;
   @override
-  List<String> get listOfNepaliOriginDistrict =>
-      throw _privateConstructorUsedError;
+  List<String> get listOfNepaliOriginDistrict;
   @override
-  List<String> get listOfNepaliResidenceDistrict =>
-      throw _privateConstructorUsedError;
+  List<String> get listOfNepaliResidenceDistrict;
   @override
-  List<String> get listOfKycDocType => throw _privateConstructorUsedError;
+  List<String> get listOfKycDocType;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$UpdateProfileStateCopyWith<_UpdateProfileState> get copyWith =>
+  _$$_UpdateProfileStateCopyWith<_$_UpdateProfileState> get copyWith =>
       throw _privateConstructorUsedError;
 }

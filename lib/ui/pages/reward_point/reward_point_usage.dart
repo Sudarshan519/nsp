@@ -30,7 +30,11 @@ class RewardPointUsage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Html(
                     data: data.rewardPointData.usage,
-                    onLinkTap: (link, _, __, ___) {
+                    onLinkTap: (
+                      link,
+                      _,
+                      __,
+                    ) {
                       context.pushRoute(
                         AppWebViewRoute(url: link ?? '', title: ""),
                       );

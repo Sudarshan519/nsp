@@ -13,7 +13,20 @@ part 'app_update_bloc.freezed.dart';
 @lazySingleton
 class AppUpdateBloc extends Bloc<AppUpdateEvent, AppUpdateState> {
   final GetAppUpdate getAppUpdate;
-  AppUpdateBloc(this.getAppUpdate) : super(const _Initial());
+  AppUpdateBloc(this.getAppUpdate) : super(const _Initial()) {
+    on<_CheckForUpdates>((event, emit) {
+      //TODO
+      _checkForUpdate(emit);
+    });
+  }
+
+  Future<void> _checkForUpdate(
+    Emitter<AppUpdateState> emit,
+  ) async {
+    emit(const AppUpdateState.loading());
+    final response = await getAppUpdate(NoParams());
+    emit(response.fold((fail) => _Failure(fail), (data) => _Loaded(data)));
+  }
 
   @override
   Stream<AppUpdateState> mapEventToState(AppUpdateEvent event) async* {

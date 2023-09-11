@@ -21,6 +21,7 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 
+@RoutePage()
 class BuyPackagePage extends StatefulWidget {
   final ServicePackage package;
   final Services services;
@@ -114,7 +115,7 @@ class _BuyPackagePageState extends State<BuyPackagePage> {
                   title: AppConstants.paymentSuccessTitle,
                   message: AppConstants.paymentSuccessMessage,
                   onPressed: () {
-                    context.router.navigate(const TabBarRoute());
+                    context.router.push(const TabBarRoute());
                   },
                 ),
               );

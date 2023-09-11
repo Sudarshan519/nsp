@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'favourite_news_bloc.dart';
 
@@ -10,25 +12,7 @@ part of 'favourite_news_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$FavouriteNewsEventTearOff {
-  const _$FavouriteNewsEventTearOff();
-
-  _Fetch fetch() {
-    return const _Fetch();
-  }
-
-  _Save save(NewsItem news) {
-    return _Save(
-      news,
-    );
-  }
-}
-
-/// @nodoc
-const $FavouriteNewsEvent = _$FavouriteNewsEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$FavouriteNewsEvent {
@@ -36,6 +20,12 @@ mixin _$FavouriteNewsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
     required TResult Function(NewsItem news) save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(NewsItem news)? save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +42,12 @@ mixin _$FavouriteNewsEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Save value)? save,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_Save value)? save,
@@ -64,33 +60,32 @@ mixin _$FavouriteNewsEvent {
 abstract class $FavouriteNewsEventCopyWith<$Res> {
   factory $FavouriteNewsEventCopyWith(
           FavouriteNewsEvent value, $Res Function(FavouriteNewsEvent) then) =
-      _$FavouriteNewsEventCopyWithImpl<$Res>;
+      _$FavouriteNewsEventCopyWithImpl<$Res, FavouriteNewsEvent>;
 }
 
 /// @nodoc
-class _$FavouriteNewsEventCopyWithImpl<$Res>
+class _$FavouriteNewsEventCopyWithImpl<$Res, $Val extends FavouriteNewsEvent>
     implements $FavouriteNewsEventCopyWith<$Res> {
   _$FavouriteNewsEventCopyWithImpl(this._value, this._then);
 
-  final FavouriteNewsEvent _value;
   // ignore: unused_field
-  final $Res Function(FavouriteNewsEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$FetchCopyWith<$Res> {
-  factory _$FetchCopyWith(_Fetch value, $Res Function(_Fetch) then) =
-      __$FetchCopyWithImpl<$Res>;
+abstract class _$$_FetchCopyWith<$Res> {
+  factory _$$_FetchCopyWith(_$_Fetch value, $Res Function(_$_Fetch) then) =
+      __$$_FetchCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$FetchCopyWithImpl<$Res> extends _$FavouriteNewsEventCopyWithImpl<$Res>
-    implements _$FetchCopyWith<$Res> {
-  __$FetchCopyWithImpl(_Fetch _value, $Res Function(_Fetch) _then)
-      : super(_value, (v) => _then(v as _Fetch));
-
-  @override
-  _Fetch get _value => super._value as _Fetch;
+class __$$_FetchCopyWithImpl<$Res>
+    extends _$FavouriteNewsEventCopyWithImpl<$Res, _$_Fetch>
+    implements _$$_FetchCopyWith<$Res> {
+  __$$_FetchCopyWithImpl(_$_Fetch _value, $Res Function(_$_Fetch) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -105,7 +100,8 @@ class _$_Fetch implements _Fetch {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Fetch);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Fetch);
   }
 
   @override
@@ -118,6 +114,15 @@ class _$_Fetch implements _Fetch {
     required TResult Function(NewsItem news) save,
   }) {
     return fetch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(NewsItem news)? save,
+  }) {
+    return fetch?.call();
   }
 
   @override
@@ -144,6 +149,15 @@ class _$_Fetch implements _Fetch {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Save value)? save,
+  }) {
+    return fetch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_Save value)? save,
@@ -161,27 +175,27 @@ abstract class _Fetch implements FavouriteNewsEvent {
 }
 
 /// @nodoc
-abstract class _$SaveCopyWith<$Res> {
-  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
-      __$SaveCopyWithImpl<$Res>;
+abstract class _$$_SaveCopyWith<$Res> {
+  factory _$$_SaveCopyWith(_$_Save value, $Res Function(_$_Save) then) =
+      __$$_SaveCopyWithImpl<$Res>;
+  @useResult
   $Res call({NewsItem news});
 }
 
 /// @nodoc
-class __$SaveCopyWithImpl<$Res> extends _$FavouriteNewsEventCopyWithImpl<$Res>
-    implements _$SaveCopyWith<$Res> {
-  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
-      : super(_value, (v) => _then(v as _Save));
+class __$$_SaveCopyWithImpl<$Res>
+    extends _$FavouriteNewsEventCopyWithImpl<$Res, _$_Save>
+    implements _$$_SaveCopyWith<$Res> {
+  __$$_SaveCopyWithImpl(_$_Save _value, $Res Function(_$_Save) _then)
+      : super(_value, _then);
 
-  @override
-  _Save get _value => super._value as _Save;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? news = freezed,
+    Object? news = null,
   }) {
-    return _then(_Save(
-      news == freezed
+    return _then(_$_Save(
+      null == news
           ? _value.news
           : news // ignore: cast_nullable_to_non_nullable
               as NewsItem,
@@ -205,19 +219,19 @@ class _$_Save implements _Save {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Save &&
-            (identical(other.news, news) ||
-                const DeepCollectionEquality().equals(other.news, news)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Save &&
+            (identical(other.news, news) || other.news == news));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(news);
+  int get hashCode => Object.hash(runtimeType, news);
 
   @JsonKey(ignore: true)
   @override
-  _$SaveCopyWith<_Save> get copyWith =>
-      __$SaveCopyWithImpl<_Save>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SaveCopyWith<_$_Save> get copyWith =>
+      __$$_SaveCopyWithImpl<_$_Save>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -226,6 +240,15 @@ class _$_Save implements _Save {
     required TResult Function(NewsItem news) save,
   }) {
     return save(news);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function(NewsItem news)? save,
+  }) {
+    return save?.call(news);
   }
 
   @override
@@ -252,6 +275,15 @@ class _$_Save implements _Save {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Save value)? save,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_Save value)? save,
@@ -265,34 +297,12 @@ class _$_Save implements _Save {
 }
 
 abstract class _Save implements FavouriteNewsEvent {
-  const factory _Save(NewsItem news) = _$_Save;
+  const factory _Save(final NewsItem news) = _$_Save;
 
-  NewsItem get news => throw _privateConstructorUsedError;
+  NewsItem get news;
   @JsonKey(ignore: true)
-  _$SaveCopyWith<_Save> get copyWith => throw _privateConstructorUsedError;
+  _$$_SaveCopyWith<_$_Save> get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$FavouriteNewsStateTearOff {
-  const _$FavouriteNewsStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Loaded loaded(List<NewsItem> news) {
-    return _Loaded(
-      news,
-    );
-  }
-}
-
-/// @nodoc
-const $FavouriteNewsState = _$FavouriteNewsStateTearOff();
 
 /// @nodoc
 mixin _$FavouriteNewsState {
@@ -301,6 +311,13 @@ mixin _$FavouriteNewsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<NewsItem> news) loaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<NewsItem> news)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -319,6 +336,13 @@ mixin _$FavouriteNewsState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -332,34 +356,33 @@ mixin _$FavouriteNewsState {
 abstract class $FavouriteNewsStateCopyWith<$Res> {
   factory $FavouriteNewsStateCopyWith(
           FavouriteNewsState value, $Res Function(FavouriteNewsState) then) =
-      _$FavouriteNewsStateCopyWithImpl<$Res>;
+      _$FavouriteNewsStateCopyWithImpl<$Res, FavouriteNewsState>;
 }
 
 /// @nodoc
-class _$FavouriteNewsStateCopyWithImpl<$Res>
+class _$FavouriteNewsStateCopyWithImpl<$Res, $Val extends FavouriteNewsState>
     implements $FavouriteNewsStateCopyWith<$Res> {
   _$FavouriteNewsStateCopyWithImpl(this._value, this._then);
 
-  final FavouriteNewsState _value;
   // ignore: unused_field
-  final $Res Function(FavouriteNewsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$FavouriteNewsStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$FavouriteNewsStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -374,7 +397,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -388,6 +412,16 @@ class _$_Initial implements _Initial {
     required TResult Function(List<NewsItem> news) loaded,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<NewsItem> news)? loaded,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -416,6 +450,16 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -434,20 +478,18 @@ abstract class _Initial implements FavouriteNewsState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res>
-    extends _$FavouriteNewsStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$FavouriteNewsStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -462,7 +504,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -476,6 +519,16 @@ class _$_Loading implements _Loading {
     required TResult Function(List<NewsItem> news) loaded,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<NewsItem> news)? loaded,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -504,6 +557,16 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -522,28 +585,28 @@ abstract class _Loading implements FavouriteNewsState {
 }
 
 /// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
+abstract class _$$_LoadedCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<NewsItem> news});
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res> extends _$FavouriteNewsStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
+class __$$_LoadedCopyWithImpl<$Res>
+    extends _$FavouriteNewsStateCopyWithImpl<$Res, _$_Loaded>
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, _then);
 
-  @override
-  _Loaded get _value => super._value as _Loaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? news = freezed,
+    Object? news = null,
   }) {
-    return _then(_Loaded(
-      news == freezed
-          ? _value.news
+    return _then(_$_Loaded(
+      null == news
+          ? _value._news
           : news // ignore: cast_nullable_to_non_nullable
               as List<NewsItem>,
     ));
@@ -553,10 +616,15 @@ class __$LoadedCopyWithImpl<$Res> extends _$FavouriteNewsStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.news);
+  const _$_Loaded(final List<NewsItem> news) : _news = news;
 
+  final List<NewsItem> _news;
   @override
-  final List<NewsItem> news;
+  List<NewsItem> get news {
+    if (_news is EqualUnmodifiableListView) return _news;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_news);
+  }
 
   @override
   String toString() {
@@ -566,19 +634,20 @@ class _$_Loaded implements _Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Loaded &&
-            (identical(other.news, news) ||
-                const DeepCollectionEquality().equals(other.news, news)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Loaded &&
+            const DeepCollectionEquality().equals(other._news, _news));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(news);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_news));
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -588,6 +657,16 @@ class _$_Loaded implements _Loaded {
     required TResult Function(List<NewsItem> news) loaded,
   }) {
     return loaded(news);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<NewsItem> news)? loaded,
+  }) {
+    return loaded?.call(news);
   }
 
   @override
@@ -616,6 +695,16 @@ class _$_Loaded implements _Loaded {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -630,9 +719,10 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements FavouriteNewsState {
-  const factory _Loaded(List<NewsItem> news) = _$_Loaded;
+  const factory _Loaded(final List<NewsItem> news) = _$_Loaded;
 
-  List<NewsItem> get news => throw _privateConstructorUsedError;
+  List<NewsItem> get news;
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:wallet_app/features/splash/presentation/splash_bloc.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 
+@RoutePage()
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

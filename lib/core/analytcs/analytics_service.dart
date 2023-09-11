@@ -6,7 +6,7 @@ import 'firebase_event_constants.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class AnalyticsService {
-  static final FirebaseAnalytics _analytics = FirebaseAnalytics();
+  static final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
 
   static String _previousEvent = '';
 
@@ -19,7 +19,7 @@ class AnalyticsService {
   }
 
   static Future setUserId(String userID) async {
-    await _analytics.setUserId(userID);
+    await _analytics.setUserId(id: userID);
   }
 
   static Future setUserVal(String key, String val) async {

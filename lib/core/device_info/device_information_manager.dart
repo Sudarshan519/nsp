@@ -16,7 +16,7 @@ class DeviceInfoManager {
       _android = await deviceInfo.androidInfo;
       device = DeviceInfo(
           name: _android.model ?? '',
-          uniqueId: _android.androidId ?? '',
+          uniqueId: _android.id ?? '',
           osVersion: _android.version.release);
     } else {
       _ios = await deviceInfo.iosInfo;

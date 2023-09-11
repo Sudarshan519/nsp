@@ -7,9 +7,10 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/custom_button.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
-class AlertPrefectureChooser extends StatelessWidget {
+@RoutePage()
+class AlertPrefectureChooserPage extends StatelessWidget {
   final bool selectMultiplePrefectures;
-  const AlertPrefectureChooser({
+  const AlertPrefectureChooserPage({
     required this.selectMultiplePrefectures,
   });
 
@@ -163,7 +164,9 @@ class __AlertPrefectureChooserState extends State<_AlertPrefectureChooser> {
                                       selectedPrefecture!.prefectureCode)
                                   .toList();
                               cityOrVillage.clear();
-                              cityOrVillage..addAll(city)..addAll(village);
+                              cityOrVillage
+                                ..addAll(city)
+                                ..addAll(village);
                             });
                           } else {
                             context.popRoute(activeList[index]);

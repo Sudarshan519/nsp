@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'redeem_coupon_bloc.dart';
 
@@ -10,33 +12,7 @@ part of 'redeem_coupon_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RedeemCouponEventTearOff {
-  const _$RedeemCouponEventTearOff();
-
-  _ChangeCouponCode changeCouponCode(String code) {
-    return _ChangeCouponCode(
-      code,
-    );
-  }
-
-  _ApplyCoupon applyCoupon() {
-    return const _ApplyCoupon();
-  }
-
-  _Reset reset() {
-    return const _Reset();
-  }
-
-  _RedeemCoupon redeemCoupon() {
-    return const _RedeemCoupon();
-  }
-}
-
-/// @nodoc
-const $RedeemCouponEvent = _$RedeemCouponEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$RedeemCouponEvent {
@@ -46,6 +22,14 @@ mixin _$RedeemCouponEvent {
     required TResult Function() applyCoupon,
     required TResult Function() reset,
     required TResult Function() redeemCoupon,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String code)? changeCouponCode,
+    TResult? Function()? applyCoupon,
+    TResult? Function()? reset,
+    TResult? Function()? redeemCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +50,14 @@ mixin _$RedeemCouponEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCouponCode value)? changeCouponCode,
+    TResult? Function(_ApplyCoupon value)? applyCoupon,
+    TResult? Function(_Reset value)? reset,
+    TResult? Function(_RedeemCoupon value)? redeemCoupon,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCouponCode value)? changeCouponCode,
     TResult Function(_ApplyCoupon value)? applyCoupon,
@@ -80,44 +72,44 @@ mixin _$RedeemCouponEvent {
 abstract class $RedeemCouponEventCopyWith<$Res> {
   factory $RedeemCouponEventCopyWith(
           RedeemCouponEvent value, $Res Function(RedeemCouponEvent) then) =
-      _$RedeemCouponEventCopyWithImpl<$Res>;
+      _$RedeemCouponEventCopyWithImpl<$Res, RedeemCouponEvent>;
 }
 
 /// @nodoc
-class _$RedeemCouponEventCopyWithImpl<$Res>
+class _$RedeemCouponEventCopyWithImpl<$Res, $Val extends RedeemCouponEvent>
     implements $RedeemCouponEventCopyWith<$Res> {
   _$RedeemCouponEventCopyWithImpl(this._value, this._then);
 
-  final RedeemCouponEvent _value;
   // ignore: unused_field
-  final $Res Function(RedeemCouponEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$ChangeCouponCodeCopyWith<$Res> {
-  factory _$ChangeCouponCodeCopyWith(
-          _ChangeCouponCode value, $Res Function(_ChangeCouponCode) then) =
-      __$ChangeCouponCodeCopyWithImpl<$Res>;
+abstract class _$$_ChangeCouponCodeCopyWith<$Res> {
+  factory _$$_ChangeCouponCodeCopyWith(
+          _$_ChangeCouponCode value, $Res Function(_$_ChangeCouponCode) then) =
+      __$$_ChangeCouponCodeCopyWithImpl<$Res>;
+  @useResult
   $Res call({String code});
 }
 
 /// @nodoc
-class __$ChangeCouponCodeCopyWithImpl<$Res>
-    extends _$RedeemCouponEventCopyWithImpl<$Res>
-    implements _$ChangeCouponCodeCopyWith<$Res> {
-  __$ChangeCouponCodeCopyWithImpl(
-      _ChangeCouponCode _value, $Res Function(_ChangeCouponCode) _then)
-      : super(_value, (v) => _then(v as _ChangeCouponCode));
+class __$$_ChangeCouponCodeCopyWithImpl<$Res>
+    extends _$RedeemCouponEventCopyWithImpl<$Res, _$_ChangeCouponCode>
+    implements _$$_ChangeCouponCodeCopyWith<$Res> {
+  __$$_ChangeCouponCodeCopyWithImpl(
+      _$_ChangeCouponCode _value, $Res Function(_$_ChangeCouponCode) _then)
+      : super(_value, _then);
 
-  @override
-  _ChangeCouponCode get _value => super._value as _ChangeCouponCode;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
+    Object? code = null,
   }) {
-    return _then(_ChangeCouponCode(
-      code == freezed
+    return _then(_$_ChangeCouponCode(
+      null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
@@ -141,19 +133,19 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChangeCouponCode &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeCouponCode &&
+            (identical(other.code, code) || other.code == code));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(code);
+  int get hashCode => Object.hash(runtimeType, code);
 
   @JsonKey(ignore: true)
   @override
-  _$ChangeCouponCodeCopyWith<_ChangeCouponCode> get copyWith =>
-      __$ChangeCouponCodeCopyWithImpl<_ChangeCouponCode>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ChangeCouponCodeCopyWith<_$_ChangeCouponCode> get copyWith =>
+      __$$_ChangeCouponCodeCopyWithImpl<_$_ChangeCouponCode>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -164,6 +156,17 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
     required TResult Function() redeemCoupon,
   }) {
     return changeCouponCode(code);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String code)? changeCouponCode,
+    TResult? Function()? applyCoupon,
+    TResult? Function()? reset,
+    TResult? Function()? redeemCoupon,
+  }) {
+    return changeCouponCode?.call(code);
   }
 
   @override
@@ -194,6 +197,17 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCouponCode value)? changeCouponCode,
+    TResult? Function(_ApplyCoupon value)? applyCoupon,
+    TResult? Function(_Reset value)? reset,
+    TResult? Function(_RedeemCoupon value)? redeemCoupon,
+  }) {
+    return changeCouponCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCouponCode value)? changeCouponCode,
     TResult Function(_ApplyCoupon value)? applyCoupon,
@@ -209,31 +223,28 @@ class _$_ChangeCouponCode implements _ChangeCouponCode {
 }
 
 abstract class _ChangeCouponCode implements RedeemCouponEvent {
-  const factory _ChangeCouponCode(String code) = _$_ChangeCouponCode;
+  const factory _ChangeCouponCode(final String code) = _$_ChangeCouponCode;
 
-  String get code => throw _privateConstructorUsedError;
+  String get code;
   @JsonKey(ignore: true)
-  _$ChangeCouponCodeCopyWith<_ChangeCouponCode> get copyWith =>
+  _$$_ChangeCouponCodeCopyWith<_$_ChangeCouponCode> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ApplyCouponCopyWith<$Res> {
-  factory _$ApplyCouponCopyWith(
-          _ApplyCoupon value, $Res Function(_ApplyCoupon) then) =
-      __$ApplyCouponCopyWithImpl<$Res>;
+abstract class _$$_ApplyCouponCopyWith<$Res> {
+  factory _$$_ApplyCouponCopyWith(
+          _$_ApplyCoupon value, $Res Function(_$_ApplyCoupon) then) =
+      __$$_ApplyCouponCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ApplyCouponCopyWithImpl<$Res>
-    extends _$RedeemCouponEventCopyWithImpl<$Res>
-    implements _$ApplyCouponCopyWith<$Res> {
-  __$ApplyCouponCopyWithImpl(
-      _ApplyCoupon _value, $Res Function(_ApplyCoupon) _then)
-      : super(_value, (v) => _then(v as _ApplyCoupon));
-
-  @override
-  _ApplyCoupon get _value => super._value as _ApplyCoupon;
+class __$$_ApplyCouponCopyWithImpl<$Res>
+    extends _$RedeemCouponEventCopyWithImpl<$Res, _$_ApplyCoupon>
+    implements _$$_ApplyCouponCopyWith<$Res> {
+  __$$_ApplyCouponCopyWithImpl(
+      _$_ApplyCoupon _value, $Res Function(_$_ApplyCoupon) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -248,7 +259,8 @@ class _$_ApplyCoupon implements _ApplyCoupon {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ApplyCoupon);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ApplyCoupon);
   }
 
   @override
@@ -263,6 +275,17 @@ class _$_ApplyCoupon implements _ApplyCoupon {
     required TResult Function() redeemCoupon,
   }) {
     return applyCoupon();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String code)? changeCouponCode,
+    TResult? Function()? applyCoupon,
+    TResult? Function()? reset,
+    TResult? Function()? redeemCoupon,
+  }) {
+    return applyCoupon?.call();
   }
 
   @override
@@ -293,6 +316,17 @@ class _$_ApplyCoupon implements _ApplyCoupon {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCouponCode value)? changeCouponCode,
+    TResult? Function(_ApplyCoupon value)? applyCoupon,
+    TResult? Function(_Reset value)? reset,
+    TResult? Function(_RedeemCoupon value)? redeemCoupon,
+  }) {
+    return applyCoupon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCouponCode value)? changeCouponCode,
     TResult Function(_ApplyCoupon value)? applyCoupon,
@@ -312,19 +346,17 @@ abstract class _ApplyCoupon implements RedeemCouponEvent {
 }
 
 /// @nodoc
-abstract class _$ResetCopyWith<$Res> {
-  factory _$ResetCopyWith(_Reset value, $Res Function(_Reset) then) =
-      __$ResetCopyWithImpl<$Res>;
+abstract class _$$_ResetCopyWith<$Res> {
+  factory _$$_ResetCopyWith(_$_Reset value, $Res Function(_$_Reset) then) =
+      __$$_ResetCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ResetCopyWithImpl<$Res> extends _$RedeemCouponEventCopyWithImpl<$Res>
-    implements _$ResetCopyWith<$Res> {
-  __$ResetCopyWithImpl(_Reset _value, $Res Function(_Reset) _then)
-      : super(_value, (v) => _then(v as _Reset));
-
-  @override
-  _Reset get _value => super._value as _Reset;
+class __$$_ResetCopyWithImpl<$Res>
+    extends _$RedeemCouponEventCopyWithImpl<$Res, _$_Reset>
+    implements _$$_ResetCopyWith<$Res> {
+  __$$_ResetCopyWithImpl(_$_Reset _value, $Res Function(_$_Reset) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -339,7 +371,8 @@ class _$_Reset implements _Reset {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Reset);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Reset);
   }
 
   @override
@@ -354,6 +387,17 @@ class _$_Reset implements _Reset {
     required TResult Function() redeemCoupon,
   }) {
     return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String code)? changeCouponCode,
+    TResult? Function()? applyCoupon,
+    TResult? Function()? reset,
+    TResult? Function()? redeemCoupon,
+  }) {
+    return reset?.call();
   }
 
   @override
@@ -384,6 +428,17 @@ class _$_Reset implements _Reset {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCouponCode value)? changeCouponCode,
+    TResult? Function(_ApplyCoupon value)? applyCoupon,
+    TResult? Function(_Reset value)? reset,
+    TResult? Function(_RedeemCoupon value)? redeemCoupon,
+  }) {
+    return reset?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCouponCode value)? changeCouponCode,
     TResult Function(_ApplyCoupon value)? applyCoupon,
@@ -403,22 +458,19 @@ abstract class _Reset implements RedeemCouponEvent {
 }
 
 /// @nodoc
-abstract class _$RedeemCouponCopyWith<$Res> {
-  factory _$RedeemCouponCopyWith(
-          _RedeemCoupon value, $Res Function(_RedeemCoupon) then) =
-      __$RedeemCouponCopyWithImpl<$Res>;
+abstract class _$$_RedeemCouponCopyWith<$Res> {
+  factory _$$_RedeemCouponCopyWith(
+          _$_RedeemCoupon value, $Res Function(_$_RedeemCoupon) then) =
+      __$$_RedeemCouponCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$RedeemCouponCopyWithImpl<$Res>
-    extends _$RedeemCouponEventCopyWithImpl<$Res>
-    implements _$RedeemCouponCopyWith<$Res> {
-  __$RedeemCouponCopyWithImpl(
-      _RedeemCoupon _value, $Res Function(_RedeemCoupon) _then)
-      : super(_value, (v) => _then(v as _RedeemCoupon));
-
-  @override
-  _RedeemCoupon get _value => super._value as _RedeemCoupon;
+class __$$_RedeemCouponCopyWithImpl<$Res>
+    extends _$RedeemCouponEventCopyWithImpl<$Res, _$_RedeemCoupon>
+    implements _$$_RedeemCouponCopyWith<$Res> {
+  __$$_RedeemCouponCopyWithImpl(
+      _$_RedeemCoupon _value, $Res Function(_$_RedeemCoupon) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -433,7 +485,8 @@ class _$_RedeemCoupon implements _RedeemCoupon {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RedeemCoupon);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_RedeemCoupon);
   }
 
   @override
@@ -448,6 +501,17 @@ class _$_RedeemCoupon implements _RedeemCoupon {
     required TResult Function() redeemCoupon,
   }) {
     return redeemCoupon();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String code)? changeCouponCode,
+    TResult? Function()? applyCoupon,
+    TResult? Function()? reset,
+    TResult? Function()? redeemCoupon,
+  }) {
+    return redeemCoupon?.call();
   }
 
   @override
@@ -478,6 +542,17 @@ class _$_RedeemCoupon implements _RedeemCoupon {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeCouponCode value)? changeCouponCode,
+    TResult? Function(_ApplyCoupon value)? applyCoupon,
+    TResult? Function(_Reset value)? reset,
+    TResult? Function(_RedeemCoupon value)? redeemCoupon,
+  }) {
+    return redeemCoupon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeCouponCode value)? changeCouponCode,
     TResult Function(_ApplyCoupon value)? applyCoupon,
@@ -497,29 +572,6 @@ abstract class _RedeemCoupon implements RedeemCouponEvent {
 }
 
 /// @nodoc
-class _$RedeemCouponStateTearOff {
-  const _$RedeemCouponStateTearOff();
-
-  _VerifyCouponState call(
-      {required Key key,
-      required String couponCode,
-      required bool isSubmitting,
-      required CouponCode? coupon,
-      required Option<Either<ApiFailure, Unit>> failureOrSuccess}) {
-    return _VerifyCouponState(
-      key: key,
-      couponCode: couponCode,
-      isSubmitting: isSubmitting,
-      coupon: coupon,
-      failureOrSuccess: failureOrSuccess,
-    );
-  }
-}
-
-/// @nodoc
-const $RedeemCouponState = _$RedeemCouponStateTearOff();
-
-/// @nodoc
 mixin _$RedeemCouponState {
   Key get key => throw _privateConstructorUsedError;
   String get couponCode => throw _privateConstructorUsedError;
@@ -537,7 +589,8 @@ mixin _$RedeemCouponState {
 abstract class $RedeemCouponStateCopyWith<$Res> {
   factory $RedeemCouponStateCopyWith(
           RedeemCouponState value, $Res Function(RedeemCouponState) then) =
-      _$RedeemCouponStateCopyWithImpl<$Res>;
+      _$RedeemCouponStateCopyWithImpl<$Res, RedeemCouponState>;
+  @useResult
   $Res call(
       {Key key,
       String couponCode,
@@ -547,54 +600,57 @@ abstract class $RedeemCouponStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RedeemCouponStateCopyWithImpl<$Res>
+class _$RedeemCouponStateCopyWithImpl<$Res, $Val extends RedeemCouponState>
     implements $RedeemCouponStateCopyWith<$Res> {
   _$RedeemCouponStateCopyWithImpl(this._value, this._then);
 
-  final RedeemCouponState _value;
   // ignore: unused_field
-  final $Res Function(RedeemCouponState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
-    Object? couponCode = freezed,
-    Object? isSubmitting = freezed,
+    Object? key = null,
+    Object? couponCode = null,
+    Object? isSubmitting = null,
     Object? coupon = freezed,
-    Object? failureOrSuccess = freezed,
+    Object? failureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key,
-      couponCode: couponCode == freezed
+      couponCode: null == couponCode
           ? _value.couponCode
           : couponCode // ignore: cast_nullable_to_non_nullable
               as String,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      coupon: coupon == freezed
+      coupon: freezed == coupon
           ? _value.coupon
           : coupon // ignore: cast_nullable_to_non_nullable
               as CouponCode?,
-      failureOrSuccess: failureOrSuccess == freezed
+      failureOrSuccess: null == failureOrSuccess
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$VerifyCouponStateCopyWith<$Res>
+abstract class _$$_VerifyCouponStateCopyWith<$Res>
     implements $RedeemCouponStateCopyWith<$Res> {
-  factory _$VerifyCouponStateCopyWith(
-          _VerifyCouponState value, $Res Function(_VerifyCouponState) then) =
-      __$VerifyCouponStateCopyWithImpl<$Res>;
+  factory _$$_VerifyCouponStateCopyWith(_$_VerifyCouponState value,
+          $Res Function(_$_VerifyCouponState) then) =
+      __$$_VerifyCouponStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Key key,
       String couponCode,
@@ -604,42 +660,40 @@ abstract class _$VerifyCouponStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$VerifyCouponStateCopyWithImpl<$Res>
-    extends _$RedeemCouponStateCopyWithImpl<$Res>
-    implements _$VerifyCouponStateCopyWith<$Res> {
-  __$VerifyCouponStateCopyWithImpl(
-      _VerifyCouponState _value, $Res Function(_VerifyCouponState) _then)
-      : super(_value, (v) => _then(v as _VerifyCouponState));
+class __$$_VerifyCouponStateCopyWithImpl<$Res>
+    extends _$RedeemCouponStateCopyWithImpl<$Res, _$_VerifyCouponState>
+    implements _$$_VerifyCouponStateCopyWith<$Res> {
+  __$$_VerifyCouponStateCopyWithImpl(
+      _$_VerifyCouponState _value, $Res Function(_$_VerifyCouponState) _then)
+      : super(_value, _then);
 
-  @override
-  _VerifyCouponState get _value => super._value as _VerifyCouponState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = freezed,
-    Object? couponCode = freezed,
-    Object? isSubmitting = freezed,
+    Object? key = null,
+    Object? couponCode = null,
+    Object? isSubmitting = null,
     Object? coupon = freezed,
-    Object? failureOrSuccess = freezed,
+    Object? failureOrSuccess = null,
   }) {
-    return _then(_VerifyCouponState(
-      key: key == freezed
+    return _then(_$_VerifyCouponState(
+      key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as Key,
-      couponCode: couponCode == freezed
+      couponCode: null == couponCode
           ? _value.couponCode
           : couponCode // ignore: cast_nullable_to_non_nullable
               as String,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      coupon: coupon == freezed
+      coupon: freezed == coupon
           ? _value.coupon
           : coupon // ignore: cast_nullable_to_non_nullable
               as CouponCode?,
-      failureOrSuccess: failureOrSuccess == freezed
+      failureOrSuccess: null == failureOrSuccess
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<ApiFailure, Unit>>,
@@ -676,59 +730,51 @@ class _$_VerifyCouponState implements _VerifyCouponState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _VerifyCouponState &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_VerifyCouponState &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.couponCode, couponCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.couponCode, couponCode)) &&
+                other.couponCode == couponCode) &&
             (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.coupon, coupon) ||
-                const DeepCollectionEquality().equals(other.coupon, coupon)) &&
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.coupon, coupon) || other.coupon == coupon) &&
             (identical(other.failureOrSuccess, failureOrSuccess) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrSuccess, failureOrSuccess)));
+                other.failureOrSuccess == failureOrSuccess));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(couponCode) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(coupon) ^
-      const DeepCollectionEquality().hash(failureOrSuccess);
+  int get hashCode => Object.hash(
+      runtimeType, key, couponCode, isSubmitting, coupon, failureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
-  _$VerifyCouponStateCopyWith<_VerifyCouponState> get copyWith =>
-      __$VerifyCouponStateCopyWithImpl<_VerifyCouponState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_VerifyCouponStateCopyWith<_$_VerifyCouponState> get copyWith =>
+      __$$_VerifyCouponStateCopyWithImpl<_$_VerifyCouponState>(
+          this, _$identity);
 }
 
 abstract class _VerifyCouponState implements RedeemCouponState {
   const factory _VerifyCouponState(
-          {required Key key,
-          required String couponCode,
-          required bool isSubmitting,
-          required CouponCode? coupon,
-          required Option<Either<ApiFailure, Unit>> failureOrSuccess}) =
+          {required final Key key,
+          required final String couponCode,
+          required final bool isSubmitting,
+          required final CouponCode? coupon,
+          required final Option<Either<ApiFailure, Unit>> failureOrSuccess}) =
       _$_VerifyCouponState;
 
   @override
-  Key get key => throw _privateConstructorUsedError;
+  Key get key;
   @override
-  String get couponCode => throw _privateConstructorUsedError;
+  String get couponCode;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  CouponCode? get coupon => throw _privateConstructorUsedError;
+  CouponCode? get coupon;
   @override
-  Option<Either<ApiFailure, Unit>> get failureOrSuccess =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, Unit>> get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
-  _$VerifyCouponStateCopyWith<_VerifyCouponState> get copyWith =>
+  _$$_VerifyCouponStateCopyWith<_$_VerifyCouponState> get copyWith =>
       throw _privateConstructorUsedError;
 }

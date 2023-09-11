@@ -11,7 +11,7 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
-
+@RoutePage()
 class UtilityPamentWidget extends StatefulWidget {
   final Function()? onViewLess;
   final List<UtilityPaymentsModel> paymentData;

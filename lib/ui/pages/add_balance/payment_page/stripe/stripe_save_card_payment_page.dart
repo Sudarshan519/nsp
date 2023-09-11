@@ -19,6 +19,7 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
+@RoutePage()
 class StripeSaveCardPaymentPage extends StatelessWidget {
   final CreditCard card;
 

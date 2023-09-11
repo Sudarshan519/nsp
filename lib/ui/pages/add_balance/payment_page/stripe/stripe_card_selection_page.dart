@@ -13,6 +13,7 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 
+@RoutePage()
 class StripePaymentCardSelectionPage extends StatefulWidget {
   final List<CreditCard> cards;
   final Function(int) deleteCard;

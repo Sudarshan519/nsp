@@ -14,6 +14,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/utils/constant.dart';
 
 // ignore: must_be_immutable
+@RoutePage()
 class AlertSettingsPage extends StatefulWidget {
   const AlertSettingsPage({Key? key}) : super(key: key);
 
@@ -180,7 +181,7 @@ class _AlertSettingsPageState extends State<AlertSettingsPage> {
                               onPressed: () async {
                                 cntx.popRoute();
                                 final result = await context.pushRoute(
-                                    AlertPrefectureChooser(
+                                    AlertPrefectureChooserRoute(
                                         selectMultiplePrefectures: false));
                                 if (result != null) {
                                   setState(() {
@@ -248,7 +249,7 @@ class _AlertSettingsPageState extends State<AlertSettingsPage> {
                 OutlinedButton(
                   onPressed: () async {
                     final result = await context.pushRoute(
-                        AlertPrefectureChooser(
+                        AlertPrefectureChooserRoute(
                             selectMultiplePrefectures: true));
 
                     //will return true if all prefectures are selected,

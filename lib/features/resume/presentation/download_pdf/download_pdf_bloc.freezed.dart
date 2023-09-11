@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'download_pdf_bloc.dart';
 
@@ -10,33 +12,21 @@ part of 'download_pdf_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$DownloadPdfEventTearOff {
-  const _$DownloadPdfEventTearOff();
-
-  _StartDownloading startDownloading(
-      {required bool isLinkDownloaded, required String lang}) {
-    return _StartDownloading(
-      isLinkDownloaded: isLinkDownloaded,
-      lang: lang,
-    );
-  }
-}
-
-/// @nodoc
-const $DownloadPdfEvent = _$DownloadPdfEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$DownloadPdfEvent {
   bool get isLinkDownloaded => throw _privateConstructorUsedError;
   String get lang => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isLinkDownloaded, String lang)
         startDownloading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool isLinkDownloaded, String lang)? startDownloading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +38,11 @@ mixin _$DownloadPdfEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_StartDownloading value) startDownloading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StartDownloading value)? startDownloading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,69 +61,71 @@ mixin _$DownloadPdfEvent {
 abstract class $DownloadPdfEventCopyWith<$Res> {
   factory $DownloadPdfEventCopyWith(
           DownloadPdfEvent value, $Res Function(DownloadPdfEvent) then) =
-      _$DownloadPdfEventCopyWithImpl<$Res>;
+      _$DownloadPdfEventCopyWithImpl<$Res, DownloadPdfEvent>;
+  @useResult
   $Res call({bool isLinkDownloaded, String lang});
 }
 
 /// @nodoc
-class _$DownloadPdfEventCopyWithImpl<$Res>
+class _$DownloadPdfEventCopyWithImpl<$Res, $Val extends DownloadPdfEvent>
     implements $DownloadPdfEventCopyWith<$Res> {
   _$DownloadPdfEventCopyWithImpl(this._value, this._then);
 
-  final DownloadPdfEvent _value;
   // ignore: unused_field
-  final $Res Function(DownloadPdfEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLinkDownloaded = freezed,
-    Object? lang = freezed,
+    Object? isLinkDownloaded = null,
+    Object? lang = null,
   }) {
     return _then(_value.copyWith(
-      isLinkDownloaded: isLinkDownloaded == freezed
+      isLinkDownloaded: null == isLinkDownloaded
           ? _value.isLinkDownloaded
           : isLinkDownloaded // ignore: cast_nullable_to_non_nullable
               as bool,
-      lang: lang == freezed
+      lang: null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$StartDownloadingCopyWith<$Res>
+abstract class _$$_StartDownloadingCopyWith<$Res>
     implements $DownloadPdfEventCopyWith<$Res> {
-  factory _$StartDownloadingCopyWith(
-          _StartDownloading value, $Res Function(_StartDownloading) then) =
-      __$StartDownloadingCopyWithImpl<$Res>;
+  factory _$$_StartDownloadingCopyWith(
+          _$_StartDownloading value, $Res Function(_$_StartDownloading) then) =
+      __$$_StartDownloadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool isLinkDownloaded, String lang});
 }
 
 /// @nodoc
-class __$StartDownloadingCopyWithImpl<$Res>
-    extends _$DownloadPdfEventCopyWithImpl<$Res>
-    implements _$StartDownloadingCopyWith<$Res> {
-  __$StartDownloadingCopyWithImpl(
-      _StartDownloading _value, $Res Function(_StartDownloading) _then)
-      : super(_value, (v) => _then(v as _StartDownloading));
+class __$$_StartDownloadingCopyWithImpl<$Res>
+    extends _$DownloadPdfEventCopyWithImpl<$Res, _$_StartDownloading>
+    implements _$$_StartDownloadingCopyWith<$Res> {
+  __$$_StartDownloadingCopyWithImpl(
+      _$_StartDownloading _value, $Res Function(_$_StartDownloading) _then)
+      : super(_value, _then);
 
-  @override
-  _StartDownloading get _value => super._value as _StartDownloading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLinkDownloaded = freezed,
-    Object? lang = freezed,
+    Object? isLinkDownloaded = null,
+    Object? lang = null,
   }) {
-    return _then(_StartDownloading(
-      isLinkDownloaded: isLinkDownloaded == freezed
+    return _then(_$_StartDownloading(
+      isLinkDownloaded: null == isLinkDownloaded
           ? _value.isLinkDownloaded
           : isLinkDownloaded // ignore: cast_nullable_to_non_nullable
               as bool,
-      lang: lang == freezed
+      lang: null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
@@ -155,24 +152,21 @@ class _$_StartDownloading implements _StartDownloading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _StartDownloading &&
+        (other.runtimeType == runtimeType &&
+            other is _$_StartDownloading &&
             (identical(other.isLinkDownloaded, isLinkDownloaded) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLinkDownloaded, isLinkDownloaded)) &&
-            (identical(other.lang, lang) ||
-                const DeepCollectionEquality().equals(other.lang, lang)));
+                other.isLinkDownloaded == isLinkDownloaded) &&
+            (identical(other.lang, lang) || other.lang == lang));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(isLinkDownloaded) ^
-      const DeepCollectionEquality().hash(lang);
+  int get hashCode => Object.hash(runtimeType, isLinkDownloaded, lang);
 
   @JsonKey(ignore: true)
   @override
-  _$StartDownloadingCopyWith<_StartDownloading> get copyWith =>
-      __$StartDownloadingCopyWithImpl<_StartDownloading>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_StartDownloadingCopyWith<_$_StartDownloading> get copyWith =>
+      __$$_StartDownloadingCopyWithImpl<_$_StartDownloading>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -181,6 +175,14 @@ class _$_StartDownloading implements _StartDownloading {
         startDownloading,
   }) {
     return startDownloading(isLinkDownloaded, lang);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool isLinkDownloaded, String lang)? startDownloading,
+  }) {
+    return startDownloading?.call(isLinkDownloaded, lang);
   }
 
   @override
@@ -205,6 +207,14 @@ class _$_StartDownloading implements _StartDownloading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_StartDownloading value)? startDownloading,
+  }) {
+    return startDownloading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_StartDownloading value)? startDownloading,
     required TResult orElse(),
@@ -218,57 +228,18 @@ class _$_StartDownloading implements _StartDownloading {
 
 abstract class _StartDownloading implements DownloadPdfEvent {
   const factory _StartDownloading(
-      {required bool isLinkDownloaded,
-      required String lang}) = _$_StartDownloading;
+      {required final bool isLinkDownloaded,
+      required final String lang}) = _$_StartDownloading;
 
   @override
-  bool get isLinkDownloaded => throw _privateConstructorUsedError;
+  bool get isLinkDownloaded;
   @override
-  String get lang => throw _privateConstructorUsedError;
+  String get lang;
   @override
   @JsonKey(ignore: true)
-  _$StartDownloadingCopyWith<_StartDownloading> get copyWith =>
+  _$$_StartDownloadingCopyWith<_$_StartDownloading> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$DownloadPdfStateTearOff {
-  const _$DownloadPdfStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Preparing preparing() {
-    return const _Preparing();
-  }
-
-  _DownLoadableLink downLoadableLink(String url, bool isLinkDownloaded) {
-    return _DownLoadableLink(
-      url,
-      isLinkDownloaded,
-    );
-  }
-
-  _Downloading downloading(int percentage) {
-    return _Downloading(
-      percentage,
-    );
-  }
-
-  _Downloaded downloaded() {
-    return const _Downloaded();
-  }
-
-  _DownloadFailed downloadFailed(ApiFailure failure) {
-    return _DownloadFailed(
-      failure,
-    );
-  }
-}
-
-/// @nodoc
-const $DownloadPdfState = _$DownloadPdfStateTearOff();
 
 /// @nodoc
 mixin _$DownloadPdfState {
@@ -281,6 +252,16 @@ mixin _$DownloadPdfState {
     required TResult Function(int percentage) downloading,
     required TResult Function() downloaded,
     required TResult Function(ApiFailure failure) downloadFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? preparing,
+    TResult? Function(String url, bool isLinkDownloaded)? downLoadableLink,
+    TResult? Function(int percentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(ApiFailure failure)? downloadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -305,6 +286,16 @@ mixin _$DownloadPdfState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Preparing value)? preparing,
+    TResult? Function(_DownLoadableLink value)? downLoadableLink,
+    TResult? Function(_Downloading value)? downloading,
+    TResult? Function(_Downloaded value)? downloaded,
+    TResult? Function(_DownloadFailed value)? downloadFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Preparing value)? preparing,
@@ -321,33 +312,33 @@ mixin _$DownloadPdfState {
 abstract class $DownloadPdfStateCopyWith<$Res> {
   factory $DownloadPdfStateCopyWith(
           DownloadPdfState value, $Res Function(DownloadPdfState) then) =
-      _$DownloadPdfStateCopyWithImpl<$Res>;
+      _$DownloadPdfStateCopyWithImpl<$Res, DownloadPdfState>;
 }
 
 /// @nodoc
-class _$DownloadPdfStateCopyWithImpl<$Res>
+class _$DownloadPdfStateCopyWithImpl<$Res, $Val extends DownloadPdfState>
     implements $DownloadPdfStateCopyWith<$Res> {
   _$DownloadPdfStateCopyWithImpl(this._value, this._then);
 
-  final DownloadPdfState _value;
   // ignore: unused_field
-  final $Res Function(DownloadPdfState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$DownloadPdfStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$DownloadPdfStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -362,7 +353,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -380,6 +372,19 @@ class _$_Initial implements _Initial {
     required TResult Function(ApiFailure failure) downloadFailed,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? preparing,
+    TResult? Function(String url, bool isLinkDownloaded)? downLoadableLink,
+    TResult? Function(int percentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(ApiFailure failure)? downloadFailed,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -414,6 +419,19 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Preparing value)? preparing,
+    TResult? Function(_DownLoadableLink value)? downLoadableLink,
+    TResult? Function(_Downloading value)? downloading,
+    TResult? Function(_Downloaded value)? downloaded,
+    TResult? Function(_DownloadFailed value)? downloadFailed,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Preparing value)? preparing,
@@ -435,21 +453,19 @@ abstract class _Initial implements DownloadPdfState {
 }
 
 /// @nodoc
-abstract class _$PreparingCopyWith<$Res> {
-  factory _$PreparingCopyWith(
-          _Preparing value, $Res Function(_Preparing) then) =
-      __$PreparingCopyWithImpl<$Res>;
+abstract class _$$_PreparingCopyWith<$Res> {
+  factory _$$_PreparingCopyWith(
+          _$_Preparing value, $Res Function(_$_Preparing) then) =
+      __$$_PreparingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$PreparingCopyWithImpl<$Res>
-    extends _$DownloadPdfStateCopyWithImpl<$Res>
-    implements _$PreparingCopyWith<$Res> {
-  __$PreparingCopyWithImpl(_Preparing _value, $Res Function(_Preparing) _then)
-      : super(_value, (v) => _then(v as _Preparing));
-
-  @override
-  _Preparing get _value => super._value as _Preparing;
+class __$$_PreparingCopyWithImpl<$Res>
+    extends _$DownloadPdfStateCopyWithImpl<$Res, _$_Preparing>
+    implements _$$_PreparingCopyWith<$Res> {
+  __$$_PreparingCopyWithImpl(
+      _$_Preparing _value, $Res Function(_$_Preparing) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -464,7 +480,8 @@ class _$_Preparing implements _Preparing {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Preparing);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Preparing);
   }
 
   @override
@@ -482,6 +499,19 @@ class _$_Preparing implements _Preparing {
     required TResult Function(ApiFailure failure) downloadFailed,
   }) {
     return preparing();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? preparing,
+    TResult? Function(String url, bool isLinkDownloaded)? downLoadableLink,
+    TResult? Function(int percentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(ApiFailure failure)? downloadFailed,
+  }) {
+    return preparing?.call();
   }
 
   @override
@@ -516,6 +546,19 @@ class _$_Preparing implements _Preparing {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Preparing value)? preparing,
+    TResult? Function(_DownLoadableLink value)? downLoadableLink,
+    TResult? Function(_Downloading value)? downloading,
+    TResult? Function(_Downloaded value)? downloaded,
+    TResult? Function(_DownloadFailed value)? downloadFailed,
+  }) {
+    return preparing?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Preparing value)? preparing,
@@ -537,35 +580,34 @@ abstract class _Preparing implements DownloadPdfState {
 }
 
 /// @nodoc
-abstract class _$DownLoadableLinkCopyWith<$Res> {
-  factory _$DownLoadableLinkCopyWith(
-          _DownLoadableLink value, $Res Function(_DownLoadableLink) then) =
-      __$DownLoadableLinkCopyWithImpl<$Res>;
+abstract class _$$_DownLoadableLinkCopyWith<$Res> {
+  factory _$$_DownLoadableLinkCopyWith(
+          _$_DownLoadableLink value, $Res Function(_$_DownLoadableLink) then) =
+      __$$_DownLoadableLinkCopyWithImpl<$Res>;
+  @useResult
   $Res call({String url, bool isLinkDownloaded});
 }
 
 /// @nodoc
-class __$DownLoadableLinkCopyWithImpl<$Res>
-    extends _$DownloadPdfStateCopyWithImpl<$Res>
-    implements _$DownLoadableLinkCopyWith<$Res> {
-  __$DownLoadableLinkCopyWithImpl(
-      _DownLoadableLink _value, $Res Function(_DownLoadableLink) _then)
-      : super(_value, (v) => _then(v as _DownLoadableLink));
+class __$$_DownLoadableLinkCopyWithImpl<$Res>
+    extends _$DownloadPdfStateCopyWithImpl<$Res, _$_DownLoadableLink>
+    implements _$$_DownLoadableLinkCopyWith<$Res> {
+  __$$_DownLoadableLinkCopyWithImpl(
+      _$_DownLoadableLink _value, $Res Function(_$_DownLoadableLink) _then)
+      : super(_value, _then);
 
-  @override
-  _DownLoadableLink get _value => super._value as _DownLoadableLink;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? url = freezed,
-    Object? isLinkDownloaded = freezed,
+    Object? url = null,
+    Object? isLinkDownloaded = null,
   }) {
-    return _then(_DownLoadableLink(
-      url == freezed
+    return _then(_$_DownLoadableLink(
+      null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      isLinkDownloaded == freezed
+      null == isLinkDownloaded
           ? _value.isLinkDownloaded
           : isLinkDownloaded // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -578,7 +620,8 @@ class __$DownLoadableLinkCopyWithImpl<$Res>
 class _$_DownLoadableLink implements _DownLoadableLink {
   const _$_DownLoadableLink(this.url, this.isLinkDownloaded);
 
-  @override // ignore: avoid_positional_boolean_parameters
+// ignore: avoid_positional_boolean_parameters
+  @override
   final String url;
   @override
   final bool isLinkDownloaded;
@@ -591,24 +634,21 @@ class _$_DownLoadableLink implements _DownLoadableLink {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DownLoadableLink &&
-            (identical(other.url, url) ||
-                const DeepCollectionEquality().equals(other.url, url)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_DownLoadableLink &&
+            (identical(other.url, url) || other.url == url) &&
             (identical(other.isLinkDownloaded, isLinkDownloaded) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLinkDownloaded, isLinkDownloaded)));
+                other.isLinkDownloaded == isLinkDownloaded));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(url) ^
-      const DeepCollectionEquality().hash(isLinkDownloaded);
+  int get hashCode => Object.hash(runtimeType, url, isLinkDownloaded);
 
   @JsonKey(ignore: true)
   @override
-  _$DownLoadableLinkCopyWith<_DownLoadableLink> get copyWith =>
-      __$DownLoadableLinkCopyWithImpl<_DownLoadableLink>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_DownLoadableLinkCopyWith<_$_DownLoadableLink> get copyWith =>
+      __$$_DownLoadableLinkCopyWithImpl<_$_DownLoadableLink>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -622,6 +662,19 @@ class _$_DownLoadableLink implements _DownLoadableLink {
     required TResult Function(ApiFailure failure) downloadFailed,
   }) {
     return downLoadableLink(url, isLinkDownloaded);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? preparing,
+    TResult? Function(String url, bool isLinkDownloaded)? downLoadableLink,
+    TResult? Function(int percentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(ApiFailure failure)? downloadFailed,
+  }) {
+    return downLoadableLink?.call(url, isLinkDownloaded);
   }
 
   @override
@@ -656,6 +709,19 @@ class _$_DownLoadableLink implements _DownLoadableLink {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Preparing value)? preparing,
+    TResult? Function(_DownLoadableLink value)? downLoadableLink,
+    TResult? Function(_Downloading value)? downloading,
+    TResult? Function(_Downloaded value)? downloaded,
+    TResult? Function(_DownloadFailed value)? downloadFailed,
+  }) {
+    return downLoadableLink?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Preparing value)? preparing,
@@ -673,42 +739,41 @@ class _$_DownLoadableLink implements _DownLoadableLink {
 }
 
 abstract class _DownLoadableLink implements DownloadPdfState {
-  const factory _DownLoadableLink(String url, bool isLinkDownloaded) =
-      _$_DownLoadableLink;
+  const factory _DownLoadableLink(
+      final String url, final bool isLinkDownloaded) = _$_DownLoadableLink;
 
 // ignore: avoid_positional_boolean_parameters
-  String get url => throw _privateConstructorUsedError;
-  bool get isLinkDownloaded => throw _privateConstructorUsedError;
+  String get url;
+  bool get isLinkDownloaded;
   @JsonKey(ignore: true)
-  _$DownLoadableLinkCopyWith<_DownLoadableLink> get copyWith =>
+  _$$_DownLoadableLinkCopyWith<_$_DownLoadableLink> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$DownloadingCopyWith<$Res> {
-  factory _$DownloadingCopyWith(
-          _Downloading value, $Res Function(_Downloading) then) =
-      __$DownloadingCopyWithImpl<$Res>;
+abstract class _$$_DownloadingCopyWith<$Res> {
+  factory _$$_DownloadingCopyWith(
+          _$_Downloading value, $Res Function(_$_Downloading) then) =
+      __$$_DownloadingCopyWithImpl<$Res>;
+  @useResult
   $Res call({int percentage});
 }
 
 /// @nodoc
-class __$DownloadingCopyWithImpl<$Res>
-    extends _$DownloadPdfStateCopyWithImpl<$Res>
-    implements _$DownloadingCopyWith<$Res> {
-  __$DownloadingCopyWithImpl(
-      _Downloading _value, $Res Function(_Downloading) _then)
-      : super(_value, (v) => _then(v as _Downloading));
+class __$$_DownloadingCopyWithImpl<$Res>
+    extends _$DownloadPdfStateCopyWithImpl<$Res, _$_Downloading>
+    implements _$$_DownloadingCopyWith<$Res> {
+  __$$_DownloadingCopyWithImpl(
+      _$_Downloading _value, $Res Function(_$_Downloading) _then)
+      : super(_value, _then);
 
-  @override
-  _Downloading get _value => super._value as _Downloading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? percentage = freezed,
+    Object? percentage = null,
   }) {
-    return _then(_Downloading(
-      percentage == freezed
+    return _then(_$_Downloading(
+      null == percentage
           ? _value.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
               as int,
@@ -732,20 +797,20 @@ class _$_Downloading implements _Downloading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Downloading &&
+        (other.runtimeType == runtimeType &&
+            other is _$_Downloading &&
             (identical(other.percentage, percentage) ||
-                const DeepCollectionEquality()
-                    .equals(other.percentage, percentage)));
+                other.percentage == percentage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(percentage);
+  int get hashCode => Object.hash(runtimeType, percentage);
 
   @JsonKey(ignore: true)
   @override
-  _$DownloadingCopyWith<_Downloading> get copyWith =>
-      __$DownloadingCopyWithImpl<_Downloading>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_DownloadingCopyWith<_$_Downloading> get copyWith =>
+      __$$_DownloadingCopyWithImpl<_$_Downloading>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -759,6 +824,19 @@ class _$_Downloading implements _Downloading {
     required TResult Function(ApiFailure failure) downloadFailed,
   }) {
     return downloading(percentage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? preparing,
+    TResult? Function(String url, bool isLinkDownloaded)? downLoadableLink,
+    TResult? Function(int percentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(ApiFailure failure)? downloadFailed,
+  }) {
+    return downloading?.call(percentage);
   }
 
   @override
@@ -793,6 +871,19 @@ class _$_Downloading implements _Downloading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Preparing value)? preparing,
+    TResult? Function(_DownLoadableLink value)? downLoadableLink,
+    TResult? Function(_Downloading value)? downloading,
+    TResult? Function(_Downloaded value)? downloaded,
+    TResult? Function(_DownloadFailed value)? downloadFailed,
+  }) {
+    return downloading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Preparing value)? preparing,
@@ -810,31 +901,28 @@ class _$_Downloading implements _Downloading {
 }
 
 abstract class _Downloading implements DownloadPdfState {
-  const factory _Downloading(int percentage) = _$_Downloading;
+  const factory _Downloading(final int percentage) = _$_Downloading;
 
-  int get percentage => throw _privateConstructorUsedError;
+  int get percentage;
   @JsonKey(ignore: true)
-  _$DownloadingCopyWith<_Downloading> get copyWith =>
+  _$$_DownloadingCopyWith<_$_Downloading> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$DownloadedCopyWith<$Res> {
-  factory _$DownloadedCopyWith(
-          _Downloaded value, $Res Function(_Downloaded) then) =
-      __$DownloadedCopyWithImpl<$Res>;
+abstract class _$$_DownloadedCopyWith<$Res> {
+  factory _$$_DownloadedCopyWith(
+          _$_Downloaded value, $Res Function(_$_Downloaded) then) =
+      __$$_DownloadedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$DownloadedCopyWithImpl<$Res>
-    extends _$DownloadPdfStateCopyWithImpl<$Res>
-    implements _$DownloadedCopyWith<$Res> {
-  __$DownloadedCopyWithImpl(
-      _Downloaded _value, $Res Function(_Downloaded) _then)
-      : super(_value, (v) => _then(v as _Downloaded));
-
-  @override
-  _Downloaded get _value => super._value as _Downloaded;
+class __$$_DownloadedCopyWithImpl<$Res>
+    extends _$DownloadPdfStateCopyWithImpl<$Res, _$_Downloaded>
+    implements _$$_DownloadedCopyWith<$Res> {
+  __$$_DownloadedCopyWithImpl(
+      _$_Downloaded _value, $Res Function(_$_Downloaded) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -849,7 +937,8 @@ class _$_Downloaded implements _Downloaded {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Downloaded);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Downloaded);
   }
 
   @override
@@ -867,6 +956,19 @@ class _$_Downloaded implements _Downloaded {
     required TResult Function(ApiFailure failure) downloadFailed,
   }) {
     return downloaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? preparing,
+    TResult? Function(String url, bool isLinkDownloaded)? downLoadableLink,
+    TResult? Function(int percentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(ApiFailure failure)? downloadFailed,
+  }) {
+    return downloaded?.call();
   }
 
   @override
@@ -901,6 +1003,19 @@ class _$_Downloaded implements _Downloaded {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Preparing value)? preparing,
+    TResult? Function(_DownLoadableLink value)? downLoadableLink,
+    TResult? Function(_Downloading value)? downloading,
+    TResult? Function(_Downloaded value)? downloaded,
+    TResult? Function(_DownloadFailed value)? downloadFailed,
+  }) {
+    return downloaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Preparing value)? preparing,
@@ -922,32 +1037,31 @@ abstract class _Downloaded implements DownloadPdfState {
 }
 
 /// @nodoc
-abstract class _$DownloadFailedCopyWith<$Res> {
-  factory _$DownloadFailedCopyWith(
-          _DownloadFailed value, $Res Function(_DownloadFailed) then) =
-      __$DownloadFailedCopyWithImpl<$Res>;
+abstract class _$$_DownloadFailedCopyWith<$Res> {
+  factory _$$_DownloadFailedCopyWith(
+          _$_DownloadFailed value, $Res Function(_$_DownloadFailed) then) =
+      __$$_DownloadFailedCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$DownloadFailedCopyWithImpl<$Res>
-    extends _$DownloadPdfStateCopyWithImpl<$Res>
-    implements _$DownloadFailedCopyWith<$Res> {
-  __$DownloadFailedCopyWithImpl(
-      _DownloadFailed _value, $Res Function(_DownloadFailed) _then)
-      : super(_value, (v) => _then(v as _DownloadFailed));
+class __$$_DownloadFailedCopyWithImpl<$Res>
+    extends _$DownloadPdfStateCopyWithImpl<$Res, _$_DownloadFailed>
+    implements _$$_DownloadFailedCopyWith<$Res> {
+  __$$_DownloadFailedCopyWithImpl(
+      _$_DownloadFailed _value, $Res Function(_$_DownloadFailed) _then)
+      : super(_value, _then);
 
-  @override
-  _DownloadFailed get _value => super._value as _DownloadFailed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_DownloadFailed(
-      failure == freezed
+    return _then(_$_DownloadFailed(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -955,6 +1069,7 @@ class __$DownloadFailedCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -978,19 +1093,19 @@ class _$_DownloadFailed implements _DownloadFailed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DownloadFailed &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_DownloadFailed &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$DownloadFailedCopyWith<_DownloadFailed> get copyWith =>
-      __$DownloadFailedCopyWithImpl<_DownloadFailed>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_DownloadFailedCopyWith<_$_DownloadFailed> get copyWith =>
+      __$$_DownloadFailedCopyWithImpl<_$_DownloadFailed>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1004,6 +1119,19 @@ class _$_DownloadFailed implements _DownloadFailed {
     required TResult Function(ApiFailure failure) downloadFailed,
   }) {
     return downloadFailed(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? preparing,
+    TResult? Function(String url, bool isLinkDownloaded)? downLoadableLink,
+    TResult? Function(int percentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(ApiFailure failure)? downloadFailed,
+  }) {
+    return downloadFailed?.call(failure);
   }
 
   @override
@@ -1038,6 +1166,19 @@ class _$_DownloadFailed implements _DownloadFailed {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Preparing value)? preparing,
+    TResult? Function(_DownLoadableLink value)? downLoadableLink,
+    TResult? Function(_Downloading value)? downloading,
+    TResult? Function(_Downloaded value)? downloaded,
+    TResult? Function(_DownloadFailed value)? downloadFailed,
+  }) {
+    return downloadFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Preparing value)? preparing,
@@ -1055,10 +1196,10 @@ class _$_DownloadFailed implements _DownloadFailed {
 }
 
 abstract class _DownloadFailed implements DownloadPdfState {
-  const factory _DownloadFailed(ApiFailure failure) = _$_DownloadFailed;
+  const factory _DownloadFailed(final ApiFailure failure) = _$_DownloadFailed;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$DownloadFailedCopyWith<_DownloadFailed> get copyWith =>
+  _$$_DownloadFailedCopyWith<_$_DownloadFailed> get copyWith =>
       throw _privateConstructorUsedError;
 }

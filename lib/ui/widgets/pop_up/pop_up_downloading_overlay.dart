@@ -245,8 +245,7 @@ class PopUpDownloadOverLayState extends State<PopUpDownloadingOverLay> {
     }
   }
 
-  static void downloadCallback(
-      String id, DownloadTaskStatus status, int progress) {
+  static void downloadCallback(String id, int status, int progress) {
     print('Prog: $progress');
     if (status == DownloadTaskStatus.failed && progress == -1) {
       /// download failed mostly due to Server replied HTTP code: 416

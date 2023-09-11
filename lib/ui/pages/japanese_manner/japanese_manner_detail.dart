@@ -9,9 +9,11 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-class JPMannerDetailFromAPi extends StatelessWidget {
+@RoutePage()
+class JPMannerDetailFromAPiPage extends StatelessWidget {
   final int id;
-  const JPMannerDetailFromAPi({Key? key, required this.id}) : super(key: key);
+  const JPMannerDetailFromAPiPage({Key? key, required this.id})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class JPMannerDetailFromAPi extends StatelessWidget {
   }
 }
 
+@RoutePage()
 class JapaneseMannerDetailPage extends StatelessWidget {
   final JapaneseManner japaneseManner;
 
@@ -88,7 +91,7 @@ class JapaneseMannerDetailPage extends StatelessWidget {
                 children: [
                   Html(
                       data: japaneseManner.description,
-                      onLinkTap: (link, _, __, ___) {
+                      onLinkTap: (link, _, __) {
                         context.pushRoute(
                             AppWebViewRoute(url: link ?? '', title: ''));
                       }),

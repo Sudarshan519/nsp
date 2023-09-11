@@ -4,7 +4,8 @@ import 'package:wallet_app/ui/pages/coupons/tab_pages/promo_code_page.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 
 import 'tab_pages/redeem_page.dart';
-
+import 'package:auto_route/auto_route.dart';
+@RoutePage()
 class CouponPage extends StatelessWidget {
   const CouponPage({Key? key}) : super(key: key);
 

@@ -15,8 +15,16 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
   final GetWalletUser getWalletUser;
   SplashBloc({
     required this.getWalletUser,
-  }) : super(const SplashState.initial());
-
+  }) : super(const SplashState.initial()) {
+    on<AuthCheckRequested>((event, emit) async {
+      //TODO
+      final userInfo = await getWalletUser(NoParams());
+      emit(userInfo.fold(
+        (_) => const SplashState.unauthenticated(),
+        (_) => const SplashState.authenticated(),
+      ));
+    });
+  }
   @override
   Stream<SplashState> mapEventToState(
     SplashEvent event,

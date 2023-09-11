@@ -21,7 +21,70 @@ class LatestNewsBloc extends Bloc<LatestNewsEvent, LatestNewsState> {
 
   LatestNewsBloc({
     required this.getNews,
-  }) : super(const _Loading());
+  }) : super(const _Loading()) {
+    on<_FetchNewsData>((event, emit) {
+      if (_hasReachedEnd) {
+        emit(_Loaded(_newsData));
+      } else {
+        isFetching = true;
+        emit(const _Loading());
+        fetchNews();
+      }
+    });
+    on<_PullToRefresh>((event, emit) {
+      isFetching = true;
+      _hasReachedEnd = false;
+      _page = 1;
+      _newsData = [];
+      fetchNews();
+    });
+  }
+  fetchNews() async {
+    if (_page == 1) {
+      if (_newsData.isEmpty) {
+        final localData = await getNews.getLocalLatestNews();
+        emit(localData.fold(
+          (_) {
+            return const _Loading();
+          },
+          (_news) {
+            _newsData.addAll(_news);
+            return _Loaded(_news);
+          },
+        ));
+      }
+    }
+
+    if (_newsData.isNotEmpty) {
+      emit(_LoadingWith(_newsData));
+    }
+
+    final result = await getNews(GetLatestNewsParams(page: "$_page"));
+    emit(const _Loading());
+
+    emit(result.fold(
+      (failure) {
+        isFetching = false;
+        if (_newsData.isNotEmpty) {
+          return _FailureWithData(failure, _newsData);
+        } else {
+          return _Failure(failure);
+        }
+      },
+      (newsData) {
+        if (_page == 1) {
+          _newsData = [];
+        }
+        isFetching = false;
+        if (newsData.isEmpty) {
+          _hasReachedEnd = true;
+        }
+        _newsData.addAll(newsData);
+        _page = _page + 1;
+        return _Loaded(_newsData);
+      },
+    ));
+  }
 
   @override
   Stream<LatestNewsState> mapEventToState(

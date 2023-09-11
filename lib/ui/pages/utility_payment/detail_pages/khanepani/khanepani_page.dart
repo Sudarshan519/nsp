@@ -19,7 +19,7 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/custom_searchable_drop_down_widget.dart';
 import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
-
+@RoutePage()
 class KhanepaniPaymentPage extends StatelessWidget {
   final UtilityPaymentsModel payData;
   const KhanepaniPaymentPage({Key? key, required this.payData})

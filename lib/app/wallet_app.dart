@@ -23,8 +23,8 @@ import 'package:wallet_app/utils/config_reader.dart';
 class WalletApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    appRouter
-        .addListener(() => AnalyticsService.setScreen(appRouter.current.name));
+    // appRouter
+    //     .addListener(() => AnalyticsService.setScreen(appRouter.current.name));
     return MultiBlocProvider(
       providers: [
         BlocProvider(

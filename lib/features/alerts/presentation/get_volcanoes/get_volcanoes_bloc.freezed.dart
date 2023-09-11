@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'get_volcanoes_bloc.dart';
 
@@ -10,23 +12,7 @@ part of 'get_volcanoes_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$GetVolcanoesEventTearOff {
-  const _$GetVolcanoesEventTearOff();
-
-  _Fetch fetch() {
-    return const _Fetch();
-  }
-
-  _Paginate paginate() {
-    return const _Paginate();
-  }
-}
-
-/// @nodoc
-const $GetVolcanoesEvent = _$GetVolcanoesEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$GetVolcanoesEvent {
@@ -34,6 +20,12 @@ mixin _$GetVolcanoesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
     required TResult Function() paginate,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function()? paginate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +42,12 @@ mixin _$GetVolcanoesEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Paginate value)? paginate,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_Paginate value)? paginate,
@@ -62,33 +60,32 @@ mixin _$GetVolcanoesEvent {
 abstract class $GetVolcanoesEventCopyWith<$Res> {
   factory $GetVolcanoesEventCopyWith(
           GetVolcanoesEvent value, $Res Function(GetVolcanoesEvent) then) =
-      _$GetVolcanoesEventCopyWithImpl<$Res>;
+      _$GetVolcanoesEventCopyWithImpl<$Res, GetVolcanoesEvent>;
 }
 
 /// @nodoc
-class _$GetVolcanoesEventCopyWithImpl<$Res>
+class _$GetVolcanoesEventCopyWithImpl<$Res, $Val extends GetVolcanoesEvent>
     implements $GetVolcanoesEventCopyWith<$Res> {
   _$GetVolcanoesEventCopyWithImpl(this._value, this._then);
 
-  final GetVolcanoesEvent _value;
   // ignore: unused_field
-  final $Res Function(GetVolcanoesEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$FetchCopyWith<$Res> {
-  factory _$FetchCopyWith(_Fetch value, $Res Function(_Fetch) then) =
-      __$FetchCopyWithImpl<$Res>;
+abstract class _$$_FetchCopyWith<$Res> {
+  factory _$$_FetchCopyWith(_$_Fetch value, $Res Function(_$_Fetch) then) =
+      __$$_FetchCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$FetchCopyWithImpl<$Res> extends _$GetVolcanoesEventCopyWithImpl<$Res>
-    implements _$FetchCopyWith<$Res> {
-  __$FetchCopyWithImpl(_Fetch _value, $Res Function(_Fetch) _then)
-      : super(_value, (v) => _then(v as _Fetch));
-
-  @override
-  _Fetch get _value => super._value as _Fetch;
+class __$$_FetchCopyWithImpl<$Res>
+    extends _$GetVolcanoesEventCopyWithImpl<$Res, _$_Fetch>
+    implements _$$_FetchCopyWith<$Res> {
+  __$$_FetchCopyWithImpl(_$_Fetch _value, $Res Function(_$_Fetch) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -103,7 +100,8 @@ class _$_Fetch implements _Fetch {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Fetch);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Fetch);
   }
 
   @override
@@ -116,6 +114,15 @@ class _$_Fetch implements _Fetch {
     required TResult Function() paginate,
   }) {
     return fetch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function()? paginate,
+  }) {
+    return fetch?.call();
   }
 
   @override
@@ -142,6 +149,15 @@ class _$_Fetch implements _Fetch {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Paginate value)? paginate,
+  }) {
+    return fetch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_Paginate value)? paginate,
@@ -159,20 +175,19 @@ abstract class _Fetch implements GetVolcanoesEvent {
 }
 
 /// @nodoc
-abstract class _$PaginateCopyWith<$Res> {
-  factory _$PaginateCopyWith(_Paginate value, $Res Function(_Paginate) then) =
-      __$PaginateCopyWithImpl<$Res>;
+abstract class _$$_PaginateCopyWith<$Res> {
+  factory _$$_PaginateCopyWith(
+          _$_Paginate value, $Res Function(_$_Paginate) then) =
+      __$$_PaginateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$PaginateCopyWithImpl<$Res>
-    extends _$GetVolcanoesEventCopyWithImpl<$Res>
-    implements _$PaginateCopyWith<$Res> {
-  __$PaginateCopyWithImpl(_Paginate _value, $Res Function(_Paginate) _then)
-      : super(_value, (v) => _then(v as _Paginate));
-
-  @override
-  _Paginate get _value => super._value as _Paginate;
+class __$$_PaginateCopyWithImpl<$Res>
+    extends _$GetVolcanoesEventCopyWithImpl<$Res, _$_Paginate>
+    implements _$$_PaginateCopyWith<$Res> {
+  __$$_PaginateCopyWithImpl(
+      _$_Paginate _value, $Res Function(_$_Paginate) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -187,7 +202,8 @@ class _$_Paginate implements _Paginate {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Paginate);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Paginate);
   }
 
   @override
@@ -200,6 +216,15 @@ class _$_Paginate implements _Paginate {
     required TResult Function() paginate,
   }) {
     return paginate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function()? paginate,
+  }) {
+    return paginate?.call();
   }
 
   @override
@@ -226,6 +251,15 @@ class _$_Paginate implements _Paginate {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Paginate value)? paginate,
+  }) {
+    return paginate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_Paginate value)? paginate,
@@ -243,40 +277,6 @@ abstract class _Paginate implements GetVolcanoesEvent {
 }
 
 /// @nodoc
-class _$GetVolcanoesStateTearOff {
-  const _$GetVolcanoesStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _LoadingWithData loadingWithData(List<Alert> alerts) {
-    return _LoadingWithData(
-      alerts,
-    );
-  }
-
-  _Success success(List<Alert> alerts) {
-    return _Success(
-      alerts,
-    );
-  }
-
-  _Failure failure(ApiFailure failure) {
-    return _Failure(
-      failure,
-    );
-  }
-}
-
-/// @nodoc
-const $GetVolcanoesState = _$GetVolcanoesStateTearOff();
-
-/// @nodoc
 mixin _$GetVolcanoesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -285,6 +285,15 @@ mixin _$GetVolcanoesState {
     required TResult Function(List<Alert> alerts) loadingWithData,
     required TResult Function(List<Alert> alerts) success,
     required TResult Function(ApiFailure failure) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Alert> alerts)? loadingWithData,
+    TResult? Function(List<Alert> alerts)? success,
+    TResult? Function(ApiFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -307,6 +316,15 @@ mixin _$GetVolcanoesState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -322,33 +340,33 @@ mixin _$GetVolcanoesState {
 abstract class $GetVolcanoesStateCopyWith<$Res> {
   factory $GetVolcanoesStateCopyWith(
           GetVolcanoesState value, $Res Function(GetVolcanoesState) then) =
-      _$GetVolcanoesStateCopyWithImpl<$Res>;
+      _$GetVolcanoesStateCopyWithImpl<$Res, GetVolcanoesState>;
 }
 
 /// @nodoc
-class _$GetVolcanoesStateCopyWithImpl<$Res>
+class _$GetVolcanoesStateCopyWithImpl<$Res, $Val extends GetVolcanoesState>
     implements $GetVolcanoesStateCopyWith<$Res> {
   _$GetVolcanoesStateCopyWithImpl(this._value, this._then);
 
-  final GetVolcanoesState _value;
   // ignore: unused_field
-  final $Res Function(GetVolcanoesState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$GetVolcanoesStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$GetVolcanoesStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -363,7 +381,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -379,6 +398,18 @@ class _$_Initial implements _Initial {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Alert> alerts)? loadingWithData,
+    TResult? Function(List<Alert> alerts)? success,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return initial?.call();
   }
 
   @override
@@ -411,6 +442,18 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -431,19 +474,18 @@ abstract class _Initial implements GetVolcanoesState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$GetVolcanoesStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$GetVolcanoesStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -458,7 +500,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -474,6 +517,18 @@ class _$_Loading implements _Loading {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Alert> alerts)? loadingWithData,
+    TResult? Function(List<Alert> alerts)? success,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -506,6 +561,18 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -526,31 +593,30 @@ abstract class _Loading implements GetVolcanoesState {
 }
 
 /// @nodoc
-abstract class _$LoadingWithDataCopyWith<$Res> {
-  factory _$LoadingWithDataCopyWith(
-          _LoadingWithData value, $Res Function(_LoadingWithData) then) =
-      __$LoadingWithDataCopyWithImpl<$Res>;
+abstract class _$$_LoadingWithDataCopyWith<$Res> {
+  factory _$$_LoadingWithDataCopyWith(
+          _$_LoadingWithData value, $Res Function(_$_LoadingWithData) then) =
+      __$$_LoadingWithDataCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Alert> alerts});
 }
 
 /// @nodoc
-class __$LoadingWithDataCopyWithImpl<$Res>
-    extends _$GetVolcanoesStateCopyWithImpl<$Res>
-    implements _$LoadingWithDataCopyWith<$Res> {
-  __$LoadingWithDataCopyWithImpl(
-      _LoadingWithData _value, $Res Function(_LoadingWithData) _then)
-      : super(_value, (v) => _then(v as _LoadingWithData));
+class __$$_LoadingWithDataCopyWithImpl<$Res>
+    extends _$GetVolcanoesStateCopyWithImpl<$Res, _$_LoadingWithData>
+    implements _$$_LoadingWithDataCopyWith<$Res> {
+  __$$_LoadingWithDataCopyWithImpl(
+      _$_LoadingWithData _value, $Res Function(_$_LoadingWithData) _then)
+      : super(_value, _then);
 
-  @override
-  _LoadingWithData get _value => super._value as _LoadingWithData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? alerts = freezed,
+    Object? alerts = null,
   }) {
-    return _then(_LoadingWithData(
-      alerts == freezed
-          ? _value.alerts
+    return _then(_$_LoadingWithData(
+      null == alerts
+          ? _value._alerts
           : alerts // ignore: cast_nullable_to_non_nullable
               as List<Alert>,
     ));
@@ -560,10 +626,15 @@ class __$LoadingWithDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadingWithData implements _LoadingWithData {
-  const _$_LoadingWithData(this.alerts);
+  const _$_LoadingWithData(final List<Alert> alerts) : _alerts = alerts;
 
+  final List<Alert> _alerts;
   @override
-  final List<Alert> alerts;
+  List<Alert> get alerts {
+    if (_alerts is EqualUnmodifiableListView) return _alerts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_alerts);
+  }
 
   @override
   String toString() {
@@ -573,19 +644,20 @@ class _$_LoadingWithData implements _LoadingWithData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadingWithData &&
-            (identical(other.alerts, alerts) ||
-                const DeepCollectionEquality().equals(other.alerts, alerts)));
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadingWithData &&
+            const DeepCollectionEquality().equals(other._alerts, _alerts));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(alerts);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_alerts));
 
   @JsonKey(ignore: true)
   @override
-  _$LoadingWithDataCopyWith<_LoadingWithData> get copyWith =>
-      __$LoadingWithDataCopyWithImpl<_LoadingWithData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_LoadingWithDataCopyWith<_$_LoadingWithData> get copyWith =>
+      __$$_LoadingWithDataCopyWithImpl<_$_LoadingWithData>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -597,6 +669,18 @@ class _$_LoadingWithData implements _LoadingWithData {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return loadingWithData(alerts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Alert> alerts)? loadingWithData,
+    TResult? Function(List<Alert> alerts)? success,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return loadingWithData?.call(alerts);
   }
 
   @override
@@ -629,6 +713,18 @@ class _$_LoadingWithData implements _LoadingWithData {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return loadingWithData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -645,37 +741,38 @@ class _$_LoadingWithData implements _LoadingWithData {
 }
 
 abstract class _LoadingWithData implements GetVolcanoesState {
-  const factory _LoadingWithData(List<Alert> alerts) = _$_LoadingWithData;
+  const factory _LoadingWithData(final List<Alert> alerts) = _$_LoadingWithData;
 
-  List<Alert> get alerts => throw _privateConstructorUsedError;
+  List<Alert> get alerts;
   @JsonKey(ignore: true)
-  _$LoadingWithDataCopyWith<_LoadingWithData> get copyWith =>
+  _$$_LoadingWithDataCopyWith<_$_LoadingWithData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Alert> alerts});
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$GetVolcanoesStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$GetVolcanoesStateCopyWithImpl<$Res, _$_Success>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, _then);
 
-  @override
-  _Success get _value => super._value as _Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? alerts = freezed,
+    Object? alerts = null,
   }) {
-    return _then(_Success(
-      alerts == freezed
-          ? _value.alerts
+    return _then(_$_Success(
+      null == alerts
+          ? _value._alerts
           : alerts // ignore: cast_nullable_to_non_nullable
               as List<Alert>,
     ));
@@ -685,10 +782,15 @@ class __$SuccessCopyWithImpl<$Res> extends _$GetVolcanoesStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(this.alerts);
+  const _$_Success(final List<Alert> alerts) : _alerts = alerts;
 
+  final List<Alert> _alerts;
   @override
-  final List<Alert> alerts;
+  List<Alert> get alerts {
+    if (_alerts is EqualUnmodifiableListView) return _alerts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_alerts);
+  }
 
   @override
   String toString() {
@@ -698,19 +800,20 @@ class _$_Success implements _Success {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Success &&
-            (identical(other.alerts, alerts) ||
-                const DeepCollectionEquality().equals(other.alerts, alerts)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Success &&
+            const DeepCollectionEquality().equals(other._alerts, _alerts));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(alerts);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_alerts));
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessCopyWith<_Success> get copyWith =>
-      __$SuccessCopyWithImpl<_Success>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -722,6 +825,18 @@ class _$_Success implements _Success {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return success(alerts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Alert> alerts)? loadingWithData,
+    TResult? Function(List<Alert> alerts)? success,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return success?.call(alerts);
   }
 
   @override
@@ -754,6 +869,18 @@ class _$_Success implements _Success {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -770,38 +897,39 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements GetVolcanoesState {
-  const factory _Success(List<Alert> alerts) = _$_Success;
+  const factory _Success(final List<Alert> alerts) = _$_Success;
 
-  List<Alert> get alerts => throw _privateConstructorUsedError;
+  List<Alert> get alerts;
   @JsonKey(ignore: true)
-  _$SuccessCopyWith<_Success> get copyWith =>
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
+abstract class _$$_FailureCopyWith<$Res> {
+  factory _$$_FailureCopyWith(
+          _$_Failure value, $Res Function(_$_Failure) then) =
+      __$$_FailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FailureCopyWithImpl<$Res> extends _$GetVolcanoesStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$GetVolcanoesStateCopyWithImpl<$Res, _$_Failure>
+    implements _$$_FailureCopyWith<$Res> {
+  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+      : super(_value, _then);
 
-  @override
-  _Failure get _value => super._value as _Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? failure = null,
   }) {
-    return _then(_Failure(
-      failure == freezed
+    return _then(_$_Failure(
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ApiFailure,
@@ -809,6 +937,7 @@ class __$FailureCopyWithImpl<$Res> extends _$GetVolcanoesStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get failure {
     return $ApiFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -832,19 +961,19 @@ class _$_Failure implements _Failure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failure &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Failure &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @JsonKey(ignore: true)
   @override
-  _$FailureCopyWith<_Failure> get copyWith =>
-      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -856,6 +985,18 @@ class _$_Failure implements _Failure {
     required TResult Function(ApiFailure failure) failure,
   }) {
     return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Alert> alerts)? loadingWithData,
+    TResult? Function(List<Alert> alerts)? success,
+    TResult? Function(ApiFailure failure)? failure,
+  }) {
+    return failure?.call(this.failure);
   }
 
   @override
@@ -888,6 +1029,18 @@ class _$_Failure implements _Failure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingWithData value)? loadingWithData,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
@@ -904,10 +1057,10 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements GetVolcanoesState {
-  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const factory _Failure(final ApiFailure failure) = _$_Failure;
 
-  ApiFailure get failure => throw _privateConstructorUsedError;
+  ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FailureCopyWith<_Failure> get copyWith =>
+  _$$_FailureCopyWith<_$_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }

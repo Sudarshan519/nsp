@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:local_auth/auth_strings.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:local_auth/error_codes.dart' as auth_error;
 // import 'package:wallet_app/core/device_info/device_information_manager.dart';
@@ -49,7 +48,9 @@ class PaymentAuthService {
   static Future<PaymentAuthResponse> verifyBiometrics() async {
     try {
       var res = await _localAuth.authenticate(
-          localizedReason: 'Verify your biometrics', biometricOnly: true);
+        localizedReason: 'Verify your biometrics',
+        // biometricOnly: true,
+      );
 
       return PaymentAuthResponse(
           success: res,
@@ -141,12 +142,13 @@ class PaymentAuthService {
       //   biometricOnly = true;
       // }
       final authenticated = await _localAuth.authenticate(
-          localizedReason: message,
-          biometricOnly: true,
-          androidAuthStrings:
-              const AndroidAuthMessages(cancelButton: 'Use Password/MPin'),
-          iOSAuthStrings:
-              const IOSAuthMessages(cancelButton: 'Use Password/MPin'));
+        localizedReason: message,
+        // biometricOnly: true,
+        // androidAuthStrings:
+        //     const AndroidAuthMessages(cancelButton: 'Use Password/MPin'),
+        // iOSAuthStrings:
+        //     const IOSAuthMessages(cancelButton: 'Use Password/MPin'),
+      );
 
       if (authenticated) {
         return PaymentAuthResponse(

@@ -13,14 +13,15 @@ import 'package:wallet_app/ui/widgets/textFieldWidgets/input_text_widget.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:auto_route/auto_route.dart';
 
-class VerifyNumber extends StatefulWidget {
-  const VerifyNumber({Key? key}) : super(key: key);
+@RoutePage()
+class VerifyNumberPage extends StatefulWidget {
+  const VerifyNumberPage({Key? key}) : super(key: key);
 
   @override
-  _VerifyNumberState createState() => _VerifyNumberState();
+  _VerifyNumberPageState createState() => _VerifyNumberPageState();
 }
 
-class _VerifyNumberState extends State<VerifyNumber> {
+class _VerifyNumberPageState extends State<VerifyNumberPage> {
   final _homeBloc = getIt<HomePageDataBloc>();
   bool _isEditable = true;
   String _phone = '';

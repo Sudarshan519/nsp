@@ -1,4 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/core/payment_auth/payment_auth_service.dart';
 import 'package:wallet_app/features/home/presentation/home_page_data/home_page_data_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:wallet_app/injections/injection.dart';
 import 'package:wallet_app/ui/widgets/auth/auth_widgets.dart';
 import 'package:wallet_app/ui/widgets/colors.dart';
 
+@RoutePage()
 class SecurityPage extends StatefulWidget {
   const SecurityPage({Key? key}) : super(key: key);
 

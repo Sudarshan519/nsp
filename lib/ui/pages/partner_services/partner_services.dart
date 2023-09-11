@@ -14,7 +14,7 @@ import 'package:wallet_app/ui/routes/routes.gr.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
 import 'package:wallet_app/utils/constant.dart';
-
+@RoutePage()
 class PartnerServicesPage extends StatelessWidget {
   final String? categoryName;
 

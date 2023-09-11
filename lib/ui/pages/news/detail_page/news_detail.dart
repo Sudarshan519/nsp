@@ -10,6 +10,7 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:flutter_html/flutter_html.dart';
 
+@RoutePage()
 class NewsDetailPage extends StatelessWidget {
   final NewsItem newsItem;
 
@@ -179,7 +180,7 @@ class NewsDetailPage extends StatelessWidget {
                 // Text(newsItem.description)
                 Html(
                   data: newsItem.description,
-                  onLinkTap: (link, _, __, ___) {
+                  onLinkTap: (link, _, __) {
                     context.pushRoute(
                       AppWebViewRoute(url: link ?? '', title: ''),
                     );

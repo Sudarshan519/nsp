@@ -19,6 +19,7 @@ import 'package:wallet_app/utils/constant.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/utils/date_time_formatter.dart';
 
+@RoutePage()
 class ISPPaymentPage extends StatefulWidget {
   final UtilityPaymentsModel payData;
 

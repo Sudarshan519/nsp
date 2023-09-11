@@ -20,6 +20,7 @@ import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/constant.dart';
 import 'package:wallet_app/utils/currency_formater.dart';
 
+@RoutePage()
 class PartnerServicePaymentPage extends StatelessWidget {
   const PartnerServicePaymentPage({
     Key? key,

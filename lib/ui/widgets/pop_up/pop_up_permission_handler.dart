@@ -88,12 +88,12 @@ class PermissionNotAvailableWidgetState
                     SizedBox(
                       height: 40,
                       width: 120,
-                      child: FlatButton(
+                      child: ElevatedButton(
                         onPressed: widget.onPressed,
-                        color: Palette.primary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ),
+                        // color: Palette.primary,
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadius.circular(18.0),
+                        // ),
                         child: Text(
                           "Go to Settings",
                           style: TextStyle(
