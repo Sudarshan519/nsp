@@ -40,21 +40,134 @@ class TopUpBalanceInMobileBloc
               .toLowerCase()
               .contains(type.toLowerCase());
 
-      emit(state.copyWith(
-        key: event.fromContactPicker ? UniqueKey() : state.key,
-        amount: amount,
-        number: event.number,
-        type: type,
-        isNumberValid: isValid,
-        failureOrSuccessOption: none(),
-      ));
+      emit(
+        state.copyWith(
+          key: event.fromContactPicker ? UniqueKey() : state.key,
+          amount: amount,
+          number: event.number,
+          type: type,
+          isNumberValid: isValid,
+          failureOrSuccessOption: none(),
+        ),
+      );
     });
-    on((event, emit) => null);
-    on((event, emit) => null);
-    on((event, emit) => null);
-    on((event, emit) => null);
-    on((event, emit) => null);
-    on((event, emit) => null);
+    on<_ChangeAmount>((event, emit) {
+      emit(
+        state.copyWith(
+          amount: event.amount,
+          failureOrSuccessOption: none(),
+        ),
+      );
+    });
+    on<_ChangeCoupon>((event, emit) {
+      emit(
+        state.copyWith(
+          coupon: event.coupon,
+          failureOrSuccessOption: none(),
+        ),
+      );
+    });
+    on<_SetDiscountpercentage>((event, emit) {
+      emit(
+        state.copyWith(
+          discountPercentage: event.percentage,
+          failureOrSuccessOption: none(),
+        ),
+      );
+    });
+    on<_SetRedeemPointFromCoupon>((event, emit) {
+      emit(
+        state.copyWith(
+          rewardPointFromCoupon: event.point,
+          failureOrSuccessOption: none(),
+        ),
+      );
+    });
+    on<_ChangeconvertedJpyAmount>((event, emit) {
+      emit(
+        state.copyWith(
+          convertedJpyAmount: event.amount,
+          failureOrSuccessOption: none(),
+        ),
+      );
+    });
+    on<_Validate>((event, emit) {
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          failureOrSuccessOption: none(),
+        ),
+      );
+      final result = topUpBalanceForMobile.validate(
+        TopUpBalanceForMobileParams(
+          productId: state.productId,
+          amount: state.amount,
+          number: state.number,
+          type: state.type,
+          coupon: state.coupon,
+        ),
+      );
+
+      if (result != null) {
+        emit(
+          state.copyWith(
+            failureOrSuccessOption: optionOf(Left(result)),
+          ),
+        );
+      } else {
+        emit(
+          state.copyWith(
+            isSubmitting: false,
+            failureOrSuccessOption: none(),
+          ),
+        );
+      }
+    });
+    on<_Topup>((event, emit) async {
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          failureOrSuccessOption: none(),
+        ),
+      );
+      AnalyticsService.logEvent(
+        FirebaseEvents.MOBILE_TOPUP,
+        params: {'type': state.type},
+      );
+      Either<ApiFailure, Unit> result;
+      result = await topUpBalanceForMobile(
+        TopUpBalanceForMobileParams(
+          productId: (state.paydata.id ?? 0).toString(),
+          amount: state.amount,
+          number: state.number,
+          type: state.type,
+          coupon: state.coupon,
+        ),
+      );
+      print(result);
+      if (result.isRight()) {
+        AnalyticsService.logEvent(
+          FirebaseEvents.MOBILE_TOPUP,
+          isSuccess: true,
+          params: {'type': state.type},
+        );
+      }
+
+      emit(
+        state.copyWith(
+          isSubmitting: false,
+          failureOrSuccessOption: optionOf(result),
+        ),
+      );
+    });
+    on<_SetPayData>((event, emit) {
+      emit(
+        state.copyWith(
+          paydata: event.paydata,
+          failureOrSuccessOption: none(),
+        ),
+      );
+    });
   }
 
   @override
@@ -93,7 +206,8 @@ class TopUpBalanceInMobileBloc
   }
 
   TopUpBalanceInMobileState _mapChangePhoneNumberEventToState(
-      _ChangePhoneNumber _changePhoneNumber) {
+    _ChangePhoneNumber _changePhoneNumber,
+  ) {
     final type = getType(fromNumber: _changePhoneNumber.number);
 
     var amount = state.amount;
@@ -127,7 +241,8 @@ class TopUpBalanceInMobileBloc
   }
 
   TopUpBalanceInMobileState _mapChangeAmountEventToState(
-      _ChangeAmount _changeAmount) {
+    _ChangeAmount _changeAmount,
+  ) {
     return state.copyWith(
       amount: _changeAmount.amount,
       failureOrSuccessOption: none(),
@@ -135,7 +250,8 @@ class TopUpBalanceInMobileBloc
   }
 
   TopUpBalanceInMobileState _mapChangeconvertedJpyAmountEventToState(
-      _ChangeconvertedJpyAmount _changeAmount) {
+    _ChangeconvertedJpyAmount _changeAmount,
+  ) {
     return state.copyWith(
       convertedJpyAmount: _changeAmount.amount,
       failureOrSuccessOption: none(),
@@ -143,7 +259,8 @@ class TopUpBalanceInMobileBloc
   }
 
   TopUpBalanceInMobileState _mapChangecCouponCodeEventToState(
-      _ChangeCoupon _changeCoupon) {
+    _ChangeCoupon _changeCoupon,
+  ) {
     return state.copyWith(
       coupon: _changeCoupon.coupon,
       failureOrSuccessOption: none(),
@@ -151,7 +268,8 @@ class TopUpBalanceInMobileBloc
   }
 
   TopUpBalanceInMobileState _mapSetDiscountpercentageEventToState(
-      _SetDiscountpercentage _setDiscountpercentage) {
+    _SetDiscountpercentage _setDiscountpercentage,
+  ) {
     return state.copyWith(
       discountPercentage: _setDiscountpercentage.percentage,
       failureOrSuccessOption: none(),
@@ -159,7 +277,8 @@ class TopUpBalanceInMobileBloc
   }
 
   TopUpBalanceInMobileState _mapSetRewardPointsFromCouponEventToState(
-      _SetRedeemPointFromCoupon _setRedeemPoint) {
+    _SetRedeemPointFromCoupon _setRedeemPoint,
+  ) {
     return state.copyWith(
       rewardPointFromCoupon: _setRedeemPoint.point,
       failureOrSuccessOption: none(),
@@ -167,7 +286,8 @@ class TopUpBalanceInMobileBloc
   }
 
   Stream<TopUpBalanceInMobileState> _mapValidateEventToState(
-      _Validate _validate) async* {
+    _Validate _validate,
+  ) async* {
     yield state.copyWith(
       isSubmitting: true,
       failureOrSuccessOption: none(),
@@ -194,7 +314,8 @@ class TopUpBalanceInMobileBloc
   }
 
   Stream<TopUpBalanceInMobileState> _mapTopupEventToState(
-      _Topup _topup) async* {
+    _Topup _topup,
+  ) async* {
     Either<ApiFailure, Unit> result;
     yield state.copyWith(
       isSubmitting: true,

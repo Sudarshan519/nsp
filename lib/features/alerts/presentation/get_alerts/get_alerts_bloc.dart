@@ -24,7 +24,40 @@ class GetAlertsBloc extends Bloc<GetAlertsEvent, GetAlertsState> {
 
   GetAlertsBloc({
     required this.getAlerts,
-  }) : super(const _Initial());
+  }) : super(const _Initial()) {
+    on<_Fetch>(
+      (event, emit) async {
+        hasReachedEnd = false;
+        isFetching = true;
+        emit(const _Loading());
+        if (alerts.isNotEmpty) {
+          emit(_LoadingWithData(alerts));
+        }
+
+        final result = await getAlerts(GetAlertsParams(page: page));
+
+        emit(result.fold(
+          (failure) => _Failure(failure),
+          (_alerts) {
+            if (alerts.length == _alerts.length) {
+              hasReachedEnd = false;
+            }
+            alerts.addAll(_alerts);
+            // alerts = alerts.toSet().toList();
+            isFetching = false;
+            final earthquakeThreshold =
+                getIt<AuthLocalDataSource>().getEarthquakeThreshold();
+
+            alerts.removeWhere((element) =>
+                element.label.toString().toLowerCase() == 'earthquake' &&
+                (element.magnitudeValue ?? 0) < earthquakeThreshold);
+
+            return _Success(alerts);
+          },
+        ));
+      },
+    );
+  }
 
   @override
   Stream<GetAlertsState> mapEventToState(

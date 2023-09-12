@@ -127,11 +127,12 @@ class TabBarScreenState extends State<TabBarPage> {
       homePage!,
       SizedBox(),
       SizedBox(),
-      SizedBox(),
-      SizedBox(),
+      // SizedBox(),
+      // SizedBox(),
       // const ResumePage(),
       // NewsPage(),
-      // const TransactionPage(),
+      const TransactionPage(),
+      SizedBox(),
       // MorePage(),
     ];
   }

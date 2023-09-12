@@ -21,8 +21,8 @@ class HomeUserProfileWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
-        color: Palette.primary,
-      ),
+          // color: Palette.primary,
+          ),
       child: BlocBuilder<HomePageDataBloc, HomePageDataState>(
         builder: (context, state) {
           return state.map(

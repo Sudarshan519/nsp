@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,11 +42,11 @@ class HomePage extends StatelessWidget {
   final ScrollController scrollController = ScrollController();
 
   HomePage({
-    Key? key,
+    super.key,
     required this.changeTabPage,
     required this.changeResumeTabPage,
     required this.changeNewsTabPage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -206,8 +209,10 @@ class HomePage extends StatelessWidget {
     final typeString = model.type ?? '';
 
     final type = getHomeItemTypeString(typeString);
+
     switch (type) {
       case HomeItemType.utility_payments:
+        log(jsonEncode(model.data));
         final data = List<UtilityPaymentsModel>.from((model.data as Iterable)
             .map((x) =>
                 UtilityPaymentsModel.fromJson(x as Map<String, dynamic>)));

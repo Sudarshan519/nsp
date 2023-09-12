@@ -116,6 +116,7 @@ class UtilityPaymentDataSourceImpl implements UtilityPaymentDataSource {
         headers: _header,
         body: json.encode(params),
       );
+      print(response.body);
     } catch (ex) {
       throw ServerException(message: ex.toString());
     }

@@ -11,16 +11,17 @@ import 'package:wallet_app/ui/widgets/shodow_box.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:wallet_app/ui/widgets/widgets.dart';
 import 'package:wallet_app/utils/config_reader.dart';
+
 @RoutePage()
 class UtilityPamentWidget extends StatefulWidget {
   final Function()? onViewLess;
   final List<UtilityPaymentsModel> paymentData;
 
   const UtilityPamentWidget({
-    Key? key,
+    super.key,
     required this.paymentData,
     this.onViewLess,
-  }) : super(key: key);
+  });
 
   @override
   _UtilityPamentWidgetState createState() => _UtilityPamentWidgetState();
@@ -183,48 +184,56 @@ class GridItem extends StatelessWidget {
           default:
         }
       },
-      child: Column(
-        children: [
-          if (paymentData.image != null)
-            Container(
-              height: 60,
-              width: 120,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: Palette.dividerColor,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          // border: Border.all(
+          //   color: Palette.dividerColor,
+          // ),
+        ),
+        child: Column(
+          children: [
+            if (paymentData.image != null)
+              Container(
+                height: 60,
+                width: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: Palette.dividerColor,
+                  ),
                 ),
+                child: CachedNetworkImage(
+                    imageUrl: _baseURL + paymentData.image!,
+                    fit: BoxFit.contain,
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) => Container(
+                              color: Palette.primaryBackground,
+                              height: 10,
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                    color: Palette.primary,
+                                    value: downloadProgress.progress),
+                              ),
+                            ),
+                    errorWidget: (_, __, ___) {
+                      return const CircularProgressIndicator.adaptive();
+                    }),
               ),
-              child: CachedNetworkImage(
-                  imageUrl: _baseURL + paymentData.image!,
-                  fit: BoxFit.contain,
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      Container(
-                        color: Palette.primaryBackground,
-                        height: 10,
-                        child: Center(
-                          child: CircularProgressIndicator(
-                              color: Palette.primary,
-                              value: downloadProgress.progress),
-                        ),
-                      ),
-                  errorWidget: (_, __, ___) {
-                    return const CircularProgressIndicator.adaptive();
-                  }),
+            const SizedBox(height: 3),
+            Text(
+              paymentData.name ?? '',
+              textScaleFactor: 0.82,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 13,
+              ),
+              textAlign: TextAlign.center,
             ),
-          const SizedBox(height: 3),
-          Text(
-            paymentData.name ?? '',
-            textScaleFactor: 0.82,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 13,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -27,7 +27,48 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
 
   TransactionBloc({
     required this.getTransaction,
-  }) : super(const _Loading());
+  }) : super(const _Loading()) {
+    on<_FetchTransactionData>((event, emit) async {
+      isFetching = true;
+      if (_data.isEmpty) {
+        emit(const _Loading());
+      }
+      if (_data.isNotEmpty) {
+        emit(const _Loading());
+      }
+
+      final result = await getTransaction(
+        GetTransactionParam(
+          page: '$_page',
+          fromDate: event.fromDate ?? _from,
+          toDate: event.toDate ?? _to,
+        ),
+      );
+      emit(result.fold(
+        (failure) {
+          isFetching = false;
+          if (_data.isEmpty) {
+            return _FailureWithData(failure, _data);
+          } else {
+            return _Failure(failure);
+          }
+        },
+        (transactionData) {
+          isFetching = false;
+          // if (transactionData.isEmpty) {
+          //   _hasReachedEnd = true;
+          // }
+          // _data.addAll(transactionData);
+          _data.clear();
+          _data.addAll(transactionData);
+
+          _page = _page + 1;
+          return _Loaded(_data);
+        },
+      ));
+      // _mapFetchNewsToState(event);
+    });
+  }
 
   @override
   Stream<TransactionState> mapEventToState(TransactionEvent event) async* {

@@ -50,8 +50,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
       const show = false;
       if (_currentlyShowing != show) {
         // print(widget.scrollController.offset);
-
-        setState(() => _currentlyShowing = false);
+        if (mounted) setState(() => _currentlyShowing = false);
       }
     }
   }
